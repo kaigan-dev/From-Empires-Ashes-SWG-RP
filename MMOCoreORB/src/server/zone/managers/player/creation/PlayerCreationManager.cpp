@@ -585,7 +585,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	//Join auction chat room
 	ghost->addChatRoom(chatManager->getAuctionRoom()->getRoomID());
 
-	ChatRoom* oocRoom = chatManager->getChatRoomByFullPath("SWG.Dark Rebellion.Chat.ooc");
+	ChatRoom* oocRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
 	if(oocRoom != nullptr) {
 		ghost->addChatRoom(oocRoom->getRoomID());
 	}	

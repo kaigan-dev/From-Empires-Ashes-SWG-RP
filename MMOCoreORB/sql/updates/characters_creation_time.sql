@@ -1,0 +1,2 @@
+ALTER TABLE `swgemu`.`characters` MODIFY COLUMN `creation_date` TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `template`;
+ALTER TABLE `swgemu`.`characters_dirty` MODIFY COLUMN `creation_date` TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `template`;
