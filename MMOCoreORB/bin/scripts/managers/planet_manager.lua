@@ -1015,3 +1015,8 @@ rp_ship_d = {
 	weatherEnabled = 0,
 	gcwEnabled = 0
 }
+
+rp_endor = {
+	weatherEnabled = 0,
+	gcwEnabled = 0
+}

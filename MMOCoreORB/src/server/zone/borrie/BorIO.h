@@ -47,8 +47,8 @@ public:
             int jediState = luaObject.getIntField("jediState");
             int lightsaberBuilder = luaObject.getIntField("lightsaberBuilder");
 
-            target->setFirstName(firstName, true);
-            target->setLastName(lastName, true);
+            target->setFirstName(firstName);
+            target->setLastName(lastName);
             target->addCashCredits(cash);
             target->addBankCredits(bank);
 

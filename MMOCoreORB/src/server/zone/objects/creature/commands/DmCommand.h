@@ -654,7 +654,7 @@ public:
 							if ((args.hasMoreTokens())) {
 								String valueString;
 								args.getStringToken(valueString);
-								BorIO::LoadCharacterDataToFile(creature, object->asCreatureObject(), valueString);
+								BorIO::LoadCharacterData(creature, object->asCreatureObject(), valueString);
 							}
 							
 						} else {
