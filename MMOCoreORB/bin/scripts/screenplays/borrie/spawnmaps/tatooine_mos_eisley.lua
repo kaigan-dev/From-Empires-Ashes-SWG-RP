@@ -886,7 +886,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
 
 	--Bartender of Chalmun's Cantina, Wuher
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 8.62285, 	-0.894992, 	0.447493, 	87, 	610008176, "rp_human_male", "wuher", "default", "wuher") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 8.62285, 	-0.894992, 	0.447493, 	87, 	610008176, "wuher", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Wuher")
 	
 	--Mandalorian Scout
@@ -902,7 +902,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
 	
 	--Junk Dealer
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.99394, -0.478888, 2.17333, 282, 610009017, "rp_human_male", "dressed_armorsmith_trainer_01", "default", "dressed_armorsmith_trainer_01")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.99394, -0.478888, 2.17333, 282, 610009017, "dressed_armorsmith_trainer_01", "default", "default", "default")
 	SceneObject(pNpc):setCustomObjectName("Orek Flyn (a Junk Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "junkdealer")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_junkdealer")
