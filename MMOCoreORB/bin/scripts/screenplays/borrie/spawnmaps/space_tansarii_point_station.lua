@@ -289,10 +289,10 @@ function SpaceTansariiPointStationScreenPlay:spawnMobiles()
 	--Species, Equipment, Skills, Customization
 	
 	--Rebel Requisition Vendor
-	local pNpc = spawnRoleplayMobile("rp_space", "rp_convo_npc", 1, 99.9288, 0.799995, -20.0603, 269, 808254, "rp_moncal_male", "shop_rebel_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Gak Ockarran (an Alliance Wholesaler)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "rebel")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_rebel")
+	--local pNpc = spawnRoleplayMobile("rp_space", "rp_convo_npc", 1, 99.9288, 0.799995, -20.0603, 269, 808254, "rp_moncal_male", "shop_rebel_vendor", "default", "random", "rpg_shopkeeper")
+	--SceneObject(pNpc):setCustomObjectName("Gak Ockarran (an Alliance Wholesaler)")
+	--SceneObject(pNpc):setStoredString("vendor:theme", "rebel")
+	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_rebel")
 	
 	--Armorsmith
 	local pNpc = spawnRoleplayMobile("rp_space", "rp_convo_npc", 1, -47.7093, 0.788808, 22.5366, 37, 808256, "rp_trandoshan_male", "tsp_vendor_armorsmith", "default", "random", "rpg_shopkeeper")
@@ -355,10 +355,10 @@ function SpaceTansariiPointStationScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mando_noob")
 	
 	--Transmog Vendor
-	local pNpc = spawnRoleplayMobile("rp_space", "rp_convo_npc", 1, 94.0701, 0.799995, -29.0176, 0, 808254, "rp_rodian_male", "vendor_transmog", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Lolezaro Ryot (a Disguise Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "transmog")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
+	--local pNpc = spawnRoleplayMobile("rp_space", "rp_convo_npc", 1, 94.0701, 0.799995, -29.0176, 0, 808254, "rp_rodian_male", "vendor_transmog", "default", "random", "rpg_shopkeeper")
+	--SceneObject(pNpc):setCustomObjectName("Lolezaro Ryot (a Disguise Vendor)")
+	--SceneObject(pNpc):setStoredString("vendor:theme", "transmog")
+	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
 	
 	--Backpack Vendor
 	local pNpc = spawnRoleplayMobile("rp_space", "rp_convo_npc", 1, 24.9596, 0.8, 16.5964, 68, 808250, "rp_twilek_male", "xovros_refugee_male9", "default", "random", "rpg_shopkeeper")

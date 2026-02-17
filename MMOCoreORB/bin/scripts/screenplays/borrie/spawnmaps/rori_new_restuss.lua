@@ -314,76 +314,90 @@ function RoriNewRestussScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Mirl Torka (a Speeder Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
+
 	--Luxury Vehicle Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -833.546, 83, 1547.87, 0, 0,			"rp_human_male", "tatooine_luxury_speeder_vendor", "default", "random", "rpg_shopkeeper") --Luxury Vehicle
 	SceneObject(pNpc):setCustomObjectName("Galen Dravenmere (a Luxury Speeder Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle_luxury")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles_luxury")
+
 	--Armor Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -2.79661, 0.7, -5.54038, 0, 610014460,	"rp_human_female", "xovros_refugee_male3", "default", "random", "rpg_shopkeeper") --Armor
 	SceneObject(pNpc):setCustomObjectName("Seraphina Forj (an Armorsmith)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
+
 	--Weaponsmith, Ranged
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, 5.5842, 0.7, -0.634388, 269, 610014461,	"rp_human_female", "xovros_refugee_male4", "default", "random", "rpg_shopkeeper") -- Wep Ranged
 	SceneObject(pNpc):setCustomObjectName("Novvah Vex (a Ranged Weaponsmith)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
+
 	--Weaponsmith, Melee
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, 2.81123, 0.7, -3.15372, 0, 610014461,	"rp_zabrak_male", "xovros_refugee_male5", "default", "random", "rpg_shopkeeper") -- Wep Melee
 	SceneObject(pNpc):setCustomObjectName("Daelus Thornblade (a Melee Weaponsmith)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
+
 	--Stimpack Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -1034.75, 83, 1697.08, 46, 0,			"rp_bothan_male", "xovros_nurse", "default", "random", "rpg_shopkeeper") --Stims
 	SceneObject(pNpc):setCustomObjectName("Rylan Vi'rek (a Stimpack Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
+
 	--Camping Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -810.856, 79.8538, 1797.08, 193, 0,		"rp_human_female", "xovros_refugee_male6", "default", "random", "rpg_shopkeeper") --Camp
 	SceneObject(pNpc):setCustomObjectName("Mathala Wildeth (a Camping Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
+
 	--Specialty Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -806.455, 83, 1580.62, 98, 0,			"rp_trandoshan_female", "eisley_specialty_shop_beebo", "default", "random", "rpg_shopkeeper") --Specialty
 	SceneObject(pNpc):setCustomObjectName("Talza Skanneer (a Specialty Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
+
 	--Ship Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -790.585, 83, 1519.69, 49, 0,			"rp_moncal_male", "eisley_dockmaster_orroko_pimeub", "default", "random", "rpg_shopkeeper") --Ship
 	SceneObject(pNpc):setCustomObjectName("Marok Quillen (a Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship")
+
 	--Junk Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -783.903, 83, 1449.81, 245, 0,			"rp_rodian_female", "xovros_refugee_male7", "default", "random", "rpg_shopkeeper") --Junk
 	SceneObject(pNpc):setCustomObjectName("Lokra Lexa (a Junk Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
+
 	--Mount Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -891.383, 83, 1308.04, 141, 0,			"rp_human_female", "xovros_refugee_male8", "default", "random", "rpg_shopkeeper") --Mount
 	SceneObject(pNpc):setCustomObjectName("Anjil Jace (a Mount Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mount")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mounts_naboo")
+
 	--Instrument Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -882.772, 83.5986, 1487.55, 273, 0,		"rp_twilek_female", "xovros_hotel_receptionist", "default", "random", "rpg_shopkeeper") --Instrument
 	SceneObject(pNpc):setCustomObjectName("Rylla Noami (an Instrument Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "music")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
+
 	--Backpack Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -904.266, 83, 1479.51, 87, 0,			"rp_moncal_female", "xovros_refugee_male9", "default", "random", "rpg_shopkeeper") --Backpack
 	SceneObject(pNpc):setCustomObjectName("Ibbsakar Mist (a Backpack Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "backpacks")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_backpacks")
+
 	--Disguise Vendor
-	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -979.093, 83, 1715.85, 228, 0,			"rp_zabrak_male", "vendor_transmog", "default", "random", "rpg_shopkeeper") --Disguise
-	SceneObject(pNpc):setCustomObjectName("Mel (a Disguise Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "transmog")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
+	--pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -979.093, 83, 1715.85, 228, 0,			"rp_zabrak_male", "vendor_transmog", "default", "random", "rpg_shopkeeper") --Disguise
+	--SceneObject(pNpc):setCustomObjectName("Mel (a Disguise Vendor)")
+	--SceneObject(pNpc):setStoredString("vendor:theme", "transmog")
+	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
+
 	--Imperial Vendor
-	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -1253.86, 83, 1528.2, 127, 0,			"rp_human_male", "faction/imperial/officer_navy", "default", "random", "rpg_shopkeeper") --Imperial
-	SceneObject(pNpc):setCustomObjectName("Uphinizo Reir (an Imperial Quartermaster)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "imperial")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_imperial")
+	--pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -1253.86, 83, 1528.2, 127, 0,			"rp_human_male", "faction/imperial/officer_navy", "default", "random", "rpg_shopkeeper") --Imperial
+	--SceneObject(pNpc):setCustomObjectName("Uphinizo Reir (an Imperial Quartermaster)")
+	--SceneObject(pNpc):setStoredString("vendor:theme", "imperial")
+	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_imperial")
 	
 	--Special
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_base_npc", 1, 8.09042, 0.749981, 2.36658, 235, 610014332,	"le_repair_droid", "default", "default", "default") --Ignitor
