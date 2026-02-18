@@ -902,7 +902,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
 	
 	--Junk Dealer
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.99394, -0.478888, 2.17333, 282, 610009017, "dressed_armorsmith_trainer_01", "default", "default", "default")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.99394, -0.478888, 2.17333, 282, 610009017, "dressed_armorsmith_trainer_01", "default", "default", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Orek Flyn (a Junk Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "junkdealer")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_junkdealer")

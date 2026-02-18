@@ -882,16 +882,21 @@ public:
         int distanceModifier = 0;
         bool tooClose = false;
 
+        // Range calculations updated for From Empire's Ashes, 2/18/26 - Kaigan
+        // Below minimum range.
         if(distance < minRange) {
-            //distanceModifier = attackerWeapon->getPointBlankAccuracy();
-            distanceModifier = 5;
-            tooClose = true;
-        } else if(distance <= prefRange) {
             distanceModifier = attackerWeapon->getPointBlankAccuracy();
-        } else if(distance > prefRange && distance < maxRange) {
-            distanceModifier = attackerWeapon->getIdealAccuracy();
-        } else if(distance > maxRange) {
+            tooClose = true;
+        // Within preferred range.   
+        } else if(distance <= prefRange) {
+            distanceModifier = 0; // Do not modify DC in preferred range.
+        // Outside of preferred range, still within max range.
+        } else if(distance <= maxRange) {
+            distanceModifier = attackerWeapon->getIdealAccuracy(); // Borrie RP weapons use the base Galaxies IdealAccuracy property as a far range modifier.
+        // Outside of max range.
+        } else {
             distanceModifier = 99;
+            tooClose = true; // General out of range property, also works for "too far".
         }
 
         int postureModifier = 0;
