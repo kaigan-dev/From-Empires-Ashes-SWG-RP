@@ -895,7 +895,7 @@ public:
             distanceModifier = attackerWeapon->getIdealAccuracy(); // Borrie RP weapons use the base Galaxies IdealAccuracy property as a far range modifier.
         // Outside of max range.
         } else {
-            distanceModifier = 99;
+            distanceModifier = 89; // Modifier, not base value.
             tooClose = true; // General out of range property, also works for "too far".
         }
 
