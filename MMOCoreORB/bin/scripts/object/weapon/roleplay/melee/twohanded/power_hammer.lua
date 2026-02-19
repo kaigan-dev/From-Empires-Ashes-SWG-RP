@@ -16,20 +16,22 @@ object_weapon_roleplay_melee_twohanded_power_hammer = object_weapon_melee_2h_swo
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 8,
+	bonusDamage = 2,
 	
 	noPowerAttack = true,
-	noDodgeReaction = true,
 	primaryAttributeOnly = true,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
 	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Epic",
+	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

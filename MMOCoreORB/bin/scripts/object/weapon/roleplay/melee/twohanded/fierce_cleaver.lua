@@ -18,17 +18,19 @@ object_weapon_roleplay_melee_twohanded_fierce_cleaver = object_weapon_melee_2h_s
 	maxDamage = 10, --Type of Die used in Damage
 	bonusDamage = 2,
 	
-	noDodgeReaction = true,
 	primaryAttributeOnly = true,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
 	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Rare",
+	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

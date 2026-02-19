@@ -15,18 +15,21 @@ object_weapon_roleplay_melee_twohanded_katana = object_weapon_melee_2h_sword_sha
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 8, --Type of Die used in Damage
+	maxDamage = 6, --Type of Die used in Damage
 	bonusDamage = 2,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 	primaryAttributeOnly = true,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
 	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

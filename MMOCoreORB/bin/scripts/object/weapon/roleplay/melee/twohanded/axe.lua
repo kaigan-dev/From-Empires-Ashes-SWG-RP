@@ -15,18 +15,21 @@ object_weapon_roleplay_melee_twohanded_axe = object_weapon_melee_axe_shared_axe_
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 7, --Type of Die used in Damage
-	bonusDamage = 1,
+	maxDamage = 5, --Type of Die used in Damage
+	bonusDamage = 2,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 	primaryAttributeOnly = true,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
 	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Common",
+	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

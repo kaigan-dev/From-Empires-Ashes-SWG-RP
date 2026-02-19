@@ -14,20 +14,23 @@ object_weapon_roleplay_melee_twohanded_vibroaxe = object_weapon_melee_axe_shared
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 9, --Type of Die used in Damage
-	bonusDamage = 1,
+	minDamage = 2, --Amount of Die used in Damage
+	maxDamage = 4, --Type of Die used in Damage
+	bonusDamage = 3,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Rare",
+	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -15,20 +15,22 @@ object_weapon_roleplay_melee_twohanded_executioners_axe = object_weapon_melee_2h
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 10, --Type of Die used in Damage
-	bonusDamage = 4,
+	maxDamage = 6, --Type of Die used in Damage
+	bonusDamage = 5,
 	
-	noDodgeReaction = true,
 	primaryAttributeOnly = true,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
 	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Epic",
+	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
