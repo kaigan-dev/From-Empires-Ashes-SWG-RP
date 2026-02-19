@@ -42,27 +42,17 @@ public:
                 else 
                     return;
 
-            bool successful = skillManager->awardSkill("rp_force_prog_novice", player, true, true, true);
+            skillManager->awardSkill("rp_force_prog_novice", player, true, true, true);
             String message = "";
-            if(successful) {
-                player->setStoredInt("fs_chosen", 1);
-                message = "All your life you've had a suspicion that there was more to the galaxy than what you could see with your eyes.";
-                message += "You are likely burdened with a great destiny. Tread carefully.";
-		        PlayMusicMessage* musicMessage = new PlayMusicMessage("sound/music_short_lightside.snd");
-		        player->sendMessage(musicMessage);
-            } else {
-                if(targetGhost != nullptr)
-                    targetGhost->setJediState(0);
-                message = "You've delayed a long time making this decision. Now you must pay a price. To embrace force sensitivity, you need to have 20 free skill points.";
-            }
+            message = "All your life you've had a suspicion that there was more to the galaxy than what you could see with your eyes. ";
+            message += "You are likely burdened with a great destiny. Tread carefully.";
+		    PlayMusicMessage* musicMessage = new PlayMusicMessage("sound/music_short_lightside.snd");
+		    player->sendMessage(musicMessage);
             player->sendSystemMessage(message);
+            player->setStoredInt("fs_chosen", 1);
         } else {
-            //If they said no, give them 5 skiill points
-            int currentFreeSkillPoints = player->getStoredInt("starter_skill_points");
-            player->setStoredInt("starter_skill_points", currentFreeSkillPoints + 5);
             String message = "Some consider insensitivity to the Force to be a blessing. ";
-            message += "Those who are not gifted with the capability of immense power often find other ways to be gifted, and unique. ";
-            message += "As you find yourself more reliant on skill and raw talent to get ahead, you are more prepared than most at this point in one's life.";
+            message += "Those who are not gifted with the capability of immense power often find other ways to be gifted, and unique.";
             PlayMusicMessage* musicMessage = new PlayMusicMessage("sound/mus_quest_theme_docking.snd");
 		    player->sendMessage(musicMessage);
             player->sendSystemMessage(message);
