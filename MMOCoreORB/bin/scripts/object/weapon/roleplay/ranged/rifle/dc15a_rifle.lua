@@ -14,22 +14,26 @@ object_weapon_roleplay_ranged_rifle_dc15a_rifle = object_weapon_ranged_rifle_ep3
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 10, --Type of Die used in Damage
-	bonusDamage = 4,
+	minDamage = 3, --Amount of Die used in Damage
+	maxDamage = 3, --Type of Die used in Damage
+	bonusDamage = 2,
 	
 	noDodgeReaction = true,
+	noPowerAttack = true,
 
-	pointBlankRange = 8,
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 120,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 256,
 	maxRangeAccuracy = 99,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

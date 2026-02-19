@@ -18,16 +18,21 @@ object_weapon_roleplay_ranged_rifle_czerka_adventurer = object_weapon_ranged_rif
 	maxDamage = 4, --Type of Die used in Damage
 	bonusDamage = 4,
 
-	pointBlankRange = 8,
+	noDodgeReaction = true,
+
+	pointBlankRange = 100,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 256,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 260,
 	maxRangeAccuracy = 99,
 	
 	primaryAttributeOnly = true,
+
+	Rarity="Common",
+	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

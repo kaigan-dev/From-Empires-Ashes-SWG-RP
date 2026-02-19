@@ -21,16 +21,19 @@ object_weapon_roleplay_ranged_rifle_tenloss_dxr6_disruptor_rifle = object_weapon
 	noPowerAttack = true,
 	noDodgeReaction = true,
 
-	pointBlankRange = 8,
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 120,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 256,
 	maxRangeAccuracy = 99,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Legendary",
+	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -15,21 +15,24 @@ object_weapon_roleplay_ranged_rifle_cm_sniper_rifle = object_weapon_ranged_rifle
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 4,
+	maxDamage = 7, --Type of Die used in Damage
+	bonusDamage = 6,
 	
 	noDodgeReaction = true,
 
-	pointBlankRange = 8,
+	pointBlankRange = 100,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 256,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 260,
 	maxRangeAccuracy = 99,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Rare",
+	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -18,18 +18,21 @@ object_weapon_roleplay_ranged_rifle_bowcaster = object_weapon_ranged_rifle_share
 	maxDamage = 8, --Type of Die used in Damage
 	bonusDamage = 4,
 	
-	noDodgeReaction = true,
+	
 
-	pointBlankRange = 8,
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 120,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 256,
 	maxRangeAccuracy = 99,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

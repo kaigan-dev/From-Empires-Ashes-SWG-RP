@@ -18,16 +18,21 @@ object_weapon_roleplay_ranged_rifle_ion_rifle = object_weapon_ranged_rifle_share
 	maxDamage = 4, --Type of Die used in Damage
 	bonusDamage = 2,
 
-	pointBlankRange = 8,
+	noPowerAttack = true,
+
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 120,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 256,
 	maxRangeAccuracy = 99,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
