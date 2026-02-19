@@ -18,15 +18,18 @@ object_weapon_roleplay_ranged_carbine_elite_carbine = object_weapon_ranged_carbi
 	maxDamage = 7, --Type of Die used in Damage
 	bonusDamage = 1,
 
-	pointBlankRange = 4,
+	pointBlankRange = 16,
 	pointBlankAccuracy = 5,
 
-	idealRange = 32,
+	idealRange = 64,
 	idealAccuracy = 10,
 
-	maxRange = 132,
+	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+--FEA Rarity: Uncommon
+--Approx FEA Value 600
+	
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
 	certificationsRequired = {},

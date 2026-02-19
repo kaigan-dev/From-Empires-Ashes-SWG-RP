@@ -18,14 +18,19 @@ object_weapon_roleplay_ranged_carbine_wookiee_carbine = object_weapon_ranged_car
 	maxDamage = 6, --Type of Die used in Damage
 	bonusDamage = 2,
 
-	pointBlankRange = 4,
+	noPowerAttack = true,
+
+	pointBlankRange = 16,
 	pointBlankAccuracy = 5,
 
-	idealRange = 32,
+	idealRange = 64,
 	idealAccuracy = 10,
 
-	maxRange = 132,
+	maxRange = 100,
 	maxRangeAccuracy = 99,
+
+	--FEA Rarity: Uncommon
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

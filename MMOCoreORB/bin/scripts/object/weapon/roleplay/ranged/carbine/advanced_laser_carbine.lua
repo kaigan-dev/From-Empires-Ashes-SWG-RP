@@ -27,6 +27,9 @@ object_weapon_roleplay_ranged_carbine_advanced_laser_carbine = object_weapon_ran
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+--FEA Rarity: Uncommon
+--Approx FEA Value 600
+
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
 	certificationsRequired = {},

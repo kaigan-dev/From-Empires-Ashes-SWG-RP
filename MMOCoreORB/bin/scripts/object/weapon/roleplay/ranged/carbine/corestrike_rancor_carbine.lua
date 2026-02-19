@@ -20,14 +20,17 @@ object_weapon_roleplay_ranged_carbine_corestrike_rancor_carbine = object_weapon_
 	
 	noPowerAttack = true,
 
-	pointBlankRange = 4,
+	pointBlankRange = 16,
 	pointBlankAccuracy = 5,
 
-	idealRange = 32,
+	idealRange = 64,
 	idealAccuracy = 10,
 
-	maxRange = 132,
+	maxRange = 100,
 	maxRangeAccuracy = 99,
+
+	--FEA Rarity: Uncommon
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
