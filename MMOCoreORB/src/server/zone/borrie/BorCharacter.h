@@ -971,7 +971,7 @@ public:
 			maxDistance = piloting + 22;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move on their mount. Their enhanced range is " + String::valueOf(maxDistance) + "m. ");
 		} else {
-			maxDistance = maneuverability + athletics + 6;
+			maxDistance = maneuverability + athletics + 10;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
 		}	
 									
