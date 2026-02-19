@@ -18,16 +18,17 @@ object_weapon_roleplay_ranged_pistol_de10_blaster_pistol = object_weapon_ranged_
 	maxDamage = 4, --Type of Die used in Damage
 	bonusDamage = 4,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
 	rarity="Legendary",
+	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

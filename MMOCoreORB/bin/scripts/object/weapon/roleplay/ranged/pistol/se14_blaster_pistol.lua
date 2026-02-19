@@ -14,20 +14,21 @@ object_weapon_roleplay_ranged_pistol_se14_blaster_pistol = object_weapon_ranged_
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 4, --Type of Die used in Damage
+	minDamage = 2, --Amount of Die used in Damage
+	maxDamage = 3, --Type of Die used in Damage
 	bonusDamage = 0,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
-	rarity="Common",
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

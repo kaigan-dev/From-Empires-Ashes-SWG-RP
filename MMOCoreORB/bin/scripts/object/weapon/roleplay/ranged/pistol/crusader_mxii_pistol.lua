@@ -18,16 +18,17 @@ object_weapon_roleplay_ranged_pistol_crusader_mxii_pistol = object_weapon_ranged
 	maxDamage = 3, --Type of Die used in Damage
 	bonusDamage = 5,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
 	rarity="Epic",
+	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

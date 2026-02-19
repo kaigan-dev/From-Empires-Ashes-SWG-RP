@@ -20,16 +20,17 @@ object_weapon_roleplay_ranged_pistol_striker_projectile_pistol = object_weapon_r
 	
 	noPowerAttack = true,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
 	rarity="Common",
+	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

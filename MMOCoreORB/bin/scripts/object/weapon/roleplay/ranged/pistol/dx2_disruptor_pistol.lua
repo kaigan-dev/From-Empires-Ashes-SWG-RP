@@ -20,16 +20,17 @@ object_weapon_roleplay_ranged_pistol_dx2_disruptor_pistol = object_weapon_ranged
 	
 	noPowerAttack = true,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
-	rarity="Epic",
+	rarity="Legendary",
+	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

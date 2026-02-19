@@ -15,19 +15,20 @@ object_weapon_roleplay_ranged_pistol_westar34_blaster_pistol = object_weapon_ran
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 2,
+	maxDamage = 4, --Type of Die used in Damage
+	bonusDamage = 4,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
 	rarity = "Legendary",
+	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

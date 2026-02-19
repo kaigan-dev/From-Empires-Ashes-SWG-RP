@@ -18,16 +18,19 @@ object_weapon_roleplay_ranged_pistol_ion_stunner_pistol = object_weapon_ranged_p
 	maxDamage = 2, --Type of Die used in Damage
 	bonusDamage = 1,
 
-	pointBlankRange = 0,
+	noPowerAttack = true,
+
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
-	rarity="Common",
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

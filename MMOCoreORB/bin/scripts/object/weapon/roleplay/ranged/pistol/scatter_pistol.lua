@@ -18,16 +18,17 @@ object_weapon_roleplay_ranged_pistol_scatter_pistol = object_weapon_ranged_pisto
 	maxDamage = 3, --Type of Die used in Damage
 	bonusDamage = 3,
 
-	pointBlankRange = 0,
+	pointBlankRange = 2,
 	pointBlankAccuracy = 5,
 
 	idealRange = 16,
 	idealAccuracy = 10,
 
-	maxRange = 86,
+	maxRange = 32,
 	maxRangeAccuracy = 99,
 	
-	rarity="Epic",
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
