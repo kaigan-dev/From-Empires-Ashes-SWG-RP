@@ -9,7 +9,7 @@ object_weapon_roleplay_melee_onehanded_lightfoil_01_red = object_weapon_melee_sw
 	--[Stats]
 	attackType = MELEEATTACK,
 
-	damageType = LIGHTSABER,
+	damageType = ENERGY,
 
 	armorPiercing = NONE,
 
@@ -21,13 +21,16 @@ object_weapon_roleplay_melee_onehanded_lightfoil_01_red = object_weapon_melee_sw
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
-	maxRange = 2,
+	maxRange = 3,
 	maxRangeAccuracy = 99,
 	
 	bladeColor = 41,
+
+	rarity="Legendary",
+	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

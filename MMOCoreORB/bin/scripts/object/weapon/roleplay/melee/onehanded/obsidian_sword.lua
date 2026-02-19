@@ -15,17 +15,20 @@ object_weapon_roleplay_melee_onehanded_obsidian_sword = object_weapon_melee_swor
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 5, --Type of Die used in Damage
-	bonusDamage = 3,
+	maxDamage = 7, --Type of Die used in Damage
+	bonusDamage = 4,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
-	maxRange = 2,
+	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Epic",
+	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

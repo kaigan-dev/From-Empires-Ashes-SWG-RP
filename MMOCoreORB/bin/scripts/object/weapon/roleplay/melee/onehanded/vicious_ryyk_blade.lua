@@ -18,16 +18,19 @@ object_weapon_roleplay_melee_onehanded_vicious_ryyk_blade = object_weapon_melee_
 	maxDamage = 6, --Type of Die used in Damage
 	bonusDamage = 4,
 	
-	noDodgeReaction = true,
+	
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
-	maxRange = 2,
+	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Epic",
+	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

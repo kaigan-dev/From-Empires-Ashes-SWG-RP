@@ -21,11 +21,14 @@ object_weapon_roleplay_melee_onehanded_stun_baton = object_weapon_melee_baton_sh
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
-	maxRange = 2,
+	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
