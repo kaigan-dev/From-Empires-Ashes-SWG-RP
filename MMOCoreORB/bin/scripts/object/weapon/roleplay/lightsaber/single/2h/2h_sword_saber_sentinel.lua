@@ -11,7 +11,7 @@ object_weapon_roleplay_lightsaber_single_2h_2h_sword_saber_sentinel = object_wea
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 	maxRange = 3,
 	maxRangeAccuracy = 99,

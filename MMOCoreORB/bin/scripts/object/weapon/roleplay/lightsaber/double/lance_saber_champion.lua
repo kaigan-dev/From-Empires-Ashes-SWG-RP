@@ -9,7 +9,7 @@ object_weapon_roleplay_lightsaber_double_lance_saber_champion = object_weapon_me
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 	maxRange = 3,
 	maxRangeAccuracy = 99,
