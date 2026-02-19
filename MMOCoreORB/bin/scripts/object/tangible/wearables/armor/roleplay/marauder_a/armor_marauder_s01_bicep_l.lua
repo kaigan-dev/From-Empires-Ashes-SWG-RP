@@ -15,24 +15,24 @@ object_tangible_wearables_armor_roleplay_marauder_a_armor_marauder_s01_bicep_l =
 	mindEncumbrance = 0,
 
 
-	maxCondition = 30,
+	maxCondition = 100,
 
 
-	rating = LIGHT,
+	rating = MEDIUM,
 	rpskill = 4,
 
 
-	kinetic = 6,
-	energy = 0,
+	kinetic = 2,
+	energy = 2,
 	electricity = 0,
 	stun = 2,
 	blast = -4,
-	heat = 0,
-	cold = 0,
-	acid = -2,
+	heat = 1,
+	cold = 1,
+	acid = 1,
 	lightsaber = -1,
 
-	rarity = "Uncommon",
+	rarity = "Common",
 
 }
 

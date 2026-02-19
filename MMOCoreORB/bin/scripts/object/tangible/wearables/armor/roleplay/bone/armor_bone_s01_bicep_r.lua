@@ -15,24 +15,24 @@ object_tangible_wearables_armor_roleplay_bone_armor_bone_s01_bicep_r = object_ta
 	mindEncumbrance = 0,
 
 
-	maxCondition = 20,
+	maxCondition = 200,
 
 
-	rating = NONE,
-	rpskill = 0,
+	rating = HEAVY,
+	rpskill = 6,
 
 
-	kinetic = 2,
-	energy = 2,
-	electricity = 2,
+	kinetic = 6,
+	energy = 3,
+	electricity = 4,
 	stun = 1,
-	blast = -4,
+	blast = 0,
 	heat = 0,
-	cold = -2,
-	acid = -4,
+	cold = 0,
+	acid = 0,
 	lightsaber = -1,
 
-	rarity = "Common",
+	rarity = "Uncommon",
 
 }
 

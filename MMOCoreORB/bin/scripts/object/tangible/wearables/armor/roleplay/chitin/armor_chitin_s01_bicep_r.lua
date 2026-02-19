@@ -15,21 +15,21 @@ object_tangible_wearables_armor_roleplay_chitin_armor_chitin_s01_bicep_r = objec
 	mindEncumbrance = 0,
 
 
-	maxCondition = 60,
+	maxCondition = 150,
 
 
-	rating = LIGHT,
-	rpskill = 0,
+	rating = MEDIUM,
+	rpskill = 4,
 
 
 	kinetic = 6,
 	energy = 2,
-	electricity = 0,
+	electricity = 2,
 	stun = 2,
-	blast = 2,
+	blast = 0,
 	heat = 0,
 	cold = 0,
-	acid = -6,
+	acid = 2,
 	lightsaber = -1,
 	
 	rarity = "Uncommon",

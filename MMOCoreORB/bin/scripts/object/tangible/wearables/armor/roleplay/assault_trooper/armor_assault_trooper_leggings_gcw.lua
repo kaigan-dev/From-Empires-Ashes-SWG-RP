@@ -18,21 +18,21 @@ object_tangible_wearables_armor_roleplay_assault_trooper_armor_assault_trooper_l
 	maxCondition = 200,
 
 
-	rating = MEDIUM,
-	rpskill = 8,
+	rating = HEAVY,
+	rpskill = 6,
 
 
 	kinetic = 8,
 	energy = 6,
 	electricity = 0,
 	stun = 2,
-	blast = 2,
-	heat = -2,
-	cold = -6,
-	acid = -4,
+	blast = 0,
+	heat = 3,
+	cold = 3,
+	acid = 3,
 	lightsaber = -1,
 	
-	rarity = "Rare",
+	rarity = "Legendary",
 
 
 }

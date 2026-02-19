@@ -15,23 +15,24 @@ object_tangible_wearables_armor_roleplay_zam_armor_zam_wesell_chest_plate = obje
 	mindEncumbrance = 0,
 
 
-	maxCondition = 65,
+	maxCondition = 100,
 
 
-	rating = NONE,
-	rpskill = 0,
+	rating = LIGHT,
+	rpskill = 2,
 
 
 	kinetic = 0,
 	energy = 4,
 	electricity = 4,
 	stun = 2,
-	blast = -8,
+	blast = 0,
 	heat = 1,
 	cold = 1,
-	acid = -4,
+	acid = 0,
 	lightsaber = -1,
 
+	rarity="Uncommon",
 
 }
 

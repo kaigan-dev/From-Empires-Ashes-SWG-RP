@@ -18,20 +18,21 @@ object_tangible_wearables_armor_roleplay_rebel_spec_force_armor_rebel_spec_force
 	maxCondition = 250,
 
 
-	rating = NONE,
-	rpskill = 5,
+	rating = LIGHT,
+	rpskill = 2,
 
 
-	kinetic = 0,
-	energy = 6,
+	kinetic = 3,
+	energy = 3,
 	electricity = 0,
-	stun = 4,
-	blast = -6,
-	heat = 0,
-	cold = 0,
+	stun = 3,
+	blast = 0,
+	heat = 2,
+	cold = 2,
 	acid = 0,
 	lightsaber = -1,
 
+	rarity="Rare",
 
 }
 

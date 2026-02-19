@@ -15,24 +15,24 @@ object_tangible_wearables_armor_roleplay_marauder_c_armor_marauder_s03_chest_pla
 	mindEncumbrance = 0,
 
 
-	maxCondition = 30,
+	maxCondition = 100,
 
 
-	rating = LIGHT,
-	rpskill = 4,
+	rating = HEAVY,
+	rpskill = 6,
 
 
-	kinetic = 6,
+	kinetic = 4,
 	energy = 2,
-	electricity = 0,
-	stun = 0,
-	blast = -4,
+	electricity = 2,
+	stun = 2,
+	blast = 0,
 	heat = 0,
 	cold = 0,
 	acid = 0,
 	lightsaber = -1,
 
-	rarity = "Uncommon",
+	rarity = "Common",
 
 }
 

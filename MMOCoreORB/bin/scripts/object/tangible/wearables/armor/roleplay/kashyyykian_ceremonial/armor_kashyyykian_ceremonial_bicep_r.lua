@@ -18,21 +18,21 @@ object_tangible_wearables_armor_roleplay_kashyyykian_ceremonial_armor_kashyyykia
 	maxCondition = 200,
 
 
-	rating = NONE,
-	rpskill = 0,
+	rating = LIGHT,
+	rpskill = 2,
 
 
-	kinetic = 2,
+	kinetic = 4,
 	energy = 2,
-	electricity = 0,
+	electricity = 2,
 	stun = 0,
 	blast = 0,
-	heat = 0,
-	cold = 0,
+	heat = 2,
+	cold = 2,
 	acid = 0,
 	lightsaber = -1,
 
-	rarity = "Common",
+	rarity = "Uncommon",
 }
 
 

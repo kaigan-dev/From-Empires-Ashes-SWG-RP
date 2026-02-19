@@ -20,21 +20,21 @@ object_tangible_wearables_armor_roleplay_mandalorian_armor_mandalorian_helmet_li
 	maxCondition = 100,
 
 
-	rating = LIGHT,
-	rpskill = 5,
+	rating = HEAVY,
+	rpskill = 6,
 
 
-	kinetic = 2,
-	energy = 4,
+	kinetic = 6,
+	energy = 8,
 	electricity = 0,
-	stun = 1,
-	blast = -4,
-	heat = 1,
-	cold = -2,
-	acid = -1,
-	lightsaber = 0,
+	stun = 2,
+	blast = 0,
+	heat = 2,
+	cold = 2,
+	acid = 2,
+	lightsaber = 1,
 	
-	rarity = "Uncommon",
+	rarity = "Legendary",
 
 
 }

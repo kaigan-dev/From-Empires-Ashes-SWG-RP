@@ -18,20 +18,21 @@ object_tangible_wearables_armor_roleplay_scout_trooper_armor_swamp_trooper_bicep
 	maxCondition = 100,
 
 
-	rating = NONE,
-	rpskill = 3,
+	rating = LIGHT,
+	rpskill = 2,
 
 
 	kinetic = 2,
 	energy = 2,
 	electricity = 0,
 	stun = 2,
-	blast = -4,
+	blast = 0,
 	heat = 2,
 	cold = 2,
-	acid = -4,
+	acid = 0,
 	lightsaber = -1,
 
+	rarity="Rare",
 
 }
 

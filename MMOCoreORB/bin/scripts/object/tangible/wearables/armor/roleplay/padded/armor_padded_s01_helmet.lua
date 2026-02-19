@@ -15,24 +15,24 @@ object_tangible_wearables_armor_roleplay_padded_armor_padded_s01_helmet = object
 	mindEncumbrance = 0,
 
 
-	maxCondition = 80,
+	maxCondition = 150,
 
 
-	rating = NONE,
-	rpskill = 0,
+	rating = MEDIUM,
+	rpskill = 4,
 
 
-	kinetic = 4,
-	energy = 2,
+	kinetic = 2,
+	energy = 4,
 	electricity = 4,
 	stun = 0,
-	blast = 0,
-	heat = -2,
+	blast = 2,
+	heat = 0,
 	cold = 4,
-	acid = -4,
+	acid = 0,
 	lightsaber = -1,
 	
-	rarity = "Common",
+	rarity = "Uncommon",
 
 
 }

@@ -18,7 +18,7 @@ object_tangible_wearables_armor_roleplay_ithorian_sentinel_ith_armor_s03_chest_p
 	maxCondition = 200,
 
 
-	rating = LIGHT,
+	rating = MEDIUM,
 	rpskill = 4,
 
 
@@ -29,7 +29,7 @@ object_tangible_wearables_armor_roleplay_ithorian_sentinel_ith_armor_s03_chest_p
 	blast = 0,
 	heat = 2,
 	cold = 2,
-	acid = 0,
+	acid = 2,
 	lightsaber = -1,
 	
 	rarity = "Rare",

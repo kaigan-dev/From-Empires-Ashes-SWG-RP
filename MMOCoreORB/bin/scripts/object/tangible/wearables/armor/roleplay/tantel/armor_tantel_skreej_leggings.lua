@@ -15,23 +15,24 @@ object_tangible_wearables_armor_roleplay_tantel_armor_tantel_skreej_leggings = o
 	mindEncumbrance = 0,
 
 
-	maxCondition = 85,
+	maxCondition = 100,
 
 
-	rating = NONE,
-	rpskill = 2,
+	rating = MEDIUM,
+	rpskill = 4,
 
 
-	kinetic = 6,
-	energy = 2,
+	kinetic = 5,
+	energy = 3,
 	electricity = 0,
 	stun = 4,
-	blast = -2,
-	heat = 0,
-	cold = 0,
-	acid = -4,
+	blast = 0,
+	heat = 2,
+	cold = 2,
+	acid = 0,
 	lightsaber = -1,
 
+	rarity="Uncommon",
 
 }
 

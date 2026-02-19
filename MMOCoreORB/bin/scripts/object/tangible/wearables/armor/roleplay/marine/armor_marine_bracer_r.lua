@@ -18,21 +18,21 @@ object_tangible_wearables_armor_roleplay_marine_armor_marine_bracer_r = object_t
 	maxCondition = 100,
 
 
-	rating = NONE,
-	rpskill = 4,
+	rating = LIGHT,
+	rpskill = 2,
 
 
 	kinetic = 3,
 	energy = 3,
 	electricity = 2,
 	stun = 2,
-	blast = -4,
+	blast = 0,
 	heat = 0,
-	cold = -2,
-	acid = -2,
+	cold = 0,
+	acid = 0,
 	lightsaber = -1,
 	
-	rarity = "Uncommon",
+	rarity = "Rare",
 
 
 }

@@ -18,19 +18,19 @@ object_tangible_wearables_armor_roleplay_mandalorian_rebel_armor_mandalorian_reb
 	maxCondition = 400,
 
 
-	rating = LIGHT,
-	rpskill = 7,
+	rating = HEAVY,
+	rpskill = 6,
 
 
 	kinetic = 6,
 	energy = 8,
 	electricity = 0,
 	stun = 2,
-	blast = -4,
-	heat = 0,
-	cold = -2,
-	acid = 0,
-	lightsaber = -1,
+	blast = 0,
+	heat = 2,
+	cold = 2,
+	acid = 2,
+	lightsaber = 1,
 	
 	rarity = "Legendary",
 

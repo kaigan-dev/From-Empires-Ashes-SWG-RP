@@ -18,20 +18,21 @@ object_tangible_wearables_armor_roleplay_rebel_snow_armor_rebel_snow_bracer_r = 
 	maxCondition = 100,
 
 
-	rating = NONE,
-	rpskill = 3,
+	rating = LIGHT,
+	rpskill = 2,
 
 
-	kinetic = 1,
-	energy = 1,
+	kinetic = 3,
+	energy = 3,
 	electricity = 0,
 	stun = 4,
-	blast = -4,
-	heat = -2,
-	cold = 8,
-	acid = 0,
+	blast = 0,
+	heat = 0,
+	cold = 4,
+	acid = 2,
 	lightsaber = -1,
 
+	rarity="Rare",
 
 }
 

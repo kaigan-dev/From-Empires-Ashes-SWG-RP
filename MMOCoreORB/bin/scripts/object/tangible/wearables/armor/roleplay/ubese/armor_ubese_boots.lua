@@ -18,20 +18,21 @@ object_tangible_wearables_armor_roleplay_ubese_armor_ubese_boots = object_tangib
 	maxCondition = 100,
 
 
-	rating = NONE,
-	rpskill = 6,
+	rating = LIGHT,
+	rpskill = 2,
 
 
 	kinetic = 2,
 	energy = 2,
 	electricity = 6,
-	stun = -2,
-	blast = -4,
+	stun = 2,
+	blast = 0,
 	heat = 6,
 	cold = 6,
 	acid = 4,
 	lightsaber = -1,
 
+	rarity="Uncommon",
 
 }
 

@@ -18,7 +18,7 @@ object_tangible_wearables_armor_roleplay_clone_trooper_armor_clone_trooper_neutr
 	maxCondition = 150,
 
 
-	rating = LIGHT,
+	rating = MEDIUM,
 	rpskill = 4,
 
 
@@ -26,10 +26,10 @@ object_tangible_wearables_armor_roleplay_clone_trooper_armor_clone_trooper_neutr
 	energy = 4,
 	electricity = 0,
 	stun = 2,
-	blast = -4,
-	heat = -2,
-	cold = -4,
-	acid = -4,
+	blast = 0,
+	heat = 0,
+	cold = 0,
+	acid = 0,
 	lightsaber = -1,
 	
 	rarity = "Rare",

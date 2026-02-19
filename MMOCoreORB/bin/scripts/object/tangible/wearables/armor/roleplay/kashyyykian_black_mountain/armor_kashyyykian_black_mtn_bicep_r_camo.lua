@@ -18,17 +18,17 @@ object_tangible_wearables_armor_roleplay_kashyyykian_black_mountain_armor_kashyy
 	maxCondition = 200,
 
 
-	rating = MEDIUM,
-	rpskill = 10,
+	rating = HEAVY,
+	rpskill = 6,
 
 
 	kinetic = 6,
 	energy = 6,
-	electricity = 4,
+	electricity = 0,
 	stun = 2,
-	blast = 2,
-	heat = 4,
-	cold = 4,
+	blast = 0,
+	heat = 0,
+	cold = 2,
 	acid = 2,
 	lightsaber = -1,
 	

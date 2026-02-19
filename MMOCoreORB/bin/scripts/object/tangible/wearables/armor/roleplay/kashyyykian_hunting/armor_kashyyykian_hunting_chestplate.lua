@@ -18,7 +18,7 @@ object_tangible_wearables_armor_roleplay_kashyyykian_hunting_armor_kashyyykian_h
 	maxCondition = 200,
 
 
-	rating = LIGHT,
+	rating = MEDIUM,
 	rpskill = 4,
 
 

@@ -18,20 +18,21 @@ object_tangible_wearables_armor_roleplay_snow_trooper_armor_snowtrooper_boots = 
 	maxCondition = 150,
 
 
-	rating = LIGHT,
-	rpskill = 5,
+	rating = MEDIUM,
+	rpskill = 4,
 
 
 	kinetic = 4,
 	energy = 4,
 	electricity = 0,
 	stun = 0,
-	blast = -4,
-	heat = -4,
+	blast = 0,
+	heat = 0,
 	cold = 8,
 	acid = 0,
 	lightsaber = -1,
 
+	rarity="Rare",
 
 }
 

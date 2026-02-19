@@ -15,24 +15,24 @@ object_tangible_wearables_armor_roleplay_marauder_b_armor_marauder_s02_gloves = 
 	mindEncumbrance = 0,
 
 
-	maxCondition = 30,
+	maxCondition = 100,
 
 
-	rating = NONE,
+	rating = LIGHT,
 	rpskill = 2,
 
 
-	kinetic = 4,
-	energy = 2,
-	electricity = 2,
-	stun = 2,
-	blast = -2,
-	heat = 0,
-	cold = 0,
-	acid = -4,
+	kinetic = 1,
+	energy = 1,
+	electricity = 0,
+	stun = 0,
+	blast = 0,
+	heat = 1,
+	cold = 1,
+	acid = 1,
 	lightsaber = -1,
 	
-	rarity = "Uncommon",
+	rarity = "Common",
 
 
 }

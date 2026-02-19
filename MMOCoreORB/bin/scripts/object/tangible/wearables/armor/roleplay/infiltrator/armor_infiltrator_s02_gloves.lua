@@ -18,18 +18,18 @@ object_tangible_wearables_armor_roleplay_infiltrator_armor_infiltrator_s02_glove
 	maxCondition = 100,
 
 
-	rating = NONE,
-	rpskill = 5,
+	rating = LIGHT,
+	rpskill = 2,
 
 
-	kinetic = 0,
+	kinetic = 2,
 	energy = 4,
 	electricity = 0,
 	stun = 4,
-	blast = -2,
-	heat = 0,
-	cold = 0,
-	acid = -2,
+	blast = 3,
+	heat = 3,
+	cold = 3,
+	acid = 0,
 	lightsaber = -1,
 
 	rarity = "Epic",

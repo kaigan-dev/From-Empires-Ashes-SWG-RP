@@ -18,20 +18,21 @@ object_tangible_wearables_armor_roleplay_ris_armor_ris_bracer_r = object_tangibl
 	maxCondition = 500,
 
 
-	rating = MEDIUM,
-	rpskill = 10,
+	rating = HEAVY,
+	rpskill = 6,
 
 
 	kinetic = 8,
 	energy = 6,
-	electricity = -4,
+	electricity = 0,
 	stun = 6,
-	blast = -4,
+	blast = 0,
 	heat = 0,
 	cold = 2,
 	acid = 2,
-	lightsaber = 1,
+	lightsaber = -1,
 
+	rarity="Legendary",
 
 }
 

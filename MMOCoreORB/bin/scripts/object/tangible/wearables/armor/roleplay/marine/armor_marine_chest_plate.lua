@@ -18,7 +18,7 @@ object_tangible_wearables_armor_roleplay_marine_armor_marine_chest_plate = objec
 	maxCondition = 100,
 
 
-	rating = NONE,
+	rating = LIGHT,
 	rpskill = 4,
 
 
@@ -26,13 +26,13 @@ object_tangible_wearables_armor_roleplay_marine_armor_marine_chest_plate = objec
 	energy = 3,
 	electricity = 2,
 	stun = 2,
-	blast = -4,
+	blast = 0,
 	heat = 0,
-	cold = -2,
-	acid = -2,
+	cold = 0,
+	acid = 0,
 	lightsaber = -1,
 	
-	rarity = "Uncommon",
+	rarity = "Rare",
 
 
 }

@@ -18,18 +18,18 @@ object_tangible_wearables_armor_roleplay_rebel_assault_armor_rebel_assault_chest
 	maxCondition = 200,
 
 
-	rating = MEDIUM,
-	rpskill = 8,
+	rating = HEAVY,
+	rpskill = 6,
 
 
 	kinetic = 2,
 	energy = 6,
 	electricity = 0,
-	stun = 4,
+	stun = 2,
 	blast = 0,
-	heat = 0,
-	cold = 0,
-	acid = 0,
+	heat = 3,
+	cold = 3,
+	acid = 3,
 	lightsaber = -1,
 	
 	rarity="Rare",

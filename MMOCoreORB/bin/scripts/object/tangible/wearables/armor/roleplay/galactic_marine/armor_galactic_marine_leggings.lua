@@ -18,21 +18,21 @@ object_tangible_wearables_armor_roleplay_galactic_marine_armor_galactic_marine_l
 	maxCondition = 150,
 
 
-	rating = LIGHT,
-	rpskill = 6,
+	rating = MEDIUM,
+	rpskill = 4,
 
 
 	kinetic = 4,
 	energy = 4,
-	electricity = -2,
-	stun = -2,
-	blast = -4,
+	electricity = 0,
+	stun = 0,
+	blast = 0,
 	heat = 6,
 	cold = 6,
 	acid = 6,
 	lightsaber = -1,
 	
-	rarity = "Rare",
+	rarity = "Epic",
 
 }
 
