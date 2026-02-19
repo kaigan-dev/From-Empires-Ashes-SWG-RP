@@ -15,10 +15,10 @@ object_weapon_roleplay_melee_polearm_heavy_vibrolance = object_weapon_melee_pole
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 5, --Type of Die used in Damage
-	bonusDamage = 3,
+	maxDamage = 7, --Type of Die used in Damage
+	bonusDamage = 2,
 
-	pointBlankRange = 1,
+	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
 	idealRange = 2,
@@ -26,6 +26,9 @@ object_weapon_roleplay_melee_polearm_heavy_vibrolance = object_weapon_melee_pole
 
 	maxRange = 4,
 	maxRangeAccuracy = 99,
+
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

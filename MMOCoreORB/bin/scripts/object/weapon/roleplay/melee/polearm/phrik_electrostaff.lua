@@ -9,7 +9,7 @@ object_weapon_roleplay_melee_polearm_phrik_electrostaff = object_weapon_melee_po
 	--[Stats]
 	attackType = MELEEATTACK,
 
-	damageType = STUN,
+	damageType = ELECTRICITY,
 
 	armorPiercing = NONE,
 
@@ -18,7 +18,9 @@ object_weapon_roleplay_melee_polearm_phrik_electrostaff = object_weapon_melee_po
 	maxDamage = 7, --Type of Die used in Damage
 	bonusDamage = 1,
 
-	pointBlankRange = 1,
+	noPowerAttack = true,
+
+	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
 	idealRange = 2,
@@ -26,6 +28,9 @@ object_weapon_roleplay_melee_polearm_phrik_electrostaff = object_weapon_melee_po
 
 	maxRange = 4,
 	maxRangeAccuracy = 99,
+
+	rarity="Legendary",
+	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

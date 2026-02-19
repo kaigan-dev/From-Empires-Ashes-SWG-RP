@@ -15,10 +15,10 @@ object_weapon_roleplay_melee_polearm_obsidian_lance = object_weapon_melee_polear
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 9, --Type of Die used in Damage
-	bonusDamage = 1,
+	maxDamage = 10, --Type of Die used in Damage
+	bonusDamage = 3,
 
-	pointBlankRange = 1,
+	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
 	idealRange = 2,
@@ -26,6 +26,9 @@ object_weapon_roleplay_melee_polearm_obsidian_lance = object_weapon_melee_polear
 
 	maxRange = 4,
 	maxRangeAccuracy = 99,
+
+	rarity="Epic",
+	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

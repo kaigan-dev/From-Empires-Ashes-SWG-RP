@@ -4,7 +4,7 @@
 object_weapon_roleplay_melee_polearm_shock_lance = object_weapon_melee_polearm_shared_lance_shock:new {
 
 	--[Info]
-	customName = "Shock Lance",
+	customName = "Stun Lance",
 
 	--[Stats]
 	attackType = MELEEATTACK,
@@ -18,7 +18,7 @@ object_weapon_roleplay_melee_polearm_shock_lance = object_weapon_melee_polearm_s
 	maxDamage = 8, --Type of Die used in Damage
 	bonusDamage = 2,
 
-	pointBlankRange = 1,
+	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
 	idealRange = 2,
@@ -26,6 +26,9 @@ object_weapon_roleplay_melee_polearm_shock_lance = object_weapon_melee_polearm_s
 
 	maxRange = 4,
 	maxRangeAccuracy = 99,
+
+	rarity="Uncommon",
+	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

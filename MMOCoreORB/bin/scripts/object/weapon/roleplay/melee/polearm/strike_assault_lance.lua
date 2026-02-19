@@ -16,9 +16,9 @@ object_weapon_roleplay_melee_polearm_strike_assault_lance = object_weapon_melee_
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 2,
+	bonusDamage = 1,
 
-	pointBlankRange = 1,
+	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
 	idealRange = 2,
@@ -26,6 +26,9 @@ object_weapon_roleplay_melee_polearm_strike_assault_lance = object_weapon_melee_
 
 	maxRange = 4,
 	maxRangeAccuracy = 99,
+
+	rarity="Epic",
+	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

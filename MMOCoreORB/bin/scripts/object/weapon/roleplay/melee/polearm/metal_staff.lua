@@ -18,7 +18,7 @@ object_weapon_roleplay_melee_polearm_metal_staff = object_weapon_melee_polearm_s
 	maxDamage = 5, --Type of Die used in Damage
 	bonusDamage = 1,
 
-	pointBlankRange = 1,
+	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
 	idealRange = 2,
@@ -26,6 +26,9 @@ object_weapon_roleplay_melee_polearm_metal_staff = object_weapon_melee_polearm_s
 
 	maxRange = 4,
 	maxRangeAccuracy = 99,
+
+	rarity="Common",
+	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
