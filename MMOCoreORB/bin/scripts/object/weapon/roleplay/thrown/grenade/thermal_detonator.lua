@@ -11,7 +11,7 @@ object_weapon_roleplay_thrown_grenade_thermal_detonator = object_weapon_ranged_g
 	--[Stats]
 	attackType = GRENADEATTACK,
 
-	damageType = ENERGY,
+	damageType = BLAST,
 
 	armorPiercing = NONE,
 
