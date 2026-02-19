@@ -16,16 +16,21 @@ object_weapon_roleplay_melee_unarmed_blaster_fist = object_weapon_melee_special_
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 3,
+	bonusDamage = 1,
+
+	noPowerAttack = true,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
-	maxRange = 2,
+	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Legendary",
+	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

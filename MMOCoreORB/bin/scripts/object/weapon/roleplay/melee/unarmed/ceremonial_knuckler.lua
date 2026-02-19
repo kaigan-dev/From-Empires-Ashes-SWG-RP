@@ -21,11 +21,14 @@ object_weapon_roleplay_melee_unarmed_ceremonial_knuckler = object_weapon_melee_s
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
 
-	idealRange = 1,
+	idealRange = 2,
 	idealAccuracy = 10,
 
-	maxRange = 2,
+	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	rarity="Rare",
+	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
