@@ -362,7 +362,7 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		int totalBonus = bDamage + object->getSkillMod("rp_lightsaber");
 		bDamage = totalBonus;
 
-	} else if(isUnarmedWeapon()) {
+	} /* else if(isUnarmedWeapon()) {
 		int totalBonus = bDamage + (object->getSkillMod("rp_unarmed") / 2);
 		if(object->hasSkill("rp_training_tka_novice") && object->hasSkill("rp_force_prog_novice")) {
 			int tk_mod = object->getSkillMod("rp_telekinesis");
@@ -373,7 +373,7 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 				totalBonus += inw_mod;
 
 			bDamage = totalBonus;
-		}
+		} */
 	} 
 
 	if (bDamage > 0)
