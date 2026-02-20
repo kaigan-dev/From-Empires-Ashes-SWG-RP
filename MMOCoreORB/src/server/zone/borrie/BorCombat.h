@@ -138,8 +138,8 @@ public:
 			    	bonusDamage += tk_mod / 2;
 			    else 
 			    	bonusDamage += inw_mod / 2; 
-		    } */
-        }
+		    } 
+        } */
 
         int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage);
 
@@ -256,8 +256,8 @@ public:
 			    	bonusDamage += tk_mod / 2;
 			    else 
 			    	bonusDamage += inw_mod / 2;
-		    } */
-        }
+		    } 
+        } */
 
         int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
         int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
