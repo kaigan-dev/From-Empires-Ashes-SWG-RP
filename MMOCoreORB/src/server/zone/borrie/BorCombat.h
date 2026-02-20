@@ -129,7 +129,7 @@ public:
 
         if(weapon->isJediWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
-        } else if(weapon->isUnarmedWeapon()) {
+        } /* else if(weapon->isUnarmedWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_unarmed") / 2;
             if(attacker->hasSkill("rp_training_tka_rank_04") && attacker->hasSkill("rp_force_prog_novice")) {
 			    int tk_mod = attacker->getSkillMod("rp_telekinesis");
@@ -139,7 +139,7 @@ public:
 			    else 
 			    	bonusDamage += inw_mod / 2; 
 		    } 
-        }
+        } */
 
         int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage);
 
@@ -247,7 +247,7 @@ public:
 
         if(weapon->isJediWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
-        } else if(weapon->isUnarmedWeapon()) {
+        } /* else if(weapon->isUnarmedWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_unarmed");
             if(attacker->hasSkill("rp_training_tka_rank_04") && attacker->hasSkill("rp_force_prog_novice")) {
 			    int tk_mod = attacker->getSkillMod("rp_telekinesis");
@@ -257,7 +257,7 @@ public:
 			    else 
 			    	bonusDamage += inw_mod / 2;
 		    } 
-        }
+        } */
 
         int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
         int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;

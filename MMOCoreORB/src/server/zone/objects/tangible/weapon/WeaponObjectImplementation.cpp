@@ -373,8 +373,8 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 				totalBonus += inw_mod;
 
 			bDamage = totalBonus;
-		} */
-	} 
+		}
+	} */
 
 	if (bDamage > 0)
 		dmg << minDmg << "d" << maxDmg << " + " << bDamage;
