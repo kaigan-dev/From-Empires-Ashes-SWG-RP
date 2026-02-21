@@ -1,7 +1,7 @@
 object_tangible_medicine_roleplay_rp_stimpack_e = object_tangible_medicine_crafted_shared_crafted_stimpack_sm_s1_e:new {
 	gameObjectType = 8236,
 	templateType = STIMPACK,
-	useCount = 10,
+	useCount = 3,
 	medicineUse = 5,
 	effectiveness = 100,
 	medicineClass = STIM_E,
@@ -9,8 +9,8 @@ object_tangible_medicine_roleplay_rp_stimpack_e = object_tangible_medicine_craft
 	
 	--Roleplay Elements
 	roleplayStim = true,
-	dieType = 7,
-	dieCount = 2,
+	dieType = 4,
+	dieCount = 4,
 	bonusHealing = 6,
 	dieCheck = 16,
 
