@@ -2,15 +2,27 @@ local shopListTag = "shop_mando_noob"
 
 rpg_shop_general = {
 	manifest = {
-		{
-			name = "Makeshift Beskar'gam",
+		
+{
+			name = "Blasters",
 			minItems = 1,
 			items = {
-				{template = "object/tangible/wearables/armor/roleplay/mandalorian/armor_mandalorian_helmet_lite.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
-				{customName = "Angular Mandalorian Armor Helmet", template = "object/tangible/wearables/armor/roleplay/mandalorian/armor_mandalorian_helmet_lite_s02.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/ranged/pistol/crusader_mxii_pistol.iff", cost = 10000, max = 2, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/ranged/pistol/westar34_blaster_pistol.iff", cost = 20000, max = 2, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/ranged/carbine/crusader_mxiii_carbine.iff", cost = 10000, max = 2, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/ranged/rifle/crusader_mxiv_rifle.iff", cost = 10000, max = 2, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/ranged/rifle/westarm5_blaster_rifle.iff", cost = 10000, max = 2, chance = 100, overridePrice = true },
 			}
 		},
-
+		
+		{
+			name = "Jetpacks",
+			minItems = 1,
+			items = {
+				{customName = "Mandalorian Jetpack",template = "object/tangible/wearables/backpack/backpack_jetpack_s01.iff", cost = 5000, max = 10, chance = 100, overridePrice = true },
+			}
+		},
+		
 	}	
 }
 
