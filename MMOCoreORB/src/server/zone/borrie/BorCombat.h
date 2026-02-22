@@ -132,7 +132,6 @@ public:
         } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
 		    } 
-        } 
 
         int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage);
 
@@ -243,7 +242,6 @@ public:
         } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
 		    }
-        }
 
         int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
         int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
