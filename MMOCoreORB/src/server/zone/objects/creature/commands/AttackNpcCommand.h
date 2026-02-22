@@ -24,6 +24,14 @@ public:
 		if (!creature->isPlayerCreature())
 			return GENERALERROR;
 
+		// Check if a stored target exists prior to setting one. If not, exit the command. Failing to do this crashes the server.
+		// FEA - Kaigan, 2/22/26	
+		if (!creature->getStoredLong("storedtarget"))
+		{
+			creature->sendSystemMessage("You need a stored target to be the attacker!");
+			return SUCCESS;
+		}
+			
 		uint64 storedTarget = creature->getStoredLong("storedtarget");
 
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
