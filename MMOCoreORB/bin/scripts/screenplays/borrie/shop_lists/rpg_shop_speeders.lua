@@ -6,7 +6,7 @@ rpg_shop_speeders = {
 			name = "Vehicles",
 			minItems = 1,
 			items = {				
-				{template = "object/tangible/deed/vehicle_deed/speederbike_deed.iff", cost = 1200, max = 10, chance = 100, overridePrice = true },
+				{template = "object/tangible/deed/vehicle_deed/speederbike_deed.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/deed/vehicle_deed/landspeeder_xp38_deed.iff", cost = 1500, max = 10, chance = 100, overridePrice = true },		
 				{template = "object/tangible/deed/vehicle_deed/landspeeder_ab1_deed.iff", cost = 2200, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/tcg/series5/vehicle_deed_air2_swoop_speeder.iff", cost = 3250, max = 10, chance = 100, overridePrice = true },
