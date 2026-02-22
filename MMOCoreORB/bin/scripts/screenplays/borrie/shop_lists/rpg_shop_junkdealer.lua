@@ -14,16 +14,6 @@ rpg_shop_general = {
 				{template = "object/tangible/borrp/item/sensor_pack.iff", cost = 250, max = 10, chance = 100 },
 			}
 		},
-		
-		{
-			name = "Lightsaber Kits",
-			requiesSaberTraining = true,
-			minItems = 1,
-			items = {
-				{template = "object/tangible/crafting/station/jedi_tool.iff", cost = 1600, max = 10, chance = 100 },
-			}
-		},
-
 	}	
 }
 
