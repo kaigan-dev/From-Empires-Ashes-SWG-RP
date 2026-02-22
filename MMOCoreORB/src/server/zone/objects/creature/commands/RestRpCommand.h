@@ -63,7 +63,7 @@ public:
 					BorCharacter::PerformShortRest(targetCreature);
 				} else if(command == "long") {
 					BorCharacter::FillAllPools(targetCreature);
-					BorCharacter::HandleDarksideFading(targetCreature);
+					//BorCharacter::HandleDarksideFading(targetCreature);
 				}
 
 				targetCreature->setStoredInt("power_attack_count", 0);
