@@ -19,7 +19,7 @@ rpg_shop_general = {
 			name = "Jetpacks",
 			minItems = 1,
 			items = {
-				{customName = "Mandalorian Jetpack",template = "object/tangible/wearables/backpack/backpack_jetpack_s01.iff", cost = 5000, max = 10, chance = 100, overridePrice = true },
+				{customName = "Mandalorian Jetpack",template = "object/tangible/wearables/backpack/shared_backpack_jetpack_s01.iff", cost = 5000, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 		
