@@ -186,7 +186,7 @@ rpg_shop = {
 				{template = "object/tangible/wearables/armor/roleplay/padded/armor_padded_s01_gloves.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/armor/roleplay/padded/armor_padded_s01_helmet.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/armor/roleplay/padded/armor_padded_s01_leggings.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
-				{template = "object/tangible/wearables/armor/roleplay/padded/armor_padded_s02_chest_plate.iff", cost = 1200, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/tangible/wearables/armor/roleplay/padded/armor_padded_s02_chest_plate.iff", cost = 1200, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 		
