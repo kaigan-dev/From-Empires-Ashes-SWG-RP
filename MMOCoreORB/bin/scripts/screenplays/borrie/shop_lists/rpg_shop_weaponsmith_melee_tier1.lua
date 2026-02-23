@@ -43,7 +43,7 @@ shop_weapons_melee = {
 			name = "Knives",
 			minItems = 1,
 			items = {
-				{template = "object/weapon/roleplay/ranged/onehanded/dagger.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/melee/onehanded/dagger.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/onehanded/stone_knife.iff", cost = 150, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/onehanded/survival_knife.iff", cost = 500, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/onehanded/vibroblade.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
