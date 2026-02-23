@@ -330,12 +330,14 @@ public:
                     reactionSpam += ", absorbing \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage into their weapon.";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), true);
     
+                    /*  Remove partial Defend
                 } else if(defenseRoll + defenseSkill > 15) {
                     reactionSpam += defender->getFirstName() + " partially defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     reactionSpam += ", absorbing \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage into their weapon, ";
                     reactionSpam += ", and personally taking \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage.";
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage / 2, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), true);
+                    */
                 } else {
                     //BorCharacter::ModPool(defender, "health", incomingDamage * -1, true);
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
@@ -380,6 +382,7 @@ public:
                     reactionSpam += ", but " + defender->getFirstName() + " dodges out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
                     DrainActionOrWill(defender, 2 * actionPointMod);
+                    /* Remove partial dodge 
                 } else if(dodgeRoll + maneuverabilitySkill >= toHit / 2 ) { //Partial Dodge
                     reactionSpam += ", " + defender->getFirstName() + " struggles to dodge out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     reactionSpam += defender->getFirstName() + " stumbles, but only takes \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage.";
@@ -387,6 +390,7 @@ public:
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage / 2, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
                     DrainActionOrWill(defender, 1 * actionPointMod);
+                    */
                 } else { //full fail
                     reactionSpam += ", " + defender->getFirstName() + " tries to dodge out of the way and fails! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     reactionSpam += defender->getFirstName() +" takes \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
@@ -412,19 +416,20 @@ public:
                 int deflectRoll = BorDice::Roll(1, 20);
                 int lightsaberSkill = defender->getSkillMod("rp_lightsaber");
                 //Check to see if the target lightsaber is ranged or another lightsaber, or lightsaber resistant.
-                int actionCost = 11 - lightsaberSkill;
+                //int actionCost = 11 - lightsaberSkill;
+                int actionCost = 3;
                 if(actionCost <= 0) actionCost = 1;
                 DrainActionOrWill(defender, actionCost);
                 if(attackerWeapon->isRangedWeapon()) {
                     bool canDeflect = attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC;
                     
-                    if(canDeflect && deflectRoll + lightsaberSkill >= toHit) {
+                    if(canDeflect && deflectRoll + lightsaberSkill >= toHit + 4) {
                         //If you roll higher or equal to their to-hit roll, you'll deflect blaster bots back to their originator at half damage.
                         reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
                         reactionSpam += ", sending it back to its origin, dealing \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage to " + attacker->getFirstName() +"!";
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                         ApplyAdjustedHealthDamage(attacker, attackerWeapon, incomingDamage / 2, slot);
-                    } else if(deflectRoll + lightsaberSkill >= toHit / 2) { 
+                    } else if(deflectRoll + lightsaberSkill >= toHit) { 
                         //If you roll higher than half of their to-hit roll, you will deflect blaster bolts.
                         reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit/2)+")";
                         reactionSpam += ", sending it harmlessly away.";
@@ -442,22 +447,27 @@ public:
                         //If you roll higher or equal to their to-hit roll, you avoid damage entirely.
                         reactionSpam += ", but " + defender->getFirstName() + " successfully deflects the attack entirely. (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
+                        reactionSpam += attacker->getFirstName() + "'s weapon is sundered by " + attacker->getFirstName() + "'s lightsaber!";
+                    /* Remove half damage on Lightsaber Deflect
                     } else if(deflectRoll + lightsaberSkill >= toHit / 2 && deflectableWeapon) {
                         //If you roll higher or equal to half of their to-hit, you take half damage.
                         reactionSpam += defender->getFirstName() + " deflects the attack in partial (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit/2)+")";
                         reactionSpam += ", still recieving \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage!";
                         BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), true);
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage / 2, slot);
+                        */
                     } else {
+                        /* Removed blatantly incorrect reporting of whose weapon is destroyed.
                         if(!deflectableWeapon) {
                             //Destroy Weapon
                             reactionSpam += defender->getFirstName() + " fails to deflect the attack, because their weapon cannot deflect a lightsaber! It is sundered!";
                         } else {
+                         */
                             reactionSpam += defender->getFirstName() + " fails to deflect the attack (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                            reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage!";
+                            //Full Damage
+                            ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                         }
-                        //Full Damage.
-                        reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage!";
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                         BorEffect::PerformReactiveAnimation(attacker, defender, "hit", GetSlotHitlocation(slot), true);
                     }                  
                 }
@@ -475,7 +485,8 @@ public:
                 int telekineticSkill = defender->getSkillMod("rp_telekinesis");
                 bool deflectableWeapon = attackerWeapon->isRangedWeapon();
 
-                int forceCost = 11 - telekineticSkill;
+                //int forceCost = 11 - telekineticSkill;
+                int forceCost = 3;
                 if(forceCost <= 0 ) forceCost = 1;
 
                 if(!deflectableWeapon) {
@@ -484,7 +495,9 @@ public:
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     defender->sendSystemMessage("You cannot deflect this attack telekinetically. You recieved full damage.");
                     return ", doing (" + GetWeaponDamageString(attackerWeapon) + ") = \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
-                } else if(telekineticSkill < 5) {
+                } 
+                /* Remove reduced performance below Telekinesis 5
+                else if(telekineticSkill < 5) {
                     if(deflectRoll + telekineticSkill >= toHit) {
                         //Half Damage
                         reactionSpam += defender->getFirstName() + " raises their arms, trying to shield themselves (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
@@ -499,18 +512,29 @@ public:
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                         DrainForce(defender, forceCost);
                     }
+                        
                 } else {
-                    if(deflectRoll + telekineticSkill >= toHit) {
+                 */
+                    else if(deflectRoll + telekineticSkill >= toHit) {
                         //No Damage
                         reactionSpam += defender->getFirstName() + " raises their hand and deflects the attack away (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
                         BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), false);
                         DrainForce(defender, forceCost);
+                    /* Remove partial Force Deflect
                     } else {
                         //Half Damage.
                         reactionSpam += defender->getFirstName() + " quickly raises their hand, deflecting some of the attack away (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
                         reactionSpam += ", recieving only \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage!";
                         BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), false);
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage/2, slot);
+                        DrainForce(defender, forceCost);
+                    }
+                    */
+                   else {
+                        //Full Damage
+                        reactionSpam += defender->getFirstName() + " tries and fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
+                        reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage!";
+                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                         DrainForce(defender, forceCost);
                     }
                 }                
@@ -530,7 +554,8 @@ public:
 
                 bool passed = absorbRoll + absorbSkill >= toHit;
 
-                int forceCost = 12 - absorbSkill;
+                //int forceCost = 12 - absorbSkill;
+                int forceCost = 3;
                 if(forceCost <= 0) forceCost = 1;
 
                 if(attackerWeapon->isRangedWeapon()) {
