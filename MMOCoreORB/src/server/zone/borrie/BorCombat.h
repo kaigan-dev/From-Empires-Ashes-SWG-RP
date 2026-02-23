@@ -469,8 +469,7 @@ public:
                             ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                         }
                         BorEffect::PerformReactiveAnimation(attacker, defender, "hit", GetSlotHitlocation(slot), true);
-                    }                  
-                }
+                }                  
                 return reactionSpam;
             } else if(defenderReactionType == 5) { //Force Deflect
                 //Dark Rebellion Rulebook on Force Deflect (as of 4/21/23)
@@ -530,6 +529,7 @@ public:
                         DrainForce(defender, forceCost);
                     }
                     */
+                    }
                    else {
                         //Full Damage
                         reactionSpam += defender->getFirstName() + " tries and fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
@@ -537,9 +537,10 @@ public:
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                         DrainForce(defender, forceCost);
                     }
-                }                
+                                
 
                 return reactionSpam;
+
             } else if(defenderReactionType == 6) { //Force Absorb
                 //Dark Rebellion Rulebook on Force Absorb (as of 4/21/23)
                 /*
