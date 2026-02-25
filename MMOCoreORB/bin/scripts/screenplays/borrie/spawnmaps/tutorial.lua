@@ -11,16 +11,15 @@ SpaceTansariiPointStationScreenPlay = CityScreenPlay:new {
 }
 
 registerScreenPlay("TutorialScreenPlay",  true)
---[[
 function TutorialScreenPlay:start()
 	if (isZoneEnabled(self.planet)) then
 		self:spawnMobiles()
 		self:spawnSceneObjects()
 		self:spawnCivilians()
-		self:spawnJunkPiles()
+		--self:spawnJunkPiles()
 	end
 end
---]]
+
 
 function TutorialScreenPlay:spawnJunkPiles() 
 	local spawnPoints = {
