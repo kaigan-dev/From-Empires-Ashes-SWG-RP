@@ -61,7 +61,11 @@ public:
 				args.getStringToken(command);
 				if(command == "short") {
 					BorCharacter::PerformShortRest(targetCreature);
-				} else if(command == "long") {
+				}
+				else if(command == "meditate") {
+					BorCharacter::PerformMeditateRest(targetCreature);
+				}
+				else if(command == "long") {
 					BorCharacter::FillAllPools(targetCreature);
 					//BorCharacter::HandleDarksideFading(targetCreature);
 				}
@@ -77,6 +81,7 @@ public:
 				box->setCancelButton(true, "@cancel");
 				box->addMenuItem("Short Rest");
 				box->addMenuItem("Long Rest");
+				box->addMenuItem("Meditate");
 				creature->getPlayerObject()->addSuiBox(box);
 				creature->sendMessage(box->generateMessage());
 		}

@@ -303,7 +303,23 @@ public:
 			BorrieRPG::BroadcastMessage(creature, report);
 	}
 
-	static void PerformShortRest(CreatureObject* creature) {
+	static void PerformMeditateRest(CreatureObject* creature) {
+		Locker clocker(creature);
+		int lastHealth = creature->getHAM(0);
+		int lastAction = creature->getHAM(3);
+		int lastWill = creature->getHAM(6);
+		int lastForce = 0;
+		if (creature->isPlayerCreature()) {
+			lastForce = creature->getPlayerObject()->getForcePower(); 
+		}
+
+		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
+		ModPool(creature, "action", creature->getSkillMod("rp_action") / 2);
+		FillPool(creature, "force", true);
+	}
+
+
+		static void PerformShortRest(CreatureObject* creature) {
 		Locker clocker(creature);
 		int lastHealth = creature->getHAM(0);
 		int lastAction = creature->getHAM(3);
@@ -324,6 +340,7 @@ public:
 		ModPool(creature, "force", creature->getSkillMod("rp_force") / 2);
 		ModPool(creature, "will", -2);
 	}
+
 
 	static int GetHAMFromPool(String pool) {
 		if (pool == "health" || pool == "hp")

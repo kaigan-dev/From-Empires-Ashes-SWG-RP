@@ -52,9 +52,13 @@ public:
 
 		if(index == 0) {
 			BorCharacter::PerformShortRest(targetCreature);
-		} else if(index == 1) {
+		}
+		else if(index == 1) {
 			BorCharacter::FillAllPools(targetCreature);
-			BorCharacter::HandleDarksideFading(targetCreature);
+		//	BorCharacter::HandleDarksideFading(targetCreature);
+		}
+		else if(index == 2) {
+			BorCharacter::PerformMeditateRest(targetCreature);
 		}
 
 		targetCreature->setStoredInt("power_attack_count", 0);
