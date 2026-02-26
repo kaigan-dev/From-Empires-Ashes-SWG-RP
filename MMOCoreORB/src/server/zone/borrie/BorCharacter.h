@@ -870,8 +870,9 @@ public:
 	}
 
 	static void RewardCreditsByLevel(CreatureObject* creature, CreatureObject* dm, int multiplier = 100) {
-		int playerLevel = GetPlayerLevel(creature);
-		int credits = playerLevel * multiplier;
+		//int playerLevel = GetPlayerLevel(creature);
+		//int credits = playerLevel * multiplier;
+		int credits = multiplier;
 		if(credits < 1) return;
 		creature->addCashCredits(credits);
 		creature->sendSystemMessage("You've been awarded " + String::valueOf(credits) + " credits!");
