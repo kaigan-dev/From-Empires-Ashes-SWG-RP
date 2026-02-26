@@ -323,10 +323,14 @@ public:
 
         if(CanPerformReaction(defender, defenderReactionType, incomingDamage, attackerWeapon, defenderWeapon)) {
             if(defenderReactionType == 1) { //Defend
+                if(attackerWeapon->isRangedWeapon()) {
+                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+                    reactionSpam += ", taking \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
+                }
                 int defenseRoll = BorDice::Roll(1, 20);
                 int defenseSkill = defender->getSkillMod("rp_defending");
                 DrainActionOrWill(defender, 1 * actionPointMod);
-                if(defenseRoll + defenseSkill > toHit) { //Success
+                else if(defenseRoll + defenseSkill > toHit) { //Success
                     //defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
                     reactionSpam += defender->getFirstName() + " successfully defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     reactionSpam += ", absorbing \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage into their weapon.";
@@ -362,14 +366,26 @@ public:
 
                 if(meleeRoll + meleeSkill >= toHit) {
                     //Successful Parry
-                    DrainActionOrWill(defender, 3 * actionPointMod);
-                    int returnDamage = incomingDamage / 2;
+                    DrainActionOrWill(defender, 3);
+                    
+                    //Calculate 
+                    ManagedReference<WeaponObject*> weapon = defender->getWeapon();
+	                int damageDieCount = weapon->getMinDamage();
+                    int damageDieType = weapon->getMaxDamage();
+                    int bonusDamage = weapon->getBonusDamage();     
+                    if(weapon->isJediWeapon()) {
+                            bonusDamage += attacker->getSkillMod("rp_lightsaber");
+                    } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
+                        bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+                    } 
+                    int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
+
                     ApplyAdjustedHealthDamage(attacker, defenderWeapon, returnDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                     reactionSpam += ", but " + defender->getFirstName()+" parries the attack (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit)+"), striking back for \\#FF9999"+String::valueOf(returnDamage)+"\\#FFFFFF damage!";
                 } else {
                     //Unsuccessful Parry
-                    DrainActionOrWill(defender, 2 * actionPointMod);
+                    DrainActionOrWill(defender, 3);
                     //defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
@@ -383,7 +399,7 @@ public:
                 if(dodgeRoll + maneuverabilitySkill >= toHit) { //Successful Dodge
                     reactionSpam += ", but " + defender->getFirstName() + " dodges out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
-                    DrainActionOrWill(defender, 2 * actionPointMod);
+                    DrainActionOrWill(defender, 1 * actionPointMod);
                     /* Remove partial dodge 
                 } else if(dodgeRoll + maneuverabilitySkill >= toHit / 2 ) { //Partial Dodge
                     reactionSpam += ", " + defender->getFirstName() + " struggles to dodge out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
@@ -419,8 +435,8 @@ public:
                 int lightsaberSkill = defender->getSkillMod("rp_lightsaber");
                 //Check to see if the target lightsaber is ranged or another lightsaber, or lightsaber resistant.
                 //int actionCost = 11 - lightsaberSkill;
+                //if(actionCost <= 0) actionCost = 1;
                 int actionCost = 3;
-                if(actionCost <= 0) actionCost = 1;
                 DrainActionOrWill(defender, actionCost);
                 if(attackerWeapon->isRangedWeapon()) {
                     bool canDeflect = attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC;
@@ -487,8 +503,8 @@ public:
                 bool deflectableWeapon = attackerWeapon->isRangedWeapon();
 
                 //int forceCost = 11 - telekineticSkill;
-                int forceCost = 3;
-                if(forceCost <= 0 ) forceCost = 1;
+                //if(forceCost <= 0 ) forceCost = 1;
+                int forceCost = 3 * actionPointMod;
 
                 if(!deflectableWeapon) {
                     //Can't deflect.
@@ -534,7 +550,7 @@ public:
                     }
                    else {
                         //Full Damage
-                        reactionSpam += defender->getFirstName() + " tries and fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
+                        reactionSpam += defender->getFirstName() + " fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
                         reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage!";
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                         DrainForce(defender, forceCost);
@@ -558,8 +574,8 @@ public:
                 bool passed = absorbRoll + absorbSkill >= toHit;
 
                 //int forceCost = 12 - absorbSkill;
-                int forceCost = 3;
-                if(forceCost <= 0) forceCost = 1;
+                //if(forceCost <= 0) forceCost = 1;
+                int forceCost = 3 * actionPointMod;
 
                 if(attackerWeapon->isRangedWeapon()) {
                     DrainForce(defender, forceCost);
@@ -575,7 +591,7 @@ public:
                     if(passed) {
                         reactionSpam += defender->getFirstName() + " blocks the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                     } else {
-                        reactionSpam += defender->getFirstName() + " tries to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                        reactionSpam += defender->getFirstName() + " fails to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                         reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage!";          
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);             
                     }
