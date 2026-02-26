@@ -320,7 +320,8 @@ public:
 
 		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
 		FillPool(creature, "action", true);
-		FillPool(creature, "force", true);
+		//FillPool(creature, "force", true);
+		ModPool(creature, "force", creature->getSkillMod("rp_force") / 2);
 		ModPool(creature, "will", -2);
 	}
 
@@ -968,7 +969,7 @@ public:
 		int maxDistance = 6;
 
 		if (creature->isRidingMount()) {
-			maxDistance = piloting + 22;
+			maxDistance = piloting + 30;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move on their mount. Their enhanced range is " + String::valueOf(maxDistance) + "m. ");
 		} else {
 			maxDistance = maneuverability + athletics + 10;
