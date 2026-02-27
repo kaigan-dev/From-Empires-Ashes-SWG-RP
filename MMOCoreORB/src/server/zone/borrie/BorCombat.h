@@ -323,15 +323,16 @@ public:
 
         if(CanPerformReaction(defender, defenderReactionType, incomingDamage, attackerWeapon, defenderWeapon)) {
             if(defenderReactionType == 1) { //Defend
+                int defenseRoll = BorDice::Roll(1, 20);
+                int defenseSkill = defender->getSkillMod("rp_defending");
+
                 if(attackerWeapon->isRangedWeapon()) {
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     reactionSpam += ", taking \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
                 }
-                int defenseRoll = BorDice::Roll(1, 20);
-                int defenseSkill = defender->getSkillMod("rp_defending");
-                DrainActionOrWill(defender, 1 * actionPointMod);
                 else if(defenseRoll + defenseSkill > toHit) { //Success
                     //defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                    DrainActionOrWill(defender, 1 * actionPointMod);
                     reactionSpam += defender->getFirstName() + " successfully defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     reactionSpam += ", absorbing \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage into their weapon.";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), true);
@@ -346,6 +347,7 @@ public:
                     */
                 } else {
                     //BorCharacter::ModPool(defender, "health", incomingDamage * -1, true);
+                    DrainActionOrWill(defender, 1 * actionPointMod);
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     reactionSpam += defender->getFirstName() + " tries to defend against the attack, but fails (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     reactionSpam += ", taking \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
