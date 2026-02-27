@@ -6,9 +6,10 @@ RpTatooineFortTuskenScreenPlay = CityScreenPlay:new {
 	planet = "rp_tatooine",	
 	
 
-	--[[
+	
 	walkpointList = {
 		market_shopper1 = {
+			--[[
 			{745.296, 0, 281.54, 180, 0,false, "none"},
 			{748.047, 0, 279.843, 98, 0,true, "shop"},
 			{750.615, 0, 267.862, 137, 0,true, "shop"},
@@ -28,9 +29,10 @@ RpTatooineFortTuskenScreenPlay = CityScreenPlay:new {
 			{805.175, -0.25, 303.873, 146, 0,false, "none"},
 			{767.391, -0.25, 302.339, 261, 0,false, "none"},
 			{749.95, 0, 286.123, 206, 0,false, "none"},
+			--]]
 		},
 	}
-	--]]
+	
 	
 }
 
@@ -838,7 +840,13 @@ function RpTatooineFortTuskenScreenPlay:spawnMobiles()
 	--VENDORS--
 	
 	--Melee Vendor Light
+	--[[
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -1476.1, 180.1, 1942.5, 44, 610021764, "rp_human_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("A Madman (a Melee Weapons Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_me-7.1le37.9Sc-31.9ec7(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
+--]]
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -7.1, 37.9, -31.9, 74, 610021764, "rp_human_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("A Madman (a Melee Weapons Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
