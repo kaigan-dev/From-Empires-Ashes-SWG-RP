@@ -49,20 +49,38 @@ content = {
 
 
 
-	{"object/tangible/wearables/wookiee/shared_wke_gloves_s04.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_hat_s01.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_hood_s01.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_hood_s02.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_hood_s03.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_shirt_s01.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_shirt_s02.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_shirt_s03.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_shirt_s04.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_shirt_s05.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_shoulder_pad_s01.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_shoulder_pad_s02.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_skirt_s01.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_skirt_s02.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_skirt_s03.iff", },
-	{"object/tangible/wearables/wookiee/shared_wke_skirt_s04.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bicep_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bicep_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bracer_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_boots.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_chest_plate.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_leggings.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_gloves.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_helmet.iff", },
+
+
+	
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bicep_l_camo.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bicep_r_camo.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bracer_l_camo.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bracer_r_camo.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_boots_camo.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_chest_plate_camo.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_leggings_camo.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_gloves_camo.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_helmet_camo.iff", },
+
+
+	
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bicep_l_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bicep_r_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bracer_l_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_bracer_r_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_boots_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_chest_plate_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_leggings_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_gloves_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_assault/armor_rebel_assault_helmet_gcw.iff", },
+
 }
