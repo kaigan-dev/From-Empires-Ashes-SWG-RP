@@ -364,7 +364,7 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{535.042, -0.25, 237.258, 64, 0,{"social"}},
 		{536.519, -0.25, 238.006, 349, 0,{"social"}},
 		{567.283, 0, 193.427, 285, 0,{"sit"}},
-
+		{-15.3, 0.9, 0.3, -86, 610008188,{"tech"}},
 	}
 	
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
