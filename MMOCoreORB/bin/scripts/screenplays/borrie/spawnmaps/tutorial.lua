@@ -330,32 +330,32 @@ function SpaceTansariiPointStationScreenPlay:spawnMobiles()
 	--Species, Equipment, Skills, Customization
 
 	--Armorsmith
-	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 1896, -4, 3603, 37, 808256, "rp_zabrak_male", "tsp_vendor_armorsmith", "default", "random", "rpg_shopkeeper")
+	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 40.8, -4.2, -154.4, -92, 281474993981515, "rp_zabrak_male", "tsp_vendor_armorsmith", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("An Armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
 	
 	--Weaponsmith (Melee)
-	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 1896, -4, 3600, 267, 808256, "rp_rodian_male", "tsp_vendor_weaponsmith_melee", "default", "random", "rpg_shopkeeper")
+	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 40.8, -4.2, -157.4, -92, 281474993981515, "rp_rodian_male", "tsp_vendor_weaponsmith_melee", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("A Melee Weaponsmith")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
 	
 	--Weaponsmith (Ranged)	
-	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 1896, -4, 3597, 121, 808247, "rp_bothan_male", "tsp_vendor_weaponsmith_ranged", "default", "random", "rpg_shopkeeper")
+	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 40.8, -4.2, -160.4, -92, 281474993981515, "rp_bothan_male", "tsp_vendor_weaponsmith_ranged", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("A Ranged Weaponsmith")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
 	
 	--Vehicle Vendor
-	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 1896, -4, 3594, 166, 808251, "rp_human_male", "tsp_vendor_vehicle", "default", "random", "rpg_shopkeeper")
+	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 40.8, -4.2, -163.4, -92, 281474993981515, "rp_human_male", "tsp_vendor_vehicle", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("A Vehicle Vendor")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
 	
 
 	--Stimpack Vendor
-	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 1896, -4, 3591, 0.168145, 271, 808257, "rp_moncal_male", "outpost_doctor", "default", "random", "rpg_shopkeeper")
+	local pNpc = spawnRoleplayMobile("tutorial", "rp_convo_npc", 1, 40.8, -4.2, -166.4, -92, 281474993981515, "rp_moncal_male", "outpost_doctor", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("A Stimpack Vendor")
 	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
