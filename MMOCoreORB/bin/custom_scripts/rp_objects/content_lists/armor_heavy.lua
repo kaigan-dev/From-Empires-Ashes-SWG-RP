@@ -1,4 +1,5 @@
 content = {
+	--[[
 	{"object/tangible/wearables/armor/roleplay/assault_trooper/armor_assault_trooper_bicep_l.iff", },
 	{"object/tangible/wearables/armor/roleplay/assault_trooper/armor_assault_trooper_bicep_r.iff", },
 	{"object/tangible/wearables/armor/roleplay/assault_trooper/armor_assault_trooper_boots.iff", },
@@ -8,11 +9,22 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/assault_trooper/armor_assault_trooper_gloves.iff", },
 	{"object/tangible/wearables/armor/roleplay/assault_trooper/armor_assault_trooper_helmet.iff", },
 	{"object/tangible/wearables/armor/roleplay/assault_trooper/armor_assault_trooper_leggings.iff", },
+	-]]
 	
 	
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bicep_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bicep_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_boots.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_chest_plate.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_leggings.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_gloves.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_helmet.iff", },
+
+
+
 	
-	
-	{"object/tangible/wearables/wookiee/shared_wke_gloves_s01.iff", },
 	{"object/tangible/wearables/wookiee/shared_wke_gloves_s02.iff", },
 	{"object/tangible/wearables/wookiee/shared_wke_gloves_s03.iff", },
 	{"object/tangible/wearables/wookiee/shared_wke_gloves_s04.iff", },

@@ -99,83 +99,83 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
-	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.7, 2, 33.6, 141, 0, 1, 0, 0, 0) --Pants
+	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.7, 2, 33.6, 141, 0, 1, 0, 0) --Pants
 	SceneObject(sObj):setCustomObjectName("Pants")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_pants")
-	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -5.7, 0, 33.6, 141, 0, 1, 0, 0, 0) --Footwear
+	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -5.7, 0, 33.6, 141, 0, 1, 0, 0) --Footwear
 	SceneObject(sObj):setCustomObjectName("Footwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_footwear")
-	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -5.7, 2, 33.6, 141, 0, 1, 0, 0, 0) --Jacket
+	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -5.7, 2, 33.6, 141, 0, 1, 0, 0) --Jacket
 	SceneObject(sObj):setCustomObjectName("Jacket")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_jackets")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", -3.7, 0, 33.6, 141, 0, 1, 0, 0, 0) --Vest
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", -3.7, 0, 33.6, 141, 0, 1, 0, 0) --Vest
 	SceneObject(sObj):setCustomObjectName("Vest")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_vests")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", -3.7, 2, 33.6, 141, 0, 1, 0, 0, 0) --Robes
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", -3.7, 2, 33.6, 141, 0, 1, 0, 0) --Robes
 	SceneObject(sObj):setCustomObjectName("Robes")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_robes")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", -1.7, 0, 33.6, 141, 0, 1, 0, 0, 0) --Bodysuits
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", -1.7, 0, 33.6, 141, 0, 1, 0, 0) --Bodysuits
 	SceneObject(sObj):setCustomObjectName("Bodysuits")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_bodysuits")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -1.7, 2, 33.6, 141, 0, 1, 0, 0, 0) --Skirts
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -1.7, 2, 33.6, 141, 0, 1, 0, 0) --Skirts
 	SceneObject(sObj):setCustomObjectName("Skirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_skirts")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 1.7, 0, 33.6, 141, 0, 1, 0, 0, 0) --Women
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 1.7, 0, 33.6, 141, 0, 1, 0, 0) --Women
 	SceneObject(sObj):setCustomObjectName("Women's Wear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_women")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", 1.7, 2, 33.6, 141, 0, 1, 0, 0, 0) --Heaad & Goggle
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", 1.7, 2, 33.6, 141, 0, 1, 0, 0) --Heaad & Goggle
 	SceneObject(sObj):setCustomObjectName("Headwear & Goggles")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_headwear")
 	SceneObject(sObj):populateInventoryFromContentList("tailor_goggles")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", 3.7, 0, 33.6, 141, 0, 1, 0, 0, 0) --Handwear
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", 3.7, 0, 33.6, 141, 0, 1, 0, 0) --Handwear
 	SceneObject(sObj):setCustomObjectName("Handwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_handwear")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", 3.7, 2, 33.6, 141, 0, 1, 0, 0, 0) --Jewelry
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/chest_modern_style_01.iff", 3.7, 2, 33.6, 141, 0, 1, 0, 0) --Jewelry
 	SceneObject(sObj):setCustomObjectName("Jewelry")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_jewelry")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.7, 0, 33.6, 141, 0, 1, 0, 0, 0) --Misc/Belts
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.7, 0, 33.6, 141, 0, 1, 0, 0) --Misc/Belts
 	SceneObject(sObj):setCustomObjectName("Belts, Bandoliers & Aprons")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_misc")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.7, 2, 33.6, 141, 0, 1, 0, 0, 0) --Alien
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.7, 2, 33.6, 141, 0, 1, 0, 0) --Alien
 	SceneObject(sObj):setCustomObjectName("Alienwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_alien")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 7.7, 0, 33.6, 141, 0, 1, 0, 0, 0) --Wookiee
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 7.7, 0, 33.6, 141, 0, 1, 0, 0) --Wookiee
 	SceneObject(sObj):setCustomObjectName("Wookiee Wear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_wookiee")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 7.7, 2, 33.6, 141, 0, 1, 0, 0, 0)--Ithorian 1
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 7.7, 2, 33.6, 141, 0, 1, 0, 0)--Ithorian 1
 	SceneObject(sObj):setCustomObjectName("Ithorian Wear I")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_ithorian1")
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 9.7, 0, 33.6, 141, 0, 1, 0, 0, 0)--Ithorian 2
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 9.7, 0, 33.6, 141, 0, 1, 0, 0)--Ithorian 2
 	SceneObject(sObj):setCustomObjectName("Ithorian Wear II")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
@@ -183,61 +183,61 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	
 
 --WEAPON BOXES--
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 24.4, 141, 0, 1, 0, 0, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 24.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Melee Common/Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("melee_common_uncommon")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 24.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 24.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Melee Rare")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("melee_rare")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 22.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 22.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Pistols Common/Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("pistol_common_uncommon")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 22.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 22.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Pistols Rare")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("pistol_rare")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 20.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 20.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Carbines Common/Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("carbine_common_uncommon")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 20.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 20.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Carbines Rare")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("carbine_rare")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 18.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 18.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Rifles Common/Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("rifle_common_uncommon")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 18.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 18.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Rifles Rare")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("rifle_rare")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 16.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 16.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Common/Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("other_ranged_common_uncommmon")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 16.4, 141, 0, 1, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 16.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Rare")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
@@ -247,19 +247,19 @@ function RpTestingScreenPlay:spawnSceneObjects()
 
 
 --ARMOR BOXES--
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 12.4, 141, 0, 1, 0, 0, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 12.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Light Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("light_armor")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 12.4, 141, 0, 1, 0, 0, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 12.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Medium Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("medium_armor")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 12.4, 141, 0, 1, 0, 0, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 12.4, 141, 0, 1, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Heavy Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
@@ -338,9 +338,11 @@ function RpTestingScreenPlay:spawnMobiles()
 
 	
 	local pNpc
-	--[[
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1048, 0, 58.6983, 104, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
+	
+	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 20, 0, 20, 141, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Bantha")
+
+	--[[
 	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1006.88, 0, 120.202, 88, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Bantha")
 	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1009.15, 0, 118.872, 0, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
@@ -351,242 +353,6 @@ function RpTestingScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1015.13, 0, 109.634, 127, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1016.19, 0, 109.7, 178, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1019.08, 0, 112.424, 6, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 996.454, 0, 156.619, 158, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Ronto")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 927.062, 0, 176.94, 219, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 827.661, 0, 185.862, 278, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 826.763, 0, 186.541, 124, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 824.342, 0, 193.96, 163, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 784.537, 0, 189.978, 97, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Ronto")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 805.457, 0.0521921, 148.683, 227, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 744.463, 0, 131.521, 215, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 744.391, 0, 123.51, 335, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 612.202, 0, 170.174, 118, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 628.829, 0.3, 141.032, 245, 0, "wed_treadwell", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "wed")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 627.593, 0, 141.133, 127, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 628.028, 0.3, 139.64, 300, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 509.489, 0, 110.317, 141, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Ronto")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 511.334, 0, 110.163, 263, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 502.688, 0.3, 161.276, 131, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 447.169, 0, 161.999, 100, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 418.697, 0, 130.05, 248, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 647.104, 0, 125.541, 162, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 652.651, 0, 122.754, 240, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 676.389, 0, 49.131, 300, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 675.213, 0, 51.7731, 169, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 662.93, 0, 22.3811, 129, 0, "nuna", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Nuna")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 661.526, 0, 20.4032, 225, 0, "nuna", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Nuna")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 663.211, 0, 19.7971, 321, 0, "nuna", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Nuna")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 621.731, 0, -42.8493, 0, 0, "nuna", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Nuna")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 620.874, 0, -43.9168, 294, 0, "nuna", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Nuna")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 586.441, 0.3, -71.7516, 75, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 609.683, 0.3, -104.207, 316, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 609.789, 0.3, -102.846, 268, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 633.818, 0.3, -139.467, 62, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 708.75, 0, -166.679, 216, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Ronto")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 675.021, 0, -156.163, 237, 0, "r5", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r5")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 813.286, 0, -122.393, 66, 0, "dewback", "default", "default", "random") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 820.748, 0, -119.175, 218, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 881.388, 0, -78.9323, 322, 0, "eg6_power_droid", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "eg6")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 881.584, 0, -77.7988, 274, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 880.384, 0, -78.6436, 4, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 880.562, 0, -76.7914, 186, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 901.492, 0, -63.3507, 279, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Ronto")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 829.183, 0, -43.7441, 35, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 815.421, 0, 32.8535, 125, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 837.793, 0, 82.4542, 101, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 838.24, 0, 81.1182, 81, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 759.982, 0, 238.435, 288, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 739.514, 0, 267.415, 181, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 740.048, 0, 266.856, 212, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 740.216, 0, 265.608, 0, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 708.338, 0, 216.865, 269, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 708.917, 0, 217.712, 239, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 707.807, 0, 228.082, 222, 0, "wed_treadwell", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "wed")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 716.827, 0, 208.189, 25, 0, "eg6_power_droid", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "eg6")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 706.866, 0, 208.148, 52, 0, "r5", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r5")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 643.372, 0, 264.919, 336, 0, "le_repair_droid", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "le")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 648.857, 0.3, 195.831, 0, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 648.647, 0.3, 198.091, 128, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Ronto")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 705.521, 0, 320.413, 113, 0, "r4", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r4")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 632.025, 0, 281.805, 0, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 633.893, 0, 282.546, 0, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 625.238, 0, 278.203, 34, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 565.31, 0, 266.194, 52, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 569.579, 0, 264.918, 0, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 561.838, 0, 382.036, 254, 0, "r5", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r5")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 493.453, 0, 319.212, 190, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 489.637, 0, 320.001, 169, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 544.159, 0, 259.951, 222, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 607.371, 0, 259.385, 0, 0, "wed_treadwell", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "wed")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 583.329, 0, 365.666, 317, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 664.016, 0, 243.901, 50, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 689.399, 0, 207.474, 47, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Ronto")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 649.766, 0, 152.591, 44, 0, "3po_protocol_droid_red", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "3po")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 682.719, 0, 181.581, 257, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 682.719, 0, 181.581, 257, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 682.329, 0, 182.406, 196, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 681.456, 0, 181.357, 82, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 604.364, 0, 125.199, 271, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 651.064, 0, -22.5284, 124, 0, "r4", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r4")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 742.859, 0, 105.685, 300, 0, "3po_protocol_droid_silver", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "3po")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 703.607, 0, 115.519, 0, 0, "3po_protocol_droid_red", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "3po")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 687.482, 0, 100.856, 39, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 853.693, 0, 128.676, 134, 0, "r5", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r5")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 838.244, 0, -84.0254, 192, 0, "r2", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r2")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 838.654, 0, -86.347, 332, 0, "le_repair_droid", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "le")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 935.544, 0, -115.692, 238, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1028, 0, -161.267, 287, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1026.95, 0, -161.771, 318, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1030.18, 0, -160.16, 272, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1264.89, 0, 65.9058, 0, 0, "wed_treadwell", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "wed")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1257.25, 0, 365.025, 8, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1165.9, 0, 305.198, 126, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Ronto")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1114.37, 0.3, 255.425, 1, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1115.35, 0.3, 255.706, 296, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1113.49, 0.3, 256.174, 89, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 951.653, 0, 281.706, 260, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 935.664, 0, 309.411, 0, 0, "r2", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r2")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 896.042, 0.3, 317.786, 104, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 896.871, 0.3, 317.767, 209, 0, "3po_protocol_droid_red", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "3po")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 897.543, 0.3, 317.073, 305, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 993.75, 0, 402.952, 0, 0, "wed_treadwell", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "wed")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 964.967, 0, 416.164, 32, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 963.806, 0, 416.162, 60, 0, "r4", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r4")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 964.551, 0, 417.05, 94, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 990.522, 0, 467.993, 336, 0, "3po_protocol_droid_red", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "3po")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 943.218, 0.3, 254.092, 0, 0, "r5", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r5")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 922.842, 0, 305.332, 219, 0, "eg6_power_droid", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "eg6")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 950.81, 0, 138.817, 75, 0, "eg6_power_droid", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "eg6")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1066.87, 0, 53.6383, 219, 0, "le_repair_droid", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "le")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1058.91, 0, 81.2596, 164, 0, "r3", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r3")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1051.22, 0, 104.356, 174, 0, "r5", "default", "default", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "r5")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1068.83, 0, 37.2625, 293, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1067.66, 0, 37.4098, 51, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1034.59, 0, 33.3862, 97, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1054.84, 0, 111.016, 28, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1074.55, 0, 89.9502, 21, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1075.29, 0, 90.7819, 230, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
 	
 	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, -1381.7, 179.5, 1924.2, -165, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
@@ -733,29 +499,7 @@ function RpTestingScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Tiroir Ciouskar (a Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship")
-	
-	--Temporary Silver Dawn NPCs
-	--Temporary in that they need to be official faction NPCs tied to a base. But for now, this should make Lirril, Samari and Ykeer happy.
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 847.32, 0, 177.202, 196, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 816.409, 0.3, 316.096, 239, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 765.047, 2.0752, 270.323, 272, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 724.046, 0, 154.989, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 702.913, 0, 154.147, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1028.9, 0, 110.038, 319, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1036.26, -0.5, 117.469, 307, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1075.65, 0, 256.614, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1236.33, 0, 316.577, 179, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1243.52, 0, 373.891, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
+
 --]]
 
 end
