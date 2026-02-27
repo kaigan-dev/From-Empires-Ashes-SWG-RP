@@ -1,5 +1,3 @@
-local Logger = require("utils.logger")
-
 RpTatooineFortTuskenScreenPlay = CityScreenPlay:new {
 	numberOfActs = 1,
 
@@ -8,7 +6,7 @@ RpTatooineFortTuskenScreenPlay = CityScreenPlay:new {
 	planet = "rp_tatooine",	
 	
 
-	/*
+	--[[
 	walkpointList = {
 		market_shopper1 = {
 			{745.296, 0, 281.54, 180, 0,false, "none"},
@@ -32,7 +30,7 @@ RpTatooineFortTuskenScreenPlay = CityScreenPlay:new {
 			{749.95, 0, 286.123, 206, 0,false, "none"},
 		},
 	}
-	*/
+	--]]
 	
 }
 
@@ -48,9 +46,10 @@ function RpTatooineFortTuskenScreenPlay:start()
 end
 
 
-/*
+
 function RpTatooineFortTuskenScreenPlay:spawnJunkPiles() 
 	local spawnPoints = {
+		--[[
 		{542.818, 0, 210.997, 0, 1, 0, 0, 0},
 		{538.877, -0.25, 223.016, 0, -0.0348994, 0, 0.999391, 0},
 		{524.885, -0.25, 217.145, 0, 1, 0, 0, 0},
@@ -61,14 +60,15 @@ function RpTatooineFortTuskenScreenPlay:spawnJunkPiles()
 		{522.524, 0, 231.014, 0, 1, 0, 0, 0},
 		{550.866, -0.25, 228.395, 0, -0.743145, 0, 0.669131, 0},
 		{561.204, 0, 222.933, 0, -0.743145, 0, 0.669131, 0},
+		--]]
 	}
 	RpJunkPile:spawnJunkPiles(self.planet, spawnPoints, true)
 end
-*/
+
 
 function RpTatooineFortTuskenScreenPlay:spawnCivilians() 
 	local waypointList = {
-		/*
+		--[[
 		--{741.764, 0, 291.229, 178, 0,{"walker_market_shopper1"},"r5"},
 		{786.172, 0, 191.22, 228, 0,{"none"}},
 		{929.494, 0.25, 148.493, 354, 0,{"sit"}},
@@ -371,7 +371,7 @@ function RpTatooineFortTuskenScreenPlay:spawnCivilians()
 		{536.519, -0.25, 238.006, 349, 0,{"social"}},
 		{567.283, 0, 193.427, 285, 0,{"sit"}},
 		{-15.3, 0.9, 0.3, -86, 610008176,{"tech"}},
-		*/
+		--]]
 	}
 	
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
@@ -381,16 +381,16 @@ end
 
 function RpTatooineFortTuskenScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
-	/*
+	--[[
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -13.0021, 0.639421, 51.1865, 610008050, 1, 0, 0.332372, 0)
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -2.7419, 0.639421, 48.1677, 610008050, 1, 0, 0, 0)
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 2.54505, 0.639421, 48.1693, 610008050, 1, 0, 0, 0)
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 12.6536, 0.639421, 51.1838, 610008050, 0.909306, 0, -0.416129, 0)
-	*/
+	--]]
 
 	
 	--Signs
-	/*
+	--[[
 	local sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.iff", 947.255, 0, 139.882, 0, 0.97237, 0, 0.233445, 0) --Tailor Sign
 	SceneObject(sObj):setCustomObjectName("Eisley Tailoring")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s01.iff", 590.485, 0, 263.569, 0, 1, 0, 0, 0) --Junkshop
@@ -415,7 +415,7 @@ function RpTatooineFortTuskenScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setCustomObjectName("Public Transportation Dock")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/swsovrp/prop2/thm_sign_welcome_hanging.iff", 676.699, 3, 345.089, 0, 0, 0, 1, 0) --Hugo's Shop Sign
 	SceneObject(sObj):setCustomObjectName("Rune Central")
-	*/
+	--]]
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/swsovrp/prop2/thm_sign_welcome_hanging.iff", -1437.4, 190, 1942.8, 125, 0, 0, 1, 0) --Beware of Dog
 	SceneObject(sObj):setCustomObjectName("Beware of Dog")
 
@@ -425,7 +425,7 @@ function RpTatooineFortTuskenScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
-	/*
+	--[[
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.04968, 0.403271, -11.2072, 610008132, 0.999983, 0, -0.00579456, 0) --Pants
 	SceneObject(sObj):setCustomObjectName("Pants")
 	SceneObject(sObj):setPublicContainer(true)
@@ -571,7 +571,7 @@ function RpTatooineFortTuskenScreenPlay:spawnSceneObjects()
 	
 	--Jukebox--
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_jukebox.iff", 27.0829, -0.894995, 8.68511, 610008176, -0.707107, 0, 0.707107, 0)
-*/
+--]]
 end
 
 function RpTatooineFortTuskenScreenPlay:spawnMobiles()
@@ -580,7 +580,7 @@ function RpTatooineFortTuskenScreenPlay:spawnMobiles()
 
 	
 	local pNpc
-	/*
+	--[[
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1048, 0, 58.6983, 104, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Bantha")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1006.88, 0, 120.202, 88, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
@@ -829,7 +829,7 @@ function RpTatooineFortTuskenScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	*/
+	--]]
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1381.7, 179.5, 1924.2, -165, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1382.5, 179.7, 1922.0, -7, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
@@ -843,7 +843,7 @@ function RpTatooineFortTuskenScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
 
-	/*
+	--[[
 	--Ranged Vendor Light
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 750.769, 0, 275.276, 222, 0, "rp_zabrak_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Gjolan (a Ranged Weapon Vendor)")
@@ -994,6 +994,6 @@ function RpTatooineFortTuskenScreenPlay:spawnMobiles()
 	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
 	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1243.52, 0, 373.891, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
 	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-*/
+--]]
 
 end
