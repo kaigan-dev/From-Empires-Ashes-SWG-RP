@@ -225,50 +225,50 @@ function RpTestingScreenPlay:spawnSceneObjects()
 
 
 --ARMOR BOXES--
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 12.4, 0, 0, 0, -94, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 12.4, 0, 0, 0, 0, -94)
 	SceneObject(sObj):setCustomObjectName("Light Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_light")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 10.4, 0, 0, 0, -94, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 10.4,0, 0, 0, 0, -94)
 	SceneObject(sObj):setCustomObjectName("Light Rebel Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_light_rebel")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 8.4, 0, 0, 0, -94, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 8.4,0, 0, 0, 0, -94)
 	SceneObject(sObj):setCustomObjectName("Light Imperial Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_light_imperial")
 
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 12.4, 0, 0, 0, -94, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 12.4,0, 0, 0, 0, -94)
 	SceneObject(sObj):setCustomObjectName("Medium Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_medium")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 10.4, 0, 0, 0, -94, 0)
-	SceneObject(sObj):setCustomObjectName("Medium Armor")
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 10.4,0, 0, 0, 0, -94)
+	SceneObject(sObj):setCustomObjectName("Medium Rebel and Alien Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_medium_rebel_alien")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 8.4, 0, 0, 0, -94, 0)
-	SceneObject(sObj):setCustomObjectName("Medium Armor")
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 8.4,0, 0, 0, 0, -45)
+	SceneObject(sObj):setCustomObjectName("Medium Imperial Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_medium_imperial")
 
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 12.4, 0, 0, 0, -94, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 12.4,0, 0, 0, 0, -45)
 	SceneObject(sObj):setCustomObjectName("Heavy Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_heavy")
 
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 10.4, 0, 0, 0, -94, 0)
-	SceneObject(sObj):setCustomObjectName("Heavy Armor")
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 10.4,0, 0, 0, 0, -45)
+	SceneObject(sObj):setCustomObjectName("Heavy Rebel Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_heavy_rebel")
@@ -347,9 +347,7 @@ function RpTestingScreenPlay:spawnMobiles()
 	
 	local pNpc
 	
-	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 20, 0, 20, 141, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("a Bantha")
-
+	
 	--[[
 	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 1006.88, 0, 120.202, 88, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Bantha")
