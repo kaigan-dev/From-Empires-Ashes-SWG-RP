@@ -94,22 +94,22 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setCustomObjectName("Beware of Dog")
 --]]
 	--TAILOR--
-	Obj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.7, 0, 33.6, 141, 0, 1, 0, 0) --Shirts
+	local Obj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.7, 0, 33.6, 141, 0, 1, 0, 0) --Shirts
 	SceneObject(sObj):setCustomObjectName("Shirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
-	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.7, 2, 33.6, 141, 0, 1, 0, 0) --Pants
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.7, 2, 33.6, 141, 0, 1, 0, 0) --Pants
 	SceneObject(sObj):setCustomObjectName("Pants")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_pants")
-	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -5.7, 0, 33.6, 141, 0, 1, 0, 0) --Footwear
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -5.7, 0, 33.6, 141, 0, 1, 0, 0) --Footwear
 	SceneObject(sObj):setCustomObjectName("Footwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_footwear")
-	sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -5.7, 2, 33.6, 141, 0, 1, 0, 0) --Jacket
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -5.7, 2, 33.6, 141, 0, 1, 0, 0) --Jacket
 	SceneObject(sObj):setCustomObjectName("Jacket")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
@@ -184,7 +184,7 @@ function RpTestingScreenPlay:spawnSceneObjects()
 
 --WEAPON BOXES--
 	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 24.4, 141, 0, 1, 0, 0)
-	SceneObject(sObj):setCustomObjectName("Melee Common/Uncommon")
+	SceneObject(sObj):setCustomObjectName("Melee Common and Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("melee_common_uncommon")
@@ -196,7 +196,7 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):populateInventoryFromContentList("melee_rare")
 
 		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 22.4, 141, 0, 1, 0, 0)
-	SceneObject(sObj):setCustomObjectName("Pistols Common/Uncommon")
+	SceneObject(sObj):setCustomObjectName("Pistols Common and Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("pistol_common_uncommon")
@@ -207,8 +207,8 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("pistol_rare")
 
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 20.4, 141, 0, 1, 0, 0)
-	SceneObject(sObj):setCustomObjectName("Carbines Common/Uncommon")
+		sObj = spawnSceneObject("rp_space", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 20.4, 141, 0, 1, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Carbines Common and Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("carbine_common_uncommon")
@@ -220,7 +220,7 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):populateInventoryFromContentList("carbine_rare")
 
 		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 18.4, 141, 0, 1, 0, 0)
-	SceneObject(sObj):setCustomObjectName("Rifles Common/Uncommon")
+	SceneObject(sObj):setCustomObjectName("Rifles Common and Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("rifle_common_uncommon")
@@ -232,7 +232,7 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):populateInventoryFromContentList("rifle_rare")
 
 		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 16.4, 141, 0, 1, 0, 0)
-	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Common/Uncommon")
+	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Common and Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("other_ranged_common_uncommmon")
