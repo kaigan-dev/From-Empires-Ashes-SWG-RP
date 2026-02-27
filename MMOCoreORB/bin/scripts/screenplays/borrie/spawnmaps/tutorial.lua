@@ -16,13 +16,14 @@ function TutorialScreenPlay:start()
 		self:spawnMobiles()
 		self:spawnSceneObjects()
 		self:spawnCivilians()
-		--self:spawnJunkPiles()
+		self:spawnJunkPiles()
 	end
 end
 
 
 function TutorialScreenPlay:spawnJunkPiles() 
 	local spawnPoints = {
+		--[[
 		{2.73541, -31.6821, -6.07325, 808260, -0.819152, 0, 0.573576, 0},
 		{0.365212, -31.6821, -6.436, 808260, 1, 0, 0, 0},
 		{-10.1142, -30, 20.7242, 808260, 1, 0, 0, 0},
@@ -32,14 +33,16 @@ function TutorialScreenPlay:spawnJunkPiles()
 		{-21.084, -30, 10.5064, 808260, 1, 0, 0, 0},
 		{7.91104, -30, 20.7406, 808260, 1, 0, 0, 0},
 		{20.7994, -30, -7.6261, 808260, 1, 0, 0, 0},
+		--]]
 	}
 	RpJunkPile:spawnJunkPiles(self.planet, spawnPoints, true)
 end
 
 
---[[
+
 function TutorialScreenPlay:spawnCivilians() 
 	local waypointList = {
+		--[[
 		{4.72347, -0.5, -5.64394, 317, 808246,{"drinker"}},
 		{5.16871, -0.5, -4.7897, 292, 808246,{"drinker"}},
 		{-2.34479, -0.5, -6.59509, 16, 808246,{"drinker"}},
@@ -130,102 +133,104 @@ function TutorialScreenPlay:spawnCivilians()
 		{-13.0452, -29.2, -31.5625, 230, 808262,{"tech"}},
 		{-14.1627, -29.2, -30.272, 149, 808262,{"social"}},
 		{-3.42804, -30.9925, -29.9479, 184, 808262,{"sit"}},
+		--]]
 	}
 
 	CivillianGenerator:spawnCivillians(self.screenplayName, "tutorial", waypointList, self.walkpointList, "generic", "spacer")
 end
---]]
+
 
 function TutorialScreenPlay:spawnSceneObjects() 
+	
 	--Travel Terminals
-	spawnSceneObject("tutorial", "object/tangible/terminal/terminal_travel_rp.iff", 37.7034, 0.8, 18.2259, 808251, 0.891006, 0, 0.453991, 0)
+	--spawnSceneObject("tutorial", "object/tangible/terminal/terminal_travel_rp.iff", 37.7034, 0.8, 18.2259, 808251, 0.891006, 0, 0.453991, 0)
 	
 	--Signs
 	local sObj
 	
 	--TAILOR--
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, -4, 3589, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -4.2, 168.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Shirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, -2, 3589, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -2.2, 168.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Pants")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_pants")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, 0, 3589, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -0.2, 168.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Footwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_footwear")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, -4, 3591, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -4.2, 165.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Jacket")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_jackets")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, -2, 3591, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -2.2, 165.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Vest")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_vests")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, 0, 3591, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -0.2, 165.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Robes")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_robes")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, -4, 3593, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -4.2, 162.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Bodysuits")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_bodysuits")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, -2, 3593, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -2.2, 162.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Skirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_skirts")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, 0, 3593, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -0.2, 162.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Women's Wear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_women")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, -4, 3595, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -4.2, 159.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Headwear & Goggles")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_headwear")
 	SceneObject(sObj):populateInventoryFromContentList("tailor_goggles")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1869, -2, 3595, 808274, 1, 0, 0, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_armoire_s01.iff", 13.8, -2.2, 159.3, 80, 281474993981515, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Handwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_handwear")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 1869, 0, 3595, 808274, 0, 0, 1, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 13.8, -0.2, 159.3, 80, 281474993981515, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Jewelry")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_jewelry")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 1869, -4, 3597, 808274, 0, 0, 1, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 13.8, -4.2, 156.3, 80, 281474993981515, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Belts, Bandoliers & Aprons")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_misc")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 1869, -2, 3597, 808274, 0, 0, 1, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 13.8, -2.2, 156.3, 80, 281474993981515, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Alienwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_alien")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 1869, 0, 3597, 808274, 0, 0, 1, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 13.8, -0.2, 156.3, 80, 281474993981515, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Wookiee Wear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_wookiee")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 1869, -4, 3599, 808274, 0, 0, 1, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 13.8, -4.2, 153.3, 80, 281474993981515, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Ithorian Wear I")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_ithorian1")
-	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 1869, -2, 3599, 808274, 0, 0, 1, 0)
+	sObj = spawnSceneObject("tutorial", "object/tangible/furniture/plain/plain_chest_s01.iff", 13.8, -2.2, 153.3, 80, 281474993981515, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Ithorian Wear II")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
