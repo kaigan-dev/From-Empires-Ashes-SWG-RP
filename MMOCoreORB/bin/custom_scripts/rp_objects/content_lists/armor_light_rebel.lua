@@ -1,0 +1,33 @@
+content = {
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_bicep_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_bicep_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_bracer_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_boots.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_chest_plate.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_leggings.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_gloves.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_helmet.iff", },
+
+
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bicep_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bicep_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bracer_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_boots.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_chest_plate.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_leggings.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_gloves.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_helmet.iff", },
+
+
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bicep_l_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bicep_r_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bracer_l_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bracer_r_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_boots_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_chest_plate_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_leggings_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_gloves_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_helmet_gcw.iff", },
+}
