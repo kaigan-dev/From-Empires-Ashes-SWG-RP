@@ -533,7 +533,7 @@ public:
 
 		infoText << "\\#FF7000[FREE POINTS]\\#." << endl;
 		infoText << "Attributes: " << target->getStoredInt("starter_attr_points") << endl;
-		infoText << "Skills: " << target->getStoredInt("starter_skill_points")  << endl;
+		//infoText << "Skills: " << target->getStoredInt("starter_skill_points")  << endl;
 
 		SkillManager* skillManager = target->getZoneServer()->getSkillManager();
 
