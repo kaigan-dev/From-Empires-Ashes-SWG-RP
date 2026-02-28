@@ -600,6 +600,8 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	//Apply free points for roleplay.
 	playerCreature->setStoredInt("starter_attr_points", 30);
 	playerCreature->setStoredInt("starter_skill_points", 15);
+	playercreature->awardExperience(playerCreature, "rp_general", 39000);
+	
 
 	return true;
 }
