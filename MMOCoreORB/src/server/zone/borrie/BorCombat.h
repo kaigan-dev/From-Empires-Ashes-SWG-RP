@@ -144,7 +144,7 @@ public:
         //Apply Followup as per the reaction.
         String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC) + "\\#FFFFFF";
 
-        String combatSpam = attacker->getFirstName() + " "+attackVerb+ " and hit their " GetSlotDisplayName(bodyPartTarget) + "!";
+        String combatSpam = attacker->getFirstName() + " "+attackVerb+ " and hit their " + GetSlotDisplayName(bodyPartTarget) + "!";
         
         if(ignoreLOS) {
             BorrieRPG::BroadcastMessage(attacker, combatSpam + " " + toHitString +  reactionResult + " (Line of Sight Ignored)");
@@ -274,7 +274,7 @@ public:
         String combatSpam = attacker->getFirstName() + " flurry attacked " +  defender->getFirstName();
         
         if(hitCount == 1) {
-            combatSpam += " and hit once, striking their " GetSlotDisplayName(bodyPartTarget) + "!";
+            combatSpam += " and hit once, striking their " + GetSlotDisplayName(bodyPartTarget) + "!";
         } else {
             combatSpam += " and hit " + String::valueOf(hitCount) + " times!";
         }
@@ -302,10 +302,12 @@ public:
     }
 
     static String GenerateDamageOutputSpam(int damage,  int finalDamage, int armorProtection) {
-        if(armorProtection > 0)
-            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " String::valueOf(finalDamage) + " damage!";
-        else 
+        if(armorProtection > 0) {
+            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+        }    
+        else { 
             return String::valueOf(finalDamage) + " damage!";
+        }
     }
 
     static String GenerateFlurryOutputSpam(int roll1, int roll2, int roll3, int skillMod, int diceCheck) {
