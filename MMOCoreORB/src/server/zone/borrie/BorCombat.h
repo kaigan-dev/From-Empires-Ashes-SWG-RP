@@ -274,7 +274,7 @@ public:
         String combatSpam = attacker->getFirstName() + " flurry attacked " +  defender->getFirstName();
         
         if(hitCount == 1) {
-            combatSpam += " and hit once, striking their " + GetSlotDisplayName(bodyPartTarget) + "!";
+            combatSpam += " and hit once!";
         } else {
             combatSpam += " and hit " + String::valueOf(hitCount) + " times!";
         }
@@ -323,7 +323,7 @@ public:
         WeaponObject* attackerWeapon = attacker->getWeapon();
         WeaponObject* defenderWeapon = defender->getWeapon();
         int defenderReactionType = defender->getStoredInt("reaction_stance");
-        //int defenderAction = defender->getHAM(3);
+        //int defenderAction = defender->`AM(3);
 
         String reactionSpam = "";
         String damageModString = powerAttacked ? " X 2" : "";
