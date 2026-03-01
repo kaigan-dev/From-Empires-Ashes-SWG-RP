@@ -814,7 +814,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	-- Tutorial NPCs--
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6.3, -4, 1.3, 178, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_tutorial")
 	SceneObject(pNpc):setCustomObjectName("Stranger (a Greeter)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "rpg_tutorial")
+	--SceneObject(pNpc):setStoredString("vendor:theme", "rpg_tutorial")
 		
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.7, -4, 0.3, 79, 610008137, "rp_human_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("A Melee Weapons Vendor")

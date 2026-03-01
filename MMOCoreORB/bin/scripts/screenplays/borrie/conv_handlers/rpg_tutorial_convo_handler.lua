@@ -36,104 +36,12 @@ function rpg_tutorial_convo_handler:getNextConversationScreen(conversationTempla
 		local optionData = luaLastConversationScreen:getOptionData(selectedOption)
         if(string.find(optionData, "$vnd")) then
 			local results = HelperFuncs:splitString(optionData, ":")
-			--[[ Unneeded after removing vendor theme
-			if(results[2] == "item") then
-				--CreatureObject(conversingPlayer):sendSystemMessage(results[3])
-				
-				local pGhost = CreatureObject(conversingPlayer):getPlayerObject()
-
-				if (pGhost ~= nil) then
-					PlayerObject(pGhost):closeSuiWindowType( NEWSNET_INFO )
-				end
-				local suiManager = LuaSuiManager()
-				--local itemName = getItemTemplateName(results[4])
-				local itemDescription = getItemTemplateInformation(results[4])
-
-                SceneObject(conversingPlayer):setStoredInt("vendor:itemCost", results[3])
-                SceneObject(conversingPlayer):setStoredString("vendor:itemTemplate", results[4])
-				SceneObject(conversingPlayer):setStoredString("vendor:itemIsMount", results[5])
-				SceneObject(conversingPlayer):setStoredString("vendor:transmog", results[6])
-				SceneObject(conversingPlayer):setStoredString("vendor:name", results[7])
-				SceneObject(conversingPlayer):setStoredString("vendor:content", results[8])
-				
-				suiManager:sendMessageBox(conversingPlayer, conversingPlayer, "Merchandise Info", itemDescription, "@confirm", "rpg_tutorial_convo_handler", "notifyPurchaseItem", NEWSNET_INFO)
-				
-			elseif(results[2] == "category") then
-                SceneObject(conversingPlayer):setStoredInt("vendor:category", results[3])
-            end
-			--]]
         end
 	end
 
     return nextConversationScreen
 end
 
-
---[[Not purchasing anything
-function rpg_tutorial_convo_handler:notifyPurchaseItem(pPlayer, pSui, eventIndex, arg0) 
-    local cancelPressed = (eventIndex == 1)
-
-	if (pPlayer == nil or pSui == nil or cancelPressed) then
-		return
-	end
-
-    local pGhost = CreatureObject(pPlayer):getPlayerObject()
-
-	if (pGhost == nil) then
-		return
-	end
-
-	local pInventory = SceneObject(pPlayer):getSlottedObject("inventory")
-
-	if (pInventory == nil) then
-		return
-	end
-
-    local template =  SceneObject(pPlayer):getStoredString("vendor:itemTemplate")
-    local cost =  SceneObject(pPlayer):getStoredInt("vendor:itemCost")
-	local isMount = SceneObject(pPlayer):getStoredString("vendor:itemIsMount")
-	local transmog = SceneObject(pPlayer):getStoredString("vendor:transmog")
-    local itemName = getItemTemplateName(template)
-	local customName = SceneObject(pPlayer):getStoredString("vendor:name")
-	local content = SceneObject(pPlayer):getStoredString("vendor:content")
-
-    if (CreatureObject(pPlayer):getCashCredits() < cost) then
-		CreatureObject(pPlayer):sendSystemMessage("You do not have enough credits to buy that.")
-		return
-    elseif (SceneObject(pInventory):isContainerFullRecursive()) then
-        CreatureObject(pPlayer):sendSystemMessage("You cannot buy this. Your inventory is full.")
-        return
-    end
-	
-	local pItem
-	
-	if(content == "none") then
-		pItem = giveItem(pInventory, template, -1)		
-	else 
-		pItem = createLootBox(pPlayer, "object/tangible/item/roleplay/loot_box_s01.iff", content, true)
-	end
-	
-	if(pItem == nil) then
-		CreatureObject(pPlayer):sendSystemMessage("There was an unknown error trying to sell you this time. You should not have been charged for the purchase.")
-		return
-	else 
-		CreatureObject(pPlayer):subtractCashCredits(cost)
-		CreatureObject(pPlayer):sendSystemMessageWithTOAndDI("@rp_vendor:purchase_message", itemName, cost);
-	end	
-
-	if(isMount == "mount") then
-		SceneObject(pItem):setStoredInt("mount", 1)
-	end
-			
-	if(transmog ~= "none") then
-		SceneObject(pItem):setStoredString("transmog_tag", transmog)
-	end
-		
-	if(customName ~= "[][]") then
-		SceneObject(pItem):setCustomObjectName(customName)
-	end
-end
---]]
 
 function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
     -- Plays the screens of the conversation.
