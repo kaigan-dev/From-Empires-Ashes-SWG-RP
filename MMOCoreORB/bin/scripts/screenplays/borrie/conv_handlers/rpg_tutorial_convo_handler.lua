@@ -1,6 +1,3 @@
-
-
-
 rpg_tutorial_convo_handler = Object:new {}
 
 
@@ -14,7 +11,7 @@ end
 function rpg_tutorial_convo_handler:getNextConversationScreen(conversationTemplate, conversingPlayer, selectedOption)
 	local creature = LuaCreatureObject(conversingPlayer)
 	local convosession = creature:getConversationSession()
-	lastConversation = nill
+	local lastConversationScreen = nill
 	local conversation = LuaConversationTemplate(conversationTempate)
 
 
