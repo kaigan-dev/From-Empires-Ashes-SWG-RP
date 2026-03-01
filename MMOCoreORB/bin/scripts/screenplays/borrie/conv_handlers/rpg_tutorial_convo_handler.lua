@@ -149,36 +149,7 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
     local vendorList = RPGVendorShopLists:getShopList(vendorListID) --rpgVendorShopListDirectory[vendorListID]
 	
 		
-	if(vendorList.factionRestrictions ~= nil) then
-		for _, value in ipairs(vendorList.factionRestrictions) do
-			if(SceneObject(conversingPlayer):getStoredString("faction_current") == value) then
-				isAbleToView = true
-			end
-		end
-	else 
-		isAbleToView = true
-	end
-	
-	if(vendorList.password ~= nil) then
-		--Check to see if we have set a password check for this vendor before
-		local knownPassword = SceneObject(conversingPlayer):getStoredString("vendorPass:" .. vendorListID)
-		if(knownPassword ~= vendorList.password) then
-			--Prompt with SUI
-			local sui = SuiInputBox.new("rpg_tutorial_convo_handler", "passwordCallback")
-			sui.setTargetNetworkId(SceneObject(conversingNPC):getObjectID())
-			local suiBody = "This Vendor requires a password to access. Talk to the vendor again after inputting the password."
-			sui.setTitle("Vendor Password Required")
-			sui.setPrompt(suiBody)
 
-			sui.sendTo(conversingPlayer)
-			return
-		end
-	end
-	
-	if(isAbleToView == false) then
-		spatialChat(conversingNPC, "I'm sorry, I don't have anything to sell to you.")
-		return
-	end
 
     --Setting the initial greeting based on theme.
     if(screenID == "greeting") then
@@ -194,9 +165,7 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
     end
 
     --Displaying the items.
-	
-	local playerHasSaberTraining = SceneObject(conversingPlayer):getStoredInt("knowsLightsaberConstruction") == 1
-	
+--[[maybe just dump the extra logic?
     if(screenID == "browse") then
         --We want to get all the categories available
         clonedConversation:removeAllOptions()
@@ -252,59 +221,18 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
         end
         clonedConversation:addOption("I'd rather look at something else.", "browse")		
     end
-
+--]]
 
     return pConvScreen
 end
 
 
-function rpg_tutorial_convo_handler:passwordCallback(pPlayer, pSui, eventIndex, pass) 
-	local cancelPressed = (eventIndex == 1)
-
-	if (cancelPressed) then
-		return
-	end
-	
-	local pPageData = LuaSuiBoxPage(pSui):getSuiPageData()
-
-	if (pPageData == nil) then
-		return
-	end
-	
-	local suiPageData = LuaSuiPageData(pPageData)
-	
-	local vendorNPCID = suiPageData:getTargetNetworkId()
-
-	local vendorObj = getSceneObject(vendorNPCID)
-	
-	if (vendorObj == nil) then
-		return
-	end
-	
-	local shopID = SceneObject(vendorObj):getStoredString("vendor:shopList")
-	
-	if(pPlayer == nil) then
-		return
-	end
-	
-	SceneObject(pPlayer):setStoredString("vendorPass:" .. shopID, pass)	
-end
 
 
 
 
 
 
-
---rpg_tutorial_convo_handler = Object:new {}
-
-
---[[  Junk attempt
-function rpg_tutorial_convo_handler:getInitialScreen(pPlayer, pNpc, pConvTemplate)
-	local convoTemplate = LuaConversationTemplate(pConvTemplate)
-	return convoTemplate:getScreen("greeting")
-end
---]]
 
 
 
@@ -386,83 +314,6 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
 	return pConvScreen
 end
 --]]
-
-
-
-
-
-
---[[   Junk  Attempt
-	local rpg_tutorial_convo_handler = ConvoScreen:new {
-		id="greeting",
-		customDialogText = "Welcome to FEA. There are a few steps you'll want to take in order to create a character.",
-		stopConversation="false",
-		options = {
-			{"What should I do first?", "firstthing"},
-			{"And after that?", "secondthing"},
-			{"What else needs to be done to finish up?", "thirdthing"},
-		}
-	}
-	rpg_tutorial_convo_handler:addScreen(greeting);
-
-	local firstthing = ConvoScreen:new {
-		id="firstthing",
-		CustomDialogText = "The first thing to do is allocate your attributes. These serve as soft maximums for your skills, in addition to providing direct benefits such as increasing your health. If the window for training isn't already open, enter /train.",
-		stopConversation="false",
-		options = {
-			{"And after that?", "secondthing"},
-			{"I don't need to hear any more.", " abort"},
-		}
-	}
-	rpg_tutorial_convo_handler:addScreen(firstthing);
-
-
-	local secondthing = ConvoScreen:new {
-		id="secondthing",
-		CustomDialogText = "Next you should allocate skills. This is also done from the /train menu. I would not recommend raising any skills above their parent attribute right now, as it will cost significantly more experience.",
-		stopConversation="false",
-		options = {
-			{"I'm feeling a bit underprepared still.", "thirdthing"},
-			{"I don't need to hear any more.", " abort"},
-		}
-	}
-	rpg_tutorial_convo_handler:addScreen(secondthing);
-
-
-
-	local thirdthing = ConvoScreen:new {
-		id="thirdthing",
-		CustomDialogText = "When you leave this room, step across the hall to speak to the vendors there. Many of their offers will be too expensive for your starting budget. Marauder armor is quite affordable if you want it, and some cheap weapons and stims are also available. Additionally, clothes are freely available upstairs.",
-		stopConversation="false",
-		options = {
-			{"What else needs to be done in order to be prepared?", "fourththing"},
-			{"I don't need to hear any more.", " abort"},
-		}
-	}
-	rpg_tutorial_convo_handler:addScreen(thirdthing);
-
-
-	local thirdthing = ConvoScreen:new {
-		id="fourththing",
-		CustomDialogText = "Finally, take a moment to rest and recover before stepping out into the world. Use the /rest command to do fill your health, action, and will pools.",
-		stopConversation="false",
-		options = {
-			{"Can you explain some of that again?", "greeting"},
-			{"Thanks! I'll get started right away.", " abort"},
-		}
-	}
-	rpg_tutorial_convo_handler:addScreen(thirdthing);
-
-
-	local  abort = ConvoScreen:new {
-		id = " abort",
-		customDialogText = "Farewell, traveller",
-		stopConversation = "true",
-		options = {}
-	}
-	rpg_tutorial_convo_handler:addScreen( abort);
---]]
-
 
 
 

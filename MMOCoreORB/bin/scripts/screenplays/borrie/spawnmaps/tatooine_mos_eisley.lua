@@ -835,7 +835,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
 
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.7, -4, 6.3, 79, 610008137, "rp_human_male", "dressed_armorsmith_trainer_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.7, -4, 6.3, 79, 610008137, "rp_human_male", "xovros_vendor_camping", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("An Armorsmith Vendor")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
