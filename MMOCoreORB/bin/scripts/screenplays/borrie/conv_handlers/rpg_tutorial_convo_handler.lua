@@ -143,8 +143,8 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
 	
 	
     --Customized Data
-    local vendorThemeID = SceneObject(conversingNPC):getStoredString("vendor:theme") --"general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorTheme")
-    local vendorTheme = RPGVendorThemes:getTheme(vendorThemeID)
+    --local vendorThemeID = SceneObject(conversingNPC):getStoredString("vendor:theme") --"general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorTheme")
+    --local vendorTheme = RPGVendorThemes:getTheme(vendorThemeID)
     --local vendorListID = SceneObject(conversingNPC):getStoredString("vendor:shopList") --"shop_general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorList")
     --local vendorList = RPGVendorShopLists:getShopList(vendorListID) --rpgVendorShopListDirectory[vendorListID]
 	
@@ -153,17 +153,17 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
 
     --Setting the initial greeting based on theme.
     if(screenID == "greeting") then
-        clonedConversation:setCustomDialogText(vendorTheme.dialog.greeting)
+        clonedConversation:setCustomDialogText("Welcome to FEA! There are a few steps you'll want to take in order to create a character.")
     elseif(screenID == "abort") then
-        clonedConversation:setCustomDialogText(vendorTheme.dialog.abort)
+        clonedConversation:setCustomDialogText("Farewell, traveller.")
 	elseif(screenID == "firstthing") then
-        clonedConversation:setCustomDialogText(vendorTheme.dialog.firstthing)
+        clonedConversation:setCustomDialogText("The first thing to do is allocate your attributes. These serve as soft maximums for your skills, in addition to providing direct benefits such as increasing your health. If the window for training isn't already open, enter /train.")
     elseif(screenID == "secondthing") then
-        clonedConversation:setCustomDialogText(vendorTheme.dialog.secondthing)
+        clonedConversation:setCustomDialogText("Next you should allocate skills. This is also done from the /train menu. I would not recommend raising any skills above their parent attribute right now, as it will cost significantly more experience.")
     elseif(screenID == "thirdthing") then
-        clonedConversation:setCustomDialogText(vendorTheme.dialog.thirdthing)
+        clonedConversation:setCustomDialogText("When you leave this room, step across the hall to speak to the vendors there. Many of their offers will be too expensive for your starting budget. Marauder armor is quite affordable if you want it, and some cheap weapons and stims are also available. Additionally, clothes are freely available upstairs.")
 	elseif(screenID == "fourththing") then
-        clonedConversation:setCustomDialogText(vendorTheme.dialog.fourththing)
+        clonedConversation:setCustomDialogText("Finally, take a moment to rest and recover before stepping out into the world. Use the /rest command to do fill your health, action, and will pools.")
 	end
 
 
