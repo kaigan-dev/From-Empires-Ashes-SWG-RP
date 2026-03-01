@@ -51,6 +51,8 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
     local clonedConversation = LuaConversationScreen(pConvScreen)
 	clonedConversation:removeAllOptions()
 
+
+	--[[   AEI Attempt
 if(ScreenID == "greeting") then
 		clonedConversation:setCustomDialogText("Welcome to FEA. There are a few steps you'll want to take in order to create a character.")
 		clonedConversation:addOption("What should I do first? (Attributes)", "firstthing")
@@ -74,13 +76,96 @@ if(ScreenID == "greeting") then
 			clonedConversation:setCustomDialogText("Finally, take a moment to rest and recover before stepping out into the world. Use the /rest command to do fill your health, action, and will pools.")
 			clonedConversation:addOption("Thanks! I'll get started right away.", " abort")
 		end
+--]]
+
+
+	local vendorThemeID = SceneObject(conversingNPC):getStoredString("vendor:theme") --"general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorTheme")
+    local vendorTheme = RPGVendorThemes:getTheme(vendorThemeID)
+
+
+    if(screenID == "greeting") then
+        clonedConversation:setCustomDialogText(vendorTheme.dialog.greeting)
+    elseif(screenID == "abort") then
+        clonedConversation:setCustomDialogText(vendorTheme.dialog.abort)
+    elseif(screenID == "browse") then
+        clonedConversation:setCustomDialogText(vendorTheme.dialog.browse)
+    elseif(screenID == "items") then
+        clonedConversation:setCustomDialogText(vendorTheme.dialog.items)
+    elseif(screenID == "shop") then
+        clonedConversation:setCustomDialogText(vendorTheme.dialog.startShopping)
+    end
+
+
+	if(screenID == "browse") then
+        --We want to get all the categories available
+        clonedConversation:removeAllOptions()
+
+		--[[
+        for i = 1, #vendorList.manifest, 1 do
+			if(vendorList.manifest[i].requiesSaberTraining == true) then
+				if(playerHasSaberTraining == true) then
+					clonedConversation:addOptionWithData("$vnd:category:" .. i, vendorList.manifest[i].name, "items")
+				end
+			else 
+				clonedConversation:addOptionWithData("$vnd:category:" .. i, vendorList.manifest[i].name, "items")
+			end
+        end
+        clonedConversation:addOption("Nevermind.", "abort")
+    elseif(screenID == "items") then
+        clonedConversation:setCustomDialogText(vendorTheme.dialog.items)
+        clonedConversation:removeAllOptions()
+        
+		local selectedCategory = SceneObject(conversingPlayer):getStoredInt("vendor:category")
+        for i = 1, #vendorList.manifest[selectedCategory].items, 1 do
+            local templateName = vendorList.manifest[selectedCategory].items[i].template
+            local objectName = getItemTemplateName(templateName)
+            local price = getObjectPrice(templateName)
+			local transmog = "none"
+			
+			if(vendorList.manifest[selectedCategory].items[i].overridePrice == true) then
+				price = vendorList.manifest[selectedCategory].items[i].cost
+			end
+			
+			if(vendorList.manifest[selectedCategory].items[i].transmog ~= nil) then
+				transmog = vendorList.manifest[selectedCategory].items[i].transmog
+			end
+			
+			local isMount = "nomount"
+			if(vendorList.manifest[selectedCategory].items[i].isMount == true) then
+				isMount = "mount"
+			end
+			
+			local content = "none"
+			if(vendorList.manifest[selectedCategory].items[i].content ~= nil) then
+				content = vendorList.manifest[selectedCategory].items[i].content
+			end
+			
+			local trueName = objectName
+			local customTrueName = "[][]"
+			
+			if(objectName ~= "[Invalid Template]") then
+				if(vendorList.manifest[selectedCategory].items[i].customName ~= nil and vendorList.manifest[selectedCategory].items[i].customName ~= "") then
+					trueName = vendorList.manifest[selectedCategory].items[i].customName
+					customTrueName = trueName
+				end
+			end
+		end	
+			clonedConversation:addOptionWithData("$vnd:item:" .. price .. ":" .. templateName .. ":" .. isMount .. ":" .. transmog .. ":" .. customTrueName .. ":" .. content, trueName .. " [" .. price .. " CR]" , "items")
+			--]]
+        
+        clonedConversation:addOption("I'd rather look at something else.", "browse")		
+    end
 
 	return pConvScreen
 end
 
 
 
---[[
+
+
+
+
+--[[   Tutorial Attempt
 	local rpg_tutorial_convo_handler = ConvoScreen:new {
 		id="greeting",
 		customDialogText = "Welcome to FEA. There are a few steps you'll want to take in order to create a character.",
