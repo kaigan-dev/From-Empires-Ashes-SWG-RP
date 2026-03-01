@@ -6,7 +6,10 @@ rpg_tutorial= ConvoTemplate:new {
 }
 
 
-local rpg_tutorial_convo_handler = ConvoScreen:new {
+
+
+
+greeting = ConvoScreen:new {
 		id="greeting",
 		customDialogText = "Welcome to FEA. There are a few steps you'll want to take in order to create a character.",
 		stopConversation="false",
@@ -18,7 +21,7 @@ local rpg_tutorial_convo_handler = ConvoScreen:new {
 	}
 	rpg_tutorial_convo_handler:addScreen(greeting);
 
-	local firstthing = ConvoScreen:new {
+	firstthing = ConvoScreen:new {
 		id="firstthing",
 		CustomDialogText = "The first thing to do is allocate your attributes. These serve as soft maximums for your skills, in addition to providing direct benefits such as increasing your health. If the window for training isn't already open, enter /train.",
 		stopConversation="false",
@@ -30,7 +33,7 @@ local rpg_tutorial_convo_handler = ConvoScreen:new {
 	rpg_tutorial_convo_handler:addScreen(firstthing);
 
 
-	local secondthing = ConvoScreen:new {
+	secondthing = ConvoScreen:new {
 		id="secondthing",
 		CustomDialogText = "Next you should allocate skills. This is also done from the /train menu. I would not recommend raising any skills above their parent attribute right now, as it will cost significantly more experience.",
 		stopConversation="false",
@@ -43,7 +46,7 @@ local rpg_tutorial_convo_handler = ConvoScreen:new {
 
 
 
-	local thirdthing = ConvoScreen:new {
+	thirdthing = ConvoScreen:new {
 		id="thirdthing",
 		CustomDialogText = "When you leave this room, step across the hall to speak to the vendors there. Many of their offers will be too expensive for your starting budget. Marauder armor is quite affordable if you want it, and some cheap weapons and stims are also available. Additionally, clothes are freely available upstairs.",
 		stopConversation="false",
@@ -55,7 +58,7 @@ local rpg_tutorial_convo_handler = ConvoScreen:new {
 	rpg_tutorial_convo_handler:addScreen(thirdthing);
 
 
-	local thirdthing = ConvoScreen:new {
+	fourththing = ConvoScreen:new {
 		id="fourththing",
 		CustomDialogText = "Finally, take a moment to rest and recover before stepping out into the world. Use the /rest command to do fill your health, action, and will pools.",
 		stopConversation="false",
@@ -64,16 +67,16 @@ local rpg_tutorial_convo_handler = ConvoScreen:new {
 			{"Thanks! I'll get started right away.", "abort"},
 		}
 	}
-	rpg_tutorial_convo_handler:addScreen(thirdthing);
+	rpg_tutorial_convo_handler:addScreen(fourththing);
 
 
-	local  abort = ConvoScreen:new {
+	abort = ConvoScreen:new {
 		id = "abort",
 		customDialogText = "Farewell, traveller",
 		stopConversation = "true",
 		options = {}
 	}
-	rpg_tutorial_convo_handler:addScreen( abort);
+	rpg_tutorial_convo_handler:addScreen(abort);
 
 
 --[[Original Shop junk
