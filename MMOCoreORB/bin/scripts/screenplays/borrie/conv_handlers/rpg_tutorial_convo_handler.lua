@@ -49,7 +49,7 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
     local screenID = screen:getScreenID()
     local pConvScreen = screen:cloneScreen()
     local clonedConversation = LuaConversationScreen(pConvScreen)
-	clonedConversation:removeAllOptions()
+	--clonedConversation:removeAllOptions()
 
 
 	--[[   AEI Attempt
