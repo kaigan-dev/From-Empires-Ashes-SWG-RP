@@ -1,5 +1,3 @@
-assert (false, "we hit the file")
-
 rpg_tutorial_convo_handler = Object:new {}
 
 
@@ -19,6 +17,7 @@ function rpg_tutorial_convo_handler:getNextConversationScreen(conversationTempla
 
 	if (conversation ~= nil ) then
 		if (convosession ~= nil) then
+			local session = LuaConversationSession(convosession)
 			if (session ~= nil) then
 				lastConversationScreen = session:getLastConversationScreen()
 			end
