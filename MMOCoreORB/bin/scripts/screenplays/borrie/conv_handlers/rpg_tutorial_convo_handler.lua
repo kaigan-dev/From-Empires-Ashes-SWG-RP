@@ -162,6 +162,7 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
         clonedConversation:setCustomDialogText(vendorTheme.dialog.items)
     elseif(screenID == "shop") then
         clonedConversation:setCustomDialogText(vendorTheme.dialog.startShopping)
+	--[[
 	elseif(screenID == "firstthing") then
         clonedConversation:setCustomDialogText(vendorTheme.dialog.firstthing)
     elseif(screenID == "secondthing") then
@@ -170,7 +171,8 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
         clonedConversation:setCustomDialogText(vendorTheme.dialog.thirdthing)
 	elseif(screenID == "fourththing") then
         clonedConversation:setCustomDialogText(vendorTheme.dialog.fourththing)
-    end
+	--]]
+	end
 
     --Displaying the items.
 --[[maybe just dump the extra logic?
