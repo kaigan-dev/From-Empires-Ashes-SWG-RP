@@ -1,3 +1,5 @@
+assert (false, "we hit the file")
+
 rpg_tutorial_convo_handler = Object:new {}
 
 
