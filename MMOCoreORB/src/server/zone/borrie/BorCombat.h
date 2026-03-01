@@ -302,8 +302,8 @@ public:
     }
 
     static String GenerateDamageOutputSpam(int damage,  int finalDamage, int armorProtection) {
-        if(armorProtection > 0) {
-             return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " String::valueOf(finalDamage) + " damage!";
+        if(armorProtection > 0)
+            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " String::valueOf(finalDamage) + " damage!";
         else 
             return String::valueOf(finalDamage) + " damage!";
     }
