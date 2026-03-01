@@ -698,6 +698,7 @@ includeFile("borrie/conv_handlers/rpg_shopkeeper_convo_handler.lua")
 includeFile("borrie/conv_handlers/rp_xov_meddroid_intro_convo_handler.lua")
 includeFile("borrie/conv_handlers/rp_xov_tailor_convo_handler.lua")
 includeFile("borrie/conv_handlers/rp_recruiter_convo_handler.lua")
+includeFile("borrie/conv_handlers/rpg_tutorial_convo_handler.lua")
 
 --Borrie Menu Components
 includeFile("borrie/menus/teleporter_terminal.lua")

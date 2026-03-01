@@ -401,8 +401,7 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_upright_style_01.iff", 1073.49, 0, 68.3427, 0, 0.707107, 0, 0.707107, 0) --Public Hangar
 	SceneObject(sObj):setCustomObjectName("Public Transportation Dock")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/swsovrp/prop2/thm_sign_welcome_hanging.iff", 676.699, 3, 345.089, 0, 0, 0, 1, 0) --Hugo's Shop Sign
-	SceneObject(sObj):setCustomObjectName("Rune Central")
+	
 	
 	--TAILOR--
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.78601, 0.403271, -11.165, 610008132, 0.999983, 0, -0.00579456, 0) --Shirts
@@ -811,6 +810,15 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
 	
+
+	-- Tutorial NPC--
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6.3, -4, 1.3, 178, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_tutorial")
+	SceneObject(pNpc):setCustomObjectName("Stranger (a Greeter)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "tutorial")
+
+
+
+
 	--VENDORS--
 	
 	--Melee Vendor Light
@@ -935,39 +943,11 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle_luxury")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles_luxury")
 	
-	--Silver Dawn Vendor
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1188.15, 0, 382.792, 311, 0, "rp_human_male", "lirril/silver_servant", "default", "random", "rpg_shopkeeper")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Vendor")
-	--SceneObject(pNpc):setStoredString("vendor:theme", "silver_dawn")
-	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_silver_dawn")
-	
 	--Full Ship Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6.4093, 0.40827, -8.98533, 0, 610009177, "rp_moncal_male", "eisley_dockmaster_orroko_pimeub", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Tiroir Ciouskar (a Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship")
 	
-	--Temporary Silver Dawn NPCs
-	--Temporary in that they need to be official faction NPCs tied to a base. But for now, this should make Lirril, Samari and Ykeer happy.
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 847.32, 0, 177.202, 196, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 816.409, 0.3, 316.096, 239, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 765.047, 2.0752, 270.323, 272, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 724.046, 0, 154.989, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 702.913, 0, 154.147, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1028.9, 0, 110.038, 319, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1036.26, -0.5, 117.469, 307, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1075.65, 0, 256.614, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1236.33, 0, 316.577, 179, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1243.52, 0, 373.891, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
 
 end
