@@ -8,7 +8,7 @@ rpg_tutorial= ConvoTemplate:new {
 
 
 
-
+--[[ That's what I'd like to say
 greeting = ConvoScreen:new {
 		id="greeting",
 		customDialogText = "Welcome to FEA. There are a few steps you'll want to take in order to create a character.",
@@ -77,9 +77,9 @@ greeting = ConvoScreen:new {
 		options = {}
 	}
 	rpg_tutorial_convo_handler:addScreen(abort);
+--]]
 
 
---[[Original Shop junk
 greeting = ConvoScreen:new {
   id = "greeting",
   customDialogText = "Welcome to FEA! There are a few steps you'll want to take in order to create a character.",
@@ -93,7 +93,7 @@ rpg_tutorial:addScreen(greeting)
 
 browse = ConvoScreen:new {
   id = "browse",
-  customDialogText = "What've you been in the market for?",
+  customDialogText = "The first thing to do is allocate your attributes. These serve as soft maximums for your skills, in addition to providing direct benefits such as increasing your health. If the window for training isn't already open, enter /train.",
   stopConversation = "false",
   options = {
     {"[Example Category]", "items"},
@@ -104,7 +104,7 @@ rpg_tutorial:addScreen(browse)
 
 items = ConvoScreen:new {
   id = "items",
-  customDialogText = "This is what I have in stock.",
+  customDialogText = "Next you should allocate skills. This is also done from the /train menu. I would not recommend raising any skills above their parent attribute right now, as it will cost significantly more experience.",
   stopConversation = "false",
   options = {
     {"[Example Item]", "shop"},
@@ -116,7 +116,7 @@ rpg_tutorial:addScreen(items)
 
 shop = ConvoScreen:new {
   id = "shop",
-  customDialogText = "All prices are final. Have a look.",
+  customDialogText = "When you leave this room, step across the hall to speak to the vendors there. Many of their offers will be too expensive for your starting budget. Marauder armor is quite affordable if you want it, and some cheap weapons and stims are also available. Additionally, clothes are freely available upstairs.",
   stopConversation = "true",
   options = {
   }
@@ -131,7 +131,7 @@ abort = ConvoScreen:new {
   }
 }
 rpg_tutorial:addScreen(abort)
---]]
+
 
 
 
