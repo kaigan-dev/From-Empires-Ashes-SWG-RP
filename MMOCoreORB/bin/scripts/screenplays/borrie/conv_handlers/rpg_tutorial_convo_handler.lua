@@ -36,6 +36,7 @@ function rpg_tutorial_convo_handler:getNextConversationScreen(conversationTempla
 		local optionData = luaLastConversationScreen:getOptionData(selectedOption)
         if(string.find(optionData, "$vnd")) then
 			local results = HelperFuncs:splitString(optionData, ":")
+			--[[ Unneeded after removing vendor theme
 			if(results[2] == "item") then
 				--CreatureObject(conversingPlayer):sendSystemMessage(results[3])
 				
@@ -60,12 +61,15 @@ function rpg_tutorial_convo_handler:getNextConversationScreen(conversationTempla
 			elseif(results[2] == "category") then
                 SceneObject(conversingPlayer):setStoredInt("vendor:category", results[3])
             end
+			--]]
         end
 	end
 
     return nextConversationScreen
 end
 
+
+--[[Not purchasing anything
 function rpg_tutorial_convo_handler:notifyPurchaseItem(pPlayer, pSui, eventIndex, arg0) 
     local cancelPressed = (eventIndex == 1)
 
@@ -129,6 +133,7 @@ function rpg_tutorial_convo_handler:notifyPurchaseItem(pPlayer, pSui, eventIndex
 		SceneObject(pItem):setCustomObjectName(customName)
 	end
 end
+--]]
 
 function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
     -- Plays the screens of the conversation.
@@ -137,19 +142,6 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
     local screenID = screen:getScreenID()
     local pConvScreen = screen:cloneScreen()
     local clonedConversation = LuaConversationScreen(pConvScreen)
-
-
-	--CreatureObject(conversingPlayer):sendSystemMessage("Screen: " .. screenID)
-	
-	
-    --Customized Data
-    --local vendorThemeID = SceneObject(conversingNPC):getStoredString("vendor:theme") --"general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorTheme")
-    --local vendorTheme = RPGVendorThemes:getTheme(vendorThemeID)
-    --local vendorListID = SceneObject(conversingNPC):getStoredString("vendor:shopList") --"shop_general" --getQuestStatus(CreatureObject(conversingNPC):getObjectID() .. ":vendorList")
-    --local vendorList = RPGVendorShopLists:getShopList(vendorListID) --rpgVendorShopListDirectory[vendorListID]
-	
-		
-
 
     --Setting the initial greeting based on theme.
     if(screenID == "greeting") then
