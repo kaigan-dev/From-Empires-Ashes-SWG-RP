@@ -10,7 +10,7 @@ rpg_shop_stimpack_novice = {
 				{template = "object/tangible/medicine/roleplay/rp_stimpack_b.iff", cost = 250, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/medicine/roleplay/rp_stimpack_c.iff", cost = 400, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/medicine/roleplay/rp_stimpack_d.iff", cost = 500, max = 10, chance = 100, overridePrice = true },
-				{template = "object/tangible/medicine/roleplay/rp_stimpack_e.iff", cost = 8000, max = 10, chance = 100, overridePrice = true },
+				{template = "object/tangible/medicine/roleplay/rp_stimpack_e.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 	}	
