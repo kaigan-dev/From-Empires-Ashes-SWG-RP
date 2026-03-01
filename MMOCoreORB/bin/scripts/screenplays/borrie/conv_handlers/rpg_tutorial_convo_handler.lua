@@ -1,3 +1,87 @@
+--luaClassHandler = "rpg_tutorial_convo_handler",
+
+
+local rpg_tutorial_convo_handler = conv_handler:new {}
+
+
+function rpg_tutorial_convo_handler:getInitialScreen(pPlayer, pNpc, pConvTemplate)
+	local convoTemplate = LuaConversationTemplate(pConvTemplate)
+	return convoTemplate:getScreen("greeting")
+end
+
+
+
+
+function rpg_tutorial_convo_handler:runScreenHandlers(pConvTemplate, pPlayer, pNpc, selectedOption, pConvScreen)
+	local screen = LuaConversationScreen(pConvScreen)
+	local screenID = screen:getScreenID()
+	return pConvScreen
+end
+
+
+
+
+local rpg_tutorial_convo_handler = ConvoScreen:new {
+	id="greeting",
+	customDialogText = "Welcome to FEA. There are a few steps you'll want to take in order to create a character.",
+	stopConversation="false",
+	options = {
+		{"What should I do first?", "firstthing"},
+		{"And after that?", "secondthing"},
+		{"What else needs to be done to finish up?", "thirdthing"},
+	}
+}
+rpg_tutorial_convo_handler:addScreen(greeting);
+
+local firstthing = ConvoScreen:new {
+	id="firstthing",
+	CustomDialogText = "The first thing to do is allocate your attributes. These serve as soft maximums for your skills, in addition to providing direct benefits such as increasing your health. If the window for training isn't already open, enter /train.",
+	stopConversation="false",
+	options = {
+		{"And after that?", "secondthing"},
+		{"I don't need to hear any more.", "exit_one"},
+	}
+}
+rpg_tutorial_convo_handler:addScreen(firstthing);
+
+
+local secondthing = ConvoScreen:new {
+	id="secondthing",
+	CustomDialogText = "Next you should allocate skills. This is also done from the /train menu. I would not recommend raising any skills above their parent attribute right now, as it will cost significantly more experience.",
+	stopConversation="false",
+	options = {
+		{"What else needs to be done to finish up?", "thirdthing"},
+		{"I don't need to hear any more.", "exit_one"},
+	}
+}
+rpg_tutorial_convo_handler:addScreen(secondthing);
+
+
+
+local thirdthing = ConvoScreen:new {
+	id="thirdthing",
+	CustomDialogText = "Next you should allocate skills. This is also done from the /train menu. I would not recommend raising any skills above their parent attribute right now, as it will cost significantly more experience.",
+	stopConversation="false",
+	options = {
+		{"Can you explain some of that again?", "greetingthing"},
+		{"Thanks! I'll get started right away.", "exit_one"},
+	}
+}
+rpg_tutorial_convo_handler:addScreen(thirdthing);
+
+
+local exit_one = ConvoScreen:new {
+	id = "exit_one",
+	customDialogText = "Farewell, traveller",
+	stopConversation = "true",
+	options = {}
+}
+rpg_tutorial_convo_handler:addScreen(exit_one);
+
+
+
+
+--[[
 rpg_tutorial_convo_handler = Object:new {
 }
 function rpg_tutorial_convo_handler:getNextConversationScreen(conversationTemplate, conversingPlayer, selectedOption)
@@ -34,7 +118,7 @@ function rpg_tutorial_convo_handler:getNextConversationScreen(conversationTempla
 	if ( lastConversationScreen ~= nil ) then
 		local luaLastConversationScreen = LuaConversationScreen(lastConversationScreen)
 		local optionData = luaLastConversationScreen:getOptionData(selectedOption)
-        --[[
+         
 		if(string.find(optionData, "$vnd")) then
 			local results = HelperFuncs:splitString(optionData, ":")
 			
@@ -65,14 +149,14 @@ function rpg_tutorial_convo_handler:getNextConversationScreen(conversationTempla
             end
 			
         end
-		--]]
+		
 	end
 
     return nextConversationScreen
 end
 
 
---[[
+ 
 function rpg_tutorial_convo_handler:notifyPurchaseItem(pPlayer, pSui, eventIndex, arg0) 
     local cancelPressed = (eventIndex == 1)
 
@@ -138,7 +222,7 @@ function rpg_tutorial_convo_handler:notifyPurchaseItem(pPlayer, pSui, eventIndex
 		SceneObject(pItem):setCustomObjectName(customName)
 	end
 end
---]]
+ 
 function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conversingPlayer, conversingNPC, selectedOption, conversationScreen)
     -- Plays the screens of the conversation.
     local player = LuaSceneObject(conversingPlayer)
@@ -208,7 +292,7 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
 	clonedConversation:addOption("What else can you tell me?", "greeting")		
 	clonedConversation:addOption("Nevermind.", "abort")
     --Displaying the items.
-	--[[
+	 
 	local playerHasSaberTraining = SceneObject(conversingPlayer):getStoredInt("knowsLightsaberConstruction") == 1
 	
     if(screenID == "browse") then
@@ -268,7 +352,7 @@ function rpg_tutorial_convo_handler:runScreenHandlers(conversationTemplate, conv
 		
         clonedConversation:addOption("What else can you tell me?", "browse")		
     end
---]]
+ 
 
     return pConvScreen
 end
@@ -305,3 +389,4 @@ function rpg_tutorial_convo_handler:passwordCallback(pPlayer, pSui, eventIndex, 
 	
 	SceneObject(pPlayer):setStoredString("vendorPass:" .. shopID, pass)	
 end
+ --]]
