@@ -144,7 +144,7 @@ public:
         //Apply Followup as per the reaction.
         String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC) + "\\#FFFFFF";
 
-        String combatSpam = attacker->getFirstName() + " "+attackVerb+ " and hit their " GetSlotDisplayName(bodyPartTarget) + "!";
+        String combatSpam = attacker->getFirstName() + " "+attackVerb+ " and hit their " + GetSlotDisplayName(bodyPartTarget) + "!";
         
         if(ignoreLOS) {
             BorrieRPG::BroadcastMessage(attacker, combatSpam + " " + toHitString +  reactionResult + " (Line of Sight Ignored)");
@@ -274,7 +274,7 @@ public:
         String combatSpam = attacker->getFirstName() + " flurry attacked " +  defender->getFirstName();
         
         if(hitCount == 1) {
-            combatSpam += " and hit once, striking their " GetSlotDisplayName(bodyPartTarget) + "!";
+            combatSpam += " and hit once!";
         } else {
             combatSpam += " and hit " + String::valueOf(hitCount) + " times!";
         }
@@ -303,9 +303,11 @@ public:
 
     static String GenerateDamageOutputSpam(int damage,  int finalDamage, int armorProtection) {
         if(armorProtection > 0) {
-             return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " String::valueOf(finalDamage) + " damage!";
-        else 
+            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+        }    
+        else { 
             return String::valueOf(finalDamage) + " damage!";
+        }
     }
 
     static String GenerateFlurryOutputSpam(int roll1, int roll2, int roll3, int skillMod, int diceCheck) {
@@ -321,7 +323,7 @@ public:
         WeaponObject* attackerWeapon = attacker->getWeapon();
         WeaponObject* defenderWeapon = defender->getWeapon();
         int defenderReactionType = defender->getStoredInt("reaction_stance");
-        //int defenderAction = defender->getHAM(3);
+        //int defenderAction = defender->`AM(3);
 
         String reactionSpam = "";
         String damageModString = powerAttacked ? " X 2" : "";
@@ -337,6 +339,7 @@ public:
 
                 if(attackerWeapon->isRangedWeapon()) {
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                     reactionSpam += ", taking \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                 }
@@ -360,6 +363,7 @@ public:
                     DrainActionOrWill(defender, 1 * actionPointMod);
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     reactionSpam += defender->getFirstName() + " tries to defend against the attack, but fails (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
+                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                     reactionSpam += ", taking \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), false);
@@ -402,6 +406,7 @@ public:
                     //defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
+                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                     reactionSpam += ". " + defender->getFirstName() + " tries to parry the attack, but fails (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit)+"), recieving \\#FF9999"+GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                 }
@@ -425,6 +430,7 @@ public:
                     */
                 } else { //full fail
                     reactionSpam += ", " + defender->getFirstName() + " tries to dodge out of the way and fails! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
+                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                     reactionSpam += defender->getFirstName() +" takes \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                     //BorCharacter::ModPool(defender, "health", incomingDamage * -1, true);
@@ -470,6 +476,7 @@ public:
                     } else {
                         //Ouch time.
                         reactionSpam += defender->getFirstName() + " tries to deflect the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                         int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                         reactionSpam += ", but fails, recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
@@ -498,6 +505,8 @@ public:
                         } else {
                          */
                             reactionSpam += defender->getFirstName() + " fails to deflect the attack (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
+                            int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                             reactionSpam += ", recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                             //Full Damage
                             ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
@@ -527,6 +536,7 @@ public:
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     defender->sendSystemMessage("You cannot deflect this attack telekinetically. You recieved full damage.");
+                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                     return ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                 } 
@@ -568,6 +578,7 @@ public:
                    else {
                         //Full Damage
                         reactionSpam += defender->getFirstName() + " fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
+                        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                         int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                         reactionSpam += ", recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
@@ -601,6 +612,7 @@ public:
                         reactionSpam += defender->getFirstName() + " absorbs the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                     } else {
                         reactionSpam += defender->getFirstName() + " tries to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                         int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                         reactionSpam += ", recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);   
@@ -611,6 +623,7 @@ public:
                         reactionSpam += defender->getFirstName() + " blocks the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                     } else {
                         reactionSpam += defender->getFirstName() + " fails to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                         int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                         reactionSpam += ", recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);     
                         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);             
@@ -620,6 +633,7 @@ public:
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     defender->sendSystemMessage("You cannot absorb this attack. You recieved full damage.");
+                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                     return ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
                 }
@@ -631,6 +645,7 @@ public:
         //Simply accept the damage. 
         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
         BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
+        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
         int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
         return ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, (incomingDamage - armorProtection), armorProtection);
     }
