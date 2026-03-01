@@ -1,6 +1,6 @@
-local themeTag = "tutorial"
+local themeTag = "rpg_tutorial"
 
-rpg_vt_vehicle = {
+rpg_tutorial = {
 	dialog = {
 		greeting = "Why travel in something that just gets the job done, when you can travel in style? In comfort? Perhaps in a fine high class airspeeder...?", --1
 		browse = "Only the finest Corellian leather is used in the seating of some of our vehicles. Extra fees may or may not apply, my friend...", --2
@@ -9,6 +9,6 @@ rpg_vt_vehicle = {
 		abort = "Goodbye.", --4
 	}
 }
+ 
 
-
-RPGVendorThemes:addTheme(themeTag, rpg_vt_vehicle)
+RPGVendorThemes:addTheme(themeTag, rpg_tutorial)
