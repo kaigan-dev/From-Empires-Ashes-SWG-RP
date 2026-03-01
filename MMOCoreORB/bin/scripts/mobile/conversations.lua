@@ -300,3 +300,5 @@ includeFile("conversations/borrie/rpg_shopkeeper.lua")
 includeFile("conversations/borrie/rp_xov_meddroid_intro.lua")
 includeFile("conversations/borrie/rp_xov_tailor.lua")
 includeFile("conversations/borrie/rp_convo_recruiter.lua")
+includeFile("conversations/borrie/rpg_tutorial.lua")
+
