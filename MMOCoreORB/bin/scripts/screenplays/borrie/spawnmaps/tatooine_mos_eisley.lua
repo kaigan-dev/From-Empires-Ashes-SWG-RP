@@ -814,8 +814,10 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	-- Tutorial NPC--
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6.3, -4, 1.3, 178, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_tutorial")
 	SceneObject(pNpc):setCustomObjectName("Stranger (a Greeter)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "rpg_tutorial")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_tutorial")
+	--SceneObject(pNpc):setStoredString("vendor:theme", "rpg_tutorial")
+	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_tutorial")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
 
 
 
@@ -929,7 +931,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	--SceneObject(pNpc):setCustomObjectName("Moqeni (a Majordomo)")
 	
 	--Eisley's Tailor, the Bith Doivo Cilea
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 4.13958, 0.408271, 0.354657, 197, 610008132, "rp_bith_female", "eisley_tailor_doivo_cilea", "default", "eisley_tailor_doivo_cilea", "rp_eisley_tailor") --Tailor
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 4.13958, 0.408271, 0.354657, 197, 610008132, "rp_bith_female", "eisley_tailor_doivo_cilea", "default", "eisley_tailor_doivo_cilea") --Tailor
 	SceneObject(pNpc):setCustomObjectName("Doivo Cilea")
 	
 	--Backpack Vendor
