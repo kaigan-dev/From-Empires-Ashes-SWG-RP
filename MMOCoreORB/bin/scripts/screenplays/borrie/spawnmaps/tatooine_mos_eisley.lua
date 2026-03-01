@@ -811,7 +811,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
 	
 
-	-- Tutorial NPC--
+	-- Tutorial NPCs--
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6.3, -4, 1.3, 178, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_tutorial")
 	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6.3, -4, 1.3, 178, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Stranger (a Greeter)")
@@ -819,6 +819,30 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_tutorial")
 	--SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.7, -4, 0.3, 79, 610008137, "rp_human_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("A Melee Weapons Vendor")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.7, -4, 2.3, 79, 610008137, "rp_human_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("A Ranged Weapon Vendor")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_ranged_novice")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.7, -4, 4.3, 79, 610008137, "rp_human_male", "xovros_nurse", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("A Stimpack Vendor")
+	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.7, -4, 6.3, 79, 610008137, "rp_human_male", "dressed_armorsmith_trainer_01", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("An Armorsmith Vendor")
+	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
+
+
+
+
 
 
 
