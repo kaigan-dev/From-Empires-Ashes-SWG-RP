@@ -1136,7 +1136,7 @@ public:
         }
 
         int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
-        ApplyAdjustedHealthDamage(victim, grenade, totalDamage, slot, true);
+        ApplyAdjustedHealthDamage(victim, grenade, totalDamage, slot);
 
         if(!dodgedSuccessfully) {
             //Take Damage
