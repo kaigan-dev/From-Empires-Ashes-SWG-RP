@@ -1,4 +1,4 @@
-local themeTag = "vehicle_luxury"
+local themeTag = "tutorial"
 
 rpg_vt_vehicle = {
 	dialog = {
