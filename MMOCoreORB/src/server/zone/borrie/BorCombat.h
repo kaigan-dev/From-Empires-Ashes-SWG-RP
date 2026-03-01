@@ -1135,7 +1135,7 @@ public:
             dodgedSuccessfully = telekinesisSkill >= diceCheck;
         }
 
-        slot = GetSlotHitlocation(BorDice::Roll(1, 10));
+        int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
         ApplyAdjustedHealthDamage(victim, grenade, totalDamage, slot, true);
 
         if(!dodgedSuccessfully) {
