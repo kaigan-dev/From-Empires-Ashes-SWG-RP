@@ -50,6 +50,7 @@ public:
 
         int toHitRoll = BorDice::Roll(1, 20);
 
+        /* FEA - Disable Lightsaber hurt self-check. Kaigan, 3/1/26
         //Lightsaber Hurt self check.
         if(weapon->isJediWeapon()) {
             //Modify toHitDC if its our lightsaber.
@@ -80,7 +81,7 @@ public:
                 BorCharacter::ModPool(attacker, "health", totalDamage * -1, true);       
                 return;
             }
-        }
+        } */
 
         if(powerAttack) {
             int powerAttackCost = attacker->getStoredInt("power_attack_count");
@@ -186,7 +187,7 @@ public:
         else if(weapon->isMeleeWeapon()) skillCheck = attacker->getSkillMod("rp_melee");
         else if(weapon->isRangedWeapon()) skillCheck = attacker->getSkillMod("rp_ranged");
         
-
+        /* FEA - Disable Lightsaber hurt self-check. Kaigan, 3/1/26
         //Lightsaber Hurt self check.
         if(weapon->isJediWeapon()) {
             //Modify toHitDC if its our lightsaber.
@@ -217,7 +218,7 @@ public:
                 BorCharacter::ModPool(attacker, "health", totalDamage * -1, true);       
                 return;
             }
-        }
+        } */
 
         bool hit1 = roll1 + skillCheck >= toHitDC;
         bool hit2 = roll2 + skillCheck >= toHitDC + 5;
