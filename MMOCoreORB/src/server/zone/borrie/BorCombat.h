@@ -651,14 +651,22 @@ public:
                         int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
                         int finalDamage = damage - armorProtection;
                         if(finalDamage < 1) finalDamage = 1;
-                        armor->setConditionDamage(armor->getConditionDamage() + armorProtection);
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
                         String armorName = armor->getCustomObjectName().toString();
                         if(armorName == "") {
                             armorName = armor->getObjectTemplate()->getObjectName();
                         }
                             
-                        creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");                
+                        // FEA - Update armor to take correct condition damage. Kaigan, 3/1/26
+                        if (damage >= armorProtection) {
+                            armor->setConditionDamage(armorProtection);
+                            creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage."); 
+                        }
+
+                        else {
+                            armor->setConditionDamage(damage);
+                            creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage."); 
+                    }               
                     }
                 } else { //Take Full Damage
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
