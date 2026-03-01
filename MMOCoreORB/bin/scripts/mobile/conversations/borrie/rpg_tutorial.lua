@@ -144,7 +144,7 @@ firstthing = ConvoScreen:new {
 			{"I don't need to hear any more.", "abort"},
 		}
 	}
-	rpg_tutorial_convo_handler:addScreen(firstthing);
+	rpg_tutorial:addScreen(firstthing);
 
 
 secondthing = ConvoScreen:new {
@@ -156,7 +156,7 @@ secondthing = ConvoScreen:new {
 			{"I don't need to hear any more.", "abort"},
 		}
 	}
-	rpg_tutorial_convo_handler:addScreen(secondthing);
+	rpg_tutorial:addScreen(secondthing);
 
 
 
@@ -169,7 +169,7 @@ thirdthing = ConvoScreen:new {
 			{"I don't need to hear any more.", "abort"},
 		}
 	}
-	rpg_tutorial_convo_handler:addScreen(thirdthing);
+	rpg_tutorial:addScreen(thirdthing);
 
 
 fourththing = ConvoScreen:new {
@@ -181,7 +181,7 @@ fourththing = ConvoScreen:new {
 			{"Thanks! I'll get started right away.", "abort"},
 		}
 	}
-	rpg_tutorial_convo_handler:addScreen(fourththing);
+	rpg_tutorial:addScreen(fourththing);
 
 
 
