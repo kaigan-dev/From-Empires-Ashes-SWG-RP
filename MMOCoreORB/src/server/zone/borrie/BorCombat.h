@@ -1092,8 +1092,8 @@ public:
 
         BorrieRPG::BroadcastMessage(attacker, message);
 
-		for (int i = 0; i < closeObjects.size(); i++){
-            CreatureObject* targetCreature = static_cast<CreatureObject*>(closeObjects.get(i));
+		for (int i = 0; i < targetCount; i++) {
+			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
 				targetCreature = cast<CreatureObject*>(targetObject);
 				Locker locker(targetCreature, centerTarget);
