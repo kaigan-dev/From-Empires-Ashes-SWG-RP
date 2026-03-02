@@ -25,5 +25,5 @@ rpg_shop_general = {
 		
 	}	
 }
-
+ 
 RPGVendorShopLists:addShopList(shopListTag, rpg_shop_general)
