@@ -399,7 +399,6 @@ public:
                         bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
                     } 
                     int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
-
                     ApplyAdjustedHealthDamage(attacker, defenderWeapon, returnDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                     reactionSpam += ", but " + defender->getFirstName()+" parries the attack (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit)+"), striking back for \\#FF9999"+String::valueOf(returnDamage)+"\\#FFFFFF damage!";
@@ -1136,17 +1135,21 @@ public:
             dodgedSuccessfully = telekinesisSkill >= diceCheck;
         }
 
+        int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
+        ApplyAdjustedHealthDamage(victim, grenade, totalDamage, slot);
+
         if(!dodgedSuccessfully) {
             //Take Damage
-            message = message + ", which fails, causing \\#FF9999" + String::valueOf(totalDamage) + "\\#. damage.";
+            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(victim, GetSlotName(slot));
+            int armorProtection = GetArmorProtection(armor, GetDamageType(grenade));    
+            message = message + ", which fails, the blast focused on their " + GetSlotDisplayName(slot) + ", causing \\#FF9999" + GenerateDamageOutputSpam(totalDamage, GetArmorReducedDamage(totalDamage, armorProtection), armorProtection); 
         } else {
             //Take Minimum Damage. 
             totalDamage = grenade->getMinDamage();
-            message = message + ", successfully avoiding most of the blast and taking only \\#FF9999" + String::valueOf(totalDamage) + "\\#. damage.";
+            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(victim, GetSlotName(slot));
+            int armorProtection = GetArmorProtection(armor, GetDamageType(grenade));   
+            message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot) + ", and taking only \\#FF9999" + GenerateDamageOutputSpam(totalDamage, GetArmorReducedDamage(totalDamage, armorProtection), armorProtection); 
         }
-
-        //TODO: Should randomize what slot it hits. For now its just the chest. 
-        ApplyAdjustedHealthDamage(victim, grenade, totalDamage, 1);
 
         BorrieRPG::BroadcastMessage(victim, message);
     }
