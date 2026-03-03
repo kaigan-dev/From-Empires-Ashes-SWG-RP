@@ -736,17 +736,14 @@ public:
     }
 
     static int GetArmorProtection(ArmorObject* armor, String damageType) {
-        if (creature->isPlayerCreature()) {
-            if(damageType == "Kinetic")             return (int)armor->getKinetic();
-            else if(damageType == "Energy")         return (int)armor->getEnergy();
-            else if(damageType == "Electricity")    return (int)armor->getElectricity();
-            else if(damageType == "Stun")           return (int)armor->getStun();
-            else if(damageType == "Blast")          return (int)armor->getBlast();
-            else if(damageType == "Heat")           return (int)armor->getHeat();
-            else if(damageType == "Cold")           return (int)armor->getCold();
-            else if(damageType == "Acid")           return (int)armor->getAcid();
-            else return 0;
-        }
+        if(damageType == "Kinetic" && (armor->getKinetic() != nullptr))                 return (int)armor->getKinetic();
+        else if(damageType == "Energy" && (armor->getEnergy() != nullptr))              return (int)armor->getEnergy();
+        else if(damageType == "Electricity" && (armor->getElectricity() != nullptr))    return (int)armor->getElectricity();
+        else if(damageType == "Stun" && (armor->getStun() != nullptr))                  return (int)armor->getStun();
+        else if(damageType == "Blast" && (armor->getBlast() != nullptr))                return (int)armor->getBlast();
+        else if(damageType == "Heat" && (armor->getHeat() != nullptr))                  return (int)armor->getHeat();
+        else if(damageType == "Cold" && (armor->getCold() != nullptr))                  return (int)armor->getCold();
+        else if(damageType == "Acid" && (armor->getAcid() != nullptr))                  return (int)armor->getAcid();
         else return 0;
     }
 
