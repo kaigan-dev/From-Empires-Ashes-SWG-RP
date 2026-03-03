@@ -31,7 +31,7 @@ rpg_shop_general = {
 				{template = "object/tangible/wearables/backpack/backpack_krayt_skull.iff", cost = 250, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/backpack/backpack_tauntaun_skull.iff", cost = 250, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/backpack/singing_mountain_clan_backpack.iff", cost = 250, max = 10, chance = 100, overridePrice = true },
-				{template = "object/tangible/wearables/backpack/wearable_backpack_c3po.iff", cost = 250, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/tangible/wearables/backpack/wearable_backpack_c3po.iff", cost = 250, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 	}	
