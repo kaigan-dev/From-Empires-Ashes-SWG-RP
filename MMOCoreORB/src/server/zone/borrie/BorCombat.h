@@ -321,7 +321,6 @@ public:
         return result;
     }
 
-
     static String HandleCombatReaction(CreatureObject* attacker, CreatureObject* defender, int incomingDamage, int toHit, int slot, bool powerAttacked, bool flurryAttacked, int hitCount) {
         WeaponObject* attackerWeapon = attacker->getWeapon();
         WeaponObject* defenderWeapon = defender->getWeapon();
@@ -737,14 +736,17 @@ public:
     }
 
     static int GetArmorProtection(ArmorObject* armor, String damageType) {
-        if(damageType == "Kinetic")             return (int)armor->getKinetic();
-        else if(damageType == "Energy")         return (int)armor->getEnergy();
-        else if(damageType == "Electricity")    return (int)armor->getElectricity();
-        else if(damageType == "Stun")           return (int)armor->getStun();
-        else if(damageType == "Blast")          return (int)armor->getBlast();
-        else if(damageType == "Heat")           return (int)armor->getHeat();
-        else if(damageType == "Cold")           return (int)armor->getCold();
-        else if(damageType == "Acid")           return (int)armor->getAcid();
+        if creature->isPlayerCreature() {
+            if(damageType == "Kinetic")             return (int)armor->getKinetic();
+            else if(damageType == "Energy")         return (int)armor->getEnergy();
+            else if(damageType == "Electricity")    return (int)armor->getElectricity();
+            else if(damageType == "Stun")           return (int)armor->getStun();
+            else if(damageType == "Blast")          return (int)armor->getBlast();
+            else if(damageType == "Heat")           return (int)armor->getHeat();
+            else if(damageType == "Cold")           return (int)armor->getCold();
+            else if(damageType == "Acid")           return (int)armor->getAcid();
+            else return 0;
+        }
         else return 0;
     }
 
