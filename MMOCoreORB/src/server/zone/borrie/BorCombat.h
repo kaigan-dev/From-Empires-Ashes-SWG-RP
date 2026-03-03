@@ -684,7 +684,7 @@ public:
                         }  */
 
                         //Armor handling (without penetration)
-                        int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
+                        int armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
                         int finalDamage = damage - armorProtection;
                         if(finalDamage < 1) finalDamage = 1;
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
@@ -736,7 +736,7 @@ public:
     }
 
     static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
-        if creature->isPlayerCreature() {
+        if (creature->isPlayerCreature()) {
             if(damageType == "Kinetic")             return (int)armor->getKinetic();
             else if(damageType == "Energy")         return (int)armor->getEnergy();
             else if(damageType == "Electricity")    return (int)armor->getElectricity();
