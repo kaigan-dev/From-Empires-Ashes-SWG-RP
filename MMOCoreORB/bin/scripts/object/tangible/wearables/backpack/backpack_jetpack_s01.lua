@@ -1,0 +1,4 @@
+object_tangible_wearables_backpack_backpack_jetpack = object_tangible_wearables_backpack_shared_backpack_jetpack:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_wearables_backpack_backpack_jetpack, "object/tangible/wearables/backpack/shared_backpack_jetpack_s01.iff")
