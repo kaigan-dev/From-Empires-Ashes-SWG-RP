@@ -20,8 +20,6 @@ rpg_shop_general = {
 			minItems = 1,
 			items = {
 				{template = "object/tangible/wearables/backpack/backpack_jetpack_s01.iff", cost = 5000, max = 10, chance = 100, overridePrice = true },
-				{template = "object/tangible/wearables/backpack/shared_backpack_jetpack_s01.iff", cost = 5000, max = 10, chance = 100, overridePrice = true },
-				{template = "object/tangible/wearables/backpack/wearable_backpack_armored.iff", cost = 250, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 		
