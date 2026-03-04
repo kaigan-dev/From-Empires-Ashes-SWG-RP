@@ -519,7 +519,7 @@ object_tangible_wearables_backpack_shared_backpack_sandtrooper = SharedTangibleO
 ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_sandtrooper, "object/tangible/wearables/backpack/shared_backpack_sandtrooper.iff")
 --************************************************************************************************************************************************************************
 
-object_tangible_wearables_backpack_shared_backpack_jetpack = SharedTangibleObjectTemplate:new {
+object_tangible_wearables_backpack_shared_backpack_jetpack_s01 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_jetpack_s01.iff"
 }
-ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_jetpack, "object/tangible/wearables/backpack/shared_backpack_jetpack_s01.iff")
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_jetpack_s01, "object/tangible/wearables/backpack/shared_backpack_jetpack_s01.iff")
