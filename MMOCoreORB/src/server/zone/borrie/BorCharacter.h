@@ -963,7 +963,7 @@ public:
 		if (waypoint == nullptr)
 			newwaypoint = (creature->getZoneServer()->createObject(0xc456e788, 1)).castTo<WaypointObject*>();
 		else {
-			ghost->removeWaypoint(waypoint->getObjectID(), true, false);
+			ghost->removeWaypoint(waypoint->getObjectID(), true, true);
 			newwaypoint = waypoint.get();
 		}
 
@@ -1011,8 +1011,9 @@ public:
 			auto worldPosition = waypoint->getWorldPosition();
 			int distance = GetDistance(creature, worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters from their last position.");
+			ghost->removeWaypoint(waypoint->getObjectID(), true, true);
+			waypoint = waypoint.get();
 		}
-		
 	}
 
 	static void AddDarksidePoints(CreatureObject* creature, int amount, bool playMusic) {
