@@ -991,13 +991,13 @@ public:
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move on their mount. Their enhanced range is " + String::valueOf(maxDistance) + "m. ");
 		} 
 		else if (creature->isKneeling()) {
-			float floatDistance = (maneuverability + athletics + 10).castTo<float> * .66;
-			maxDistance = floatDistance.castTo<int>;
+			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .66;
+			maxDistance = static_cast<int>floatDistance;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
 		}
 		else if (creature->isProne()) {
-			float floatDistance = (maneuverability + athletics + 10).castTo<float> * .25;
-			maxDistance = floatDistance.castTo<int>;
+			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .25;
+			maxDistance = static_cast<int>floatDistance;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
 		}
 		else {
