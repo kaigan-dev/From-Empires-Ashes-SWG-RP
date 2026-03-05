@@ -1011,6 +1011,7 @@ public:
 			auto worldPosition = waypoint->getWorldPosition();
 			int distance = GetDistance(creature, worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters from their last position.");
+			ghost->removeWaypoint(waypoint->getObjectID(), true, false);
 		}
 		
 	}
