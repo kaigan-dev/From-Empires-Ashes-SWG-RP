@@ -992,12 +992,12 @@ public:
 		} 
 		else if (creature->isKneeling()) {
 			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .66;
-			maxDistance = static_cast<int>floatDistance;
+			maxDistance = static_cast<int>(floatDistance);
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
 		}
 		else if (creature->isProne()) {
 			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .25;
-			maxDistance = static_cast<int>floatDistance;
+			maxDistance = static_cast<int>(floatDistance);
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
 		}
 		else {
