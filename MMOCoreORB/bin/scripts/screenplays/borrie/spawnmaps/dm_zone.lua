@@ -213,7 +213,7 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Common and Uncommon")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
-	SceneObject(sObj):populateInventoryFromContentList("ranged_other_common_uncommmon")
+	SceneObject(sObj):populateInventoryFromContentList("ranged_other_common")
 
 		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 26.4, 0, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Rare")
