@@ -2,6 +2,7 @@
 
 travel_destinations = {
 
+	--[[
 	--Carida
 	{
 		name = "Carida",
@@ -10,6 +11,7 @@ travel_destinations = {
 			{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
 		}
 	},
+	--]]
 
 	--Dantooine
 	{ 
@@ -22,7 +24,7 @@ travel_destinations = {
 	},
 	
 	
-	
+	--[[
 	--Dathomir
 	{ 
 		name = "Dathomir",
@@ -32,6 +34,7 @@ travel_destinations = {
 		}
 	
 	},
+	--]]
 	
 	--Deep Space
 	{ 
@@ -39,8 +42,10 @@ travel_destinations = {
 		zone = "rp_space",
 		destinations = {
 			{"Tansarii Point Station", "rp_space", 52.3, 0.9, 27.8, 808251},
+			--[[
 			{"Corellian Corvette", "rp_space", -34.8, 0, 0.1, 808180},
 			{"Star Destroyer", "rp_space", 10, 173.8, 42.2, 808038},
+			--]]
 		}	
 	},
 	
@@ -74,6 +79,7 @@ travel_destinations = {
 		}	
 	},
 	
+	--[[
 	--Xovros VI
 	{ 
 		name = "Xovros VI",
@@ -83,7 +89,10 @@ travel_destinations = {
 		}
 	
 	},
+	--]]
 	
+
+	--[[
 	--Yavin IV
 	{ 
 		name = "Yavin IV",
@@ -93,4 +102,5 @@ travel_destinations = {
 		}
 	
 	},
+	--]]
 }
