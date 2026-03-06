@@ -10,28 +10,6 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/composite/armor_composite_leggings.iff", },
 	
 
-
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_bicep_l.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_bicep_r.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_bracer_l.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_bracer_r.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_chest_plate.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_helmet.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_gloves.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_boots.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_leggings.iff", },
-
-
-
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_bicep_l_gcw.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_bicep_r_gcw.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_bracer_l_gcw.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_bracer_r_gcw.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_chest_plate_gcw.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_helmet_gcw.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_gloves_gcw.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_boots_gcw.iff", },
-	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_leggings_gcw.iff", },
 	
 	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_bicep_l.iff", },
 	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_bicep_r.iff", },
@@ -41,5 +19,14 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_chest_plate.iff", },
 	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_gloves.iff", },
 	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_helmet.iff", },
-	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_leggings.iff", },
+
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_bicep_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_bicep_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_bracer_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_boots.iff", },
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_chest_plate.iff", },
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_gloves.iff", },
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_helmet.iff", },
+	{"object/tangible/wearables/armor/roleplay/infiltrator/armor_infiltrator_s02_leggings.iff", },
 }

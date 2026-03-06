@@ -335,7 +335,11 @@ sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_eplicalien")
 
-
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 12.4,0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Epic Alien Armor")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("armor_marine")
 
 
 
