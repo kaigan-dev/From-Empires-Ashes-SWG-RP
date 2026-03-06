@@ -5,4 +5,6 @@ content = {
 	{"object/weapon/roleplay/ranged/rifle/proton_rifle.iff", },
 	{"object/weapon/roleplay/ranged/rifle/vortex_rifle.iff", },
 	{"object/weapon/roleplay/ranged/rifle/westarm5_blaster_rifle.iff", },
+	{"object/weapon/roleplay/ranged/rifle/disruptor_rifle.iff", },
+	{"object/weapon/roleplay/ranged/rifle/tenloss_dxr6_disruptor_rifle.iff", },
 }

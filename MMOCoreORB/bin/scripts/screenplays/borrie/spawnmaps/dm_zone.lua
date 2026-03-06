@@ -224,6 +224,41 @@ function RpTestingScreenPlay:spawnSceneObjects()
 
 
 
+	--The good weapons--
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 26.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Epic and Legendary")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("ranged_other_epicplus")
+
+sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 28.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Rifles Epic and Legendary")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("rifle_epicplus")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 30.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Carbines Epic and Legendary")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("carbine_epicplus")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 32.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Pistols Epic and Legendary")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("pistol_epicplus")
+
+			sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 34.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Melee Epic and Legendary")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("melee_epicplus")
+
+
+
+
+
 --ARMOR BOXES--
 	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 22.4, 0, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Light Armor")
@@ -272,6 +307,32 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_heavy_rebel")
+
+
+
+--The good armor--
+sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 24.4,0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Epic and Legendary Armor")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("armor_epicplus")
+
+sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 24.4,0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Mandalorian Armor")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("armor_mando")
+
+
+
+
+
+
+
+
+
+
+
 
 	--FURNITURE--
 	--[[

@@ -6,4 +6,7 @@ content = {
 	{"object/weapon/roleplay/ranged/pistol/ion_relic_pistol.iff", },
 	{"object/weapon/roleplay/ranged/pistol/renegade_heavy_blaster_pistol.iff", },
 	{"object/weapon/roleplay/ranged/pistol/westar34_blaster_pistol.iff", },
-}
+	{"object/weapon/roleplay/ranged/pistol/disruptor_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/alliance_disruptor.iff", },
+	{"object/weapon/roleplay/ranged/pistol/dx2_disruptor_pistol.iff", },
+} 
