@@ -33,4 +33,13 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_boots_gcw.iff", },
 	{"object/tangible/wearables/armor/roleplay/galactic_marine/armor_galactic_marine_leggings_gcw.iff", },
 	
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_bicep_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_bicep_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_bracer_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_boots.iff", },
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_chest_plate.iff", },
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_gloves.iff", },
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_helmet.iff", },
+	{"object/tangible/wearables/armor/roleplay/ris/armor_ris_leggings.iff", },
 }
