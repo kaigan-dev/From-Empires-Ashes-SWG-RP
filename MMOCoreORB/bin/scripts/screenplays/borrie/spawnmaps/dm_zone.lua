@@ -311,13 +311,19 @@ sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_
 
 
 --The good armor--
-sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 24.4,0, 0, 0, 0, 0)
+sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 0, 16.4,0, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Epic and Legendary Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_epicplus")
 
-sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 24.4,0, 0, 0, 0, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 16.4,0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Epic and Legendary Armor")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("armor_impassault")
+
+sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 16.4,0, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Mandalorian Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)

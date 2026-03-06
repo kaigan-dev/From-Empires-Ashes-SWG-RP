@@ -1,6 +1,6 @@
 content = {
 	{"object/weapon/roleplay/melee/twohanded/power_hammer.iff", },
-	{"object/weapon/roleplay/melee/twohanded/ceremonial_scythe.iff", },
+	--{"object/weapon/roleplay/melee/twohanded/ceremonial_scythe.iff", },      BROKEN OBJECT!
 	{"object/weapon/roleplay/melee/twohanded/executioners_axe.iff", },
 	{"object/weapon/roleplay/melee/twohanded/obsidian_great_sword.iff", },
 	{"object/weapon/roleplay/melee/twohanded/massassi_great_sword.iff", },
@@ -10,7 +10,7 @@ content = {
 	{"object/weapon/roleplay/melee/onehanded/crusader_templar_sword.iff", },
 	{"object/weapon/roleplay/melee/onehanded/obsidian_sword.iff", },
 	{"object/weapon/roleplay/melee/onehanded/vicious_ryyk_blade.iff", },
-	{"object/weapon/roleplay/melee/onehanded/wookiee_scythe.iff", },
+	--{"object/weapon/roleplay/melee/onehanded/wookiee_scythe.iff", },     BROKEN OBJECT!
 	{"object/weapon/roleplay/melee/onehanded/lightfoil_01_blue.iff", },
 	{"object/weapon/roleplay/melee/onehanded/lightfoil_01_red.iff", },
 	{"object/weapon/roleplay/melee/onehanded/lightfoil_01_silver.iff", },
