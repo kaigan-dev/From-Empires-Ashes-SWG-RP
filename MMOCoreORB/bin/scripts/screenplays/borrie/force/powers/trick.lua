@@ -6,17 +6,18 @@ function BorForce_Trick:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
 	helpMessage =  helpMessage .. "If the target's Mindfulness is less than 8, duel roll with Control against the target's resolve."
 	helpMessage =  helpMessage .. "Add input ForcePointInput to control check. If successful, any bluff, persuasion, or intimidation check is considered to be a nat 20."
-	helpMessage =  helpMessage .. "Does not work on other Force Sensitives."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Trick:execute(pPlayer)
+	--[[ Remove Force prereqs
 	local hasPower = CreatureObject(pPlayer):hasSkill("rp_control_a02")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+	-]]
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)

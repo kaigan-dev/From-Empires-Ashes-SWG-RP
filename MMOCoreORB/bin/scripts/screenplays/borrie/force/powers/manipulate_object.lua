@@ -8,12 +8,14 @@ function BorForce_ManipulateObject:showHelp(pPlayer)
 end
 
 function BorForce_ManipulateObject:execute(pPlayer)
+	--[[ Remove Force prereqs
 	local hasPower = CreatureObject(pPlayer):hasSkill("rp_telekinesis_novice")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+	-]]
 	
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	
