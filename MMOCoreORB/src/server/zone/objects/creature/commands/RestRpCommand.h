@@ -64,7 +64,7 @@ public:
 				}
 				else if(command == "meditate") {
 
-					if(targetCreature->hasSkill("rp_force_prog_novice")) {
+					if(targetCreature->hasSkill("rp_force_prog_rank_01")) {
 						BorCharacter::PerformMeditateRest(targetCreature);
 					}
 
@@ -86,7 +86,7 @@ public:
 				box->addMenuItem("Short Rest");
 				box->addMenuItem("Long Rest");
 				
-				if(targetCreature->hasSkill("rp_force_prog_novice")) {
+				if(targetCreature->hasSkill("rp_force_prog_rank_01")) {
 					box->addMenuItem("Meditate");
 				}
 
