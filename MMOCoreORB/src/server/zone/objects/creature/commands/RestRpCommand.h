@@ -63,7 +63,11 @@ public:
 					BorCharacter::PerformShortRest(targetCreature);
 				}
 				else if(command == "meditate") {
-					BorCharacter::PerformMeditateRest(targetCreature);
+
+					if(ghost:hasSkill("rp_force_prog_novice")) then {
+						BorCharacter::PerformMeditateRest(targetCreature);
+					}
+
 				}
 				else if(command == "long") {
 					BorCharacter::FillAllPools(targetCreature);
@@ -81,7 +85,11 @@ public:
 				box->setCancelButton(true, "@cancel");
 				box->addMenuItem("Short Rest");
 				box->addMenuItem("Long Rest");
-				box->addMenuItem("Meditate");
+				
+				if(ghost:hasSkill("rp_force_prog_novice")) then {
+					box->addMenuItem("Meditate");
+				}
+
 				creature->getPlayerObject()->addSuiBox(box);
 				creature->sendMessage(box->generateMessage());
 		}

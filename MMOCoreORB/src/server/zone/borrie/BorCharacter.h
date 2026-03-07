@@ -309,13 +309,16 @@ public:
 		int lastAction = creature->getHAM(3);
 		int lastWill = creature->getHAM(6);
 		int lastForce = 0;
-		if (creature->isPlayerCreature()) {
-			lastForce = creature->getPlayerObject()->getForcePower(); 
+
+		if(lastWill < 2) {
+			creature->sendSystemMessage("You don't have enough will points to rest.");
+			return;
 		}
 
 		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
 		ModPool(creature, "action", creature->getSkillMod("rp_action") / 2);
 		FillPool(creature, "force", true);
+		ModPool(creature, "will", -2);
 	}
 
 

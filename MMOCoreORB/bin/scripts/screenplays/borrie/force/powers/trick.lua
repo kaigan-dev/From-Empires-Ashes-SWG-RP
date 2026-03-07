@@ -88,12 +88,14 @@ function BorForce_Trick:performAbility(pPlayer, fpi)
 		return
 	end
 	
+	--[[ Remove exception
 	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") or tonumber(CreatureObject(pTarget):getSkillMod("rp_mindfulness")) > 7) then
 		CreatureObject(pPlayer):doAnimation("force_persuasion")			
 		broadcastMessageWithName(pPlayer, CreatureObject(pPlayer):getFirstName() .. " tried to mind trick " .. CreatureObject(pTarget):getFirstName() .. ", but ".. CreatureObject(pTarget):getFirstName() .." seems unaffected.")
 		PlayerObject(pGhost):setForcePower(forcePower - fpi)
 		return
 	end
+	--]]
 	
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_control"))
 	local roll = math.floor(math.random(1,20))
