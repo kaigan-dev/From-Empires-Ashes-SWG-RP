@@ -64,7 +64,7 @@ public:
 				}
 				else if(command == "meditate") {
 
-					if(creature->getPlayerObject()->hasSkill("rp_force_prog_novice")) {
+					if(ghost->hasSkill("rp_force_prog_novice")) {
 						BorCharacter::PerformMeditateRest(targetCreature);
 					}
 
@@ -73,7 +73,7 @@ public:
 					BorCharacter::FillAllPools(targetCreature);
 					//BorCharacter::HandleDarksideFading(targetCreature);
 				}
-
+ 
 				targetCreature->setStoredInt("power_attack_count", 0);
 		} else {
 			//Open SUI Menu
@@ -86,7 +86,7 @@ public:
 				box->addMenuItem("Short Rest");
 				box->addMenuItem("Long Rest");
 				
-				if(creature->getPlayerObject()->hasSkill("rp_force_prog_novice")) {
+				if(ghost->hasSkill("rp_force_prog_novice")) {
 					box->addMenuItem("Meditate");
 				}
 
