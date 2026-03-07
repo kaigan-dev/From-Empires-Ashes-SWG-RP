@@ -570,6 +570,7 @@ function BorForce:promptAwakenOther(pPlayer)
 		return
 	end
 	
+	--[[ Disable awakening other than by DM
 	local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
 	
 	if(xpAmount < 2400) then
@@ -611,6 +612,7 @@ function BorForce:promptAwakenOther(pPlayer)
 		return
 	end
 	
+
 	CreatureObject(pPlayer):sendSystemMessage("You try to awaken " .. targetName .. " to their potential connection to the Force!")	
 	local sui = SuiMessageBox.new("BorForce", "setForceAwareByOtherCallback")
 	sui.setTargetNetworkId(SceneObject(pPlayer):getObjectID())
@@ -619,14 +621,14 @@ function BorForce:promptAwakenOther(pPlayer)
 	sui.setOkButtonText("Yes")
 	sui.setCancelButtonText("No")
 	local pageId = sui.sendTo(pTarget)	
-	
+	--]]
 end
 
 function BorForce:setForceAwareByOtherCallback(pPlayer, pSui, eventIndex, args)
 	if (pPlayer == nil) then
 		return
 	end
-	
+	--[[ Disable awakening other than by DM
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 	if (pGhost == nil) then
@@ -671,6 +673,7 @@ function BorForce:setForceAwareByOtherCallback(pPlayer, pSui, eventIndex, args)
 	CreatureObject(pAwakener):sendSystemMessage("You have awoken " .. targetName .. " to their connection to the Force!")
 	--Become Aware!
 	self:setForceAware(pPlayer)	
+	--]]
 end
 
 function BorForce:promptAwakenSelf(pPlayer) 
@@ -678,6 +681,7 @@ function BorForce:promptAwakenSelf(pPlayer)
 		return
 	end
 	
+	--[[ Disable awakening other than by DM
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 	if (pGhost == nil) then
@@ -723,7 +727,7 @@ function BorForce:promptAwakenSelf(pPlayer)
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("You don't quite feel anything truly special here. Perhaps somewhere more steeped in the Force?")
 	end
-	
+	--]]
 end
 
 function BorForce:awakenViaHolocron(pPlayer, pObject)
@@ -764,7 +768,7 @@ function BorForce:setForceAwareByLocationCallback(pPlayer, pSui, eventIndex, arg
 	if (pPlayer == nil) then
 		return
 	end
-	
+	--[[ Disable awakening other than by DM
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 	if (pGhost == nil) then
@@ -785,6 +789,7 @@ function BorForce:setForceAwareByLocationCallback(pPlayer, pSui, eventIndex, arg
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("You no longer have enough experience to push yourself beyond.")
 	end
+	--]]
 end
 
 function BorForce:setForceAwareByHolocronCallback(pPlayer, pSui, eventIndex, args)
