@@ -10,14 +10,14 @@ function BorForce_Trick:showHelp(pPlayer)
 end
 
 function BorForce_Trick:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_control_a02")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_trick")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	-]]
+
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)

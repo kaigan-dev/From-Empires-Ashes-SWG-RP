@@ -32,7 +32,7 @@ function BorForce_Meditate:performAbility(pPlayer, fpi)
 	if (pGhost == nil) then
 		return
 	end
-	
+	--[[ Disable Meditate outside of the rest menu
 	local forcePower = math.floor(PlayerObject(pGhost):getForcePower())
 	local forcePowerMax = math.floor(PlayerObject(pGhost):getForcePowerMax())
 	
@@ -57,4 +57,5 @@ function BorForce_Meditate:performAbility(pPlayer, fpi)
 	CreatureObject(pPlayer):setHAM(6, CreatureObject(pPlayer):getHAM(6) - 1)	
 	
 	broadcastMessageWithName(pPlayer, message)
+	--]]
 end

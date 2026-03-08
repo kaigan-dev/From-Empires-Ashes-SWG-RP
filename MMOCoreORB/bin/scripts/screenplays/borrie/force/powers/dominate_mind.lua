@@ -10,12 +10,15 @@ function BorForce_DominateMind:showHelp(pPlayer)
 end
 
 function BorForce_DominateMind:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_control_b03")
+	
+	
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_dominate")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)

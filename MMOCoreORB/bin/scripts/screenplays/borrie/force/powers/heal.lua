@@ -9,14 +9,14 @@ function BorForce_Heal:showHelp(pPlayer)
 end
 
 function BorForce_Heal:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_alter_a01")
+	
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_heal")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	--]]
+
 
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	

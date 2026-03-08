@@ -9,14 +9,14 @@ function BorForce_Stealth:showHelp(pPlayer)
 end
 
 function BorForce_Stealth:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_control_a04")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_stealth")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	-]]
+
 	
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	

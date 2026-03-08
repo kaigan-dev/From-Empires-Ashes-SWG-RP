@@ -13,14 +13,14 @@ function BorForce_Persuade:showHelp(pPlayer)
 end
 
 function BorForce_Persuade:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_control_novice")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_persuade")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	-]]
+
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)

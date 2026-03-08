@@ -9,14 +9,14 @@ function BorForce_Throw:showHelp(pPlayer)
 end
 
 function BorForce_Throw:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_telekinesis_a04")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_throw")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	-]]
+
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)

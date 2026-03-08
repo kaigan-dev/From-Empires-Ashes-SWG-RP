@@ -11,14 +11,14 @@ function BorForce_Jump:showHelp(pPlayer)
 end
 
 function BorForce_Jump:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_alter_a03")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_jump")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	-]]
+
 	
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	

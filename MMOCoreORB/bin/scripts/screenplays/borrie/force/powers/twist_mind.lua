@@ -10,14 +10,14 @@ function BorForce_TwistMind:showHelp(pPlayer)
 end
 
 function BorForce_TwistMind:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_control_master")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_twist")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	-]]
+
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)
