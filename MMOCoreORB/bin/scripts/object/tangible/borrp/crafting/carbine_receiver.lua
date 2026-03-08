@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_carbine_receiver = object_tangible_borrp_crafting_shared_comp_weapon_receiver_carbine_common:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_carbine_receiver, "object/tangible/borrp/crafting/comp_weapon_receiver_carbine_common.iff")
