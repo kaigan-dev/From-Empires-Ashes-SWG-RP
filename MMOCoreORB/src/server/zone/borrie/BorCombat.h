@@ -416,8 +416,12 @@ public:
                 int maneuverabilitySkill = defender->getSkillMod("rp_maneuverability");
                 int dodgeRoll = BorDice::Roll(1, 20);
                 ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
-                int rating = armor->getRating();
-                reactionSpam += "(test, armor rating = " + String::valueOf(rating) + " ) ";
+                if (armor != nullptr) {
+                    int rating = armor->getRating();
+                }
+                else {
+                    int rating = 0;
+                }
                 if(dodgeRoll + maneuverabilitySkill >= toHit && rating != 3) { //Successful Dodge, not wearing Heavy Armor
                     reactionSpam += ", but " + defender->getFirstName() + " dodges out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
