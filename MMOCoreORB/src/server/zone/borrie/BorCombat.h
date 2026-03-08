@@ -765,7 +765,7 @@ public:
     }
 
     static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
-        if (creature->isPlayerCreature() && armor != nullptr && armor.get() != nullptr) {
+        if (creature->isPlayerCreature() && armor != nullptr) {
             if(damageType == "Kinetic") {
                 return (int)armor->getKinetic();
             }
