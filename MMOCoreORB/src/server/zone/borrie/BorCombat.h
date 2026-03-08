@@ -767,28 +767,28 @@ public:
     static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
         if (creature->isPlayerCreature() && armor != nullptr && armor.get() != nullptr) {
             if(damageType == "Kinetic") {
-                return (int)armor.get()->getKinetic();
+                return (int)armor->getKinetic();
             }
             else if(damageType == "Energy") {     
-                return (int)armor.get()->getEnergy();
+                return (int)armor->getEnergy();
             }
             else if(damageType == "Electricity") {
-                return (int)armor.get()->getElectricity();
+                return (int)armor->getElectricity();
             }
             else if(damageType == "Stun") {
-                return (int)armor.get()->getStun();
+                return (int)armor->getStun();
             }
             else if(damageType == "Blast") { 
-                return (int)armor.get()->getBlast();
+                return (int)armor->getBlast();
             }
             else if(damageType == "Heat") {
-                return (int)armor.get()->getHeat();
+                return (int)armor->getHeat();
             }
             else if(damageType == "Cold") {
-                return (int)armor.get()->getCold();
+                return (int)armor->getCold();
             }
             else if(damageType == "Acid") {
-                return (int)armor.get()->getAcid();
+                return (int)armor->getAcid();
             }
             else return 0;
         }
