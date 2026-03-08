@@ -430,6 +430,7 @@ public:
                     else { //No Armor
                         DrainActionOrWill(defender, 1 * actionPointMod);
                     }
+                }
                     /* Remove partial dodge 
                 } else if(dodgeRoll + maneuverabilitySkill >= toHit / 2 ) { //Partial Dodge
                     reactionSpam += ", " + defender->getFirstName() + " struggles to dodge out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
@@ -439,7 +440,7 @@ public:
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
                     DrainActionOrWill(defender, 1 * actionPointMod);
                     */
-                } else if (dodgeRoll + maneuverabilitySkill < toHit && rating != 0x03) { //full fail, not wearing Heavy Armor
+                else if (dodgeRoll + maneuverabilitySkill < toHit && rating != 0x03) { //full fail, not wearing Heavy Armor
                     reactionSpam += ", " + defender->getFirstName() + " tries to dodge out of the way and fails! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
@@ -456,6 +457,7 @@ public:
                     else { //No Armor
                         DrainActionOrWill(defender, 1 * actionPointMod);
                     }
+                }
                 else { //heavy armor fail
                     reactionSpam += ", " + defender->getFirstName() + " is unable to dodge due to their heavy armor! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
