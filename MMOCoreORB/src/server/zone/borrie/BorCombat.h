@@ -416,9 +416,7 @@ public:
                 int maneuverabilitySkill = defender->getSkillMod("rp_maneuverability");
                 int dodgeRoll = BorDice::Roll(1, 20);
                 ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
-                int rating = 0; // Assume no armor by default.
-                if ((armor->getRating())* != nullptr) {
-                    int rating = armor->getRating();
+                int rating = armor->getRating();
                 }
 
                 if(dodgeRoll + maneuverabilitySkill >= toHit && rating != 3) { //Successful Dodge, not wearing Heavy Armor
