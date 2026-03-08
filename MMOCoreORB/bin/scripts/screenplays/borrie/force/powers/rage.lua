@@ -10,14 +10,14 @@ function BorForce_Rage:showHelp(pPlayer)
 end
 
 function BorForce_Rage:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_inward_a02")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_rage")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	-]]
+
 	
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	

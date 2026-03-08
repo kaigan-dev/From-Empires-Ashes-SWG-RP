@@ -8,13 +8,14 @@ function BorForce_Defense:showHelp(pPlayer)
 end
 
 function BorForce_Defense:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_inward_b01")
+	
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_defense")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	
+
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	
 	if(fpi < 1) then

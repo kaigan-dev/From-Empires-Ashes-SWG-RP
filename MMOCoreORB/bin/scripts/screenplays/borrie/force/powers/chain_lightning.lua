@@ -10,7 +10,8 @@ function BorForce_ChainLightning:showHelp(pPlayer)
 end
 
 function BorForce_ChainLightning:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_lightning_b01")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_chain")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)

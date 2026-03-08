@@ -11,7 +11,7 @@ function BorForce_Flash:showHelp(pPlayer)
 end
 
 function BorForce_Flash:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_control_a03")
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_flash")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)

@@ -9,14 +9,14 @@ function BorForce_ReadMind:showHelp(pPlayer)
 end
 
 function BorForce_ReadMind:execute(pPlayer)
-	--[[ Remove Force prereqs
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_sense_a03")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_read")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	-]]
+
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)

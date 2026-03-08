@@ -8,7 +8,7 @@ function BorForce_Focus:showHelp(pPlayer)
 end
 
 function BorForce_Focus:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_inward_a03")
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_focus")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
