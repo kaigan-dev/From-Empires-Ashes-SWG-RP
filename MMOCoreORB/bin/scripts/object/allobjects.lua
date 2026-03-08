@@ -1361,6 +1361,7 @@ includeFile("tangible/item/roleplay/broken_saber/polearm/objects.lua")
 includeFile("tangible/item/roleplay/broken_saber/sword/objects.lua")
 
 includeFile("tangible/borrp/item/objects.lua")
+includeFile("tangible/borrp/crafting/objects.lua")
 
 includeFile("tangible/borrie/cantina/objects.lua")
 

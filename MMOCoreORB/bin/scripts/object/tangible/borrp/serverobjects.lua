@@ -1,3 +1,5 @@
 includeFile("tangible/borrp/effects/serverobjects.lua")
 includeFile("tangible/borrp/world/serverobjects.lua")
 includeFile("tangible/borrp/utility/serverobjects.lua")
+includeFile("tangible/borrp/item/serverobjects.lua")
+includeFile("tangible/borrp/crafting/serverobjects.lua")
