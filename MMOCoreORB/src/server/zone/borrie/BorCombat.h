@@ -416,10 +416,20 @@ public:
                 int maneuverabilitySkill = defender->getSkillMod("rp_maneuverability");
                 int dodgeRoll = BorDice::Roll(1, 20);
                 
-                if(dodgeRoll + maneuverabilitySkill >= toHit) { //Successful Dodge
+                ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
+                int rating = armor->getRating();
+                if(dodgeRoll + maneuverabilitySkill >= toHit && rating != "HEAVY") { //Successful Dodge
                     reactionSpam += ", but " + defender->getFirstName() + " dodges out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
-                    DrainActionOrWill(defender, 1 * actionPointMod);
+                    if (rating == "LIGHT") {
+                        DrainActionOrWill(defender, 2 * actionPointMod);
+                    }
+                    else if (rating == "MEDIUM") {
+                        DrainActionOrWill(defender, 3 * actionPointMod);
+                    }
+                    else {
+                        DrainActionOrWill(defender, 1 * actionPointMod);
+                    }
                     /* Remove partial dodge 
                 } else if(dodgeRoll + maneuverabilitySkill >= toHit / 2 ) { //Partial Dodge
                     reactionSpam += ", " + defender->getFirstName() + " struggles to dodge out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
@@ -429,7 +439,7 @@ public:
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
                     DrainActionOrWill(defender, 1 * actionPointMod);
                     */
-                } else { //full fail
+                } else if (dodgeRoll + maneuverabilitySkill < toHit && rating != "HEAVY") { //full fail
                     reactionSpam += ", " + defender->getFirstName() + " tries to dodge out of the way and fails! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
@@ -437,7 +447,22 @@ public:
                     //BorCharacter::ModPool(defender, "health", incomingDamage * -1, true);
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
-                    DrainActionOrWill(defender, 1 * actionPointMod);
+                    if (rating == "LIGHT") {
+                        DrainActionOrWill(defender, 2 * actionPointMod);
+                    }
+                    else if (rating == "MEDIUM") {
+                        DrainActionOrWill(defender, 3 * actionPointMod);
+                    }
+                    else {
+                        DrainActionOrWill(defender, 1 * actionPointMod);
+                    }
+                } else { //heavy armor fail
+                    reactionSpam += ", " + defender->getFirstName() + " is unable to dodge due to their heavy armor! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
+                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
+                    int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
+                    reactionSpam += defender->getFirstName() +" takes \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection);
+                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+                    BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
                 }
                 return reactionSpam;
             } else if(defenderReactionType == 4) { //Lightsaber Deflect
