@@ -456,7 +456,7 @@ public:
                     else { //No Armor
                         DrainActionOrWill(defender, 1 * actionPointMod);
                     }
-                } else { //heavy armor fail
+                else { //heavy armor fail
                     reactionSpam += ", " + defender->getFirstName() + " is unable to dodge due to their heavy armor! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
