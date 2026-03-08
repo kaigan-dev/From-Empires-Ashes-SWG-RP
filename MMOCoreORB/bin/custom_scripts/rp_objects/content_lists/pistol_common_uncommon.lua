@@ -1,0 +1,15 @@
+content = {
+	{"object/weapon/roleplay/ranged/pistol/antiriot_tangle_gun_7.iff", },
+	{"object/weapon/roleplay/ranged/pistol/d18_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/dl18_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/dl44_blaster_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/flare_gun.iff", },
+	{"object/weapon/roleplay/ranged/pistol/ion_stunner_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/kyd21_blaster_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/model_q2_holdout_blaster_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/power_5_heavy_blaster_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/scout_blaster_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/se14_blaster_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/striker_projectile_pistol.iff", },
+	{"object/weapon/roleplay/ranged/pistol/wookiee_pistol.iff", },
+}

@@ -39,12 +39,16 @@ function DevSpawnScreenPlay:generateCivilians()
 end
 
 function DevSpawnScreenPlay:spawnSceneObjects()
+	--[[What is this thing even for?
 	local sObj = spawnTeleporterTerminal("Debug Dev Teleporter", "object/tangible/terminal/teleport/terminal_teleporter_s01.iff", 10, 0, 10, 0, "rp_testing", 0,0,0,0,100,0,100,0,"rp_testing")
 	SceneObject(sObj):setCustomObjectName("Debug Teleport Terminal!")
+	-]]
 	
 end
 
 function DevSpawnScreenPlay:spawnMobiles() 
+	--[[  Goodbye, mystery rodian!
 	pNpc = spawnRoleplayMobile("rp_testing", "rp_base_npc", 1, 15, 0, 15, 0, 0, "rp_rodian_male", "xovros_mechanic", "default", "xovros_rotto") --Rotto Mechanic
 	SceneObject(pNpc):setCustomObjectName("Rotto Dimok")
+	--]]
 end

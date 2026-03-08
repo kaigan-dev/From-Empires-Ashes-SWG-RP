@@ -1,0 +1,17 @@
+content = {
+	{"object/weapon/roleplay/melee/unarmed/black_sun_razor.iff", },
+	{"object/weapon/roleplay/melee/unarmed/ceremonial_knuckler.iff", },
+	{"object/weapon/roleplay/melee/twohanded/fierce_cleaver.iff", },
+	{"object/weapon/roleplay/melee/twohanded/scythe_blade.iff", },
+	{"object/weapon/roleplay/melee/twohanded/vibroaxe.iff", },
+	{"object/weapon/roleplay/melee/twohanded/wookiee_broadsword.iff", },
+	{"object/weapon/roleplay/melee/onehanded/ceremonial_cutlass.iff", },
+	{"object/weapon/roleplay/melee/onehanded/elite_gaderiffi_stick.iff", },
+	{"object/weapon/roleplay/melee/onehanded/mace.iff", },
+	{"object/weapon/roleplay/melee/onehanded/rantok.iff", },
+	{"object/weapon/roleplay/melee/onehanded/ryyk_blade.iff", },
+	{"object/weapon/roleplay/melee/polearm/electric_polearm.iff", },
+	{"object/weapon/roleplay/melee/polearm/force_pike.iff", },
+	{"object/weapon/roleplay/melee/polearm/kashyyyk_lance.iff", },
+	{"object/weapon/roleplay/melee/polearm/poison_pike.iff", },
+}

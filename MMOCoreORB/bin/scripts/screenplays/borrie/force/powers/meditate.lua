@@ -9,12 +9,14 @@ function BorForce_Meditate:showHelp(pPlayer)
 end
 
 function BorForce_Meditate:execute(pPlayer)
+	--[[ Remove Force prereqs
 	local hasPower = CreatureObject(pPlayer):hasSkill("rp_inward_novice")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+	-]]
 	
 	self:performAbility(pPlayer)
 end

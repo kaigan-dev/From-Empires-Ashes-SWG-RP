@@ -35,11 +35,11 @@ public:
 
 	static String GetSkillParent(String skill) {
 		if (skill == "melee")
-			return "strength";
+			return "dexterity";
 		else if (skill == "intimidation")
-			return "strength";
+			return "constitution";
 		else if (skill == "unarmed")
-			return "strength";
+			return "dexterity";
 		else if (skill == "lightsaber")
 			return "strength";
 		else if (skill == "ranged")
@@ -49,15 +49,15 @@ public:
 		else if (skill == "demolitions")
 			return "precision";
 		else if (skill == "engineering")
-			return "precision";
+			return "intelligence";
 		else if (skill == "larceny")
 			return "dexterity";
 		else if (skill == "stealth")
-			return "dexterity";
+			return "awareness";
 		else if (skill == "maneuverability")
 			return "dexterity";
 		else if (skill == "throwing")
-			return "dexterity";
+			return "precision";
 		else if (skill == "investigation")
 			return "awareness";
 		else if (skill == "piloting")
@@ -65,7 +65,7 @@ public:
 		else if (skill == "survival")
 			return "awareness";
 		else if (skill == "sense")
-			return "awareness";
+			return "mindfulness";
 		else if (skill == "slicing")
 			return "intelligence";
 		else if (skill == "computers")
@@ -79,9 +79,9 @@ public:
 		else if (skill == "bluff")
 			return "charisma";
 		else if (skill == "composure")
-			return "charisma";
+			return "mindfulness";
 		else if (skill == "resolve")
-			return "charisma";
+			return "mindfulness";
 		else if (skill == "athletics")
 			return "constitution";
 		else if (skill == "lightning")
@@ -89,7 +89,7 @@ public:
 		else if (skill == "armor")
 			return "constitution";
 		else if (skill == "defending")
-			return "constitution";
+			return "strength";
 		else if (skill == "telekinesis")
 			return "mindfulness";
 		else if (skill == "control")
@@ -104,11 +104,11 @@ public:
 
 	static String GetSkillAltParent(String skill) {
 		if (skill == "melee")
-			return "dexterity";
+			return "strength";
 		else if (skill == "intimidation")
 			return "constitution";
 		else if (skill == "unarmed")
-			return "dexterity";
+			return "strength";
 		else if (skill == "lightsaber")
 			return "dexterity";
 		else if (skill == "ranged")
@@ -118,11 +118,11 @@ public:
 		else if (skill == "demolitions")
 			return "awareness";
 		else if (skill == "engineering")
-			return "intelligence";
+			return "precision";
 		else if (skill == "larceny")
 			return "charisma";
 		else if (skill == "stealth")
-			return "awareness";
+			return "dexterity";
 		else if (skill == "maneuverability")
 			return "awareness";
 		else if (skill == "throwing")
@@ -134,7 +134,7 @@ public:
 		else if (skill == "survival")
 			return "constitution";
 		else if (skill == "sense")
-			return "mindfulness";
+			return "awareness";
 		else if (skill == "slicing")
 			return "precision";
 		else if (skill == "computers")
@@ -148,7 +148,7 @@ public:
 		else if (skill == "bluff")
 			return "intelligence";
 		else if (skill == "composure")
-			return "mindfulness";
+			return "awareness";
 		else if (skill == "resolve")
 			return "constitution";
 		else if (skill == "athletics")
@@ -158,7 +158,7 @@ public:
 		else if (skill == "armor")
 			return "strength";
 		else if (skill == "defending")
-			return "strength";
+			return "constitution";
 		else if (skill == "telekinesis")
 			return "precision";
 		else if (skill == "control")
@@ -253,6 +253,8 @@ public:
 			return true;
 		else if (skill == "lightsaber")
 			return true;
+		else if (skill == "sense")
+			return true;
 		else 
 			return false;
 	}
@@ -269,6 +271,8 @@ public:
 		else if(skill.contains("lightning"))
 			return true;
 		else if(skill.contains("lightsaber"))
+			return true;
+		else if(skill.contains("sense"))
 			return true;
 		else return false;
 	}

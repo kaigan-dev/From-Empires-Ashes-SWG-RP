@@ -303,7 +303,26 @@ public:
 			BorrieRPG::BroadcastMessage(creature, report);
 	}
 
-	static void PerformShortRest(CreatureObject* creature) {
+	static void PerformMeditateRest(CreatureObject* creature) {
+		Locker clocker(creature);
+		int lastHealth = creature->getHAM(0);
+		int lastAction = creature->getHAM(3);
+		int lastWill = creature->getHAM(6);
+		int lastForce = 0;
+
+		if(lastWill < 2) {
+			creature->sendSystemMessage("You don't have enough will points to rest.");
+			return;
+		}
+
+		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
+		ModPool(creature, "action", creature->getSkillMod("rp_action") / 2);
+		FillPool(creature, "force", true);
+		ModPool(creature, "will", -2);
+	}
+
+
+		static void PerformShortRest(CreatureObject* creature) {
 		Locker clocker(creature);
 		int lastHealth = creature->getHAM(0);
 		int lastAction = creature->getHAM(3);
@@ -320,9 +339,11 @@ public:
 
 		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
 		FillPool(creature, "action", true);
-		FillPool(creature, "force", true);
+		//FillPool(creature, "force", true);
+		ModPool(creature, "force", creature->getSkillMod("rp_force") / 2);
 		ModPool(creature, "will", -2);
 	}
+
 
 	static int GetHAMFromPool(String pool) {
 		if (pool == "health" || pool == "hp")
@@ -515,13 +536,13 @@ public:
 
 		infoText << "\\#FF7000[FREE POINTS]\\#." << endl;
 		infoText << "Attributes: " << target->getStoredInt("starter_attr_points") << endl;
-		infoText << "Skills: " << target->getStoredInt("starter_skill_points")  << endl;
+		//infoText << "Skills: " << target->getStoredInt("starter_skill_points")  << endl;
 
 		SkillManager* skillManager = target->getZoneServer()->getSkillManager();
 
 		if (skillManager == nullptr)
 			return;
-
+ 
 		int trainingSkillCount = skillManager->getTrainingSkillCount(target);
 
 		if(trainingSkillCount > 0) {
@@ -529,12 +550,12 @@ public:
 			int count = 1;
 
 			if(target->hasSkill("rp_training_jedi_novice")) {
-				infoText << count << ". Jedi Training (" << skillManager->getTrainingSkillRank(target, "rp_training_jedi") << ")" << endl;
+				infoText << count << ". Jedi Guardian Training (" << skillManager->getTrainingSkillRank(target, "rp_training_jedi") << ")" << endl;
 				count++;
 			}
 
 			if(target->hasSkill("rp_training_sith_novice")) {
-				infoText << count << ". Sith Training (" << skillManager->getTrainingSkillRank(target, "rp_training_sith") << ")" << endl;
+				infoText << count << ". Dark Jedi Warrior Training (" << skillManager->getTrainingSkillRank(target, "rp_training_sith") << ")" << endl;
 				count++;
 			}
 
@@ -559,22 +580,22 @@ public:
 			}
 
 			if(target->hasSkill("rp_training_engineer_novice")) {
-				infoText << count << ". Engineering Training (" << skillManager->getTrainingSkillRank(target, "rp_training_engineer") << ")" << endl;
+				infoText << count << ". Ship Engineer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_engineer") << ")" << endl;
 				count++;
 			}
 
 			if(target->hasSkill("rp_training_diplomatic_novice")) {
-				infoText << count << ". Diplomacy Training (" << skillManager->getTrainingSkillRank(target, "rp_training_diplomatic") << ")" << endl;
+				infoText << count << ". Diplomat Training (" << skillManager->getTrainingSkillRank(target, "rp_training_diplomatic") << ")" << endl;
 				count++;
 			}
 
 			if(target->hasSkill("rp_training_spy_novice")) {
-				infoText << count << ". Espionage Training (" << skillManager->getTrainingSkillRank(target, "rp_training_spy") << ")" << endl;
+				infoText << count << ". Spy Training (" << skillManager->getTrainingSkillRank(target, "rp_training_spy") << ")" << endl;
 				count++;
 			}
 
-			if(target->hasSkill("rp_training_criminal_novice")) {
-				infoText << count << ". Criminal Training (" << skillManager->getTrainingSkillRank(target, "rp_training_criminal") << ")" << endl;
+			if(target->hasSkill("rp_training_smuggler_novice")) {
+				infoText << count << ". Smuggler Training (" << skillManager->getTrainingSkillRank(target, "rp_training_smuggler") << ")" << endl;
 				count++;
 			}
 
@@ -590,6 +611,86 @@ public:
 
 			if(target->hasSkill("rp_training_inq_novice")) {
 				infoText << count << ". Inquisitor Training (" << skillManager->getTrainingSkillRank(target, "rp_training_inq") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_jedi_sentinel_novice")) {
+				infoText << count << ". Jedi Sentinel Training (" << skillManager->getTrainingSkillRank(target, "rp_training_jedi_sentinel") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_jedi_consular_novice")) {
+				infoText << count << ". Jedi Consular Training (" << skillManager->getTrainingSkillRank(target, "rp_training_jedi_consular") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_drk_sorceror_novice")) {
+				infoText << count << ". Dark Jedi Sorcerer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_drk_sorceror") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_officer_novice")) {
+				infoText << count << ". Officer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_officer") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_pilot_novice")) {
+				infoText << count << ". Pilot Training (" << skillManager->getTrainingSkillRank(target, "rp_training_pilot") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_surgeon_novice")) {
+				infoText << count << ". Surgeon Training (" << skillManager->getTrainingSkillRank(target, "rp_training_surgeon") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_researcher_novice")) {
+				infoText << count << ". Researcher Training (" << skillManager->getTrainingSkillRank(target, "rp_training_researcher") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_weaponsmith_novice")) {
+				infoText << count << ". Weaponsmith Training (" << skillManager->getTrainingSkillRank(target, "rp_training_weaponsmith") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_armorsmith_novice")) {
+				infoText << count << ". Armorsmith Training (" << skillManager->getTrainingSkillRank(target, "rp_training_armorsmith") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_assassin_novice")) {
+				infoText << count << ". Assassin Training (" << skillManager->getTrainingSkillRank(target, "rp_training_assassin") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_saboteur_novice")) {
+				infoText << count << ". Saboteur Training (" << skillManager->getTrainingSkillRank(target, "rp_training_saboteur") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_conart_novice")) {
+				infoText << count << ". Con Artist Training (" << skillManager->getTrainingSkillRank(target, "rp_training_conart") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_enforcer_novice")) {
+				infoText << count << ". Enforcer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_enforcer") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_bh_novice")) {
+				infoText << count << ". Bounty Hunter Training (" << skillManager->getTrainingSkillRank(target, "rp_training_bh") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_scout_novice")) {
+				infoText << count << ". Scout Training (" << skillManager->getTrainingSkillRank(target, "rp_training_scout") << ")" << endl;
 				count++;
 			}
 		}
@@ -869,8 +970,9 @@ public:
 	}
 
 	static void RewardCreditsByLevel(CreatureObject* creature, CreatureObject* dm, int multiplier = 100) {
-		int playerLevel = GetPlayerLevel(creature);
-		int credits = playerLevel * multiplier;
+		//int playerLevel = GetPlayerLevel(creature);
+		//int credits = playerLevel * multiplier;
+		int credits = multiplier;
 		if(credits < 1) return;
 		creature->addCashCredits(credits);
 		creature->sendSystemMessage("You've been awarded " + String::valueOf(credits) + " credits!");
@@ -944,7 +1046,7 @@ public:
 		if (waypoint == nullptr)
 			newwaypoint = (creature->getZoneServer()->createObject(0xc456e788, 1)).castTo<WaypointObject*>();
 		else {
-			ghost->removeWaypoint(waypoint->getObjectID(), true, false);
+			ghost->removeWaypoint(waypoint->getObjectID(), true, true);
 			newwaypoint = waypoint.get();
 		}
 
@@ -968,9 +1070,20 @@ public:
 		int maxDistance = 6;
 
 		if (creature->isRidingMount()) {
-			maxDistance = piloting + 22;
+			maxDistance = piloting + 30;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move on their mount. Their enhanced range is " + String::valueOf(maxDistance) + "m. ");
-		} else {
+		} 
+		else if (creature->isKneeling()) {
+			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .66;
+			maxDistance = static_cast<int>(floatDistance);
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
+		}
+		else if (creature->isProne()) {
+			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .25;
+			maxDistance = static_cast<int>(floatDistance);
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
+		}
+		else {
 			maxDistance = maneuverability + athletics + 10;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
 		}	
@@ -992,8 +1105,9 @@ public:
 			auto worldPosition = waypoint->getWorldPosition();
 			int distance = GetDistance(creature, worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters from their last position.");
+			ghost->removeWaypoint(waypoint->getObjectID(), true, true);
+			waypoint = waypoint.get();
 		}
-		
 	}
 
 	static void AddDarksidePoints(CreatureObject* creature, int amount, bool playMusic) {

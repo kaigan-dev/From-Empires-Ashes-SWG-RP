@@ -9,13 +9,16 @@ function BorForce_Grip:showHelp(pPlayer)
 	
 end
 
+
 function BorForce_Grip:execute(pPlayer)
+	--[[ Remove Force prereqs
 	local hasPower = CreatureObject(pPlayer):hasSkill("rp_telekinesis_b01")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+	--]]
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)

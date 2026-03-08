@@ -10,12 +10,14 @@ function BorForce_Speed:showHelp(pPlayer)
 end
 
 function BorForce_Speed:execute(pPlayer)
+	--[[ Remove Force prereqs
 	local hasPower = CreatureObject(pPlayer):hasSkill("rp_alter_novice")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+	-]]
 	
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	

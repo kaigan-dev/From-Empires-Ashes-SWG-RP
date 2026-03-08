@@ -570,6 +570,7 @@ function BorForce:promptAwakenOther(pPlayer)
 		return
 	end
 	
+	--[[ Disable awakening other than by DM
 	local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
 	
 	if(xpAmount < 2400) then
@@ -611,6 +612,7 @@ function BorForce:promptAwakenOther(pPlayer)
 		return
 	end
 	
+
 	CreatureObject(pPlayer):sendSystemMessage("You try to awaken " .. targetName .. " to their potential connection to the Force!")	
 	local sui = SuiMessageBox.new("BorForce", "setForceAwareByOtherCallback")
 	sui.setTargetNetworkId(SceneObject(pPlayer):getObjectID())
@@ -619,14 +621,14 @@ function BorForce:promptAwakenOther(pPlayer)
 	sui.setOkButtonText("Yes")
 	sui.setCancelButtonText("No")
 	local pageId = sui.sendTo(pTarget)	
-	
+	--]]
 end
 
 function BorForce:setForceAwareByOtherCallback(pPlayer, pSui, eventIndex, args)
 	if (pPlayer == nil) then
 		return
 	end
-	
+	--[[ Disable awakening other than by DM
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 	if (pGhost == nil) then
@@ -671,6 +673,7 @@ function BorForce:setForceAwareByOtherCallback(pPlayer, pSui, eventIndex, args)
 	CreatureObject(pAwakener):sendSystemMessage("You have awoken " .. targetName .. " to their connection to the Force!")
 	--Become Aware!
 	self:setForceAware(pPlayer)	
+	--]]
 end
 
 function BorForce:promptAwakenSelf(pPlayer) 
@@ -678,6 +681,7 @@ function BorForce:promptAwakenSelf(pPlayer)
 		return
 	end
 	
+	--[[ Disable awakening other than by DM
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 	if (pGhost == nil) then
@@ -723,7 +727,7 @@ function BorForce:promptAwakenSelf(pPlayer)
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("You don't quite feel anything truly special here. Perhaps somewhere more steeped in the Force?")
 	end
-	
+	--]]
 end
 
 function BorForce:awakenViaHolocron(pPlayer, pObject)
@@ -736,13 +740,14 @@ function BorForce:awakenViaHolocron(pPlayer, pObject)
 	if (pGhost == nil) then
 		return
 	end
-	
+	--[[Disable holocron usage
 	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01")) then
 		CreatureObject(pPlayer):sendSystemMessage("You are already well aware of your connection to the Force. Go forth and seek training on how to use it.")
 		return
 	end
 	
 	local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+	
 	
 	if(xpAmount >= 24000) then
 		--If all is true, prompt to accept
@@ -756,14 +761,14 @@ function BorForce:awakenViaHolocron(pPlayer, pObject)
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("The Holocron glows briefly in your hand. You are not yet ready...")
 	end
-	
+	--]]
 end
 
 function BorForce:setForceAwareByLocationCallback(pPlayer, pSui, eventIndex, args)
 	if (pPlayer == nil) then
 		return
 	end
-	
+	--[[ Disable awakening other than by DM
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 	if (pGhost == nil) then
@@ -784,6 +789,7 @@ function BorForce:setForceAwareByLocationCallback(pPlayer, pSui, eventIndex, arg
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("You no longer have enough experience to push yourself beyond.")
 	end
+	--]]
 end
 
 function BorForce:setForceAwareByHolocronCallback(pPlayer, pSui, eventIndex, args)
@@ -803,6 +809,7 @@ function BorForce:setForceAwareByHolocronCallback(pPlayer, pSui, eventIndex, arg
 		return
 	end
 	
+	--[[Disable holocron usage
 	local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
 	if(xpAmount >= 20000) then
 		CreatureObject(pPlayer):awardExperience("rp_general", -20000, false)
@@ -811,6 +818,7 @@ function BorForce:setForceAwareByHolocronCallback(pPlayer, pSui, eventIndex, arg
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("You no longer have enough experience to learn the lesson.")
 	end
+	--]]
 end
 
 function BorForce:setForceAware(pPlayer)
@@ -829,11 +837,11 @@ function BorForce:setForceAware(pPlayer)
 end
 
 function BorForce:startForceMeditation(pPlayer) 
-	CreatureObject(pPlayer):sendSystemMessage("I am but a mirror whose only purpose is to show you what your eyes cannot yet see.")
+	--CreatureObject(pPlayer):sendSystemMessage("I am but a mirror whose only purpose is to show you what your eyes cannot yet see.")
 end
 
 function BorForce:promptForceMenu(pPlayer) 
-	CreatureObject(pPlayer):sendSystemMessage("Help: Use /rpforce awaken to reach out and try to make yourself aware of the Force.")
+	--CreatureObject(pPlayer):sendSystemMessage("Help: Use /rpforce awaken to reach out and try to make yourself aware of the Force.")
 	
 	--local suiManager = LuaSuiManager()
 	--local options = {{"Make Target Force Aware", 0}, {"Spawn Lightsaber Crystal", 0}, {"Spawn Training Device", 0}, {"Spawn Lightsaber Book", 0}}
@@ -899,7 +907,7 @@ function BorForce:openHolocronMenu(pPlayer, pObject)
 	if (pGhost == nil) then
 		return
 	end
-	
+	--[[Disable holocron usage
 	if(TangibleObject(pObject):isBroken()) then
 		CreatureObject(pPlayer):sendSystemMessage("This holocron is broken, and can no longer teach anything.")
 		return
@@ -929,6 +937,7 @@ function BorForce:openHolocronMenu(pPlayer, pObject)
 	sui.setOkButtonText("Yes")
 	sui.setCancelButtonText("No")
 	local pageId = sui.sendTo(pPlayer)
+	--]]
 end
 
 function BorForce:holocronCallback(pPlayer, pSui, eventIndex, args)
@@ -953,7 +962,7 @@ function BorForce:holocronCallback(pPlayer, pSui, eventIndex, args)
 	if (holocronObj == nil) then
 		return
 	end
-	
+	--[[Disable holocron usage
 	local skillString = SceneObject(holocronObj):getStoredString("skill")
 	
 	local currentSkillValue = self:getCurrentSkillLevel(pPlayer, skillString)
@@ -989,6 +998,7 @@ function BorForce:holocronCallback(pPlayer, pSui, eventIndex, args)
 			CreatureObject(pPlayer):sendSystemMessage("You were not able to learn the lesson taught.")
 		end
 	end	
+	--]]
 end
 
 function BorForce:transcribeLightsaberBookPrompt(pPlayer, pObject) 

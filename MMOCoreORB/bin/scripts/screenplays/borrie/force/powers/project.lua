@@ -8,12 +8,14 @@ function BorForce_Project:showHelp(pPlayer)
 end
 
 function BorForce_Project:execute(pPlayer)
+	--[[ Remove Force prereqs
 	local hasPower = CreatureObject(pPlayer):hasSkill("rp_alter_b02")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+	-]]
 	
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	

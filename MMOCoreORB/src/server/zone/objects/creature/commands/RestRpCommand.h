@@ -61,11 +61,19 @@ public:
 				args.getStringToken(command);
 				if(command == "short") {
 					BorCharacter::PerformShortRest(targetCreature);
-				} else if(command == "long") {
+				}
+				else if(command == "meditate") {
+
+					if(targetCreature->hasSkill("rp_force_prog_rank_01")) {
+						BorCharacter::PerformMeditateRest(targetCreature);
+					}
+
+				}
+				else if(command == "long") {
 					BorCharacter::FillAllPools(targetCreature);
 					//BorCharacter::HandleDarksideFading(targetCreature);
 				}
-
+ 
 				targetCreature->setStoredInt("power_attack_count", 0);
 		} else {
 			//Open SUI Menu
@@ -77,6 +85,11 @@ public:
 				box->setCancelButton(true, "@cancel");
 				box->addMenuItem("Short Rest");
 				box->addMenuItem("Long Rest");
+				
+				if(targetCreature->hasSkill("rp_force_prog_rank_01")) {
+					box->addMenuItem("Meditate");
+				}
+
 				creature->getPlayerObject()->addSuiBox(box);
 				creature->sendMessage(box->generateMessage());
 		}
