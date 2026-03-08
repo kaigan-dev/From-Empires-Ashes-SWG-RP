@@ -417,7 +417,7 @@ public:
                 int dodgeRoll = BorDice::Roll(1, 20);
                 ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                 int rating = 0; // Assume no armor by default.
-                if (armor->getRating() != nullptr) {
+                if ((armor->getRating())* != nullptr) {
                     int rating = armor->getRating();
                 }
 
