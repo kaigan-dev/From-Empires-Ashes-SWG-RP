@@ -415,12 +415,12 @@ public:
             } else if(defenderReactionType == 3) { //Dodge
                 int maneuverabilitySkill = defender->getSkillMod("rp_maneuverability");
                 int dodgeRoll = BorDice::Roll(1, 20);
+                int heavyFlag = 0;
 
                 // Prevent dodge in Heavy Armor
                 for (int i = 2; i <= 10; i++) { // Check each armor slot. Starting from 2 to make the loop slightly faster since body is checked at 1, 2, and 9.
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int rating = 0;
-                    int heavyFlag = 0;
                     if (armor != nullptr && armor.get() != nullptr) {
                         rating = armor.get()->getRating();
                         if (rating == 3) {
