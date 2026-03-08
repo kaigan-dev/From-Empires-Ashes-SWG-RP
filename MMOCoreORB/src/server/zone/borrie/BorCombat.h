@@ -417,7 +417,7 @@ public:
                 int dodgeRoll = BorDice::Roll(1, 20);
                 
                 ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
-                rating = armor.getRating();
+                int rating = armor->getRating();
                 if(dodgeRoll + maneuverabilitySkill >= toHit && rating != "HEAVY") { //Successful Dodge
                     reactionSpam += ", but " + defender->getFirstName() + " dodges out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
@@ -439,7 +439,7 @@ public:
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
                     DrainActionOrWill(defender, 1 * actionPointMod);
                     */
-                } else if (dodgeRoll + maneuverabilitySkill < toHit&& rating != "HEAVY") { //full fail
+                } else if (dodgeRoll + maneuverabilitySkill < toHit && rating != "HEAVY") { //full fail
                     reactionSpam += ", " + defender->getFirstName() + " tries to dodge out of the way and fails! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
