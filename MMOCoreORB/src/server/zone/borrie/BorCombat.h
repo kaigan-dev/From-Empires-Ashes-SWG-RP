@@ -765,15 +765,31 @@ public:
     }
 
     static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
-        if (creature->isPlayerCreature()) {
-            if(damageType == "Kinetic")             return (int)armor->getKinetic();
-            else if(damageType == "Energy")         return (int)armor->getEnergy();
-            else if(damageType == "Electricity")    return (int)armor->getElectricity();
-            else if(damageType == "Stun")           return (int)armor->getStun();
-            else if(damageType == "Blast")          return (int)armor->getBlast();
-            else if(damageType == "Heat")           return (int)armor->getHeat();
-            else if(damageType == "Cold")           return (int)armor->getCold();
-            else if(damageType == "Acid")           return (int)armor->getAcid();
+        if (creature->isPlayerCreature() && armor != nullptr && armor.get() != nullptr) {
+            if(damageType == "Kinetic") {
+                return (int)armor.get()->getKinetic();
+            }
+            else if(damageType == "Energy") {     
+                return (int)armor.get()->getEnergy();
+            }
+            else if(damageType == "Electricity") {
+                return (int)armor.get()->getElectricity();
+            }
+            else if(damageType == "Stun") {
+                return (int)armor.get()->getStun();
+            }
+            else if(damageType == "Blast") { 
+                return (int)armor.get()->getBlast();
+            }
+            else if(damageType == "Heat") {
+                return (int)armor.get()->getHeat();
+            }
+            else if(damageType == "Cold") {
+                return (int)armor.get()->getCold();
+            }
+            else if(damageType == "Acid") {
+                return (int)armor.get()->getAcid();
+            }
             else return 0;
         }
         else return 0;
