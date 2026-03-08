@@ -416,7 +416,7 @@ public:
                 int maneuverabilitySkill = defender->getSkillMod("rp_maneuverability");
                 int dodgeRoll = BorDice::Roll(1, 20);
                 ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
-                if (armor->getRating() != NULL) {
+                if (armor->getRating() != nullptr) {
                     int rating = armor->getRating();
                 }
                 reactionSpam += "(test, armor rating = " + String::valueOf(rating) + " ) ";
