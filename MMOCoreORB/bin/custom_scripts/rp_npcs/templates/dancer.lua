@@ -1,13 +1,9 @@
 npc_template = {
     randomname = "human",
 
-    baseTemplates = {
-        "rp_human_female"
-    },
+    baseTemplates = {"rp_human_female"},
 
-    skillTemplates = {
-        "zackaroth/creaturesmall"
-    },
+    skillTemplates = {"bear"},
 
     equipmentTemplates = {
         "xovros_hotel_receptionist"
