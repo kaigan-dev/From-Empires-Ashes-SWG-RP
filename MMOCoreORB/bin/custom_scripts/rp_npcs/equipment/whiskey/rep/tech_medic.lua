@@ -1,6 +1,6 @@
 equipment = {
 	{"object/weapon/melee/unarmed/unarmed_default_player.iff", "/private/index_color_blade", 0, },
-	{"object/tangible/wearables/armor/ubese/armor_ubese_shirt.iff", "/private/index_color_1", 238, },
+	{"object/tangible/wearables/armor/roleplay/ubese/armor_ubese_shirt.iff", "/private/index_color_1", 238, },
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_chest_plate.iff", },
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_bracer_r.iff", "/private/index_color_2", 13, },
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_bracer_l.iff", "/private/index_color_2", 13, },
@@ -10,7 +10,7 @@ equipment = {
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_leggings.iff", "/private/index_color_2", 13, },
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_boots.iff", "/private/index_color_2", 13, },
 	{"object/tangible/wearables/cape/cape_kama_s02.iff", "/private/index_color_2", 216, "/private/index_color_1", 31, },
-	{"object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_belt.iff", "/private/index_color_2", 13, },
+	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_belt.iff", "/private/index_color_2", 13, },
 	{"object/tangible/wearables/backpack/backpack_snowtrooper.iff", },
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_helmet.iff", "/private/index_color_2", 13, },
 }

@@ -6,5 +6,5 @@ equipment = {
 	{"object/tangible/wearables/boots/shared_boots_s12.iff", },
 	{"object/tangible/wearables/gloves/shared_gloves_s12.iff", "/private/index_color_1", 3, },
 	{"object/tangible/wearables/shirt/shared_shirt_s30.iff", "/private/index_color_2", 3, "/private/index_color_1", 6, },
-	{"object/tangible/wearables/armor/zam/shared_armor_zam_wesell_belt.iff", "/private/index_color_2", 6, },
+	{"object/tangible/wearables/armor/roleplay/zam/armor_zam_wesell_belt.iff", "/private/index_color_2", 6, },
 }
