@@ -68,7 +68,7 @@ public:
 
 		ManagedReference<CreatureObject*> targetCreature;
 
-		if (object->isCreatureObject()) {
+		if (object->isCreatureObject() && storedObject != nullptr && storedObject.get() != nullptr) {
 			targetCreature = object->asCreatureObject();
 		} else {
 			creature->sendSystemMessage("You need a target to attack!");
