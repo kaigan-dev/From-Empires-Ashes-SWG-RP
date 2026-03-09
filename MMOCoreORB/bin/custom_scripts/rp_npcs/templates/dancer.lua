@@ -1,11 +1,11 @@
 npc_template = {
-	randomName = "moncal",
+	randomName = "human",
 
     baseTemplates = {"rp_human_female"},
 
     skillTemplates = {"bear"},
 
-    equipmentTemplates = {"xovros_hotel_receptionist"},
+    equipmentTemplates = {"cultist_hood"},
 
     --customizationTemplates = {"rp_human_female", {"random"},},
 
