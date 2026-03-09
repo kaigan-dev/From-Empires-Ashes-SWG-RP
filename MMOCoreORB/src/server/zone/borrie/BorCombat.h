@@ -423,7 +423,6 @@ public:
                     int rating = 0;
                     if (armor != nullptr && armor.get() != nullptr) {
                         rating = armor.get()->getRating();
-                        reactionSpam += "(R" + String::valueOf(i) + ": " + String::valueOf(rating) + "), "; 
                         if (rating == 3) {
                             heavyFlag = 1;
                         }
