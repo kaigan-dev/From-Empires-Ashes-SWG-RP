@@ -2,9 +2,9 @@ npc_template = {
 	randomName = "human",
 
     baseTemplates = {
-        "rp_human_female", 3,
-        "rp_twilek_female", 6,
-        "rp_zabrak_female", 1,
+        {"rp_human_female", 3},
+        {"rp_twilek_female", 6},
+        {"rp_zabrak_female", 1},
     },
 
     skillTemplates = {"bear"},
