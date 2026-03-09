@@ -5,12 +5,8 @@ npc_template = {
 
     skillTemplates = {"bear"},
 
-    equipmentTemplates = {
-        "xovros_hotel_receptionist"
-    },
+    --equipmentTemplates = {"xovros_hotel_receptionist"},
 
-    customizationTemplates = {
-            "rp_human_female", {"random"},
-    },
+    --customizationTemplates = {"rp_human_female", {"random"},},
 
 }
