@@ -12,7 +12,7 @@ npc_template = {
     equipmentTemplates = {
         	{"rp_human_female", {"xovros_hotel_receptionist"}},
             {"rp_twilek_female", {"xovros_hotel_receptionist"}},
-            {"rp_zabrak_female", {"xovros_hotel_receptionist"}},
+            {"rp_zabrak_female", {"xovros_admin_gown"}},
     },
 
     customizationTemplates = {
