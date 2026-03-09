@@ -72,9 +72,10 @@ void ArmorObjectImplementation::notifyLoadFromDatabase() {
 
 	if (templateObject == nullptr)
 		return;
-
+/*  Why would you overwrite the data files in the generic implementation? Why?
 	if (rating != LIGHT && templateObject->getClientTemplateFileName().contains("armor_bounty_hunter_"))
 		rating = LIGHT;
+*/
 }
 
 void ArmorObjectImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
