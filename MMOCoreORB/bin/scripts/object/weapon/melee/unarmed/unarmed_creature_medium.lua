@@ -93,7 +93,7 @@ object_weapon_melee_unarmed_unarmed_creature_medium = object_weapon_melee_unarme
 	pointBlankRange = 0,
 	
 	idealRange = 5,
-	idealAccuracy = 10,
+	idealAccuracy = 0,
 	
 	maxRange = 5,
 	maxRangeAccuracy = 99,
