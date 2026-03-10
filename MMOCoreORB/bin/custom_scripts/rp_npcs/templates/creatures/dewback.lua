@@ -11,6 +11,7 @@ npc_template = {
 	
 	
 	equipmentTemplates = {
+		{"dewback", {"creature_medium"}},
 	},	
 	
 	customizationTemplates = {
