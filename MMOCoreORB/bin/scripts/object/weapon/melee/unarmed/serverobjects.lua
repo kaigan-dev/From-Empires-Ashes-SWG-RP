@@ -48,3 +48,5 @@
 includeFile("weapon/melee/unarmed/unarmed_default.lua")
 includeFile("weapon/melee/unarmed/unarmed_default_player.lua")
 includeFile("weapon/melee/unarmed/unarmed_creature_medium.lua")
+includeFile("weapon/melee/unarmed/unarmed_creature_large.lua")
+includeFile("weapon/melee/unarmed/unarmed_creature_colossal.lua")

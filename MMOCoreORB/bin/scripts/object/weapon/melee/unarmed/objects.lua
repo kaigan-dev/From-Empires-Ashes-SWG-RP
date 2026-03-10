@@ -173,5 +173,20 @@ ObjectTemplates:addClientTemplate(object_weapon_melee_unarmed_shared_unarmed_def
 object_weapon_melee_unarmed_shared_unarmed_creature_medium = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/unarmed/shared_unarmed_creature_medium.iff"
 }
-
 ObjectTemplates:addClientTemplate(object_weapon_melee_unarmed_shared_unarmed_creature_medium, "object/weapon/melee/unarmed/shared_unarmed_creature_medium.iff")
+
+
+
+
+object_weapon_melee_unarmed_shared_unarmed_creature_large = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/unarmed/shared_unarmed_creature_large.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_melee_unarmed_shared_unarmed_creature_large, "object/weapon/melee/unarmed/shared_unarmed_creature_large.iff")
+
+
+
+
+object_weapon_melee_unarmed_shared_unarmed_creature_colossal = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/unarmed/shared_unarmed_creature_colossal.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_melee_unarmed_shared_unarmed_creature_colossal, "object/weapon/melee/unarmed/shared_unarmed_creature_colossal.iff")

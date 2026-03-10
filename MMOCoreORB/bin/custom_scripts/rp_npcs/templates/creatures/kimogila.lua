@@ -1,17 +1,17 @@
 npc_template = {
 
-	randomName = "wookiee",
+	randomName = "rodian",
 	baseTemplates = {
-		"rancor",
+		"kimogila",
 	},
 
 	skillTemplates = {
-			"creature_large"
+			"creature_colossal"
 	},
 	
 	
 	equipmentTemplates = {
-		{"rancor", {"creature_large"}},
+		{"kimogila", {"creature_colossal"}},
 	},	
 	
 	customizationTemplates = {
