@@ -1,6 +1,6 @@
 npc_template = {
 
-	--randomName = "human",
+	randomName = "human",
 	baseTemplates = {
 		"npc_human_male", "npc_human_female", "npc_human_male", "npc_human_female", "npc_human_male", "npc_human_male", 
 		"npc_bothan_male", "npc_bothan_female", 
@@ -11,6 +11,7 @@ npc_template = {
 		"npc_twilek_male", "npc_twilek_female", 
 		"npc_zabrak_male", "npc_zabrak_female", "npc_zabrak_male", "npc_zabrak_female", 
 	},
+
 	skillTemplates = {"bountyhunter"},
 	
 	equipmentTemplates = {
