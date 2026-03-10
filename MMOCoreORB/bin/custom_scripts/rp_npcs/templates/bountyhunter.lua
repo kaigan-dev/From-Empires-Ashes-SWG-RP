@@ -13,7 +13,20 @@ npc_template = {
 	},
 
 	skillTemplates = {
-		--"bountyhunter"
+		{"rp_human_male", {"bountyhunter"}},
+		{"rp_human_female", {"bountyhunter"}},
+		{"rp_bothan_male", {"bountyhunter"}},
+		{"rp_bothan_female", {"bountyhunter"}},
+		{"rp_chiss_male", {"bountyhunter"}},
+		{"rp_nautolan_male", {"bountyhunter"}},
+		{"rp_rodian_male", {"bountyhunter"}},
+		{"rp_rodian_female", {"bountyhunter"}},
+		{"rp_trandoshan_male", {"bountyhunter"}},
+		{"rp_trandoshan_female", {"bountyhunter"}},
+		{"rp_twilek_male", {"bountyhunter"}},
+		{"rp_twilek_female", {"bountyhunter"}},
+		{"rp_zabrak_male", {"bountyhunter"}},
+		{"rp_zabrak_female", {"bountyhunter"}},
 	},
 	
 	
