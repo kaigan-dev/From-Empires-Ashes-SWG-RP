@@ -1,5 +1,5 @@
 npc_template = {
-	randomName = "gotal",
+	randomName = "human",
 
     baseTemplates = {
         "rp_gotal_male",
