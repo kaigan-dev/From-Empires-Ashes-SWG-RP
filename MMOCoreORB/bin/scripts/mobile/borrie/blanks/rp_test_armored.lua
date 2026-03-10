@@ -1,5 +1,5 @@
 rp_test_armored = Creature:new {
-	customName = "Female Human",
+	customName = "Armored Human",
 	socialGroup = "",
 	faction = "",
 	level = 100,
