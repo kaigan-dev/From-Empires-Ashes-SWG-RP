@@ -2,7 +2,9 @@ rp_template = {
 
 	randomName = "human",
 	baseTemplates = {
-		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female", "rp_human_male", "rp_human_male", 
+		"rp_human_male", 
+		--[[
+		"rp_human_female", "rp_human_male", "rp_human_female", "rp_human_male", "rp_human_male", 
 		"rp_bothan_male", "rp_bothan_female", 
 		"rp_chiss_male", 
 		"rp_nautolan_male", 
@@ -10,16 +12,18 @@ rp_template = {
 		"rp_trandoshan_male", "rp_trandoshan_female", "rp_trandoshan_male", "rp_trandoshan_female", "rp_trandoshan_male", 
 		"rp_twilek_male", "rp_twilek_female", 
 		"rp_zabrak_male", "rp_zabrak_female", "rp_zabrak_male", "rp_zabrak_female", 
+		--]]
 	},
 
 	skillTemplates = {
-		--"bountyhunter"
+		"bountyhunter"
 	},
 	
 	
 	equipmentTemplates = {
-
+		
 		{"rp_human_male", {"bountyhunter"}},
+		--[[
 		{"rp_human_female", {"bountyhunter"}},
 		{"rp_bothan_male", {"bountyhunter"}},
 		{"rp_bothan_female", {"bountyhunter"}},
@@ -33,12 +37,13 @@ rp_template = {
 		{"rp_twilek_female", {"bountyhunter"}},
 		{"rp_zabrak_male", {"bountyhunter"}},
 		{"rp_zabrak_female", {"bountyhunter"}},
-
+		--]]
 	},	
 	
 	customizationTemplates = {
 
 		{"rp_human_male", {"random"}},
+				--[[
 		{"rp_human_female", {"random"}},
 		{"rp_bothan_male", {"random"}},
 		{"rp_bothan_female", {"random"}},
@@ -52,7 +57,7 @@ rp_template = {
 		{"rp_twilek_female", {"random"}},
 		{"rp_zabrak_male", {"random"}},
 		{"rp_zabrak_female", {"random"}},
-
+		--]]
 	},
 
 	--armor = "stormtrooper",

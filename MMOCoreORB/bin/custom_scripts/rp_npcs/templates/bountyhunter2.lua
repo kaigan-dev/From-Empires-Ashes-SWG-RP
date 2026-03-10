@@ -13,12 +13,12 @@ rp_template = {
 	},
 
 	skillTemplates = {
-		--"bountyhunter"
+		"bountyhunter"
 	},
 	
 	
 	equipmentTemplates = {
-
+		--[[
 		{"rp_human_male", {"bountyhunter"}},
 		{"rp_human_female", {"bountyhunter"}},
 		{"rp_bothan_male", {"bountyhunter"}},
@@ -33,7 +33,7 @@ rp_template = {
 		{"rp_twilek_female", {"bountyhunter"}},
 		{"rp_zabrak_male", {"bountyhunter"}},
 		{"rp_zabrak_female", {"bountyhunter"}},
-
+		--]]
 	},	
 	
 	customizationTemplates = {
@@ -52,7 +52,7 @@ rp_template = {
 		{"rp_twilek_female", {"random"}},
 		{"rp_zabrak_male", {"random"}},
 		{"rp_zabrak_female", {"random"}},
-
+	
 	},
 
 	--armor = "stormtrooper",
