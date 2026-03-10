@@ -7,7 +7,7 @@ npc_template = {
     },
 
     skillTemplates = {
-        "thug_weak",
+        "thug",
     },
 
     equipmentTemplates = {
