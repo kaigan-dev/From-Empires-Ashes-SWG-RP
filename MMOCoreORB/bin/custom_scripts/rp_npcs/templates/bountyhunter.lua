@@ -2,14 +2,20 @@ npc_template = {
 
 	randomName = "human",
 	baseTemplates = {
-		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female", "rp_human_male", "rp_human_male", 
-		"rp_bothan_male", "rp_bothan_female", 
-		"rp_chiss_male", 
-		"rp_nautolan_male", 
-		"rp_rodian_male", "rp_rodian_female", "rp_rodian_male", "rp_rodian_female", 
-		"rp_trandoshan_male", "rp_trandoshan_female", "rp_trandoshan_male", "rp_trandoshan_female", "rp_trandoshan_male", 
-		"rp_twilek_male", "rp_twilek_female", 
-		"rp_zabrak_male", "rp_zabrak_female", "rp_zabrak_male", "rp_zabrak_female", 
+		{"rp_human_male", 10},
+		{"rp_human_female",8},
+		{"rp_bothan_male", 3},
+		{"rp_bothan_female", 3},
+		{"rp_chiss_male", 3},
+		{"rp_nautolan_male", 3},
+		{"rp_rodian_male", 10},
+		{"rp_rodian_female", 8},
+		{"rp_trandoshan_male", 10},
+		{"rp_trandoshan_female", 8},
+		{"rp_twilek_male", 6},
+		{"rp_twilek_female", 3},
+		{"rp_zabrak_male", 8},
+		{"rp_zabrak_female", 7},
 	},
 
 	skillTemplates = {
