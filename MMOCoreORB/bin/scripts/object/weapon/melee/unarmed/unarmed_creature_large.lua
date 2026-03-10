@@ -89,14 +89,14 @@ object_weapon_melee_unarmed_unarmed_creature_large = object_weapon_melee_unarmed
 	mindAttackCost = 0,
 	forceCost = 0,
 	
-	pointBlankAccuracy = 7,
+	pointBlankAccuracy = 5,
 	pointBlankRange = 0,
 	
 	idealRange = 5,
-	idealAccuracy = 7,
+	idealAccuracy = 10,
 	
 	maxRange = 10,
-	maxRangeAccuracy = 7,
+	maxRangeAccuracy = 99,
 
 	minDamage = 5,
 	maxDamage = 4,

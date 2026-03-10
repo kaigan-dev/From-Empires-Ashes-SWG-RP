@@ -89,14 +89,14 @@ object_weapon_melee_unarmed_unarmed_creature_medium = object_weapon_melee_unarme
 	mindAttackCost = 0,
 	forceCost = 0,
 	
-	pointBlankAccuracy = 7,
+	pointBlankAccuracy = 5,
 	pointBlankRange = 0,
 	
 	idealRange = 5,
-	idealAccuracy = 7,
+	idealAccuracy = 10,
 	
 	maxRange = 5,
-	maxRangeAccuracy = 7,
+	maxRangeAccuracy = 99,
 
 	minDamage = 3,
 	maxDamage = 4,
