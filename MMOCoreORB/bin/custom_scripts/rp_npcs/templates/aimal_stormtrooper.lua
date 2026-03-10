@@ -12,5 +12,7 @@ npc_template = {
 	customizationTemplates = {
 		{"rp_human_male", {"stormtrooper"}},
 		{"rp_human_female", {"stormtrooper"}},
-	},	
+	},
+
+	armor = "stormtrooper",
 }
