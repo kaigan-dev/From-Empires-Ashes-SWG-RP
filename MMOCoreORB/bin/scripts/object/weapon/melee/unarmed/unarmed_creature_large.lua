@@ -95,7 +95,7 @@ object_weapon_melee_unarmed_unarmed_creature_large = object_weapon_melee_unarmed
 	idealRange = 5,
 	idealAccuracy = 7,
 	
-	maxRange = 5,
+	maxRange = 10,
 	maxRangeAccuracy = 7,
 
 	minDamage = 5,
