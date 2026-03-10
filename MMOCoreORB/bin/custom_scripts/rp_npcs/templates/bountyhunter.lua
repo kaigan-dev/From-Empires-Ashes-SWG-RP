@@ -1,4 +1,4 @@
-rp_template = {
+npc_template = {
 
 	randomName = "human",
 	baseTemplates = {
