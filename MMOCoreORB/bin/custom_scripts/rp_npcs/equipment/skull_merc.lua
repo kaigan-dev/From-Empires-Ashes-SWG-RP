@@ -1,0 +1,17 @@
+equipment = {
+	{"object/tangible/wearables/bandolier/bandolier_s03.iff", "/private/index_color_1", 7, },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bicep_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bicep_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_r.iff", },
+	{"object/tangible/wearables/shirt/shirt_s10.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_chest_plate.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_gloves.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_helmet.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_leggings.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_leggings.iff", },
+	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_boots.iff", },
+	{"object/tangible/wearables/belt/belt_s05.iff", "/private/index_color_2", 23, "/private/index_color_1", 96, },
+}

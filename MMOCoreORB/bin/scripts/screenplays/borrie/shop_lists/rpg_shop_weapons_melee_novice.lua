@@ -58,7 +58,7 @@ rpg_shop_weapons_melee_novice = {
 				{template = "object/weapon/roleplay/melee/unarmed/metal_fan.iff", cost = 150, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/unarmed/punch_dagger.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/unarmed/vibroknuckler.iff", cost = 700, max = 10, chance = 100, overridePrice = true },
-				{template = "object/weapon/roleplay/melee/unarmed/wookiee_knuckler.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/weapon/roleplay/melee/unarmed/wookiee_knuckler.iff", cost = 600, max = 10, chance = 100, overridePrice = true },  Duplicate appearance to vibroknuckler
 			}
 		},
 	}	

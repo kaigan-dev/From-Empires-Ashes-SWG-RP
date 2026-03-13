@@ -19,7 +19,7 @@ content = {
 	{"object/weapon/roleplay/melee/unarmed/metal_fan.iff", },
 	{"object/weapon/roleplay/melee/unarmed/punch_dagger.iff", },
 	{"object/weapon/roleplay/melee/unarmed/vibroknuckler.iff", },
-	{"object/weapon/roleplay/melee/unarmed/wookiee_knuckler.iff", },
+	--{"object/weapon/roleplay/melee/unarmed/wookiee_knuckler.iff", }, Duplicate appearance to vibroknoculer
 	{"object/weapon/roleplay/melee/onehanded/dagger.iff", },
 	{"object/weapon/roleplay/melee/onehanded/stone_knife.iff", },
 	{"object/weapon/roleplay/melee/onehanded/stun_baton.iff", },
