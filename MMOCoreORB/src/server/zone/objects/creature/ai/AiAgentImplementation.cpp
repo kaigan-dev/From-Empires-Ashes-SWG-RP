@@ -2763,7 +2763,7 @@ void AiAgentImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		alm->insertAttribute("rpstat.precision", getSkillMod("rp_precision"));
 		alm->insertAttribute("rpstat.strength", getSkillMod("rp_strength"));
 
-		alm->insertAttribute("rpskill.armor", getSkillMod("rp_armor"));
+		alm->insertAttribute("rpskill.armorer", getSkillMod("rp_armorer"));
 		alm->insertAttribute("rpskill.athletics", getSkillMod("rp_athletics"));
 		alm->insertAttribute("rpskill.bluff", getSkillMod("rp_bluff"));
 		alm->insertAttribute("rpskill.composure", getSkillMod("rp_composure"));

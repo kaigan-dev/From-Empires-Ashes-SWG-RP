@@ -490,7 +490,7 @@ public:
 		infoText << "Precision: " << target->getSkillMod("rp_precision") << endl; 
 		infoText << "Strength: " << target->getSkillMod("rp_strength") << endl; 
 		infoText << "\\#FF7000[SKILLS]\\#." << endl;
-		infoText << "Armor: " << target->getSkillMod("rp_armor") << endl; 
+		infoText << "Armorer: " << target->getSkillMod("rp_armorer") << endl; 
 		infoText << "Athletics: " << target->getSkillMod("rp_athletics") << endl; 
 		infoText << "Bluff: " << target->getSkillMod("rp_bluff") << endl; 
 		infoText << "Composure: " << target->getSkillMod("rp_composure") << endl; 
@@ -796,7 +796,7 @@ public:
 		level += GetSkillLevelValue(creature, "resolve");
 		level += GetSkillLevelValue(creature, "athletics");
 		level += GetSkillLevelValue(creature, "lightning");
-		level += GetSkillLevelValue(creature, "armor");
+		level += GetSkillLevelValue(creature, "armorer");
 		level += GetSkillLevelValue(creature, "defending");
 		level += GetSkillLevelValue(creature, "telekinesis");
 		level += GetSkillLevelValue(creature, "control");

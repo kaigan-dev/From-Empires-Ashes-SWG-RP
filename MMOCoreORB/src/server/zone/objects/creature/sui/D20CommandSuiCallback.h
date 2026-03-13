@@ -112,7 +112,7 @@ public:
 			} else if (index == 2) { //Roll a skill
 				box->setCallback(new D20CommandSuiCallback(player->getZoneServer(), target, 4, adminLevel));
 				box->setPromptText("Select which skill you'd like to roll for.");
-				box->addMenuItem("Armor");
+				box->addMenuItem("Armorer");
 				box->addMenuItem("Athletics");
 				box->addMenuItem("Bluff");
 				box->addMenuItem("Composure");
@@ -226,7 +226,7 @@ public:
 
 	String GetSkillStringFromID(int id) {
 		if (id == 0)
-			return "armor";
+			return "armorer";
 		else if (id == 1)
 			return "athletics";
 		else if (id == 2)

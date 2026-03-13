@@ -9,7 +9,7 @@ skillSet = {
     {"rp_precision",        6, 6},
 	{"rp_strength",        2, 2},
     --Skills
-    {"rp_armor",            0, 0},
+    {"rp_armorer",            0, 0},
     {"rp_athletics",        2, 2},
     {"rp_bluff",            2, 2},
     {"rp_composure",        3, 3},

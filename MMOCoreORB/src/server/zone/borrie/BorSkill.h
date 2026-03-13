@@ -86,7 +86,7 @@ public:
 			return "constitution";
 		else if (skill == "lightning")
 			return "constitution";
-		else if (skill == "armor")
+		else if (skill == "armorer")
 			return "constitution";
 		else if (skill == "defending")
 			return "strength";
@@ -155,7 +155,7 @@ public:
 			return "dexterity";
 		else if (skill == "lightning")
 			return "intelligence";
-		else if (skill == "armor")
+		else if (skill == "armorer")
 			return "strength";
 		else if (skill == "defending")
 			return "constitution";
@@ -224,7 +224,7 @@ public:
 			return true;
 		else if (skill == "lightning")
 			return true;
-		else if (skill == "armor")
+		else if (skill == "armorer")
 			return true;
 		else if (skill == "defending")
 			return true;
