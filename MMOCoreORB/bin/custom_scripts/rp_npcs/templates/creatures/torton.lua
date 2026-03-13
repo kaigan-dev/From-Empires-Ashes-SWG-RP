@@ -6,12 +6,12 @@ npc_template = {
 	},
 
 	skillTemplates = {
-			"creatures/medium"
+			"creatures/colossal"
 	},
 	
 	
 	equipmentTemplates = {
-		{"torton", {"creature_large"}},
+		{"torton", {"creature_colossal"}},
 	},	
 	
 	customizationTemplates = {
