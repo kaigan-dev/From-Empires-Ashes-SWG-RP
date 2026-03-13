@@ -1,17 +1,17 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Hailfire Droid Tank",
 	baseTemplates = {
-		"kimogila",
+		"hailfire_droid",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"atst"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"hailfire_droid", {"atst"}},
 	},	
 	
 	customizationTemplates = {

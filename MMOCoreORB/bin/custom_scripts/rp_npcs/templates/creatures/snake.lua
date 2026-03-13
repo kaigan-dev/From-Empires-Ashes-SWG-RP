@@ -1,17 +1,19 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Snake",
 	baseTemplates = {
-		"kimogila",
+		"finned_blaggart",
+		"whuffa_worm",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/small"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"finned_blaggart", {"default"}},
+		{"whuffa_worm", {"default"}},
 	},	
 	
 	customizationTemplates = {

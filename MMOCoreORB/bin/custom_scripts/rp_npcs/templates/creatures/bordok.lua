@@ -1,17 +1,17 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Bordok",
 	baseTemplates = {
-		"kimogila",
+		"bordok",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/medium"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"bordok", {"default"}},
 	},	
 	
 	customizationTemplates = {

@@ -1,17 +1,17 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Tauntaun",
 	baseTemplates = {
-		"kimogila",
+		"tcg_armored_tauntaun",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/small"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"tcg_armored_tauntaun", {"default"}},
 	},	
 	
 	customizationTemplates = {

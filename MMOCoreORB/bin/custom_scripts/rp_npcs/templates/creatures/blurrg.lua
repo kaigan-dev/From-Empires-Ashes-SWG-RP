@@ -1,8 +1,12 @@
 npc_template = {
 
-	Name = "A Dewback",
+	Name = "A Blurrg",
 	baseTemplates = {
-		"dewback",
+		"blurrg",
+		"blurrg",
+		"blurrg",
+		"blurrg",
+		"spiketail_blurrg",
 	},
 
 	skillTemplates = {
@@ -11,7 +15,8 @@ npc_template = {
 	
 	
 	equipmentTemplates = {
-		{"dewback", {"creature_medium"}},
+		{"blurrg", {"creature_medium"}},
+		{"spiketail_blurrg", {"creature_medium"}},
 	},	
 	
 	customizationTemplates = {

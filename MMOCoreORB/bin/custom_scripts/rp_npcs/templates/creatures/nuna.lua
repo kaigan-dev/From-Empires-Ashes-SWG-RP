@@ -1,17 +1,17 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Nuna",
 	baseTemplates = {
-		"kimogila",
+		"tcg_nuna_pet",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/harmless"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"tcg_nuna_pet", {"default"}},
 	},	
 	
 	customizationTemplates = {

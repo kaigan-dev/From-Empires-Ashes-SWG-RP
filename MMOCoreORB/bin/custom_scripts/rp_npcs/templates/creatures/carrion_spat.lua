@@ -1,17 +1,17 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Carrion Spat",
 	baseTemplates = {
-		"kimogila",
+		"carrion_spat",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/medium"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"carrion_spat", {"creature_medium"}},
 	},	
 	
 	customizationTemplates = {

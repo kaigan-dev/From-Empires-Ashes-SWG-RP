@@ -1,17 +1,17 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Durni",
 	baseTemplates = {
-		"kimogila",
+		"durni",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/harmless"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"bearded_jax", {"default"}},
 	},	
 	
 	customizationTemplates = {

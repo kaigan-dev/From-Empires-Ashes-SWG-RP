@@ -1,8 +1,9 @@
 npc_template = {
 
-	Name = "A Dewback",
+	Name = "A Massiff",
 	baseTemplates = {
-		"dewback",
+		"tcg_massiff_pet",
+		"tusken_massif",
 	},
 
 	skillTemplates = {
@@ -11,7 +12,8 @@ npc_template = {
 	
 	
 	equipmentTemplates = {
-		{"dewback", {"creature_medium"}},
+		{"tcg_massiff_pet", {"creature_medium"}},
+		{"tusken_massif", {"creature_medium"}},
 	},	
 	
 	customizationTemplates = {

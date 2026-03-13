@@ -1,17 +1,19 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Mynock",
 	baseTemplates = {
-		"kimogila",
+		"vr_mynock",
+		"vr_salt_mynock",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/small"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"vr_mynock", {"default"}},
+		{"vr_salt_mynock", {"default"}},
 	},	
 	
 	customizationTemplates = {

@@ -1,17 +1,17 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Sand Panther",
 	baseTemplates = {
-		"kimogila",
+		"corellian_sand_panther",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/medium"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"corellian_sand_panther", {"creature_medium"}},
 	},	
 	
 	customizationTemplates = {

@@ -1,8 +1,10 @@
 npc_template = {
 
-	Name = "A Dewback",
+	Name = "A Falumpaset",
 	baseTemplates = {
-		"dewback",
+		"bageraset",
+		"brackaset",
+		"gurnaset",
 	},
 
 	skillTemplates = {
@@ -11,7 +13,9 @@ npc_template = {
 	
 	
 	equipmentTemplates = {
-		{"dewback", {"creature_medium"}},
+		{"bageraset", {"creature_medium"}},
+		{"brackaset", {"creature_medium"}},
+		{"gurnaset", {"creature_medium"}},
 	},	
 	
 	customizationTemplates = {

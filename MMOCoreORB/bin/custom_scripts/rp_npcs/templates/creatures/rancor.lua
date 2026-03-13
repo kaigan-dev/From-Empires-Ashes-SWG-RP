@@ -1,17 +1,25 @@
 npc_template = {
 
-	randomName = "wookiee",
+	Name = "A Rancor",
 	baseTemplates = {
 		"rancor",
+		"rancor_hue",
+		"rancor",
+		"rancor_hue",
+		"rancor",
+		"rancor_hue",
+		"wod_mutant_rancor_boss"
 	},
 
 	skillTemplates = {
-			"creature_large"
+			"creatures/large"
 	},
 	
 	
 	equipmentTemplates = {
 		{"rancor", {"creature_large"}},
+		{"rancor_hue", {"creature_large"}},
+		{"wod_mutant_rancor_boss", {"creature_large"}},
 	},	
 	
 	customizationTemplates = {

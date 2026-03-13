@@ -1,17 +1,17 @@
 npc_template = {
 
-	Name = "A Kimogila",
+	Name = "A Kubaza Beetle",
 	baseTemplates = {
-		"kimogila",
+		"kubaza_beetle",
 	},
 
 	skillTemplates = {
-			"creatures/colossal"
+			"creatures/medium"
 	},
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"kubaza_beetle", {"creature_medium"}},
 	},	
 	
 	customizationTemplates = {
