@@ -23,8 +23,6 @@ class BorCombat;
 
 class BorCharacter : public Logger {
 public:
-	static String* GetSlotName(int slot);
-
 	static bool GetStringIsPool(String pool) {
 		if (pool == "health")
 			return true;
@@ -1071,9 +1069,10 @@ public:
 		//							"m. (Roll: 1d10 = " + String::valueOf(roll) + ")");
 
 		// Check and flag if a charater is wearing non-proficient armor.
+		BorCombat* combat;
 		int skillFlag = 0;
         for (int i = 2; i <= 10; i++) { // Check each armor slot. Starting from 2 to make the loop slightly faster since body is checked at 1, 2, and 9.
-            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(i));
+            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, combat->GetSlotName(i));
             int rpSkillLevel = 0;
             if (armor != nullptr && armor.get() != nullptr) {
                 rpSkillLevel = armor.get()->getRpSkillLevel();
