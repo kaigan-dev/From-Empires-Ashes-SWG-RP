@@ -1070,7 +1070,7 @@ public:
 		// Check and flag if a charater is wearing non-proficient armor.
 		int skillFlag = 0;
         for (int i = 2; i <= 10; i++) { // Check each armor slot. Starting from 2 to make the loop slightly faster since body is checked at 1, 2, and 9.
-            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(i));
+            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, BorCombat::GetSlotName(i));
             int rpSkillLevel = 0;
             if (armor != nullptr && armor.get() != nullptr) {
                 rpSkillLevel = armor.get()->getRpSkillLevel();
@@ -1112,6 +1112,8 @@ public:
 		}
 		else {
 			maxDistance = maneuverability + athletics + 10;
+			float floatDistance = static_cast<float>(maxDistance);
+			maxDistance = static_cast<int>(floatDistance);
 			if (skillFlag) {
 				floatDistance = static_cast<float>(maxDistance * 0.5);
 				maxDistance = static_cast<int>(floatDistance);
