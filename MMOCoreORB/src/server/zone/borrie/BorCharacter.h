@@ -19,9 +19,12 @@
 
 #include "templates/params/creature/CreatureAttribute.h"
 
+class BorCombat;
 
 class BorCharacter : public Logger {
 public:
+	static String* GetSlotName();
+
 	static bool GetStringIsPool(String pool) {
 		if (pool == "health")
 			return true;
