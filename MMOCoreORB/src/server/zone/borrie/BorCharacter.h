@@ -1069,7 +1069,7 @@ public:
 		// Check and flag if a charater is wearing non-proficient armor.
 		int skillFlag = 0;
         for (int i = 2; i <= 10; i++) { // Check each armor slot. Starting from 2 to make the loop slightly faster since body is checked at 1, 2, and 9.
-            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, BorCombat::GetSlotName(i));
+            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(i));
             int rpSkillLevel = 0;
             if (armor != nullptr && armor.get() != nullptr) {
                 rpSkillLevel = armor.get()->getRpSkillLevel();
@@ -1203,6 +1203,20 @@ public:
 		}
 		
 	}
+
+	static String GetSlotName(int slot) {
+        if(slot == 1) return "chest2";
+        else if(slot == 2) return "chest2";
+        else if(slot == 3) return "pants1";
+        else if(slot == 4) return "shoes";
+        else if(slot == 5) return "bracer_upper_l";
+        else if(slot == 6) return "bracer_upper_r";
+        else if(slot == 7) return "bicep_l";
+        else if(slot == 8) return "bicep_r";
+        else if(slot == 9) return "gloves";
+        else if(slot == 10) return "hat";
+        else return "chest2";
+    }
 };
 
 #endif /*BORCHARACTER_H_*/
