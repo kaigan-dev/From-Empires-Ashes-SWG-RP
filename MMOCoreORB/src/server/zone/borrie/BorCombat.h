@@ -730,7 +730,14 @@ public:
                         }  */
 
                         //Armor handling (without penetration)
-                        int armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
+
+                        // Armor protection is only one if a character is untrained in the use of their armor.
+                        int armorProtection = 1;
+                        if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
+                        {
+                            int armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
+                        }
+                        
                         int finalDamage = damage - armorProtection;
                         if(finalDamage < 1) finalDamage = 1;
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
@@ -739,15 +746,23 @@ public:
                             armorName = armor->getObjectTemplate()->getObjectName();
                         }
                         
+                        // Armor should not take condition damage greater than its armor protection value.
                         if (damage >= armorProtection) {
                             armor->setConditionDamage(armorProtection);
-                            creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage."); 
+                            creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");
+                            if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
+                            {
+                                creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
+                            }
                         }
-
                         else {
                             armor->setConditionDamage(damage);
                             creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage."); 
-                    }               
+                            if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
+                            {
+                                creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
+                            }
+                        }               
                     }
                 } else { //Take Full Damage
                     BorCharacter::ModPool(creature, "health", damage * -1, true);

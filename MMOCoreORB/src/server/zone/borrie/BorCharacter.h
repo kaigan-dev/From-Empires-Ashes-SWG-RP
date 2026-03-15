@@ -19,7 +19,6 @@
 
 #include "templates/params/creature/CreatureAttribute.h"
 
-
 class BorCharacter : public Logger {
 public:
 	static bool GetStringIsPool(String pool) {
@@ -1067,6 +1066,19 @@ public:
 		//BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(roll + athletics) +
 		//							"m. (Roll: 1d10 = " + String::valueOf(roll) + ")");
 
+		// Check and flag if a charater is wearing non-proficient armor.
+		int skillFlag = 0;
+        for (int i = 2; i <= 10; i++) { // Check each armor slot. Starting from 2 to make the loop slightly faster since body is checked at 1, 2, and 9.
+            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(i));
+            int rpSkillLevel = 0;
+            if (armor != nullptr && armor.get() != nullptr) {
+                rpSkillLevel = armor.get()->getRpSkillLevel();
+                if (rpSkillLevel >= creature->getSkillMod("rp_strength")) {
+                	skillFlag = 1;
+                }
+            }
+    	}
+
 		int maxDistance = 6;
 
 		if (creature->isRidingMount()) {
@@ -1076,16 +1088,39 @@ public:
 		else if (creature->isKneeling()) {
 			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .66;
 			maxDistance = static_cast<int>(floatDistance);
-			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
+			if (skillFlag) {
+				floatDistance = static_cast<float>(maxDistance / 2);
+				maxDistance = static_cast<int>(floatDistance);
+			}
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move while kneeling. Their range is " + String::valueOf(maxDistance) + "m. ");
+			if (skillFlag) {
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + "Their movement is penalized because they are wearing armor they do not have sufficient Strength for. ");
+			}
 		}
 		else if (creature->isProne()) {
 			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .25;
 			maxDistance = static_cast<int>(floatDistance);
-			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
+			if (skillFlag) {
+				floatDistance = static_cast<float>(maxDistance * 0.5);
+				maxDistance = static_cast<int>(floatDistance);
+			}
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move while prone. Their range is " + String::valueOf(maxDistance) + "m. ");
+			if (skillFlag) {
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + "Their movement is penalized because they are wearing armor they do not have sufficient Strength for. ");
+			}
 		}
 		else {
 			maxDistance = maneuverability + athletics + 10;
+			float floatDistance = static_cast<float>(maxDistance);
+			maxDistance = static_cast<int>(floatDistance);
+			if (skillFlag) {
+				floatDistance = static_cast<float>(maxDistance * 0.5);
+				maxDistance = static_cast<int>(floatDistance);
+			}
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
+			if (skillFlag) {
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + "Their movement is penalized because they are wearing armor they do not have sufficient Strength for. ");
+			}
 		}	
 									
 		creature->sendSystemMessage("Move to your desired destination, using the Last Position waypoint to keep track of your distance. Use the move (rpmove) ability to confirm your movement.");
@@ -1168,6 +1203,20 @@ public:
 		}
 		
 	}
+
+	static String GetSlotName(int slot) {
+        if(slot == 1) return "chest2";
+        else if(slot == 2) return "chest2";
+        else if(slot == 3) return "pants1";
+        else if(slot == 4) return "shoes";
+        else if(slot == 5) return "bracer_upper_l";
+        else if(slot == 6) return "bracer_upper_r";
+        else if(slot == 7) return "bicep_l";
+        else if(slot == 8) return "bicep_r";
+        else if(slot == 9) return "gloves";
+        else if(slot == 10) return "hat";
+        else return "chest2";
+    }
 };
 
 #endif /*BORCHARACTER_H_*/
