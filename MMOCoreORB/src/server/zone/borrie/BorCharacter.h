@@ -10,6 +10,7 @@
 #include "server/zone/borrie/BorrieRPG.h"
 #include "server/zone/borrie/BorSkill.h"
 #include "server/zone/borrie/BorDice.h"
+#include "server/zone/borrie/BorCombat.h"
 
 #include "server/db/ServerDatabase.h"
 
@@ -18,8 +19,6 @@
 #include "server/zone/objects/tangible/pharmaceutical/StimPack.h"
 
 #include "templates/params/creature/CreatureAttribute.h"
-
-class BorCombat;
 
 class BorCharacter : public Logger {
 public:
@@ -1069,10 +1068,9 @@ public:
 		//							"m. (Roll: 1d10 = " + String::valueOf(roll) + ")");
 
 		// Check and flag if a charater is wearing non-proficient armor.
-		BorCombat* combat;
 		int skillFlag = 0;
         for (int i = 2; i <= 10; i++) { // Check each armor slot. Starting from 2 to make the loop slightly faster since body is checked at 1, 2, and 9.
-            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, combat->GetSlotName(i));
+            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, BorCombat::GetSlotName(i));
             int rpSkillLevel = 0;
             if (armor != nullptr && armor.get() != nullptr) {
                 rpSkillLevel = armor.get()->getRpSkillLevel();
