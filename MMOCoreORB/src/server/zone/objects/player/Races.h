@@ -833,14 +833,14 @@ static unsigned int attributeLimits[85][19] = { //HAM
 class Races {
 public:
 	inline const static char* getRace(int raceid) {
-		if (raceid < 0 || raceid > 85)
+		if (raceid < 0 || raceid > 74)
 			return "";
 
 		return RaceStrs[raceid];
 	}
 
 	inline static int getSpeciesID(int raceid) {
-		if (raceid < 0 || raceid > 85)
+		if (raceid < 0 || raceid > 74)
 			return 0;
 
 		return TemplateSpecies[raceid];
@@ -854,21 +854,21 @@ public:
 	}
 
 	inline const static char* getSpecies(int raceid) {
-		if (raceid < 0 || raceid > 85)
+		if (raceid < 0 || raceid > 74)
 			return "";
 
 		return Species[raceid];
 	}
 
 	inline const static char* getGender(int raceid) {
-		if (raceid < 0 || raceid > 85)
+		if (raceid < 0 || raceid > 74)
 			return "";
 
 		return Gender[raceid];
 	}
 
 	inline static uint32 getRaceCRC(int raceid) {
-		if (raceid < 0 || raceid > 85)
+		if (raceid < 0 || raceid > 74)
 			return 0;
 
 		return SharedRace[raceid];
@@ -890,7 +890,7 @@ public:
 	}
 
 	inline static int getRaceID(const String& name) {
-    	for (int i = 0; i < 85; i++) {
+    	for (int i = 0; i < 74; i++) {
         	if (strcmp(name.toCharArray(), CCRaceStrs[i]) == 0)
             	return i;
     	}
