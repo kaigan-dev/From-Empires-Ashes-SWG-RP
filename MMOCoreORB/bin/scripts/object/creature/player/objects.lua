@@ -1615,7 +1615,7 @@ object_creature_player_shared_zabrak_female = SharedCreatureObjectTemplate:new {
 	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/creature/base/shared_base_creature.iff", "object/creature/player/base/shared_base_player.iff"}
 ]]
 }
-
+ 
 ObjectTemplates:addClientTemplate(object_creature_player_shared_zabrak_female, "object/creature/player/shared_zabrak_female.iff")
 
 object_creature_player_shared_zabrak_male = SharedCreatureObjectTemplate:new {
@@ -1703,6 +1703,7 @@ ObjectTemplates:addClientTemplate(object_creature_player_shared_zabrak_male, "ob
 
 --Added Races
 --Hutt male
+--[[
 object_creature_player_shared_hutt_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_hutt_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_hutt_male, "object/creature/player/shared_hutt_male.iff")
@@ -1711,6 +1712,7 @@ ObjectTemplates:addClientTemplate(object_creature_player_shared_hutt_male, "obje
 object_creature_player_shared_hutt_female = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_hutt_female.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_hutt_female, "object/creature/player/shared_hutt_female.iff")
+--]]
 
 --Nautolan male
 object_creature_player_shared_nautolan_male = SharedCreatureObjectTemplate:new {
@@ -1798,10 +1800,11 @@ object_creature_player_shared_gotal_male = SharedCreatureObjectTemplate:new {
 ObjectTemplates:addClientTemplate(object_creature_player_shared_gotal_male, "object/creature/player/shared_gotal_male.iff")
 
 --Talz male
+--[[
 object_creature_player_shared_talz_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_talz_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_talz_male, "object/creature/player/shared_talz_male.iff")
-
+--]]
 --Borrie Races
 
 --Iktotchi male
@@ -1840,11 +1843,14 @@ object_creature_player_shared_arcona_male = SharedCreatureObjectTemplate:new {
 ObjectTemplates:addClientTemplate(object_creature_player_shared_arcona_male, "object/creature/player/shared_arcona_male.iff")
 
 --Toydarian male
+--[[
 object_creature_player_shared_toydarian_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_toydarian_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_toydarian_male, "object/creature/player/shared_toydarian_male.iff")
+--]]
 
 --Selonian female
+--[[
 object_creature_player_shared_selonian_female = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_selonian_female.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_selonian_female, "object/creature/player/shared_selonian_female.iff")
@@ -1853,13 +1859,17 @@ ObjectTemplates:addClientTemplate(object_creature_player_shared_selonian_female,
 object_creature_player_shared_selonian_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_selonian_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_selonian_male, "object/creature/player/shared_selonian_male.iff")
+--]]
 
 --Geonosian Male
+--[[
 object_creature_player_shared_geonosian_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_geonosian_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_geonosian_male, "object/creature/player/shared_geonosian_male.iff")
+--]]
 
 --Chadra Fan female
+--[[
 object_creature_player_shared_chadra_fan_female = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_chadra_fan_female.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_chadra_fan_female, "object/creature/player/shared_chadra_fan_female.iff")
@@ -1868,21 +1878,26 @@ ObjectTemplates:addClientTemplate(object_creature_player_shared_chadra_fan_femal
 object_creature_player_shared_chadra_fan_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_chadra_fan_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_chadra_fan_male, "object/creature/player/shared_chadra_fan_male.iff")
+--]]
 
 --Kubaz male
 object_creature_player_shared_kubaz_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_kubaz_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_kubaz_male, "object/creature/player/shared_kubaz_male.iff")
 
+--[[
 --Dug male
 object_creature_player_shared_dug_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_dug_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_dug_male, "object/creature/player/shared_dug_male.iff")
+--]]
 
 --Togorian male
+--[[
 object_creature_player_shared_togorian_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_togorian_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_togorian_male, "object/creature/player/shared_togorian_male.iff")
+--]]
 
 --Togruta female
 object_creature_player_shared_togruta_female = SharedCreatureObjectTemplate:new {
