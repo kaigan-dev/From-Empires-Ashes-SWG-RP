@@ -1275,7 +1275,7 @@ public:
             ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(victim, GetSlotName(slot));
             int armorProtection = GetArmorProtection(victim, armor, GetDamageType(grenade));
             int armorSkillFlag = 0;
-            if (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
+            if (victim->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
                 armorSkillFlag = 1;
             }
             message = message + ", which fails, the blast focused on their " + GetSlotDisplayName(slot) + ", causing \\#FF9999" + GenerateDamageOutputSpam(totalDamage, GetArmorReducedDamage(totalDamage, armorProtection), armorProtection, armorSkillFlag); 
@@ -1285,7 +1285,7 @@ public:
             ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(victim, GetSlotName(slot));
             int armorProtection = GetArmorProtection(victim, armor, GetDamageType(grenade));
             int armorSkillFlag = 0;
-            if (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
+            if (victim->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
                 armorSkillFlag = 1;
             }
             message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot) + ", and taking only \\#FF9999" + GenerateDamageOutputSpam(totalDamage, GetArmorReducedDamage(totalDamage, armorProtection), armorProtection, armorSkillFlag); 
