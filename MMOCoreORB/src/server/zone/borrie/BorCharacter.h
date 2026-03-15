@@ -1094,7 +1094,7 @@ public:
 			}
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move while kneeling. Their range is " + String::valueOf(maxDistance) + "m. ");
 			if (skillFlag) {
-				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + "Their movement is penalized because they are wearing armor they do not have sufficient Strength for. ");
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " is moving slowly because they are wearing armor they do not have sufficient Strength for. ");
 			}
 		}
 		else if (creature->isProne()) {
@@ -1106,7 +1106,7 @@ public:
 			}
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move while prone. Their range is " + String::valueOf(maxDistance) + "m. ");
 			if (skillFlag) {
-				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + "Their movement is penalized because they are wearing armor they do not have sufficient Strength for. ");
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " is moving slowly because they are wearing armor they do not have sufficient Strength for. ");
 			}
 		}
 		else {
@@ -1119,7 +1119,7 @@ public:
 			}
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
 			if (skillFlag) {
-				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + "Their movement is penalized because they are wearing armor they do not have sufficient Strength for. ");
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " is moving slowly because they are wearing armor they do not have sufficient Strength for. ");
 			}
 		}	
 									
