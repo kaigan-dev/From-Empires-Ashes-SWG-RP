@@ -23,7 +23,7 @@ class BorCombat;
 
 class BorCharacter : public Logger {
 public:
-	static String* GetSlotName();
+	static String* GetSlotName(int slot);
 
 	static bool GetStringIsPool(String pool) {
 		if (pool == "health")
