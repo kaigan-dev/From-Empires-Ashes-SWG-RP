@@ -26,6 +26,7 @@ npc_template = {
 		"dressed_dathomir_spider_nightsister_guardian", 
 		"dressed_dathomir_spider_nightsister_stalker", 
 		"dressed_dathomir_spider_nightsister_web_dancer", 
+		"charal",
 	},
 
 	skillTemplates = {

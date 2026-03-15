@@ -3,7 +3,8 @@ npc_template = {
 
     baseTemplates = {
         "gamorrean_m_greeter",
-        "gamorrean"
+        "gamorrean",
+        "azure_cabal_grunta",
     },
 
     skillTemplates = {
@@ -12,6 +13,7 @@ npc_template = {
 
     equipmentTemplates = {
 		{"gamorrean", {"gamorrean"}},
+        {"azure_cabal_grunta", {"gamorrean"}},
         {"gamorrean_m_greeter", {"gamorrean"}},
     },
 

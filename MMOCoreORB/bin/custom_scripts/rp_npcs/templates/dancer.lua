@@ -21,6 +21,9 @@ npc_template = {
         "npc_dressed_entertainer_gcw_f_twk_reb_02",
         "dressed_noble_human_female_04",
         "dressed-noble_zabrak_female_01",
+        "chirq_low_f_1",
+        "chirq_low_f_2",
+        "dressed_haline_snowline",
     },
 
     skillTemplates = {"civilian"},

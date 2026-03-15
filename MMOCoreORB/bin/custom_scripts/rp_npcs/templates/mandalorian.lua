@@ -12,6 +12,8 @@ npc_template = {
         "rebel_mandalorian",
         "rebel_mandalorian_grey",
         "storyteller_rebel_commando_boss",
+        "dressed_bountyhunter_trainer_01",
+        
     },
 
     skillTemplates = {
