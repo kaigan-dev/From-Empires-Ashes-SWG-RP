@@ -18,7 +18,7 @@ const static char* Species[] = {
 	"wookiee", 	// wookiee male
 	"sullustan", 	// sullustan male
 	"ithorian",	// ithorian male
-	//"hutt", 	// male hutt
+	"hutt", 	// male hutt
 	"human", 	// human female
 	"trandoshan", 	// trandoshan female
 	"twilek", 	// twilek female
@@ -29,7 +29,7 @@ const static char* Species[] = {
 	"wookiee", 	// wookiee female
 	"sullustan", 	// sullustan female
 	"ithorian",  	// ithorian female
-	//"hutt", 	// female hutt
+	"hutt", 	// female hutt
 	"nautolan", 	// male Nautolan
 	"togruta", 	// female Togruta
 	"chiss", 	// male chiss
@@ -47,7 +47,7 @@ const static char* Species[] = {
 	"bith",		// male bith
 	"bith",		// female bith
 	"gotal",	// male gotal
-	//"talz",		// male talz
+	"talz",		// male talz
 
     "iktotchi", //male iktotchi
     "kel_dor", //male kel dor
@@ -65,8 +65,8 @@ const static char* Species[] = {
 	"zelosian", //female zelosian
 	"miraluka", //male miraluka
 	"miraluka", //female miraluka
-	//"chadra_fan", //male chadra fan
-	//"chadra_fan", //female chadra fan
+	"chadra_fan", //male chadra fan
+	"chadra_fan", //female chadra fan
 	"rattataki", //male rattataki
 	"rattataki", //female rattataki
 	"arkanian_offshoot", //male arkanian_offshoot
@@ -86,13 +86,13 @@ const static char* Species[] = {
 	"drall", //male drall
 	"drall", //female drall
 	"kitonak", //male kitonak
-	//"dug", //male dug
+	"dug", //male dug
 	"ortolan", //male ortolan
-	//"geonosian", //male geonosian
-	//"selonian", //male selonian
-	//"selonian", //female selonian
-	//"togorian", //male togorian
-	//"toydarian", //male toydarian
+	"geonosian", //male geonosian
+	"selonian", //male selonian
+	"selonian", //female selonian
+	"togorian", //male togorian
+	"toydarian", //male toydarian
 	"ugnaught", //male ugnaught
 	"whipihd", //male whipid
 	"whipihd", //female whipid
@@ -109,7 +109,7 @@ const static int TemplateSpecies[] = { //hex code for species number
 		4,
 		0x31,
 		0x21,
-		//0x1f,   //Hutt male
+		0x1f,   //Hutt male
 		0,
 		2,
 		6,
@@ -120,7 +120,7 @@ const static int TemplateSpecies[] = { //hex code for species number
 		4,
 		0x31,
 		0x21,
-		//0x1f,   //Hutt female
+		0x1f,   //Hutt female
 		0x2c,
 		0x2d,
 		0x34, //chiss
@@ -138,7 +138,7 @@ const static int TemplateSpecies[] = { //hex code for species number
 		0x3f, // bith
 		0x4, //bith
 		0, //gotal
-		//0, //talz
+		0, //talz
         0, //Iktotchi
         0, //Kel Dor
         0, //Zeltron
@@ -155,8 +155,8 @@ const static int TemplateSpecies[] = { //hex code for species number
 		0, //female zelosian
 		0, //male miraluka
 		0, //female miraluka
-		//0, //male chadra fan
-		//0, //female chadra fan
+		0, //male chadra fan
+		0, //female chadra fan
 		0, //male rattataki
 		0, //female rattataki
 		0, //male arkanian_offshoot
@@ -176,13 +176,13 @@ const static int TemplateSpecies[] = { //hex code for species number
 		0, //male drall
 		0, //female drall
 		0, //male kitonak
-		//0, //male dug
+		0, //male dug
 		0, //male ortolan
-		//0, //male geonosian
-		//0, //male selonian
-		//0, //female selonian
-		//0, //male togorian
-		//0, //male toydarian
+		0, //male geonosian
+		0, //male selonian
+		0, //female selonian
+		0, //male togorian
+		0, //male toydarian
 		0, //male ugnaught
 		0, //male whipid
 		0, //female whipid
@@ -199,7 +199,7 @@ const static char* Gender[] = {
 	"male", 	// wookiee male
 	"male", 	// sullustan male
 	"male", 	// ithorian male
-	//"male", 	// hutt male
+	"male", 	// hutt male
 	"female", 	// human female
 	"female", 	// trandoshan female
 	"female", 	// twilek female
@@ -210,7 +210,7 @@ const static char* Gender[] = {
 	"female", 	// wookiee female
 	"female", 	// sullustan female
 	"female", 	// ithorian female
-	//"female", 	// hutt female
+	"female", 	// hutt female
 	"male", 	// nautolan male
 	"female", 	// togruta female
 	"male", 	// chiss male
@@ -228,7 +228,7 @@ const static char* Gender[] = {
 	"male", 	// bith male
 	"female", 	// bith female
 	"male", 	// gotal male
-	//"male", 	// talz male
+	"male", 	// talz male
     "male",     //male iktotchi
     "male",     //male kel dor
     "male",     //male zeltron
@@ -245,8 +245,8 @@ const static char* Gender[] = {
 	"female", //female zelosian
 	"male", //male miraluka
 	"female", //female miraluka
-	//"male", //male chadra fan
-	//"female", //female chadra fan
+	"male", //male chadra fan
+	"female", //female chadra fan
 	"male", //male rattataki
 	"female", //female rattataki
 	"male", //male arkanian_offshoot
@@ -266,13 +266,13 @@ const static char* Gender[] = {
 	"male", //male drall
 	"female", //female drall
 	"male", //male kitonak
-	//"male", //male dug
+	"male", //male dug
 	"male", //male ortolan
-	//"male", //male geonosian
-	//"male", //male selonian
-	//"female", //female selonian
-	//"male", //male togorian
-	//"male", //male toydarian
+	"male", //male geonosian
+	"male", //male selonian
+	"female", //female selonian
+	"male", //male togorian
+	"male", //male toydarian
 	"male", //male ugnaught
 	"male", //male whipid
 	"female", //female whipid    
@@ -289,7 +289,7 @@ const static char* RaceStrs[] = {
 	"object/creature/player/shared_wookiee_male.iff", 	// wookiee male
 	"object/creature/player/shared_sullustan_male.iff", 	// sullustan male
 	"object/creature/player/shared_ithorian_male.iff", 	// ithorian male
-	//"object/creature/player/shared_hutt_male.iff", 		// hutt male
+	"object/creature/player/shared_hutt_male.iff", 		// hutt male
 	"object/creature/player/shared_human_female.iff", 	// human female
 	"object/creature/player/shared_trandoshan_female.iff", 	// trandoshan female
 	"object/creature/player/shared_twilek_female.iff", 	// twilek female
@@ -300,7 +300,7 @@ const static char* RaceStrs[] = {
 	"object/creature/player/shared_wookiee_female.iff", 	// wookiee female
 	"object/creature/player/shared_sullustan_female.iff", 	// sullustan female
 	"object/creature/player/shared_ithorian_female.iff",  	// ithorian female
-	//"object/creature/player/shared_hutt_female.iff", 	// hutt female
+	"object/creature/player/shared_hutt_female.iff", 	// hutt female
 	"object/creature/player/shared_nautolan_male.iff", 	// nautolan male
 	"object/creature/player/shared_togruta_female.iff", 	// togruta female
 	"object/creature/player/shared_chiss_male.iff", 	// chiss male
@@ -318,7 +318,7 @@ const static char* RaceStrs[] = {
 	"object/creature/player/shared_bith_male.iff", 		// bith male
 	"object/creature/player/shared_bith_female.iff", 	// bith female
 	"object/creature/player/shared_gotal_male.iff", 	// gotal male
-	//"object/creature/player/shared_talz_male.iff", 		// talz male
+	"object/creature/player/shared_talz_male.iff", 		// talz male
     "object/creature/player/shared_iktotchi_male.iff", 	
     "object/creature/player/shared_kel_dor_male.iff", 	
     "object/creature/player/shared_zeltron_male.iff", 
@@ -334,8 +334,8 @@ const static char* RaceStrs[] = {
 	"object/creature/player/shared_zelosian_female.iff", //female zelosian
 	"object/creature/player/shared_miraluka_male.iff", //male miraluka
 	"object/creature/player/shared_miraluka_female.iff", //female miraluka
-	//"object/creature/player/shared_chadra_fan_male.iff", //male chadra fan
-	//"object/creature/player/shared_chadra_fan_female.iff", //female chadra fan
+	"object/creature/player/shared_chadra_fan_male.iff", //male chadra fan
+	"object/creature/player/shared_chadra_fan_female.iff", //female chadra fan
 	"object/creature/player/shared_rattataki_male.iff", //male rattataki
 	"object/creature/player/shared_rattataki_female.iff", //female rattataki
 	"object/creature/player/shared_arkanian_offshoot_male.iff", //male arkanian_offshoot
@@ -355,13 +355,13 @@ const static char* RaceStrs[] = {
 	"object/creature/player/shared_drall_male.iff", //male drall
 	"object/creature/player/shared_drall_female.iff", //female drall
 	"object/creature/player/shared_kitonak_male.iff", //male kitonak
-	//"object/creature/player/shared_dug_male.iff", //male dug
+	"object/creature/player/shared_dug_male.iff", //male dug
 	"object/creature/player/shared_ortolan_male.iff", //male ortolan
-	//"object/creature/player/shared_geonosian_male.iff", //male geonosian
-	//"object/creature/player/shared_selonian_male.iff", //male selonian
-	//"object/creature/player/shared_selonian_female.iff", //female selonian
-	//"object/creature/player/shared_togorian_male.iff", //male togorian
-	//"object/creature/player/shared_toydarian_male.iff", //male toydarian
+	"object/creature/player/shared_geonosian_male.iff", //male geonosian
+	"object/creature/player/shared_selonian_male.iff", //male selonian
+	"object/creature/player/shared_selonian_female.iff", //female selonian
+	"object/creature/player/shared_togorian_male.iff", //male togorian
+	"object/creature/player/shared_toydarian_male.iff", //male toydarian
 	"object/creature/player/shared_ugnaught_male.iff", //male ugnaught
 	"object/creature/player/shared_whipid_male.iff", //male whipid
 	"object/creature/player/shared_whipid_female.iff" //female whipid
@@ -378,7 +378,7 @@ const static char* CCRaceStrs[] = {
 	"object/creature/player/wookiee_male.iff", 	// wookiee male
 	"object/creature/player/sullustan_male.iff", 	// sullustan male
 	"object/creature/player/ithorian_male.iff", 	// ithorian male
-	//"object/creature/player/hutt_male.iff", 	//hutt male
+	"object/creature/player/hutt_male.iff", 	//hutt male
 	"object/creature/player/human_female.iff", 	// human female
 	"object/creature/player/trandoshan_female.iff", // trandoshan female
 	"object/creature/player/twilek_female.iff", 	// twilek female
@@ -389,7 +389,7 @@ const static char* CCRaceStrs[] = {
 	"object/creature/player/wookiee_female.iff", 	// wookiee female
 	"object/creature/player/sullustan_female.iff", 	// sullustan female
 	"object/creature/player/ithorian_female.iff",  	// ithorian female
-	//"object/creature/player/hutt_female.iff", 	//hutt female
+	"object/creature/player/hutt_female.iff", 	//hutt female
 	"object/creature/player/nautolan_male.iff", 	//nautolan male
 	"object/creature/player/togruta_female.iff", 	//togruta female
 	"object/creature/player/chiss_male.iff", 	//chiss male
@@ -407,7 +407,7 @@ const static char* CCRaceStrs[] = {
 	"object/creature/player/bith_male.iff", 	//bith male
 	"object/creature/player/bith_female.iff", 	//bith female
 	"object/creature/player/gotal_male.iff", 	//gotal male
-	//"object/creature/player/talz_male.iff", 	//talz male
+	"object/creature/player/talz_male.iff", 	//talz male
 
     "object/creature/player/iktotchi_male.iff", 	
     "object/creature/player/kel_dor_male.iff", 	
@@ -425,8 +425,8 @@ const static char* CCRaceStrs[] = {
 	"object/creature/player/zelosian_female.iff", //female zelosian
 	"object/creature/player/miraluka_male.iff", //male miraluka
 	"object/creature/player/miraluka_female.iff", //female miraluka
-	//"object/creature/player/chadra_fan_male.iff", //male chadra fan
-	//"object/creature/player/chadra_fan_female.iff", //female chadra fan
+	"object/creature/player/chadra_fan_male.iff", //male chadra fan
+	"object/creature/player/chadra_fan_female.iff", //female chadra fan
 	"object/creature/player/rattataki_male.iff", //male rattataki
 	"object/creature/player/rattataki_female.iff", //female rattataki
 	"object/creature/player/arkanian_offshoot_male.iff", //male arkanian_offshoot
@@ -446,13 +446,13 @@ const static char* CCRaceStrs[] = {
 	"object/creature/player/drall_male.iff", //male drall
 	"object/creature/player/drall_female.iff", //female drall
 	"object/creature/player/kitonak_male.iff", //male kitonak
-	//"object/creature/player/dug_male.iff", //male dug
+	"object/creature/player/dug_male.iff", //male dug
 	"object/creature/player/ortolan_male.iff", //male ortolan
-	//"object/creature/player/geonosian_male.iff", //male geonosian
-	//"object/creature/player/selonian_male.iff", //male selonian
-	//"object/creature/player/selonian_female.iff", //female selonian
-	//"object/creature/player/togorian_male.iff", //male togorian
-	//"object/creature/player/toydarian_male.iff", //male toydarian
+	"object/creature/player/geonosian_male.iff", //male geonosian
+	"object/creature/player/selonian_male.iff", //male selonian
+	"object/creature/player/selonian_female.iff", //female selonian
+	"object/creature/player/togorian_male.iff", //male togorian
+	"object/creature/player/toydarian_male.iff", //male toydarian
 	"object/creature/player/ugnaught_male.iff", //male ugnaught
 	"object/creature/player/whipid_male.iff", //male whipid
 	"object/creature/player/whipid_female.iff" //female whipid
@@ -470,7 +470,7 @@ static uint32 SharedRace[] = { //race CRC
 	0x0564791D, // wookiee male
 	0x0B9399A4, // sullustan male
 	0x38BAC7C4, // ithorian male
-	//0x916443F9, // hutt male
+	0x916443F9, // hutt male
 	0xFFFFBBE9, // human female
 	0x183C24C6, // trandoshan female
 	0x849752DC, // twi'lek female
@@ -481,7 +481,7 @@ static uint32 SharedRace[] = { //race CRC
 	0x0DAB65E2, // wookiee female
 	0x1573341A, // sullustan female
 	0xB3E08013, // ithorian female
-	//0xE0B607C0, // hutt female
+	0xE0B607C0, // hutt female
 	0xAB03ACB1, // nautolan male
 	0x3D953B50, // togruta female
 	0x02F60EAC, // chiss male
@@ -499,7 +499,7 @@ static uint32 SharedRace[] = { //race CRC
 	0x73C992FF, // bith male
 	0xB2C9CBE0, // bith female
 	0x30CFFED2, // gotal male
-	//0xDBA89F7C, // talz male
+	0xDBA89F7C, // talz male
     0xF9B11C30, //Iktotchi male
     0x66DCE6EE, //Kel Dor Male
     0xE8975526, //Zeltron Male
@@ -515,8 +515,8 @@ static uint32 SharedRace[] = { //race CRC
 	0x3F25E5F3, //female zelosian
 	0x07BE9747, //male miraluka
 	0x7D1266D2, //female miraluka
-	//0xF9504963, //male chadra fan
-	//0xC6B705B4, //female chadra fan
+	0xF9504963, //male chadra fan
+	0xC6B705B4, //female chadra fan
 	0x1CD4393C, //male rattataki
 	0xB8B4F101, //female rattataki
 	0x4CB95F83, //male arkanian_offshoot
@@ -536,13 +536,13 @@ static uint32 SharedRace[] = { //race CRC
 	0xF4322BAA, //male drall
 	0x1C2C5B6A, //female drall
 	0x2F832D26, //male kitonak
-//	0x696718D6, //male dug
+	0x696718D6, //male dug
 	0x65FBE4A7, //male ortolan
-	//0x0D506AEA, //male geonosian
-	//0x3639ADAE, //male selonian
-	//0xD25BBAD0, //female selonian
-	//0xA4478797, //male togorian
-	//0x3E751C09, //male toydarian
+	0x0D506AEA, //male geonosian
+	0x3639ADAE, //male selonian
+	0xD25BBAD0, //female selonian
+	0xA4478797, //male togorian
+	0x3E751C09, //male toydarian
 	0xED41E335, //male ugnaught
 	0xE6F2BE54, //male whipid
 	0x64FBCEEF //female whipid
@@ -753,7 +753,7 @@ static unsigned int attributeLimits[85][19] = { //HAM
 		{650, 1350,	650,  850,	450,  550, 500,	1200, 400,	550, 400,  500,	400, 1100, 450,	 650, 400,	600, 6100},
 		{300, 1200,	300,  500,	300,  400, 600,	1400, 300,	750, 300,  500,	400, 1200, 400,	 600, 300,	600, 5400},
 		{300, 1400,	300,  600,	300,  500, 600,	1100, 300,	750, 300,  500,	400, 1300, 400,	 600, 300,	500, 5400},
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},  /Hutt male
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},  //Hutt male
 		{550, 1250,	600,  800,	700,  800, 300,	1000, 300,  	450, 300,  400,	300, 1000, 300,	 500, 300,	600, 5550},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
@@ -764,7 +764,7 @@ static unsigned int attributeLimits[85][19] = { //HAM
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},  //Hutt female
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},  //Hutt female
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
@@ -782,7 +782,7 @@ static unsigned int attributeLimits[85][19] = { //HAM
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
-//		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},   //Talz
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},   //Talz
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
@@ -796,8 +796,8 @@ static unsigned int attributeLimits[85][19] = { //HAM
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Chadra fan male
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Chadra fam female
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Chadra fan male
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Chadra fam female
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
@@ -817,14 +817,14 @@ static unsigned int attributeLimits[85][19] = { //HAM
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Dug
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Dug
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Geonosian
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Selonian
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Selonian
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Geonosian
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Selonian
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Selonian
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Togorian
-		//{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Toydarin
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Togorian
+		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},	//Toydarin
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400},
 		{400, 1100,	400, 1100,  	400, 1100, 400, 1100, 400, 	1100, 400, 1100,400, 1100, 400,	1100, 400, 	1100, 5400}
@@ -833,14 +833,14 @@ static unsigned int attributeLimits[85][19] = { //HAM
 class Races {
 public:
 	inline const static char* getRace(int raceid) {
-		if (raceid < 0 || raceid > 74)
+		if (raceid < 0 || raceid > 85)
 			return "";
 
 		return RaceStrs[raceid];
 	}
 
 	inline static int getSpeciesID(int raceid) {
-		if (raceid < 0 || raceid > 74)
+		if (raceid < 0 || raceid > 85)
 			return 0;
 
 		return TemplateSpecies[raceid];
@@ -854,21 +854,21 @@ public:
 	}
 
 	inline const static char* getSpecies(int raceid) {
-		if (raceid < 0 || raceid > 74)
+		if (raceid < 0 || raceid > 85)
 			return "";
 
 		return Species[raceid];
 	}
 
 	inline const static char* getGender(int raceid) {
-		if (raceid < 0 || raceid > 74)
+		if (raceid < 0 || raceid > 85)
 			return "";
 
 		return Gender[raceid];
 	}
 
 	inline static uint32 getRaceCRC(int raceid) {
-		if (raceid < 0 || raceid > 74)
+		if (raceid < 0 || raceid > 85)
 			return 0;
 
 		return SharedRace[raceid];
@@ -890,7 +890,7 @@ public:
 	}
 
 	inline static int getRaceID(const String& name) {
-    	for (int i = 0; i < 74; i++) {
+    	for (int i = 0; i < 85; i++) {
         	if (strcmp(name.toCharArray(), CCRaceStrs[i]) == 0)
             	return i;
     	}

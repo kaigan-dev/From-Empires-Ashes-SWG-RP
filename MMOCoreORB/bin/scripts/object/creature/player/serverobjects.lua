@@ -68,8 +68,8 @@ includeFile("creature/player/zabrak_female.lua")
 includeFile("creature/player/zabrak_male.lua")
 
 --added races
---includeFile("creature/player/hutt_female.lua") --Hutt female
---includeFile("creature/player/hutt_male.lua") --Hutt male
+includeFile("creature/player/hutt_female.lua") --Hutt female
+includeFile("creature/player/hutt_male.lua") --Hutt male
 includeFile("creature/player/nautolan_male.lua") --Nautolan male
 includeFile("creature/player/togruta_female.lua") --Togruta female
 includeFile("creature/player/chiss_female.lua") --Chiss female
@@ -87,7 +87,7 @@ includeFile("creature/player/aqualish_male.lua") --Aqualish male
 includeFile("creature/player/bith_female.lua") --Bith female
 includeFile("creature/player/bith_male.lua") --Bith male
 includeFile("creature/player/gotal_male.lua") --Gotal male
---includeFile("creature/player/talz_male.lua") --Talz male
+includeFile("creature/player/talz_male.lua") --Talz male
 
 --added races by Borrie
 includeFile("creature/player/iktotchi_male.lua") --Iktotchi male
@@ -97,12 +97,12 @@ includeFile("creature/player/zeltron_female.lua") --Zeltron female
 includeFile("creature/player/arkanian_male.lua") --Arkanian male
 includeFile("creature/player/arkanian_female.lua") --Arkanian female
 includeFile("creature/player/arcona_male.lua") --Arcona male
---includeFile("creature/player/toydarian_male.lua") --Toydarian male
---includeFile("creature/player/selonian_male.lua") --Selonian male
---includeFile("creature/player/selonian_female.lua") --Selonian female
---includeFile("creature/player/geonosian_male.lua") --Geonosian male
---includeFile("creature/player/dug_male.lua") --Dug male
+includeFile("creature/player/toydarian_male.lua") --Toydarian male
+includeFile("creature/player/selonian_male.lua") --Selonian male
+includeFile("creature/player/selonian_female.lua") --Selonian female
+includeFile("creature/player/geonosian_male.lua") --Geonosian male
+includeFile("creature/player/dug_male.lua") --Dug male
 includeFile("creature/player/kubaz_male.lua") --Kubaz male
---includeFile("creature/player/togorian_male.lua") --Togorian male
---includeFile("creature/player/chadra_fan_male.lua") --Chadra Fan male
---includeFile("creature/player/chadra_fan_female.lua") --Chadra Fan male
+includeFile("creature/player/togorian_male.lua") --Togorian male
+includeFile("creature/player/chadra_fan_male.lua") --Chadra Fan male
+includeFile("creature/player/chadra_fan_female.lua") --Chadra Fan male
