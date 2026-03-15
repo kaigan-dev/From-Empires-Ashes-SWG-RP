@@ -754,6 +754,7 @@ public:
                             {
                                 creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
                             }
+                        }
                         else {
                             armor->setConditionDamage(damage);
                             creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage."); 
@@ -761,7 +762,7 @@ public:
                             {
                                 creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
                             }
-                    }               
+                        }               
                     }
                 } else { //Take Full Damage
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
