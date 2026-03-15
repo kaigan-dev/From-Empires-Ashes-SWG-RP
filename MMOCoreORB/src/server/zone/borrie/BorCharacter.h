@@ -10,7 +10,6 @@
 #include "server/zone/borrie/BorrieRPG.h"
 #include "server/zone/borrie/BorSkill.h"
 #include "server/zone/borrie/BorDice.h"
-#include "server/zone/borrie/BorCombat.h"
 
 #include "server/db/ServerDatabase.h"
 
