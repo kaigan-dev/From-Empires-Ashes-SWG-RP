@@ -30,8 +30,8 @@ object_tangible_wearables_armor_roleplay_mandalorian_armor_mandalorian_shoes = o
 	heat = 2,
 	cold = 2,
 	acid = 2,
-	lightsaber = 1,
-	lightSaber = 1,
+	lightsaber = 8,
+	lightSaber = 8,
 	
 	rarity = "Legendary",
 
