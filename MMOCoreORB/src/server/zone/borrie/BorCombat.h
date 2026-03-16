@@ -756,7 +756,7 @@ public:
             if(armor != nullptr) {
                 if(!armor->isBroken()) {
                     String damageType = GetDamageType(attackerWeapon);
-                    if(damageType == "Lightsaber") { //Special Lightsaber Rules
+                    if(damageType == "LIGHTSABER") { //Special Lightsaber Rules
                         if(armor->getLightSaber() > 0) { //Can Resist Lightsabers
                             //Take only 10 percent damage.
                             BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
@@ -765,7 +765,7 @@ public:
                         }
                     } else {
                         //Get Defense
-
+ 
                         
                         /* //Original system that takes into account armor penetration.
                         int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
