@@ -756,6 +756,7 @@ public:
             if(armor != nullptr) {
                 if(!armor->isBroken()) {
                     String damageType = GetDamageType(attackerWeapon);
+                    /*  Moving lightsaber into the normal damage logic for flat reduction.
                     if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") { //Special Lightsaber Rules
                         if(armor->getLightSaber() > 0) { //Can Resist Lightsabers
                             //Take only 10 percent damage.
@@ -767,6 +768,7 @@ public:
                             creature->sendSystemMessage("Your armor was severely damaged by the lightsaber!");
                         }
                     } else {
+                     */
                         //Get Defense
   
                         
@@ -792,6 +794,9 @@ public:
                         if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
                         {
                             int armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
+                            if(armorProtection < 0) {
+                                armorProtection = 0;
+                            }
                         }
                         
                         int finalDamage = damage - armorProtection;
@@ -804,7 +809,17 @@ public:
                         
                         // Armor should not take condition damage greater than its armor protection value.
                         if (damage >= armorProtection) {
-                            armor->setConditionDamage(armorProtection);
+                            if(damageType == "Lightsaber") {
+                                if(armor->getLightSaber() > 0)
+                                    armor->setConditionDamage(armorProtection);
+                                else
+                                {
+                                    armor->setConditionDamage(100);
+                                }
+                            }
+                            else {
+                                armor->setConditionDamage(armorProtection);
+                            }
                             creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");
                             if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
                             {
@@ -812,15 +827,26 @@ public:
                             }
                         }
                         else {
-                            armor->setConditionDamage(damage);
+                            if(damageType == "Lightsaber") {
+                                if(armor->getLightSaber() > 0)
+                                    armor->setConditionDamage(armorProtection);
+                                else
+                                {
+                                    armor->setConditionDamage(100);
+                                }
+                            }
+                            else {
+                                armor->setConditionDamage(armorProtection);
+                            }
+                            
                             creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage."); 
                             if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
                             {
                                 creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
                             }
                         }               
-                    }
-                } else { //Take Full Damage
+                }
+                else { //Take Full Damage
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
             } else { //Take Full Damage
@@ -877,6 +903,9 @@ public:
             }
             else if(damageType == "Acid") {
                 return (int)armor->getAcid();
+            }
+            else if(damageType == "Lightsaber") {
+                return (int)armor->getLightSaber();
             }
             else return 0;
         }
