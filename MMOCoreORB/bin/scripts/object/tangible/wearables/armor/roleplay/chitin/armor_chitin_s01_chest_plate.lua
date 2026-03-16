@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_chitin_armor_chitin_s01_chest_plate = o
 	cold = 0,
 	acid = 2,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Uncommon",
 

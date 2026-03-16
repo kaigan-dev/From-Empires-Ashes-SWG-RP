@@ -31,7 +31,8 @@ object_tangible_wearables_armor_roleplay_ris_armor_ris_bracer_r = object_tangibl
 	cold = 2,
 	acid = 2,
 	lightsaber = -1,
-
+	lightSaber = -1,
+	
 	rarity="Legendary",
 
 }

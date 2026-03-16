@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_ris_armor_ris_boots = object_tangible_w
 	cold = 2,
 	acid = 2,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Legendary",
 

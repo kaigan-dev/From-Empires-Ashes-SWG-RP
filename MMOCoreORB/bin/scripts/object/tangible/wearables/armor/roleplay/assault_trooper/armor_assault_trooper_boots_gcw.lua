@@ -31,7 +31,8 @@ object_tangible_wearables_armor_roleplay_assault_trooper_armor_assault_trooper_b
 	cold = 3,
 	acid = 3,
 	lightsaber = -1,
-	
+	lightSaber = -1,
+
 	rarity = "Legendary",
 
 

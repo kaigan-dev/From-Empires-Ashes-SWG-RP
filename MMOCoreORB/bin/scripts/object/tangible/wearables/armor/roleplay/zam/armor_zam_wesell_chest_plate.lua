@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_zam_armor_zam_wesell_chest_plate = obje
 	cold = 1,
 	acid = 0,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Uncommon",
 

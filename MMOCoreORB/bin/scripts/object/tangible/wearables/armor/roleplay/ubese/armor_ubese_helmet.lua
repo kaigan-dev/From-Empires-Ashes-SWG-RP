@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_ubese_armor_ubese_helmet = object_tangi
 	cold = 6,
 	acid = 4,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Uncommon",
 

@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_rebel_snow_armor_rebel_snow_leggings = 
 	cold = 4,
 	acid = 2,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Rare",
 

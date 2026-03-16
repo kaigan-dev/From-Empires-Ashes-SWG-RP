@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_clone_trooper_armor_clone_trooper_neutr
 	cold = 0,
 	acid = 0,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Rare",
 

@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_tantel_armor_tantel_skreej_bicep_r = ob
 	cold = 2,
 	acid = 0,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Uncommon",
 
