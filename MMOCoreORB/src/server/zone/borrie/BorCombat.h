@@ -756,10 +756,10 @@ public:
             if(armor != nullptr) {
                 if(!armor->isBroken()) {
                     String damageType = GetDamageType(attackerWeapon);
-                    if(damageType == "LIGHTSABER") { //Special Lightsaber Rules
+                    if(damageType == "LIGHTSABER" or damageType == "Lightsaber") { //Special Lightsaber Rules
                         if(armor->getLightSaber() > 0) { //Can Resist Lightsabers
                             //Take only 10 percent damage.
-                            BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
+                            BorCharacter::ModPool(creature, "health", (damage -8 ) * -1, true);
                         } else { //Take Full Damage
                             BorCharacter::ModPool(creature, "health", damage * -1, true);
                         }
