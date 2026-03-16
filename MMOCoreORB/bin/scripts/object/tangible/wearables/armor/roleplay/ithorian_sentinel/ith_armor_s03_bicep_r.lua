@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_ithorian_sentinel_ith_armor_s03_bicep_r
 	cold = 2,
 	acid = 2,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Rare",
 

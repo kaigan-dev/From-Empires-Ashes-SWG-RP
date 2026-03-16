@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_galactic_marine_armor_galactic_marine_l
 	cold = 6,
 	acid = 6,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Epic",
 

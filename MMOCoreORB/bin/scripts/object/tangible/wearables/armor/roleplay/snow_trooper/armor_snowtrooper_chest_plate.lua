@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_snow_trooper_armor_snowtrooper_chest_pl
 	cold = 8,
 	acid = 0,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Rare",
 

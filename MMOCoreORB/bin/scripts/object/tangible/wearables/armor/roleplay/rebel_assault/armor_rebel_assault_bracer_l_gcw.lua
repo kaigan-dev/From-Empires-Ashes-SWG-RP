@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_rebel_assault_armor_rebel_assault_brace
 	cold = 3,
 	acid = 3,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Rare",
 

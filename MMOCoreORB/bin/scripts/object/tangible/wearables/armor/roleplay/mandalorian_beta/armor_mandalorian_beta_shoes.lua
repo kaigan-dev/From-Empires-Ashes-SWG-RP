@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_mandalorian_beta_armor_mandalorian_beta
 	cold = 2,
 	acid = 2,
 	lightsaber = 1,
+	lightSaber = 1,
 	
 	rarity = "Legendary",
 

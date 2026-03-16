@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_padded_armor_padded_s01_bicep_r = objec
 	cold = 4,
 	acid = 0,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Uncommon",
 

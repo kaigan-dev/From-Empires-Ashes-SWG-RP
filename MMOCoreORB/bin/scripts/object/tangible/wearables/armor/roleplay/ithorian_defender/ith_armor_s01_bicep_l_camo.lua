@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_ithorian_defender_ith_armor_s01_bicep_l
 	cold = 0,
 	acid = 2,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Epic",
 

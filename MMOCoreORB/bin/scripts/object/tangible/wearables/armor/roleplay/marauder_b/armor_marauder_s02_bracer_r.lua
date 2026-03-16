@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_marauder_b_armor_marauder_s02_bracer_r 
 	cold = 1,
 	acid = 1,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Common",
 

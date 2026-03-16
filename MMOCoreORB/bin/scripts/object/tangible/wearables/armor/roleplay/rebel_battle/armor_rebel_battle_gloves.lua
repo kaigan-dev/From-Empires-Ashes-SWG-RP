@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_rebel_battle_armor_rebel_battle_gloves 
 	cold = 2,
 	acid = 0,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Rare",
 

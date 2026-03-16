@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_ubese_armor_ubese_bracer_l = object_tan
 	cold = 6,
 	acid = 4,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Uncommon",
 

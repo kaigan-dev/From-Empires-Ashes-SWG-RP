@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_marine_armor_marine_bicep_l_gcw = objec
 	cold = 0,
 	acid = 0,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Rare",
 

@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_scout_trooper_armor_scout_trooper_boots
 	cold = 2,
 	acid = 0,
 	lightsaber = -1,
+	lightSaber = -1,
 
 	rarity="Rare",
 

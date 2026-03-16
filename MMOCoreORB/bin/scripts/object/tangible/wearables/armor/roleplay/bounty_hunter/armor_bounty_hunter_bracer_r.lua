@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_bounty_hunter_armor_bounty_hunter_brace
 	cold = 2,
 	acid = 2,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Rare",
 
