@@ -345,7 +345,7 @@ public:
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                     int armorSkillFlag = 0;
-                    if (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
+                    if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                         armorSkillFlag = 1;
                     }
                     reactionSpam += ", taking \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -373,7 +373,7 @@ public:
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                     int armorSkillFlag = 0;
-                    if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                    if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                         armorSkillFlag = 1;
                     }
                     reactionSpam += ", taking \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -419,7 +419,7 @@ public:
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                     int armorSkillFlag = 0;
-                    if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                    if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                         armorSkillFlag = 1;
                     }
                     reactionSpam += ". " + defender->getFirstName() + " tries to parry the attack, but fails (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit)+"), recieving \\#FF9999"+GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -448,7 +448,7 @@ public:
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                     int armorSkillFlag = 0;
-                    if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                    if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                         armorSkillFlag = 1;
                     }
                     reactionSpam += defender->getFirstName() +" takes \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -489,7 +489,7 @@ public:
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                     int armorSkillFlag = 0;
-                    if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                    if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                         armorSkillFlag = 1;
                     }
                     reactionSpam += defender->getFirstName() +" takes \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -547,7 +547,7 @@ public:
                         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                         int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                         int armorSkillFlag = 0;
-                        if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                        if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                             armorSkillFlag = 1;
                         }
                         reactionSpam += ", but fails, recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -580,7 +580,7 @@ public:
                             ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                             int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                             int armorSkillFlag = 0;
-                            if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                            if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                                 armorSkillFlag = 1;
                             }
                             reactionSpam += ", recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -615,7 +615,7 @@ public:
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                     int armorSkillFlag = 0;
-                    if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                    if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                         armorSkillFlag = 1;
                     }
                     return ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -661,7 +661,7 @@ public:
                         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                         int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                         int armorSkillFlag = 0;
-                        if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                        if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                             armorSkillFlag = 1;
                         }
                         reactionSpam += ", recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -699,7 +699,7 @@ public:
                         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                         int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                         int armorSkillFlag = 0;
-                        if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                        if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                             armorSkillFlag = 1;
                         }
                         reactionSpam += ", recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -714,7 +714,7 @@ public:
                         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                         int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                         int armorSkillFlag = 0;
-                        if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                        if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                             armorSkillFlag = 1;
                         }
                         reactionSpam += ", recieving \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);     
@@ -728,7 +728,7 @@ public:
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                     int armorSkillFlag = 0;
-                    if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+                    if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                         armorSkillFlag = 1;
                     }
                     return ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -744,7 +744,7 @@ public:
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
         int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
         int armorSkillFlag = 0;
-        if ((defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+        if ((defender->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
             armorSkillFlag = 1;
         }
         return ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -1278,7 +1278,7 @@ public:
             ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(victim, GetSlotName(slot));
             int armorProtection = GetArmorProtection(victim, armor, GetDamageType(grenade));
             int armorSkillFlag = 0;
-            if ((victim->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+            if ((victim->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                 armorSkillFlag = 1;
             }
             message = message + ", which fails, the blast focused on their " + GetSlotDisplayName(slot) + ", causing \\#FF9999" + GenerateDamageOutputSpam(totalDamage, GetArmorReducedDamage(totalDamage, armorProtection), armorProtection, armorSkillFlag); 
@@ -1288,7 +1288,7 @@ public:
             ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(victim, GetSlotName(slot));
             int armorProtection = GetArmorProtection(victim, armor, GetDamageType(grenade));
             int armorSkillFlag = 0;
-            if ((victim->getSkillMod("rp_strength") < armor->getRpSkillLevel()) && (armor != nullptr)) {
+            if ((victim->getSkillMod("rp_strength") < armor.get()->getRpSkillLevel()) && ((armor != nullptr) && (armor.get() != nullptr))) {
                 armorSkillFlag = 1;
             }
             message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot) + ", and taking only \\#FF9999" + GenerateDamageOutputSpam(totalDamage, GetArmorReducedDamage(totalDamage, armorProtection), armorProtection, armorSkillFlag); 
