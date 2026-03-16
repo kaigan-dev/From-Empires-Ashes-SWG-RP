@@ -30,8 +30,8 @@ object_tangible_wearables_armor_roleplay_ris_armor_ris_chest_plate = object_tang
 	heat = 0,
 	cold = 2,
 	acid = 2,
-	lightsaber = -1,
-	lightSaber = -1,
+	lightsaber = 4,
+	lightSaber = 4,
 
 	rarity="Legendary",
 
