@@ -765,7 +765,7 @@ public:
                         }
                     } else {
                         //Get Defense
- 
+  
                         
                         /* //Original system that takes into account armor penetration.
                         int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
