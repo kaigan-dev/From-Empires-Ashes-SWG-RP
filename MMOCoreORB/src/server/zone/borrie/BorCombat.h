@@ -761,11 +761,11 @@ public:
                         if(armor->getLightSaber() > 0) { //Can Resist Lightsabers
                             //Take only 10 percent damage.
                             BorCharacter::ModPool(creature, "health", (damage -8 ) * -1, true);
-                            creature->sendSystemMessage("Your " + armorName + " protected against the lightsaber!");
+                            creature->sendSystemMessage("Your armor protected against the lightsaber!");
                         } else { //Take Full Damage
                             BorCharacter::ModPool(creature, "health", damage * -1, true);
                             armor->setConditionDamage(100);
-                            creature->sendSystemMessage("Your " + armorName + " was severely damaged by the lightsaber!");
+                            creature->sendSystemMessage("Your armor was severely damaged by the lightsaber!");
                         }
                     } else {
                         //Get Defense
