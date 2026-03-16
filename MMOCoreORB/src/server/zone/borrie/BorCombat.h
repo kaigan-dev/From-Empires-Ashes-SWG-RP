@@ -798,7 +798,7 @@ public:
                                 armorProtection = 0;
                             }
                         }
-                        creature->sendSystemMessage("Your " + armorName + " has a lightsaber resistance of " + armorProtection);  //Debug messaging. Remove.
+                        creature->sendSystemMessage("Your armor has a lightsaber resistance of " + armorProtection);  //Debug messaging. Remove.
                         creature->sendSystemMessage("You are defending against a damage type of" + damageType);  //Debug messaging. Remove.
                         int finalDamage = damage - armorProtection;
                         if(finalDamage < 1) finalDamage = 1;
