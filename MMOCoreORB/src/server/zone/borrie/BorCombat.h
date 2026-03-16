@@ -798,7 +798,8 @@ public:
                                 armorProtection = 0;
                             }
                         }
-                        
+                        creature->sendSystemMessage("Your " + armorName + " has a lightsaber resistance of " + armorProtection);  //Debug messaging. Remove.
+                        creature->sendSystemMessage("You are defending against a damage type of" + damageType);  //Debug messaging. Remove.
                         int finalDamage = damage - armorProtection;
                         if(finalDamage < 1) finalDamage = 1;
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
@@ -809,7 +810,7 @@ public:
                         
                         // Armor should not take condition damage greater than its armor protection value.
                         if (damage >= armorProtection) {
-                            if(damageType == "Lightsaber") {
+                            if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                                 if(armor->getLightSaber() > 0)
                                     armor->setConditionDamage(armorProtection);
                                 else
@@ -827,7 +828,7 @@ public:
                             }
                         }
                         else {
-                            if(damageType == "Lightsaber") {
+                            if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                                 if(armor->getLightSaber() > 0)
                                     armor->setConditionDamage(armorProtection);
                                 else
@@ -855,7 +856,7 @@ public:
         } else { //Use their skill mod armor. 
             String armorSlot = GetSlotName(slot);
             String damageType = GetDamageType(attackerWeapon);
-            if(damageType == "Lightsaber") {
+            if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                 if(creature->getStoredInt("rp_armor_" + armorSlot + "_Lightsaber") > 0) {
                     //Take only 10 percent damage.
                     BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
@@ -904,7 +905,7 @@ public:
             else if(damageType == "Acid") {
                 return (int)armor->getAcid();
             }
-            else if(damageType == "Lightsaber") {
+            else if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                 return (int)armor->getLightSaber();
             }
             else return 0;
