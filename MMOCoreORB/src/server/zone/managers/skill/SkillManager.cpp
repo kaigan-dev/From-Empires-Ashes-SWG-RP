@@ -275,7 +275,7 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 		//Witdraw experience.
 		if (!noXpRequired) {
 			int skillCost = skill->getXpCost() * costMultiplier;
-			ghost->addExperience(skill->getXpType(), -skillcost, true);
+			ghost->addExperience(skill->getXpType(), -skillCost, true);
 		}
 
 		creature->addSkill(skill, notifyClient);
