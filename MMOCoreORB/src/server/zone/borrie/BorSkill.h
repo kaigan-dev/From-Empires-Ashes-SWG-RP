@@ -386,25 +386,31 @@ public:
 		}
 	}
 
-	static bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "") {
+	static bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "", float costMultiplier) {
 		if(rank > 10) return false;
 		if(skill == "") return false;
 		String skillName = "rp_" + skill + "_" + GetSkillSuffixFromValue(rank);
 		SkillManager* skillManager = SkillManager::instance();
-		bool hasXP = skillManager->canLearnSkill(skillName, creature, false);
+		
+		bool hasXP = skillManager->canLearnSkill(skillName, creature, false, costMultiplier);
 		int points = creature->getStoredInt("starter_attr_points");
+		
+		/* Disable hard attribute requirement.
 		if (parentAttribute != "" ) {
 			points = creature->getStoredInt("starter_skill_points");
 			//creature->sendSystemMessage("Trying to train skill");
 			int parentValue = GetRealSkillLevel(creature, parentAttribute);
 			//int altParentValue = GetRealSkillLevel(creature, altParentAttribute);
 			String skillRealName = GetSkillRealName(skill);
+			
 			if(parentValue < rank ) {
 				return false;
-			} 				
+			}
+
 		} else {
 			//creature->sendSystemMessage("Trying to train attribute");
 		}
+		*/
 
 		if(points > 0) return true;
 		

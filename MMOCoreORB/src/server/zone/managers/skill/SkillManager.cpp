@@ -234,7 +234,7 @@ void SkillManager::removeAbilities(PlayerObject* ghost, const Vector<String>& ab
 	return true;
 }*/
 
-bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature, bool notifyClient, bool awardRequiredSkills, bool noXpRequired, bool dmOverride) {
+bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature, bool notifyClient, bool awardRequiredSkills, bool noXpRequired, bool dmOverride, float costMultiplier) {
 	auto skill = skillMap.get(skillName.hashCode());
 
 	if (skill == nullptr)
@@ -274,7 +274,8 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 
 		//Witdraw experience.
 		if (!noXpRequired) {
-			ghost->addExperience(skill->getXpType(), -skill->getXpCost(), true);
+			int skillCost = skill->getXpCost() * costMultiplier;
+			ghost->addExperience(skill->getXpType(), -skillcost, true);
 		}
 
 		creature->addSkill(skill, notifyClient);
@@ -734,7 +735,7 @@ void SkillManager::updateXpLimits(PlayerObject* ghost) {
 	}
 }
 
-bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creature, bool noXpRequired) {
+bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creature, bool noXpRequired, float costMultiplier) {
 	Skill* skill = skillMap.get(skillName.hashCode());
 
 	if (skill == nullptr) {
@@ -758,7 +759,8 @@ bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creatu
 	if (ghost != nullptr) {
 		//Check if player has enough xp to learn the skill.
 		if (!noXpRequired) {
-			if (ghost->getExperience(skill->getXpType()) < skill->getXpCost()) {
+			int modifiedXpCost = skill->getXpCost() * costMultiplier;
+			if (ghost->getExperience(skill->getXpType()) < modifiedXpCost) {
 				return false;
 			}
 		}

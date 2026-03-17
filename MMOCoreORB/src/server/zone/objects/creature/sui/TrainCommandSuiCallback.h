@@ -389,17 +389,26 @@ public:
 		String skillParent = BorSkill::GetSkillParent(skill);
 		//String skillAltParent = BorSkill::GetSkillAltParent(skill);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skill);
-		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent)) {
+		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
+		
+		float costMultiplier = 1;
+		if(parentLevel > currentRank) {
+			int parentDifference = currentRank + 1 - parentLevel;
+			costMultiplier = pow(1.75, parentDifference);
+		}
+
+		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, costMultiplier)) {
 			//Train it
 			SkillManager* skillManager = SkillManager::instance();
-			
+
+						
 			int freePoints = player->getStoredInt("starter_skill_points");
 			if(freePoints > 0) {
 				player->setStoredInt("starter_skill_points", freePoints - 1);
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true, costMultiplier);
 				player->sendSystemMessage("You've gained a point in " + skill + "! You have " + String::valueOf(freePoints - 1) + " remaining free skill points.");
 			} else {
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, costMultiplier);
 				player->sendSystemMessage("You've gained a point in " + skill + "!");
 			}
 		} else {
