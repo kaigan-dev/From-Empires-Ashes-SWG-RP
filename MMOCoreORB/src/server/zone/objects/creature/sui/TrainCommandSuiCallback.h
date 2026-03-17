@@ -222,7 +222,8 @@ public:
 		box->setCallback(new TrainCommandSuiCallback(server, 0, 0));
 		box->setPromptTitle("Training Menu");
 		if(freeSkillPoints > 0 || freeAttrPoints > 0) {
-			box->setPromptText("What would you like to do?\n\nFree Attribute Boxes: " + String::valueOf(freeAttrPoints) + "\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
+			box->setPromptText("What would you like to do?\n\nFree Attribute Boxes: " + String::valueOf(freeAttrPoints));
+			//+ "\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
 		} else box->setPromptText("What would you like to do?");	
 		box->setCancelButton(true, "@cancel");
 		//box->setOkButton(false, "@");
@@ -268,9 +269,10 @@ public:
 
 		box->setPromptTitle("Training Skill Menu");
 		if(freeSkillPoints > 0) {
-			box->setPromptText("What skill would you like to rank up? Remember that skills can only go as high as their associated attribute's max rank.\n\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
+			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's max rank.");
+				-- // \n\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
 		} else {
-			box->setPromptText("What skill would you like to rank up? Remember that skills can only go as high as their associated attribute's max rank.");
+			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's max rank.");
 		}
 
 		box->addMenuItem("Armorer " +				GetSkillNumeral(BorSkill::GetRealSkillLevel(player,"armorer")+1));
@@ -390,17 +392,19 @@ public:
 		//String skillAltParent = BorSkill::GetSkillAltParent(skill);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skill);
 		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
-		
+		player->sendSystemMessage("TrainSkill has been called with values of skill: " + skill + ", skillParent: " + skillParent + "currentRank: " + std::to_string(currentRank) + ", parentLevel: " + std::to_string(parentLevel));
+
 		float costMultiplier = 1;
 		if(parentLevel > currentRank) {
 			int parentDifference = currentRank + 1 - parentLevel;
 			costMultiplier = pow(1.75, parentDifference);
 		}
+		player->sendSystemMessage("The skill will cost " + std::to_string(costMultiplier) + " XP to train.");
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, costMultiplier)) {
 			//Train it
 			SkillManager* skillManager = SkillManager::instance();
- 
+			player->sendSystemMessage("It has been determined that you have enough XP to train the skill.");
 						
 			int freePoints = player->getStoredInt("starter_skill_points");
 			if(freePoints > 0) {
