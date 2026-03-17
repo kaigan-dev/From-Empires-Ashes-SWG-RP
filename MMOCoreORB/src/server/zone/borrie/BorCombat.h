@@ -798,7 +798,6 @@ public:
                                 armorProtection = 0;
                             }
                         }
-
                         int finalDamage = damage - armorProtection;
                         if(finalDamage < 1) finalDamage = 1;
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
@@ -852,20 +851,17 @@ public:
             } else { //Take Full Damage
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
             }
-               } else { //Use their skill mod armor. 
+        } else { //Use their skill mod armor. 
             String armorSlot = GetSlotName(slot);
             String damageType = GetDamageType(attackerWeapon);
-            
             if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                 if(creature->getStoredInt("rp_armor_" + armorSlot + "_Lightsaber") > 0) {
-                    //Take only 25 percent damage.
-                    BorCharacter::ModPool(creature, "health", (damage / 4) * -1, true);
+                    //Take only 10 percent damage.
+                    BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
                 } else {
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
-
             } else {
-             
                 int armorRating = creature->getStoredInt("rp_armor_rating_" + armorSlot);
                 int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
                 int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
@@ -878,7 +874,7 @@ public:
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
             }            
-        }          
+        }
     }
 
     static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
