@@ -392,14 +392,14 @@ public:
 		//String skillAltParent = BorSkill::GetSkillAltParent(skill);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skill);
 		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
-		player->sendSystemMessage("TrainSkill has been called with values of skill: " + skill + ", skillParent: " + skillParent + "currentRank: " + std::to_string(currentRank) + ", parentLevel: " + std::to_string(parentLevel));
+		player->sendSystemMessage("TrainSkill has been called with values of skill: " + skill + ", skillParent: " + skillParent + ", currentRank: " + std::to_string(currentRank) + ", parentLevel: " + std::to_string(parentLevel));
 
 		float costMultiplier = 1;
 		if(parentLevel > currentRank) {
 			int parentDifference = currentRank + 1 - parentLevel;
-			costMultiplier = pow(1.75, parentDifference);
+			costMultiplier = 1.75 * parentDifference;
 		}
-		player->sendSystemMessage("The skill will cost " + std::to_string(costMultiplier) + " XP to train.");
+		player->sendSystemMessage("The cost multiplier is " + std::to_string(costMultiplier));
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, costMultiplier)) {
 			//Train it
