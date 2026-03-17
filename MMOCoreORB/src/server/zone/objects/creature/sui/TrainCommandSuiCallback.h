@@ -395,7 +395,7 @@ public:
 		player->sendSystemMessage("TrainSkill has been called with values of skill: " + skill + ", skillParent: " + skillParent + ", currentRank: " + std::to_string(currentRank) + ", parentLevel: " + std::to_string(parentLevel));
 
 		float costMultiplier = 1;
-		if(parentLevel > currentRank) {
+		if(parentLevel > currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
 			costMultiplier = 1.75 * parentDifference;
 		}
@@ -409,10 +409,10 @@ public:
 			int freePoints = player->getStoredInt("starter_skill_points");
 			if(freePoints > 0) {
 				player->setStoredInt("starter_skill_points", freePoints - 1);
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true, costMultiplier);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true, false, costMultiplier);
 				player->sendSystemMessage("You've gained a point in " + skill + "! You have " + String::valueOf(freePoints - 1) + " remaining free skill points.");
 			} else {
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, costMultiplier);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, false, costMultiplier);
 				player->sendSystemMessage("You've gained a point in " + skill + "!");
 			}
 		} else {
