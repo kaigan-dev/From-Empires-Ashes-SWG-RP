@@ -37,7 +37,7 @@ public:
 		if (skill == "melee")
 			return "dexterity";
 		else if (skill == "intimidation")
-			return "constitution";
+			return "charisma";
 		else if (skill == "unarmed")
 			return "dexterity";
 		else if (skill == "lightsaber")
@@ -386,20 +386,20 @@ public:
 		}
 	}
 
-	static bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "", String altParentAttribute = "") {
+	static bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "") {
 		if(rank > 10) return false;
 		if(skill == "") return false;
 		String skillName = "rp_" + skill + "_" + GetSkillSuffixFromValue(rank);
 		SkillManager* skillManager = SkillManager::instance();
 		bool hasXP = skillManager->canLearnSkill(skillName, creature, false);
 		int points = creature->getStoredInt("starter_attr_points");
-		if (parentAttribute != "" && altParentAttribute != "") {
+		if (parentAttribute != "" ) {
 			points = creature->getStoredInt("starter_skill_points");
 			//creature->sendSystemMessage("Trying to train skill");
 			int parentValue = GetRealSkillLevel(creature, parentAttribute);
-			int altParentValue = GetRealSkillLevel(creature, altParentAttribute);
+			//int altParentValue = GetRealSkillLevel(creature, altParentAttribute);
 			String skillRealName = GetSkillRealName(skill);
-			if(parentValue < rank && altParentValue < rank) {
+			if(parentValue < rank ) {
 				return false;
 			} 				
 		} else {
@@ -423,10 +423,10 @@ public:
 			if (desiredLevel == -1)
 				return false;
 			String parent = GetSkillParent(skillName);
-			String altParent = GetSkillAltParent(skillName);
+			//String altParent = GetSkillAltParent(skillName);
 			int parentLevel = GetRealSkillLevel(creature, parent);
-			int altParentLevel = GetRealSkillLevel(creature, altParent);
-			if(parentLevel < desiredLevel && altParentLevel < desiredLevel) {
+			//int altParentLevel = GetRealSkillLevel(creature, altParent);
+			if(parentLevel < desiredLevel ) {
 				return false;
 			} else {
 				return true;

@@ -342,10 +342,10 @@ public:
 		int index = Integer::valueOf(args->get(0).toString());
 		String skillName = GetSkillStringFromID(index);
 		String skillParent = BorSkill::GetSkillParent(skillName);
-		String skillAltParent = BorSkill::GetSkillAltParent(skillName);
+		//String skillAltParent = BorSkill::GetSkillAltParent(skillName);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
 		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
-		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, skillAltParent)) {
+		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent)) {
 			suibox->setPromptTitle("Confirm training?"); 
 			//Can train!
 			suibox->setPromptText("Are you sure you want to train this skill?");
@@ -387,9 +387,9 @@ public:
 	void TrainSkill(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
 		String skill = GetSkillStringFromID(selection);
 		String skillParent = BorSkill::GetSkillParent(skill);
-		String skillAltParent = BorSkill::GetSkillAltParent(skill);
+		//String skillAltParent = BorSkill::GetSkillAltParent(skill);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skill);
-		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, skillAltParent)) {
+		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent)) {
 			//Train it
 			SkillManager* skillManager = SkillManager::instance();
 			
