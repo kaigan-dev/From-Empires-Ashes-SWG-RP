@@ -879,7 +879,6 @@ public:
                 }
             }            
         }          
-        }
     }
 
     static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
