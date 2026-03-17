@@ -852,6 +852,7 @@ public:
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
             }
         } else { //Use their skill mod armor. 
+        /*
             String armorSlot = GetSlotName(slot);
             String damageType = GetDamageType(attackerWeapon);
             if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
@@ -871,9 +872,10 @@ public:
                     int finalDamage = adjustedDamage - armorProtection;
                     BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
                 } else { //Take Full Damage
+        */
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
-                }
-            }            
+        //        }
+        //    }            
         }
     }
 
