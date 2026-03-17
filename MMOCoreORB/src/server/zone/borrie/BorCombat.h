@@ -757,11 +757,14 @@ public:
                 if(!armor->isBroken()) {
                     String damageType = GetDamageType(attackerWeapon);
                     if(damageType == "Lightsaber") { //Special Lightsaber Rules
+                        creature->sendSystemMessage("You are being hit by a lightsaber");
                         if(armor->getLightSaber() > 0) { //Can Resist Lightsabers
                             //Take only 10 percent damage.
                             BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
+                            creature->sendSystemMessage("Your armor protects you from lightsaber damage.");
                         } else { //Take Full Damage
                             BorCharacter::ModPool(creature, "health", damage * -1, true);
+                            creature->sendSystemMessage("Your armor does not protect you from lightsaber damage.");
                         }
                     } else {
                         //Get Defense
@@ -786,15 +789,18 @@ public:
 
                         // Armor protection is only one if a character is untrained in the use of their armor.
                         int armorProtection = 1;
+                        creature->sendSystemMessage("Base armor protection has been set to 1.");
                         if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
                         {
                             int armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
-                            creature->sendSystemMessage("Your strength is sufficient and we have retrieved a real armor protection value of " + armorProtection);
+                            creature->sendSystemMessage("Your strength is sufficient for your armor and we have retrieved a real armor protection value.");
                         }
                         
                         int finalDamage = damage - armorProtection;
-                        creature->sendSystemMessage("You are now taking " + damage + " - " + armorProtection + " = " finalDamage + "damage.");
-                        if(finalDamage < 1) finalDamage = 1;
+                        if(finalDamage < 1) {
+                            finalDamage = 1;
+                            creature->sendSystemMessage("Your armor reduced the damage to less than 1, so damage is being reset to 1.");
+                        }
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
                         String armorName = armor->getCustomObjectName().toString();
                         if(armorName == "") {
