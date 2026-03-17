@@ -798,7 +798,7 @@ public:
                                 armorProtection = 0;
                             }
                         }
-                        
+
                         int finalDamage = damage - armorProtection;
                         if(finalDamage < 1) finalDamage = 1;
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
@@ -867,10 +867,13 @@ public:
             } else {
              */
                 int armorRating = creature->getStoredInt("rp_armor_rating_" + armorSlot);
-                int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
-                int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
-                if(damageDivider != 0) {
-                    int adjustedDamage = damage / damageDivider;
+                //int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
+                //int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
+                //if(damageDivider != 0) {
+                //int adjustedDamage = damage / damageDivider;
+                if(armorRating > 0)
+                {
+                    //armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));  This is how we do it for players. I think we're currently using the DR from the base template on NPCs.
                     int armorProtection = creature->getStoredInt("rp_armor_" + armorSlot + "_" + GetDamageType(attackerWeapon));
                     int finalDamage = adjustedDamage - armorProtection;
                     BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
