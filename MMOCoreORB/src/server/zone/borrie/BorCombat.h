@@ -793,7 +793,7 @@ public:
                         }
                         
                         int finalDamage = damage - armorProtection;
-                        creature->sendSystemMessage("You are now taking " + damaage + " - " + armorProtection + " = " finalDamage + "damage.");
+                        creature->sendSystemMessage("You are now taking " + damage + " - " + armorProtection + " = " finalDamage + "damage.");
                         if(finalDamage < 1) finalDamage = 1;
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
                         String armorName = armor->getCustomObjectName().toString();
