@@ -800,7 +800,7 @@ public:
                         int finalDamage = damage - armorProtection;
                         String damageText = std::to_string(damage);
                         String finalDamageText = std::to_string(finalDamage);
-                        creature->sendSystemMessage("You are receiving " + damageText " - " + armorProtectionText + " = " + finalDamageText + " damage." );
+                        creature->sendSystemMessage("You are receiving " + damageText + " - " + armorProtectionText + " = " + finalDamageText + " damage." );
                         
 
                         if(finalDamage < 1) {
