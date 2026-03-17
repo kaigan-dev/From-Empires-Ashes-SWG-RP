@@ -71,7 +71,7 @@ public:
 	void addAbilities(PlayerObject* ghost, const Vector<String>& abilityNames, bool notifyClient = true);
 	void removeAbilities(PlayerObject* ghost, const Vector<String>& abilityNames, bool notifyClient = true);
 
-	bool awardSkill(const String& skillName, CreatureObject* creature, bool notifyClient = true, bool awardRequiredSkills = false, bool noXpRequired = false, bool dmOverride = false);
+	bool awardSkill(const String& skillName, CreatureObject* creature, bool notifyClient = true, bool awardRequiredSkills = false, bool noXpRequired = false, bool dmOverride = false, float costMultiplier = 1);
 	void awardDraftSchematics(Skill* skill, PlayerObject* ghost, bool notifyClient = true);
 
 	bool surrenderSkill(const String& skillName, CreatureObject* creature, bool notifyClient = true, bool verifyFrs = true);

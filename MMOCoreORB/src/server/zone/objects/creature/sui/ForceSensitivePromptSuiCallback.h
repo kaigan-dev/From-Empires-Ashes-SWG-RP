@@ -42,7 +42,7 @@ public:
                 else 
                     return;
 
-            skillManager->awardSkill("rp_force_prog_novice", player, true, true, true);
+            skillManager->awardSkill("rp_force_prog_novice", player, true, true, true, 1);
             String message = "";
             message = "All your life you've had a suspicion that there was more to the galaxy than what you could see with your eyes. ";
             message += "You are likely burdened with a great destiny. Tread carefully.";

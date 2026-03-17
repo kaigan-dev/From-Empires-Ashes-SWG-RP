@@ -411,7 +411,7 @@ public:
 			//creature->sendSystemMessage("Trying to train attribute");
 		}
 		*/
-
+ 
 		if(points > 0) return true;
 		
 		return hasXP;

@@ -345,7 +345,7 @@ public:
 		//String skillAltParent = BorSkill::GetSkillAltParent(skillName);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
 		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
-		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent)) {
+		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, 1)) {
 			suibox->setPromptTitle("Confirm training?"); 
 			//Can train!
 			suibox->setPromptText("Are you sure you want to train this skill?");
@@ -372,10 +372,10 @@ public:
 			int freePoints = player->getStoredInt("starter_attr_points");
 			if(freePoints > 0) {
 				player->setStoredInt("starter_attr_points", freePoints - 1);
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true, 1);
 				player->sendSystemMessage("You've gained a point in " + skill + ". You have " + String::valueOf(freePoints - 1) + " remaining free attribute points.");
 			} else {
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, 1);
 				player->sendSystemMessage("You've gained a point in " + skill + ".");
 			}
 		} else {
@@ -400,7 +400,7 @@ public:
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, costMultiplier)) {
 			//Train it
 			SkillManager* skillManager = SkillManager::instance();
-
+ 
 						
 			int freePoints = player->getStoredInt("starter_skill_points");
 			if(freePoints > 0) {

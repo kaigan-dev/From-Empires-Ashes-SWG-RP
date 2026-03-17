@@ -489,10 +489,10 @@ void FrsManagerImplementation::validatePlayerData(CreatureObject* player, bool v
 
 			if (councilType == COUNCIL_LIGHT && player->getSkillMod("force_control_light") == 0) {
 				player->removeSkill("force_rank_light_novice", true);
-				skillManager->awardSkill("force_rank_light_novice", player, true, false, true);
+				skillManager->awardSkill("force_rank_light_novice", player, true, false, true, 1);
 			} else if (councilType == COUNCIL_DARK && player->getSkillMod("force_control_dark") == 0) {
 				player->removeSkill("force_rank_dark_novice", true);
-				skillManager->awardSkill("force_rank_dark_novice", player, true, false, true);
+				skillManager->awardSkill("force_rank_dark_novice", player, true, false, true, 1);
 			}
 		} else {
 			String groupName = "";

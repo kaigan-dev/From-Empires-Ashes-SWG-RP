@@ -1426,7 +1426,7 @@ void PlayerObjectImplementation::notifyOnline() {
 
 	//Give Utiltiy Class if you don't have it.
 	if(!playerCreature->hasSkill("rp_utility_disguised")) {
-		SkillManager::instance()->awardSkill("rp_utility_disguised", playerCreature, true, false, true, true);
+		SkillManager::instance()->awardSkill("rp_utility_disguised", playerCreature, true, false, true, true, 1);
 	}
 	
 

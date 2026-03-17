@@ -70,7 +70,7 @@ public:
             if(skills.isValidTable()) {
                 for (int i = 1; i <= skills.getTableSize(); ++i) {
                     String skillName = skills.getStringAt(1);
-                    skillManager->awardSkill(skillName, target, true, true, true, true);
+                    skillManager->awardSkill(skillName, target, true, true, true, true, 1);
                 }
             }
 

@@ -3126,7 +3126,7 @@ int DirectorManager::awardSkill(lua_State* L) {
 	if(creature == nullptr)
 		return 0;
 
-	SkillManager::instance()->awardSkill(skillName, creature, true, true, true);
+	SkillManager::instance()->awardSkill(skillName, creature, true, true, true, 1);
 
 	return 0;
 }

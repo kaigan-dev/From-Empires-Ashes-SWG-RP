@@ -1100,14 +1100,14 @@ void PlayerCreationManager::addRacialMods(CreatureObject* creature,
 		}
 	} 
 
-	SkillManager::instance()->awardSkill("rp_strength_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_precision_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_dexterity_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_awareness_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_intelligence_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_charisma_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_constitution_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_mindfulness_novice", creature, false, true, true);
+	SkillManager::instance()->awardSkill("rp_strength_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_precision_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_dexterity_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_awareness_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_intelligence_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_charisma_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_constitution_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_mindfulness_novice", creature, false, true, true, 1);
 
 	SkillManager::instance()->awardSkill("rp_bg_roleplayer", creature, false, true, true);
 

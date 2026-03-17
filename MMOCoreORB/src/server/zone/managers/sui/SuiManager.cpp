@@ -559,7 +559,7 @@ void SuiManager::handleCharacterBuilderSelectItem(CreatureObject* player, SuiBox
 
 			} else {
 				if (templatePath.length() > 0) {
-					SkillManager::instance()->awardSkill(templatePath, player, true, true, true);
+					SkillManager::instance()->awardSkill(templatePath, player, true, true, true, 1);
 
 					if (player->hasSkill(templatePath))
 						player->sendSystemMessage("You have learned a skill.");

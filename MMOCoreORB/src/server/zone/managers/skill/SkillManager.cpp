@@ -267,7 +267,7 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 		return true;
 
 	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
-
+ 
 	if (ghost != nullptr) {
 		//Withdraw skill points.
 		ghost->addSkillPoints(-skill->getSkillPointsRequired());
