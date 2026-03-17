@@ -432,11 +432,13 @@ public:
 			//String altParent = GetSkillAltParent(skillName);
 			int parentLevel = GetRealSkillLevel(creature, parent);
 			//int altParentLevel = GetRealSkillLevel(creature, altParent);
+			/* Remove hard cap on skills based on parent attribute.
 			if(parentLevel < desiredLevel ) {
 				return false;
 			} else {
 				return true;
 			}
+			*/
 			
 		} else {
 			return true;

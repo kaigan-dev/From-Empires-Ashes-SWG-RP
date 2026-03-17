@@ -395,9 +395,10 @@ public:
 		player->sendSystemMessage("TrainSkill has been called with values of skill: " + skill + ", skillParent: " + skillParent + ", currentRank: " + std::to_string(currentRank) + ", parentLevel: " + std::to_string(parentLevel));
 
 		float costMultiplier = 1;
-		if(parentLevel > currentRank + 1) {
+		if(parentLevel < currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
 			costMultiplier = 1.75 * parentDifference;
+			//player->sendSystemMessage("Parent difference is " + std::to_string(parentDifference) + " = " + std::to_string(currentRank) + "" + std::to_string(parentDifference) + );
 		}
 		player->sendSystemMessage("The cost multiplier is " + std::to_string(costMultiplier));
 
