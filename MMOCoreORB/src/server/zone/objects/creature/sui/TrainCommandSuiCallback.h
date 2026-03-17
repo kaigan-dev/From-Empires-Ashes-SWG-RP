@@ -348,13 +348,11 @@ public:
 		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
 		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
 
-		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
 		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
 		float costMultiplier = 1;
 		if(parentLevel < currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
-			//costMultiplier = 1.75 * parentDifference;
-			costMultiplier = pow::(1.75, parentDifference);
+			costMultiplier = 1.75 * parentDifference;
 		}
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
