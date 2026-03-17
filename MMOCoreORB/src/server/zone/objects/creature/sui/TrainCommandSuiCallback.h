@@ -405,7 +405,7 @@ public:
 		if(parentLevel < currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
 			//costMultiplier = 1.75 * parentDifference;
-			costMultiplier = pow::(1.75, parentDifference);
+			costMultiplier = 1.75 * parentDifference;
 		}
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, costMultiplier)) {
