@@ -386,7 +386,7 @@ public:
 		}
 	}
 
-	static bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "", float costMultiplier) {
+	static bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "", float costMultiplier = 1) {
 		if(rank > 10) return false;
 		if(skill == "") return false;
 		String skillName = "rp_" + skill + "_" + GetSkillSuffixFromValue(rank);
