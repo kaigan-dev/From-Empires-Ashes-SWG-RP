@@ -393,6 +393,7 @@ public:
 		SkillManager* skillManager = SkillManager::instance();
 		
 		bool hasXP = skillManager->canLearnSkill(skillName, creature, false, costMultiplier);
+		creature->sendSystemMessage("Trying to train attribute");
 		int points = creature->getStoredInt("starter_attr_points");
 		
 		/* Disable hard attribute requirement.

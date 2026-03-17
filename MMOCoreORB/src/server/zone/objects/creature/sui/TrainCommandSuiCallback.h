@@ -347,7 +347,17 @@ public:
 		//String skillAltParent = BorSkill::GetSkillAltParent(skillName);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
 		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
-		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, 1)) {
+
+		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
+		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
+		float costMultiplier = 1;
+		if(parentLevel < currentRank + 1) {
+			int parentDifference = currentRank + 1 - parentLevel;
+			//costMultiplier = 1.75 * parentDifference;
+			costMultiplier = pow::(1.75, parentDifference);
+		}
+
+		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
 			suibox->setPromptTitle("Confirm training?"); 
 			//Can train!
 			suibox->setPromptText("Are you sure you want to train this skill?");
@@ -392,20 +402,17 @@ public:
 		//String skillAltParent = BorSkill::GetSkillAltParent(skill);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skill);
 		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
-		player->sendSystemMessage("TrainSkill has been called with values of skill: " + skill + ", skillParent: " + skillParent + ", currentRank: " + std::to_string(currentRank) + ", parentLevel: " + std::to_string(parentLevel));
 
 		float costMultiplier = 1;
 		if(parentLevel < currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
-			costMultiplier = 1.75 * parentDifference;
-			//player->sendSystemMessage("Parent difference is " + std::to_string(parentDifference) + " = " + std::to_string(currentRank) + "" + std::to_string(parentDifference) + );
+			//costMultiplier = 1.75 * parentDifference;
+			costMultiplier = pow::(1.75, parentDifference);
 		}
-		player->sendSystemMessage("The cost multiplier is " + std::to_string(costMultiplier));
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, costMultiplier)) {
 			//Train it
 			SkillManager* skillManager = SkillManager::instance();
-			player->sendSystemMessage("It has been determined that you have enough XP to train the skill.");
 						
 			int freePoints = player->getStoredInt("starter_skill_points");
 			if(freePoints > 0) {
@@ -415,9 +422,7 @@ public:
 			} else {
 				bool awardResult = skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, false, costMultiplier);
 				if(awardResult) {
-					player->sendSystemMessage("AwardSkill returned true!");
 				} else {
-					player->sendSystemMessage("AwardSkill returned false!");
 				}
 				player->sendSystemMessage("You've gained a point in " + skill + "!");
 			}
