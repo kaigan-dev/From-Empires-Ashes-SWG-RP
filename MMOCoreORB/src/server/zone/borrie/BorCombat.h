@@ -798,8 +798,7 @@ public:
                                 armorProtection = 0;
                             }
                         }
-                        creature->sendSystemMessage("Your armor has a lightsaber resistance of " + armorProtection);  //Debug messaging. Remove.
-                        creature->sendSystemMessage("You are defending against a damage type of" + damageType);  //Debug messaging. Remove.
+                        
                         int finalDamage = damage - armorProtection;
                         if(finalDamage < 1) finalDamage = 1;
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
@@ -856,6 +855,7 @@ public:
         } else { //Use their skill mod armor. 
             String armorSlot = GetSlotName(slot);
             String damageType = GetDamageType(attackerWeapon);
+            /*   Move lightsaber resistance into the normal damage function.
             if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                 if(creature->getStoredInt("rp_armor_" + armorSlot + "_Lightsaber") > 0) {
                     //Take only 10 percent damage.
@@ -863,7 +863,9 @@ public:
                 } else {
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
+
             } else {
+             */
                 int armorRating = creature->getStoredInt("rp_armor_rating_" + armorSlot);
                 int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
                 int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
@@ -875,7 +877,7 @@ public:
                 } else { //Take Full Damage
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
-            }            
+            // }            
         }
     }
 
