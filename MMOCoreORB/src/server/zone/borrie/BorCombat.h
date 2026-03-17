@@ -875,7 +875,7 @@ public:
                 {
                     //armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));  This is how we do it for players. I think we're currently using the DR from the base template on NPCs.
                     int armorProtection = creature->getStoredInt("rp_armor_" + armorSlot + "_" + GetDamageType(attackerWeapon));
-                    int finalDamage = adjustedDamage - armorProtection;
+                    int finalDamage = damage - armorProtection;
                     BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
                 } else { //Take Full Damage
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
