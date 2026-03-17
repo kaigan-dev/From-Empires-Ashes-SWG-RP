@@ -238,7 +238,10 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 	auto skill = skillMap.get(skillName.hashCode());
 
 	if (skill == nullptr)
+	{
+		creature->sendSystemMessage("No valid skill passed");
 		return false;
+	}
 
 	Locker locker(creature);
 
@@ -249,16 +252,23 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 		auto requiredSkill = skillMap.get(requiredSkillName.hashCode());
 
 		if (requiredSkill == nullptr)
+		{
+			creature->sendSystemMessage("No prereqs are required");
 			continue;
+		}
 
 		if (awardRequiredSkills)
 			awardSkill(requiredSkillName, creature, notifyClient, awardRequiredSkills, noXpRequired);
 
 		if (!creature->hasSkill(requiredSkillName))
+		{
+			creature->sendSystemMessage("You don't have the prereq " + requiredSkillName);
 			return false;
+		}
 	}
 
 	if (!canLearnSkill(skillName, creature, noXpRequired, costMultiplier)) {
+		creature->sendSystemMessage("awardSkill's call to canLearnSkill has determined that you can't learn that!");
 		return false;
 	}
 
