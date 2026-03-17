@@ -750,19 +750,23 @@ bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creatu
 	Skill* skill = skillMap.get(skillName.hashCode());
 
 	if (skill == nullptr) {
+		creature->sendSystemMessage("canLearnSkill: skill is null!");
 		return false;
 	}
 
 	//If they already have the skill, then return false.
 	if (creature->hasSkill(skillName)) {
+		creature->sendSystemMessage("canLearnSkill: You already have this skill!");
 		return false;
 	}
 
 	if (!fulfillsSkillPrerequisites(skillName, creature)) {
+		creature->sendSystemMessage("canLearnSkill: failed fulfillsSkillPrerequisites");
 		return false;
 	}
 
 	if (!BorSkill::GetQualifiedForSkill(creature, skillName)) {
+		creature->sendSystemMessage("canLearnSkill: failed GetQualifiedForSkill");
 		return false;
 	}
 
@@ -770,18 +774,23 @@ bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creatu
 	if (ghost != nullptr) {
 		//Check if player has enough xp to learn the skill.
 		if (!noXpRequired) {
+			creature->sendSystemMessage("canLearnSkill: Skill has an XP cost. Checking XP cost");
 			int modifiedXpCost = static_cast<int>(round(skill->getXpCost() * costMultiplier));
+			creature->sendSystemMessage("canLearnSkill: XP cost is " + std::to_string(modifiedXpCost));
 			if (ghost->getExperience(skill->getXpType()) < modifiedXpCost) {
+				creature->sendSystemMessage("canLearnSkill: You don't have enough XP");
 				return false;
 			}
 		}
 
 		//Check if player has enough skill points to learn the skill.
 		if (ghost->getSkillPoints() < skill->getSkillPointsRequired()) {
+			creature->sendSystemMessage("canLearnSkill: You don't have enough skill points");
 			return false;
 		}
 	} else {
 		//Could not retrieve player object.
+		creature->sendSystemMessage("canLearnSkill: could not retrieve player object");
 		return false;
 	}
 
