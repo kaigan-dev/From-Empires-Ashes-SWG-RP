@@ -792,7 +792,7 @@ public:
                         creature->sendSystemMessage("Base armor protection has been set to 1.");
                         if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
                         {
-                            int armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
+                            armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
                             String armorProtectionText = std::to_string(armorProtection);
                             creature->sendSystemMessage("Your strength is sufficient for your armor and we have retrieved a real armor protection value of " + armorProtectionText);
                         }
