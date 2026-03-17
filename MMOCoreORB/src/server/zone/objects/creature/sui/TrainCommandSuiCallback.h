@@ -270,7 +270,7 @@ public:
 		box->setPromptTitle("Training Skill Menu");
 		if(freeSkillPoints > 0) {
 			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's max rank.");
-				-- // \n\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
+				 // \n\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
 		} else {
 			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's max rank.");
 		}
