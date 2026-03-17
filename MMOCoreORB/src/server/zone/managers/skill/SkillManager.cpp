@@ -258,7 +258,7 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 			return false;
 	}
 
-	if (!canLearnSkill(skillName, creature, noXpRequired)) {
+	if (!canLearnSkill(skillName, creature, noXpRequired, costMultiplier)) {
 		return false;
 	}
 

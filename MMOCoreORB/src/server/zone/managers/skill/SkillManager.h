@@ -85,7 +85,7 @@ public:
 	 * grant skill command).
 	 * @return true if the player fulfills the requirements.
 	 */
-	bool canLearnSkill(const String& skillName, CreatureObject* creature, bool noXpRequired);
+	bool canLearnSkill(const String& skillName, CreatureObject* creature, bool noXpRequired, float costMultiplier);
 
 	/**
 	 * Checks if the player fulfills the skill prerequisites and has enough XP for the skill.

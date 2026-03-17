@@ -4608,7 +4608,7 @@ SortedVector<String> PlayerManagerImplementation::getTeachableSkills(CreatureObj
 
 		const auto& skillName = skill->getSkillName();
 
-		if(BorCharacter::GetSkillIsTrainable(skillName) && skillManager->canLearnSkill(skillName, student, false))
+		if(BorCharacter::GetSkillIsTrainable(skillName) && skillManager->canLearnSkill(skillName, student, false, 1))
 			skills.put(skillName);
 		
 	}

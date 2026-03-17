@@ -129,7 +129,7 @@ public:
 	 * @param creature the creature object.
 	 * @param skillName the name of the skill to check the prerequisite for
 	 */
-	bool canLearnSkill(CreatureObject* creature, const String& skillName);
+	bool canLearnSkill(CreatureObject* creature, const String& skillName, float costMultiplier);
 
 	/**
 	 * Check to ensure force skill prerequisites are maintained
