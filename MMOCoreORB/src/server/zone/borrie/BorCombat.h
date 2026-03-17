@@ -793,11 +793,14 @@ public:
                         if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
                         {
                             int armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
-                            creature->sendSystemMessage("Your strength is sufficient for your armor and we have retrieved a real armor protection value of " + std::to_string(armorProtection));
+                            String armorProtectionText = std::to_string(armorProtection);
+                            creature->sendSystemMessage("Your strength is sufficient for your armor and we have retrieved a real armor protection value of " + armorProtectionText);
                         }
                         
                         int finalDamage = damage - armorProtection;
-                        creature->sendSystemMessage("You are receiving " + std::to_string(damage) " - " + std::to_string(armorProtection) + " = " + std::to_string(finalDamage) + " damage." );
+                        String damageText = std::to_string(damage);
+                        String finalDamageText = std::to_string(finalDamage);
+                        creature->sendSystemMessage("You are receiving " + damageTxt " - " + armorProtectionText + " = " + finalDamageText + " damage." );
                         
 
                         if(finalDamage < 1) {
