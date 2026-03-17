@@ -770,7 +770,7 @@ bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creatu
 	if (ghost != nullptr) {
 		//Check if player has enough xp to learn the skill.
 		if (!noXpRequired) {
-			int modifiedXpCost = skill->getXpCost() * costMultiplier;
+			int modifiedXpCost = static_cast<int>(round(skill->getXpCost() * costMultiplier));
 			if (ghost->getExperience(skill->getXpType()) < modifiedXpCost) {
 				return false;
 			}
