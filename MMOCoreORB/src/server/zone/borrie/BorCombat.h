@@ -852,35 +852,33 @@ public:
             } else { //Take Full Damage
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
             }
-        } else { //Use their skill mod armor. 
+               } else { //Use their skill mod armor. 
             String armorSlot = GetSlotName(slot);
             String damageType = GetDamageType(attackerWeapon);
-            /*   Move lightsaber resistance into the normal damage function.
+            
             if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                 if(creature->getStoredInt("rp_armor_" + armorSlot + "_Lightsaber") > 0) {
-                    //Take only 10 percent damage.
-                    BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
+                    //Take only 25 percent damage.
+                    BorCharacter::ModPool(creature, "health", (damage / 4) * -1, true);
                 } else {
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
 
             } else {
-             */
+             
                 int armorRating = creature->getStoredInt("rp_armor_rating_" + armorSlot);
-                //int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
-                //int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
-                //if(damageDivider != 0) {
-                //int adjustedDamage = damage / damageDivider;
-                if(armorRating > 0)
-                {
-                    //armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));  This is how we do it for players. I think we're currently using the DR from the base template on NPCs.
+                int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
+                int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
+                if(damageDivider != 0) {
+                    int adjustedDamage = damage / damageDivider;
                     int armorProtection = creature->getStoredInt("rp_armor_" + armorSlot + "_" + GetDamageType(attackerWeapon));
-                    int finalDamage = damage - armorProtection;
+                    int finalDamage = adjustedDamage - armorProtection;
                     BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
                 } else { //Take Full Damage
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
-            // }            
+            }            
+        }          
         }
     }
 

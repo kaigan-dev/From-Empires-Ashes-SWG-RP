@@ -1,5 +1,5 @@
 rp_npc_armor = {
-    {"rating", 1}, --0 None, 1 Light, 2 Medium, 3 Heavy
+    {"rating", 2}, --0 None, 1 Light, 2 Medium, 3 Heavy
     {"kinetic", 4},
     {"energy", 4},
     {"electricity", 0},
