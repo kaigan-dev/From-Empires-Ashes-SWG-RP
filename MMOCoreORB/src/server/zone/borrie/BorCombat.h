@@ -789,9 +789,11 @@ public:
                         if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
                         {
                             int armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
+                            creature->sendSystemMessage("Your strength is sufficient and we have retrieved a real armor protection value of " + armorProtection);
                         }
                         
                         int finalDamage = damage - armorProtection;
+                        creature->sendSystemMessage("You are now taking " + damaage + " - " + armorProtection + " = " finalDamage + "damage.");
                         if(finalDamage < 1) finalDamage = 1;
                         BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
                         String armorName = armor->getCustomObjectName().toString();
@@ -818,9 +820,11 @@ public:
                         }               
                     }
                 } else { //Take Full Damage
+                    creature->sendSystemMessage("Your armor is broken and provides no protection!");
                     BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
             } else { //Take Full Damage
+                creature->sendSystemMessage("You are not wearing armor and receive no protection!");
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
             }
         } else { //Use their skill mod armor. 
