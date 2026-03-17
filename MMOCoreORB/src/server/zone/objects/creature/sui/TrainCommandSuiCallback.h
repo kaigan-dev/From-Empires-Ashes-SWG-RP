@@ -412,7 +412,12 @@ public:
 				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true, false, costMultiplier);
 				player->sendSystemMessage("You've gained a point in " + skill + "! You have " + String::valueOf(freePoints - 1) + " remaining free skill points.");
 			} else {
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, false, costMultiplier);
+				bool awardResult = skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, false, costMultiplier);
+				if(awardResult) {
+					player->sendSystemMessage("AwardSkill returned true!");
+				} else {
+					player->sendSystemMessage("AwardSkill returned false!");
+				}
 				player->sendSystemMessage("You've gained a point in " + skill + "!");
 			}
 		} else {
