@@ -10,8 +10,7 @@ npc_template = {
     },
 
     equipmentTemplates = {
-        {"ig_88", {"electrostaff"}},
-        
+--        {"ig_88", {"electrostaff"}},  
     },
 
     customizationTemplates = {
