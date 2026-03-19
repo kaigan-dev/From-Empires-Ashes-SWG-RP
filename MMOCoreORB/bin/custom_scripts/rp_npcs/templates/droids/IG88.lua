@@ -10,7 +10,7 @@ npc_template = {
     },
 
     equipmentTemplates = {
-        {"ig_88", {"vortex"}},
+        {"ig_88", {"electrostaff"}},
         
     },
 

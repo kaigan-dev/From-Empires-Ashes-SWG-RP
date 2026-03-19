@@ -1,16 +1,16 @@
 npc_template = {
-	name = "A Binary Load Lifter",
+	name = "A Super Battle Droid",
 
     baseTemplates = {
-        "cll8_binary_load_lifter",
+        "super_battle_droid",
     },
 
     skillTemplates = {
-        "droid",
+        "specops_strong",
     },
 
     equipmentTemplates = {
-
+        {"super_battle_droid", {"superbattledroid"}},
     },
 
     customizationTemplates = {
