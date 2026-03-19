@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "A Slice Hound",
+	name = "A Slice Hound",
 	baseTemplates = {
 		"corellian_slice_hound",
 		"huurton",

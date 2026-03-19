@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "An Uwari Beetle",
+	name = "An Uwari Beetle",
 	baseTemplates = {
 		"uwari_beetle_aggro",
 		"uwari_beetle_aggro_1",

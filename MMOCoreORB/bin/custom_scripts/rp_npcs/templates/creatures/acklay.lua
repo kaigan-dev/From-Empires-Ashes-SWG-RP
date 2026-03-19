@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "An Acklay",
+	name = "An Acklay",
 	baseTemplates = {
 		"acklay",
 		"acklay",
@@ -11,7 +11,7 @@ npc_template = {
 		"acklay",
 		"acklay",
 		"acklay",
-		"mutantacklay",
+		"mutant_acklay",
 	},
 
 	skillTemplates = {
@@ -20,7 +20,8 @@ npc_template = {
 	
 	
 	equipmentTemplates = {
-		{"angler_king", {"creature_large"}},
+		{"acklay", {"creature_large"}},
+		{"mutant_acklay", {"creature_large"}},
 	},	
 	
 	customizationTemplates = {

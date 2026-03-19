@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "A Falumpaset",
+	name = "A Falumpaset",
 	baseTemplates = {
 		"bageraset",
 		"brackaset",

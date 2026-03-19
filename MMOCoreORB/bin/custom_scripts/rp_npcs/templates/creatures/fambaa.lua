@@ -1,18 +1,18 @@
 npc_template = {
 
-	Name = "A Fambaa",
+	name = "A Fambaa",
 	baseTemplates = {
 		"fambaa",
 
 	},
 
 	skillTemplates = {
-			"creatures/medium"
+			"creatures/large"
 	},
 	
 	
 	equipmentTemplates = {
-		{"bantha", {"creature_large"}},
+		{"fambaa", {"creature_large"}},
 	},	
 	
 	customizationTemplates = {

@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "A Massiff",
+	name = "A Massiff",
 	baseTemplates = {
 		"tcg_massiff_pet",
 		"tusken_massif",

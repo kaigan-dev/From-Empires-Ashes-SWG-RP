@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "An Angler",
+	Name = "A Giant Spider",
 	baseTemplates = {
 		"hermit_spider",
 		"hermit_spider",
