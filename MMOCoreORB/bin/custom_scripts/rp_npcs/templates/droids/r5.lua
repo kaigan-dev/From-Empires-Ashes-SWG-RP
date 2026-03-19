@@ -1,10 +1,8 @@
 npc_template = {
-	Name = "An R5 Droid",
+	randomName = "r5",
 
     baseTemplates = {
         "r5",
-        "r5_droid",
-        "r5_droid_advanced",
     },
 
     skillTemplates = {

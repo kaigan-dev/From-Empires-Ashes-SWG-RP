@@ -1,5 +1,5 @@
 npc_template = {
-	Name = "A Gonk Droid",
+	name = "A Gonk Droid",
 
     baseTemplates = {
         "eg6_power_droid",

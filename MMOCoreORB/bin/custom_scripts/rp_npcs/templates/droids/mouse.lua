@@ -1,10 +1,8 @@
 npc_template = {
-	Name = "A MSE Droid",
+	name = "A MSE Droid",
 
     baseTemplates = {
         "mouse_droid",
-        "mse_6_droid",
-        "mse_6_droid_advanced",
         },
 
     skillTemplates = {

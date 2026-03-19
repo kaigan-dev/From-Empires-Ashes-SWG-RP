@@ -1,5 +1,5 @@
 npc_template = {
-	Name = "An LE Repair Droid",
+	randomName = "le",
 
     baseTemplates = {
         "le_repair_droid",

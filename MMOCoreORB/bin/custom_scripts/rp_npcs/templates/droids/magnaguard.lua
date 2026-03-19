@@ -1,5 +1,5 @@
 npc_template = {
-	Name = "An IG-88 Assassin Droid",
+	name = "An IG-88 Assassin Droid",
 
     baseTemplates = {
         "magnaguard",

@@ -1,5 +1,5 @@
 npc_template = {
-	Name = "A Probe Droid",
+	name = "A Probe Droid",
 
     baseTemplates = {
         "npe_droid_i7construct",

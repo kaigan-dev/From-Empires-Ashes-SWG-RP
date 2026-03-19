@@ -3,7 +3,6 @@ npc_template = {
 
     baseTemplates = {
         "wed_treadwell",
-        "wed_treadwell_droid",
     },
 
     skillTemplates = {

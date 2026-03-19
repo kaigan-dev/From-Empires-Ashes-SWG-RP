@@ -1,5 +1,5 @@
 npc_template = {
-	Name = "A Binary Load Lifter",
+	name = "A Binary Load Lifter",
 
     baseTemplates = {
         "cll8_binary_load_lifter",
