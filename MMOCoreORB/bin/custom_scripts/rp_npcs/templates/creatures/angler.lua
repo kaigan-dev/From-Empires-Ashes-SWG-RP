@@ -1,4 +1,5 @@
-
+npc_template = {
+	
 	name = "An Angler",
 	baseTemplates = {
 		"angler_king",
