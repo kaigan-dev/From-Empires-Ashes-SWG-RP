@@ -772,7 +772,7 @@ bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creatu
 			int modifiedXpCost = static_cast<int>(round(skill->getXpCost() * costMultiplier));
 			creature->sendSystemMessage("canLearnSkill: Total cost " + std::to_string(modifiedXpCost) + " = base cost " + std::to_string(skill->getXpCost()) + " * cost multiplier " + std::to_string(costMultiplier));
 			if (ghost->getExperience(skill->getXpType()) < modifiedXpCost) {
-				creature->sendSystemMessage("canLearnSkill: It has been determined that your experience total of " + std::to_string(ghost->getExperience(skill->getXpType())) + " is less than the total cost of " std::to_string(modifiedXpCost));
+				creature->sendSystemMessage("canLearnSkill: It has been determined that your experience total of " + std::to_string(ghost->getExperience(skill->getXpType())) + " is less than the total cost of " + std::to_string(modifiedXpCost));
 				return false;
 			}
 		}
