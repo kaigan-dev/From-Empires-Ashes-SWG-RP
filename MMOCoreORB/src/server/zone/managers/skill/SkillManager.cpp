@@ -973,7 +973,7 @@ bool SkillManager::villageKnightPrereqsMet(CreatureObject* creature, const Strin
 }
 
 
-static int getSkillCost(CreatureObject* creature, String skillName){
+int getSkillCost(CreatureObject* creature, String skillName){
 	//SkillManager* skillManager = SkillManager::instance();
 	Skill* skill = skillMap.get(skillName.hashCode());
 		
