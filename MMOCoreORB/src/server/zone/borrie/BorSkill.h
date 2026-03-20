@@ -464,7 +464,8 @@ public:
 
 	int getSkillCost(CreatureObject* player, String skillName){
 		//SkillManager* skillManager = SkillManager::instance();
-		int XpCost = SkillManager::getSkillCost(player, skillName);
+		SkillManager* skillManager = SkillManager::instance();
+		int XpCost = skillManager->getSkillCost(player, skillName);
 		
 		player->sendSystemMessage("BorSkill getSkillCost: XP cost is " + std::to_string(XpCost));
 		return XpCost;
