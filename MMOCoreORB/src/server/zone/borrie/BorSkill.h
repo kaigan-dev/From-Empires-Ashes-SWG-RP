@@ -413,7 +413,7 @@ public:
 		}
 		*/
  
-		if(points > 0) return true;
+		if(parentAttribute == "" && points > 0) return true;
 		
 		creature->sendSystemMessage("CanTrainNextSkill: hasXP is " + std::to_string(hasXP));
 		return hasXP;
