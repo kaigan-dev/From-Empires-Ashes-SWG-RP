@@ -3,6 +3,10 @@
 
 #include "server/zone/objects/player/sui/SuiCallback.h"
 #include "server/zone/objects/player/sui/transferbox/SuiTransferBox.h"
+#include "server/zone/objects/creature/variables/Skill.h"
+#include "templates/manager/TemplateManager.h"
+#include "templates/datatables/DataTableIff.h"
+#include "templates/datatables/DataTableRow.h"
 
 class TrainCommandSuiCallback : public SuiCallback {
 private:
@@ -367,7 +371,7 @@ public:
 			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 			suibox->setPromptTitle("Confirm training?"); 
 			//Can train!
-			if{parentLevel < current rank + 1}
+			if(parentLevel < current rank + 1)
 			{
 				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + " XP. Are you sure you want to train this skill?");
 			}
