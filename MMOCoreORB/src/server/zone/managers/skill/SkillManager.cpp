@@ -970,13 +970,13 @@ bool SkillManager::villageKnightPrereqsMet(CreatureObject* creature, const Strin
 
 	return fullTrees >= 2 && totalJediPoints >= 206;
 
-	
+}
 
-	static int getSkillCost(CreatureObject* player, String skillName){
-		//SkillManager* skillManager = SkillManager::instance();
-		Skill* skill = skillMap.get(skillName.hashCode());
+
+static int getSkillCost(CreatureObject* player, String skillName){
+	//SkillManager* skillManager = SkillManager::instance();
+	Skill* skill = skillMap.get(skillName.hashCode());
 		
-		player->sendSystemMessage("SkillManager getSkillCost: XP cost is " + std::to_string(skill->getXpCost()));
-		return skill->getXpCost();
-	}
+	player->sendSystemMessage("SkillManager getSkillCost: XP cost is " + std::to_string(skill->getXpCost()));
+	return skill->getXpCost();
 }
