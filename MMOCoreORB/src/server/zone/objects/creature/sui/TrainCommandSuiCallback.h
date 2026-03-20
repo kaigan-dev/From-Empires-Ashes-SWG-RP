@@ -361,8 +361,11 @@ public:
 
 		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: skillName is " + skillName);
 		//String skillName = "rp_" + skillName + "_" + GetSkillSuffixFromValue(rank);    Presumably the skillName is already correct
-		int modifiedXpCost = BorSkill::getSkillCost(player, skillName) * costMultiplier;
-		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
+		
+		//Temporarily removing modifiedXPCost calculation for testing.
+		int modifiedXpCost = 1;
+		//modifiedXpCost = BorSkill::getSkillCost(player, skillName) * costMultiplier;
+		//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
 
 		/*
 		String textColor = "\\#.";

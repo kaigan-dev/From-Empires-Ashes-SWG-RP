@@ -464,6 +464,8 @@ public:
 
 	static int getSkillCost(CreatureObject* player, String skillName){
 		SkillManager* skillManager = SkillManager::instance();
+		
+		player->sendSystemMessage("getSkillCost: XP cost is " + std:to_string(skillManager->getSkill(skillName)->getXpCost()));
 		return skillManager->getSkill(skillName)->getXpCost();
 	}
 
