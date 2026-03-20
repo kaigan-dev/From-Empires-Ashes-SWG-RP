@@ -5,6 +5,8 @@
 #include "server/zone/managers/creature/CreatureManager.h"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
 #include "engine/util/u3d/Coordinate.h"
+#include "server/zone/managers/skill/SkillManager.h"
+#include "server/zone/objects/player/PlayerObject.h"
 
 //#include "templates/roleplay/RoleplayManager.h"
 
@@ -458,6 +460,14 @@ public:
 			return true;
 		}
 	}
+
+
+	static int getSkillCost(CreatureObject* player, String skillName){
+		SkillManager* skillManager = SkillManager::instance();
+		return skillManager->getSkill(skillName)->getXpCost();
+	}
+
+
 };
 
 #endif /*BORSKILL_H_*/

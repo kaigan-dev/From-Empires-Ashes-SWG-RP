@@ -3,13 +3,7 @@
 
 #include "server/zone/objects/player/sui/SuiCallback.h"
 #include "server/zone/objects/player/sui/transferbox/SuiTransferBox.h"
-#include "server/zone/objects/creature/variables/Skill.h"
-#include "templates/manager/TemplateManager.h"
-#include "templates/datatables/DataTableIff.h"
-#include "templates/datatables/DataTableRow.h"
-#include "server/zone/managers/skill/SkillManager.h"
-#include "server/zone/managers/skill/SkillModManager.h"
-#include "server/zone/borrie/BorSkill.h"
+
 
 class TrainCommandSuiCallback : public SuiCallback {
 private:
@@ -365,10 +359,19 @@ public:
 
 		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: skillName is " + skillName);
 		//String skillName = "rp_" + skillName + "_" + GetSkillSuffixFromValue(rank);    Presumably the skillName is already correct
-		Skill* skill = skillMap.get(skillName.hashCode());
-		SkillManager* skillManager = SkillManager::instance();
-		int modifiedXpCost = static_cast<int>(round(skill->getXpCost() * costMultiplier));
+		int modifiedXpCost = BorSkill::getSkillCost(player, skillName) * costMultiplier;
 		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
+
+		String textColor = "\\#.";
+		if(costMultiplier > 1.0)
+		{
+			if(costMultiplier > 3.0){
+				textColor = "\\#FF0000"
+			}
+			else{
+				textColor = "\\#FFFF00"
+			}
+		}
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
 			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
@@ -376,7 +379,7 @@ public:
 			//Can train!
 			if(parentLevel < currentRank + 1)
 			{
-				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + " XP. Are you sure you want to train this skill?");
+				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + textColor + modifiedXpCost +  + "\\# XP. Are you sure you want to train this skill?");
 			}
 			else{
 				suibox->setPromptText("Training " + skillName + " will cost " + modifiedXpCost + " XP. Are you sure you want to train this skill?");
