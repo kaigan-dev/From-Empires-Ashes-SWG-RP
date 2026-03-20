@@ -983,8 +983,7 @@ int SkillManager::getSkillCost(CreatureObject* creature, String skillName){
 		creature->sendSystemMessage("No valid skill passed");
 		return 0;
 	}
-	
-		
-	creature->sendSystemMessage("SkillManager getSkillCost: XP cost is " + std::to_string(skill->getXpCost()));
+			
+	//creature->sendSystemMessage("SkillManager getSkillCost: XP cost is " + std::to_string(skill->getXpCost()));
 	return skill->getXpCost();
 }

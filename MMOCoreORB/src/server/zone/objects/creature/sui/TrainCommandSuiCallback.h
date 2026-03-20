@@ -341,31 +341,24 @@ public:
 
 	void OpenConfirmSkillSelectionWindow(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
 		//int freeSkillPoints = player->getStoredInt("starter_skill_points");
-		player->sendSystemMessage("OpenConfirmSkillSelectionWindow has begun processing.");
-		int freeAttrPoints = player->getStoredInt("starter_attr_points");
+				int freeAttrPoints = player->getStoredInt("starter_attr_points");
 		int index = Integer::valueOf(args->get(0).toString());
 		String skillName = GetSkillStringFromID(index);
 		String skillParent = BorSkill::GetSkillParent(skillName);
 		//String skillAltParent = BorSkill::GetSkillAltParent(skillName);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
 		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
-		player->sendSystemMessage("OpenConfirmSkillSelectionWindow has completed initial setup.");
-
+		
 		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
 		float costMultiplier = 1;
 		if(parentLevel < currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
 			costMultiplier = 2 * parentDifference;
-			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: The difference between the skill rank and parent rank is " + std::to_string(parentDifference) + " and the costMultiplier is " + std::to_string(costMultiplier));
+			//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: The difference between the skill rank and parent rank is " + std::to_string(parentDifference) + " and the costMultiplier is " + std::to_string(costMultiplier));
 		}
 
-		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: skillName is " + skillName);
-		//String skillName = "rp_" + skillName + "_" + GetSkillSuffixFromValue(rank);    Presumably the skillName is already correct
-		
-		//Temporarily removing modifiedXPCost calculation for testing.
-		//int modifiedXpCost = 1;
 		int modifiedXpCost = static_cast<int>(BorSkill::getSkillCost(player, skillName, currentRank+1) * costMultiplier);
-		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
+		//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
 
 		
 		String textColor = "\\#.";
@@ -387,7 +380,6 @@ public:
 			{
 				player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 				suibox->setPromptTitle("Confirm training?"); 
-				//suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + ". Are you sure you want to train this skill?");
 				suibox->setPromptText("Because this will exceed your " + skillParent + ", training " + skillName + " will cost an increased " + textColor + std::to_string(modifiedXpCost) + "\\#. XP. Are you sure you want to train this skill?");
 				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
 				suibox->setOkButton(true, "Confirm");

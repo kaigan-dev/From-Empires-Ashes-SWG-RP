@@ -468,7 +468,7 @@ public:
 		String fullSkillName = "rp_" + skillName + "_" + BorSkill::GetSkillSuffixFromValue(skillRank);
 		int XpCost = skillManager->getSkillCost(player, fullSkillName);
 
-		player->sendSystemMessage("BorSkill getSkillCost: XP cost is " + std::to_string(XpCost));
+		//player->sendSystemMessage("BorSkill getSkillCost: XP cost is " + std::to_string(XpCost));
 		return XpCost;
 	}
 
