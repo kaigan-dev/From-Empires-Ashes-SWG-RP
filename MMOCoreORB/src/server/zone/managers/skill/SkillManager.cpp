@@ -973,10 +973,10 @@ bool SkillManager::villageKnightPrereqsMet(CreatureObject* creature, const Strin
 }
 
 
-static int getSkillCost(CreatureObject* player, String skillName){
+static int getSkillCost(CreatureObject* creature, String skillName){
 	//SkillManager* skillManager = SkillManager::instance();
 	Skill* skill = skillMap.get(skillName.hashCode());
 		
-	player->sendSystemMessage("SkillManager getSkillCost: XP cost is " + std::to_string(skill->getXpCost()));
+	creature->sendSystemMessage("SkillManager getSkillCost: XP cost is " + std::to_string(skill->getXpCost()));
 	return skill->getXpCost();
 }
