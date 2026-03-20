@@ -7,8 +7,8 @@
 #include "templates/manager/TemplateManager.h"
 #include "templates/datatables/DataTableIff.h"
 #include "templates/datatables/DataTableRow.h"
-#include "SkillManager.h"
-#include "SkillModManager.h"
+#include "server/zone/managers/skill/SkillManager.h"
+#include "server/zone/managers/skill/SkillModManager.h"
 #include "server/zone/borrie/BorSkill.h"
 
 class TrainCommandSuiCallback : public SuiCallback {
