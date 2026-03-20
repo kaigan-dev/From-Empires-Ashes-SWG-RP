@@ -467,6 +467,8 @@ public:
 		SkillManager* skillManager = SkillManager::instance();
 		int XpCost = skillManager->getSkillCost(player, skillName);
 		
+		if(XpCost == 123456789)
+
 		player->sendSystemMessage("BorSkill getSkillCost: XP cost is " + std::to_string(XpCost));
 		return XpCost;
 	}
