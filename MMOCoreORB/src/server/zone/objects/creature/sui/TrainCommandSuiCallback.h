@@ -364,7 +364,7 @@ public:
 		
 		//Temporarily removing modifiedXPCost calculation for testing.
 		//int modifiedXpCost = 1;
-		int modifiedXpCost = static_cast<int>(BorSkill::getSkillCost(player, skillName) * costMultiplier);
+		int modifiedXpCost = static_cast<int>(BorSkill::getSkillCost(player, skillName, currentRank+1) * costMultiplier);
 		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
 
 		

@@ -977,14 +977,13 @@ int SkillManager::getSkillCost(CreatureObject* creature, String skillName){
 	//SkillManager* skillManager = SkillManager::instance();
 	//Skill* skill = skillMap.get(skillName.hashCode());
 	auto skill = skillMap.get(skillName.hashCode());
-
-	/*
+	
 	if (skill == nullptr)
 	{
 		creature->sendSystemMessage("No valid skill passed");
-		return null;
+		return 0;
 	}
-	*/
+	
 		
 	creature->sendSystemMessage("SkillManager getSkillCost: XP cost is " + std::to_string(skill->getXpCost()));
 	return skill->getXpCost();
