@@ -379,7 +379,8 @@ public:
 			//Can train!
 			if(parentLevel < currentRank + 1)
 			{
-				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + textColor + modifiedXpCost +  + "\\# XP. Are you sure you want to train this skill?");
+				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + textColor + modifiedXpCost + "\\# XP. Are you sure you want to train this skill?");
+				//suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + ". Are you sure you want to train this skill?");
 			}
 			else{
 				suibox->setPromptText("Training " + skillName + " will cost " + modifiedXpCost + " XP. Are you sure you want to train this skill?");
