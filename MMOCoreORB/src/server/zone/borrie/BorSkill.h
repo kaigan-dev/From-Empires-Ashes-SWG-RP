@@ -394,7 +394,6 @@ public:
 		creature->sendSystemMessage("canTrainNextSkill: cost multiplier is " + std::to_string(costMultiplier));
 
 		bool hasXP = skillManager->canLearnSkill(skillName, creature, false, costMultiplier);
-		creature->sendSystemMessage("Trying to train attribute");
 		int points = creature->getStoredInt("starter_attr_points");
 		 
 		/* Disable hard attribute requirement.
@@ -416,6 +415,7 @@ public:
  
 		if(points > 0) return true;
 		
+		creature->sendSystemMessage("CanTrainNextSkill: hasXP is " + std::to_string(hasXP));
 		return hasXP;
 	}
 

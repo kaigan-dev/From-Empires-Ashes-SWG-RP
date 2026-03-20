@@ -357,6 +357,9 @@ public:
 		}
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
+			//String skillName = "rp_" + skillName + "_" + GetSkillSuffixFromValue(rank);
+			//SkillManager* skillManager = SkillManager::instance();
+			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 			suibox->setPromptTitle("Confirm training?"); 
 			//Can train!
 			suibox->setPromptText("Are you sure you want to train this skill?");
@@ -364,9 +367,10 @@ public:
 			suibox->setOkButton(true, "Confirm");
 			suibox->setCancelButton(true, "Go Back");
 		} else {
+			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned false.");
 			suibox->setPromptTitle("Not eligible for training.");
 			//Failure. Can't train.
-			suibox->setPromptText("You are not currently eligible to train this skill. You do not have enough experience points.");
+			suibox->setPromptText("You do not have enough experience points to train this skill.");
 			suibox->setCallback(new TrainCommandSuiCallback(server, -1, state));
 			suibox->setCancelButton(true, "Go Back");
 		}	
