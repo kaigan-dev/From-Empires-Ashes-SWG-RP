@@ -105,7 +105,7 @@ public:
 
 	bool villageKnightPrereqsMet(CreatureObject* creature, const String& skillToDrop);
 
-	int getSkillCost(CreatureObject* creature, const String skillName);
+	int getSkillCost(CreatureObject* creature, String skillName);
 
 	int getForceSensitiveSkillCount(CreatureObject* creature, bool includeNoviceMasterBoxes);
 
