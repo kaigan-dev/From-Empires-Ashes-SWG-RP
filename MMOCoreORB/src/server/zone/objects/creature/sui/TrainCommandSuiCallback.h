@@ -339,7 +339,7 @@ public:
 	}
 
 	void OpenConfirmSkillSelectionWindow(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
-		int freeSkillPoints = player->getStoredInt("starter_skill_points");
+		//int freeSkillPoints = player->getStoredInt("starter_skill_points");
 		int freeAttrPoints = player->getStoredInt("starter_attr_points");
 		int index = Integer::valueOf(args->get(0).toString());
 		String skillName = GetSkillStringFromID(index);
@@ -356,13 +356,24 @@ public:
 			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: The difference between the skill rank and parent rank is " + std::to_string(parentDifference) + " and the costMultiplier is " + std::to_string(costMultiplier));
 		}
 
+		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: skillName is " + skillName);
+		//String skillName = "rp_" + skillName + "_" + GetSkillSuffixFromValue(rank);    Presumably the skillName is already correct
+		Skill* skill = skillMap.get(skillName.hashCode());
+		SkillManager* skillManager = SkillManager::instance();
+		int modifiedXpCost = static_cast<int>(round(skill->getXpCost() * costMultiplier));
+		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
+
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
-			//String skillName = "rp_" + skillName + "_" + GetSkillSuffixFromValue(rank);
-			//SkillManager* skillManager = SkillManager::instance();
 			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 			suibox->setPromptTitle("Confirm training?"); 
 			//Can train!
-			suibox->setPromptText("Are you sure you want to train this skill?");
+			if{parentLevel < current rank + 1}
+			{
+				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + " XP. Are you sure you want to train this skill?");
+			}
+			else{
+				suibox->setPromptText("Training " + skillName + " will cost " + modifiedXpCost + " XP. Are you sure you want to train this skill?");
+			}
 			suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
 			suibox->setOkButton(true, "Confirm");
 			suibox->setCancelButton(true, "Go Back");
