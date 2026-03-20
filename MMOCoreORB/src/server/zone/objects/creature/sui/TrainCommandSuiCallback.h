@@ -341,6 +341,7 @@ public:
 
 	void OpenConfirmSkillSelectionWindow(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
 		//int freeSkillPoints = player->getStoredInt("starter_skill_points");
+		player->sendSystemMessage("OpenConfirmSkillSelectionWindow has begun processing.");
 		int freeAttrPoints = player->getStoredInt("starter_attr_points");
 		int index = Integer::valueOf(args->get(0).toString());
 		String skillName = GetSkillStringFromID(index);
@@ -348,6 +349,7 @@ public:
 		//String skillAltParent = BorSkill::GetSkillAltParent(skillName);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
 		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
+		player->sendSystemMessage("OpenConfirmSkillSelectionWindow has completed initial setup.");
 
 		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
 		float costMultiplier = 1;
@@ -362,6 +364,7 @@ public:
 		int modifiedXpCost = BorSkill::getSkillCost(player, skillName) * costMultiplier;
 		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
 
+		/*
 		String textColor = "\\#.";
 		if(costMultiplier > 1.0)
 		{
@@ -372,6 +375,7 @@ public:
 				textColor = "\\#FFFF00";
 			}
 		}
+		*/
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
 
