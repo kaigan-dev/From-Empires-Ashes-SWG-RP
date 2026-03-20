@@ -462,7 +462,7 @@ public:
 	}
 
 
-	int getSkillCost(CreatureObject* player, String skillName){
+	static int getSkillCost(CreatureObject* player, String skillName){
 		//SkillManager* skillManager = SkillManager::instance();
 		SkillManager* skillManager = SkillManager::instance();
 		int XpCost = skillManager->getSkillCost(player, skillName);
