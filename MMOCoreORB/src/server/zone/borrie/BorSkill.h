@@ -391,11 +391,12 @@ public:
 		if(skill == "") return false;
 		String skillName = "rp_" + skill + "_" + GetSkillSuffixFromValue(rank);
 		SkillManager* skillManager = SkillManager::instance();
-		
+		creature->sendSystemMessage("canTrainNextSkill: cost multiplier is " + std::to_string(costMultiplier));
+
 		bool hasXP = skillManager->canLearnSkill(skillName, creature, false, costMultiplier);
 		creature->sendSystemMessage("Trying to train attribute");
 		int points = creature->getStoredInt("starter_attr_points");
-		
+		 
 		/* Disable hard attribute requirement.
 		if (parentAttribute != "" ) {
 			points = creature->getStoredInt("starter_skill_points");
@@ -429,9 +430,21 @@ public:
 			int desiredLevel = GetSkillLevelFromString(skill);
 			if (desiredLevel == -1)
 				return false;
+				
+			// We don't actually need to do anything with the parent attribute here, as XP cost is evaluated in canTrainNextSkill.
+			/*
 			String parent = GetSkillParent(skillName);
 			//String altParent = GetSkillAltParent(skillName);
 			int parentLevel = GetRealSkillLevel(creature, parent);
+			int currentLevel = GetRealSkillLevel(creature, skillName);
+
+			float costMultiplier = 1;
+			if(parentLevel < currentRank + 1) {
+				int parentDifference = currentRank + 1 - parentLevel;
+				costMultiplier = 2 * parentDifference;
+			}
+			*/
+
 			//int altParentLevel = GetRealSkillLevel(creature, altParent);
 			/* Remove hard cap on skills based on parent attribute.
 			if(parentLevel < desiredLevel ) {

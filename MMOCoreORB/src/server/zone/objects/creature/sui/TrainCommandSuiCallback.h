@@ -19,7 +19,7 @@ public:
 		bool cancelPressed = (eventIndex == 1);
 
 		PlayerManager* playerManager = player->getZoneServer()->getPlayerManager();
-
+ 
 		if (playerManager == nullptr)
 			return;
 
@@ -269,10 +269,10 @@ public:
 
 		box->setPromptTitle("Training Skill Menu");
 		if(freeSkillPoints > 0) {
-			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's max rank.");
+			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's rank.");
 				 // \n\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
 		} else {
-			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's max rank.");
+			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's rank.");
 		}
 
 		box->addMenuItem("Armorer " +				GetSkillNumeral(BorSkill::GetRealSkillLevel(player,"armorer")+1));
@@ -352,7 +352,8 @@ public:
 		float costMultiplier = 1;
 		if(parentLevel < currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
-			costMultiplier = 1.75 * parentDifference;
+			costMultiplier = 2 * parentDifference;
+			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: The difference between the skill rank and parent rank is " + std:to_string(parentDifference) + " and the costMultiplier is " + std:to_string(costMultiplier));
 		}
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
@@ -365,7 +366,7 @@ public:
 		} else {
 			suibox->setPromptTitle("Not eligible for training.");
 			//Failure. Can't train.
-			suibox->setPromptText("You are not currently eligible to train this skill. You do not have enough experience points and high enough of the associated attribute.");
+			suibox->setPromptText("You are not currently eligible to train this skill. You do not have enough experience points.");
 			suibox->setCallback(new TrainCommandSuiCallback(server, -1, state));
 			suibox->setCancelButton(true, "Go Back");
 		}	
@@ -405,7 +406,7 @@ public:
 		if(parentLevel < currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
 			//costMultiplier = 1.75 * parentDifference;
-			costMultiplier = 1.75 * parentDifference;
+			costMultiplier = 2 * parentDifference;
 		}
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, costMultiplier)) {
