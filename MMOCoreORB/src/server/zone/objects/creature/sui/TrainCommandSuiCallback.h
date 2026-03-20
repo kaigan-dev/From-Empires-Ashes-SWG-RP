@@ -363,9 +363,9 @@ public:
 		//String skillName = "rp_" + skillName + "_" + GetSkillSuffixFromValue(rank);    Presumably the skillName is already correct
 		
 		//Temporarily removing modifiedXPCost calculation for testing.
-		int modifiedXpCost = 1;
-		//modifiedXpCost = BorSkill::getSkillCost(player, skillName) * costMultiplier;
-		//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
+		//int modifiedXpCost = 1;
+		int modifiedXpCost = BorSkill::getSkillCost(player, skillName) * costMultiplier;
+		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
 
 		
 		String textColor = "\\#.";
@@ -388,7 +388,7 @@ public:
 				player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 				suibox->setPromptTitle("Confirm training?"); 
 				//suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + ". Are you sure you want to train this skill?");
-				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + textColor + modifiedXpCost + "\\# XP. Are you sure you want to train this skill?");
+				suibox->setPromptText("Because this will exceed your " + skillParent + ", training " + skillName + " will cost an increased " + textColor + " " + modifiedXpCost + "\\# XP. Are you sure you want to train this skill?");
 				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
 				suibox->setOkButton(true, "Confirm");
 				suibox->setCancelButton(true, "Go Back");
