@@ -353,7 +353,7 @@ public:
 		if(parentLevel < currentRank + 1) {
 			int parentDifference = currentRank + 1 - parentLevel;
 			costMultiplier = 2 * parentDifference;
-			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: The difference between the skill rank and parent rank is " + std:to_string(parentDifference) + " and the costMultiplier is " + std:to_string(costMultiplier));
+			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: The difference between the skill rank and parent rank is " + std::to_string(parentDifference) + " and the costMultiplier is " + std::to_string(costMultiplier));
 		}
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
