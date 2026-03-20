@@ -364,7 +364,7 @@ public:
 		
 		//Temporarily removing modifiedXPCost calculation for testing.
 		//int modifiedXpCost = 1;
-		int modifiedXpCost = BorSkill::getSkillCost(player, skillName) * costMultiplier;
+		int modifiedXpCost = static_cast<int>(BorSkill::getSkillCost(player, skillName) * costMultiplier);
 		player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
 
 		
@@ -388,7 +388,7 @@ public:
 				player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 				suibox->setPromptTitle("Confirm training?"); 
 				//suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + ". Are you sure you want to train this skill?");
-				suibox->setPromptText("Because this will exceed your " + skillParent + ", training " + skillName + " will cost an increased " + textColor + modifiedXpCost + "\\# XP. Are you sure you want to train this skill?");
+				suibox->setPromptText("Because this will exceed your " + skillParent + ", training " + skillName + " will cost an increased " + textColor + std::to_string(modifiedXpCost) + "\\# XP. Are you sure you want to train this skill?");
 				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
 				suibox->setOkButton(true, "Confirm");
 				suibox->setCancelButton(true, "Go Back");
@@ -396,7 +396,7 @@ public:
 			else{
 				player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 				suibox->setPromptTitle("Confirm training?"); 
-				suibox->setPromptText("Training " + skillName + " will cost " + modifiedXpCost + " XP. Are you sure you want to train this skill?");
+				suibox->setPromptText("Training " + skillName + " will cost " + std::to_string(modifiedXpCost) + " XP. Are you sure you want to train this skill?");
 				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
 				suibox->setOkButton(true, "Confirm");
 				suibox->setCancelButton(true, "Go Back");
