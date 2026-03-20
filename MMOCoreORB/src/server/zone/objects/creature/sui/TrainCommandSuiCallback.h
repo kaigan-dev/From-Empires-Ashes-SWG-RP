@@ -374,20 +374,27 @@ public:
 		}
 
 		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
-			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
-			suibox->setPromptTitle("Confirm training?"); 
+
 			//Can train!
 			if(parentLevel < currentRank + 1)
 			{
-				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + textColor + modifiedXpCost + "\\# XP. Are you sure you want to train this skill?");
-				//suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + ". Are you sure you want to train this skill?");
+				//suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + textColor + modifiedXpCost + "\\# XP. Are you sure you want to train this skill?");
+				player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
+				suibox->setPromptTitle("Confirm training?"); 
+				suibox->setPromptText("Because this wille exceed your " + skillParent + ", training " + skillName + " will cost an increased" + modifiedXpCost + ". Are you sure you want to train this skill?");
+				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
+				suibox->setOkButton(true, "Confirm");
+				suibox->setCancelButton(true, "Go Back");
 			}
 			else{
+				player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
+				suibox->setPromptTitle("Confirm training?"); 
 				suibox->setPromptText("Training " + skillName + " will cost " + modifiedXpCost + " XP. Are you sure you want to train this skill?");
+				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
+				suibox->setOkButton(true, "Confirm");
+				suibox->setCancelButton(true, "Go Back");
 			}
-			suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
-			suibox->setOkButton(true, "Confirm");
-			suibox->setCancelButton(true, "Go Back");
+			
 		} else {
 			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned false.");
 			suibox->setPromptTitle("Not eligible for training.");
