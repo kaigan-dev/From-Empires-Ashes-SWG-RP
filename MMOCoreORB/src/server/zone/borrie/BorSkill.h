@@ -43,7 +43,7 @@ public:
 		else if (skill == "unarmed")
 			return "dexterity";
 		else if (skill == "lightsaber")
-			return "strength";
+			return "awareness";
 		else if (skill == "ranged")
 			return "precision";
 		else if (skill == "mechanics")
