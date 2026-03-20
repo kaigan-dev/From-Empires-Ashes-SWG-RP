@@ -371,7 +371,7 @@ public:
 		String textColor = "\\#.";
 		if(costMultiplier > 1.0)
 		{
-			if(costMultiplier > 3.0){
+			if(costMultiplier > 4.0){
 				textColor = "\\#FF0000";
 			}
 			else{
