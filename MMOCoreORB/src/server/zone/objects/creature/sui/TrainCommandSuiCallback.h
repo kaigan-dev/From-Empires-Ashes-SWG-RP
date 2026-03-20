@@ -366,10 +366,10 @@ public:
 		if(costMultiplier > 1.0)
 		{
 			if(costMultiplier > 3.0){
-				textColor = "\\#FF0000"
+				textColor = "\\#FF0000";
 			}
 			else{
-				textColor = "\\#FFFF00"
+				textColor = "\\#FFFF00";
 			}
 		}
 
