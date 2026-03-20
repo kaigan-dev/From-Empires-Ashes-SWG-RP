@@ -465,7 +465,7 @@ public:
 	static int getSkillCost(CreatureObject* player, String skillName, int skillRank){
 		//SkillManager* skillManager = SkillManager::instance();
 		SkillManager* skillManager = SkillManager::instance();
-		String fullSkillName = "rp_" + skillName + "_" + BorSkill::GetSkillLevelFromString(skillRank);
+		String fullSkillName = "rp_" + skillName + "_" + std::to_string(BorSkill::GetSkillLevelFromString(skillRank));
 		int XpCost = skillManager->getSkillCost(player, fullSkillName);
 
 		player->sendSystemMessage("BorSkill getSkillCost: XP cost is " + std::to_string(XpCost));
