@@ -9,6 +9,7 @@
 #include "templates/tangible/ArmorObjectTemplate.h"
 #include "server/zone/objects/player/sessions/SlicingSession.h"
 #include "templates/tangible/SharedWeaponObjectTemplate.h"
+#include <chrono>
 
 void ArmorObjectImplementation::initializeTransientMembers() {
 	TangibleObjectImplementation::initializeTransientMembers();
@@ -35,7 +36,12 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 		actionEncumbrance = armorTemplate->getActionEncumbrance();
 		mindEncumbrance = armorTemplate->getMindEncumbrance();
 	
-		rating = armorTemplate->getRating();
+		if ((armorTemplate->getRating() && armorTemplate.get()->getRating() != nullptr)) {
+			rating = armorTemplate->getRating();
+		}
+		else {
+			rating = 0;
+		}
 	
 		kinetic = armorTemplate->getKinetic();
 		energy = armorTemplate->getEnergy();
@@ -46,8 +52,13 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 		cold = armorTemplate->getCold();
 		acid = armorTemplate->getAcid();
 		lightSaber = armorTemplate->getLightSaber();
-	
-		rpSkillLevel = armorTemplate->getRpSkillLevel();
+		
+		if ((armorTemplate->getRpSkillLevel() && armorTemplate.get()->getRpSkillLevel() != nullptr)) {
+			rpSkillLevel = armorTemplate->getRpSkillLevel();
+		}
+		else {
+			rpSkillLevel = 0;
+		}
 	}
 
 	
