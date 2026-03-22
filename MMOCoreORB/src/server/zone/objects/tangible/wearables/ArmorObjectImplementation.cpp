@@ -36,7 +36,7 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 		actionEncumbrance = armorTemplate->getActionEncumbrance();
 		mindEncumbrance = armorTemplate->getMindEncumbrance();
 	
-		if ((armorTemplate->getRating() && armorTemplate.get()->getRating() != nullptr)) {
+		if ((armorTemplate->getRating() != nullptr)) {
 			rating = armorTemplate->getRating();
 		}
 		else {
@@ -53,7 +53,7 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 		acid = armorTemplate->getAcid();
 		lightSaber = armorTemplate->getLightSaber();
 		
-		if ((armorTemplate->getRpSkillLevel() && armorTemplate.get()->getRpSkillLevel() != nullptr)) {
+		if ((armorTemplate->getRpSkillLevel() != nullptr)) {
 			rpSkillLevel = armorTemplate->getRpSkillLevel();
 		}
 		else {
