@@ -592,7 +592,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 	ManagedReference<SuiMessageBox*> box = new SuiMessageBox(playerCreature, SuiWindowType::NONE);
 	box->setPromptTitle("PLEASE NOTE");
-	box->setPromptText("You are given 30 free attribute skill boxes and 39,000 experience points. To build your initial character, use /train to assign your attributes first. Then assign experience to your skills. Plan carefully, as these cannot be refunded.");
+	box->setPromptText("You are given 30 free attribute skill boxes and a number of experience points. To build your initial character, use /train to assign your attributes first. Then assign experience to your skills. Plan carefully, as these cannot be refunded.");
 
 	ghost->addSuiBox(box);
 	playerCreature->sendMessage(box->generateMessage());
@@ -600,7 +600,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	//Apply free points for roleplay.
 	playerCreature->setStoredInt("starter_attr_points", 30);
 	//playerCreature->setStoredInt("starter_skill_points", 15);
-	playerManager->awardExperience(playerCreature, "rp_general", 39000);
+	playerManager->awardExperience(playerCreature, "rp_general", 38000);
 		
 
 	return true;
