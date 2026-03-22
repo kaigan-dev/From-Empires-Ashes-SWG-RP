@@ -141,7 +141,7 @@ class ArmorObject extends WearableObject {
 
 	@read
 	public int getRating() {
-		return 0;
+		return rating;
 	}
 
 	public void setRpSkillLevel(int skill) {
