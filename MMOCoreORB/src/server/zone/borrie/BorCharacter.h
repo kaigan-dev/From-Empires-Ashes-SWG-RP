@@ -315,7 +315,7 @@ public:
 		}
 
 		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
-		ModPool(creature, "action", creature->getSkillMod("rp_action") / 2);
+		ModPool(creature, "action", creature->getSkillMod("rp_action") / 3);
 		FillPool(creature, "force", true);
 		ModPool(creature, "will", -2);
 	}
@@ -339,7 +339,7 @@ public:
 		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
 		FillPool(creature, "action", true);
 		//FillPool(creature, "force", true);
-		ModPool(creature, "force", creature->getSkillMod("rp_force") / 2);
+		ModPool(creature, "force", creature->getSkillMod("rp_force") / 3);
 		ModPool(creature, "will", -2);
 	}
 

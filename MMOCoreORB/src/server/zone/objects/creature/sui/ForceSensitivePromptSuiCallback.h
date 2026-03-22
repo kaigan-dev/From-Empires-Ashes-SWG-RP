@@ -44,15 +44,16 @@ public:
 
             skillManager->awardSkill("rp_force_prog_novice", player, true, true, true, 1);
             String message = "";
-            message = "All your life you've had a suspicion that there was more to the galaxy than what you could see with your eyes. ";
-            message += "You are likely burdened with a great destiny. Tread carefully.";
+            message = "You will find that there is more to the galaxy than what you can see with your eyes. ";
+            message += "Walking such paths is both rewarding and dangerous. Tread carefully.";
 		    PlayMusicMessage* musicMessage = new PlayMusicMessage("sound/music_short_lightside.snd");
 		    player->sendMessage(musicMessage);
             player->sendSystemMessage(message);
             player->setStoredInt("fs_chosen", 1);
+            playerManager->awardExperience(playerCreature, "rp_frc_skill_cap", 35);
         } else {
             String message = "Some consider insensitivity to the Force to be a blessing. ";
-            message += "Those who are not gifted with the capability of immense power often find other ways to be gifted, and unique.";
+            message += "Unburdened by knowledge of the unseen, may your skills and judgement take you where you want to go.";
             PlayMusicMessage* musicMessage = new PlayMusicMessage("sound/mus_quest_theme_docking.snd");
 		    player->sendMessage(musicMessage);
             player->sendSystemMessage(message);

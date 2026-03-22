@@ -24,7 +24,7 @@ function BorForceUtility:capMaximumAllowedForcePoints(pPlayer, inputPoints)
 	if (pGhost == nil) then
 		return 0
 	end
-	
+	 
 	local forcePowerMax = PlayerObject(pGhost):getForcePowerMax()	
 	
 	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_master")) then -- Master of the Force
@@ -34,7 +34,7 @@ function BorForceUtility:capMaximumAllowedForcePoints(pPlayer, inputPoints)
 	elseif(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_03")) then -- Adept
 		return math.min(PlayerObject(pGhost):getForcePowerMax() / 4, inputPoints)
 	elseif(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_02")) then -- Initiated
-		return math.min(2, inputPoints)
+		return math.min(4, inputPoints)
 	elseif(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01")) then -- Aware
 		return 1
 	elseif(CreatureObject(pPlayer):hasSkill("rp_force_prog_novice")) then -- Force Sensitive

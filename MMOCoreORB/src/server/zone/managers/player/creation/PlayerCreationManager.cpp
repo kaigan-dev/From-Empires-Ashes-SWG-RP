@@ -601,7 +601,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	playerCreature->setStoredInt("starter_attr_points", 30);
 	//playerCreature->setStoredInt("starter_skill_points", 15);
 	playerManager->awardExperience(playerCreature, "rp_general", 39000);
-	
+		
 
 	return true;
 }

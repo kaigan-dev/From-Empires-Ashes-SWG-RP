@@ -371,11 +371,11 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 			//Prompt Force Immersion Update Check
 			int fsCount = getForceSkillCount(creature);
 			if(creature->hasSkill("rp_force_prog_rank_03")) {
-				if(fsCount >= 40) {
+				if(fsCount >= 25) {
 						awardSkill("rp_force_prog_rank_04", creature, notifyClient, false, false);
 					}
 				}else if(creature->hasSkill("rp_force_prog_rank_02")) {
-					if(fsCount >= 20) {
+					if(fsCount >= 15) {
 						awardSkill("rp_force_prog_rank_03", creature, notifyClient, false, false);
 					}
 				} else if(creature->hasSkill("rp_force_prog_rank_01")) {
