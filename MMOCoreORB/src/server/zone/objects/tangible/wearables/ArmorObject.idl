@@ -141,7 +141,7 @@ class ArmorObject extends WearableObject {
 
 	@read
 	public int getRating() {
-		if (rating ! = null) {
+		if (rating != null) {
 			return rating;
 		}
 		else {
