@@ -1154,20 +1154,27 @@ public:
 
         int postureModifier = 0;
 
+        //Handle attacker stance
         if(attacker->isKneeling() && !tooClose) {
             postureModifier -= 2;
         } 
-
-        if(defender->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
-            postureModifier += 2;
-        } 
-
-        if(attacker->isProne() && !tooClose) {
+        else if(attacker->isProne() && !tooClose) {
             postureModifier -= 5;
         }
 
-        if(defender->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+
+        //Handle defender stance
+        if(defender->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+            postureModifier += 2;
+        } 
+        else if(defender->isKneeling() && !tooClose && attackerWeapon->isMeleeWeapon()) {
+            postureModifier -= 2;
+        } 
+        else if(defender->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
             postureModifier += 5;
+        } 
+        else if(defender->isProne() && !tooClose && attackerWeapon->isMeleeWeapon()) {
+            postureModifier -= 5;
         } 
 
         return distanceModifier + postureModifier;
