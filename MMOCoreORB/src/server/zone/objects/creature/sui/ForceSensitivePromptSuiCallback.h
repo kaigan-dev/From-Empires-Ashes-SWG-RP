@@ -50,7 +50,7 @@ public:
 		    player->sendMessage(musicMessage);
             player->sendSystemMessage(message);
             player->setStoredInt("fs_chosen", 1);
-            playerManager->awardExperience(playerCreature, "rp_frc_skill_cap", 35);
+            playerManager->awardExperience(player, "rp_frc_skill_cap", 35);
         } else {
             String message = "Some consider insensitivity to the Force to be a blessing. ";
             message += "Unburdened by knowledge of the unseen, may your skills and judgement take you where you want to go.";
