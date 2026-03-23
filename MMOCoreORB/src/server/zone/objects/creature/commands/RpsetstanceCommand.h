@@ -118,9 +118,9 @@ public:
 				box->addMenuItem("Defend");
 				box->addMenuItem("Parry");
 				box->addMenuItem("Dodge");
-				if(targetCreature->getSkillMod("rp_lightsaber")) box->addMenuItem("Lightsaber Deflect");
-				if(targetCreature->getSkillMod("rp_telekinesis")) box->addMenuItem("Force Deflect");
-				if(targetCreature->getSkillMod("rp_inward")) box->addMenuItem("Force Absorb");
+				if(targetCreature->hasSkill("rp_frc_defense")) box->addMenuItem("Lightsaber Deflect");
+				if(targetCreature->hasSkill("rp_frc_deflect")) box->addMenuItem("Force Deflect");
+				if(targetCreature->hasSkill("rp_frc_absorb")) box->addMenuItem("Force Absorb");
 				creature->getPlayerObject()->addSuiBox(box);
 				creature->sendMessage(box->generateMessage());
 			}
