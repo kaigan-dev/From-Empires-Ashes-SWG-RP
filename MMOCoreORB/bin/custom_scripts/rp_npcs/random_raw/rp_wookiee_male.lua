@@ -1,18 +1,18 @@
 random_ranges = {
-	{"/private/index_color_skin", 0, 255},
-	{"/private/index_color_fur", 0, 255},
-	{"/private/index_color_markings", 0, 255},
-	{"/shared_owner/index_color_skin", 0, 255},
-	{"/shared_owner/index_color_fur", 0, 255},
-	{"/shared_owner/index_color_markings", 0, 255},
+	{"/private/index_color_skin", 0, 1},
+	{"/private/index_color_fur", 0, 1},
+	{"/private/index_color_markings", 0, 1},
+	{"/shared_owner/index_color_skin", 0, 1},
+	{"/shared_owner/index_color_fur", 0, 1},
+	{"/shared_owner/index_color_markings", 0, 1},
 	{"height", 1.08, 1.3},
 
-	{"/private/index_color_1", 0, 31},
-	{"/private/index_texture_1", 0, 25},
-	{"/private/index_color_2", 0, 31},
-	{"/shared_owner/index_color_1", 0, 31},
-	{"/shared_owner/index_texture_1", 0, 25},
-	{"/shared_owner/index_color_2", 0, 31},
+	{"/private/index_color_1", 0, 31}, -- formerly 31
+	{"/private/index_texture_1", 0, 25}, --formerly 25
+	{"/private/index_color_2", 0, 31}, --formerly 31
+	{"/shared_owner/index_color_1", 0, 31}, --formerly 31
+	{"/shared_owner/index_texture_1", 0, 25}, --formerly 25
+	{"/shared_owner/index_color_2", 0, 31}, --formerly 31
 	{"/shared_owner/blend_skinny", 0, 255},
 	{"/shared_owner/blend_muscle", 0, 255},
 	{"/shared_owner/blend_fat", 0, 255},
