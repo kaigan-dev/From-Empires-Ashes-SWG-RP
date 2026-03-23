@@ -6,11 +6,11 @@ npc_template = {
     },
 
     skillTemplates = {
-        "creatures/medium",
+        "creatures/colossal",
     },
 
     equipmentTemplates = {
-        {"gorax", {"creature_medium"}},
+        {"gorax", {"creature_colossal"}},
     },
 
     customizationTemplates = {
