@@ -1,6 +1,6 @@
 npc_template = {
 
-	randomName = "human",
+	--randomName = "human",
 	baseTemplates = {
 		"azure_cabal_nikto_fanatic",
 		"azure_cabal_nikto_fanatic_02",
