@@ -14,7 +14,4 @@ npc_template = {
 		{"battle_droid_greeter", {"battledroid"}},
     },
 
-    customizationTemplates = {
-
-    },
 }

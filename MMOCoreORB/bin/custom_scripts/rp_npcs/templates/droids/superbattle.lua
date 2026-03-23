@@ -13,7 +13,4 @@ npc_template = {
         {"super_battle_droid", {"superbattledroid"}},
     },
 
-    customizationTemplates = {
-
-    },
 }

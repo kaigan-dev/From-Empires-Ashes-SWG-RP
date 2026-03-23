@@ -14,7 +14,4 @@ npc_template = {
 		{"dwarf_spider_droid", {"vortex"}},
     },
 
-    customizationTemplates = {
-
-    },
 }

@@ -14,6 +14,6 @@ npc_template = {
     },
 
     customizationTemplates = {
-
+        {"r4", {"random"}},
     },
 }

@@ -15,7 +15,4 @@ npc_template = {
         
     },
 
-    customizationTemplates = {
-
-    },
 }
