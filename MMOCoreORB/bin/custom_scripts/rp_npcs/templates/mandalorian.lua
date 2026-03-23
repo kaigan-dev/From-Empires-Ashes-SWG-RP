@@ -1,6 +1,6 @@
 npc_template = {
 	
-   -- randomName = "human",
+    randomName = "human",
     baseTemplates = {
         "dressed_death_watch_grey",
         "dressed_death_watch_gold",

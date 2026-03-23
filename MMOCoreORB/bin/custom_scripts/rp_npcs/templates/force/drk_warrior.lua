@@ -1,6 +1,7 @@
 npc_template = {
 
-	--randomName = "human",
+	randomName = "human",
+	--These templates are completely hosed and will not work.
 	baseTemplates = {
 		"som_dark_jedi_minion_1", 
 		"som_dark_jedi_minion_2", 

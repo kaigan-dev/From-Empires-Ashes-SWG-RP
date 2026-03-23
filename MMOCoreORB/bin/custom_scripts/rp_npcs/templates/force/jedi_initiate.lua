@@ -1,6 +1,7 @@
 npc_template = {
 
-	--randomName = "human",
+	randomName = "human",
+	--These templates are almost entirely hosed and need to be fully replaced.
 	baseTemplates = {
 		"dressed_dressed_padawan_female_human_01", 
 		"dressed_dressed_padawan_female_human_02", 
