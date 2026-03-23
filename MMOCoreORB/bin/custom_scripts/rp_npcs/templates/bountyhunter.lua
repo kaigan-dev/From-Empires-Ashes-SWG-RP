@@ -1,6 +1,6 @@
 npc_template = {
 
-	randomName = "human",
+	--randomName = "human",
 	baseTemplates = {
 		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female", "rp_human_male", "rp_human_male", 
 		"rp_bothan_male", "rp_bothan_female", 

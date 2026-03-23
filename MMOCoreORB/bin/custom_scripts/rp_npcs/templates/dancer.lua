@@ -1,5 +1,6 @@
 npc_template = {
-	randomName = "human",
+	
+    --randomName = "human",
 
     baseTemplates = {
         "disappearances_psycho_female_1",

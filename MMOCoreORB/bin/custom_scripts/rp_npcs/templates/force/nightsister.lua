@@ -1,6 +1,6 @@
 npc_template = {
 
-	randomName = "zabrak",
+	--randomName = "zabrak",
 	baseTemplates = {
 		"dressed_dathomir_nightsister_herbalist", 
 		"dressed_dathomir_nightsister_obfuscatrix", 

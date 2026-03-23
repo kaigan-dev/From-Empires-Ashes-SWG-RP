@@ -1,6 +1,6 @@
 npc_template = {
-	randomName = "human",
-
+	
+    --randomName = "human",
     baseTemplates = {
         "dressed_borvos_bruiser",
         "dressed_brawler_trainer_03",

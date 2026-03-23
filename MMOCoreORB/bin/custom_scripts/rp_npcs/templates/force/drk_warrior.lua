@@ -1,6 +1,6 @@
 npc_template = {
 
-	randomName = "human",
+	--randomName = "human",
 	baseTemplates = {
 		"som_dark_jedi_minion_1", 
 		"som_dark_jedi_minion_2", 
