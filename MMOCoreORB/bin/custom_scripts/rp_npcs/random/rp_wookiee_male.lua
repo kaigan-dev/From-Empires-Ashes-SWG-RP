@@ -1,4 +1,39 @@
 random_ranges = {
+	    {"/private/index_color_2", 0, 27},
+        {"/shared_owner/blend_skinny", 0, 1},
+        {"/shared_owner/blend_muscle", 0, 255},
+        {"/shared_owner/blend_fat", 0, 255},
+        {"/shared_owner/blend_nosedepth_1", 0, 1},
+        {"/shared_owner/blend_eyesize_0", 0, 1},
+        {"/shared_owner/blend_nosedepth_0", 0, 1},
+        {"/shared_owner/blend_noselength_1", 0, 255},
+        {"/shared_owner/blend_eyesize_1", 0, 255},
+        {"/shared_owner/blend_cheeks_0", 0, 1},
+        {"/shared_owner/blend_eyedirection_0", 0, 1},
+        {"/shared_owner/blend_noselength_0", 0, 1},
+        {"/shared_owner/blend_eyedirection_1", 0, 255},
+        {"/shared_owner/blend_nosewidth_0", 0, 255},
+        {"/shared_owner/blend_nosewidth_1", 0, 255},
+        {"/shared_owner/blend_cheeks_1", 0, 255},
+        {"/shared_owner/blend_jaw_1", 0, 255},
+        {"/shared_owner/blend_jaw_0", 0, 255},
+        {"/shared_owner/blend_lipwidth_0", 0, 40},
+        {"/shared_owner/blend_lipwidth_1", 0, 40},
+        {"/shared_owner/blend_chinsize_1", 0, 255},
+        {"/shared_owner/blend_chinsize_0", 0, 255},
+        {"/private/index_texture_1", 0, 24},
+        {"/shared_owner/index_texture_1", 0, 24},
+        {"/shared_owner/index_color_0", 0, 1},
+        {"/shared_owner/blend_headsize_0", 0, 255},
+        {"/shared_owner/blend_headsize_1", 0, 255},
+        {"/shared_owner/blend_brow_1", 0, 255},
+        {"/shared_owner/blend_brow_0", 0, 255},
+        {"/shared_owner/index_color_3", 0, 19},
+        {"/shared_owner/index_color_1", 0, 19},
+        {"height", 1.08, 1.35},
+
+
+	--[[ Prior attempt
 	{"/private/index_color_skin", 0, 1},
 	{"/private/index_color_fur", 0, 1},
 	{"/private/index_color_markings", 0, 1},
@@ -35,6 +70,7 @@ random_ranges = {
 	{"/shared_owner/blend_jaw_0", 0, 255},
 	{"/shared_owner/blend_brow_1", 0, 255},
 	{"/shared_owner/blend_brow_0", 0, 255},
+	--]]
 
 
 	--[[ Unused human values
