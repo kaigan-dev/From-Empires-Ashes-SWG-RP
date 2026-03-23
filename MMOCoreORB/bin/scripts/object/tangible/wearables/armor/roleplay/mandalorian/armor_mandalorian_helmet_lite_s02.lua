@@ -17,7 +17,7 @@ object_tangible_wearables_armor_roleplay_mandalorian_armor_mandalorian_helmet_li
 	mindEncumbrance = 0,
 
 
-	maxCondition = 100,
+	maxCondition = 450,
 
 
 	rating = HEAVY,

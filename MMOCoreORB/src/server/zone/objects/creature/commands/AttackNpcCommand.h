@@ -105,7 +105,7 @@ public:
 			} else if(command == "flurry") {
 				BorCombat::FlurryAttackTarget(storedTargetCreature, targetCreature, creature, noLos);
 			} else if(command == "aimed") {
-				creature->sendSystemMessage("Not yet implemented, sorry. Complain to Borrie.");
+				creature->sendSystemMessage("Not yet implemented, sorry.");
 			} else if(command == "nolos") {
 				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, true);
 			}
