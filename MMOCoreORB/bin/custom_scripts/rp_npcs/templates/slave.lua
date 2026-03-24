@@ -35,8 +35,8 @@ npc_template = {
 		{"rp_zabrak_male", {"slave1", "slave2", "slave3", "slave4"}},
 		{"rp_zabrak_female", {"slave1", "slave2", "slave3", "slave4"}},
 		{"rp_gran_male", {"slave1", "slave2", "slave3", "slave4"}},
-		{"rp_wookiee_male", {"slave1", "slave2", "slave3", "slave4"}},
-		{"rp_wookiee_female", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_wookiee_male", {"slave_wookiee"}},
+		{"rp_wookiee_female", {"slave_wookiee"}},
 	},	
 	
 	customizationTemplates = {
