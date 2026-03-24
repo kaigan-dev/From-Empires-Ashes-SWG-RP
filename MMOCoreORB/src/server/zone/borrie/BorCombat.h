@@ -810,14 +810,15 @@ public:
                         if (damage >= armorProtection) {
                             if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                                 if(armor->getLightSaber() > 0)
-                                    armor->setConditionDamage(armorProtection);
+                                    //armor->setConditionDamage(armorProtection);
+                                    armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                                 else
                                 {
-                                    armor->setConditionDamage(100);
+                                    armor->setConditionDamage(armor->getConditionDamage()+ 100);
                                 }
                             }
                             else {
-                                armor->setConditionDamage(armorProtection);
+                                armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                             }
                             creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");
                             if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
@@ -828,14 +829,14 @@ public:
                         else {
                             if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                                 if(armor->getLightSaber() > 0)
-                                    armor->setConditionDamage(armorProtection);
+                                    armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                                 else
                                 {
-                                    armor->setConditionDamage(100);
+                                    armor->setConditionDamage(armor->getConditionDamage()+ 100);
                                 }
                             }
                             else {
-                                armor->setConditionDamage(armorProtection);
+                                armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                             }
                             
                             creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage."); 
