@@ -190,3 +190,9 @@ object_weapon_melee_unarmed_shared_unarmed_creature_colossal = SharedWeaponObjec
 	clientTemplateFileName = "object/weapon/melee/unarmed/shared_unarmed_creature_colossal.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_melee_unarmed_shared_unarmed_creature_colossal, "object/weapon/melee/unarmed/shared_unarmed_creature_colossal.iff")
+
+
+object_weapon_melee_unarmed_shared_unarmed_sbd = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/unarmed/shared_unarmed_sbd.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_melee_unarmed_shared_unarmed_sbd, "object/weapon/melee/unarmed/shared_unarmed_sbd.iff")
