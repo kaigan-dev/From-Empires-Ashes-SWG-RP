@@ -1,12 +1,12 @@
 npc_template = {
-	name = "A Super Battle Droid",
+	name = "B2 Super Battle Droid",
 
     baseTemplates = {
         "super_battle_droid",
     },
 
     skillTemplates = {
-        "specops_strong",
+        "superbattledroid",
     },
 
     equipmentTemplates = {
