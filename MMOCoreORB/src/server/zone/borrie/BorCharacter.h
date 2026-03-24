@@ -1166,6 +1166,7 @@ public:
 		float points = creature->getShockWounds();
 		float totalPoints = points - amount;
 
+		/*   Remove tiers of DSP reduction.  3/24/26
 		if(points == 100) 
 			return;
 		else if(points >= 90) {
@@ -1181,7 +1182,7 @@ public:
 			if(totalPoints < 1)
 				totalPoints = 1;
 		}
-
+		*/
 		if(totalPoints < 0) {
 			totalPoints = 0;
 		}
