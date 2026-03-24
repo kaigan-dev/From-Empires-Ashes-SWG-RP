@@ -1,37 +1,68 @@
 npc_template = {
+
+	randomName = "human",
+	title = "a slave",
+	baseTemplates = {
+		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female","rp_human_male", "rp_human_female",
+		"rp_bothan_male", "rp_bothan_female", 
+		"rp_chiss_male", "rp_chiss_female", 
+		"rp_rodian_male", "rp_rodian_female",
+		"rp_trandoshan_male", "rp_trandoshan_female",
+		"rp_twilek_male", "rp_twilek_female", "rp_twilek_male", "rp_twilek_female", 
+		"rp_zabrak_male", "rp_zabrak_female","rp_zabrak_male", "rp_zabrak_female",
+		"rp_gran_male",
+		"rp_wookiee_male", "rp_wookiee_female",
+	},
+
+	skillTemplates = {
+			"civilian"
+	},
 	
-    randomName = "human",
-    baseTemplates = {
-        "dressed_borvos_bruiser",
-        "dressed_brawler_trainer_03",
-        "dressed_commoner_tatooine_rodian_male_04",
-        "dressed_commoner_tatooine_bith_male_05",
-        "dressed_commoner_tatooine_ishitib_male_03",
-        "dressed_commoner_tatooine_sullustan_male_01",
-        "dressed_dathomir_nightsister_escaped_slave",
-        "dressed_dathomir_nightsister_slave",
-        "dressed_feral_force_wielder",
-        "dressed_force_sensitive_renegade",
-        "npc_dressed_collection_npc_male_human_02",
-        "npc_dressed_corellia_anyza_ekull",
-        "dressed_noble_twilek_male_01",
-        "dressed_nym_pirate_strong_nikto_m",
-        "dressed_naboo_monk",
-        "smuggler_fence_dreda",
-        "dressed_tatooine_scavenger",
-        "dressed_tatooine_hermit",
-        "dressed_tatooine_moisture_thief",
-        "dressed_tatooine_squatter",
-        "dressed_tatooine_water_bug",
-    },
+	
+	equipmentTemplates = {
+		{"rp_human_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_human_female", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_bothan_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_bothan_female", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_chiss_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_chiss_female", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_rodian_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_rodian_female", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_trandoshan_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_trandoshan_female", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_twilek_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_twilek_female", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_zabrak_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_zabrak_female", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_gran_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_wookiee_male", {"slave1", "slave2", "slave3", "slave4"}},
+		{"rp_wookiee_female", {"slave1", "slave2", "slave3", "slave4"}},
+	},	
+	
+	customizationTemplates = {
+		{"rp_human_male", {"random"}},
+		{"rp_human_female", {"random"}},
+		{"rp_bothan_male", {"random"}},
+		{"rp_bothan_female", {"random"}},
+		{"rp_chiss_male", {"random"}},
+		{"rp_chiss_female", {"random"}},
+		{"rp_rodian_male", {"random"}},
+		{"rp_rodian_female", {"random"}},
+		{"rp_trandoshan_male", {"random"}},
+		{"rp_trandoshan_female", {"random"}},
+		{"rp_twilek_male", {"random"}},
+		{"rp_twilek_female", {"random"}},
+		{"rp_zabrak_male", {"random"}},
+		{"rp_zabrak_female", {"random"}},
+		{"rp_gran_male", {"random"}},
+		{"rp_wookiee_male", {"random"}},
+		{"rp_wookiee_female", {"random"}},
+	},
 
-    skillTemplates = {"civilian"},
+		customVarOverrides = {
+		{"/shared_owner/blend_skinny", 50},
+		{"/shared_owner/blend_fat", 0},
+	}
 
-    equipmentTemplates = {
-
-    },
-
-    customizationTemplates = {
-
-    },
+	--armor = "stormtrooper",
 }
