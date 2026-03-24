@@ -59,5 +59,10 @@ npc_template = {
 		{"rp_wookiee_female", {"random"}},
 	},
 
+		customVarOverrides = {
+		{"/shared_owner/blend_skinny", 50},
+		{"/shared_owner/blend_fat", 0},
+	}
+
 	--armor = "stormtrooper",
 }
