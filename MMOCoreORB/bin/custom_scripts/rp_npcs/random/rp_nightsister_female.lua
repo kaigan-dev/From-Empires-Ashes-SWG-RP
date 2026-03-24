@@ -1,4 +1,5 @@
 random_ranges = {
+	--[[Original
 	--{"/private/index_color_2", 0, 31},
 	{"/shared_owner/blend_skinny", 0, 255},
 	{"/shared_owner/blend_muscle", 0, 255},
@@ -38,4 +39,38 @@ random_ranges = {
 	{"/private/index_color_lips", 0, 255},
 	{"height", 0.83, 1.08},
 	{"hair", "object/tangible/hair/human/shared_hair_human_female", 1, 40, "/private/index_color_1", 0, 19},
+	--]]
+
+	    {"/shared_owner/blend_skinny", 0, 255},
+        {"/shared_owner/blend_muscle", 0, 255},
+        {"/shared_owner/blend_fat", 0, 255},
+        {"/shared_owner/blend_nosedepth_1", 0, 255},
+        {"/shared_owner/blend_eyesize_0", 0, 255},
+        {"/shared_owner/blend_nosedepth_0", 0, 255},
+        {"/shared_owner/blend_noselength_1", 0, 255},
+        {"/shared_owner/blend_eyesize_1", 0, 255},
+        {"/shared_owner/blend_cheeks_0", 0, 255},
+        {"/shared_owner/blend_eyedirection_0", 0, 255},
+        {"/shared_owner/blend_noselength_0", 0, 255},
+        {"/shared_owner/blend_eyedirection_1", 0, 255},
+        {"/shared_owner/blend_nosewidth_0", 0, 255},
+        {"/shared_owner/blend_nosewidth_1", 0, 255},
+        {"/shared_owner/blend_cheeks_1", 0, 255},
+        {"/shared_owner/blend_jaw_1", 0, 255},
+        {"/shared_owner/blend_jaw_0", 0, 255},
+        {"/shared_owner/index_color_skin", 0, 59},
+        {"/shared_owner/blend_lipwidth_0", 0, 255},
+        {"/shared_owner/blend_lipwidth_1", 0, 255},
+        {"/shared_owner/blend_lipfullness_0", 0, 255},
+        {"/shared_owner/blend_lipfullness_1", 0, 255},
+        {"/shared_owner/blend_ears_0", 0, 255},
+        {"/shared_owner/blend_ears_1", 0, 255},
+        {"/shared_owner/blend_chinsize_1", 0, 255},
+        {"/shared_owner/blend_chinsize_0", 0, 255},
+        {"/private/index_texture_1", 0, 6},
+        {"/private/index_color_tat", 0, 63},
+		{"height", 0.83, 1.08},
+        --{"hair_object", "object/tangible/hair/singing_mountain_clan/shared_hair_singing_mountain_clan_s03.iff",}, --One specific nightsister hair
+		{"hair", "object/tangible/hair/human/shared_hair_human_female", 1, 40, "/private/index_color_1", 0, 19},
+
 }
