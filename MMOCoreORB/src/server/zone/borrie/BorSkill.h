@@ -393,7 +393,7 @@ public:
 		if(skill == "") return false;
 		String skillName = "rp_" + skill + "_" + GetSkillSuffixFromValue(rank);
 		SkillManager* skillManager = SkillManager::instance();
-		creature->sendSystemMessage("canTrainNextSkill: cost multiplier is " + std::to_string(costMultiplier));
+		//creature->sendSystemMessage("canTrainNextSkill: cost multiplier is " + std::to_string(costMultiplier));
 
 		bool hasXP = skillManager->canLearnSkill(skillName, creature, false, costMultiplier);
 		int points = creature->getStoredInt("starter_attr_points");
@@ -417,7 +417,7 @@ public:
  
 		if(parentAttribute == "" && points > 0) return true;
 		
-		creature->sendSystemMessage("CanTrainNextSkill: hasXP is " + std::to_string(hasXP));
+		//creature->sendSystemMessage("CanTrainNextSkill: hasXP is " + std::to_string(hasXP));
 		return hasXP;
 	}
 

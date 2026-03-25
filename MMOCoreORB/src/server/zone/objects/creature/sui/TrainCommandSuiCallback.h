@@ -378,7 +378,7 @@ public:
 			//Can train!
 			if(parentLevel < currentRank + 1)
 			{
-				player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
+				//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 				suibox->setPromptTitle("Confirm training?"); 
 				suibox->setPromptText("Because this will exceed your " + skillParent + ", training " + skillName + " will cost an increased " + textColor + std::to_string(modifiedXpCost) + "\\#. XP. Are you sure you want to train this skill?");
 				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
@@ -386,7 +386,7 @@ public:
 				suibox->setCancelButton(true, "Go Back");
 			}
 			else{
-				player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
+				//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
 				suibox->setPromptTitle("Confirm training?"); 
 				suibox->setPromptText("Training " + skillName + " will cost " + std::to_string(modifiedXpCost) + " XP. Are you sure you want to train this skill?");
 				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
@@ -395,7 +395,7 @@ public:
 			}
 			
 		} else {
-			player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned false.");
+			//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned false.");
 			suibox->setPromptTitle("Not eligible for training.");
 			//Failure. Can't train.
 			suibox->setPromptText("You do not have enough experience points to train this skill.");

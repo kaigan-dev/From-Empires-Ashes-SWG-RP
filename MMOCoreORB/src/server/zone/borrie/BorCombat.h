@@ -850,6 +850,7 @@ public:
                                 else
                                 {
                                     armor->setConditionDamage(armor->getConditionDamage()+ 100);
+                                    creature->sendSystemMessage("Your " + armorName + " is severely damaged by the attack!"); 
                                 }
                             }
                             else {
@@ -868,6 +869,7 @@ public:
                                 else
                                 {
                                     armor->setConditionDamage(armor->getConditionDamage()+ 100);
+                                    creature->sendSystemMessage("Your " + armorName + " is severely damaged by the attack!"); 
                                 }
                             }
                             else {
