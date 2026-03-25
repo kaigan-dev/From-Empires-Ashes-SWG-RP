@@ -135,6 +135,9 @@ public:
 
         int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage);
 
+        //Damage the attacker's weapon
+        weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        
         //Calculate the Reaction
         //The 1 is hitCount
         String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, toHitRoll + skillCheck, bodyPartTarget, powerAttack, false, 1);
@@ -351,7 +354,22 @@ public:
                     reactionSpam += ", taking \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
                 }
                 else if(defenseRoll + defenseSkill > toHit) { //Success
-                    //defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+
+                    //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
+                    if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
+                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + 1000);
+                        defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                    }
+                    else {
+                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                    }
+
+                    //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
+                    if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
+                        attackerWeapon->setConditionDamage(attackerWeapon->getConditionDamage() + 1000);
+                        attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                    }
+                    
                     DrainActionOrWill(defender, 1 * actionPointMod);
                     reactionSpam += defender->getFirstName() + " successfully defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     reactionSpam += ", absorbing \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage into their weapon.";
@@ -408,12 +426,29 @@ public:
                     } 
                     int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
                     ApplyAdjustedHealthDamage(attacker, defenderWeapon, returnDamage, slot);
+
+
+                    //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
+                    if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
+                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + 1000);
+                        defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                    }
+                    else {
+                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                    }
+
+                    //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
+                    if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
+                        attackerWeapon->setConditionDamage(attackerWeapon->getConditionDamage() + 1000);
+                        attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                    }
+
+
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                     reactionSpam += ", but " + defender->getFirstName()+" parries the attack (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit)+"), striking back for \\#FF9999"+String::valueOf(returnDamage)+"\\#FFFFFF damage!";
                 } else {
                     //Unsuccessful Parry
                     DrainActionOrWill(defender, 3);
-                    //defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
                     ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
@@ -531,13 +566,13 @@ public:
                     bool canDeflect = attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC;
                     
                     if(canDeflect && deflectRoll + lightsaberSkill >= toHit + 4) {
-                        //If you roll higher or equal to their to-hit roll, you'll deflect blaster bots back to their originator at half damage.
+                        //If you roll higher than the attack roll+4, you'll reflect blaster bots back to their originator at half damage.
                         reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
                         reactionSpam += ", sending it back to its origin, dealing \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage to " + attacker->getFirstName() +"!";
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                         ApplyAdjustedHealthDamage(attacker, attackerWeapon, incomingDamage / 2, slot);
                     } else if(deflectRoll + lightsaberSkill >= toHit) { 
-                        //If you roll higher than half of their to-hit roll, you will deflect blaster bolts.
+                        //If you roll higher than the attacker's to-hit roll, you will deflect blaster bolts and take no damage.
                         reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit/2)+")";
                         reactionSpam += ", sending it harmlessly away.";
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
