@@ -288,9 +288,8 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 			alm->insertAttribute(statname, value);
 	}
 
+/* Remove Armor piercing property from weapon load completely. Could break combat if the attribute is called. 3/26/2026
 	String ap;
-
-	
 	switch (armorPiercing) {
 	case SharedWeaponObjectTemplate::NONE:
 		ap = "None";
@@ -308,9 +307,8 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		ap = "Unknown";
 		break;
 	}
-	
 	alm->insertAttribute("wpn_armor_pierce_rating", ap);
-	
+	*/
 
 
 	//alm->insertAttribute("wpn_attack_speed", Math::getPrecision(getAttackSpeed(), 1));

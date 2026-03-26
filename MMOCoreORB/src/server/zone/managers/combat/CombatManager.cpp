@@ -1108,7 +1108,8 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 
 	if (!data.isForceAttack()) {
 		damageType = weapon->getDamageType();
-		armorPiercing = weapon->getArmorPiercing();
+		// armorPiercing = weapon->getArmorPiercing();
+		armorPiercing = 0;
 
 		if (weapon->isBroken())
 			armorPiercing = 0;
@@ -2132,7 +2133,8 @@ int CombatManager::applyDamage(CreatureObject* attacker, WeaponObject* weapon, T
 
 		if (!data.isForceAttack()) {
 			damageType = weapon->getDamageType();
-			armorPiercing = weapon->getArmorPiercing();
+			//armorPiercing = weapon->getArmorPiercing();
+			armorPiercing = 0;
 
 			if (weapon->isBroken())
 				armorPiercing = 0;
