@@ -257,6 +257,8 @@ public:
         if(hit3) totalDamage += damage3;
 
         if(totalDamage < 1) totalDamage = 1;
+        
+        weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
 
         int hitCount = 0;
         if(hit1) hitCount++;
@@ -861,7 +863,7 @@ public:
                             {
                                 creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
                             }
-                        }
+                        } 
                         else {
                             if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                                 if(armor->getLightSaber() > 0)
