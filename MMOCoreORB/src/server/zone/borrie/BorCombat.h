@@ -904,8 +904,10 @@ public:
                 }
             } else {
                 int armorRating = creature->getStoredInt("rp_armor_rating_" + armorSlot);
+                //Remove references to armor piercing, as it exists on weapons as a legacy attribute and should not be used.
                 //int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
-                int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
+                //int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
+                int damageDivider = 1;
                 if(damageDivider != 0) {
                     int adjustedDamage = damage / damageDivider;
                     int armorProtection = creature->getStoredInt("rp_armor_" + armorSlot + "_" + GetDamageType(attackerWeapon));
