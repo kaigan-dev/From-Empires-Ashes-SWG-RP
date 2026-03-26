@@ -904,7 +904,7 @@ public:
                 }
             } else {
                 int armorRating = creature->getStoredInt("rp_armor_rating_" + armorSlot);
-                int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
+                //int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
                 int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
                 if(damageDivider != 0) {
                     int adjustedDamage = damage / damageDivider;

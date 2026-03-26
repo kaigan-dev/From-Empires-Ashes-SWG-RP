@@ -290,6 +290,7 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 
 	String ap;
 
+	
 	switch (armorPiercing) {
 	case SharedWeaponObjectTemplate::NONE:
 		ap = "None";
@@ -307,8 +308,10 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		ap = "Unknown";
 		break;
 	}
-
+	
 	alm->insertAttribute("wpn_armor_pierce_rating", ap);
+	
+
 
 	//alm->insertAttribute("wpn_attack_speed", Math::getPrecision(getAttackSpeed(), 1));
 
@@ -399,22 +402,19 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 	//Accuracy Modifiers
 	StringBuffer pblank;
 	if (getPointBlankAccuracy() >= 0)
-		pblank << "+";
-
+	pblank << "+";
 	pblank << getPointBlankAccuracy() << " @ " << getPointBlankRange() << "m";
 	alm->insertAttribute("cat_wpn_rangemods.wpn_range_zero", pblank);
 
 	StringBuffer ideal;
 	if (getIdealAccuracy() >= 0)
-		ideal << "+";
-
+	ideal << "+";
 	ideal << getIdealAccuracy() << " @ " << getIdealRange() << "m";
 	alm->insertAttribute("cat_wpn_rangemods.wpn_range_mid", ideal);
 
 	StringBuffer maxrange;
 	if (getMaxRangeAccuracy() >= 0)
-		maxrange << "+";
-
+	maxrange << "+";
 	maxrange << getMaxRangeAccuracy() << " @ " << getMaxRange() << "m";
 	alm->insertAttribute("cat_wpn_rangemods.wpn_range_max", maxrange);
 

@@ -3999,6 +3999,7 @@ int DirectorManager::getItemTemplateInformation(lua_State* L) {
 		if (weaponTemplate->getBonusDamage() > 0)
 			result << "Bonus Damage: " << weaponTemplate->getBonusDamage() << endl;
 		//Armor Piercing
+		/*  Remove armor piercing from display on weapons, as it is not used in the RP system. 3/26/2026
 		int ap = weaponTemplate->getArmorPiercing();
 		if (ap == 0)
 			result << "Armor Piercing: None" << endl;
@@ -4008,6 +4009,7 @@ int DirectorManager::getItemTemplateInformation(lua_State* L) {
 			result << "Armor Piercing: Medium" << endl;
 		else if (ap == 3)
 			result << "Armor Piercing: Heavy" << endl;
+		*/
 		//Damage Type
 		result << "Damage Type: " << weaponTemplate->getDamageTypeString() << endl;
 		//Min Range

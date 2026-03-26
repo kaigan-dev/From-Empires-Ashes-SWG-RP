@@ -444,7 +444,8 @@ void CreatureImplementation::setPetLevel(int newLevel) {
 	maxDmg *= ratio;
 
 	if (readyWeapon != nullptr) {
-		float mod = 1.f - 0.1f*float(readyWeapon->getArmorPiercing());
+		float mod = 1.f;
+		//float mod = 1.f - 0.1f*float(readyWeapon->getArmorPiercing());
 
 		readyWeapon->setMinDamage(minDmg * mod);
 		readyWeapon->setMaxDamage(maxDmg * mod);
