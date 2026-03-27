@@ -13,7 +13,7 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 	end
 	
 	if (selectedID == 20) then 
-		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! - Borrie")
+		CreatureObject(pPlayer):sendSystemMessage("Utility items are coming soon!")
 	end
 	
 	return 0
