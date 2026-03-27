@@ -21,7 +21,8 @@ function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPla
 
 		broadcastMessageWithName(pPlayer, msg)
 
-		TangibleObject(pObject):decreaseUseCount(1, true)
+		--Neither of these work. They throw an "attempt to call a nil value" error instead.
+		--TangibleObject(pObject):decreaseUseCount(1, true)
 		--pObject:decreaseUseCount(1, true)
 	end
 	
