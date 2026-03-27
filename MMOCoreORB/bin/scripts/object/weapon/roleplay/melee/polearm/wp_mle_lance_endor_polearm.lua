@@ -56,4 +56,4 @@ object_weapon_roleplay_melee_polearm_wp_mle_lance_endor_polearm = object_weapon_
 	experimentalCombineType = { 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_roleplay_melee_polearm_wp_mle_lance_endor_polearm, "object/weapon/melee/polearm/wp_mle_lance_endor_polearm.iff")
+ObjectTemplates:addTemplate(object_weapon_roleplay_melee_polearm_wp_mle_lance_endor_polearm, "object/weapon/roleplay/melee/polearm/wp_mle_lance_endor_polearm.iff")

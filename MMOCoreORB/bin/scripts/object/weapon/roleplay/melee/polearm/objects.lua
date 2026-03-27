@@ -95,7 +95,7 @@ ObjectTemplates:addClientTemplate(object_weapon_roleplay_melee_polearm_xandank_l
 --************************************************************************************************************************************************
 
 object_weapon_roleplay_melee_polearm_wp_mle_lance_endor_polearm = SharedWeaponObjectTemplate:new {
-	clientTemplateFileName = "object/weapon/roleplay/melee/polearm/shared_wp_mle_lance_endor_polearm.iff"
+	clientTemplateFileName = "object/weapon/roleplay/melee/polearm/wp_mle_lance_endor_polearm.iff"
 }
-ObjectTemplates:addClientTemplate(object_weapon_roleplay_melee_polearm_wp_mle_lance_endor_polearm, "object/weapon/roleplay/melee/polearm/shared_wp_mle_lance_endor_polearm.iff")
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_melee_polearm_wp_mle_lance_endor_polearm, "object/weapon/roleplay/melee/polearm/wp_mle_lance_endor_polearm.iff")
 --************************************************************************************************************************************************
