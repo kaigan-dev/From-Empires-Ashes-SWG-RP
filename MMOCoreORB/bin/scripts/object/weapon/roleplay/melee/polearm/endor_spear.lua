@@ -4,7 +4,7 @@
 object_weapon_roleplay_melee_polearm_endor_spear = object_weapon_melee_polearm_shared_endor_spear:new {
 
 	--[Info]
-	customName = "Force Pike",
+	customName = "Wood Spear",
 
 	--[Stats]
 	attackType = MELEEATTACK,
@@ -15,8 +15,8 @@ object_weapon_roleplay_melee_polearm_endor_spear = object_weapon_melee_polearm_s
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 10, --Type of Die used in Damage
-	bonusDamage = 2,
+	maxDamage = 4, --Type of Die used in Damage
+	bonusDamage = 1,
 
 	pointBlankRange = 0,
 	pointBlankAccuracy = 5,
@@ -27,8 +27,8 @@ object_weapon_roleplay_melee_polearm_endor_spear = object_weapon_melee_polearm_s
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	rarity="Rare",
-	--Approx FEA Value 3000
+	rarity="Common",
+	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
