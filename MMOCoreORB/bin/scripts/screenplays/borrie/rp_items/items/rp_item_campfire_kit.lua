@@ -13,7 +13,7 @@ function BorRpItemCampfireKitMenuComponent:handleObjectMenuSelect(pObject, pPlay
 	end
 	
 	if (selectedID == 20) then 
-		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! This particular item is high on the TODO list! - Borrie")
+		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! - Borrie")
 	end
 	
 	return 0
