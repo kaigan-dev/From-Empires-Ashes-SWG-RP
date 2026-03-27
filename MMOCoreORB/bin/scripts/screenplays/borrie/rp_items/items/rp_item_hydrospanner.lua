@@ -21,10 +21,7 @@ function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPla
 
 		broadcastMessageWithName(pPlayer, msg)
 
-		--alernatively, pObject:decreaseUseCount(1, true)
-
-		pObject:destroyObjectFromWorld(true)
-		pObject:destroyObjectFromDatabase(true)
+		pObject:decreaseUseCount(1, true)
 	end
 	
 	return 0
