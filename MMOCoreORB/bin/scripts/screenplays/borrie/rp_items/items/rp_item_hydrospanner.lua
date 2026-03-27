@@ -4,10 +4,10 @@ BorRpItemHydrospannerMenuComponent = {}
 function BorRpItemHydrospannerMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuResponse, pPlayer)
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 
-	menuResponse:addRadialMenuItem(20, 3, "Roll Mechanics Skill")
+	menuResponse:addRadialMenuItem(20, 3, "Roll Mechanics Skill", pSceneObject)
 end
 
-function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID)
+function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID, pSceneObject)
 	if (pPlayer == nil or pObject == nil) then
 		return 0
 	end
@@ -21,7 +21,7 @@ function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPla
 
 		broadcastMessageWithName(pPlayer, msg)
 
-		pObject.decreaseUseCount()
+		pSceneObject.decreaseUseCount()
 	end
 	
 	return 0
