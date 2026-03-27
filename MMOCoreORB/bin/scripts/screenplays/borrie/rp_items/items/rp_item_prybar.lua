@@ -13,7 +13,13 @@ function BorRpItemPrybarMenuComponent:handleObjectMenuSelect(pObject, pPlayer, s
 	end
 	
 	if (selectedID == 20) then 
-		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! - Borrie")
+		local skillMod = CreatureObject(pPlayer):getSkillMod("rp_strength")
+		local roll = math.random(1,20)
+		local result = roll + skillMod	+ 2
+
+		local msg = CreatureObject(pPlayer):getFirstName().. " uses a prybar, rolling Strength. \\#DBDBDB (1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " .. result "\\#FFFFFF"
+
+		broadcastMessageWithName(pPlayer, msg)
 	end
 	
 	return 0

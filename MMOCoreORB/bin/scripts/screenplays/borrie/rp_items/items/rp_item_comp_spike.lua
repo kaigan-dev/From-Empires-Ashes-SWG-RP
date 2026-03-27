@@ -13,7 +13,13 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 	end
 	
 	if (selectedID == 20) then 
-		CreatureObject(pPlayer):sendSystemMessage("Utility items are coming soon!")
+		local skillMod = CreatureObject(pPlayer):getSkillMod("rp_computers")
+		local roll = math.random(1,20)
+		local result = roll + skillMod	+ 2
+
+		local msg = CreatureObject(pPlayer):getFirstName().. " uses a computer spike, rolling Computers. \\#DBDBDB (1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " .. result "\\#FFFFFF"
+
+		broadcastMessageWithName(pPlayer, msg)
 	end
 	
 	return 0
