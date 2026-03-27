@@ -25,5 +25,5 @@ content = {
 	{"object/weapon/roleplay/melee/onehanded/stun_baton.iff", },
 	{"object/weapon/roleplay/melee/onehanded/survival_knife.iff", },
 	{"object/weapon/roleplay/melee/onehanded/vibroblade.iff", },
-	{"object/weapon/melee/polearm/endor_spear.iff", },
+	{"object/weapon/roleplay/melee/polearm/endor_spear.iff", },
 }
