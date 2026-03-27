@@ -21,7 +21,8 @@ function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPla
 
 		broadcastMessageWithName(pPlayer, msg)
 
-		pObject:decreaseUseCount(1, true)
+		TangibleObject(pObject):decreaseUseCount()
+		--pObject:decreaseUseCount(1, true)
 	end
 	
 	return 0
