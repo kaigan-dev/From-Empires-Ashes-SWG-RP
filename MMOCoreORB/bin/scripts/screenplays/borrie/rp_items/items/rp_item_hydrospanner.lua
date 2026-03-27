@@ -20,6 +20,8 @@ function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPla
 		local msg = CreatureObject(pPlayer):getFirstName().. " uses a hydrospanner, rolling Mechanics. \\#DBDBDB (1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF"
 
 		broadcastMessageWithName(pPlayer, msg)
+
+		pObject.decreaseUseCount()
 	end
 	
 	return 0

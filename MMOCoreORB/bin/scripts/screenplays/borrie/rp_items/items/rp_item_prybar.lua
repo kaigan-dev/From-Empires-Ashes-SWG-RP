@@ -20,6 +20,7 @@ function BorRpItemPrybarMenuComponent:handleObjectMenuSelect(pObject, pPlayer, s
 		local msg = CreatureObject(pPlayer):getFirstName().. " uses a prybar, rolling Strength. \\#DBDBDB (1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF"
 
 		broadcastMessageWithName(pPlayer, msg)
+		
 	end
 	
 	return 0
