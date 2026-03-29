@@ -87,7 +87,9 @@ void VehicleControlDeviceImplementation::generateObject(CreatureObject* player) 
 		message.setDI(15);
 		player->sendSystemMessage(message);
 
-		player->addPendingTask("call_mount", callMount, 15 * 1000);
+		//Changing vehicle call to be instant.
+		//player->addPendingTask("call_mount", callMount, 15 * 1000);
+		player->addPendingTask("call_mount", callMount, 1);
 
 		if (vehicleControlObserver == nullptr) {
 			vehicleControlObserver = new VehicleControlObserver(_this.getReferenceUnsafeStaticCast());
