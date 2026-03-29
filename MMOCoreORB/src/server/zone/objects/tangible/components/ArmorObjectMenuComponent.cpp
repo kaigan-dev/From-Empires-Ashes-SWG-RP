@@ -128,10 +128,19 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		ZoneServer* server = player->getZoneServer();
 
+		//ManagedReference<TangibleObject*> tano = sceneObject->castTo<TangibleObject*>();
+
+		//SceneObject* object = static_cast<SceneObject*>(objects.get(i));
+
+		TangibleObject* tano = sceneObject->asTangibleObject();
+
+
 		int cash = 1;
 		int repairamt = 1;
-		creature->subtractCashCredits(cash);
-		sceneObject->setConditionDamage(sceneObject->setConditionDamage()-1, true);
+		if(creature->getCashCredits() - cash >= 0) {
+			creature->subtractCashCredits(cash);
+			sceneObject->setConditionDamage(tano->setConditionDamage()-1, true);
+		}
 
 	}
 
