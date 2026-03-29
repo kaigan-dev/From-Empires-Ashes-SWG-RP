@@ -781,7 +781,7 @@ public:
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
         int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
         int armorSkillFlag = 0;
-        Logger.console.info(armor.toString());
+        console.info(armor.toString());
         if (armor.get() != nullptr && (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel())) {
             armorSkillFlag = 1;
         }
