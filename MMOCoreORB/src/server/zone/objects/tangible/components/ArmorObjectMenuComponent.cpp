@@ -137,7 +137,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		repairAmt = tano->getConditionDamage();
 
-		player->sendSystemMessage("Your armor has " + repairAmt + " damage to repair.");
+		player->sendSystemMessage("Your armor has " + std::tos_tring(repairAmt) + " damage to repair.");
 		
 
 		if(armorRarity == "Common") {
