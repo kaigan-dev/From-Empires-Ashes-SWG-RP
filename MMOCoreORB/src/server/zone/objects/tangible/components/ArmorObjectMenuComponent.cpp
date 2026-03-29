@@ -138,7 +138,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		// Yet to try
 //		ArmorObject* armor = tano->castTo<ArmorObject*>();
 		
-		ArmorObject* armorTwo = cast<ArmorObject*>(tano);
+		ArmorObject* armor = cast<ArmorObject*>(tano);
 
 		int creditCost = 1;
 		int repairamt = 1;
