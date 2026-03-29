@@ -152,7 +152,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Epic") {
-			float tempCost = 3000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			float tempCost = 2500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Legendary") {
