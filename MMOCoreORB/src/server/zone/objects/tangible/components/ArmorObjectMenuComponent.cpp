@@ -133,33 +133,34 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		player->sendSystemMessage("Your armor is " + armorRarity + " quality.");
 
 		int creditCost = 1;
-		int repairAmt = 1;
+		int repairAmt = tano->getConditionDamage();
 
-		repairAmt = tano->getConditionDamage();
+		//repairAmt = tano->getConditionDamage();
 
 		player->sendSystemMessage("Your armor has " + std::to_string(repairAmt) + " damage to repair.");
 		
 
 		if(armorRarity == "Common") {
-			creditCost = 100 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(100 * (repairAmt / tano->getMaxCondition()));
 		}
 		else if(armorRarity == "Uncommon") {
-			creditCost = 500 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(500 * (repairAmt / tano->getMaxCondition()));
 		}
 		else if(armorRarity == "Rare") {
-			creditCost = 1500 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(1500 * (repairAmt / tano->getMaxCondition()));
 		}
 		else if(armorRarity == "Epic") {
-			creditCost = 4500 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(4500 * (repairAmt / tano->getMaxCondition()));
 		}
 		else if(armorRarity == "Legendary") {
-			creditCost = 10000 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(10000 * (repairAmt / tano->getMaxCondition()));
 		}
 		else {
 			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
 		}
 
-		player->sendSystemMessage("Based on its rarity, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
+		player->sendSystemMessage("Max Condition: " + std::to_string(tano->getMaxCondition()) + ". Current condition damage: " + repairAmt + " = " + std::to_string(tano->getConditionDamage()) + ". and thus the ratio is " + std::to_string(repairAmt / tano->getMaxCondition()));
+		player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
 
 		if(player->getCashCredits() - creditCost >= 0) {
 			player->subtractCashCredits(creditCost);
