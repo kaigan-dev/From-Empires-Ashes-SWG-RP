@@ -28,7 +28,7 @@ class ArmorObjectTemplate : public SharedTangibleObjectTemplate {
 	float acid;
 	float lightSaber;
 
-	char rarity;
+	string rarity;
 
 	int rpSkillLevel;
 
@@ -95,7 +95,7 @@ public:
 		acid = templateData->getFloatField("acid");
 		lightSaber = templateData->getFloatField("lightSaber");
 
-		rarity = templateData->getCharField("rarity");
+		rarity = templateData->getStringField("rarity");
 
 		int skillLevel = 0;
 		int _rpSkillLevel = templateData->getIntField("rpSkillLevel");
@@ -164,7 +164,7 @@ public:
 		return rpSkillLevel;
 	}
 
-	inline char getRarity() const {
+	inline string getRarity() const {
 		return rarity;
 	}
 
@@ -238,7 +238,7 @@ public:
 		this->lightSaber = lightSaber;
 	}
 
-	void setRarity(char rarity) {
+	void setRarity(string rarity) {
 		this->rarity = rarity;
 	}
 
