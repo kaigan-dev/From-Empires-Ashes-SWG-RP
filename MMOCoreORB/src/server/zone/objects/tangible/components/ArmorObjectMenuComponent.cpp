@@ -50,8 +50,7 @@ void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, 
 
 int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
 
-	// Color Change
-	if (selectedID == 81) {
+	if (selectedID == 81) {		// Color Change
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 
 		if (parent == nullptr)
@@ -95,11 +94,10 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			ghost->addSuiBox(cbox);
 			player->sendMessage(cbox->generateMessage());
 		}
+	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
 	
-
-	// Repair
-	if (selectedID == 82) {
+	else if (selectedID == 82) {		// Repair
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 
 		if (parent == nullptr)
@@ -133,17 +131,21 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		//SceneObject* object = static_cast<SceneObject*>(objects.get(i));
 
 		TangibleObject* tano = sceneObject->asTangibleObject();
+		ArmorObject* armo = tano.castTo<ArmorObject*>();
 
-
-		int cash = 1;
+		int creditCost = 1;
 		int repairamt = 1;
-		if(player->getCashCredits() - cash >= 0) {
-			player->subtractCashCredits(cash);
+
+		
+
+		if(player->getCashCredits() - creditCost >= 0) {
+			player->subtractCashCredits(creditCost);
 			tano->setConditionDamage(tano->getConditionDamage()-1, true);
 		}
-
+		else {
+			player->sendSystemMessage("You do not have enough credits to repair this.");
+		}
+	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
 
-
-	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 }

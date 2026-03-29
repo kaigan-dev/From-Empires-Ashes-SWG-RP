@@ -28,6 +28,8 @@ class ArmorObjectTemplate : public SharedTangibleObjectTemplate {
 	float acid;
 	float lightSaber;
 
+	string rarity;
+
 	int rpSkillLevel;
 
 	int vulnerabilites;
@@ -58,6 +60,8 @@ public:
 		lightSaber = 0;
 
 		rpSkillLevel = 0;
+
+		rarity = 'Common';
 
 		vulnerabilites = 0;
 		specialResists = 0;
@@ -90,6 +94,8 @@ public:
 		cold = templateData->getFloatField("cold");
 		acid = templateData->getFloatField("acid");
 		lightSaber = templateData->getFloatField("lightSaber");
+
+		rarity = templateData->getStringField("rarity");
 
 		int skillLevel = 0;
 		int _rpSkillLevel = templateData->getIntField("rpSkillLevel");
@@ -156,6 +162,10 @@ public:
 
 	inline int getRpSkillLevel() const {
 		return rpSkillLevel;
+	}
+
+		inline string getRarity() const {
+		return rarity;
 	}
 
 	inline String getRatingString() const {
@@ -226,6 +236,10 @@ public:
 
 	void setLightSaber(float lightSaber) {
 		this->lightSaber = lightSaber;
+	}
+
+	void setRarity(int rarity) {
+		this->rarity = rarity;
 	}
 
 	void setMindEncumbrance(int mindEncumbrance) {
