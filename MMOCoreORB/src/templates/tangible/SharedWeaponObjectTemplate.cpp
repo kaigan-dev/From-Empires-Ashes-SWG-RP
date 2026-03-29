@@ -21,7 +21,7 @@ void SharedWeaponObjectTemplate::parseVariableData(const String& varName, LuaObj
 	} else if(varName == "rpSkillLevel") {
 		rpSkillLevel = Lua::getIntParameter(state);
 	} else if(varName == "rarity") {
-		rarity = Lua::getIntParameter(state);
+		rarity = Lua::getStringParameter(state);
 	} else
 		templateData->pop();
 }
@@ -252,7 +252,7 @@ void SharedWeaponObjectTemplate::readObject(LuaObject* templateData) {
 	bladeColor = templateData->getIntField("bladeColor");
 
 	rpSkillLevel = templateData->getIntField("rpSkillLevel");
-	rarity = templateData->getIntField("rarity");
+	rarity = templateData->getStringField("rarity");
 
 	primaryAttributeOnly	= templateData->getBooleanField("primaryAttributeOnly");
 	dexOnlyWeapon			= templateData->getBooleanField("dexOnlyWeapon");
