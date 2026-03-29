@@ -146,22 +146,25 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		else if(armorRarity == "Uncommon") {
 			creditCost = 500 * (repairAmt / tano->getMaxCondition());
 		}
-		if(armorRarity == "Rare") {
+		else if(armorRarity == "Rare") {
 			creditCost = 1500 * (repairAmt / tano->getMaxCondition());
 		}
-		if(armorRarity == "Epic") {
+		else if(armorRarity == "Epic") {
 			creditCost = 4500 * (repairAmt / tano->getMaxCondition());
 		}
-		if(armorRarity == "Legendary") {
+		else if(armorRarity == "Legendary") {
 			creditCost = 10000 * (repairAmt / tano->getMaxCondition());
 		}
 		else {
 			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
 		}
 
+		player->sendSystemMessage("Based on its rarity, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
+
 		if(player->getCashCredits() - creditCost >= 0) {
 			player->subtractCashCredits(creditCost);
-			tano->setConditionDamage(tano->getConditionDamage()-1, true);
+			//tano->setConditionDamage(tano->getConditionDamage()-1, true);
+			tano->setConditionDamage(0, true);
 		}
 		else {
 			player->sendSystemMessage("You do not have enough credits to repair this.");
