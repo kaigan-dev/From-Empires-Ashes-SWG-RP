@@ -451,6 +451,7 @@ public:
 			infoText << "Not Force Sensitive" << endl;
 		else {
 			infoText << "Force Sensitivity Level: " << forceImmersionLevel << endl;
+			infoText << "Force Skill Cap Remaining: " << ghost->getExperience("rp_frc_skill_cap") << endl;
 			int corruptionLevel = target->getShockWounds();
 			infoText << "Corruption: " << corruptionLevel;
 
@@ -468,7 +469,8 @@ public:
 				infoText << " Tier V (Insane)" << endl;
 		}		
 
-		infoText << "Experience: " << ghost->getExperience("rp_general") << endl;
+				infoText << "Experience: " << ghost->getExperience("rp_general") << endl;
+		
 
 		if(factionTag != "") {
 			infoText << "\\#FF7000[FACTION]\\#." << endl;
