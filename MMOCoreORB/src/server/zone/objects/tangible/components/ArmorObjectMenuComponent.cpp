@@ -43,7 +43,7 @@ void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, 
 	menuResponse->addRadialMenuItem(81, 3, text);
 
 	text = "Repair";
-	menuResponse->addRadialMenuItem(82, 3, text);
+	menuResponse->addRadialMenuItem(91, 3, text);
 	
     WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
 }
@@ -97,7 +97,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
 	
-	else if (selectedID == 82) {		// Repair
+	else if (selectedID == 91) {		// Repair
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 
 		if (parent == nullptr)
@@ -143,8 +143,8 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		int creditCost = 1;
 		int repairamt = 1;
 
-		//String armorRarity = armor->getRarity();
-		//player->sendSystemMessage("Your armor is " + armorRarity + " quality.");
+		String armorRarity = armor->getRarity();
+		player->sendSystemMessage("Your armor is " + armorRarity + " quality.");
 
 		if(player->getCashCredits() - creditCost >= 0) {
 			player->subtractCashCredits(creditCost);
