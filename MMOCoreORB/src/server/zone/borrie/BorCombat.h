@@ -716,15 +716,8 @@ public:
         } 
         
         //Simply accept the damage. 
-        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
-        BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
-        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
-        int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
-        int armorSkillFlag = 0;
-        if (armor.get() != nullptr && (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel())) {
-            armorSkillFlag = 1;
-        }
-        return ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
+        String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+        return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot);
     }
  
     static String OrchestrateDamage(String combatLogPrefix, CreatureObject* defender, WeaponObject* attackerWeapon, int incomingDamage, int slot) {
@@ -736,7 +729,7 @@ public:
             armorSkillFlag = 1;
         }
         
-        return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
+        return " (USING ORCHESTRATEDAMAGE) " + combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
     }
 
     static void ApplyAdjustedHealthDamage(CreatureObject* creature, WeaponObject* attackerWeapon, int damage, int slot) {
