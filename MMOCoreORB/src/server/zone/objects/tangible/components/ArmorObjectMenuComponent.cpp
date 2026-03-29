@@ -133,10 +133,12 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		TangibleObject* tano = sceneObject->asTangibleObject();
 		//ArmorObject* armor= tano.asArmorObject();
 		//ArmorObject* armor = static_cast<TangibleObject*>(tano);
-		
+		//ArmorObject* armorTwo = cast<ArmorObject*>(tangibleObject.get());
+
 		// Yet to try
-		ArmorObject* armor = tano.castTo<ArmorObject*>();
-		ArmorObject* armorTwo = cast<ArmorObject*>(tangibleObject.get());
+		ArmorObject* armor = tano->castTo<ArmorObject*>();
+		
+		ArmorObject* armorTwo = cast<ArmorObject*>(tano);
 
 		int creditCost = 1;
 		int repairamt = 1;
