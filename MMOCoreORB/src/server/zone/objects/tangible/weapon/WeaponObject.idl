@@ -431,11 +431,6 @@ class WeaponObject extends TangibleObject {
 	}
 
 	@read
-	public string getRarity() {
-		return rarity;
-	}
-
-	@read
 	public string getXpType() {
 		return weaponTemplate.getXpType();
 	}
