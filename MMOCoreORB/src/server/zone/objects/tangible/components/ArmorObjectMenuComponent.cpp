@@ -141,27 +141,27 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		
 
 		if(armorRarity == "Common") {
-			float tempCost = 100 * (repairAmt / tano->getMaxCondition());
+			float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Uncommon") {
-			float tempCost = 500 * (repairAmt / tano->getMaxCondition());
+			float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Rare") {
-			float tempCost = 1500 * (repairAmt / tano->getMaxCondition());
+			float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Epic") {
-			float tempCost = 3000 * (repairAmt / tano->getMaxCondition());
+			float tempCost = 3000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Legendary") {
-			float tempCost = 6000 * (repairAmt / tano->getMaxCondition());
+			float tempCost = 6000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
