@@ -137,9 +137,9 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		int cash = 1;
 		int repairamt = 1;
-		if(creature->getCashCredits() - cash >= 0) {
-			creature->subtractCashCredits(cash);
-			sceneObject->setConditionDamage(tano->setConditionDamage()-1, true);
+		if(player->getCashCredits() - cash >= 0) {
+			player->subtractCashCredits(cash);
+			tano->setConditionDamage(tano->setConditionDamage()-1, true);
 		}
 
 	}
