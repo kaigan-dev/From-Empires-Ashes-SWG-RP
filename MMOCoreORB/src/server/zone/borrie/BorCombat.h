@@ -699,23 +699,17 @@ public:
                     }
                 } else {
                     //Can't block this. Full attack.
-                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
-                    BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     defender->sendSystemMessage("You cannot absorb this attack. You recieved full damage.");
-                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
-                    int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
-                    int armorSkillFlag = 0;
-                    if (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
-                        armorSkillFlag = 1;
-                    }
-                    return ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
+                    BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
+                    String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot);
                 }
                 return reactionSpam;
             }
             return reactionSpam;
         } 
-        
-        //Simply accept the damage. 
+        //Simply accept the damage.
+        BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
         String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
         return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot);
     }
@@ -729,7 +723,7 @@ public:
             armorSkillFlag = 1;
         }
         
-        return " (USING ORCHESTRATEDAMAGE) " + combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
+        return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
     }
 
     static void ApplyAdjustedHealthDamage(CreatureObject* creature, WeaponObject* attackerWeapon, int damage, int slot) {
