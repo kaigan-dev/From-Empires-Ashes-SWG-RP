@@ -31,8 +31,8 @@ void WeaponObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject,
 			menuResponse->addRadialMenuItem(70, 3, "@sui:repair"); // Slice
 		}
 	}
-	String text = "Repair";
-	menuResponse->addRadialMenuItem(80, 3, text);
+	//String text = "Repair";
+	//menuResponse->addRadialMenuItem(80, 3, text);
 
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 

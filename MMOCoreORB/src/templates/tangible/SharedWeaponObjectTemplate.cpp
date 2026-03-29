@@ -20,7 +20,7 @@ void SharedWeaponObjectTemplate::parseVariableData(const String& varName, LuaObj
 		weaponType = Lua::getIntParameter(state);
 	} else if(varName == "rpSkillLevel") {
 		rpSkillLevel = Lua::getIntParameter(state);
-	} else if(varName == "rarity") {
+	//} else if(varName == "rarity") {
 		//rarity = Lua::getStringParameter(state);
 	} else
 		templateData->pop();
@@ -35,7 +35,7 @@ void SharedWeaponObjectTemplate::parseVariableData(const String& varName, Chunk*
 		attackType.parse(data);
 	} else if(varName == "rpSkillLevel") {
 		//rpSkillLevel.parse(data);
-	} else if(varName == "rarity") {
+	//} else if(varName == "rarity") {
 		//rarity.parse(data);
 	}
 }
