@@ -43,7 +43,7 @@ void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, 
 	menuResponse->addRadialMenuItem(81, 3, text);
 
 	text = "Repair";
-	menuResponse->addRadialMenuItem(91, 3, text);
+	menuResponse->addRadialMenuItem(90, 3, text);
 	
     WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
 }
@@ -97,7 +97,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
 	
-	else if (selectedID == 91) {		// Repair
+	else if (selectedID == 90) {		// Repair
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 
 		if (parent == nullptr)
@@ -126,29 +126,56 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		ZoneServer* server = player->getZoneServer();
 
-		//ManagedReference<TangibleObject*> tano = sceneObject->castTo<TangibleObject*>();
-
-		//SceneObject* object = static_cast<SceneObject*>(objects.get(i));
-
 		TangibleObject* tano = sceneObject->asTangibleObject();
-		//ArmorObject* armor= tano.asArmorObject();
-		//ArmorObject* armor = static_cast<TangibleObject*>(tano);
-		//ArmorObject* armorTwo = cast<ArmorObject*>(tangibleObject.get());
-
-		// Yet to try
-//		ArmorObject* armor = tano->castTo<ArmorObject*>();
-		
 		ArmorObject* armor = cast<ArmorObject*>(tano);
-
-		int creditCost = 1;
-		int repairamt = 1;
 
 		String armorRarity = armor->getRarity();
 		player->sendSystemMessage("Your armor is " + armorRarity + " quality.");
 
+		int creditCost = 1;
+		int repairAmt = tano->getConditionDamage();
+
+		//repairAmt = tano->getConditionDamage();
+
+		player->sendSystemMessage("Your armor has " + std::to_string(repairAmt) + " damage to repair.");
+		
+
+		if(armorRarity == "Common") {
+			float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
+			creditCost = static_cast<int>(tempCost);
+		}
+		else if(armorRarity == "Uncommon") {
+			float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
+			creditCost = static_cast<int>(tempCost);
+		}
+		else if(armorRarity == "Rare") {
+			float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
+			creditCost = static_cast<int>(tempCost);
+		}
+		else if(armorRarity == "Epic") {
+			float tempCost = 3000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
+			creditCost = static_cast<int>(tempCost);
+		}
+		else if(armorRarity == "Legendary") {
+			float tempCost = 6000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
+			creditCost = static_cast<int>(tempCost);
+		}
+		else {
+			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
+		}
+
+		player->sendSystemMessage("Max Condition: " + std::to_string(tano->getMaxCondition()) + ". Current condition damage: " + std::to_string(repairAmt) + " = " + std::to_string(tano->getConditionDamage()) + ". and thus the ratio is " + std::to_string(repairAmt / tano->getMaxCondition()));
+		player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
+
 		if(player->getCashCredits() - creditCost >= 0) {
 			player->subtractCashCredits(creditCost);
-			tano->setConditionDamage(tano->getConditionDamage()-1, true);
+			//tano->setConditionDamage(tano->getConditionDamage()-1, true);
+			tano->setConditionDamage(0, true);
 		}
 		else {
 			player->sendSystemMessage("You do not have enough credits to repair this.");
