@@ -1960,6 +1960,7 @@ public:
 		text << "\tbank = " << targetMob->getBankCredits() << "," << endl;
 
         text << "\texperience = " << ghost->getExperience("rp_general") << "," << endl;
+        text << "\tfrcskillcap = " << ghost->getExperience("rp_frc_skill_cap") << "," << endl;
         text << "\tcorruption = " << targetMob->getShockWounds() << "," << endl;
 
         String factionTag = targetMob->getStoredString("faction_current");

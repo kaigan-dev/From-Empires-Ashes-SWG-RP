@@ -599,6 +599,10 @@ int PlayerObjectImplementation::addExperience(const String& xpType, int xp, bool
 		xpCap = 5100000;
 	}
 
+	if(xpType == "rp_frc_skill_cap") {
+		xpCap = 35;
+	}
+
 	if (xp > xpCap) {
 		valueToAdd = xpCap - (xp - valueToAdd);
 		xp = xpCap;

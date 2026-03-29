@@ -53,6 +53,7 @@ public:
             target->addBankCredits(bank);
 
             pMan->awardExperience(target, "rp_general", experience);
+            pMan->awardExperience(target, "rp_frc_skill_cap", experience);
 
             target->setShockWounds(corruption);
 
