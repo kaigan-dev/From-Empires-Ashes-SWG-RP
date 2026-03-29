@@ -141,13 +141,9 @@ class ArmorObject extends WearableObject {
 
 	@read
 	public int getRating() {
-		if (getRating() != nullptr) {
-			return rating;
-		}
-		else {
-			return 0;
-		}
+		return rating;
 	}
+
 
 	public void setRpSkillLevel(int skill) {
 		rpSkillLevel = skill;
@@ -155,12 +151,7 @@ class ArmorObject extends WearableObject {
 
 	@read
 	public int getRpSkillLevel() {
-		if (getRpSkillLevel() != nullptr) {
-			return rpSkillLevel;
-		}
-		else {
-			return 0;
-		}
+		return rpSkillLevel;
 	}
 
 	@read
