@@ -10,6 +10,7 @@
 
 
 #include "templates/SharedTangibleObjectTemplate.h"
+#include <string>
 
 class ArmorObjectTemplate : public SharedTangibleObjectTemplate {
 	int healthEncumbrance;
