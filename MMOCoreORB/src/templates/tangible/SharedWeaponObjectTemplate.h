@@ -7,7 +7,7 @@
 
 #ifndef SHAREDWEAPONOBJECTTEMPLATE_H_
 #define SHAREDWEAPONOBJECTTEMPLATE_H_
-
+ 
 #include "templates/SharedTangibleObjectTemplate.h"
 
 class SharedWeaponObjectTemplate: public SharedTangibleObjectTemplate {
@@ -39,6 +39,8 @@ protected:
 	int bonusDamage;
 
 	int rpSkillLevel;
+
+	String rarity;
 
 	float woundsRatio;
 
@@ -169,6 +171,8 @@ public:
 		weaponType = 0xFFFFFFFF;
 
 		rpSkillLevel = 1;
+
+		rarity = "Common";
 
 		bladeColor = -1;
 
@@ -339,6 +343,10 @@ public:
 		this->woundsRatio = woundsRatio;
 	}
 
+	void setRarity(String rarity) {
+		this->rarity = rarity;
+	}
+
 	const Vector<String>* getCertificationsRequired() const {
 		return &certificationsRequired;
 	}
@@ -361,6 +369,10 @@ public:
 
 	inline int getRpSkillLevel() const {
 		return rpSkillLevel;
+	}
+
+	inline String getRarity() const {
+		return rarity;
 	}
 
 	inline int getBlastRadius() const {

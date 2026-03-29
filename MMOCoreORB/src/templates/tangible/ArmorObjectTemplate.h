@@ -182,7 +182,7 @@ public:
 			return "Unknown";
 		}
 	}
-
+ 
 	float getStun() const {
 		return stun;
 	}
