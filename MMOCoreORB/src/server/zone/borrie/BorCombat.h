@@ -350,8 +350,7 @@ public:
                     ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
                     int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
                     int armorSkillFlag = 0;
-                    this.info(armor.toString());
-                    if (armor.get() != nullptr && (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel())) {
+                    if (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
                         armorSkillFlag = 1;
                     }
                     reactionSpam += ", taking \\#FF9999" + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
@@ -782,7 +781,7 @@ public:
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
         int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
         int armorSkillFlag = 0;
-        this.info(armor.toString());
+        Logger.console.info(armor.toString());
         if (armor.get() != nullptr && (defender->getSkillMod("rp_strength") < armor->getRpSkillLevel())) {
             armorSkillFlag = 1;
         }
