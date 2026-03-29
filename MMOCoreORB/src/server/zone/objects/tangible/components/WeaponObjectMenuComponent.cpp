@@ -106,13 +106,6 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 		if (parent->isCellObject()) {
 			ManagedReference<SceneObject*> obj = parent->getParent().get();
-
-			if (obj != nullptr && obj->isBuildingObject()) {
-				ManagedReference<BuildingObject*> buio = cast<BuildingObject*>(obj.get());
-
-				if (!buio->isOnAdminList(player))
-					return 0;
-			}
 		} else {
 			if (!sceneObject->isASubChildOf(player))
 				return 0;
@@ -133,23 +126,23 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		player->sendSystemMessage("Your weapon has " + std::to_string(repairAmt) + " damage to repair.");
 		
 
-		if(armorRarity == "Common") {
+		if(weaponRarity == "Common") {
 			float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
 		}
-		else if(armorRarity == "Uncommon") {
+		else if(weaponRarity == "Uncommon") {
 			float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
 		}
-		else if(armorRarity == "Rare") {
+		else if(weaponRarity == "Rare") {
 			float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
 		}
-		else if(armorRarity == "Epic") {
+		else if(weaponRarity == "Epic") {
 			float tempCost = 3000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
 		}
-		else if(armorRarity == "Legendary") {
+		else if(weaponRarity == "Legendary") {
 			float tempCost = 6000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
 		}
