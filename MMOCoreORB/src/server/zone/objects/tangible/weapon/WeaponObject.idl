@@ -366,7 +366,7 @@ class WeaponObject extends TangibleObject {
 	}
 
 	@read 
-	public native int getRarity();
+	public native String getRarity();
 
 	public void setRarity(string value) {
 		rarity = value;
