@@ -40,7 +40,7 @@ protected:
 
 	int rpSkillLevel;
 
-	String rarity;
+	//String rarity;
 
 	float woundsRatio;
 
@@ -172,7 +172,7 @@ public:
 
 		rpSkillLevel = 1;
 
-		rarity = "Common";
+		//rarity = "Common";
 
 		bladeColor = -1;
 
@@ -343,9 +343,11 @@ public:
 		this->woundsRatio = woundsRatio;
 	}
 
+	/*
 	void setRarity(String rarity) {
 		this->rarity = rarity;
 	}
+		*/
 
 	const Vector<String>* getCertificationsRequired() const {
 		return &certificationsRequired;
@@ -371,9 +373,11 @@ public:
 		return rpSkillLevel;
 	}
 
+	/*
 	inline String getRarity() const {
 		return rarity;
 	}
+		*/
 
 	inline int getBlastRadius() const {
 		return blastRadius;

@@ -51,7 +51,7 @@ class WeaponObject extends TangibleObject {
 	protected float woundsRatio;
 
 	protected int rpSkillLevel;
-	protected String rarity;
+	//protected String rarity;
 
 	protected int healthAttackCost;
 	protected int actionAttackCost;
@@ -116,7 +116,7 @@ class WeaponObject extends TangibleObject {
 		bonusDamage = 0;
 
 		rpSkillLevel = 0;
-		rarity = "Common";
+		//rarity = "Common";
 
 		woundsRatio = 0;
 
@@ -427,6 +427,13 @@ class WeaponObject extends TangibleObject {
 	public string getXpType() {
 		return weaponTemplate.getXpType();
 	}
+
+/*
+	@read
+	public String getRarity() {
+		return weaponTemplate.getRarity();
+	}
+	*/
 
 	@read
 	public string getAlternateGrip() {

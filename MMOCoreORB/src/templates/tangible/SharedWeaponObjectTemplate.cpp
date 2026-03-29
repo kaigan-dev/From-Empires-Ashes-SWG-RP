@@ -252,7 +252,7 @@ void SharedWeaponObjectTemplate::readObject(LuaObject* templateData) {
 	bladeColor = templateData->getIntField("bladeColor");
 
 	rpSkillLevel = templateData->getIntField("rpSkillLevel");
-	rarity = templateData->getStringField("rarity");
+	//rarity = templateData->getStringField("rarity");
 
 	primaryAttributeOnly	= templateData->getBooleanField("primaryAttributeOnly");
 	dexOnlyWeapon			= templateData->getBooleanField("dexOnlyWeapon");

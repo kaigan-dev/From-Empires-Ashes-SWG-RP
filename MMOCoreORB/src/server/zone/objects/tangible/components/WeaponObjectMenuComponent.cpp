@@ -96,6 +96,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 	}
 
 
+	/* Temporarily disabled because weapons are a mess.
 	if (selectedID == 80) {		// Repair
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 
@@ -161,6 +162,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		}
 	return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
+	*/
 
 	return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 }
