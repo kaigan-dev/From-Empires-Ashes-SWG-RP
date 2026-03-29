@@ -28,7 +28,7 @@ class ArmorObjectTemplate : public SharedTangibleObjectTemplate {
 	float acid;
 	float lightSaber;
 
-	string rarity;
+	String rarity;
 
 	int rpSkillLevel;
 
@@ -164,7 +164,7 @@ public:
 		return rpSkillLevel;
 	}
 
-	inline string getRarity() const {
+	inline String getRarity() const {
 		return rarity;
 	}
 
@@ -238,7 +238,7 @@ public:
 		this->lightSaber = lightSaber;
 	}
 
-	void setRarity(string rarity) {
+	void setRarity(String rarity) {
 		this->rarity = rarity;
 	}
 
