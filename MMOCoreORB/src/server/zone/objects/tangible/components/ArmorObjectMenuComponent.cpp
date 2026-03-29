@@ -42,7 +42,7 @@ void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, 
 	String text = "Color Change";
 	menuResponse->addRadialMenuItem(81, 3, text);
 
-	String text = "Repair";
+	text = "Repair";
 	menuResponse->addRadialMenuItem(82, 3, text);
 	
     WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
