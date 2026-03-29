@@ -159,7 +159,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
 		}
 
-		player->sendSystemMessage("Max Condition: " + std::to_string(tano->getMaxCondition()) + ". Current condition damage: " + repairAmt + " = " + std::to_string(tano->getConditionDamage()) + ". and thus the ratio is " + std::to_string(repairAmt / tano->getMaxCondition()));
+		player->sendSystemMessage("Max Condition: " + std::to_string(tano->getMaxCondition()) + ". Current condition damage: " + std::to_string(repairAmt) + " = " + std::to_string(tano->getConditionDamage()) + ". and thus the ratio is " + std::to_string(repairAmt / tano->getMaxCondition()));
 		player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
 
 		if(player->getCashCredits() - creditCost >= 0) {
