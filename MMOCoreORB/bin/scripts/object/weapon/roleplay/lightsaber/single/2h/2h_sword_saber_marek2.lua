@@ -16,6 +16,8 @@ object_weapon_roleplay_lightsaber_single_2h_2h_sword_saber_marek2 = object_weapo
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
+	rarity = "Legendary",
+	
 	childObjects = {
 		{templateFile = "object/tangible/inventory/lightsaber_inventory_2.iff", x = 0, z = 0, y = 0, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = 4}
 	},

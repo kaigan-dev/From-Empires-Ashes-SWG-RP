@@ -51,6 +51,7 @@ class WeaponObject extends TangibleObject {
 	protected float woundsRatio;
 
 	protected int rpSkillLevel;
+	protected string rarity;
 
 	protected int healthAttackCost;
 	protected int actionAttackCost;
@@ -115,6 +116,7 @@ class WeaponObject extends TangibleObject {
 		bonusDamage = 0;
 
 		rpSkillLevel = 0;
+		rarity = "Common";
 
 		woundsRatio = 0;
 
@@ -363,6 +365,13 @@ class WeaponObject extends TangibleObject {
 		rpSkillLevel = value;
 	}
 
+	@read 
+	public native int getRarity();
+
+	public void setRarity(string value) {
+		rarity = value;
+	}
+
 	@read
 	public native float getWoundsRatio(boolean withPup = true);
 
@@ -419,6 +428,11 @@ class WeaponObject extends TangibleObject {
 	@read
 	public int getDamageType() {
 		return damageType;
+	}
+
+	@read
+	public string getRarity() {
+		return rarity;
 	}
 
 	@read

@@ -27,7 +27,10 @@ object_weapon_roleplay_ranged_carbine_firestar_10k = object_weapon_ranged_carbin
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
---FEA Rarity: Rare
+
+	rarity = "Rare",
+
+
 --Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]

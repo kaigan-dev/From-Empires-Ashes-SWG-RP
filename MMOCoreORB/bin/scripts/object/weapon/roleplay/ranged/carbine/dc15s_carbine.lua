@@ -27,7 +27,9 @@ object_weapon_roleplay_ranged_carbine_dc15s_carbine = object_weapon_ranged_carbi
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
-	--FEA Rarity: Common
+	rarity = "Common",
+
+
 	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]

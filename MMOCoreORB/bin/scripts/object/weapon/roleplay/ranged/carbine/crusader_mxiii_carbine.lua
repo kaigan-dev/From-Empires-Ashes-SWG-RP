@@ -27,7 +27,10 @@ object_weapon_roleplay_ranged_carbine_crusader_mxiii_carbine = object_weapon_ran
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
-	--FEA Rarity: Epic
+
+	rarity = "Epic",
+
+
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

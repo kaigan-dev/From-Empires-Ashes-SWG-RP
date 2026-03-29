@@ -29,7 +29,10 @@ object_weapon_roleplay_ranged_carbine_charric_carbine = object_weapon_ranged_car
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
---FEA Rarity: Rare
+
+	rarity = "Rare",
+
+
 --Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]

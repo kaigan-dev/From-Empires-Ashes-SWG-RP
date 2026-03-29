@@ -29,7 +29,10 @@ object_weapon_roleplay_ranged_carbine_wookiee_carbine = object_weapon_ranged_car
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
-	--FEA Rarity: Uncommon
+
+	rarity = "Uncommon",
+
+
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

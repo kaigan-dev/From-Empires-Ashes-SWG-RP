@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_onehanded_acid_sword = object_weapon_melee_sword_sh
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	rarity="expEffeciency",
+	rarity="Epic",
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

@@ -29,7 +29,10 @@ object_weapon_roleplay_ranged_carbine_corestrike_rancor_carbine = object_weapon_
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
-	--FEA Rarity: Uncommon
+
+	rarity = "Uncommon",
+
+
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

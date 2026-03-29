@@ -29,7 +29,10 @@ object_weapon_roleplay_ranged_carbine_ngantzarvel_9118_carbine = object_weapon_r
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
-	--FEA Rarity: Epic
+
+	rarity = "Epic",
+
+
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
