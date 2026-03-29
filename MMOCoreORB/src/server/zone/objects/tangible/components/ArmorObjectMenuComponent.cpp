@@ -41,12 +41,16 @@ void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, 
 
 	String text = "Color Change";
 	menuResponse->addRadialMenuItem(81, 3, text);
+
+	String text = "Repair";
+	menuResponse->addRadialMenuItem(82, 3, text);
 	
     WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
 }
 
 int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
 
+	// Color Change
 	if (selectedID == 81) {
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 
@@ -93,5 +97,44 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		}
 	}
 	
+
+	// Repair
+	if (selectedID == 82) {
+		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
+
+		if (parent == nullptr)
+			return 0;
+
+		/* We don't really care if it is equipped.
+		if (parent->isPlayerCreature()) {
+			player->sendSystemMessage("@armor_rehue:equipped");
+			return 0;
+		}
+		*/
+
+		if (parent->isCellObject()) {
+			ManagedReference<SceneObject*> obj = parent->getParent().get();
+
+			if (obj != nullptr && obj->isBuildingObject()) {
+				ManagedReference<BuildingObject*> buio = cast<BuildingObject*>(obj.get());
+
+				if (!buio->isOnAdminList(player))
+					return 0;
+			}
+		} else {
+			if (!sceneObject->isASubChildOf(player))
+				return 0;
+		}
+
+		ZoneServer* server = player->getZoneServer();
+
+		int cash = 1;
+		int repairamt = 1;
+		creature->subtractCashCredits(cash);
+		sceneObject->setConditionDamage(sceneObject->setConditionDamage()-1, true);
+
+	}
+
+
 	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 }

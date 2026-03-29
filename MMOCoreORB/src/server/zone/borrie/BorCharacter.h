@@ -469,7 +469,7 @@ public:
 				infoText << " Tier V (Insane)" << endl;
 		}		
 
-				infoText << "Experience: " << ghost->getExperience("rp_general") << endl;
+		infoText << "Experience: " << ghost->getExperience("rp_general") << endl;
 		
 
 		if(factionTag != "") {
