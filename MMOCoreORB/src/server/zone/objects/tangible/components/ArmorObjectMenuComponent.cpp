@@ -130,7 +130,6 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		ArmorObject* armor = cast<ArmorObject*>(tano);
 
 		String armorRarity = armor->getRarity();
-		player->sendSystemMessage("Your armor is " + armorRarity + " quality.");
 
 		int creditCost = 1;
 		int repairAmt = tano->getConditionDamage();
@@ -142,39 +141,32 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		if(armorRarity == "Common") {
 			float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Uncommon") {
 			float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Rare") {
 			float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Epic") {
 			float tempCost = 3000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Legendary") {
 			float tempCost = 6000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			player->sendSystemMessage("tempCost: " + std::to_string(tempCost));
 			creditCost = static_cast<int>(tempCost);
 		}
 		else {
 			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
 		}
 
-		player->sendSystemMessage("Max Condition: " + std::to_string(tano->getMaxCondition()) + ". Current condition damage: " + std::to_string(repairAmt) + " = " + std::to_string(tano->getConditionDamage()) + ". and thus the ratio is " + std::to_string(repairAmt / tano->getMaxCondition()));
 		player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
 
 		if(player->getCashCredits() - creditCost >= 0) {
 			player->subtractCashCredits(creditCost);
-			//tano->setConditionDamage(tano->getConditionDamage()-1, true);
 			tano->setConditionDamage(0, true);
 		}
 		else {
