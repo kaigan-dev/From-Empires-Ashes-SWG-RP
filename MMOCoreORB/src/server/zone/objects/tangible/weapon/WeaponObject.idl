@@ -51,7 +51,7 @@ class WeaponObject extends TangibleObject {
 	protected float woundsRatio;
 
 	protected int rpSkillLevel;
-	protected string rarity;
+	protected String rarity;
 
 	protected int healthAttackCost;
 	protected int actionAttackCost;
@@ -366,7 +366,7 @@ class WeaponObject extends TangibleObject {
 	}
 
 	@read
-	public string getRarity() {
+	public String getRarity() {
 		return weaponTemplate.getRarity();
 	}
 

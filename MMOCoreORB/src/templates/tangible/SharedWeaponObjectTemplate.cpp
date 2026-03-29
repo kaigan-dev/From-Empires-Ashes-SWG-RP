@@ -21,7 +21,7 @@ void SharedWeaponObjectTemplate::parseVariableData(const String& varName, LuaObj
 	} else if(varName == "rpSkillLevel") {
 		rpSkillLevel = Lua::getIntParameter(state);
 	} else if(varName == "rarity") {
-		rarity = Lua::getStringParameter(state);
+		//rarity = Lua::getStringParameter(state);
 	} else
 		templateData->pop();
 }

@@ -40,7 +40,7 @@ protected:
 
 	int rpSkillLevel;
 
-	string rarity;
+	String rarity;
 
 	float woundsRatio;
 
@@ -343,7 +343,7 @@ public:
 		this->woundsRatio = woundsRatio;
 	}
 
-	void setRarity(string rarity) {
+	void setRarity(String rarity) {
 		this->rarity = rarity;
 	}
 
@@ -371,7 +371,7 @@ public:
 		return rpSkillLevel;
 	}
 
-	inline string getRarity() const {
+	inline String getRarity() const {
 		return rarity;
 	}
 
