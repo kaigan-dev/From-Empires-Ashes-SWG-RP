@@ -99,6 +99,7 @@ void WeaponObjectImplementation::loadTemplateData(SharedObjectTemplate* template
 		damageRadius = weaponTemplate->getArea();
 
 		rpSkillLevel = weaponTemplate->getRpSkillLevel();
+		rarity = weaponTemplate->getRarity();
 
 		float templateAttackSpeed = weaponTemplate->getAttackSpeed();
 
