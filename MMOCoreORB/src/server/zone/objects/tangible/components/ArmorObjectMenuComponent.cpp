@@ -43,7 +43,7 @@ void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, 
 	menuResponse->addRadialMenuItem(81, 3, text);
 
 	text = "Repair";
-	menuResponse->addRadialMenuItem(91, 3, text);
+	menuResponse->addRadialMenuItem(90, 3, text);
 	
     WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
 }
@@ -97,7 +97,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
 	
-	else if (selectedID == 91) {		// Repair
+	else if (selectedID == 90) {		// Repair
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 
 		if (parent == nullptr)
@@ -126,25 +126,38 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		ZoneServer* server = player->getZoneServer();
 
-		//ManagedReference<TangibleObject*> tano = sceneObject->castTo<TangibleObject*>();
-
-		//SceneObject* object = static_cast<SceneObject*>(objects.get(i));
-
 		TangibleObject* tano = sceneObject->asTangibleObject();
-		//ArmorObject* armor= tano.asArmorObject();
-		//ArmorObject* armor = static_cast<TangibleObject*>(tano);
-		//ArmorObject* armorTwo = cast<ArmorObject*>(tangibleObject.get());
-
-		// Yet to try
-//		ArmorObject* armor = tano->castTo<ArmorObject*>();
-		
 		ArmorObject* armor = cast<ArmorObject*>(tano);
-
-		int creditCost = 1;
-		int repairamt = 1;
 
 		String armorRarity = armor->getRarity();
 		player->sendSystemMessage("Your armor is " + armorRarity + " quality.");
+
+		int creditCost = 1;
+		int repairAmt = 1;
+
+		repairAmt = tano->getConditionDamage();
+
+		player->sendSystemMessage("Your armor has " + repairAmt + " damage to repair.");
+		
+
+		if(armorRarity == "Common") {
+			creditCost = 100 * (repairAmt / getMaxCondition());
+		}
+		else if(armorRarity == "Uncommon") {
+			creditCost = 500 * (repairAmt / getMaxCondition());
+		}
+		if(armorRarity == "Rare") {
+			creditCost = 1500 * (repairAmt / getMaxCondition());
+		}
+		if(armorRarity == "Epic") {
+			creditCost = 4500 * (repairAmt / getMaxCondition());
+		}
+		if(armorRarity == "Legendary") {
+			creditCost = 10000 * (repairAmt / getMaxCondition());
+		}
+		else {
+			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
+		}
 
 		if(player->getCashCredits() - creditCost >= 0) {
 			player->subtractCashCredits(creditCost);
