@@ -365,16 +365,12 @@ class WeaponObject extends TangibleObject {
 		rpSkillLevel = value;
 	}
 
-	@read 
-	public string getRarity() {
-		return rarity;
-	}
-
 	@read
-	public void setRarity(string value) {
-		rarity = value;
+	public string getRarity() {
+		return weaponTemplate.getRarity();
 	}
 
+	
 	@read
 	public native float getWoundsRatio(boolean withPup = true);
 
