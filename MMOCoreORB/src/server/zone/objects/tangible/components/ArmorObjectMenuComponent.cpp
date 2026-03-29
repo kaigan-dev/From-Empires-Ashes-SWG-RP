@@ -136,15 +136,15 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		//ArmorObject* armorTwo = cast<ArmorObject*>(tangibleObject.get());
 
 		// Yet to try
-		ArmorObject* armor = tano->castTo<ArmorObject*>();
+//		ArmorObject* armor = tano->castTo<ArmorObject*>();
 		
-		//ArmorObject* armorTwo = cast<ArmorObject*>(tano);
+		ArmorObject* armorTwo = cast<ArmorObject*>(tano);
 
 		int creditCost = 1;
 		int repairamt = 1;
 
-		String armorRarity = armor->getRarity();
-		player->sendSystemMessage("Your armor is " + armorRarity + " quality.");
+		//String armorRarity = armor->getRarity();
+		//player->sendSystemMessage("Your armor is " + armorRarity + " quality.");
 
 		if(player->getCashCredits() - creditCost >= 0) {
 			player->subtractCashCredits(creditCost);
