@@ -141,19 +141,24 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		
 
 		if(armorRarity == "Common") {
-			creditCost = static_cast<int>(100 * (repairAmt / tano->getMaxCondition()));
+			float tempCost = 100 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Uncommon") {
-			creditCost = static_cast<int>(500 * (repairAmt / tano->getMaxCondition()));
+			float tempCost = 500 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Rare") {
-			creditCost = static_cast<int>(1500 * (repairAmt / tano->getMaxCondition()));
+			float tempCost = 1500 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Epic") {
-			creditCost = static_cast<int>(4500 * (repairAmt / tano->getMaxCondition()));
+			float tempCost = 3000 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(tempCost);
 		}
 		else if(armorRarity == "Legendary") {
-			creditCost = static_cast<int>(10000 * (repairAmt / tano->getMaxCondition()));
+			float tempCost = 6000 * (repairAmt / tano->getMaxCondition());
+			creditCost = static_cast<int>(tempCost);
 		}
 		else {
 			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
