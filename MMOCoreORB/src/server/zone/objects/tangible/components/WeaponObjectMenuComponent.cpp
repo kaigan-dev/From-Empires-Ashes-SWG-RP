@@ -124,43 +124,81 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		int repairAmt = tano->getConditionDamage();
 		bool doNotRepair = false;
 
-		//repairAmt = tano->getConditionDamage();
+		int diceRoll = BorDice::Roll(1, 20); 
+		int mechanicsSkill = player->getSkillMod("rp_mechanics");
+		int rollResult = diceRoll + mechanicsSkill;
 
 		player->sendSystemMessage("Your weapon has " + std::to_string(repairAmt) + " damage to repair.");
 		
 
 		if(itemValue == 150) {
-			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 8) {
+				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				creditCost = static_cast<int>(tempCost);
+			}			
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 8, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
 		}
 		else if(itemValue == 600) {
-			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 10) {
+				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 10, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
 		}
 		else if(itemValue == 3000) {
-			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			tempCost = tempCost * 3 / 4;
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 12) {
+				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				tempCost = tempCost * 3 / 4;
+				creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 12, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
 		}
 		else if(itemValue == 10000) {
-			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			tempCost = tempCost * 2 / 3;
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 15) {
+				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				tempCost = tempCost * 2 / 3;
+				creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 15, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
 		}
 		else if(itemValue == 20000) {
-			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			tempCost = tempCost / 2;
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 8) {
+				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				tempCost = tempCost / 2;
+				creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 18, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
 		}
 		else {
 			player->sendSystemMessage("Something went wrong when determining your weapon's value, preventing it from being repaired. The system thinks that its value is" + std::to_string(itemValue) + ". Reach out to the admins to research further.");
 			doNotRepair = true;
 		}
 
-		player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
+		
 
 		if(!doNotRepair) {
 			if(player->getCashCredits() - creditCost >= 0) {
+				player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
 				player->subtractCashCredits(creditCost);
 				tano->setConditionDamage(0, true);
 			}
