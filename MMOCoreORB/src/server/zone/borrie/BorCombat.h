@@ -1225,13 +1225,13 @@ public:
         if(!dodgedSuccessfully) {
             //Take Damage
             message = message + ", which fails, the blast focused on their " + GetSlotDisplayName(slot);
-            String combatLogPrefix = ", causing (" + GetWeaponDamageString(attacker, grenade) + ") = \\#FF9999";
+            String combatLogPrefix = ", causing \\#FF9999";
             message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot);
         } else {
             //Take Minimum Damage
             message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot);
             totalDamage = grenade->getMinDamage();
-            String combatLogPrefix = ", causing (" + GetWeaponDamageString(attacker, grenade) + ") = \\#FF9999";
+            String combatLogPrefix = ", and taking only \\#FF9999";
             message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot);
         }
 
