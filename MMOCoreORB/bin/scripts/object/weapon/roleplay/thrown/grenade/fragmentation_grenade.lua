@@ -36,6 +36,7 @@ object_weapon_roleplay_thrown_grenade_fragmentation_grenade = object_weapon_rang
 	rpSkillLevel = 1,
 	
 	rarity="Common",
+	itemValue = 600,
 	
 	animationType = "fragmentation",
 

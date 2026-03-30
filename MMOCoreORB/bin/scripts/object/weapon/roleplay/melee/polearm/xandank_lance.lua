@@ -30,6 +30,7 @@ object_weapon_roleplay_melee_polearm_xandank_lance = object_weapon_melee_polearm
 	maxRangeAccuracy = 99,
 
 	rarity="Legendary",
+	itemValue = 20000,
 	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]

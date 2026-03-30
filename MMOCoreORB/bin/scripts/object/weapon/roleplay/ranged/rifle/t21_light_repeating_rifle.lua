@@ -33,6 +33,7 @@ object_weapon_roleplay_ranged_rifle_t21_light_repeating_rifle = object_weapon_ra
 	primaryAttributeOnly = true,
 
 	rarity="Epic",
+	itemValue = 10000,
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_carbine_alliance_needler_carbine = object_weapon_r
 
 	rarity = "Common",
 
+	itemValue = 150,
 
 --Approx FEA Value 150
 

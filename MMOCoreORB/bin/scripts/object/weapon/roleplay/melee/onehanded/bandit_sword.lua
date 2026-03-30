@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_onehanded_bandit_sword = object_weapon_melee_sword_
 	maxRangeAccuracy = 99,
 
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

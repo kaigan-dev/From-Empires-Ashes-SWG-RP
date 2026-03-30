@@ -16,6 +16,7 @@ object_weapon_roleplay_lightsaber_single_1h_sword_saber_nari = object_weapon_mel
 	maxRangeAccuracy = 99,
 
 	rarity = "Legendary",
+	itemValue = 20000,
 
 	childObjects = {
 		{templateFile = "object/tangible/inventory/lightsaber_inventory_2.iff", x = 0, z = 0, y = 0, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = 4}

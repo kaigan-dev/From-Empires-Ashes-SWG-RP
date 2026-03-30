@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_carbine_corestrike_rancor_carbine = object_weapon_
 
 	rarity = "Uncommon",
 
+	itemValue = 600,
 
 	--Approx FEA Value 600
 

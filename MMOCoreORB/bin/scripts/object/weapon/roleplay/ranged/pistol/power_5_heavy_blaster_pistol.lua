@@ -28,6 +28,7 @@ object_weapon_roleplay_ranged_pistol_power_5_heavy_blaster_pistol = object_weapo
 	maxRangeAccuracy = 99,
 	
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_carbine_ee3_carbine = object_weapon_ranged_carbine
 
 	rarity = "Rare",
 
+	itemValue = 3000,
 
 	--Approx FEA Value 3000
 

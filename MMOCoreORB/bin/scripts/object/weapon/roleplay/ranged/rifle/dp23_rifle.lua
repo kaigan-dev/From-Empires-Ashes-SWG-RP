@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_rifle_dp23_rifle = object_weapon_ranged_rifle_shar
 	primaryAttributeOnly = true,
 
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

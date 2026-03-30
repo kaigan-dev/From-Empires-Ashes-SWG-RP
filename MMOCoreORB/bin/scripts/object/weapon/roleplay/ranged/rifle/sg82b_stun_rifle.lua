@@ -31,6 +31,7 @@ object_weapon_roleplay_ranged_rifle_sg82b_stun_rifle = object_weapon_ranged_rifl
 	primaryAttributeOnly = true,
 
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

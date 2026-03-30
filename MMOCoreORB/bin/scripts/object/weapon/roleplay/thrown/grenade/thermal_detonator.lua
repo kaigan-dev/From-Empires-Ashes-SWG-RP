@@ -36,6 +36,7 @@ object_weapon_roleplay_thrown_grenade_thermal_detonator = object_weapon_ranged_g
 	rpSkillLevel = 10,
 	
 	rarity="Legendary",
+	itemValue = 600,
 	animationType = "thermal_detonator",
 
 	--[Unused Elements from original game, included for compatability.]

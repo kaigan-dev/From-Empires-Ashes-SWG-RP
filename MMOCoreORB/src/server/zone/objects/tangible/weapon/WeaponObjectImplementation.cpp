@@ -100,6 +100,7 @@ void WeaponObjectImplementation::loadTemplateData(SharedObjectTemplate* template
 
 		rpSkillLevel = weaponTemplate->getRpSkillLevel();
 		//rarity = weaponTemplate->getRarity();
+		itemValue = weaponTemplate->getItemValue();
 
 		float templateAttackSpeed = weaponTemplate->getAttackSpeed();
 
@@ -277,6 +278,10 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 
 	if(rpSkillLevel > 0) {
 		alm->insertAttribute("skill_level", rpSkillLevel);
+	}
+
+	if(itemValue > 0) {
+		alm->insertAttribute("item_value", itemValue);
 	}
 		
 
@@ -666,6 +671,10 @@ float WeaponObjectImplementation::getBonusDamage() const {
 
 int WeaponObjectImplementation::getSkillLevel() const {
 	return rpSkillLevel;
+}
+
+int WeaponObjectImplementation::getItemValue() const {
+	return itemValue;
 }
 
 float WeaponObjectImplementation::getWoundsRatio(bool withPup) const {

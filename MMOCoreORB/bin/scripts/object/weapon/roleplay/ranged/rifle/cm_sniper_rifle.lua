@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_rifle_cm_sniper_rifle = object_weapon_ranged_rifle
 	primaryAttributeOnly = true,
 
 	rarity="Rare",
+	itemValue = 3000,
 	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]

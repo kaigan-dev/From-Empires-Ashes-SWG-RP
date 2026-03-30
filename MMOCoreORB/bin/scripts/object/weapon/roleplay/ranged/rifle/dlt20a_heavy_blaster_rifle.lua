@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_rifle_dlt20a_heavy_blaster_rifle = object_weapon_r
 	primaryAttributeOnly = true,
 
 	rarity="Common",
+	itemValue = 150,
 	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]

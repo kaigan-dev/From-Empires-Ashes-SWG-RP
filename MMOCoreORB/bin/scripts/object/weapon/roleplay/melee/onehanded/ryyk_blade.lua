@@ -30,6 +30,7 @@ object_weapon_roleplay_melee_onehanded_ryyk_blade = object_weapon_melee_sword_sh
 	maxRangeAccuracy = 99,
 
 	rarity="Rare",
+	itemValue = 3000,
 	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]

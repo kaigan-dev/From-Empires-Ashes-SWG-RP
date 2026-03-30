@@ -28,6 +28,7 @@ object_weapon_roleplay_ranged_pistol_crimson_nova_pistol = object_weapon_ranged_
 	maxRangeAccuracy = 99,
 	
 	rarity="Epic",
+	itemValue = 10000,
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

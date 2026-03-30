@@ -30,6 +30,7 @@ object_weapon_roleplay_melee_twohanded_vibroaxe = object_weapon_melee_axe_shared
 	primaryAttributeOnly = true,
 
 	rarity="Rare",
+	itemValue = 3000,
 	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]

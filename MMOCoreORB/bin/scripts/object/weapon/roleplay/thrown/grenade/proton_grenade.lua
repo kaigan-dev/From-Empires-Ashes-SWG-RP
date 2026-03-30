@@ -36,6 +36,7 @@ object_weapon_roleplay_thrown_grenade_proton_grenade = object_weapon_ranged_gren
 	rpSkillLevel = 8,
 	
 	rarity="Epic",
+	itemValue = 600,
 	animationType = "proton",
 
 	--[Unused Elements from original game, included for compatability.]

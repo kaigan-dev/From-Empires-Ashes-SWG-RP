@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_carbine_proton_carbine = object_weapon_ranged_carb
 
 	rarity = "Epic",
 
+	itemValue = 10000,
 
 	--Approx FEA Value 10000
 

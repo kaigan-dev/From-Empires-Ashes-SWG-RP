@@ -29,6 +29,7 @@ object_weapon_roleplay_melee_twohanded_katana = object_weapon_melee_2h_sword_sha
 	maxRangeAccuracy = 99,
 
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

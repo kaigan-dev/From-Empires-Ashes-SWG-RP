@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_rifle_westarm5_blaster_rifle = object_weapon_range
 	primaryAttributeOnly = true,
 
 	rarity="Epic",
+	itemValue = 10000,
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

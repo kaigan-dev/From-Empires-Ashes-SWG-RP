@@ -32,7 +32,9 @@ object_weapon_roleplay_ranged_rifle_berserker_rifle = object_weapon_ranged_rifle
 	primaryAttributeOnly = true,
 
 	rarity="Epic",
-	--Approx FEA Value 3000
+	
+	itemValue = 10000,
+	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

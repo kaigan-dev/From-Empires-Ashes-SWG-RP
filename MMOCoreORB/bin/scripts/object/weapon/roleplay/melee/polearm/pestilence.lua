@@ -30,6 +30,7 @@ object_weapon_roleplay_melee_polearm_pestilence = object_weapon_melee_polearm_sh
 	maxRangeAccuracy = 99,
 
 	rarity="Legendary",
+	itemValue = 20000,
 	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]

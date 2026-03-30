@@ -28,6 +28,7 @@ object_weapon_roleplay_ranged_pistol_kyd21_blaster_pistol = object_weapon_ranged
 	maxRangeAccuracy = 99,
 	
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

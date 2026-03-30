@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_rifle_a280_blaster_rifle = object_weapon_ranged_ri
 	primaryAttributeOnly = true,
 
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

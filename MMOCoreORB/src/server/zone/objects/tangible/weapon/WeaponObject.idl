@@ -51,7 +51,7 @@ class WeaponObject extends TangibleObject {
 	protected float woundsRatio;
 
 	protected int rpSkillLevel;
-
+	protected int itemValue;
 
 	protected int healthAttackCost;
 	protected int actionAttackCost;
@@ -116,6 +116,7 @@ class WeaponObject extends TangibleObject {
 		bonusDamage = 0;
 
 		rpSkillLevel = 0;
+		itemValue = 150;
 	
 
 		woundsRatio = 0;
@@ -364,6 +365,14 @@ class WeaponObject extends TangibleObject {
 	public void setSkillLevel(float value) {
 		rpSkillLevel = value;
 	}
+
+	@read 
+	public native int getItemValue();
+
+	public void setItemValue(int value) {
+		itemValue = value;
+	}
+	
 	
 	@read
 	public native float getWoundsRatio(boolean withPup = true);

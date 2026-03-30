@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_carbine_ngantzarvel_9118_carbine = object_weapon_r
 
 	rarity = "Epic",
 
+	itemValue = 10000,
 
 	--Approx FEA Value 10000
 

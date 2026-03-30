@@ -36,6 +36,7 @@ object_weapon_roleplay_thrown_grenade_glop_grenade = object_weapon_ranged_grenad
 	rpSkillLevel = 4,
 	
 	rarity="Common",
+	itemValue = 600,
 	animationType = "glop",
 
 	--[Unused Elements from original game, included for compatability.]

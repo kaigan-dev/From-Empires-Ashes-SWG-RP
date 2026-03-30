@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_polearm_obsidian_lance = object_weapon_melee_polear
 	maxRangeAccuracy = 99,
 
 	rarity="Epic",
+	itemValue = 10000,
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

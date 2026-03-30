@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_pistol_flare_gun = object_weapon_ranged_pistol_sha
 	maxRangeAccuracy = 99,
 	
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

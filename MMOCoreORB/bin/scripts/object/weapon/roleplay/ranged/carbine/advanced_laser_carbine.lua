@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_carbine_advanced_laser_carbine = object_weapon_ran
 
 	rarity = "Uncommon",
 
+	itemValue = 600,
 
 --Approx FEA Value 600
 

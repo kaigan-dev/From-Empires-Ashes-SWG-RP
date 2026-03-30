@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_polearm_shock_lance = object_weapon_melee_polearm_s
 	maxRangeAccuracy = 99,
 
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_carbine_wookiee_carbine = object_weapon_ranged_car
 
 	rarity = "Uncommon",
 
+	itemValue = 600,
 
 	--Approx FEA Value 600
 

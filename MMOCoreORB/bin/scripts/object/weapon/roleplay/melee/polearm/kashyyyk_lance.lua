@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_polearm_kashyyyk_lance = object_weapon_melee_polear
 	maxRangeAccuracy = 99,
 
 	rarity="Rare",
+	itemValue = 3000,
 	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]

@@ -36,6 +36,7 @@ object_weapon_roleplay_thrown_grenade_poison_grenade = object_weapon_ranged_gren
 	rpSkillLevel = 6,
 	
 	rarity="Uncommon",
+	itemValue = 600,
 	animationType = "glop",
 
 	--[Unused Elements from original game, included for compatability.]

@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_rifle_ld1_target_blaster_rifle = object_weapon_ran
 	primaryAttributeOnly = true,
 
 	rarity="Legendary",
+	itemValue = 20000,
 	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]
