@@ -15,6 +15,7 @@
 #include "server/zone/objects/player/sui/callbacks/ColorArmorSuiCallback.h"
 #include "server/zone/ZoneServer.h"
 #include "templates/customization/AssetCustomizationManagerTemplate.h"
+#include "server/zone/borrie/BorDice.h"
 
 void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
 
@@ -135,30 +136,61 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		int repairAmt = tano->getConditionDamage();
 		bool doNotRepair = false;
 
-		//repairAmt = tano->getConditionDamage();
+		int diceRoll = BorDice::Roll(1, 20); 
+		int armorerSkill = player->getSkillMod("rp_armorer");
+		int rollResult = diceRoll + armorerSkill;
 
 		player->sendSystemMessage("Your armor has " + std::to_string(repairAmt) + " damage to repair.");
-		
 
 		if(armorRarity == "Common") {
-			float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 8) {
+				float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+			}
 		}
 		else if(armorRarity == "Uncommon") {
-			float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 10) {
+				float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+			}
 		}
 		else if(armorRarity == "Rare") {
-			float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 12) {
+				float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+			}
 		}
 		else if(armorRarity == "Epic") {
-			float tempCost = 2500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-			creditCost = static_cast<int>(tempCost);
+			if(rollResult >= 15) {
+				float tempCost = 2500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+				creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+			}
 		}
 		else if(armorRarity == "Legendary") {
+			if(rollResult >= 18) {
 			float tempCost = 6000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
+			}
+			else {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+			}
 		}
 		else {
 			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
