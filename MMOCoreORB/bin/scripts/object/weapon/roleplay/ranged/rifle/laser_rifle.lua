@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_rifle_laser_rifle = object_weapon_ranged_rifle_sha
 	primaryAttributeOnly = true,
 
 	rarity="Common",
+	itemValue = 150,
 	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]

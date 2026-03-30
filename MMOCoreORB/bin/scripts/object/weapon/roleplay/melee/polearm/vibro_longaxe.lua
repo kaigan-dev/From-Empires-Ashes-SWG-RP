@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_polearm_vibro_longaxe = object_weapon_melee_polearm
 	maxRangeAccuracy = 99,
 
 	rarity="Common",
+	itemValue = 150,
 	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]

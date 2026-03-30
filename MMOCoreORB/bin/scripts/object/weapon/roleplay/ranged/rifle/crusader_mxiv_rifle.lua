@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_rifle_crusader_mxiv_rifle = object_weapon_ranged_r
 	primaryAttributeOnly = true,
 
 	rarity="Epic",
+	itemValue = 10000,
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_onehanded_trandoshan_skinner = object_weapon_melee_
 	maxRangeAccuracy = 99,
 
 	rarity="Epic",
+	itemValue = 10000,
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

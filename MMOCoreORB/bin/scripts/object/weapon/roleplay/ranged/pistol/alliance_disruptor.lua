@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_pistol_alliance_disruptor = object_weapon_ranged_p
 	maxRangeAccuracy = 99,
 	
 	rarity="Legendary",
+	itemValue = 20000,
 	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]

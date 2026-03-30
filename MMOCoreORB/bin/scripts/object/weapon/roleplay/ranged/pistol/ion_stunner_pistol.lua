@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_pistol_ion_stunner_pistol = object_weapon_ranged_p
 	maxRangeAccuracy = 99,
 	
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

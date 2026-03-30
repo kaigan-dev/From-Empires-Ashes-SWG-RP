@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_carbine_elite_carbine = object_weapon_ranged_carbi
 
 	rarity = "Uncommon",
 
+	itemValue = 600,
 
 --Approx FEA Value 600
 	

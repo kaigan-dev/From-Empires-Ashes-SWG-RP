@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_pistol_fwg5_flechette_smart_pistol = object_weapon
 	maxRangeAccuracy = 99,
 	
 	rarity = "Epic",
+	itemValue = 10000,
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

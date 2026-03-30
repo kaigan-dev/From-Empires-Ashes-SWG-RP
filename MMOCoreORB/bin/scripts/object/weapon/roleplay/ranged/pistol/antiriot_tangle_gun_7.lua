@@ -28,6 +28,7 @@ object_weapon_roleplay_ranged_pistol_antiriot_tangle_gun_7 = object_weapon_range
 	maxRangeAccuracy = 99,
 	
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

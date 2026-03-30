@@ -32,6 +32,7 @@ object_weapon_roleplay_ranged_rifle_proton_rifle = object_weapon_ranged_rifle_sh
 	primaryAttributeOnly = true,
 
 	rarity="Legendary",
+	itemValue = 20000,
 	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]

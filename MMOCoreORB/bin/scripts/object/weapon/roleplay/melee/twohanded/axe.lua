@@ -29,6 +29,7 @@ object_weapon_roleplay_melee_twohanded_axe = object_weapon_melee_axe_shared_axe_
 	maxRangeAccuracy = 99,
 
 	rarity="Common",
+	itemValue = 150,
 	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]

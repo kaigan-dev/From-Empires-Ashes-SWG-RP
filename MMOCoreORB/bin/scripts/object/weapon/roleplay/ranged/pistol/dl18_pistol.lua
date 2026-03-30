@@ -28,6 +28,7 @@ object_weapon_roleplay_ranged_pistol_dl18_pistol = object_weapon_ranged_pistol_s
 	maxRangeAccuracy = 99,
 	
 	rarity="Common",
+	itemValue = 150,
 	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]

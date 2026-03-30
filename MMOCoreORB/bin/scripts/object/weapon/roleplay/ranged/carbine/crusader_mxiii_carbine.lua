@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_carbine_crusader_mxiii_carbine = object_weapon_ran
 
 	rarity = "Epic",
 
+	itemValue = 10000,
 
 	--Approx FEA Value 10000
 

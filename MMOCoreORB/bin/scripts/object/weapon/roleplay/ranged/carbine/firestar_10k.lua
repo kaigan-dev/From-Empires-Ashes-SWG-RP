@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_carbine_firestar_10k = object_weapon_ranged_carbin
 
 	rarity = "Rare",
 
+	itemValue = 3000,
 
 --Approx FEA Value 3000
 

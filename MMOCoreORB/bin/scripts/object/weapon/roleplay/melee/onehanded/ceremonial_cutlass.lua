@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_onehanded_ceremonial_cutlass = object_weapon_melee_
 	maxRangeAccuracy = 99,
 
 	rarity="Rare",
+	itemValue = 3000,
 	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]

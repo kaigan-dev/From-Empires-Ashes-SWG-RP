@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_onehanded_stun_baton = object_weapon_melee_baton_sh
 	maxRangeAccuracy = 99,
 
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

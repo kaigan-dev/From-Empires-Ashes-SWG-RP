@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_carbine_bothan_bola_carbine = object_weapon_ranged
 
 	rarity = "Common",
 
+	itemValue = 150,
 
 --Approx FEA Value 150
 

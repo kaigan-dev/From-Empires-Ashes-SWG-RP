@@ -36,6 +36,7 @@ object_weapon_roleplay_thrown_grenade_imperial_detonator = object_weapon_ranged_
 	rpSkillLevel = 3,
 	
 	rarity="Uncommon",
+	itemValue = 600,
 	
 	animationType = "imperial_detonator",
 

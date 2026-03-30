@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_unarmed_wookiee_knuckler = object_weapon_melee_spec
 	maxRangeAccuracy = 99,
 
 	rarity="Uncommon",
+	itemValue = 600,
 	--Approx FEA Value 600
 
 	--[Unused Elements from original game, included for compatability.]

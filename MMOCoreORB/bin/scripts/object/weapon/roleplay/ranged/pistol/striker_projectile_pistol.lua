@@ -30,6 +30,7 @@ object_weapon_roleplay_ranged_pistol_striker_projectile_pistol = object_weapon_r
 	maxRangeAccuracy = 99,
 	
 	rarity="Common",
+	itemValue = 150,
 	--Approx FEA Value 150
 
 	--[Unused Elements from original game, included for compatability.]

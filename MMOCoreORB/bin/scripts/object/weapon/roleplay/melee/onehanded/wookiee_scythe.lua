@@ -30,6 +30,7 @@ object_weapon_roleplay_melee_onehanded_wookiee_scythe = object_weapon_melee_swor
 	maxRangeAccuracy = 99,
 
 	rarity="Epic",
+	itemValue = 10000,
 	--Approx FEA Value 10000
 
 	--[Unused Elements from original game, included for compatability.]

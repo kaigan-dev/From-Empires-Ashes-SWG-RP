@@ -30,6 +30,7 @@ object_weapon_roleplay_melee_polearm_electric_polearm = object_weapon_melee_pole
 	maxRangeAccuracy = 99,
 
 	rarity="Rare",
+	itemValue = 3000,
 	--Approx FEA Value 3000
 
 	--[Unused Elements from original game, included for compatability.]

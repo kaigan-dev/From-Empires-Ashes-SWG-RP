@@ -28,6 +28,7 @@ object_weapon_roleplay_ranged_pistol_de10_blaster_pistol = object_weapon_ranged_
 	maxRangeAccuracy = 99,
 	
 	rarity="Legendary",
+	itemValue = 20000,
 	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]

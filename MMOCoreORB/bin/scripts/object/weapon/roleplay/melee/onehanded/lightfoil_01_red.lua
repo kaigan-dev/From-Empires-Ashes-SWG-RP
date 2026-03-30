@@ -30,6 +30,7 @@ object_weapon_roleplay_melee_onehanded_lightfoil_01_red = object_weapon_melee_sw
 	bladeColor = 41,
 
 	rarity="Legendary",
+	itemValue = 20000,
 	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]

@@ -28,6 +28,7 @@ object_weapon_roleplay_melee_unarmed_massassi_knuckler = object_weapon_melee_spe
 	maxRangeAccuracy = 99,
 
 	rarity="Legendary",
+	itemValue = 20000,
 	--Approx FEA Value 20000
 
 	--[Unused Elements from original game, included for compatability.]

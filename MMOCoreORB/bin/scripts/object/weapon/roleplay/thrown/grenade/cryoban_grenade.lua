@@ -36,6 +36,7 @@ object_weapon_roleplay_thrown_grenade_cryoban_grenade = object_weapon_ranged_gre
 	rpSkillLevel = 6,
 	
 	rarity="Rare",
+	itemValue = 600,
 	
 	animationType = "cryoban",
 
