@@ -133,6 +133,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		int creditCost = 1;
 		int repairAmt = tano->getConditionDamage();
+		bool doNotRepair = false;
 
 		//repairAmt = tano->getConditionDamage();
 
@@ -161,16 +162,19 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		}
 		else {
 			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
+			doNotRepair = true;
 		}
 
 		player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
 
-		if(player->getCashCredits() - creditCost >= 0) {
-			player->subtractCashCredits(creditCost);
-			tano->setConditionDamage(0, true);
-		}
-		else {
-			player->sendSystemMessage("You do not have enough credits to repair this.");
+		if (!doNotRepair) {
+			if(player->getCashCredits() - creditCost >= 0) {
+				player->subtractCashCredits(creditCost);
+				tano->setConditionDamage(0, true);
+			}
+			else {
+				player->sendSystemMessage("You do not have enough credits to repair this.");
+			}
 		}
 	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
