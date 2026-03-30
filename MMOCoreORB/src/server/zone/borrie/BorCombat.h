@@ -507,8 +507,8 @@ public:
 
                 Lightsaber deflect will cost 11 action points, minus your total Lightsaber skill score. 
                 */
-                int deflectionCount = defender->getStoredInt("deflection_count");
-                defender->setStoredInt("deflection_count", deflectionCount + 1);
+                //int deflectionCount = defender->getStoredInt("deflection_count");
+                //defender->setStoredInt("deflection_count", deflectionCount + 1);
                 int deflectRoll = BorDice::Roll(1, 20);
                 int lightsaberSkill = defender->getSkillMod("rp_lightsaber");
                 //Check to see if the target lightsaber is ranged or another lightsaber, or lightsaber resistant.
@@ -976,12 +976,15 @@ public:
             int defenderForce = GetAvailableForcePoints(defender);
             if(reactionType == 4) {
                 //Deflection Limiter
+                /*
                 int deflectionCount = defender->getStoredInt("deflection_count");
                 if(deflectionCount > 3) {
                     return false;
                 }
                 int lightsaberSkill = defender->getSkillMod("rp_lightsaber");
                 int actionCost = 11 - lightsaberSkill;
+                */
+               int actionCost = 3;
                 if(actionCost <= 0) actionCost = 1;
                 if(defenderWeapon->isJediWeapon()) {
                     if(defenderAction >= (actionCost)) {
@@ -989,19 +992,21 @@ public:
                     } else return false;
                 } else return false;
             } else if(reactionType == 5) {
-                int telekineticsSkill = defender->getSkillMod("rp_telekinetics");
-                int forceCost = 11 - telekineticsSkill;
+                //int telekineticsSkill = defender->getSkillMod("rp_telekinetics");
+                //int forceCost = 11 - telekineticsSkill;
+                int forceCost = 3;
                 if(forceCost <= 0) forceCost = 1;
                 if(defenderForce >= (forceCost)) {
                     return true;
                 } else return false;
             } else {
-                int inwardSkill = defender->getSkillMod("rp_inward");
+                //int inwardSkill = defender->getSkillMod("rp_inward");
                 int forcePool = 999;
                 if(defender->isPlayerCreature()) {
                     forcePool = defender->getPlayerObject()->getForcePower();
                 }
-                if(forcePool >= (12 - inwardSkill)) {
+                //if(forcePool >= (12 - inwardSkill)) {
+                if(forcePool >= 3) {
                     return true;
                 } else return false;
             }
