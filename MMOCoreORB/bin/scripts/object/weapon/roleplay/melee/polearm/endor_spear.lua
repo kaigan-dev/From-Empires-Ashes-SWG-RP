@@ -9,7 +9,7 @@ object_weapon_roleplay_melee_polearm_endor_spear = object_weapon_melee_polearm_s
 	--[Stats]
 	attackType = MELEEATTACK,
 
-	damageType = ENERGY,
+	damageType = KINETIC,
 
 	armorPiercing = NONE,
 
