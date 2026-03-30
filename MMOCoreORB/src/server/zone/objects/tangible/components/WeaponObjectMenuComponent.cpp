@@ -117,7 +117,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		TangibleObject* tano = sceneObject->asTangibleObject();
 		WeaponObject* weapon = cast<WeaponObject*>(tano);
 
-		String itemValue = weapon->getItemValue();
+		int itemValue = weapon->getItemValue();
 
 		int creditCost = 1;
 		int repairAmt = tano->getConditionDamage();
