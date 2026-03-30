@@ -147,12 +147,12 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			creditCost = static_cast<int>(tempCost);
 		}
 		else if(itemValue == 20000) {
-			float tempCost = static_cast<float>(itemValue) (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			tempCost = tempCost / 2;
 			creditCost = static_cast<int>(tempCost);
 		}
 		else {
-			player->sendSystemMessage("Something went wrong when determining your weapon's value, preventing it from being repaired. The system thinks that its value is" + itemValue + ". Reach out to the admins to research further.");
+			player->sendSystemMessage("Something went wrong when determining your weapon's value, preventing it from being repaired. The system thinks that its value is" + std::to_string(itemValue) + ". Reach out to the admins to research further.");
 			doNotRepair = true;
 		}
 
