@@ -84,6 +84,7 @@ public:
         } */
 
         if(powerAttack) {
+            toHitDC += 5;
             int powerAttackCost = attacker->getStoredInt("power_attack_count");
             attacker->setStoredInt("power_attack_count", powerAttackCost + 1);
             DrainActionOrWill(attacker, 3 + powerAttackCost); //Changed to 3 from 1 as per rebalancing, 3/8/2023
@@ -616,14 +617,14 @@ public:
                     if(passed && attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC) {
                         reactionSpam += defender->getFirstName() + " absorbs the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                     } else {
-                        reactionSpam += defender->getFirstName() + " tries to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                        reactionSpam += defender->getFirstName() + " fails to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot); 
                     }
                 } else if(attackerWeapon->isJediWeapon()) {
                     DrainForce(defender, forceCost);
                     if(passed) {
-                        reactionSpam += defender->getFirstName() + " blocks the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                        reactionSpam += defender->getFirstName() + " blocks the attack with their hand and is unharmed (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                     } else {
                         reactionSpam += defender->getFirstName() + " fails to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
