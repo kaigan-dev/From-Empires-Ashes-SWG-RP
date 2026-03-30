@@ -149,7 +149,8 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			}
 			else {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
-				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 8, causing 20 additional damage in the process.");
+				doNotRepair = true;
 			}
 		}
 		else if(armorRarity == "Uncommon") {
@@ -159,7 +160,8 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			}
 			else {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
-				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 10, causing 20 additional damage in the process.");
+				doNotRepair = true;
 			}
 		}
 		else if(armorRarity == "Rare") {
@@ -169,7 +171,8 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			}
 			else {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
-				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 12, causing 20 additional damage in the process.");
+				doNotRepair = true;
 			}
 		}
 		else if(armorRarity == "Epic") {
@@ -179,7 +182,8 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			}
 			else {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
-				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 15, causing 20 additional damage in the process.");
+				doNotRepair = true;
 			}
 		}
 		else if(armorRarity == "Legendary") {
@@ -189,7 +193,8 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			}
 			else {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
-				player->sendSystemMessage("You fail to repair your armor, causing 20 additional damage in the process.");
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 18, causing 20 additional damage in the process.");
+				doNotRepair = true;
 			}
 		}
 		else {
