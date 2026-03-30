@@ -39,8 +39,8 @@ protected:
 	int bonusDamage;
 
 	int rpSkillLevel;
-
 	//String rarity;
+	int itemValue;
 
 	float woundsRatio;
 
@@ -171,8 +171,8 @@ public:
 		weaponType = 0xFFFFFFFF;
 
 		rpSkillLevel = 1;
-
 		//rarity = "Common";
+		itemValue = 150;
 
 		bladeColor = -1;
 
@@ -349,6 +349,12 @@ public:
 	}
 		*/
 
+
+	void setItemValue(String itemValue) {
+		this->itemValue = itemValue;
+	}
+
+
 	const Vector<String>* getCertificationsRequired() const {
 		return &certificationsRequired;
 	}
@@ -378,6 +384,10 @@ public:
 		return rarity;
 	}
 		*/
+
+	inline int getItemValue() const {
+		return itemValue;
+	}
 
 	inline int getBlastRadius() const {
 		return blastRadius;
