@@ -634,7 +634,7 @@ public:
                     defender->sendSystemMessage("You cannot absorb this attack. You recieved full damage.");
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
-                    reactionSpam =+ OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot);
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot);
                 }
                 return reactionSpam;
             }
