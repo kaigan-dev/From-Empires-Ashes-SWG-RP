@@ -350,7 +350,7 @@ public:
 		*/
 
 
-	void setItemValue(String itemValue) {
+	void setItemValue(int itemValue) {
 		this->itemValue = itemValue;
 	}
 
