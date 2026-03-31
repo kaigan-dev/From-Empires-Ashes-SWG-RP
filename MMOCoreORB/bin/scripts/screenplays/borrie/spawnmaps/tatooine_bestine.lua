@@ -81,10 +81,17 @@ function RpTatooineBestineScreenPlay:spawnSceneObjects()
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.iff", 502.9, 0, 6630.1, 0, 1, 0, -0.8, 0) --furniture Sign
 	SceneObject(sObj):setCustomObjectName("Specialty store")
 	
+
+	--Test
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.4, 0.5, -11, 610027663, 0.999983, 0, -0.8, 0) --Shirts
+	SceneObject(sObj):setCustomObjectName("Shirts")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
 	
 	--TAILOR--
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 1.8, -14.8, 610027776, 0.999983, 0, -0.8, 0) --Shirts
-	SceneObject(sObj):setCustomObjectName("Shirts1")
+	SceneObject(sObj):setCustomObjectName("Shirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
