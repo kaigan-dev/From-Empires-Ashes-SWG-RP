@@ -54,5 +54,6 @@ civNameTypeList = {
 	["r4"] = "r4",
 	["r5"] = "r5",
 	["r6"] = "r6",
-	["ewok"] = "sullustan",
+	["rp_ewok_male"] = "sullustan",
+	["rp_ewok_female"] = "sullustan",
 }
