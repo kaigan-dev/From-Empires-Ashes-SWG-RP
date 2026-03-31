@@ -2283,7 +2283,7 @@ int DirectorManager::spawnSceneObject(lua_State* L) {
 		script = lua_tostring(L, -6);
 		zoneID = lua_tostring(L, -7);
 	}
-
+ 
 	ZoneServer* zoneServer = ServerCore::getZoneServer();
 	Zone* zone = zoneServer->getZone(zoneID);
 
