@@ -2,6 +2,7 @@ local outfitGroupTag = "endor"
 
 outfit_group = {
 	female = { 
+		--[[
 		"civ/tatooine/civilian_female_s01",
 		"civ/tatooine/civilian_female_s02",
 		"civ/tatooine/civilian_female_s03",
@@ -12,10 +13,12 @@ outfit_group = {
 		"civ/tatooine/civilian_female_s08",
 		"civ/tatooine/civilian_female_s09",
 		"civ/tatooine/civilian_female_s10",
+		--]]
 	},
 	
 	male = {
-		"civ/tatooine/civilian_male_s01",
+	--[[
+	"civ/tatooine/civilian_male_s01",
 		"civ/tatooine/civilian_male_s02",
 		"civ/tatooine/civilian_male_s03",
 		"civ/tatooine/civilian_male_s04",
@@ -25,6 +28,7 @@ outfit_group = {
 		"civ/tatooine/civilian_male_s08",
 		"civ/tatooine/civilian_male_s09",
 		"civ/tatooine/civilian_male_s10",
+		--]]
 	},
 	
 	unisex = {
