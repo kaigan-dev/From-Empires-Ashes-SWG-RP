@@ -83,7 +83,7 @@ function RpTatooineBestineScreenPlay:spawnSceneObjects()
 	
 	
 	--TAILOR--
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 1.8, -14.8, 610027776, 0, 0, 0, 0) --Shirts
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 1.8, -14.8, 610027776, 0) --Shirts
 	-- sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 1.8, -14.8, 610027776, 0.999983, 0, -0.8, 0) --Shirts Original
 	SceneObject(sObj):setCustomObjectName("Shirts1")
 	SceneObject(sObj):setPublicContainer(true)
@@ -106,7 +106,7 @@ function RpTatooineBestineScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
 
 
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 3.8, -14.8, 610027776, 1, 0, 0, 0) --Shirts Original
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 3.8, -14.8, 610027776, 610027776, 610027776, 610027776, 610027776) --Shirts Original
 	SceneObject(sObj):setCustomObjectName("Shirts4")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)

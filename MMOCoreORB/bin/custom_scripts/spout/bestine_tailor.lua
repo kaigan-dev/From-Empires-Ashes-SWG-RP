@@ -18,6 +18,7 @@ spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern
 spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 11.1247, 0.403271, 4.60206, 610008132, -0.702997, 0, 0.711192, 0)
 --]]
 
+--Testing Cagnaith 3/31/2026. Doesn't appear to do anything.
 spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 1.8, -14.8, 610027776, 0.999983, 0, -0.8, 0)
 spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 712.2, 1.8, 6675.4, 0, 0, 1, 0, 0)
 spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 715.2, 1.8, 6672.4, 610027776, 1, 0, 0, 0)
