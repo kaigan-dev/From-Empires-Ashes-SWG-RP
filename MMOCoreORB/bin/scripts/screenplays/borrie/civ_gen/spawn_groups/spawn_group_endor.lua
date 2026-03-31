@@ -2,7 +2,8 @@ local spawnGroupTag = "endor"
 
 spawn_group = {
 	organic = {
-		{"ewok", 10},
+		{"rp_human_male", 10},
+		{"rp_human_female", 10},
 	},
 	droid = {
 		{"r5", 10},

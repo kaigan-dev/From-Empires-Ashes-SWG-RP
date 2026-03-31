@@ -11,6 +11,7 @@ ClothingExclusions = {
 	["talz"] = {"all"},
 	["trandoshan"] = {"hands,feet"},
 	["ewok"] = {"all"},
+	["devaronian"] = {"head"},
 }
 
 ClothingDefinitions = {
