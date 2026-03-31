@@ -41,16 +41,21 @@ function RpTatooineBestineScreenPlay:start()
 		self:spawnMobiles()
 		self:spawnSceneObjects()
 		self:spawnCivilians()
-		self:spawnJunkPiles()
+		--self:spawnJunkPiles()
 	end
 end
 
+--[[
 function RpTatooineBestineScreenPlay:spawnJunkPiles() 
 	local spawnPoints = {
 		
 	}
 	RpJunkPile:spawnJunkPiles(self.planet, spawnPoints, true)
 end
+--]]
+
+
+
 
 function RpTatooineBestineScreenPlay:spawnCivilians() 
 	local waypointList = {
@@ -87,21 +92,21 @@ function RpTatooineBestineScreenPlay:spawnSceneObjects()
 
 
 	--sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 712.2, 1.8, 6675.4, 0, 0, 0, 0, 0) --Shirts
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 712.2, 1.8, 6675.4, 0, 0, 1, 0, 0) --Shirts
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 712.2, 3.8, 6675.4, 0, 0, 1, 0, 0) --Shirts
 	SceneObject(sObj):setCustomObjectName("Shirts2")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
 
 	--sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 715.2, 1.8, 6672.4, 610027776, 0, 0, 0, 0) --Shirts
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 715.2, 1.8, 6672.4, 610027776, 1, 0, 0, 0) --Shirts
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 715.2, 3.8, 6672.4, 610027776, 1, 0, 0, 0) --Shirts
 	SceneObject(sObj):setCustomObjectName("Shirts3")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
 
 
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 1.8, -14.8, 610027776, 1, 0, 0, 0) --Shirts Original
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.3, 3.8, -14.8, 610027776, 1, 0, 0, 0) --Shirts Original
 	SceneObject(sObj):setCustomObjectName("Shirts4")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
