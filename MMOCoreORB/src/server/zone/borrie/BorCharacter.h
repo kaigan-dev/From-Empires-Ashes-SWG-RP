@@ -746,23 +746,12 @@ public:
 	static bool GetSkillIsTrainable(String skill) {
 		if(skill.contains("admin_"))
 			return false;
+		// Disallow teaching all RP skills between players, as this is unnecessary for skills/attributes and is not intended to be available for professions and force abilities. Additionally, it bypasses the XP scaling logic. Cagnaith 3/31/2026.
+		else if(skill.contains("rp_")) 
+			return false;
 		else if(skill.contains("rp_force_prog")) 
 			return false;
-		else if(skill == "rp_training_jedi_rank_08")
-			return false;
-		else if(skill == "rp_training_jedi_rank_09")
-			return false;
-		else if(skill == "rp_training_jedi_rank_10")
-			return false;
-		else if(skill == "rp_training_jedi_rank_master")
-			return false;
-		else if(skill == "rp_training_sith_rank_08")
-			return false;
-		else if(skill == "rp_training_sith_rank_09")
-			return false;
-		else if(skill == "rp_training_sith_rank_10")
-			return false;
-		else if(skill == "rp_training_sith_rank_master")
+		else if(skill.contains("rp_training")) 
 			return false;
 		else
 			return true;		
