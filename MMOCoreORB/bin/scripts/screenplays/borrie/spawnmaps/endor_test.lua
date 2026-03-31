@@ -43,7 +43,7 @@ function endor_test:spawnCivilians()
 		
 		--{741.764, 0, 291.229, 178, 0,{"walker_market_shopper1"},"r5"},
 		{0, 0, 0, 0, 0,{"none"}},
-		--{929.494, 0.25, 148.493, 354, 0,{"sit"}},
+		{6.7, 9.0, -25, 27, 0,{"sit"}},
 		--{1072.39, 0, 96.3649, 217, 0,{"sit"}},
 		--{1073.37, 0, 95.1716, 195, 0,{"sit"}},
 		
@@ -56,12 +56,12 @@ end
 
 function endor_test:spawnSceneObjects() 
 	--Travel Terminals
-	--[[
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", -13.0021, 0.639421, 51.1865, 610008050, 1, 0, 0.332372, 0)
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", -2.7419, 0.639421, 48.1677, 610008050, 1, 0, 0, 0)
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 2.54505, 0.639421, 48.1693, 610008050, 1, 0, 0, 0)
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 12.6536, 0.639421, 51.1838, 610008050, 0.909306, 0, -0.416129, 0)
-	--]]
+	
+	--spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", -13.0021, 0.639421, 51.1865, 610008050, 1, 0, 0.332372, 0)
+	--spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", -2.7419, 0.639421, 48.1677, 610008050, 1, 0, 0, 0)
+	--spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 2.54505, 0.639421, 48.1693, 610008050, 1, 0, 0, 0)
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 20.6, 9.0, 1.9, -125, 0, 0, 0, 0)
+	
 
 	
 	--Signs
