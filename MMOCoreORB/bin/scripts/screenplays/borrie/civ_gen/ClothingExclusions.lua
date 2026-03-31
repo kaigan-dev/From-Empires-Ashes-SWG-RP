@@ -10,6 +10,7 @@ ClothingExclusions = {
 	["quarren"] = {"hands", "head"},
 	["talz"] = {"all"},
 	["trandoshan"] = {"hands,feet"},
+	["ewok"] = {"all"},
 }
 
 ClothingDefinitions = {
