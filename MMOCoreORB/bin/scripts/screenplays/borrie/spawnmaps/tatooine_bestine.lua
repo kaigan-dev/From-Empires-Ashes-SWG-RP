@@ -129,7 +129,7 @@ function RpTatooineBestineScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_headwear")
 	SceneObject(sObj):populateInventoryFromContentList("tailor_goggles")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 12.3, 3.1, -6.9, 610027776 0, 0, 0.3, 0) --Handwear
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 12.3, 3.1, -6.9, 610027776, 0, 0, 0.3, 0) --Handwear
 	SceneObject(sObj):setCustomObjectName("Handwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
@@ -265,7 +265,7 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "3po")
 
 
-	-- Tutorial NPCs removed, copy/paste from other repositories if needed again--
+	-- Tutorial NPCs removed, copy/paste from other repositorie needed again--
 	
 
 	--VENDORS--
