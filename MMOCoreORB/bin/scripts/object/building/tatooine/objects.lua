@@ -42,8 +42,10 @@
 
 
 object_building_tatooine_shared_association_hall_civilian_tatooine = SharedBuildingObjectTemplate:new {
-	clientTemplateFileName = "object/building/tatooine/shared_association_hall_civilian_tatooine.iff"
+	clientTemplateFileName = "object/building/tatooine/shared_association_hall_civilian_tatooine.iff",
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
+	containerType = 0,
+	containerVolumeLimit = 20000,
 --[[
 	appearanceFilename = "",
 	arrangementDescriptorFilename = "",
@@ -104,7 +106,9 @@ object_building_tatooine_shared_association_hall_civilian_tatooine = SharedBuild
 ObjectTemplates:addClientTemplate(object_building_tatooine_shared_association_hall_civilian_tatooine, "object/building/tatooine/shared_association_hall_civilian_tatooine.iff")
 
 object_building_tatooine_shared_association_hall_civilian_tatooine_02 = SharedBuildingObjectTemplate:new {
-	clientTemplateFileName = "object/building/tatooine/shared_association_hall_civilian_tatooine_02.iff"
+	clientTemplateFileName = "object/building/tatooine/shared_association_hall_civilian_tatooine_02.iff",
+		containerType = 0,
+	containerVolumeLimit = 20000,
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
 	appearanceFilename = "",
