@@ -8,27 +8,7 @@ RpTatooineBestineScreenPlay = CityScreenPlay:new {
 	planet = "rp_tatooine",	
 	
 	walkpointList = {
-		market_shopper1 = {
-			{745.296, 0, 281.54, 180, 0,false, "none"},
-			{748.047, 0, 279.843, 98, 0,true, "shop"},
-			{750.615, 0, 267.862, 137, 0,true, "shop"},
-			{743.498, 0, 254.154, 200, 0,false, "none"},
-			{737.639, 0, 229.698, 214, 0,false, "none"},
-			{719.56, 0, 223.706, 250, 0,false, "none"},
-			{716.976, 0, 217.721, 177, 0,true, "shop"},
-			{714.527, 0, 223.021, 336, 0,false, "none"},
-			{678.21, 0, 226.482, 275, 0,false, "none"},
-			{668.156, 0, 248.694, 339, 0,true, "shop"},
-			{674.656, 0, 252.419, 68, 0,true, "shop"},
-			{672.488, 0, 259.678, 263, 0,true, "shop"},
-			{671.774, 0, 284.275, 354, 0,false, "none"},
-			{680.253, -0.25, 301.799, 34, 0,false, "none"},
-			{722.902, -0.25, 323.929, 40, 0,false, "none"},
-			{781.809, -0.25, 314.541, 95, 0,false, "none"},
-			{805.175, -0.25, 303.873, 146, 0,false, "none"},
-			{767.391, -0.25, 302.339, 261, 0,false, "none"},
-			{749.95, 0, 286.123, 206, 0,false, "none"},
-		},
+
 	}
 	
 	
@@ -277,7 +257,7 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "3po")
 
 
-	-- Tutorial NPCs removed, copy/paste from other repositorie needed again--
+	-- Tutorial NPCs removed, copy/paste from other repositories needed again--
 	
 
 	--VENDORS--
