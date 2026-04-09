@@ -15,7 +15,7 @@ rpg_shop_weapons_ranged_novice = {
 				{template = "object/weapon/roleplay/ranged/pistol/kyd21_blaster_pistol.iff", cost = 500, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/pistol/model_q2_holdout_blaster_pistol.iff", cost = 700, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/pistol/power_5_heavy_blaster_pistol.iff", cost = 700, max = 10, chance = 100, overridePrice = true },
-				{template = "object/weapon/roleplay/ranged/pistol/se14_blaster_pistol.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/weapon/roleplay/ranged/pistol/se14_blaster_pistol.iff", cost = 800, max = 10, chance = 100, overridePrice = true },    -This will be available from the Imperial Splinter vendors rather than general ones.
 				{template = "object/weapon/roleplay/ranged/pistol/striker_projectile_pistol.iff", cost = 300, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/pistol/wookiee_pistol.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 			}
@@ -25,7 +25,7 @@ rpg_shop_weapons_ranged_novice = {
 			name = "Carbines",
 			minItems = 1,
 			items = {
-				{template = "object/weapon/roleplay/ranged/carbine/alliance_needler_carbine.iff", cost = 150, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/weapon/roleplay/ranged/carbine/alliance_needler_carbine.iff", cost = 150, max = 10, chance = 100, overridePrice = true },   -This will be available from the Alliance vendors rather than general ones.
 				{template = "object/weapon/roleplay/ranged/carbine/bothan_bola_carbine.iff", cost = 150, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/carbine/dc15s_carbine.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/carbine/e5_carbine.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
@@ -41,7 +41,7 @@ rpg_shop_weapons_ranged_novice = {
 			name = "Rifles",
 			minItems = 1,
 			items = {
-				{template = "object/weapon/roleplay/ranged/rifle/a280_blaster_rifle.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/weapon/roleplay/ranged/rifle/a280_blaster_rifle.iff", cost = 800, max = 10, chance = 100, overridePrice = true },   -This will be available from the Alliance vendors rather than general ones.
 				{template = "object/weapon/roleplay/ranged/rifle/bowcaster.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/rifle/dlt19_heavy_blaster_rifle.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/rifle/ion_rifle.iff", cost = 900, max = 10, chance = 100, overridePrice = true },
