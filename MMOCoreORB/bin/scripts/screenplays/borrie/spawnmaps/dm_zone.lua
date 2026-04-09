@@ -297,13 +297,13 @@ sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_medium_imperial")
 
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 20.4,0, 0, 0, 0, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 22.4,0, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Heavy Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_heavy")
 
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 18.4,0, 0, 0, 0, 0)
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 20.4,0, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Heavy Rebel Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
