@@ -54,14 +54,14 @@ object_tangible_wearables_robe_exar_cultist_hood_down_f = object_tangible_wearab
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff" },
 				
-				/*
+				--[[
 				skillMods = {
 				    {"jedi_force_power_max", 900},
 				    {"jedi_force_power_regen", 300}
 				},
 
 				noTrade = 1,
-				*/
+				--]]
 
 				objectMenuComponent = "RobeObjectMenuComponent",
 				attributeListComponent = "JediRobeAttributeListComponent",
