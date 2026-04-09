@@ -9,7 +9,6 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_gloves.iff", },
 	{"object/tangible/wearables/armor/roleplay/rebel_snow/armor_rebel_snow_helmet.iff", },
 
-
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bicep_l.iff", },
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bicep_r.iff", },
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bracer_l.iff", },
@@ -20,7 +19,6 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_gloves.iff", },
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_helmet.iff", },
 
-
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bicep_l_gcw.iff", },
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bicep_r_gcw.iff", },
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_bracer_l_gcw.iff", },
@@ -30,4 +28,27 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_leggings_gcw.iff", },
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_gloves_gcw.iff", },
 	{"object/tangible/wearables/armor/roleplay/rebel_spec_force/armor_rebel_spec_force_helmet_gcw.iff", },
+
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_bicep_l_gcw.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_bicep_r_gcw.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_bracer_l_gcw.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_bracer_r_gcw.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_boots_gcw.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_chest_plate_rebel_gcw.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_gloves_gcw.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_helmet_gcw.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_leggings_gcw.iff", },	
+
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_bicep_l.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_bicep_r.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_bracer_l.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_bracer_r.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_boots.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_chest_plate_rebel.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_gloves.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_helmet.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_leggings.iff", },	
+
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_chest_plate.iff", },	
+	{"object/tangible/wearables/armor/roleplay/marine/armor_marine_chest_plate_firestar.iff", },	
 }

@@ -286,18 +286,12 @@ sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_
 	SceneObject(sObj):populateInventoryFromContentList("armor_medium")
 
 		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 20.4,0, 0, 0, 0, 0)
-	SceneObject(sObj):setCustomObjectName("Medium Rebel Armor")
+	SceneObject(sObj):setCustomObjectName("Medium Rebel and Alien Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
-	SceneObject(sObj):populateInventoryFromContentList("armor_medium_rebel")
+	SceneObject(sObj):populateInventoryFromContentList("armor_medium_rebel_alien.lua")
 
-	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 18.4,0, 0, 0, 0, 0)
-	SceneObject(sObj):setCustomObjectName("Medium Alien Armor")
-	SceneObject(sObj):setPublicContainer(true)
-	SceneObject(sObj):setDispenserContainer(true)
-	SceneObject(sObj):populateInventoryFromContentList("armor_medium_alien")
-
-		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 22.4, 0, 0, 0, 0, 0)
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 2, 18.4, 0, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Medium Imperial Armor")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
