@@ -38,7 +38,7 @@ travel_destinations = {
 	
 	--Deep Space
 	{ 
-		name = "Deep Space",
+		name = "Ord Mantel",
 		zone = "rp_space",
 		destinations = {
 			{"Tansarii Point Station", "rp_space", 52.3, 0.9, 27.8, 808251},
