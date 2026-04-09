@@ -94,8 +94,9 @@ void PetMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMe
 		// future, if conversion do as droid objects above and not add this menu at all.
 		//bool conversingPet = (pet->getOptionsBitmask() & OptionBitmask::CONVERSE);
  
-		/*  Removing pet training from menu  4/9/26 Cagnaith
+		
 		menuResponse->addRadialMenuItem(141, 3, "@pet/pet_menu:menu_command"); // PET_COMMAND
+		/*  Removing pet training from menu  4/9/26 Cagnaith
 		menuResponse->addRadialMenuItemToRadialID(141, 142, 3, "@pet/pet_menu:menu_follow" ); // PET_FOLLOW
 		menuResponse->addRadialMenuItemToRadialID(141, 143, 3, "@pet/pet_menu:menu_stay" ); // PET_STAY
 		menuResponse->addRadialMenuItemToRadialID(141, 144, 3, "@pet/pet_menu:menu_guard" ); // PET_GUARD
