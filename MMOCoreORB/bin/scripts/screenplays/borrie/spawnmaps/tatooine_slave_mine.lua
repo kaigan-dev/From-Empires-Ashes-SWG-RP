@@ -82,25 +82,114 @@ function RpTatooineSlaveMineScreenPlay:spawnMobiles()
 	
 	local pNpc
 
+	--Outside
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1800.4, 112.2, 3244.8, -12, 0, "rp_rodian_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "human")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1796.4, 110.2, 3238.4, 90, 0, "rp_gotal_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1796.4, 110.2, 3238.4, 90, 0, "rp_gotal_male", "faction/hutt/trooper_snow", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1754, 92.3, 3221, 23, 0, "rp_nikto_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1753.2, 92.1, 3220.6, 48, 0, "rp_nikto_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1740.4, 94.2, 3215.7, 91, 0, "rp_trandoshan_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1737.4, 91.8, 3216.4, 44, 0, "rp_trandoshan_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "trandoshan")
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1733.4, 94.2, 3217.1, -99, 0, "rp_trandoshan_female", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "trandoshan")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1703.8, 91.4, 3232.1, 126, 0, "rp_human_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1702.9, 90.7, 3233.1, 134, 0, "rp_human_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "human")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1700.3, 91.1, 3227.6, -42, 0, "rp_human_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1700.3, 91.1, 3227.6, -42, 0, "rp_human_male", "faction/hutt/trooper_swamp", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1757.2, 92.7, 3221.4, 23, 0, "rp_rodian_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "human")
+	setRandomCreatureName(pNpc, "rodian")
 	
 
 
+
+	--Break Room and mining room 1
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.2, -44, -135.9, 83, 610029997, "rp_zabrak_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "zabrak")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.1, -44, -138.7, 69, 610029997, "rp_gotal_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")	
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.2, -44.7, -141.1, -39, 610029997, "rp_nikto_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -12.9, -44, -141.0, 28, 610029997, "rp_chiss_male", "faction/hutt/trooper_swamp", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "chiss")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -2.9, -46.2, -152.1, -11, 610029997, "rp_twilek_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "twilek")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 3.2, -44.6, -137.4, -103, 610029997, "rp_human_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 28, -58.9, -163.5, 31, 610029997, "rp_nikto_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 71.4, -46.2, -127.6, -102, 610029997, "rp_nikto_male", "faction/hutt/trooper_swamp", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 53.7, -46.1, -116, -155, 610029997, "rp_weequay_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 44.9, -56.4, -187.3, -11, 610029997, "cll8_binary_load_lifter", "default", "droid", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
+
+
+
+
+	--Mining room 2
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 3, -63.4, -230.2, 98, 610029999, "rp_trandoshan_male", "slave", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "trandoshan")	
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -0.9, -63.6, -233.7, 102, 610029999, "rp_human_male", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")	
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -0.6, -64.6, -240.3, 85, 610029999, "rp_wookiee_female", "slave", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "wookiee")	
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -16.7, -63.4, -260, -179, 610029999, "human", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")	
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -21.9, -62.9, -261, -156, 610029999, "rp_twilek_female", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "twilek")	
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 0.8, -64.1, -208.1, -138, 610029999, "rp_human_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -22.6, -64.7, -209.2, 139, 610029999, "rp_zabrak_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "zabrak")	
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -9.2, -64.4, -223.1, 132, 610029999, "rp_human_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -19.8, -65.6, -242.9, 61, 610029999, "rp_nikto_male", "faction/hutt/trooper_swamp", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "chiss")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -19.7, -65.5, -245.1, 175, 610029999, "rp_weequay_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+
+
+
+	--Bottom room
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -85.9, -102.8, -128.3, -18, 610030000, "cll8_binary_load_lifter", "default", "droid", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -80.1, -100.6, -111.5, -79, 610030003, "rp_zabrak_male", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "zabrak")	
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.2, -44.7, -141.1, -39, 610030003, "rp_twilek_male", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "twilek")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -98.7, -100.2, -114.4, 19, 610030003, "rp_zabrak_female", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "zabrak")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -100.8, -100.8, -96.1, 107, 610030003, "rp_twilek_female", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "twilek")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -100.4, -99.9, -89.6, -18, 610030003, "rp_bothan_male", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "bothan")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -82.3, -99.4, -88.8, 8, 610030003, "rp_human_female", "slave", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -79.1, -99.1, -96.9, -117, 610030003, "rp_weequay_male", "faction/hutt/officer_intelligence", "bountyhunter", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -80.2, -99.4, -95.3, -103, 610030003, "gamorrean", "gamorrean", "soldier_strong", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -79.3, -99.4, -99.9, -118, 610030003, "gamorrean", "gamorrean", "soldier_strong", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -77.4, -100.1, -126.1, -86, 610030003, "rp_human_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -76.5, -99.5, -116.4, -106, 610030003, "rp_gotal_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -87.8, -98.9, -87.3, -177, 610030003, "rp_twilek_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "twilek")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -95.4, -99.6, -88.7, 164, 610030003, "rp_rodian_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -104, -99.6, -97.4, 76, 610030003, "rp_zabrak_male", "faction/hutt/trooper_swamp", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "zabrak")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -103.7, -98.6, -110, 102, 610030003, "rp_nikto_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
 
 	--[[
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1800.4, 112.2, 3244.8, -12, 0, "rp_human_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
@@ -127,24 +216,6 @@ function RpTatooineSlaveMineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Raphella Lees (a Camping Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
-
-	--Instrument Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 689.751, 0, 218.815, 89, 0, "rp_twilek_male", "xovros_hotel_receptionist", "default", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Nayosan Yi'frit (an Instrument Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "music")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
-
-	--Speeder Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 666.118, 0, 243.782, 118, 0, "rp_rodian_male", "vehicle_dealer_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Sprei Ikiki (a Speeder Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
-
-	--Mount Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 491.48, 0, 316.591, 192, 0, "rp_gotal_male", "vendor_mount", "default", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Pyvaln Rokk (a Mount Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "mount")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mounts_tatooine")
 	
 	--Cheap Stimpack Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 482.509, 0, 131.549, 330, 0, "rp_gran_male", "xovros_nurse", "default", "random", "rpg_shopkeeper")
@@ -157,12 +228,6 @@ function RpTatooineSlaveMineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Beebo (a Specialty Item Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
-	
-	--Junker Ship Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 575.455, 	0, 	316.082, 324, 0, "rp_sullustan_male", "sulon_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Nedd Tarunng (a Junker Ship Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
 	
 	--Armorsmith Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.78393, 	-0.378217, 	-5.28738, 	275, 	610008471, "rp_ithorian_male", "eisley_armorsmith_biemio_faom", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
@@ -182,90 +247,8 @@ function RpTatooineSlaveMineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
 
-	--Bartender of Chalmun's Cantina, Wuher
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 8.62285, 	-0.894992, 	0.447493, 	87, 	610008176, "wuher", "default", "default", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("Wuher")
 	
-	--Mandalorian Scout
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1199.24, 0, -63.3539, 131, 0, "rp_zabrak_male", "mando_vagabond", "default", "myok_scov", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Vagabond)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "mando_noob")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mando_noob")
-	
-	--Transmog Vendor
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 0.07613, 0.611579, -6.57677, 335, 610009373, "rp_human_male", "vendor_transmog", "default", "random", "rpg_shopkeeper")
-	--SceneObject(pNpc):setCustomObjectName("Dyutine Hukchar (a Disguise Vendor)")
-	--SceneObject(pNpc):setStoredString("vendor:theme", "transmog")
-	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
-	
-	--Junk Dealer
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.99394, -0.478888, 2.17333, 282, 610009017, "dressed_armorsmith_trainer_01", "default", "default", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Orek Flyn (a Junk Dealer)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "junkdealer")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_junkdealer")
-	
-	--Eisley Doctor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 454.824, 1.99121, 149.205, 241, 0, "rp_human_male", "eisley_doctor_rahar_mawolki", "default", "eisley_doctor_rahar_mawolki") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("Dr. Rahar Mawolki")
-	
-	--The Dockmaster, Orroko Pimeub
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1067.58, 0, 52.5186, 296, 0, "rp_gran_male", "eisley_dockmaster_orroko_pimeub", "default", "eisley_dockmaster_orroko_pimeub") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("Orroko Pimeub (a Dockmaster)")
-	
-	--Moqeni, the Major Domo for the Hutts of Eisley
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -7.4215, 3.07248, -20.522, 26, 610008299, "rp_smc_female", "eisley_majordomo_moqeni", "default", "eisley_majordomo_moqeni") --Equip, Skill, Customization
-	--SceneObject(pNpc):setCustomObjectName("Moqeni (a Majordomo)")
-	
-	--Eisley's Tailor, the Bith Doivo Cilea
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 4.13958, 0.408271, 0.354657, 197, 610008132, "rp_bith_female", "eisley_tailor_doivo_cilea", "default", "eisley_tailor_doivo_cilea", "rp_eisley_tailor") --Tailor
-	SceneObject(pNpc):setCustomObjectName("Doivo Cilea")
-	
-	--Backpack Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 958.619, 0, 134.246, 33, 0, "rp_human_male", "xovros_refugee_male9", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Fregg Cobbxor (a Backpack Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "backpacks")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_backpacks")
-	
-	--Luxury Vehicle Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 686.667, 0, 129.118, 83, 0, "rp_human_male", "tatooine_luxury_speeder_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Gregonory Dyljen (a Luxury Vehicle Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle_luxury")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles_luxury")
-	
-	--Silver Dawn Vendor
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1188.15, 0, 382.792, 311, 0, "rp_human_male", "lirril/silver_servant", "default", "random", "rpg_shopkeeper")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Vendor")
-	--SceneObject(pNpc):setStoredString("vendor:theme", "silver_dawn")
-	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_silver_dawn")
-	
-	--Full Ship Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6.4093, 0.40827, -8.98533, 0, 610009177, "rp_moncal_male", "eisley_dockmaster_orroko_pimeub", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Tiroir Ciouskar (a Ship Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "ship")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship")
-	
-	--Temporary Silver Dawn NPCs
-	--Temporary in that they need to be official faction NPCs tied to a base. But for now, this should make Lirril, Samari and Ykeer happy.
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 847.32, 0, 177.202, 196, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 816.409, 0.3, 316.096, 239, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 765.047, 2.0752, 270.323, 272, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 724.046, 0, 154.989, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 702.913, 0, 154.147, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1028.9, 0, 110.038, 319, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1036.26, -0.5, 117.469, 307, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1075.65, 0, 256.614, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1236.33, 0, 316.577, 179, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1243.52, 0, 373.891, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
+
 --]]
 
 end
