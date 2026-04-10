@@ -113,23 +113,27 @@ function RpTatooineSlaveMineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "human")	
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.2, -44.7, -141.1, -39, 610029997, "rp_nikto_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -12.9, -44, -141.0, 28, 610029997, "rp_chiss_male", "faction/hutt/trooper_swamp", "soldier", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -12.9, -44, -141.0, 28, 610029997, "rp_chiss_male", "faction/hutt/trooper_swamp", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "chiss")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -2.9, -46.2, -152.1, -11, 610029997, "rp_twilek_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -2.9, -46.2, -152.1, -11, 610029997, "rp_twilek_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "twilek")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 3.2, -44.6, -137.4, -103, 610029997, "rp_human_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 3.2, -44.6, -137.4, -103, 610029997, "rp_human_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 28, -58.9, -163.5, 31, 610029997, "rp_nikto_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 28, -58.9, -163.5, 31, 610029997, "rp_nikto_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 71.4, -46.2, -127.6, -102, 610029997, "rp_nikto_male", "faction/hutt/trooper_swamp", "soldier", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 71.4, -46.2, -127.6, -102, 610029997, "rp_nikto_male", "faction/hutt/trooper_swamp", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 53.7, -46.1, -116, -155, 610029997, "rp_weequay_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 53.7, -46.1, -116, -155, 610029997, "rp_weequay_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
 
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 44.9, -56.4, -187.3, -11, 610029997, "cll8_binary_load_lifter", "default", "droid", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 44.9, -56.4, -187.3, -11, 610029997, "cll8_binary_load_lifter", "default", "droid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -14.2, -44.8, -130.3, -95, 610029997, "eg6_power_droid", "default", "droid", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "eg6")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -5.5, -45.1, -138.1, -91, 610029997, "rp_human_female", "slave1", "civilian", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+
 
 
 
