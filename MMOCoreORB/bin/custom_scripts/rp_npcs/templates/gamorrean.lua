@@ -8,7 +8,7 @@ npc_template = {
     },
 
     skillTemplates = {
-        "thug",
+        "soldier",
     },
 
     equipmentTemplates = {

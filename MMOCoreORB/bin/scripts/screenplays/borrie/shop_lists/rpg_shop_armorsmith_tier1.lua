@@ -11,7 +11,7 @@ rpg_shop = {
 				{template = "object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_boots.iff", cost = 600, max = 10, chance = 100, overridePrice = true   },
 				{template = "object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_l.iff", cost = 600, max = 10, chance = 100, overridePrice = true   },
 				{template = "object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_r.iff", cost = 600, max = 10, chance = 100, overridePrice = true   },
-				{template = "object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_chest_plate.iff", cost = 600, max = 10, chance = 100, overridePrice = true   },
+				{template = "object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_chest_plate.iff", cost = 1200, max = 10, chance = 100, overridePrice = true   },
 				{template = "object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_gloves.iff", cost = 600, max = 10, chance = 100, overridePrice = true   },
 				{template = "object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_helmet.iff", cost = 600, max = 10, chance = 100, overridePrice = true   },
 				{template = "object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_leggings.iff", cost = 600, max = 10, chance = 100, overridePrice = true   },

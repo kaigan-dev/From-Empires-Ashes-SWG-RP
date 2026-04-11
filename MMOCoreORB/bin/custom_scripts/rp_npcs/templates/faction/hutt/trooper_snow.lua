@@ -1,7 +1,7 @@
 npc_template = {
 
 	randomName = "human",
-	title = "a Hutt thug",
+	title = "a thug",
 	baseTemplates = {
 		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female","rp_human_male","rp_human_male",
 		"rp_rodian_male", "rp_rodian_female","rp_rodian_male", "rp_rodian_female",
