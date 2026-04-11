@@ -44,9 +44,12 @@ public:
 			return;
 
 		WeaponObject* weapon = creature->getWeapon();
-		//Goodbye existing Weapon
-        weapon->destroyObjectFromWorld(true);
-		weapon->destroyObjectFromDatabase(true);
+		// Null check, then goodbye existing weapon
+        if (weapon.get() != nullptr && weapon != nullptr)
+		{
+			weapon->destroyObjectFromWorld(true);
+			weapon->destroyObjectFromDatabase(true);
+		}
 	}
 
 	static void ToggleAlwaysOnAI(CreatureObject* target, CreatureObject* commander) {
