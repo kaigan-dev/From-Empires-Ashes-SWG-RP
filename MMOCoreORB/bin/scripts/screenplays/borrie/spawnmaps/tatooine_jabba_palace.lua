@@ -93,7 +93,7 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 10.6, 0.2, 142.9, -9
 	setRandomCreatureName(pNpc, "rodian")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.8, 0.2, 143.4, 90, 610009469, "gamorrean", "gamorrean", "soldier_strong", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.8, 0.2, 143.4, 90, 610009469, "gamorrean", "gamorrean", "soldier_strong", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.8, 0.2, 141.3, 90, 610009469, "gamorrean", "gamorrean", "soldier_strong", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 
 
