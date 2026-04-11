@@ -43,31 +43,14 @@
 
 
 --Children folder includes
-includeFile("tangible/wearables/armor/bone/serverobjects.lua")
-includeFile("tangible/wearables/armor/bounty_hunter/serverobjects.lua")
-includeFile("tangible/wearables/armor/chitin/serverobjects.lua")
-includeFile("tangible/wearables/armor/composite/serverobjects.lua")
-includeFile("tangible/wearables/armor/ithorian_defender/serverobjects.lua")
-includeFile("tangible/wearables/armor/ithorian_guardian/serverobjects.lua")
-includeFile("tangible/wearables/armor/ithorian_sentinel/serverobjects.lua")
-includeFile("tangible/wearables/armor/kashyyykian_black_mtn/serverobjects.lua")
-includeFile("tangible/wearables/armor/kashyyykian_ceremonial/serverobjects.lua")
-includeFile("tangible/wearables/armor/kashyyykian_hunting/serverobjects.lua")
-includeFile("tangible/wearables/armor/mandalorian/serverobjects.lua")
-includeFile("tangible/wearables/armor/marauder/serverobjects.lua")
-includeFile("tangible/wearables/armor/marine/serverobjects.lua")
-includeFile("tangible/wearables/armor/nightsister/serverobjects.lua")
-includeFile("tangible/wearables/armor/padded/serverobjects.lua")
-includeFile("tangible/wearables/armor/ris/serverobjects.lua")
-includeFile("tangible/wearables/armor/singing_mountain_clan/serverobjects.lua")
-includeFile("tangible/wearables/armor/stormtrooper/serverobjects.lua")
-includeFile("tangible/wearables/armor/tantel/serverobjects.lua")
-includeFile("tangible/wearables/armor/ubese/serverobjects.lua")
-includeFile("tangible/wearables/armor/zam/serverobjects.lua")
-includeFile("tangible/wearables/armor/infiltrator/serverobjects.lua")
-
-includeFile("tangible/wearables/armor/mandalorian_beta/serverobjects.lua")
-
-includeFile("tangible/wearables/armor/roleplay/serverobjects.lua")
 
 -- Server Objects
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_bicep_l.lua")
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_bicep_r.lua")
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_boots.lua")
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_bracer_l.lua")
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_bracer_r.lua")
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_chest_plate.lua")
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_gloves.lua")
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_helmet.lua")
+includeFile("tangible/wearables/armor/infiltrator/armor_infiltrator_s02_leggings.lua")

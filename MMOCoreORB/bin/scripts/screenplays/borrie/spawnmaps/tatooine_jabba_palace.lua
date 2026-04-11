@@ -118,7 +118,7 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 4.6, 5.8, 62.6, 87, 
 
 
 --Kitchen - Come back to give this one a distinct look. Can we give a droid a chef hat?
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "default", "soldier_strong", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "default", "soldier_strong", "random") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Cookie")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -44.5, 3, 60, 176, 610009480, "21b_surgical_droid", "default", "droid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Klank")
@@ -168,9 +168,9 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -25.5, 3.6, 47.4, 92
 	setRandomCreatureName(pNpc, "human")	
 
 
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 29.1, -86, 610009490, "rp_rodiany_male", "bountyhunter", "bountyhunter", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 29.1, -86, 610009490, "rp_rodiany_male", "bountyhunter", "bountyhunter", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 27.3, -60, 610009490, "rp_twilek_male", "bountyhunter", "bountyhunter", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 27.3, -60, 610009490, "rp_twilek_male", "bountyhunter", "bountyhunter", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "twilek")
 
 
