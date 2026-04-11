@@ -191,7 +191,7 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 27.3, -60, 6
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.8, 2, 35.9, 94, 610009490, "rp_nikto_male", "faction/hutt/trooper_snow", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
 
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.7, 2, 44, 93, 610009490, "dancer", "dancer", "civilian", "default") --Equip, Skill, Customization
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.7, 2, 44, 93, 610009490, "dressed_dancer_trainer_twk_female_01", "default", "civilian", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
 
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 8.2, 2, 39.3, 4, 610009490, "rp_bothan_female", "slave1", "civilian", "random") --Equip, Skill, Customization
@@ -209,7 +209,7 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -30.1, 3, 58.2, -2, 
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -52.5, 3, 38.7, -92, 610009484, "rp_chiss_female", "faction/hutt/elite", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "chiss")	
 
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -42.1, 3, 38.6, 1, 610009489, "dancer", "dancer", "civilian", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -42.1, 3, 38.6, 1, 610009489, "dressed_dancer_trainer_human_female_02", "default", "civilian", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
 
 
