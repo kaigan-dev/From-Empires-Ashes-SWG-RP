@@ -25,21 +25,21 @@ function RpTatooineJabbaPalaceScreenPlay:start()
 		self:spawnMobiles()
 		self:spawnSceneObjects()
 		self:spawnCivilians()
-		self:spawnJunkPiles()
+		--self:spawnJunkPiles()
 	end
 end
 
 
-
+		--[[
 function RpTatooineJabbaPalaceScreenPlay:spawnJunkPiles() 
 	local spawnPoints = {
-		--[[
+
 		{542.818, 0, 210.997, 0, 1, 0, 0, 0},
-		--]]
+
 	}
 	RpJunkPile:spawnJunkPiles(self.planet, spawnPoints, true)
 end
-
+		--]]
 
 function RpTatooineJabbaPalaceScreenPlay:spawnCivilians() 
 	local waypointList = {
@@ -118,9 +118,9 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 4.6, 5.8, 62.6, 87, 
 
 
 --Kitchen - Come back to give this one a distinct look. Can we give a droid a chef hat?
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "default", "soldier_strong", "random") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "chefhat", "soldier_strong", "random") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Cookie")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -44.5, 3, 60, 176, 610009480, "21b_surgical_droid", "default", "droid", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -44.5, 3, 60, 176, 610009480, "21b_surgical_droid", "chefhat", "droid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Klank")
 
 
