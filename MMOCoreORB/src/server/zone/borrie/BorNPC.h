@@ -45,7 +45,7 @@ public:
 
 		WeaponObject* weapon = creature->getWeapon();
 		// Null check, then goodbye existing weapon
-        if (weapon.get() != nullptr && weapon != nullptr)
+        if (weapon != nullptr)
 		{
 			weapon->destroyObjectFromWorld(true);
 			weapon->destroyObjectFromDatabase(true);
