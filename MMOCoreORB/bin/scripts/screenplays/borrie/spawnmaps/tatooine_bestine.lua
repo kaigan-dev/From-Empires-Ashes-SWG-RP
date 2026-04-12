@@ -40,7 +40,7 @@ end
 function RpTatooineBestineScreenPlay:spawnCivilians() 
 	local waypointList = {
 		--{741.764, 0, 291.229, 178, 0,{"walker_market_shopper1"},"r5"},
-		-- NPC civilians at Bestine entrance
+		-- NPC civilians at Bestine entrance,
 		{879.7, 0, 6332.4, 100, 0, {"none"}},
 		{881.4, 0, 6331.8, 260, 0, {"social"}},
 	    {899.5, 0, 6363.1, 266, 0, {"tech"}},
@@ -51,13 +51,13 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{794.3, 0, 6331, 25, 0, {"none"}},
 		{855, 0, 6348.1, 5, 0, {"tech"}},
 		{856.8, 0, 6344.1, 5, 0, {"crouch"}},
-		--Theatre and govenors palace plaza civilians
+		--Theatre and govenors palace plaza civilians,
 		{737.4, 0.5, 6514.2, 170, 0, {"social"}},
 		{740, 0.5, 6513.7, 205, 0, {"none"}},
 		{737.2, 0.5, 6510.2, 1, 0, {"social"}},
 		{735.1, 0.5, 6511.1, 10, 0, {"social"}},
 		{733.6, 0.5, 6513, 42, 0, {"none"}},
-		{762.1, 0.5, 6485.1, 9, 0, {"none"}},
+		{762.9, 0.5, 6493.7, 9, 0, {"none"}},
 		{765.1, 0.5, 6498.2, 270, 0, {"social"}},
 		{762.1, 0.5, 6500.5, 159, 0, {"none"}},
 		{692.1, 1, 6489.6, 339, 0, {"social"}},
@@ -79,7 +79,7 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{637.7, 0, 6553.3, 310, 0, {"none"}},
 		{755.3, 0.5, 6587.2, 210, 0, {"none"}},
 		{753.9, 0.5, 6585.2, 33, 0, {"social"}},
-		-- palace-side cantina internal npcs
+		-- palace-side cantina internal npcs,
 		{4.2, -0.5, -1.7, 4, 610029524, {"drinker"}},
 		{2.3, -0.5, 6, 101, 610029524, {"None"}},
 		{-2.6, -0.5, -6.1, 350, 610029524, {"sittable"}},
@@ -87,7 +87,7 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{4.6, -0.5, -4.2, 37, 610029524, {"drinker"}},
 		{6.2, -0.5, -2.6, 210, 610029524, {"none"}},
 		{2.1, -0.5, 5.2, 88, 610029524, {"sittable"}},
-		-- Market street civilians
+		-- Market street civilians,
 		{543.5, 0, 6506.9, 36, 0, {"sit"}},
 		{547.3, 0, 6505.6, 305, 0, {"none"}},
 		{509, 0, 6584.4, 120, 0, {"none"}},
