@@ -51,7 +51,7 @@ function BorForceUtility:promptForcePointInput(pPlayer, powerName, screenplay, c
 	if (pGhost == nil) then
 		return
 	end
-
+ 
 	local forcePower = PlayerObject(pGhost):getForcePower()	
 	
 	local usableForcePower = math.floor(self:capMaximumAllowedForcePoints(pPlayer, forcePower))

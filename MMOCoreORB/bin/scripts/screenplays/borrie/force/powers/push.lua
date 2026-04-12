@@ -1,7 +1,7 @@
 BorForce_Push = {
 	name = "Force Push",
 	animationName = "force_push",
-	maxRange = 32
+	maxRange = 40
 }
 
 function BorForce_Push:showHelp(pPlayer)
@@ -99,7 +99,7 @@ function BorForce_Push:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	--Begin Force Code
-	
+		
 	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
 end
