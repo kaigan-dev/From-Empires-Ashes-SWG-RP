@@ -85,16 +85,8 @@ function BorForce_ReadMind:performAbility(pPlayer, fpi)
 		CreatureObject(pPlayer):sendSystemMessage("You don't have enough Force Power to commit " .. fpi .. " points.")
 		return
 	end
-	
-	--[[  Old DR logic.
-	if(tonumber(CreatureObject(pTarget):getSkillMod("rp_mindfulness")) > 6) then
-		CreatureObject(pPlayer):doAnimation("force_persuasion")			
-		broadcastMessageWithName(pPlayer, CreatureObject(pPlayer):getFirstName() .. " tried to read " .. CreatureObject(pTarget):getFirstName() .. "'s mind, but failed.")
-		PlayerObject(pGhost):setForcePower(forcePower - fpi)
-		return
-	end
-	--]]
-	
+
+	--Roll dice and announce the result
 	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_sense"))
 	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
@@ -114,8 +106,7 @@ function BorForce_ReadMind:performAbility(pPlayer, fpi)
 		broadcastMessageWithName(pPlayer, message)
 	end
 	if (forceTotal <= defenderTotal) then
-		message = message .. " They peer into " .. targetName .. "'s mind and see their true intentions. The next time " .. targetName 
-		message = message .. " uses a social skill against them, they can use the score of " .. forceTotal .. " instead of a composure or resolve roll."
+		message = message .. ". They fail to read " .. targetName .. "'s mind!"
 	
 		CreatureObject(pPlayer):doAnimation("force_persuasion")	
 		broadcastMessageWithName(pPlayer, message)
