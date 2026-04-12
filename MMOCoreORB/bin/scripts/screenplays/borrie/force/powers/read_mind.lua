@@ -97,11 +97,11 @@ function BorForce_ReadMind:performAbility(pPlayer, fpi)
 	
 	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_sense"))
-	local forceTotal = forceDieValue + skillValue +  fpi
+	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
 
-	local defenderDieValue = math.random(1, 20)
-	local defenderResolve = tonumber(CreatureObject(pTarget):getSkillMod("rp_resolve"))
-	local defenderTotal = defenderDieValue + defenderResolve
+	local defenderDieValue = math.floor(math.random(1, 20))
+	local defenderResolve = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_resolve")))
+	local defenderTotal = math.floor(defenderDieValue + defenderResolve)
 	
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi
 	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderResolve .. " = " .. defenderTotal
