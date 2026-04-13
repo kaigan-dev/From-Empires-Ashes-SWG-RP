@@ -1,12 +1,14 @@
 BorForce_Crush = {
 	name = "Force Crush",
 	animationName = "force_choke_1_particle_level_1",
-	maxRange = 16,
-	corruptionPoints = 2,
+	maxRange = 40,
+	--corruptionPoints = 1,
 }
 
 function BorForce_Crush:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage =  helpMessage .. "As a major action, roll Telekinesis + FPI vs Strength to lift one target within 40 meters off the ground, preventing them from performing actions, and dealing 1d3 + FPI damage per turn."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Crush:execute(pPlayer)
@@ -99,6 +101,34 @@ function BorForce_Crush:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_telekinesis"))
+	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
+	
+	local damageDie = math.floor(math.random(1,3))
+	local totalDamage = math.floor(damageDie + fpi)
+
+	local defenderDieValue = math.floor(math.random(1, 20))
+	local defenderStrength = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_strength")))
+	local defenderTotal = math.floor(defenderDieValue + defenderStrength)
+	
+	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi
+	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderStrength .. " = " .. defenderTotal
+	local targetName = CreatureObject(pTarget):getFirstName() 
+	
+	if(forceTotal > defenderTotal) then
+		message = message .. ". " .. targetName .. "is lifted off the ground and begins choking for " .. totalDamage " damage per turn!"
+	
+		CreatureObject(pPlayer):doAnimation("force_choke_1_particle_level_1")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+	if (forceTotal <= defenderTotal) then
+		message = message .. ". But they fail to affect " .. targetName .. "!"
+	
+		CreatureObject(pPlayer):doAnimation("force_choke_1_particle_level_1")	
+		broadcastMessageWithName(pPlayer, message)
+	end
 	
 	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	

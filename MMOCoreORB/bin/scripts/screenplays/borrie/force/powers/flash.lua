@@ -5,8 +5,7 @@ BorForce_Flash = {
 
 function BorForce_Flash:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Emits a bright light from your hand. Target must roll Awareness against a DC of your Control skill and <ForcePointInput>."
-	helpMessage =  helpMessage .. "Failure to do so means the target is blinded for 1d4 turns."
+	helpMessage =  helpMessage .. "As a major action, roll Control + FPI vs Composure. On a success, the target may not perform any action other than movement on their following turn."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -27,7 +26,7 @@ function BorForce_Flash:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("It's generally advised not to blind yourself. If you are looking for such an effect, please look at the sun.")
+		CreatureObject(pPlayer):sendSystemMessage("It's generally advised not to blind yourself.")
 		return
 	end
 	
@@ -96,35 +95,35 @@ function BorForce_Flash:performAbility(pPlayer, fpi)
 		return
 	end
 	
+	
+	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_control"))
-	local roll = math.floor(math.random(1,20))
-	local yourTotal = skillValue + roll + fpi
+	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
+
+	local defenderDieValue = math.floor(math.random(1, 20))
+	local defenderComposure = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_composure")))
+	local defenderTotal = math.floor(defenderDieValue + defenderComposure)
 	
-	local targetSkillValue = math.floor(CreatureObject(pTarget):getSkillMod("rp_resolve"))
-	local targetRoll = math.floor(math.random(1,20))
-	local theirTotal = targetSkillValue + targetRoll
-	
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi
+	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderComposure .. " = " .. defenderTotal
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
-	local rollString = " (1d20 = " .. roll .. " + " .. skillValue .. " + " .. fpi .. " = " .. yourTotal  .. " vs 1d20 = " .. targetRoll .. " + " .. targetSkillValue .. " = " .. theirTotal .. ")" 
+	if(forceTotal > defenderTotal) then
+		message = message .. ". They succesfully blind " .. targetName .. ", preventing them from taking non-move actions on their next turn!" 
 	
-	CreatureObject(pPlayer):doCombatAnimation(pPlayer, pTarget, "force_mind_blast_1_particle_level_1_light")
+		CreatureObject(pPlayer):doCombatAnimation(pPlayer, pTarget, "force_mind_blast_1_particle_level_1_light")
+		broadcastMessageWithName(pPlayer, message)
+	end
+	if (forceTotal <= defenderTotal) then
+		message = message .. ". But " .. targetName .. " is not distracted and may act normally!"
 	
-	if(yourTotal > theirTotal) then
-		local blindDuration = math.floor(math.random(1,4))
-		local blindCount = SceneObject(pTarget):getStoredInt("state_blind_duration")
-		SceneObject(pTarget):setStoredInt("state_blind_duration", blindDuration + blindCount)
-		message = message .. " From their palm, a flash of light shines out, and blinds " .. targetName .. " for " .. tonumber(blindDuration) .. " turns! "
-		CreatureObject(pTarget):setState(BLINDED)
-	else 
-		message = message.. " From their palm, a flash of light shines out, but " .. targetName .. " managed to look away just in time! "
+		CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
 	end
 	
-	message = message .. rollString
 
-	broadcastMessageWithName(pPlayer, message)
-	
+	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 	
 end

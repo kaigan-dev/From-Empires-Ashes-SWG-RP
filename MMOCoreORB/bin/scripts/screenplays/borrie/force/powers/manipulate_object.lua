@@ -4,7 +4,9 @@ BorForce_ManipulateObject = {
 }
 
 function BorForce_ManipulateObject:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage = helpMessage .. "As a major action, roll Sense + FPI vs Resolve to read the target's surface thoughts."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_ManipulateObject:execute(pPlayer)

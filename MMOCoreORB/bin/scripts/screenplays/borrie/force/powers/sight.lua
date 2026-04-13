@@ -4,7 +4,7 @@ BorForce_Sight = {
 
 function BorForce_Sight:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage = helpMessage .. "Anyone in stealth must make a stealth DC roll against target’s sense + FPI, otherwise they are pulled out of stealth."
+	helpMessage = helpMessage .. "As a minor action, roll Sense + FPI vs a variable DC to sense their surroundings."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 

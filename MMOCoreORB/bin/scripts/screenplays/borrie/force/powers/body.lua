@@ -4,7 +4,7 @@ BorForce_Body = {
 
 function BorForce_Body:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Roll against DC:10 Check (Inward Roll + 1d20) to heal your action pool for <ForcePointInput> * 2."
+	helpMessage =  helpMessage .. "As a major action, roll Inward vs DC 12 to cleanse your body of physical status effects such as toxins, bleeding, or stun. This may be performed even when stunned or otherwise unable to move. Once per day, recover Action pool equal to Force points spent."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -62,16 +62,20 @@ function BorForce_Body:performAbility(pPlayer, fpi)
 		return
 	end
 	
+	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_inward"))
-	local roll = math.floor(math.random(1,20))	
+	local forceTotal = math.floor(math.random(1,20) + skillValue)	
 		
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
-	if(skillValue + roll >= 10) then
-		message = message .. " They rejuvinate themselves for ".. fpi * 2 .." action points! (1d20 = " .. roll .. " + " .. skillValue .. " = " .. roll + skillValue .. " vs DC: 10)"
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal .. " vs DC 12."
+
+	if(forceTotal >= 12) then
+		message = message .. " They rejuvinate themselves, healing physical ailments! If they choose to use the once per day ability, they may also recover ".. fpi .." action points! (which the GM should provide manually)"
 		CreatureObject(pPlayer):playEffect(clientEffect, "")	
-		CreatureObject(pPlayer):setHAM(3, math.min(CreatureObject(pPlayer):getHAM(3) + fpi * 2, CreatureObject(pPlayer):getMaxHAM(3)))
+
+		--Disabling automatic recovery. Retain for re-use or reference if needed. Cagnaith 4/13/26
+		--CreatureObject(pPlayer):setHAM(3, math.min(CreatureObject(pPlayer):getHAM(3) + fpi * 2, CreatureObject(pPlayer):getMaxHAM(3)))
 	else 
-		message = message .. " Unfortunately, their focus is broken, and they fail to rejuvinate themselves. (1d20 = " .. roll .. " + " .. skillValue .. " = " .. roll + skillValue .. " vs DC: 10)"
+		message = message .. " Unfortunately, their focus is broken, and they fail to rejuvinate themselves."
 	end
 	
 	broadcastMessageWithName(pPlayer, message)

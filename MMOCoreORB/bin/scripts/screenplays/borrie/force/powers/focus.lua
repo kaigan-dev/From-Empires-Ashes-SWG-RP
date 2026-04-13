@@ -4,7 +4,9 @@ BorForce_Focus = {
 }
 
 function BorForce_Focus:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage = helpMessage .. "As a minor action, roll Inward vs DC 15 to add FPI as a bonus to your next attack or active skill roll."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Focus:execute(pPlayer)
@@ -58,7 +60,25 @@ function BorForce_Focus:performAbility(pPlayer, fpi)
 	end
 	
 	--Execute Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_inward"))
+	local forceTotal = math.floor(forceDieValue + skillValue)
 	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue  .. " = " .. forceTotal .. " vs DC 15"
+	local targetName = CreatureObject(pTarget):getFirstName() 
+	
+	if(forceTotal > 15) then
+		message = message .. ". They successfully hone their focus, gaining a bouns of " .. fpi .. " on their next active skill roll!" 
+	
+		CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+	if (forceTotal <= 15) then
+		message = message .. ". But they fail to focus!"
+	
+		CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
+	end
 	
 	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	

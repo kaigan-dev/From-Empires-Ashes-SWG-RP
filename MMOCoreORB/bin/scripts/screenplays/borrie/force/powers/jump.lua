@@ -4,9 +4,7 @@ BorForce_Jump = {
 
 function BorForce_Jump:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Jump to any location within a <Force Point Input> * 4 meter range. Removes any movement impairing effect."
-	helpMessage = helpMessage .. " If your landing location is not an immediately flat surface, such as jumping over a wall, you need to incorporate that distance into your jump's range."
-	helpMessage = helpMessage .. " If you do not, you take the meters fallen * 2 as health damage."
+	helpMessage =  helpMessage .. "As a minor action, roll Alter vs DC 10 to jump vertically or over a gap up to a distance of 3 times the FPI spent."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -62,16 +60,24 @@ function BorForce_Jump:performAbility(pPlayer, fpi)
 		return
 	end
 	
+
+	--Begin Force Code
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
+	local forceDieValue = math.floor(math.random(1,20))	
+	local forceTotal = math.floor(forceDieValue + skillValue)
 		
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
-	message = message .. " They can jump up to " .. fpi * 4 .. " meters! If their destination is not solid ground, they need to incorporate that into range, or take Distance * 2 fall damage!"
-	
-	broadcastMessageWithName(pPlayer, message)
-	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal .. " vs DC 10."
+
+	if(forceTotal >= 10) then
+		message = message .. " They perform an impossible leap of up to ".. fpi * 3 .." meters!"
+			local clientEffect = "clienteffect/pl_force_jump.cef"
+		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+		CreatureObject(pPlayer):doAnimation("jump")
+	else 
+		message = message .. " But their focus is broken and they fail to perform the leap."
+	end
+
+	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 	
-	local clientEffect = "clienteffect/pl_force_jump.cef"
-	CreatureObject(pPlayer):playEffect(clientEffect, "")	
-	CreatureObject(pPlayer):doAnimation("jump")
 end
