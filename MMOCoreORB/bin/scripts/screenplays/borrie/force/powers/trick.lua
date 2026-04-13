@@ -4,8 +4,7 @@ BorForce_Trick = {
 
 function BorForce_Trick:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "If the target's Mindfulness is less than 8, duel roll with Control against the target's resolve."
-	helpMessage =  helpMessage .. "Add input ForcePointInput to control check. If successful, any bluff, persuasion, or intimidation check is considered to be a nat 20."
+	helpMessage =  helpMessage .. "Roll Control + FPI vs DC 18. On a success, your current social roll against the target is considered to be a natural 20."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -28,7 +27,7 @@ function BorForce_Trick:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Sadly, you cannot use the Force to convince yourself to make what is probably a bad decision.")
+		CreatureObject(pPlayer):sendSystemMessage("You cannot target yourself with this ability.")
 		return
 	end
 		
@@ -88,39 +87,25 @@ function BorForce_Trick:performAbility(pPlayer, fpi)
 		return
 	end
 	
-	--[[ Remove exception
-	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") or tonumber(CreatureObject(pTarget):getSkillMod("rp_mindfulness")) > 7) then
-		CreatureObject(pPlayer):doAnimation("force_persuasion")			
-		broadcastMessageWithName(pPlayer, CreatureObject(pPlayer):getFirstName() .. " tried to mind trick " .. CreatureObject(pTarget):getFirstName() .. ", but ".. CreatureObject(pTarget):getFirstName() .." seems unaffected.")
-		PlayerObject(pGhost):setForcePower(forcePower - fpi)
-		return
-	end
-	--]]
 	
+	--Execute Force Code
+	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_control"))
-	local roll = math.floor(math.random(1,20))
-	local yourTotal = skillValue + roll + fpi
-	
-	local targetSkillValue = math.floor(CreatureObject(pTarget):getSkillMod("rp_resolve"))
-	local targetRoll = math.floor(math.random(1,20))
-	local theirTotal = targetSkillValue + targetRoll
-	
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
-	local targetName = CreatureObject(pTarget):getFirstName() 
-	
-	local rollString = " (1d20 = " .. roll .. " + " .. skillValue .. " + " .. fpi .. " = " .. yourTotal .. " vs 1d20 = " .. targetRoll .. " + " .. targetSkillValue .. " = " .. theirTotal .. ")" 
-	
-	if(yourTotal > theirTotal) then
-		message = message .. " For the very next social persuasion, bluff, or intimidation check against " .. targetName .. ", their roll will be considered a natural 20!"
+	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
+		
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " vs DC 18."
+
+	if(forceTotal >= 18) then
+		message = message .. " Their current social roll is considered a natural 20!"
+		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+
 	else 
-		message = message .. " However, " .. targetName .. " is able to resist " .. CreatureObject(pPlayer):getFirstName() .. "'s control."
+		message = message .. " But their focus is broken, and they fail to influence the target's mind."
 	end
 	
-	message = message .. rollString
-
-	CreatureObject(pPlayer):doAnimation("force_persuasion")	
 	broadcastMessageWithName(pPlayer, message)
 	
+	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 	
 end

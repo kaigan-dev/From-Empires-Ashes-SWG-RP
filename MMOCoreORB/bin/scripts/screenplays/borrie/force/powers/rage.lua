@@ -2,11 +2,13 @@ BorForce_Rage = {
 	name = "Force Rage",
 	animationName = "force_protection",
 	clientEffect = "clienteffect/pl_force_speed_self.cef",
-	corruptionPoints = 1,
+	--corruptionPoints = 1,
 }
 
 function BorForce_Rage:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage = helpMessage .. "As a minor action, roll Inward + vs DC 10 to add the FPI spent as a bonus to your next attack's damage. Additionally, roll Composure vs DC 10. On a failure, your next major action must be an attack against the nearest target regardless of whether they are friend or foe."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Rage:execute(pPlayer)
@@ -62,8 +64,37 @@ function BorForce_Rage:performAbility(pPlayer, fpi)
 	end
 	
 	--Execute Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_inward"))
+	local forceTotal = math.floor(forceDieValue + skillValue)
 	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue  .. " = " .. forceTotal .. " vs DC 10"
+	local targetName = CreatureObject(pTarget):getFirstName() 
 	
+	if(forceTotal > 10) then
+		message = message .. ". They successfully stoke their rage, gaining a bouns of " .. fpi .. " to the damage of their next next attack!" 
+		--CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
+	else
+		message = message .. ". But they fail to focus!"
+		--CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+
+	local composureDieValue = math.random(1, 20)
+	local composureValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_composure"))
+	local composureTotal = math.floor(forceDieValue + skillValue)
+			
+	if(composureTotal > 10) then
+		message = CreatureObject(pPlayer):getFirstName() .. " successfully harnesses their anger and may act freely (1d20: " .. composureDieValue .. " + " .. composureValue  .. " = " .. composureTotal .. " vs DC 10)!"
+		--CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
+	else
+		message = CreatureObject(pPlayer):getFirstName() .. " loses control of their anger and must use their next action to attack the closest target (1d20: " .. composureDieValue .. " + " .. composureValue  .. " = " .. composureTotal .. " vs DC 10)!"
+		--CreatureObject(pPlayer):doAnimation("force_persuasion")
+		broadcastMessageWithName(pPlayer, message)
+	end
+
 	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
 	

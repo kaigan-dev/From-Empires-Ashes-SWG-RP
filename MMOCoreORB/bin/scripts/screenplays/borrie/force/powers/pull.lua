@@ -1,11 +1,13 @@
 BorForce_Pull = {
 	name = "Force Pull",
 	animationName = "force_pull",
-	maxRange = 32
+	maxRange = 60
 }
 
 function BorForce_Pull:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage =  helpMessage .. "As a major action, roll Telepinesis + FPI vs Strength to pull one object or creature within 60 meters by a number of meters equal to 1/3 of the roll's result. Large or heavy objects may not move as far at GM discretion."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Pull:execute(pPlayer)
@@ -27,7 +29,7 @@ function BorForce_Pull:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability. Please do not pull yourself in public.")
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability.")
 		return
 	end
 	
@@ -99,7 +101,33 @@ function BorForce_Pull:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_telekinesis"))
+	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
+	local distanceMoved = math.floor(forceTotal / 3)
+
+	local defenderDieValue = math.floor(math.random(1, 20))
+	local defenderStrength = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_strength")))
+	local defenderTotal = math.floor(defenderDieValue + defenderStrength)
+
+	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi
+	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderStrength .. " = " .. defenderTotal
+	local targetName = CreatureObject(pTarget):getFirstName() 
+	
+	if(forceTotal > defenderTotal) then
+		message = message .. ". " .. targetName .. " is pulled " .. distanceMoved .. "meters towards them!"
+	
+		CreatureObject(pPlayer):doAnimation("force_choke_1_particle_level_1")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+	if (forceTotal <= defenderTotal) then
+		message = message .. ". But they fail to affect " .. targetName .. "!"
+	
+		CreatureObject(pPlayer):doAnimation("force_choke_1_particle_level_1")	
+		broadcastMessageWithName(pPlayer, message)
+	end
 	
 	--Drain Force Pool Accordingly.
-	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
+	PlayerObject(pGhost):setForcePower(forcePower - fpi)		
 end

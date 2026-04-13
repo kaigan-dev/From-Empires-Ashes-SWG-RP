@@ -26,7 +26,7 @@ function BorForce_Flash:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("It's generally advised not to blind yourself.")
+		CreatureObject(pPlayer):sendSystemMessage("You cannot target yourself with this ability.")
 		return
 	end
 	

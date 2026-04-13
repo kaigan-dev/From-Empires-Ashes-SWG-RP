@@ -62,9 +62,10 @@ function BorForce_Body:performAbility(pPlayer, fpi)
 		return
 	end
 	
+	--Begin Force Code
 	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_inward"))
-	local forceTotal = math.floor(math.random(1,20) + skillValue)	
+	local forceTotal = math.floor(forceDieValue + skillValue)	
 		
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal .. " vs DC 12."
 
@@ -80,5 +81,7 @@ function BorForce_Body:performAbility(pPlayer, fpi)
 	
 	broadcastMessageWithName(pPlayer, message)
 	
+
+	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
 end

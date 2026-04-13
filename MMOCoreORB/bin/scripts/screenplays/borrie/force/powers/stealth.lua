@@ -4,7 +4,7 @@ BorForce_Stealth = {
 
 function BorForce_Stealth:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Roll against DC:20 (Control + FPI + 1d20) to enter stealth immediately without regards of cover or line of sight. "
+	helpMessage =  helpMessage .. "As a minor action, roll Control + FPI vs DC 20. On a success you exit combat and become untargetable until the end of your next turn. The effect is broken by attacking or other significant actions."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -62,24 +62,25 @@ function BorForce_Stealth:performAbility(pPlayer, fpi)
 		return
 	end
 	
-	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_control"))
-	local roll = math.floor(math.random(1,20))	
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "! "
-	
-	if(roll + skillValue + fpi >= 20) then
-		message = message .. CreatureObject(pPlayer):getFirstName() .. " seemingly vanishes into thin air! They've instantly gone to stealth and cannot be spotted this round. Afterwards, base stealth rules apply. "
+	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
+	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
+		
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " vs DC 10."
+
+	if(forceTotal >= 20) then
+		message = message .. " They seem to vanish from the senses of those surrounding them, exiting combat and becoming untargetable until the end of their next turn!"
+
+		local clientEffect = "clienteffect/pl_force_speed_self.cef"
+		CreatureObject(pPlayer):playEffect(clientEffect, "")	
 	else 
-		message = message .. CreatureObject(pPlayer):getFirstName() .. " seems to fade briefly from view before shimmering back. They fail to hide themselves. "
+		message = message .. " But their focus is broken and they fail to vanish from the senses of those around them."
 	end
 	
-	local rollMessage = "(1d20: " .. roll .. " + " .. skillValue .. " + " .. fpi .. " = " .. roll + skillValue + fpi .. " vs DC: 20)"
-	
-	message = message .. rollMessage
-	
-	CreatureObject(pPlayer):doAnimation("force_illusion")	
-	CreatureObject(pPlayer):playEffect(clientEffect, "")	
-
 	broadcastMessageWithName(pPlayer, message)
 	
+
+	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
 end

@@ -4,8 +4,7 @@ BorForce_Speed = {
 
 function BorForce_Speed:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Allows you to move <Force Point Input> * 2 extra meters on your next move turn."
-	helpMessage = helpMessage .. " If you pass a DC 30 Check against your Alter skill with your FPI as a modifier, you can perform two major actions in your next turn."
+	helpMessage =  helpMessage .. "As a minor action, roll Alter vs DC 10. On a success you gain extra move distance for the rest of this turn equal to 3 times the FPI spent. You may then perform a free movement action."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -61,21 +60,28 @@ function BorForce_Speed:performAbility(pPlayer, fpi)
 		return
 	end
 	
+
+	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
-	local roll = math.floor(math.random(1,20))	
+	local forceTotal = math.floor(forceDieValue + skillValue)	
 		
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
-	message = message .. " They can go up to " .. fpi * 2 .. " extra meters on their next move action!"
-	if(skillValue + roll + fpi >= 30) then
-		message = message .. " or, they can perform two major actions the next turn! (1d20 = " .. roll .. " + " .. skillValue .. " + " .. fpi .. " = " .. roll + skillValue + fpi .. " vs DC: 30)"
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal .. " vs DC 10."
+
+	if(forceTotal >= 10) then
+		message = message .. " They move with a sudden burst of inhuman speed, gaining " .. fpi .. " extra meters of movement for the rest of the turn. They may also immediately perform a free move action."
+
+		local clientEffect = "clienteffect/pl_force_speed_self.cef"
+		CreatureObject(pPlayer):playEffect(clientEffect, "")	
 	else 
-		message = message .. " (1d20 = " .. roll .. " + " .. skillValue .. " + " .. fpi .. " = " .. roll + skillValue + fpi.. " vs DC: 30) (Bonus failed)"
+		message = message .. " But their focus is broken and they fail to achieve a burst of speed."
 	end
 	
 	broadcastMessageWithName(pPlayer, message)
 	
-	PlayerObject(pGhost):setForcePower(forcePower - fpi)
-	
-	local clientEffect = "clienteffect/pl_force_speed_self.cef"
-	CreatureObject(pPlayer):playEffect(clientEffect, "")	
+
+	--Drain Force Pool Accordingly.
+	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
+
+
 end

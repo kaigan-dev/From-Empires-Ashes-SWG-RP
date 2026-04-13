@@ -1,12 +1,14 @@
 BorForce_Storm = {
 	name = "Force Storm",
 	animationName = "force_lightning_1_arc_particle_level_3_medium",
-	maxRange = 16,
-	corruptionPoints = 2,
+	maxRange = 15,
+	--corruptionPoints = 2,
 }
 
 function BorForce_Storm:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage =  helpMessage .. "As a major action, roll Lightning vs DC 14 to call lightning from the sky or nearby electronics, dealing 1d8 + FPI electric damage to everyone within 15 meters of them, including themselves."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Storm:execute(pPlayer)
@@ -28,7 +30,7 @@ function BorForce_Storm:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability. Don't follow Palpatine's Footsteps")
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability.")
 		return
 	end
 	
@@ -100,7 +102,29 @@ function BorForce_Storm:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_lightning"))
+	local forceTotal = math.floor(forceDieValue + skillValue)
+	local dc = math.floor(14)
+	local damageDie = math.floor(math.random(1, 8))
+	local damageTotal = math.floor(damageDie + fpi)
+	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal .. " vs DC " .. dc
+	local targetName = CreatureObject(pTarget):getFirstName() 
+	
+	if(forceTotal > dc) then
+		message = message .. ". They succesfully call lightning forth from the environment, dealing 1d8 + " .. fpi .. " = " .. damageTotal .. " electric damage to themselves and everyone around them!"
+	
+		CreatureObject(pPlayer):doAnimation("force_lightning_1_particle_level_3")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+	if (forceTotal <= dc) then
+		message = message .. ". But they fail to call forth lightning!"
+	
+		CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
+	end
 	
 	--Drain Force Pool Accordingly.
-	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
+	PlayerObject(pGhost):setForcePower(forcePower - fpi)		
 end

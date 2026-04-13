@@ -29,7 +29,7 @@ function BorForce_Crush:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability. I know, you must be crushed.")
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability.")
 		return
 	end
 	

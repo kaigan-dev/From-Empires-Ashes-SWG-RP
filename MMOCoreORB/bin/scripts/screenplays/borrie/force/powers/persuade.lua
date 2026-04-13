@@ -1,14 +1,11 @@
 BorForce_Persuade = {
 	name = "Force Persuasion",
-	range = 64
+	range = 30
 }
 
 function BorForce_Persuade:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Gain a <ForcePointInput> (Max 20) bonus to persuasion, bluff, or intimidation checks. "
-	helpMessage =  helpMessage .. "Rolls a 1d20 DC check with the Control skill against the target’s Resolve skill. "
-	helpMessage =  helpMessage .. "Upon success, your next persuasion, bluff, or intimidation check will have the given Force Point Input as a bonus. "
-	helpMessage =  helpMessage .. "Does not work on other Force Sensitives."
+	helpMessage =  helpMessage .. "Roll Control + FPI vs DC 18, with a success allowing you to re-roll a failed social roll. This cannot be used on failed Force abilities or in combat."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -31,7 +28,7 @@ function BorForce_Persuade:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Sadly, you cannot use the Force to convince yourself to make what is probably a bad decision.")
+		CreatureObject(pPlayer):sendSystemMessage("You cannot target yourself with this ability.")
 		return
 	end
 	
@@ -100,30 +97,24 @@ function BorForce_Persuade:performAbility(pPlayer, fpi)
 		return
 	end
 	
+	--Execute Force Code
+	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_control"))
-	local roll = math.floor(math.random(1,20))
-	local yourTotal = skillValue + roll
-	
-	local targetSkillValue = math.floor(CreatureObject(pTarget):getSkillMod("rp_resolve"))
-	local targetRoll = math.floor(math.random(1,20))
-	local theirTotal = targetSkillValue + targetRoll
-	
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
-	local targetName = CreatureObject(pTarget):getFirstName() 
-	
-	local rollString = " (1d20 = " .. roll .. " + " .. skillValue .. " = " .. yourTotal .. " vs 1d20 = " .. targetRoll .. " + " .. targetSkillValue .. " = " .. theirTotal .. ")" 
-	
-	if(yourTotal > theirTotal) then
-		message = message .. " Their influence is felt, allowing them to add a " .. fpi .. " point bonus modifier to their next persuasion, intimidation, or bluff roll against " .. targetName .. "!"
+	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
+		
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " vs DC 18."
+
+	if(forceTotal >= 18) then
+		message = message .. " They may re-roll a failed social roll!"
+		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+
 	else 
-		message = message .. " However, " .. targetName .. " is unaffected by " .. CreatureObject(pPlayer):getFirstName() .. "'s empowered influence."
+		message = message .. " But their focus is broken, and they fail to influence the target's mind."
 	end
 	
-	message = message .. rollString
-
-	CreatureObject(pPlayer):doAnimation("force_persuasion")	
 	broadcastMessageWithName(pPlayer, message)
 	
+	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 	
 end

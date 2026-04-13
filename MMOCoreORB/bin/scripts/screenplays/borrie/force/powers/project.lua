@@ -4,7 +4,9 @@ BorForce_Project = {
 }
 
 function BorForce_Project:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage = helpMessage .. "As a major action, roll Alter + FPI vs DC 20 to create a visible projection which is representative of your character."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Project:execute(pPlayer)
@@ -60,9 +62,23 @@ function BorForce_Project:performAbility(pPlayer, fpi)
 	end
 	
 	--Execute Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
+	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
+		
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " vs DC 20."
+
+	if(forceTotal >= 20) then
+		message = message .. " They create a ghostly image!"
+		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+
+	else 
+		message = message .. " But their focus is broken, and they fail to make their image visisble."
+	end
 	
+	broadcastMessageWithName(pPlayer, message)
 	
 	--Drain Force Pool
-	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
+	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 	
 end

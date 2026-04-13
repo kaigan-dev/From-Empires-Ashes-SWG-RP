@@ -4,7 +4,7 @@ BorForce_Precognition = {
 
 function BorForce_Precognition:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage = helpMessage .. "Contextual to RP. Roll 1d20 + sense + FPI to potentially get a hint of the future from a DM, or get a prophecy.  "
+	helpMessage = helpMessage .. "As a major action, roll Sense + FPI vs a variable DC to receive a hint from the GM about a related future event."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -60,18 +60,18 @@ function BorForce_Precognition:performAbility(pPlayer, fpi)
 		return
 	end
 	
+
+	
+		--Execute Force Code
+	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_sense"))
-	local roll = math.floor(math.random(1,20))
-	local yourTotal = skillValue + fpi + roll
+	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
+		
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " in an attempt to peer into the future!"
+
+	broadcastMessageWithName(pPlayer, message)
 	
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
-	
-	message = message .. " They try to peer into the future, trying to get some hint as to what may come."
-	
-	local rollString = " (1d20 = " .. roll .. " + " .. skillValue .. " + " .. fpi .. " = " .. yourTotal .. ")" 
-	
-	broadcastMessageWithName(pPlayer, message .. rollString)
-	
+	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 	
 end

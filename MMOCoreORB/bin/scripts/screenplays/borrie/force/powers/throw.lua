@@ -1,11 +1,13 @@
 BorForce_Throw = {
 	name = "Force Throw",
 	animationName = "force_throw_1_particle_level_1_medium",
-	maxRange = 64
+	maxRange = 40
 }
 
 function BorForce_Throw:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage =  helpMessage .. "As a major action, roll Telekinesis + FPI vs the target's defensive reaction (if applicable) to throw a held weapon at a target within 40 meters. On a hit, you inflict the weapon's damage + 1/2 your Telekinesis skill, replacing the normal Strength or Lightsaber bonus damage."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Throw:execute(pPlayer)
@@ -27,7 +29,7 @@ function BorForce_Throw:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability. Don't throw yourself away.")
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability.")
 		return
 	end
 	
@@ -96,10 +98,26 @@ function BorForce_Throw:performAbility(pPlayer, fpi)
 		return
 	end
 	
-	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_telekinesis"))
+	local forceTotal = math.floor(forceDieValue + skillValue + fpi)
+	local bonusDamage = math.floor(skillValue / 2)
+
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi " = " .. forceTotal
+	local targetName = CreatureObject(pTarget):getFirstName() 
 	
+
+	if(forceTotal > 10) then
+		message = message .. ". They throw their weapon at " .. targetName .. ", guiding it with the Force! Have the defender manually roll their defensive reaction if applicable. On a failure, they take the weapon's base damage plus " .. bonusDamage .. "."
+	
+	else
+		message = message .. ". But they fail to control their weapon's movement and it merely falls to the ground."
+	end
+
+	broadcastMessageWithName(pPlayer, message)
+
 	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
 end

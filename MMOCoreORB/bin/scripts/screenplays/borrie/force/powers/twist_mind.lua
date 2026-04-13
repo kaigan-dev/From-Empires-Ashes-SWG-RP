@@ -2,11 +2,13 @@ BorForce_TwistMind = {
 	name = "Twist Mind",
 	animationName = "force_knockdown_1_arc_particle_level_1",
 	maxRange = 64,
-	corruptionPoints = 1,
+	--corruptionPoints = 1,
 }
 
 function BorForce_TwistMind:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage = helpMessage .. "As a major action, roll Control + FPI vs Resolve. After three successes, this bends an NPC to your will nearly irreversibly."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)	
 end
 
 function BorForce_TwistMind:execute(pPlayer)
@@ -97,10 +99,33 @@ function BorForce_TwistMind:performAbility(pPlayer, fpi)
 		return
 	end
 	
+	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_control"))
+	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
+
+	local defenderDieValue = math.floor(math.random(1, 20))
+	local defenderResolve = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_resolve")))
+	local defenderTotal = math.floor(defenderDieValue + defenderResolve)
+	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi
+	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderResolve .. " = " .. defenderTotal
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
-	--Begin Force Code
+	if(forceTotal > defenderTotal) then
+		message = message .. ". They break down " .. targetName .. "'s mental beariers, making progress on twisting " .. targetName .. " to their will." 
 	
+		CreatureObject(pPlayer):doAnimation("force_mind_blast_1_particle_level_1")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+	if (forceTotal <= defenderTotal) then
+		message = message .. ". But they fail to influence " .. targetName .. "'s mind!"
+	
+		CreatureObject(pPlayer):doAnimation("force_mind_blast_1_particle_level_1")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+
+
 	--Drain Force Pool Accordingly.
-	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
+	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 end

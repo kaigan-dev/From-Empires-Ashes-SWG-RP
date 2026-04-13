@@ -5,7 +5,7 @@ BorForce_ManipulateObject = {
 
 function BorForce_ManipulateObject:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage = helpMessage .. "As a major action, roll Sense + FPI vs Resolve to read the target's surface thoughts."
+	helpMessage = helpMessage .. "As a major action, roll Telekinesis + FPI vs DC 10 to move objects with size relative to the result of your roll."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -62,7 +62,34 @@ function BorForce_ManipulateObject:performAbility(pPlayer, fpi)
 	end
 	
 	--Execute Force Code
+		local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_telekinesis"))
+	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
+		
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " vs DC 12."
+
+	local objectSize = "small"
+
+	if (forceTotal >= 15) then
+		objectSize = "medium"
+	end
+	if (forceTotal >= 20) then
+		objectSize = "large"
+	end
+	if(forceTotal >= 25) then
+		objectSize = "huge"
+	end
+
+
+	if(forceTotal >= 10) then
+		message = message .. " They may successfully move the specified object of up to " .. objectSize .. " size."
+		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+
+	else 
+		message = message .. " But their focus is broken, and they fail to move the object."
+	end
 	
+	broadcastMessageWithName(pPlayer, message)
 	
 	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	

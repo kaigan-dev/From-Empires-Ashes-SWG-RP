@@ -62,6 +62,8 @@ function BorForce_Heal:performAbility(pPlayer, fpi)
 		return
 	end
 	
+
+	--Begin Force Code
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
 	local roll = math.floor(math.random(1,20))	
 		

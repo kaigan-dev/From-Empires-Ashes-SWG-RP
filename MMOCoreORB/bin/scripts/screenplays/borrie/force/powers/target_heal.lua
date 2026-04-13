@@ -1,11 +1,11 @@
 BorForce_TargetHeal = {
 	name = "Force Heal Other",
-	maxRange = 16
+	maxRange = 3
 }
 
 function BorForce_TargetHeal:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Heal target within 8 meters range with DC:15 (Alter Roll + 1d20) to heal their health pool for <ForcePointInput> * 2."
+	helpMessage =  helpMessage .. "As a major action, roll Alter vs DC 12 to heal the health pool of another person within 2 meters by 2 times the FPI spent."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
@@ -97,21 +97,25 @@ function BorForce_TargetHeal:performAbility(pPlayer, fpi)
 		return
 	end
 	
+
+	--Begin Force Code
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
 	local roll = math.floor(math.random(1,20))	
-	
+		
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
 	local targetName = CreatureObject(pTarget):getFirstName() 
-	if(skillValue + roll >= 15) then
-		message = message .. " They heal ".. targetName .." for ".. fpi * 2 .." health points! (1d20 = " .. roll .. " + " .. skillValue .. " = " .. roll + skillValue .. " vs DC: 15)"
-		CreatureObject(pPlayer):doCombatAnimation(pPlayer, pTarget, "force_healing_1")
-		CreatureObject(pTarget):setHAM(0, math.min(CreatureObject(pTarget):getHAM(0) + fpi * 2, CreatureObject(pTarget):getMaxHAM(0)))
+
+	if(skillValue + roll >= 12) then
+		message = message .. " They heal " .. targetName .. " for ".. fpi * 2 .." health points! (1d20 = " .. roll .. " + " .. skillValue .. " = " .. roll + skillValue .. " vs DC: 10)"
+		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+		CreatureObject(pPlayer):setHAM(0, math.min(CreatureObject(pPlayer):getHAM(0) + fpi * 2, CreatureObject(pPlayer):getMaxHAM(0)))
 	else 
-		message = message .. " Unfortunately, their focus is broken, and they fail to heal ".. targetName ..". (1d20 = " .. roll .. " + " .. skillValue .. " = " .. roll + skillValue .. " vs DC: 15)"
+		message = message .. " Unfortunately, their focus is broken, and they fail to heal " .. targetName .. ". (1d20 = " .. roll .. " + " .. skillValue .. " = " .. roll + skillValue .. " vs DC: 10)"
 	end
 	
 	broadcastMessageWithName(pPlayer, message)
 	
-	PlayerObject(pGhost):setForcePower(forcePower - fpi)
+	--Drain Force Pool Accordingly.
+	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
 	
 end

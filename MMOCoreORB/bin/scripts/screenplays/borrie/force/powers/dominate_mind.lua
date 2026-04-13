@@ -1,7 +1,7 @@
 BorForce_DominateMind = {
 	name = "Dominate Mind",
 	animationName = "force_mind_blast_1_particle_level_1",
-	maxRange = 64,
+	maxRange = 40,
 	--corruptionPoints = 1,
 }
 
@@ -31,7 +31,7 @@ function BorForce_DominateMind:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability. You are already the master of your domain.")
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability.")
 		return
 	end
 	

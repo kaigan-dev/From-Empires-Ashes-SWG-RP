@@ -65,8 +65,7 @@ function BorForce_Focus:performAbility(pPlayer, fpi)
 	local forceTotal = math.floor(forceDieValue + skillValue)
 	
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue  .. " = " .. forceTotal .. " vs DC 15"
-	local targetName = CreatureObject(pTarget):getFirstName() 
-	
+		
 	if(forceTotal > 15) then
 		message = message .. ". They successfully hone their focus, gaining a bouns of " .. fpi .. " on their next active skill roll!" 
 	

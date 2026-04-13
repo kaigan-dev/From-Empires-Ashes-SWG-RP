@@ -63,35 +63,17 @@ function BorForce_Sight:performAbility(pPlayer, fpi)
 		return
 	end
 	
+
+	--Execute Force Code
+	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_sense"))
-	local yourTotal = skillValue + fpi
-	
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
-			
-	if (pTarget == nil or not SceneObject(pTarget):isCreatureObject()) then
-		--Regular Force Sight
-		message = message .. " They look through the Force, to see that which the eyes cannot percieve, with a score of " .. yourTotal .. "."
-	else 
-		--Destealthing Force Sight
-		local targetName = CreatureObject(pTarget):getFirstName() 
-		local targetSkillValue = math.floor(CreatureObject(pTarget):getSkillMod("rp_stealth"))
-		local targetRoll = math.floor(math.random(1,20))
-		local theirTotal = targetSkillValue + targetRoll
+	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
 		
-		local rollString = " (1d20 = " .. skillValue .. " + " .. fpi .. " = " .. yourTotal .. " vs 1d20 = " .. targetRoll .. " + " .. targetSkillValue .. " = " .. theirTotal .. ")" 
-		
-		if(theirTotal < yourTotal) then
-			message = message .. " They look through the Force, and can clearly see " .. CreatureObject(pTarget):getFirstName() .. " regardless of whether or not they are in stealth."
-		else 
-			message = message .. " They look through the Force to try and see " .. CreatureObject(pTarget):getFirstName() .. ", but " .. CreatureObject(pTarget):getFirstName() .. " eludes them."
-		end
-		
-		message = message .. rollString
-	end
-	
-	CreatureObject(pPlayer):doAnimation("force_persuasion")	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " in an attempt to sense their surroundings."
+
 	broadcastMessageWithName(pPlayer, message)
 	
+	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 	
 end
