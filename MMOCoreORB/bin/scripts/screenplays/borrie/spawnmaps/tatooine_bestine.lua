@@ -151,8 +151,8 @@ end
 
 function RpTatooineBestineScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
-	--spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -11.7, 0.6, 51.7, 610029670, 1, 0, 0.5, 0) -doesnt rotate
-	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.2, 0.6, 49.9, 610029670, 1, 0, 0, 0)
+	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.7, 0.6, 50.1, 610030334, 1, 0, 0, 0) 
+	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.4, 0.6, 50.2, 610030356, 1, 0, 0, 0)
 	
 	
 	--Signs
@@ -370,15 +370,15 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 434.7, 0, 6651, 223, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 349.4, 0, 6656.5, 99, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 328, 0, 6756.6, 170, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 354.4, 0, 6654, 304, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 330.4, 0, 6764.3, 315, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 348.6, 0, 6656.3, 116, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 327.9, 0, 6764.3, 5, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 330.3, 0, 6722.2, 301, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 369.4, 0, 6706.2, 167, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 328, 0, 6724.4, 105, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 370.4, 0, 6703, 332, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 517.3, 0, 6778.9, 314, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
@@ -408,9 +408,9 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 35, 61.2, 6525.7, 354, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 305.9, 0, 6624.7, 156, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 342.3, 0, 6578.7, 127, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 306.3, 0, 6623.4, 256, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 343.9, 0, 6577.7, 316, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 523.6, 0, 6557.7, 303, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Bantha")
