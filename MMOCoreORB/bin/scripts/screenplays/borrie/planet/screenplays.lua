@@ -18,6 +18,8 @@ includeFile("borrie/planet/planets/bases/rori_rebel_outpost.lua")
 includeFile("borrie/planet/planets/bases/dathomir_prison.lua")
 includeFile("borrie/planet/planets/bases/nightsister_stronghold.lua")
 includeFile("borrie/planet/planets/bases/smc_enclave.lua")
+includeFile("borrie/planet/planets/bases/endor_imperial_landing.lua")
+includeFile("borrie/planet/planets/bases/endor_rebel_landing.lua")
 
 --Planets
 
@@ -30,6 +32,7 @@ includeFile("borrie/planet/planets/rp_sulon.lua")
 includeFile("borrie/planet/planets/rp_tatooine.lua")
 includeFile("borrie/planet/planets/rp_xovros6.lua")
 includeFile("borrie/planet/planets/rp_yavin4.lua")
+includeFile("borrie/planet/planets/rp_endor.lua")
 
 
 
