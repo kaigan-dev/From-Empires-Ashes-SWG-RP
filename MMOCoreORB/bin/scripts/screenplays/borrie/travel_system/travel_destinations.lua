@@ -8,7 +8,7 @@ travel_destinations = {
 		name = "Carida",
 		zone = "rp_carida",
 		destinations = {
-			{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
+			--{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
 		}
 	},
 
@@ -31,7 +31,7 @@ travel_destinations = {
 		name = "Dathomir",
 		zone = "rp_dathomir",
 		destinations = {
-			{"Chartered Flight LZ", "rp_dathomir", 1509, 127, 1492, 0},
+			--{"Chartered Flight LZ", "rp_dathomir", 1509, 127, 1492, 0},
 		}
 	
 	},
@@ -96,7 +96,7 @@ travel_destinations = {
 		name = "Yavin IV",
 		zone = "rp_yavin4",
 		destinations = {
-			{"Chartered Flight LZ", "rp_yavin4", 1501, 90, 1489, 0},
+			--{"Chartered Flight LZ", "rp_yavin4", 1501, 90, 1489, 0},
 		}
 	
 	},
@@ -106,7 +106,7 @@ travel_destinations = {
 		name = "Endor",
 		zone = "rp_endor",
 		destinations = {
-			{"Rebel Landing Zone", "rp_endor", 6060, 262, -2513, 0},
+			--{"Rebel Landing Zone", "rp_endor", 6060, 262, -2513, 0},
 		}
 	
 	},
