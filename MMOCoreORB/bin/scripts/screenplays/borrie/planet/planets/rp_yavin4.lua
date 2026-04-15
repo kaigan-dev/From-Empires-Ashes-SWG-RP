@@ -9,7 +9,7 @@ planet = {
 	
 	landing_points = {
 		--Tag, Name, Zone, x, z, y, angle, cell, shipVisible
-		{"yavin4_lz", "Yavin IV Primary Landing Zone", "rp_yavin4", 1504, 90, 1484, 0, true},
+		--{"yavin4_lz", "Yavin IV Primary Landing Zone", "rp_yavin4", 1504, 90, 1484, 0, true},
 	}	
 }
 

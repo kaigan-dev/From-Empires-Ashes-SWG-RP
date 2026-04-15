@@ -2,7 +2,7 @@
 
 travel_destinations = {
 
---[[
+
 	--Carida
 	{
 		name = "Carida",
@@ -11,7 +11,7 @@ travel_destinations = {
 			{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
 		}
 	},
-	--]]
+
 
 
 	--Dantooine
