@@ -2,7 +2,7 @@
 
 travel_destinations = {
 
-
+--[[
 	--Carida
 	{
 		name = "Carida",
@@ -11,6 +11,7 @@ travel_destinations = {
 			{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
 		}
 	},
+	--]]
 
 
 	--Dantooine
@@ -90,7 +91,15 @@ travel_destinations = {
 	
 	},
 
-
+	--Yavin IV
+	{ 
+		name = "Yavin IV",
+		zone = "rp_yavin4",
+		destinations = {
+			{"Chartered Flight LZ", "rp_yavin4", 1501, 90, 1489, 0},
+		}
+	
+	},
 
 	--Endor
 	{ 

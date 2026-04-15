@@ -11,7 +11,7 @@ planet = {
 	
 	landing_points = {
 		--Tag, Name, Zone, x, z, y, angle, cell, shipVisible
-		{"carida_academy", "Imperial Academy", "rp_carida", 8, 320, 2916, 0, 0, true},
+		--{"carida_academy", "Imperial Academy", "rp_carida", 8, 320, 2916, 0, 0, true},
 	}	
 }
 
