@@ -338,9 +338,87 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 883.5, 0, 6367.4, 190, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 947.3, 0, 6391.3, 212, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 946.5, 0, 6389.9, 336, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 944.3, 0, 6391.3, 38, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 702.1, 0, 6471.7, 44, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 704.1, 0, 6471.5, 343, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 594.9, 0, 6520.7, 302, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 592.5, 0, 6522, 115, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 581.1, 0, 6576, 346, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 580.2, 0, 6578.3, 155, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 579.9, 0, 6575.7, 53, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 582.6, 0, 6577.4, 244, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 513.4, 0, 6613.1, 314, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 510.2, 0, 6615.6, 124, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 435.5, 0, 6650.5, 222, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 436.6, 0, 6649.7, 221, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 434.7, 0, 6651, 223, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 349.4, 0, 6656.5, 99, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 354.4, 0, 6654, 304, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 348.6, 0, 6656.3, 116, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 330.3, 0, 6722.2, 301, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 328, 0, 6724.4, 105, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 517.3, 0, 6778.9, 314, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 518.8, 0, 6780.3, 243, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 569.5, 0, 6745.2, 16, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 565.5, 0, 6743.5, 51, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 571, 0, 6668.5, 159, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 571.5, 0, 6666.7, 357, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 573.3, 0, 6664.4, 285, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 573.1, 0, 6668.7, 292, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 573, 0, 6670.7, 228, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 772.8, 0, 6638, 127, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 774.9, 0, 6636.6, 304, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 35, 61.3, 6526.6, 254, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 32.9, 61.4, 6526.1, 54, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 35, 61.2, 6525.7, 354, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 305.9, 0, 6624.7, 156, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 306.3, 0, 6623.4, 256, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 523.6, 0, 6557.7, 303, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Bantha")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 871.3, 0, 6374.2, 195, 0, "ronto", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Ronto")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 636.4, 0, 6502.7, 275, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Dewback")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 331.7, 0, 6636.2, 120, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Dewback")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 851.1, 0, 6464.9, 220, 0, "wed_treadwell", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "wed")
@@ -352,13 +430,27 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Nuna")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 807.5, 0.8, 6415.9, 75, 0, "r5", "default", "default", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "r5")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 2.2, 0.3, 5.6, 144, 610029899, "r5", "default", "default", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "r5")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 909.7, 0, 6400.7, 270, 0, "eg6_power_droid", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "eg6")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 794.7, 0.2, 6340.5, 280, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 793.1, 0, 6326.7, 128, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 796.5, 0, 6320.3, 168, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 801.2, 0, 6319, 220, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 785.7, 0, 6320.6, 240, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 785.6, 0, 6321.1, 225, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 791.4, 3.4, 6399.6, 10, 0, "le_repair_droid", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "le")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 4.1, -0.5, 1.8, 280, 610029524, "3po_protocol_droid_red", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "3po") --palace cantina bar droid
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 501.5, 0, 6746.2, 323, 0, "3po_protocol_droid_silver", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "3po")
 	-- Bestine imp garrison
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 819.2, 0, 6452.2, 171, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
