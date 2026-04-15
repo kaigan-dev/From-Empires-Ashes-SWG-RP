@@ -22,7 +22,7 @@ rpg_shop_general = {
 			}
 		},
 		{
-			name = "Boardable Ship",
+			name = "Boardable Ship (NOT CURRENTLY SPAWNABLE)",
 			minItems = 2,
 			items = {
 				{template = "object/tangible/deed/rp_ship_deed/rp_yt1300_deed.iff", cost = 25000, max = 10, chance = 100 , overridePrice = true},
