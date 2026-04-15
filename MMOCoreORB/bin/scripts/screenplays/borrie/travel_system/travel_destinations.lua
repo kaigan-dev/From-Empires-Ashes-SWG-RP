@@ -2,16 +2,9 @@
 
 travel_destinations = {
 
-	--[[
-	--Carida
-	{
-		name = "Carida",
-		zone = "rp_carida",
-		destinations = {
-			{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
-		}
-	},
-	--]]
+
+
+
 
 	--Dantooine
 	{ 
@@ -24,7 +17,7 @@ travel_destinations = {
 	},
 	
 	
-	--[[
+
 	--Dathomir
 	{ 
 		name = "Dathomir",
@@ -34,7 +27,7 @@ travel_destinations = {
 		}
 	
 	},
-	--]]
+
 	
 	--Deep Space
 	{ 
@@ -79,7 +72,7 @@ travel_destinations = {
 		}	
 	},
 	
-	--[[
+--[[
 	--Xovros VI
 	{ 
 		name = "Xovros VI",
@@ -89,10 +82,7 @@ travel_destinations = {
 		}
 	
 	},
-	--]]
-	
-
-	--[[
+--]]
 	--Yavin IV
 	{ 
 		name = "Yavin IV",
@@ -102,5 +92,5 @@ travel_destinations = {
 		}
 	
 	},
-	--]]
+
 }
