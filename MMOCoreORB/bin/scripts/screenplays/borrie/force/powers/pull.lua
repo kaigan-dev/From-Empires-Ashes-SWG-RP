@@ -116,7 +116,7 @@ function BorForce_Pull:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	if(forceTotal > defenderTotal) then
-		message = message .. ". " .. targetName .. " is pulled " .. distanceMoved .. "meters towards them!"
+		message = message .. ". " .. targetName .. " is pulled " .. distanceMoved .. " meters towards them!"
 	
 		CreatureObject(pPlayer):doAnimation("force_choke_1_particle_level_1")	
 		broadcastMessageWithName(pPlayer, message)

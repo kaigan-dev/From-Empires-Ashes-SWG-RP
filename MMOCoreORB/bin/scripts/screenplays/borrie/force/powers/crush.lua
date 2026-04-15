@@ -118,7 +118,7 @@ function BorForce_Crush:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	if(forceTotal > defenderTotal) then
-		message = message .. ". " .. targetName .. "is lifted off the ground and begins choking for " .. totalDamage " damage per turn!"
+		message = message .. ". " .. targetName .. "is lifted off the ground and begins choking for " .. totalDamage .. " damage per turn!"
 	
 		CreatureObject(pPlayer):doAnimation("force_choke_1_particle_level_1")	
 		broadcastMessageWithName(pPlayer, message)

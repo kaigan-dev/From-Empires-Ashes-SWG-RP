@@ -67,7 +67,7 @@ function BorForce_Stealth:performAbility(pPlayer, fpi)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
 	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
 		
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " vs DC 10."
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal .. " vs DC 20."
 
 	if(forceTotal >= 20) then
 		message = message .. " They seem to vanish from the senses of those surrounding them, exiting combat and becoming untargetable until the end of their next turn!"

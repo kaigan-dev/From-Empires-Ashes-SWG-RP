@@ -97,7 +97,7 @@ function BorForce_Trick:performAbility(pPlayer, fpi)
 
 	if(forceTotal >= 18) then
 		message = message .. " Their current social roll is considered a natural 20!"
-		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+		--CreatureObject(pPlayer):playEffect(clientEffect, "")	
 
 	else 
 		message = message .. " But their focus is broken, and they fail to influence the target's mind."

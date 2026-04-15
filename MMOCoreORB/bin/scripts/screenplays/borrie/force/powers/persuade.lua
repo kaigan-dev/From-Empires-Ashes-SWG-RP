@@ -79,7 +79,7 @@ function BorForce_Persuade:performAbility(pPlayer, fpi)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Sadly, you cannot use the Force to convince yourself to make what is probably a bad decision.")
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability.")
 		return
 	end
 	
@@ -106,7 +106,7 @@ function BorForce_Persuade:performAbility(pPlayer, fpi)
 
 	if(forceTotal >= 18) then
 		message = message .. " They may re-roll a failed social roll!"
-		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+		--CreatureObject(pPlayer):playEffect(clientEffect, "")	
 
 	else 
 		message = message .. " But their focus is broken, and they fail to influence the target's mind."

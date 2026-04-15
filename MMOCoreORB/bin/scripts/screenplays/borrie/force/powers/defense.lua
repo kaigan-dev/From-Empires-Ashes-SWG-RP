@@ -45,6 +45,9 @@ function BorForce_Defense:onFPICallback(pPlayer, pSui, eventIndex, remaining, sp
 end
 
 function BorForce_Defense:performAbility(pPlayer, fpi)
+	
+	CreatureObject(pPlayer):sendSystemMessage("Use the /rpsetstance menu to enable the Lightsaber Deflect defensive reaction.")
+	--[[
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 	if (pGhost == nil) then
@@ -65,5 +68,6 @@ function BorForce_Defense:performAbility(pPlayer, fpi)
 	
 	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
-	
+	--]]
+
 end

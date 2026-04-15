@@ -106,7 +106,7 @@ function BorForce_DominateMind:performAbility(pPlayer, fpi)
 	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_control"))
 	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
-	local actionCount = math.floor(math.min(1, forceTotal / 10))
+	local actionCount = math.floor(math.max(1, forceTotal / 10))
 
 	local defenderDieValue = math.floor(math.random(1, 20))
 	local defenderResolve = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_resolve")))
@@ -116,19 +116,19 @@ function BorForce_DominateMind:performAbility(pPlayer, fpi)
 	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderResolve .. " = " .. defenderTotal
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
-	if(forceTotal > defenderTotal) then
-		message = message .. ". They succesfully take control of " .. targetName .. " and may determine their next " .. actionCount .. " actions!" 
-	
-		CreatureObject(pPlayer):doAnimation("force_mind_blast_1_particle_level_1")	
-		broadcastMessageWithName(pPlayer, message)
-	end
-	if (forceTotal <= defenderTotal) then
-		message = message .. ". But they fail to take control of " .. targetName .. "'s mind!"
-	
-		CreatureObject(pPlayer):doAnimation("force_mind_blast_1_particle_level_1")	
-		broadcastMessageWithName(pPlayer, message)
+	if(forceTotal > 10) then
+		if(forceTotal > defenderTotal) then
+			message = message .. ". They succesfully take control of " .. targetName .. " and may determine their next " .. actionCount .. " actions!" 
+		end
+		if (forceTotal <= defenderTotal) then
+			message = message .. ". But they fail to take control of " .. targetName .. "'s mind!"
+		end
+	else 
+		message = message .. ". But their concentration is broken!"
 	end
 
+	CreatureObject(pPlayer):doAnimation("force_mind_blast_1_particle_level_1")	
+	broadcastMessageWithName(pPlayer, message)
 
 	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	

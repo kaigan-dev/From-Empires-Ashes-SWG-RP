@@ -69,8 +69,7 @@ function BorForce_Rage:performAbility(pPlayer, fpi)
 	local forceTotal = math.floor(forceDieValue + skillValue)
 	
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue  .. " = " .. forceTotal .. " vs DC 10"
-	local targetName = CreatureObject(pTarget):getFirstName() 
-	
+		
 	if(forceTotal > 10) then
 		message = message .. ". They successfully stoke their rage, gaining a bouns of " .. fpi .. " to the damage of their next next attack!" 
 		--CreatureObject(pPlayer):doAnimation("force_persuasion")	

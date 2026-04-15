@@ -110,9 +110,9 @@ function BorForce_Shock:performAbility(pPlayer, fpi)
 
 	local defenderDieValue = math.floor(math.random(1, 20))
 	local defenderCon = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_constitution")))
-	local defenderTotal = math.floor(defenderDieValue + defenderConstitution)
+	local defenderTotal = math.floor(defenderDieValue + defenderCon)
 	
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal .. " vs DC " .. dc
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 
@@ -120,12 +120,12 @@ function BorForce_Shock:performAbility(pPlayer, fpi)
 		message = message .. ". They succesfully zap " .. targetName .. ", dealing 1d8 = " .. damageTotal .. " electric damage. "
 	
 		if(forceTotal > defenderTotal) then
-			message = message .. targetName .. " is stunned and loses their next action!"
+			message = message .. targetName .. " fails to resist the shock (1d20: " .. defenderDieValue .. " + " .. defenderCon .. " = " .. defenderTotal .. ") and is stunned and loses their next action!"
 	
 			CreatureObject(pPlayer):doAnimation("force_lightning_1_particle_level_1_medium")	
 
 		else
-			message = message .. targetName .. " braces against the blast and is not stunned!"
+			message = message .. targetName .. " successfully braces to resist the shock (1d20: " .. defenderDieValue .. " + " .. defenderCon .. " = " .. defenderTotal .. ") and is not stunned!"
 			CreatureObject(pPlayer):doAnimation("force_lightning_1_particle_level_1_medium")	
 			
 		end

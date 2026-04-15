@@ -62,7 +62,7 @@ function BorForce_ManipulateObject:performAbility(pPlayer, fpi)
 	end
 	
 	--Execute Force Code
-		local forceDieValue = math.random(1, 20)
+	local forceDieValue = math.floor(math.random(1, 20))
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_telekinesis"))
 	local forceTotal = math.floor(forceDieValue + skillValue + fpi)	
 		
@@ -83,7 +83,7 @@ function BorForce_ManipulateObject:performAbility(pPlayer, fpi)
 
 	if(forceTotal >= 10) then
 		message = message .. " They may successfully move the specified object of up to " .. objectSize .. " size."
-		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+		--CreatureObject(pPlayer):playEffect(clientEffect, "")	
 
 	else 
 		message = message .. " But their focus is broken, and they fail to move the object."

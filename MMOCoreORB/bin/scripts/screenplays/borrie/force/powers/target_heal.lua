@@ -107,7 +107,7 @@ function BorForce_TargetHeal:performAbility(pPlayer, fpi)
 
 	if(skillValue + roll >= 12) then
 		message = message .. " They heal " .. targetName .. " for ".. fpi * 2 .." health points! (1d20 = " .. roll .. " + " .. skillValue .. " = " .. roll + skillValue .. " vs DC: 10)"
-		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+		--CreatureObject(pPlayer):playEffect(clientEffect, "")	
 		CreatureObject(pPlayer):setHAM(0, math.min(CreatureObject(pPlayer):getHAM(0) + fpi * 2, CreatureObject(pPlayer):getMaxHAM(0)))
 	else 
 		message = message .. " Unfortunately, their focus is broken, and they fail to heal " .. targetName .. ". (1d20 = " .. roll .. " + " .. skillValue .. " = " .. roll + skillValue .. " vs DC: 10)"

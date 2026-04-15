@@ -114,7 +114,7 @@ function BorForce_Lightning:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	if(forceTotal > dc) then
-		message = message .. ". They succesfully blast " .. targetName .. " with lightning, dealing 1d8 + " .. fpi " = " .. damageTotal .. " electric damage!"
+		message = message .. ". They succesfully blast " .. targetName .. " with lightning, dealing 1d8 + " .. fpi .. " = " .. damageTotal .. " electric damage!"
 	
 		CreatureObject(pPlayer):doAnimation("force_lightning_1_particle_level_3")	
 		broadcastMessageWithName(pPlayer, message)

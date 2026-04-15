@@ -70,7 +70,7 @@ function BorForce_Project:performAbility(pPlayer, fpi)
 
 	if(forceTotal >= 20) then
 		message = message .. " They create a ghostly image!"
-		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+		--CreatureObject(pPlayer):playEffect(clientEffect, "")	
 
 	else 
 		message = message .. " But their focus is broken, and they fail to make their image visisble."

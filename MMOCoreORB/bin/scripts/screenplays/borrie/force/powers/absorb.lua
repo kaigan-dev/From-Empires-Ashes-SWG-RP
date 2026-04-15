@@ -1,5 +1,5 @@
 BorForce_Absorb = {
-	
+		name = "Force Abrosb",
 }
 
 function BorForce_Absorb:showHelp(pPlayer)
@@ -9,5 +9,5 @@ function BorForce_Absorb:showHelp(pPlayer)
 end
 
 function BorForce_Absorb:execute(pPlayer)
-	
+	CreatureObject(pPlayer):sendSystemMessage("Use the /rpsetstance menu to enable the Absorb defensive reaction.")
 end

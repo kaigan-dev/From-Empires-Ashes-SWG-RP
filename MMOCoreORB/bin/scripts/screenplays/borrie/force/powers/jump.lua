@@ -65,13 +65,14 @@ function BorForce_Jump:performAbility(pPlayer, fpi)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
 	local forceDieValue = math.floor(math.random(1,20))	
 	local forceTotal = math.floor(forceDieValue + skillValue)
+	local distanceJumped = math.floor(fpi * 3)
 		
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal .. " vs DC 10."
 
 	if(forceTotal >= 10) then
-		message = message .. " They perform an impossible leap of up to ".. fpi * 3 .." meters!"
-			local clientEffect = "clienteffect/pl_force_jump.cef"
-		CreatureObject(pPlayer):playEffect(clientEffect, "")	
+		message = message .. " They perform an impossible leap of up to ".. distanceJumped .." meters!"
+		--local clientEffect = "clienteffect/pl_force_jump.cef"
+		--CreatureObject(pPlayer):playEffect(clientEffect, "")	
 		CreatureObject(pPlayer):doAnimation("jump")
 	else 
 		message = message .. " But their focus is broken and they fail to perform the leap."

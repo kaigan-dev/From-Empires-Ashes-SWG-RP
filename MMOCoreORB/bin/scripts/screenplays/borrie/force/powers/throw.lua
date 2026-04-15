@@ -105,7 +105,7 @@ function BorForce_Throw:performAbility(pPlayer, fpi)
 	local forceTotal = math.floor(forceDieValue + skillValue + fpi)
 	local bonusDamage = math.floor(skillValue / 2)
 
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi " = " .. forceTotal
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi .. " = " .. forceTotal
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 

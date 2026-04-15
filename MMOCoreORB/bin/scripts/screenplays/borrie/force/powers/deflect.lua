@@ -1,5 +1,5 @@
 BorForce_Deflect = {
-	
+		name = "Force Deflect",
 }
 
 function BorForce_Deflect:showHelp(pPlayer)
@@ -9,5 +9,5 @@ function BorForce_Deflect:showHelp(pPlayer)
 end
 
 function BorForce_Deflect:execute(pPlayer)
-	
+	CreatureObject(pPlayer):sendSystemMessage("Use the /rpsetstance menu to enable the telekinetic Deflect defensive reaction.")
 end
