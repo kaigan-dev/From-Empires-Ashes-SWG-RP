@@ -17,6 +17,7 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_leggings.iff", },
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_gloves.iff", },
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_helmet.iff", },
+	{"object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_boots.iff",},
 
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_chest_plate_pad.iff", },
 
@@ -28,6 +29,7 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_leggings_gcw.iff", },
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_gloves_gcw.iff", },
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_helmet_gcw.iff", },
+	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_boots_gcw.iff", },
 
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_bicep_camo_l.iff", },
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_bicep_camo_r.iff", },
@@ -37,4 +39,5 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_leggings_camo.iff", },
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_gloves_camo.iff", },
 	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_helmet_camo.iff", },	
+	{"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_boots_camo.iff", },	
 }
