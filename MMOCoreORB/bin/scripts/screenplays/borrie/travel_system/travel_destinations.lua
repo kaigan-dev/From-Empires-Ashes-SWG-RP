@@ -90,15 +90,7 @@ travel_destinations = {
 	
 	},
 
-	--Yavin IV
-	{ 
-		name = "Yavin IV",
-		zone = "rp_yavin4",
-		destinations = {
-			{"Chartered Flight LZ", "rp_yavin4", 1501, 90, 1489, 0},
-		}
-	
-	},
+
 
 	--Endor
 	{ 
