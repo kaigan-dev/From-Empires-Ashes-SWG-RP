@@ -809,7 +809,11 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	
+	-- Imperial garrison 
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 819.2, 0, 6452.2, 171, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 830.3, 0, 6446.4, 216, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
 
 	-- Tutorial NPCs--
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6, -4, -7.1, -11, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_tutorial")

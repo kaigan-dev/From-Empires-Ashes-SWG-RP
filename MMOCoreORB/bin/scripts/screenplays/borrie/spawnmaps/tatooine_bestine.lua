@@ -360,6 +360,8 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "le")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 4.1, -0.5, 1.8, 280, 610029524, "3po_protocol_droid_red", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "3po")
+	-- Bestine imp garrison
+	
 
 
 	-- Tutorial NPCs removed, copy/paste from other repositories needed agains--
