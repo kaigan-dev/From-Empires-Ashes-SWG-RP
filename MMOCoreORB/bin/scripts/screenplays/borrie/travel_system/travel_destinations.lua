@@ -3,7 +3,14 @@
 travel_destinations = {
 
 
-
+	--Carida
+	{
+		name = "Carida",
+		zone = "rp_carida",
+		destinations = {
+			{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
+		}
+	},
 
 
 	--Dantooine
@@ -89,6 +96,16 @@ travel_destinations = {
 		zone = "rp_yavin4",
 		destinations = {
 			{"Chartered Flight LZ", "rp_yavin4", 1501, 90, 1489, 0},
+		}
+	
+	},
+
+	--Endor
+	{ 
+		name = "Endor",
+		zone = "rp_endor",
+		destinations = {
+			{"Rebel Landing Zone", "rp_endor", 6060, 262, -2513, 0},
 		}
 	
 	},

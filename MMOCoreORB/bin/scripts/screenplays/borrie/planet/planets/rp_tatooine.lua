@@ -20,8 +20,8 @@ planet = {
 		{"eisley_outskirts_west", "Mos Eisley Outskirts, West", "rp_tatooine", 100, 0, 500, -45, 0, true},
 		{"eisley_outskirts_east", "Mos Eisley Outskirts, East", "rp_tatooine", 1535, 0, -200, -45, 0, true},
 		{"jabbas_palace", "Hutt Palace", "rp_tatooine", 3399, 50, -6817, -90, 0, true},
-		{"sarlacc_pit", "Sarlacc Pit", "rp_tatooine", 6126, 20, -3783, -90, 0, true},
-		{"jundland_wastes", "Jundland Waste", "rp_tatooine", -4400, 0, -70, -90, 0, true},
+		--{"sarlacc_pit", "Sarlacc Pit", "rp_tatooine", 6126, 20, -3783, -90, 0, true},
+		--{"jundland_wastes", "Jundland Waste", "rp_tatooine", -4400, 0, -70, -90, 0, true},
 	}	
 }
 

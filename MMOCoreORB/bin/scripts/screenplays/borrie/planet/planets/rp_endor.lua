@@ -10,7 +10,7 @@ planet = {
 	
 	landing_points = {
 		--Tag, Name, Zone, x, z, y, angle, cell, shipVisible
-		{"endor_imperial_landing", "Imperial Landing Point", "rp_endor", 3201, 24, -3485, 0, 0, true},
+		--{"endor_imperial_landing", "Imperial Landing Point", "rp_endor", 3201, 24, -3485, 0, 0, true},
 		{"endor_rebel_landing", "Rebel Landing Point", "rp_endor", 6060, 262, -2513, 0, 0, true},
 	}	
 }
