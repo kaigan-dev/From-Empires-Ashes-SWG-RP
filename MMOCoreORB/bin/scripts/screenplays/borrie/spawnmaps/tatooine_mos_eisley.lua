@@ -809,6 +809,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
+	-- Imperial garrison 
 	
 
 	-- Tutorial NPCs--
