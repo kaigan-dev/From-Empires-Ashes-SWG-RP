@@ -967,7 +967,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: skillToLearn has been defaulted to " .. skillToLearn)
 
-	--[[
+	
 	--Get current skill rank
 	if(CreatureObject(pTarget):hasSkill("rp_alter_master") == true) then
 		skillToLearn = "already_mastered"
@@ -1002,6 +1002,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		return
 	end
 
+	--[[
 	CreatureObject(pPlayer):sendSystemMessage("Debug: Checking whether the target has force skill cap.")
 
 	--local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
