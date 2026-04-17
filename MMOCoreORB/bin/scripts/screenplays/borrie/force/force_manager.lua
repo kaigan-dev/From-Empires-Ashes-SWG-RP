@@ -1017,21 +1017,23 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	CreatureObject(pPlayer):sendSystemMessage("Debug: Checking whether the target has force skill cap.")
 
 	--local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
-	--local capRemaining = PlayerObject(pTarget):getExperience("rp_frc_skill_cap")  -Blows up
-	local capRemaining = targetGhost:getExperience("rp_frc_skill_cap")
+	--local capRemaining = PlayerObject(pTarget):getExperience("rp_frc_skill_cap")  --Blows up
+	--local capRemaining = targetGhost:getExperience("rp_frc_skill_cap")   --Gives  attempt to index a userdata value (local 'targetGhost')    error
+	local capRemaining = PlayerObject(targetGhost):getPlayerObject():getExperience("rp_frc_skill_cap")
+	
 	if (capRemaining <= 0) then
 		CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
 		return
 	else
-		CreatureObject(pPlayer):sendSystemMessage("Debug: The target has enough skill cap. Next we will check whether they have enough RP XP.")
-		local xpAmount = targetGhost:getExperience("rp_general")
-		if(xpAmount >= baseXpCost) then
-			local negativeCost = baseXpCost * -1
+		--CreatureObject(pPlayer):sendSystemMessage("Debug: The target has enough skill cap. Next we will check whether they have enough RP XP.")
+		--local xpAmount = targetGhost:getExperience("rp_general")
+		--if(xpAmount >= baseXpCost) then
+			--local negativeCost = baseXpCost * -1
 			--CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)
 			--CreatureObject(pPlayer):sendSystemMessage("Debug: We have charged the target " .. baseXpCost .. " xp.")
-		end
+	end
 		--BorSkill:CanTrainNextSkill()
-		--local xpAmount = targetGhost:getExperience("rp_general")
+		--local xpAmount = CreatureObject(pPlayer):getExperience("rp_general")
 		--if(xpAmount >= 20000) then
 			--CreatureObject(pPlayer):awardExperience("rp_general", -20000, false)
 			--self:setForceAware(pPlayer)
@@ -1039,7 +1041,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		
 		--end
 	
-	end
+
 
 	
 
