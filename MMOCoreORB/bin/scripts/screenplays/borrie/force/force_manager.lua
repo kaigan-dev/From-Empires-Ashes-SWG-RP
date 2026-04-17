@@ -1095,7 +1095,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 			end
 		else
 			if(attSkillDiff > 0) then
-				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost .. ".")
 			else
 				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
 			end
@@ -1260,7 +1260,7 @@ function BorForce:dmTrainControl(pPlayer, pSui, eventIndex, args)
 			end
 		else
 			if(attSkillDiff > 0) then
-				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost .. ".")
 			else
 				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
 			end
@@ -1426,7 +1426,7 @@ function BorForce:dmTrainInward(pPlayer, pSui, eventIndex, args)
 			end
 		else
 			if(attSkillDiff > 0) then
-				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost .. ".")
 			else
 				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
 			end
@@ -1592,7 +1592,7 @@ function BorForce:dmTrainLightning(pPlayer, pSui, eventIndex, args)
 			end
 		else
 			if(attSkillDiff > 0) then
-				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost .. ".")
 			else
 				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
 			end
@@ -1758,7 +1758,7 @@ function BorForce:dmTrainLightsaber(pPlayer, pSui, eventIndex, args)
 			end
 		else
 			if(attSkillDiff > 0) then
-				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost .. ".")
 			else
 				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
 			end
@@ -1924,7 +1924,7 @@ function BorForce:dmTrainSense(pPlayer, pSui, eventIndex, args)
 			end
 		else
 			if(attSkillDiff > 0) then
-				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost .. ".")
 			else
 				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
 			end
@@ -2090,7 +2090,7 @@ function BorForce:dmTrainTelekinesis(pPlayer, pSui, eventIndex, args)
 			end
 		else
 			if(attSkillDiff > 0) then
-				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost .. ".")
 			else
 				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
 			end
