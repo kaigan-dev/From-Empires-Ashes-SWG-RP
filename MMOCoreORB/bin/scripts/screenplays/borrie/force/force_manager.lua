@@ -633,8 +633,11 @@ function BorForce:awakenViaDMCallback(pPlayer, pSui, eventIndex, args)
 		return
 	end
 	
-	if(CreatureObject(pTarget):hasSkill("rp_force_prog_rank_novice") == false) then
-		CreatureObject(pPlayer):sendSystemMessage("This target is not an Force Sensitive character.")
+	if(CreatureObject(pTarget):hasSkill("rp_force_prog_rank_01")) then
+		CreatureObject(pPlayer):sendSystemMessage("This person is already aware of their connection to the Force.")
+		return
+	elseif(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("This target is not Force Sensitive")
 		return
 	end
 	
