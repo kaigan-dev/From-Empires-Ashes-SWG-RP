@@ -1075,25 +1075,16 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	else
 		CreatureObject(pPlayer):sendSystemMessage("Debug: The target has enough skill cap. Next we will check whether they have enough RP XP.")
 		local xpAmount = PlayerObject(targetGhost):getExperience("rp_general")
+		
 		if(xpAmount >= totalxpCost) then
 			local negativeCost = totalxpCost * -1
 			CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)
 			CreatureObject(pTarget):awardExperience("rp_frc_skill_cap", -1, false)
 			CreatureObject(pPlayer):sendSystemMessage("Debug: We have charged the target " .. baseXpCost .. " xp and granted nothing.")
+			awardSkill(pPlayer, skillToLearn)
+			CreatureObject(pPlayer):sendSystemMessage("Debug: Awarded the player " .. skillToLearn)
 		end
-		--BorSkill:CanTrainNextSkill()
-		--local xpAmount = CreatureObject(pPlayer):getExperience("rp_general")
-		--if(xpAmount >= 20000) then
-			--CreatureObject(pPlayer):awardExperience("rp_general", -20000, false)
-			--self:setForceAware(pPlayer)
-		--else 
-		
 	end
-	
-
-
-	
-
 end
 
 
