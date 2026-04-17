@@ -944,16 +944,15 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)
 
-	CreatureObject(pPlayer):sendSystemMessage("Debug: We are about to cast the target as a Player.")
-
-	local targetGhost = CreatureObject(pTarget):getPlayerObject()
-	
 	CreatureObject(pPlayer):sendSystemMessage("Debug: We are about to check whether the target is null or a player.")
 	
-	if (targetGhost == nil or not SceneObject(targetGhost):isPlayerCreature()) then
+	if (pTarget == nil or not SceneObject(pTarget):isPlayerCreature()) then
 		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
 		return
 	end
+
+	CreatureObject(pPlayer):sendSystemMessage("Debug: We are about to cast the target as a Player.")
+	local targetGhost = CreatureObject(pTarget):getPlayerObject()
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: We are about to check wwhether the target is non-FS.")
 	
@@ -1002,19 +1001,22 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		return
 	end
 
+	CreatureObject(pPlayer):sendSystemMessage("Debug: Checking whether the target has force skill cap.")
 
-	local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
+	--local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
+	local capRemaining = targetGhost:getExperience("rp_frc_skill_cap")
 	if (capRemaining <= 0) then
 		CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
+		return
 	else
 	
 	CreatureObject(pPlayer):sendSystemMessage("This is where we would grant them a skill. Their current skill is " .. skillToLearn)
 
 		--BorSkill:CanTrainNextSkill()
 		--[[
-		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+		local xpAmount = targetGhost:getExperience("rp_general")
 		if(xpAmount >= 20000) then
-			CreatureObject(pPlayer):awardExperience("rp_general", -20000, false)
+			targetGhost:awardExperience("rp_general", -20000, false)
 			self:setForceAware(pPlayer)
 		else 
 		
