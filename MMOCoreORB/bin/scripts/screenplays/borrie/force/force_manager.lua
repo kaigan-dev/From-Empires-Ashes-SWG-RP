@@ -1019,7 +1019,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	--local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
 	--local capRemaining = PlayerObject(pTarget):getExperience("rp_frc_skill_cap")  --Blows up
 	--local capRemaining = targetGhost:getExperience("rp_frc_skill_cap")   --Gives  attempt to index a userdata value (local 'targetGhost')    error
-	local capRemaining = PlayerObject(targetGhost):getPlayerObject():getExperience("rp_frc_skill_cap")
+	local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
 	
 	if (capRemaining <= 0) then
 		CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
