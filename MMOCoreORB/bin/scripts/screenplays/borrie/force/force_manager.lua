@@ -1025,7 +1025,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
 		return
 	else
-		--CreatureObject(pPlayer):sendSystemMessage("Debug: The target has enough skill cap. Next we will check whether they have enough RP XP.")
+		CreatureObject(pPlayer):sendSystemMessage("Debug: The target has enough skill cap. Next we will check whether they have enough RP XP.")
 		--local xpAmount = targetGhost:getExperience("rp_general")
 		--if(xpAmount >= baseXpCost) then
 			--local negativeCost = baseXpCost * -1
