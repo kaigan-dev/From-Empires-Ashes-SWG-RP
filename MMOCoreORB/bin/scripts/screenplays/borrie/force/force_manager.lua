@@ -950,10 +950,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		return
 	end
 	
-	if(CreatureObject(pTarget):hasSkill("rp_force_prog_rank_01")) then
-		CreatureObject(pPlayer):sendSystemMessage("This person is already aware of their connection to the Force.")
-		return
-	elseif(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
+	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
 		CreatureObject(pPlayer):sendSystemMessage("This target is not Force Sensitive")
 		return
 	end
@@ -962,6 +959,8 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	--Get current skill rank
 	if(CreatureObject(pTarget):hasSkill("rp_alter_master")) then
 		skillToLearn = "already_mastered"
+		CreatureObject(pPlayer):sendSystemMessage("The target already has rank 10 in this skill.")
+		return
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b04")) then
 		skillToLearn = "rp_alter_master"
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b03")) then
@@ -984,21 +983,20 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		skillToLearn = "rp_alter_novice"
 	end
 
-
 	CreatureObject(pPlayer):sendSystemMessage("Debug: The level of Alter to train is " .. skillToLearn)
 
-
-	if(skillToLearn == "already_mastered") then
-		CreatureObject(pPlayer):sendSystemMessage("The target already has rank 10 in this skill.")
-	elseif (skillToLearn == "unknown") then
+	if (skillToLearn == "unknown") then
 		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining the target's skill level.")
+		return
+	end
+
+
+	local capRemaining = PlayerObject(pTarget):getExperience("rp_frc_skill_cap")
+	if (capRemaining <= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
 	else
-		local capRemaining = PlayerObject(pTarget):getExperience("rp_frc_skill_cap")
-		if (capRemaining <= 0) then
-			CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
-		else
 	
-		CreatureObject(pPlayer):sendSystemMessage("This is where we would grant them a skill.")
+	CreatureObject(pPlayer):sendSystemMessage("This is where we would grant them a skill. Their current skill is " .. skillToLearn)
 
 		--BorSkill:CanTrainNextSkill()
 		--[[
@@ -1010,7 +1008,6 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		
 		end
 		--]]
-		end
 	end
 	
 	
