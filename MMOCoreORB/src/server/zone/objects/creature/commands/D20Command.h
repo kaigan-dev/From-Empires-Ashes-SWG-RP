@@ -72,7 +72,7 @@ public:
 					} else {
 						//Original. Allowed players to roll for NPCs.
 						//BorrieRPG::BroadcastRoll(creature, targetCreature, BorDice::RollSkill(targetCreature, command));
-						BorrieRPG::BroadcastRoll(creature, BorDice::RollSkill(targetCreature, command));
+						BorrieRPG::BroadcastRoll(creature, BorDice::RollSkill(creature, command));
 					}
 					
 				} else if (BorDice::GetCommandIsDie(command)) {
