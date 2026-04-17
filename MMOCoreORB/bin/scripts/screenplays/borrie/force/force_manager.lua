@@ -1093,10 +1093,1010 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 			else
 				CreatureObject(pPlayer):sendSystemMessage("You have sufficient Mindfulness and have been charged " .. totalxpCost .. " and one force skill capacity for this")
 			end
+		else
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
+			end
 		end
 	end
 end
 
+
+
+
+function BorForce:dmTrainControl(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+
+	--local targetID = CreatureObject(pPlayer):getTargetID()
+	--local pTarget = getSceneObject(targetID)
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	--local targetGhost = CreatureObject(pTarget):getPlayerObject()
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not Force Sensitive.")
+		return
+	end
+	
+	local skillToLearn = "unknown"
+	local baseXpCost = 0
+	local skillRank = 0
+	local prettyName = "unknown"
+
+	--Get current skill rank
+	if(CreatureObject(pPlayer):hasSkill("rp_control_master") == true) then
+		skillToLearn = "already_mastered"
+		CreatureObject(pPlayer):sendSystemMessage("You already have rank 10 in this skill.")
+		return
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_b04") == true) then
+		skillToLearn = "rp_control_master"
+		baseXpCost = 45000
+		skillRank = 10
+		prettyName = "Control X"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_b03") == true) then
+		skillToLearn = "rp_control_b04"
+		baseXpCost = 35000
+		skillRank = 9
+		prettyName = "Control IX"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_b02") == true) then
+		skillToLearn = "rp_control_b03"
+		baseXpCost = 25000
+		skillRank = 8
+		prettyName = "Control VIII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_b01") == true) then
+		skillToLearn = "rp_control_b02"
+		baseXpCost = 15000
+		skillRank = 7
+		prettyName = "Control VII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_a04") == true) then
+		skillToLearn = "rp_control_b01"
+		baseXpCost = 10000
+		skillRank = 6
+		prettyName = "Control VI"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_a03") == true) then
+		skillToLearn = "rp_control_a04"
+		baseXpCost = 5000
+		skillRank = 5
+		prettyName = "Control V"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_a02") == true) then
+		skillToLearn = "rp_control_a03"
+		baseXpCost = 4000
+		skillRank = 4
+		prettyName = "Control IV"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_a01") == true) then
+		skillToLearn = "rp_control_a02"
+		baseXpCost = 3000
+		skillRank = 3
+		prettyName = "Control III"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_control_novice") == true) then
+		skillToLearn = "rp_control_a01"
+		baseXpCost = 2000
+		skillRank = 2
+		prettyName = "Control II"
+	else
+		skillToLearn = "rp_control_novice"
+		baseXpCost = 1000
+		skillRank = 1
+		prettyName = "Control I"
+	end
+
+	if (skillToLearn == "unknown") then
+		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining your skill level.")
+		return
+	end
+
+	local totalxpCost = baseXpCost
+	local attributeRank = 0
+	if(CreatureObject(pPlayer):hasSkill("rp_mindfulness_master") == true) then
+		attributeRank = 10
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b04") == true) then
+		attributeRank = 9
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b03") == true) then
+		attributeRank = 8
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b02") == true) then
+		attributeRank = 7
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b01") == true) then
+		attributeRank = 6
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a04") == true) then
+		attributeRank = 5
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a03") == true) then
+		attributeRank = 4
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a02") == true) then
+		attributeRank = 3
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a01") == true) then
+		attributeRank = 2
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_novice") == true) then
+		attributeRank = 1
+	else
+		CreatureObject(pPlayer):sendSystemMessage("You somehow don't have a Mindfulness attribute. That's not right.")
+		return
+	end
+
+
+	local attSkillDiff = skillRank - attributeRank
+	if(attSkillDiff > 0) then
+		totalxpCost = attSkillDiff * 2 * baseXpCost
+	end
+
+	local capRemaining = PlayerObject(pGhost):getExperience("rp_frc_skill_cap")
+	
+	if (capRemaining <= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("You have already learned the maximum number of force skills that you can (ie. Force Skill Cap is zero).")
+		return
+	else
+		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+		
+		if(xpAmount >= totalxpCost) then
+			local negativeCost = totalxpCost * -1
+			CreatureObject(pPlayer):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pPlayer):awardExperience("rp_frc_skill_cap", -1, false)
+			awardSkill(pPlayer, skillToLearn)
+			CreatureObject(pPlayer):sendSystemMessage("You have learned " .. prettyName .. " (" .. skillToLearn .. ")!")
+			
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("Due to insufficient Mindfulness, you have been charged an increased " .. totalxpCost .. " and one force skill capacity for this")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You have sufficient Mindfulness and have been charged " .. totalxpCost .. " and one force skill capacity for this")
+			end
+		else
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
+			end
+		end
+	end
+end
+
+
+
+
+
+function BorForce:dmTrainInward(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+
+	--local targetID = CreatureObject(pPlayer):getTargetID()
+	--local pTarget = getSceneObject(targetID)
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	--local targetGhost = CreatureObject(pTarget):getPlayerObject()
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not Force Sensitive.")
+		return
+	end
+	
+	local skillToLearn = "unknown"
+	local baseXpCost = 0
+	local skillRank = 0
+	local prettyName = "unknown"
+
+	--Get current skill rank
+	if(CreatureObject(pPlayer):hasSkill("rp_inward_master") == true) then
+		skillToLearn = "already_mastered"
+		CreatureObject(pPlayer):sendSystemMessage("You already have rank 10 in this skill.")
+		return
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_b04") == true) then
+		skillToLearn = "rp_inward_master"
+		baseXpCost = 45000
+		skillRank = 10
+		prettyName = "Inward X"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_b03") == true) then
+		skillToLearn = "rp_inward_b04"
+		baseXpCost = 35000
+		skillRank = 9
+		prettyName = "Inward IX"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_b02") == true) then
+		skillToLearn = "rp_inward_b03"
+		baseXpCost = 25000
+		skillRank = 8
+		prettyName = "Inward VIII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_b01") == true) then
+		skillToLearn = "rp_inward_b02"
+		baseXpCost = 15000
+		skillRank = 7
+		prettyName = "Inward VII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_a04") == true) then
+		skillToLearn = "rp_inward_b01"
+		baseXpCost = 10000
+		skillRank = 6
+		prettyName = "Inward VI"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_a03") == true) then
+		skillToLearn = "rp_inward_a04"
+		baseXpCost = 5000
+		skillRank = 5
+		prettyName = "Inward V"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_a02") == true) then
+		skillToLearn = "rp_inward_a03"
+		baseXpCost = 4000
+		skillRank = 4
+		prettyName = "Inward IV"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_a01") == true) then
+		skillToLearn = "rp_inward_a02"
+		baseXpCost = 3000
+		skillRank = 3
+		prettyName = "Inward III"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_inward_novice") == true) then
+		skillToLearn = "rp_inward_a01"
+		baseXpCost = 2000
+		skillRank = 2
+		prettyName = "Inward II"
+	else
+		skillToLearn = "rp_inward_novice"
+		baseXpCost = 1000
+		skillRank = 1
+		prettyName = "Inward I"
+	end
+
+	if (skillToLearn == "unknown") then
+		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining your skill level.")
+		return
+	end
+
+	local totalxpCost = baseXpCost
+	local attributeRank = 0
+	if(CreatureObject(pPlayer):hasSkill("rp_mindfulness_master") == true) then
+		attributeRank = 10
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b04") == true) then
+		attributeRank = 9
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b03") == true) then
+		attributeRank = 8
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b02") == true) then
+		attributeRank = 7
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b01") == true) then
+		attributeRank = 6
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a04") == true) then
+		attributeRank = 5
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a03") == true) then
+		attributeRank = 4
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a02") == true) then
+		attributeRank = 3
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a01") == true) then
+		attributeRank = 2
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_novice") == true) then
+		attributeRank = 1
+	else
+		CreatureObject(pPlayer):sendSystemMessage("You somehow don't have a Mindfulness attribute. That's not right.")
+		return
+	end
+
+
+	local attSkillDiff = skillRank - attributeRank
+	if(attSkillDiff > 0) then
+		totalxpCost = attSkillDiff * 2 * baseXpCost
+	end
+
+	local capRemaining = PlayerObject(pGhost):getExperience("rp_frc_skill_cap")
+	
+	if (capRemaining <= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("You have already learned the maximum number of force skills that you can (ie. Force Skill Cap is zero).")
+		return
+	else
+		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+		
+		if(xpAmount >= totalxpCost) then
+			local negativeCost = totalxpCost * -1
+			CreatureObject(pPlayer):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pPlayer):awardExperience("rp_frc_skill_cap", -1, false)
+			awardSkill(pPlayer, skillToLearn)
+			CreatureObject(pPlayer):sendSystemMessage("You have learned " .. prettyName .. " (" .. skillToLearn .. ")!")
+			
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("Due to insufficient Mindfulness, you have been charged an increased " .. totalxpCost .. " and one force skill capacity for this")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You have sufficient Mindfulness and have been charged " .. totalxpCost .. " and one force skill capacity for this")
+			end
+		else
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
+			end
+		end
+	end
+end
+
+
+
+
+
+function BorForce:dmTrainLightning(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+
+	--local targetID = CreatureObject(pPlayer):getTargetID()
+	--local pTarget = getSceneObject(targetID)
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	--local targetGhost = CreatureObject(pTarget):getPlayerObject()
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not Force Sensitive.")
+		return
+	end
+	
+	local skillToLearn = "unknown"
+	local baseXpCost = 0
+	local skillRank = 0
+	local prettyName = "unknown"
+
+	--Get current skill rank
+	if(CreatureObject(pPlayer):hasSkill("rp_lightning_master") == true) then
+		skillToLearn = "already_mastered"
+		CreatureObject(pPlayer):sendSystemMessage("You already have rank 10 in this skill.")
+		return
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_b04") == true) then
+		skillToLearn = "rp_lightning_master"
+		baseXpCost = 45000
+		skillRank = 10
+		prettyName = "Lightning X"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_b03") == true) then
+		skillToLearn = "rp_lightning_b04"
+		baseXpCost = 35000
+		skillRank = 9
+		prettyName = "Lightning IX"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_b02") == true) then
+		skillToLearn = "rp_lightning_b03"
+		baseXpCost = 25000
+		skillRank = 8
+		prettyName = "Lightning VIII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_b01") == true) then
+		skillToLearn = "rp_lightning_b02"
+		baseXpCost = 15000
+		skillRank = 7
+		prettyName = "Lightning VII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_a04") == true) then
+		skillToLearn = "rp_lightning_b01"
+		baseXpCost = 10000
+		skillRank = 6
+		prettyName = "Lightning VI"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_a03") == true) then
+		skillToLearn = "rp_lightning_a04"
+		baseXpCost = 5000
+		skillRank = 5
+		prettyName = "Lightning V"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_a02") == true) then
+		skillToLearn = "rp_lightning_a03"
+		baseXpCost = 4000
+		skillRank = 4
+		prettyName = "Lightning IV"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_a01") == true) then
+		skillToLearn = "rp_lightning_a02"
+		baseXpCost = 3000
+		skillRank = 3
+		prettyName = "Lightning III"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightning_novice") == true) then
+		skillToLearn = "rp_lightning_a01"
+		baseXpCost = 2000
+		skillRank = 2
+		prettyName = "Lightning II"
+	else
+		skillToLearn = "rp_lightning_novice"
+		baseXpCost = 1000
+		skillRank = 1
+		prettyName = "Lightning I"
+	end
+
+	if (skillToLearn == "unknown") then
+		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining your skill level.")
+		return
+	end
+
+	local totalxpCost = baseXpCost
+	local attributeRank = 0
+	if(CreatureObject(pPlayer):hasSkill("rp_constitution_master") == true) then
+		attributeRank = 10
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_b04") == true) then
+		attributeRank = 9
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_b03") == true) then
+		attributeRank = 8
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_b02") == true) then
+		attributeRank = 7
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_b01") == true) then
+		attributeRank = 6
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_a04") == true) then
+		attributeRank = 5
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_a03") == true) then
+		attributeRank = 4
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_a02") == true) then
+		attributeRank = 3
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_a01") == true) then
+		attributeRank = 2
+	elseif (CreatureObject(pPlayer):hasSkill("rp_constitution_novice") == true) then
+		attributeRank = 1
+	else
+		CreatureObject(pPlayer):sendSystemMessage("You somehow don't have a Constitution attribute. That's not right.")
+		return
+	end
+
+
+	local attSkillDiff = skillRank - attributeRank
+	if(attSkillDiff > 0) then
+		totalxpCost = attSkillDiff * 2 * baseXpCost
+	end
+
+	local capRemaining = PlayerObject(pGhost):getExperience("rp_frc_skill_cap")
+	
+	if (capRemaining <= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("You have already learned the maximum number of force skills that you can (ie. Force Skill Cap is zero).")
+		return
+	else
+		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+		
+		if(xpAmount >= totalxpCost) then
+			local negativeCost = totalxpCost * -1
+			CreatureObject(pPlayer):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pPlayer):awardExperience("rp_frc_skill_cap", -1, false)
+			awardSkill(pPlayer, skillToLearn)
+			CreatureObject(pPlayer):sendSystemMessage("You have learned " .. prettyName .. " (" .. skillToLearn .. ")!")
+			
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("Due to insufficient Constitution, you have been charged an increased " .. totalxpCost .. " and one force skill capacity for this")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You have sufficient Constitution and have been charged " .. totalxpCost .. " and one force skill capacity for this")
+			end
+		else
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
+			end
+		end
+	end
+end
+
+
+
+
+
+function BorForce:dmTrainLightsaber(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+
+	--local targetID = CreatureObject(pPlayer):getTargetID()
+	--local pTarget = getSceneObject(targetID)
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	--local targetGhost = CreatureObject(pTarget):getPlayerObject()
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not Force Sensitive.")
+		return
+	end
+	
+	local skillToLearn = "unknown"
+	local baseXpCost = 0
+	local skillRank = 0
+	local prettyName = "unknown"
+
+	--Get current skill rank
+	if(CreatureObject(pPlayer):hasSkill("rp_lightsaber_master") == true) then
+		skillToLearn = "already_mastered"
+		CreatureObject(pPlayer):sendSystemMessage("You already have rank 10 in this skill.")
+		return
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_b04") == true) then
+		skillToLearn = "rp_lightsaber_master"
+		baseXpCost = 45000
+		skillRank = 10
+		prettyName = "Lightsaber X"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_b03") == true) then
+		skillToLearn = "rp_lightsaber_b04"
+		baseXpCost = 35000
+		skillRank = 9
+		prettyName = "Lightsaber IX"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_b02") == true) then
+		skillToLearn = "rp_lightsaber_b03"
+		baseXpCost = 25000
+		skillRank = 8
+		prettyName = "Lightsaber VIII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_b01") == true) then
+		skillToLearn = "rp_lightsaber_b02"
+		baseXpCost = 15000
+		skillRank = 7
+		prettyName = "Lightsaber VII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_a04") == true) then
+		skillToLearn = "rp_lightsaber_b01"
+		baseXpCost = 10000
+		skillRank = 6
+		prettyName = "Lightsaber VI"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_a03") == true) then
+		skillToLearn = "rp_lightsaber_a04"
+		baseXpCost = 5000
+		skillRank = 5
+		prettyName = "Lightsaber V"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_a02") == true) then
+		skillToLearn = "rp_lightsaber_a03"
+		baseXpCost = 4000
+		skillRank = 4
+		prettyName = "Lightsaber IV"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_a01") == true) then
+		skillToLearn = "rp_lightsaber_a02"
+		baseXpCost = 3000
+		skillRank = 3
+		prettyName = "Lightsaber III"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_lightsaber_novice") == true) then
+		skillToLearn = "rp_lightsaber_a01"
+		baseXpCost = 2000
+		skillRank = 2
+		prettyName = "Lightsaber II"
+	else
+		skillToLearn = "rp_lightsaber_novice"
+		baseXpCost = 1000
+		skillRank = 1
+		prettyName = "Lightsaber I"
+	end
+
+	if (skillToLearn == "unknown") then
+		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining your skill level.")
+		return
+	end
+
+	local totalxpCost = baseXpCost
+	local attributeRank = 0
+	if(CreatureObject(pPlayer):hasSkill("rp_awareness_master") == true) then
+		attributeRank = 10
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_b04") == true) then
+		attributeRank = 9
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_b03") == true) then
+		attributeRank = 8
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_b02") == true) then
+		attributeRank = 7
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_b01") == true) then
+		attributeRank = 6
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_a04") == true) then
+		attributeRank = 5
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_a03") == true) then
+		attributeRank = 4
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_a02") == true) then
+		attributeRank = 3
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_a01") == true) then
+		attributeRank = 2
+	elseif (CreatureObject(pPlayer):hasSkill("rp_awareness_novice") == true) then
+		attributeRank = 1
+	else
+		CreatureObject(pPlayer):sendSystemMessage("You somehow don't have an Awareness attribute. That's not right.")
+		return
+	end
+
+
+	local attSkillDiff = skillRank - attributeRank
+	if(attSkillDiff > 0) then
+		totalxpCost = attSkillDiff * 2 * baseXpCost
+	end
+
+	local capRemaining = PlayerObject(pGhost):getExperience("rp_frc_skill_cap")
+	
+	if (capRemaining <= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("You have already learned the maximum number of force skills that you can (ie. Force Skill Cap is zero).")
+		return
+	else
+		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+		
+		if(xpAmount >= totalxpCost) then
+			local negativeCost = totalxpCost * -1
+			CreatureObject(pPlayer):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pPlayer):awardExperience("rp_frc_skill_cap", -1, false)
+			awardSkill(pPlayer, skillToLearn)
+			CreatureObject(pPlayer):sendSystemMessage("You have learned " .. prettyName .. " (" .. skillToLearn .. ")!")
+			
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("Due to insufficient Awareness, you have been charged an increased " .. totalxpCost .. " and one force skill capacity for this")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You have sufficient Awareness and have been charged " .. totalxpCost .. " and one force skill capacity for this")
+			end
+		else
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
+			end
+		end
+	end
+end
+
+
+
+
+
+function BorForce:dmTrainSense(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+
+	--local targetID = CreatureObject(pPlayer):getTargetID()
+	--local pTarget = getSceneObject(targetID)
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	--local targetGhost = CreatureObject(pTarget):getPlayerObject()
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not Force Sensitive.")
+		return
+	end
+	
+	local skillToLearn = "unknown"
+	local baseXpCost = 0
+	local skillRank = 0
+	local prettyName = "unknown"
+
+	--Get current skill rank
+	if(CreatureObject(pPlayer):hasSkill("rp_sense_master") == true) then
+		skillToLearn = "already_mastered"
+		CreatureObject(pPlayer):sendSystemMessage("You already have rank 10 in this skill.")
+		return
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_b04") == true) then
+		skillToLearn = "rp_sense_master"
+		baseXpCost = 45000
+		skillRank = 10
+		prettyName = "Sense X"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_b03") == true) then
+		skillToLearn = "rp_sense_b04"
+		baseXpCost = 35000
+		skillRank = 9
+		prettyName = "Sense IX"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_b02") == true) then
+		skillToLearn = "rp_sense_b03"
+		baseXpCost = 25000
+		skillRank = 8
+		prettyName = "Sense VIII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_b01") == true) then
+		skillToLearn = "rp_sense_b02"
+		baseXpCost = 15000
+		skillRank = 7
+		prettyName = "Sense VII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_a04") == true) then
+		skillToLearn = "rp_sense_b01"
+		baseXpCost = 10000
+		skillRank = 6
+		prettyName = "Sense VI"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_a03") == true) then
+		skillToLearn = "rp_sense_a04"
+		baseXpCost = 5000
+		skillRank = 5
+		prettyName = "Sense V"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_a02") == true) then
+		skillToLearn = "rp_sense_a03"
+		baseXpCost = 4000
+		skillRank = 4
+		prettyName = "Sense IV"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_a01") == true) then
+		skillToLearn = "rp_sense_a02"
+		baseXpCost = 3000
+		skillRank = 3
+		prettyName = "Sense III"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_sense_novice") == true) then
+		skillToLearn = "rp_sense_a01"
+		baseXpCost = 2000
+		skillRank = 2
+		prettyName = "Sense II"
+	else
+		skillToLearn = "rp_sense_novice"
+		baseXpCost = 1000
+		skillRank = 1
+		prettyName = "Sense I"
+	end
+
+	if (skillToLearn == "unknown") then
+		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining your skill level.")
+		return
+	end
+
+	local totalxpCost = baseXpCost
+	local attributeRank = 0
+	if(CreatureObject(pPlayer):hasSkill("rp_mindfulness_master") == true) then
+		attributeRank = 10
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b04") == true) then
+		attributeRank = 9
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b03") == true) then
+		attributeRank = 8
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b02") == true) then
+		attributeRank = 7
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b01") == true) then
+		attributeRank = 6
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a04") == true) then
+		attributeRank = 5
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a03") == true) then
+		attributeRank = 4
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a02") == true) then
+		attributeRank = 3
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a01") == true) then
+		attributeRank = 2
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_novice") == true) then
+		attributeRank = 1
+	else
+		CreatureObject(pPlayer):sendSystemMessage("You somehow don't have a Mindfulness attribute. That's not right.")
+		return
+	end
+
+
+	local attSkillDiff = skillRank - attributeRank
+	if(attSkillDiff > 0) then
+		totalxpCost = attSkillDiff * 2 * baseXpCost
+	end
+
+	local capRemaining = PlayerObject(pGhost):getExperience("rp_frc_skill_cap")
+	
+	if (capRemaining <= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("You have already learned the maximum number of force skills that you can (ie. Force Skill Cap is zero).")
+		return
+	else
+		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+		
+		if(xpAmount >= totalxpCost) then
+			local negativeCost = totalxpCost * -1
+			CreatureObject(pPlayer):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pPlayer):awardExperience("rp_frc_skill_cap", -1, false)
+			awardSkill(pPlayer, skillToLearn)
+			CreatureObject(pPlayer):sendSystemMessage("You have learned " .. prettyName .. " (" .. skillToLearn .. ")!")
+			
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("Due to insufficient Mindfulness, you have been charged an increased " .. totalxpCost .. " and one force skill capacity for this")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You have sufficient Mindfulness and have been charged " .. totalxpCost .. " and one force skill capacity for this")
+			end
+		else
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
+			end
+		end
+	end
+end
+
+
+
+
+
+function BorForce:dmTrainTelekinesis(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+
+	--local targetID = CreatureObject(pPlayer):getTargetID()
+	--local pTarget = getSceneObject(targetID)
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	--local targetGhost = CreatureObject(pTarget):getPlayerObject()
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not Force Sensitive.")
+		return
+	end
+	
+	local skillToLearn = "unknown"
+	local baseXpCost = 0
+	local skillRank = 0
+	local prettyName = "unknown"
+
+	--Get current skill rank
+	if(CreatureObject(pPlayer):hasSkill("rp_telekinesis_master") == true) then
+		skillToLearn = "already_mastered"
+		CreatureObject(pPlayer):sendSystemMessage("You already have rank 10 in this skill.")
+		return
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_b04") == true) then
+		skillToLearn = "rp_telekinesis_master"
+		baseXpCost = 45000
+		skillRank = 10
+		prettyName = "Telekinesis X"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_b03") == true) then
+		skillToLearn = "rp_telekinesis_b04"
+		baseXpCost = 35000
+		skillRank = 9
+		prettyName = "Telekinesis IX"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_b02") == true) then
+		skillToLearn = "rp_telekinesis_b03"
+		baseXpCost = 25000
+		skillRank = 8
+		prettyName = "Telekinesis VIII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_b01") == true) then
+		skillToLearn = "rp_telekinesis_b02"
+		baseXpCost = 15000
+		skillRank = 7
+		prettyName = "Telekinesis VII"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_a04") == true) then
+		skillToLearn = "rp_telekinesis_b01"
+		baseXpCost = 10000
+		skillRank = 6
+		prettyName = "Telekinesis VI"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_a03") == true) then
+		skillToLearn = "rp_telekinesis_a04"
+		baseXpCost = 5000
+		skillRank = 5
+		prettyName = "Telekinesis V"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_a02") == true) then
+		skillToLearn = "rp_telekinesis_a03"
+		baseXpCost = 4000
+		skillRank = 4
+		prettyName = "Telekinesis IV"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_a01") == true) then
+		skillToLearn = "rp_telekinesis_a02"
+		baseXpCost = 3000
+		skillRank = 3
+		prettyName = "Telekinesis III"
+	elseif (CreatureObject(pPlayer):hasSkill("rp_telekinesis_novice") == true) then
+		skillToLearn = "rp_telekinesis_a01"
+		baseXpCost = 2000
+		skillRank = 2
+		prettyName = "Telekinesis II"
+	else
+		skillToLearn = "rp_telekinesis_novice"
+		baseXpCost = 1000
+		skillRank = 1
+		prettyName = "Telekinesis I"
+	end
+
+	if (skillToLearn == "unknown") then
+		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining your skill level.")
+		return
+	end
+
+	local totalxpCost = baseXpCost
+	local attributeRank = 0
+	if(CreatureObject(pPlayer):hasSkill("rp_mindfulness_master") == true) then
+		attributeRank = 10
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b04") == true) then
+		attributeRank = 9
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b03") == true) then
+		attributeRank = 8
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b02") == true) then
+		attributeRank = 7
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b01") == true) then
+		attributeRank = 6
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a04") == true) then
+		attributeRank = 5
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a03") == true) then
+		attributeRank = 4
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a02") == true) then
+		attributeRank = 3
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a01") == true) then
+		attributeRank = 2
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_novice") == true) then
+		attributeRank = 1
+	else
+		CreatureObject(pPlayer):sendSystemMessage("You somehow don't have a Mindfulness attribute. That's not right.")
+		return
+	end
+
+
+	local attSkillDiff = skillRank - attributeRank
+	if(attSkillDiff > 0) then
+		totalxpCost = attSkillDiff * 2 * baseXpCost
+	end
+
+	local capRemaining = PlayerObject(pGhost):getExperience("rp_frc_skill_cap")
+	
+	if (capRemaining <= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("You have already learned the maximum number of force skills that you can (ie. Force Skill Cap is zero).")
+		return
+	else
+		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+		
+		if(xpAmount >= totalxpCost) then
+			local negativeCost = totalxpCost * -1
+			CreatureObject(pPlayer):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pPlayer):awardExperience("rp_frc_skill_cap", -1, false)
+			awardSkill(pPlayer, skillToLearn)
+			CreatureObject(pPlayer):sendSystemMessage("You have learned " .. prettyName .. " (" .. skillToLearn .. ")!")
+			
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("Due to insufficient Mindfulness, you have been charged an increased " .. totalxpCost .. " and one force skill capacity for this")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You have sufficient Mindfulness and have been charged " .. totalxpCost .. " and one force skill capacity for this")
+			end
+		else
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ". Due to insufficient Mindfulness, this is increased from its base cost of " .. baseXpCost ".")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You do not have sufficient XP to learn this skill. " .. prettyName .. " costs " .. totalxpCost .. ".")
+			end
+		end
+	end
+end
 
 
 
