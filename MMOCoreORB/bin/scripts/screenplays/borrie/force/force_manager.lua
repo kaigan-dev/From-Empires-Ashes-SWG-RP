@@ -956,7 +956,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: We are about to check wwhether the target is non-FS.")
 	
-	if(CreatureObject(targetGhost):hasSkill("rp_force_prog_novice") == false) then
+	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
 		CreatureObject(pPlayer):sendSystemMessage("This target is not Force Sensitive")
 		return
 	end
@@ -967,28 +967,29 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: skillToLearn has been defaulted to " .. skillToLearn)
 
+	--[[
 	--Get current skill rank
-	if(CreatureObject(targetGhost):hasSkill("rp_alter_master") == true) then
+	if(CreatureObject(pTarget):hasSkill("rp_alter_master") == true) then
 		skillToLearn = "already_mastered"
 		CreatureObject(pPlayer):sendSystemMessage("The target already has rank 10 in this skill.")
 		return
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_b04") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b04") == true) then
 		skillToLearn = "rp_alter_master"
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_b03") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b03") == true) then
 		skillToLearn = "rp_alter_b04"
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_b02") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b02") == true) then
 		skillToLearn = "rp_alter_b03"
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_b01") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b01") == true) then
 		skillToLearn = "rp_alter_b02"
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_a04") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a04") == true) then
 		skillToLearn = "rp_alter_b01"
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_a03") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a03") == true) then
 		skillToLearn = "rp_alter_a04"
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_a02") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a02") == true) then
 		skillToLearn = "rp_alter_a03"
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_a01") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a01") == true) then
 		skillToLearn = "rp_alter_a02"
-	elseif (CreatureObject(targetGhost):hasSkill("rp_alter_novice") == true) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_novice") == true) then
 		skillToLearn = "rp_alter_a01"
 	else
 		skillToLearn = "rp_alter_novice"
@@ -1013,17 +1014,17 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	CreatureObject(pPlayer):sendSystemMessage("This is where we would grant them a skill. Their current skill is " .. skillToLearn)
 
 		--BorSkill:CanTrainNextSkill()
-		--[[
-		local xpAmount = targetGhost:getExperience("rp_general")
-		if(xpAmount >= 20000) then
-			targetGhost:awardExperience("rp_general", -20000, false)
-			self:setForceAware(pPlayer)
-		else 
 		
-		end
-		--]]
-	end
+		--local xpAmount = targetGhost:getExperience("rp_general")
+		--if(xpAmount >= 20000) then
+			--targetGhost:awardExperience("rp_general", -20000, false)
+			--self:setForceAware(pPlayer)
+		--else 
+		
+		--end
 	
+	end
+	--]]
 	
 
 end
