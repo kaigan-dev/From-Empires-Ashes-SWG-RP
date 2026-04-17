@@ -995,7 +995,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		skillToLearn = "rp_alter_b01"
 		baseXpCost = 10000
 		skillRank = 6
-	elseif (CreatureObject(pTapPlayerrget):hasSkill("rp_alter_a03") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_a03") == true) then
 		skillToLearn = "rp_alter_a04"
 		baseXpCost = 5000
 		skillRank = 5
