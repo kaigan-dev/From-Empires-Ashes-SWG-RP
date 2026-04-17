@@ -243,7 +243,7 @@ end
 
 function BorForce:promptForceDMMenu(pPlayer) 
 	local suiManager = LuaSuiManager()
-	local options = {{"Make Target Force Aware", 0}, {"Spawn Lightsaber Crystal", 0}, {"Spawn Special Lightsaber Crystal", 0}, {"Spawn Training Device", 0}, {"Spawn Lightsaber Book", 0}, {"Spawn Lightsaber Components", 0}}
+	local options = {{"Make Target Force Aware", 0}, {"Spawn Lightsaber Crystal", 0}, {"Spawn Special Lightsaber Crystal", 0}, {"Spawn Training Device", 0}, {"Spawn Lightsaber Book", 0}, {"Spawn Lightsaber Components", 0}, {"Train Target's Force Skills",0}}
 	
 	suiManager:sendListBox(pPlayer, pPlayer, "DM Force Menu", "What would you like to do?", 1, "@cancel", "", "", "BorForce", "dmMenuCallback", 32, options)
 end
@@ -291,8 +291,94 @@ function BorForce:dmMenuCallback(pPlayer, pSui, eventIndex, args)
 	elseif(selection == 6) then --Spawn Lightsaber Components
 		local saberComponents = self:generateSaberComponentOptions()
 		suiManager:sendListBox(pPlayer, pPlayer, "DM Force Menu", "Which Saber Component would you like to spawn?", 1, "@cancel", "", "", "BorForce", "spawnSaberComponentCallback", 32, saberComponents)
+	elseif(selection == 7) then --Train Target's Force Skills
+		local suiManager = LuaSuiManager()
+		local options = {{"Alter", 0}, {"Control", 0}, {"Inward", 0}, {"Lightning", 0}, {"Lightsaber", 0}, {"Sense",0}, {"Telekinesis",0}}
+		suiManager:sendListBox(pPlayer, pPlayer, "Training Force Skills", "Which skill would you like to train?", 1, "@cancel", "", "", "BorForce", "dmTrainSkillMenuCallback", 32, options)
 	end
 end
+
+
+function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+	
+	local selection = args + 1
+	
+	local suiManager = LuaSuiManager()
+	
+	if(selection == 1) then --Alter
+		local sui = SuiMessageBox.new("BorForce", "dmTrainAlter")
+		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
+		sui.setTitle("Train Alter")
+		sui.setPrompt("Do you want to attempt to train the target's Alter skill?")
+		sui.setOkButtonText("Yes")
+		sui.setCancelButtonText("No")
+		local pageId = sui.sendTo(pPlayer)	
+	elseif(selection == 2) then --Control
+			local sui = SuiMessageBox.new("BorForce", "dmTrainControl")
+		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
+		sui.setTitle("Train Alter")
+		sui.setPrompt("Do you want to attempt to train the target's Control skill?")
+		sui.setOkButtonText("Yes")
+		sui.setCancelButtonText("No")
+		local pageId = sui.sendTo(pPlayer)
+	elseif(selection == 3) then --Inward
+		local sui = SuiMessageBox.new("BorForce", "dmTrainInward")
+		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
+		sui.setTitle("Train Alter")
+		sui.setPrompt("Do you want to attempt to train the target's Inward skill?")
+		sui.setOkButtonText("Yes")
+		sui.setCancelButtonText("No")
+		local pageId = sui.sendTo(pPlayer)
+	elseif(selection == 4) then --Lightning
+		local sui = SuiMessageBox.new("BorForce", "dmTrainLightning")
+		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
+		sui.setTitle("Train Alter")
+		sui.setPrompt("Do you want to attempt to train the target's Lightning skill?")
+		sui.setOkButtonText("Yes")
+		sui.setCancelButtonText("No")
+		local pageId = sui.sendTo(pPlayer)
+	elseif(selection == 5) then --Lightsaber
+		local sui = SuiMessageBox.new("BorForce", "dmTrainLightsaber")
+		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
+		sui.setTitle("Train Alter")
+		sui.setPrompt("Do you want to attempt to train the target's Lightsaber skill?")
+		sui.setOkButtonText("Yes")
+		sui.setCancelButtonText("No")
+		local pageId = sui.sendTo(pPlayer)
+	elseif(selection == 6) then --Sense
+		local sui = SuiMessageBox.new("BorForce", "dmTrainSense")
+		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
+		sui.setTitle("Train Alter")
+		sui.setPrompt("Do you want to attempt to train the target's Sense skill?")
+		sui.setOkButtonText("Yes")
+		sui.setCancelButtonText("No")
+		local pageId = sui.sendTo(pPlayer)
+	elseif(selection == 7) then --Telekinesis
+		local sui = SuiMessageBox.new("BorForce", "dmTrainTelekinesis")
+		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
+		sui.setTitle("Train Alter")
+		sui.setPrompt("Do you want to attempt to train the target's Telekinesis skill?")
+		sui.setOkButtonText("Yes")
+		sui.setCancelButtonText("No")
+		local pageId = sui.sendTo(pPlayer)
+	end
+end
+
 
 function BorForce:generateColorCrystalOptions() 
 	local optionsz = {}
@@ -520,6 +606,8 @@ function BorForce:toggleLightsaberSchematics(pPlayer)
 	end
 end
 
+
+
 function BorForce:awakenViaDMCallback(pPlayer, pSui, eventIndex, args)
 	if (pPlayer == nil) then
 		return
@@ -545,11 +633,8 @@ function BorForce:awakenViaDMCallback(pPlayer, pSui, eventIndex, args)
 		return
 	end
 	
-	if(CreatureObject(pTarget):hasSkill("rp_force_prog_rank_01")) then
-		CreatureObject(pPlayer):sendSystemMessage("This person is already aware of their connection to the Force.")
-		return
-	elseif(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
-		CreatureObject(pPlayer):sendSystemMessage("This target is not Force Sensitive")
+	if(CreatureObject(pTarget):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("This target is not an awakened Force Sensitive character.")
 		return
 	end
 	
@@ -835,6 +920,107 @@ function BorForce:setForceAware(pPlayer)
 	--Play Music
 	CreatureObject(pPlayer):playMusicMessage("sound/mus_rp_force_aware.snd")
 end
+
+
+
+
+function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+
+	local targetID = CreatureObject(pPlayer):getTargetID()
+	local pTarget = getSceneObject(targetID)
+	
+	
+	if (pTarget == nil or not SceneObject(pTarget):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+	
+	if(CreatureObject(pTarget):hasSkill("rp_force_prog_rank_01")) then
+		CreatureObject(pPlayer):sendSystemMessage("This person is already aware of their connection to the Force.")
+		return
+	elseif(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("This target is not Force Sensitive")
+		return
+	end
+	
+	local skillToLearn = "unknown"
+	--Get current skill rank
+	if(CreatureObject(pTarget):hasSkill("rp_alter_master")) then
+		skillToLearn = "already_mastered"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b04")) then
+		skillToLearn = "rp_alter_master"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b03")) then
+		skillToLearn = "rp_alter_b04"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b02")) then
+		skillToLearn = "rp_alter_b03"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b01")) then
+		skillToLearn = "rp_alter_b02"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a04")) then
+		skillToLearn = "rp_alter_b01"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a03")) then
+		skillToLearn = "rp_alter_a04"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a02")) then
+		skillToLearn = "rp_alter_a03"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a01")) then
+		skillToLearn = "rp_alter_a02"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_novice")) then
+		skillToLearn = "rp_alter_a01"
+	else
+		skillToLearn = "rp_alter_novice"
+	end
+
+
+	CreatureObject(pPlayer):sendSystemMessage("Debug: The level of Alter to train is " .. skillToLearn)
+
+
+	if(skillToLearn == "already_mastered") then
+		CreatureObject(pPlayer):sendSystemMessage("The target already has rank 10 in this skill.")
+	elseif (skillToLearn == "unknown") then
+		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining the target's skill level.")
+	else
+		local capRemaining = PlayerObject(pTarget):getExperience("rp_frc_skill_cap")
+		if (capRemaining <= 0) then
+			CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
+		else
+	
+		CreatureObject(pPlayer):sendSystemMessage("This is where we would grant them a skill.")
+
+		--BorSkill:CanTrainNextSkill()
+		--[[
+		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
+		if(xpAmount >= 20000) then
+			CreatureObject(pPlayer):awardExperience("rp_general", -20000, false)
+			self:setForceAware(pPlayer)
+		else 
+		
+		end
+		--]]
+		end
+	end
+	
+	
+
+end
+
+
+
+
+
 
 function BorForce:startForceMeditation(pPlayer) 
 	--CreatureObject(pPlayer):sendSystemMessage("I am but a mirror whose only purpose is to show you what your eyes cannot yet see.")
