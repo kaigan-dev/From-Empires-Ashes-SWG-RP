@@ -1029,9 +1029,9 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		local xpAmount = PlayerObject(targetGhost):getExperience("rp_general")
 		if(xpAmount >= baseXpCost) then
 			local negativeCost = baseXpCost * -1
-			CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)  --This is probably wrong.
 			CreatureObject(pPlayer):sendSystemMessage("Debug: We have charged the target " .. baseXpCost .. " xp and granted nothing.")
-	end
+		end
 		--BorSkill:CanTrainNextSkill()
 		--local xpAmount = CreatureObject(pPlayer):getExperience("rp_general")
 		--if(xpAmount >= 20000) then
@@ -1039,7 +1039,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 			--self:setForceAware(pPlayer)
 		--else 
 		
-		--end
+	end
 	
 
 
