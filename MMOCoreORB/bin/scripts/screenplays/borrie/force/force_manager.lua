@@ -1081,7 +1081,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 			CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)
 			CreatureObject(pTarget):awardExperience("rp_frc_skill_cap", -1, false)
 			CreatureObject(pPlayer):sendSystemMessage("Debug: We have charged the target " .. baseXpCost .. " xp and granted nothing.")
-			awardSkill(pPlayer, skillToLearn)
+			awardSkill(pTarget, skillToLearn)
 			CreatureObject(pPlayer):sendSystemMessage("Debug: Awarded the player " .. skillToLearn)
 		end
 	end
