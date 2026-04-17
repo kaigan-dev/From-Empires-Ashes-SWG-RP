@@ -338,51 +338,51 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 	elseif(selection == 2) then --Control
 			local sui = SuiMessageBox.new("BorForce", "dmTrainControl")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
-		sui.setTitle("Train Alter")
-		sui.setPrompt("Do you want to attempt to train the target's Control skill?")
+		sui.setTitle("Train Control")
+		sui.setPrompt("Would you like to train a point of Control? This will require sufficient XP, subject to an increase if the skill rank is above its parent attribute.?")
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
-		local pageId = sui.sendTo(pPlayer)
+		local pageId = sui.sendTo(pTarget)
 	elseif(selection == 3) then --Inward
 		local sui = SuiMessageBox.new("BorForce", "dmTrainInward")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
-		sui.setTitle("Train Alter")
-		sui.setPrompt("Do you want to attempt to train the target's Inward skill?")
+		sui.setTitle("Train Inward")
+		sui.setPrompt("Would you like to train a point of Inward? This will require sufficient XP, subject to an increase if the skill rank is above its parent attribute.")
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
-		local pageId = sui.sendTo(pPlayer)
+		local pageId = sui.sendTo(pTarget)
 	elseif(selection == 4) then --Lightning
 		local sui = SuiMessageBox.new("BorForce", "dmTrainLightning")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
-		sui.setTitle("Train Alter")
-		sui.setPrompt("Do you want to attempt to train the target's Lightning skill?")
+		sui.setTitle("Train Lightning")
+		sui.setPrompt("Would you like to train a point of Lightning? This will require sufficient XP, subject to an increase if the skill rank is above its parent attribute.")
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
-		local pageId = sui.sendTo(pPlayer)
+		local pageId = sui.sendTo(pTarget)
 	elseif(selection == 5) then --Lightsaber
 		local sui = SuiMessageBox.new("BorForce", "dmTrainLightsaber")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
-		sui.setTitle("Train Alter")
-		sui.setPrompt("Do you want to attempt to train the target's Lightsaber skill?")
+		sui.setTitle("Train Lightsaber")
+		sui.setPrompt("Would you like to train a point of Lightsaber? This will require sufficient XP, subject to an increase if the skill rank is above its parent attribute.")
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
-		local pageId = sui.sendTo(pPlayer)
+		local pageId = sui.sendTo(pTarget)
 	elseif(selection == 6) then --Sense
 		local sui = SuiMessageBox.new("BorForce", "dmTrainSense")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
-		sui.setTitle("Train Alter")
-		sui.setPrompt("Do you want to attempt to train the target's Sense skill?")
+		sui.setTitle("Train Sense")
+		sui.setPrompt("Would you like to train a point of Sense? This will require sufficient XP, subject to an increase if the skill rank is above its parent attribute.")
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
-		local pageId = sui.sendTo(pPlayer)
+		local pageId = sui.sendTo(pTarget)
 	elseif(selection == 7) then --Telekinesis
 		local sui = SuiMessageBox.new("BorForce", "dmTrainTelekinesis")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
-		sui.setTitle("Train Alter")
-		sui.setPrompt("Do you want to attempt to train the target's Telekinesis skill?")
+		sui.setTitle("Train Telekinesis")
+		sui.setPrompt("Would you like to train a point of Telekinesis? This will require sufficient XP, subject to an increase if the skill rank is above its parent attribute.")
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
-		local pageId = sui.sendTo(pPlayer)
+		local pageId = sui.sendTo(pTarget)
 	end
 end
 
@@ -951,18 +951,18 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		return
 	end
 
-	local targetID = CreatureObject(pPlayer):getTargetID()
-	local pTarget = getSceneObject(targetID)
+	--local targetID = CreatureObject(pPlayer):getTargetID()
+	--local pTarget = getSceneObject(targetID)
 
-	if (pTarget == nil or not SceneObject(pTarget):isPlayerCreature()) then
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
 		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
 		return
 	end
 
-	local targetGhost = CreatureObject(pTarget):getPlayerObject()
+	--local targetGhost = CreatureObject(pTarget):getPlayerObject()
 
-	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
-		CreatureObject(pPlayer):sendSystemMessage("This target is not Force Sensitive")
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not Force Sensitive.")
 		return
 	end
 	
@@ -971,43 +971,43 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	local skillRank = 0
 
 	--Get current skill rank
-	if(CreatureObject(pTarget):hasSkill("rp_alter_master") == true) then
+	if(CreatureObject(pPlayer):hasSkill("rp_alter_master") == true) then
 		skillToLearn = "already_mastered"
-		CreatureObject(pPlayer):sendSystemMessage("The target already has rank 10 in this skill.")
+		CreatureObject(pPlayer):sendSystemMessage("You already have rank 10 in this skill.")
 		return
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b04") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_b04") == true) then
 		skillToLearn = "rp_alter_master"
 		baseXpCost = 45000
 		skillRank = 10
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b03") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_b03") == true) then
 		skillToLearn = "rp_alter_b04"
 		baseXpCost = 35000
 		skillRank = 9
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b02") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_b02") == true) then
 		skillToLearn = "rp_alter_b03"
 		baseXpCost = 25000
 		skillRank = 8
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b01") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_b01") == true) then
 		skillToLearn = "rp_alter_b02"
 		baseXpCost = 15000
 		skillRank = 7
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a04") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_a04") == true) then
 		skillToLearn = "rp_alter_b01"
 		baseXpCost = 10000
 		skillRank = 6
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a03") == true) then
+	elseif (CreatureObject(pTapPlayerrget):hasSkill("rp_alter_a03") == true) then
 		skillToLearn = "rp_alter_a04"
 		baseXpCost = 5000
 		skillRank = 5
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a02") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_a02") == true) then
 		skillToLearn = "rp_alter_a03"
 		baseXpCost = 4000
 		skillRank = 4
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a01") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_a01") == true) then
 		skillToLearn = "rp_alter_a02"
 		baseXpCost = 3000
 		skillRank = 3
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_novice") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_novice") == true) then
 		skillToLearn = "rp_alter_a01"
 		baseXpCost = 2000
 		skillRank = 2
@@ -1018,34 +1018,34 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	end
 
 	if (skillToLearn == "unknown") then
-		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining the target's skill level.")
+		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining your skill level.")
 		return
 	end
 
 	local totalxpCost = baseXpCost
 	local attributeRank = 0
-	if(CreatureObject(pTarget):hasSkill("rp_mindfulness_master") == true) then
+	if(CreatureObject(pPlayer):hasSkill("rp_mindfulness_master") == true) then
 		attributeRank = 10
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_b04") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b04") == true) then
 		attributeRank = 9
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_b03") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b03") == true) then
 		attributeRank = 8
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_b02") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b02") == true) then
 		attributeRank = 7
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_b01") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_b01") == true) then
 		attributeRank = 6
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_a04") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a04") == true) then
 		attributeRank = 5
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_a03") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a03") == true) then
 		attributeRank = 4
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_a02") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a02") == true) then
 		attributeRank = 3
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_a01") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_a01") == true) then
 		attributeRank = 2
-	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_novice") == true) then
+	elseif (CreatureObject(pPlayer):hasSkill("rp_mindfulness_novice") == true) then
 		attributeRank = 1
 	else
-		CreatureObject(pPlayer):sendSystemMessage("The target somehow doesn't have a Mindfulness attribute. That's not right.")
+		CreatureObject(pPlayer):sendSystemMessage("You somehow don't have a Mindfulness attribute. That's not right.")
 		return
 	end
 
@@ -1055,20 +1055,20 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		totalxpCost = attSkillDiff * 2 * baseXpCost
 	end
 
-	local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
+	local capRemaining = PlayerObject(pGhost):getExperience("rp_frc_skill_cap")
 	
 	if (capRemaining <= 0) then
 		CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
 		return
 	else
-		local xpAmount = PlayerObject(targetGhost):getExperience("rp_general")
+		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
 		
 		if(xpAmount >= totalxpCost) then
 			local negativeCost = totalxpCost * -1
-			CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)
-			CreatureObject(pTarget):awardExperience("rp_frc_skill_cap", -1, false)
-			awardSkill(pTarget, skillToLearn)
-			CreatureObject(pPlayer):sendSystemMessage("Debug: Charged the player " .. totalxpCost .. " and one force skill cap to award them " .. skillToLearn .. ".")
+			CreatureObject(pPlayer):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pPlayer):awardExperience("rp_frc_skill_cap", -1, false)
+			awardSkill(pPlayer, skillToLearn)
+			CreatureObject(pPlayer):sendSystemMessage("You have been charged " .. totalxpCost .. " and one force skill capacity to award them " .. skillToLearn .. "!")
 		end
 	end
 end
