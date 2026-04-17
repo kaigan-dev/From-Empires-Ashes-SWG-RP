@@ -335,6 +335,7 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
 		local pageId = sui.sendTo(pTarget)	
+		CreatureObject(pPlayer):sendSystemMessage("A request to train a point of Alter has been sent to the player.")
 	elseif(selection == 2) then --Control
 			local sui = SuiMessageBox.new("BorForce", "dmTrainControl")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
@@ -343,6 +344,7 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
 		local pageId = sui.sendTo(pTarget)
+		CreatureObject(pPlayer):sendSystemMessage("A request to train a point of Control has been sent to the player.")
 	elseif(selection == 3) then --Inward
 		local sui = SuiMessageBox.new("BorForce", "dmTrainInward")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
@@ -351,6 +353,7 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
 		local pageId = sui.sendTo(pTarget)
+		CreatureObject(pPlayer):sendSystemMessage("A request to train a point of Inward has been sent to the player.")
 	elseif(selection == 4) then --Lightning
 		local sui = SuiMessageBox.new("BorForce", "dmTrainLightning")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
@@ -359,6 +362,7 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
 		local pageId = sui.sendTo(pTarget)
+		CreatureObject(pPlayer):sendSystemMessage("A request to train a point of Lightning has been sent to the player.")
 	elseif(selection == 5) then --Lightsaber
 		local sui = SuiMessageBox.new("BorForce", "dmTrainLightsaber")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
@@ -367,6 +371,7 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
 		local pageId = sui.sendTo(pTarget)
+		CreatureObject(pPlayer):sendSystemMessage("A request to train a point of Lightsaber has been sent to the player.")
 	elseif(selection == 6) then --Sense
 		local sui = SuiMessageBox.new("BorForce", "dmTrainSense")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
@@ -375,6 +380,7 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
 		local pageId = sui.sendTo(pTarget)
+		CreatureObject(pPlayer):sendSystemMessage("A request to train a point of Sense has been sent to the player.")
 	elseif(selection == 7) then --Telekinesis
 		local sui = SuiMessageBox.new("BorForce", "dmTrainTelekinesis")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
@@ -383,6 +389,7 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
 		local pageId = sui.sendTo(pTarget)
+		CreatureObject(pPlayer):sendSystemMessage("A request to train a point of Telekinesis has been sent to the player.")
 	end
 end
 
@@ -969,6 +976,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	local skillToLearn = "unknown"
 	local baseXpCost = 0
 	local skillRank = 0
+	local prettyName = "unknown"
 
 	--Get current skill rank
 	if(CreatureObject(pPlayer):hasSkill("rp_alter_master") == true) then
@@ -979,42 +987,52 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		skillToLearn = "rp_alter_master"
 		baseXpCost = 45000
 		skillRank = 10
+		prettyName = "Alter X"
 	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_b03") == true) then
 		skillToLearn = "rp_alter_b04"
 		baseXpCost = 35000
 		skillRank = 9
+		prettyName = "Alter IX"
 	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_b02") == true) then
 		skillToLearn = "rp_alter_b03"
 		baseXpCost = 25000
 		skillRank = 8
+		prettyName = "Alter VIII"
 	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_b01") == true) then
 		skillToLearn = "rp_alter_b02"
 		baseXpCost = 15000
 		skillRank = 7
+		prettyName = "Alter VII"
 	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_a04") == true) then
 		skillToLearn = "rp_alter_b01"
 		baseXpCost = 10000
 		skillRank = 6
+		prettyName = "Alter VI"
 	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_a03") == true) then
 		skillToLearn = "rp_alter_a04"
 		baseXpCost = 5000
 		skillRank = 5
+		prettyName = "Alter V"
 	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_a02") == true) then
 		skillToLearn = "rp_alter_a03"
 		baseXpCost = 4000
 		skillRank = 4
+		prettyName = "Alter IV"
 	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_a01") == true) then
 		skillToLearn = "rp_alter_a02"
 		baseXpCost = 3000
 		skillRank = 3
+		prettyName = "Alter III"
 	elseif (CreatureObject(pPlayer):hasSkill("rp_alter_novice") == true) then
 		skillToLearn = "rp_alter_a01"
 		baseXpCost = 2000
 		skillRank = 2
+		prettyName = "Alter II"
 	else
 		skillToLearn = "rp_alter_novice"
 		baseXpCost = 1000
 		skillRank = 1
+		prettyName = "Alter I"
 	end
 
 	if (skillToLearn == "unknown") then
@@ -1058,7 +1076,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	local capRemaining = PlayerObject(pGhost):getExperience("rp_frc_skill_cap")
 	
 	if (capRemaining <= 0) then
-		CreatureObject(pPlayer):sendSystemMessage("The target has already learned the maximum number of force skills that they can.")
+		CreatureObject(pPlayer):sendSystemMessage("You have already learned the maximum number of force skills that you can (ie. Force Skill Cap is zero).")
 		return
 	else
 		local xpAmount = PlayerObject(pGhost):getExperience("rp_general")
@@ -1068,7 +1086,13 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 			CreatureObject(pPlayer):awardExperience("rp_general", negativeCost, false)
 			CreatureObject(pPlayer):awardExperience("rp_frc_skill_cap", -1, false)
 			awardSkill(pPlayer, skillToLearn)
-			CreatureObject(pPlayer):sendSystemMessage("You have been charged " .. totalxpCost .. " and one force skill capacity to award them " .. skillToLearn .. "!")
+			CreatureObject(pPlayer):sendSystemMessage("You have learned " .. prettyName .. " (" .. skillToLearn .. ")!")
+			
+			if(attSkillDiff > 0) then
+				CreatureObject(pPlayer):sendSystemMessage("Due to insufficient Mindfulness, you have been charged an increased " .. totalxpCost .. " and one force skill capacity for this")
+			else
+				CreatureObject(pPlayer):sendSystemMessage("You have sufficient Mindfulness and have been charged " .. totalxpCost .. " and one force skill capacity for this")
+			end
 		end
 	end
 end
