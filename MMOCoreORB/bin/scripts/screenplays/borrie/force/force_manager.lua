@@ -641,7 +641,7 @@ function BorForce:awakenViaDMCallback(pPlayer, pSui, eventIndex, args)
 		return
 	end
 	
-	CreatureObject(pPlayer):sendSystemMessage(CreatureObject(pTarget):getFirstName() .. " has been made aware of their connection to the Force.")
+	CreatureObject(pPlayer):sendSystemMessage("The player has been made aware of their connection to the Force.")
 	self:setForceAware(pTarget)	
 end
 
@@ -968,6 +968,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 
 	local skillToLearn = "unknown"
 	local baseXpCost = 0
+	local skillRank = 0
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: skillToLearn has been defaulted to " .. skillToLearn)
 
@@ -980,33 +981,43 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b04") == true) then
 		skillToLearn = "rp_alter_master"
 		baseXpCost = 45000
+		skillRank = 10
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b03") == true) then
 		skillToLearn = "rp_alter_b04"
 		baseXpCost = 35000
+		skillRank = 9
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b02") == true) then
 		skillToLearn = "rp_alter_b03"
 		baseXpCost = 25000
+		skillRank = 8
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b01") == true) then
 		skillToLearn = "rp_alter_b02"
 		baseXpCost = 15000
+		skillRank = 7
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a04") == true) then
 		skillToLearn = "rp_alter_b01"
 		baseXpCost = 10000
+		skillRank = 6
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a03") == true) then
 		skillToLearn = "rp_alter_a04"
 		baseXpCost = 5000
+		skillRank = 5
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a02") == true) then
 		skillToLearn = "rp_alter_a03"
-		baseXpCost = 3400
+		baseXpCost = 4000
+		skillRank = 4
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a01") == true) then
 		skillToLearn = "rp_alter_a02"
 		baseXpCost = 3000
+		skillRank = 3
 	elseif (CreatureObject(pTarget):hasSkill("rp_alter_novice") == true) then
 		skillToLearn = "rp_alter_a01"
 		baseXpCost = 2000
+		skillRank = 2
 	else
 		skillToLearn = "rp_alter_novice"
 		baseXpCost = 1000
+		skillRank = 1
 	end
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: The level of Alter to train is " .. skillToLearn)
@@ -1016,12 +1027,46 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		return
 	end
 
+	CreatureObject(pPlayer):sendSystemMessage("Debug: Checking Mindfulness level.")
+
+	local totalxpCost = baseXpCost
+	local attributeRank = 0
+	if(CreatureObject(pTarget):hasSkill("rp_mindfulness_master") == true) then
+		attributeRank = 10
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_b04") == true) then
+		attributeRank = 9
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_b03") == true) then
+		attributeRank = 8
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_b02") == true) then
+		attributeRank = 7
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_b01") == true) then
+		attributeRank = 6
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_a04") == true) then
+		attributeRank = 5
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_a03") == true) then
+		attributeRank = 4
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_a02") == true) then
+		attributeRank = 3
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_a01") == true) then
+		attributeRank = 2
+	elseif (CreatureObject(pTarget):hasSkill("rp_mindfulness_novice") == true) then
+		attributeRank = 1
+	else
+		CreatureObject(pPlayer):sendSystemMessage("The target somehow doesn't have a Mindfulness attribute. That's not right.")
+		return
+	end
+
+
+	CreatureObject(pPlayer):sendSystemMessage("Debug: Calculating XP cost.")
+
+	local attSkillDiff = skillRank - attributeRank
+	if(attSkillDiff > 0) then
+		totalxpCost = attSkillDiff * 2 * baseXpCost
+	end
+
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: Checking whether the target has force skill cap.")
 
-	--local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
-	--local capRemaining = PlayerObject(pTarget):getExperience("rp_frc_skill_cap")  --Blows up
-	--local capRemaining = targetGhost:getExperience("rp_frc_skill_cap")   --Gives  attempt to index a userdata value (local 'targetGhost')    error
 	local capRemaining = PlayerObject(targetGhost):getExperience("rp_frc_skill_cap")
 	
 	if (capRemaining <= 0) then
@@ -1030,9 +1075,10 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 	else
 		CreatureObject(pPlayer):sendSystemMessage("Debug: The target has enough skill cap. Next we will check whether they have enough RP XP.")
 		local xpAmount = PlayerObject(targetGhost):getExperience("rp_general")
-		if(xpAmount >= baseXpCost) then
-			local negativeCost = baseXpCost * -1
-			CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)  --This is probably wrong.
+		if(xpAmount >= totalxpCost) then
+			local negativeCost = totalxpCost * -1
+			CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)
+			CreatureObject(pTarget):awardExperience("rp_frc_skill_cap", -1, false)
 			CreatureObject(pPlayer):sendSystemMessage("Debug: We have charged the target " .. baseXpCost .. " xp and granted nothing.")
 		end
 		--BorSkill:CanTrainNextSkill()
