@@ -955,29 +955,34 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		return
 	end
 	
+	CreatureObject(pPlayer):sendSystemMessage("Debug: We are about to determine what skill the target has.")
+
 	local skillToLearn = "unknown"
+
+	CreatureObject(pPlayer):sendSystemMessage("Debug: skillToLearn has been defaulted to " .. skillToLearn)
+
 	--Get current skill rank
-	if(CreatureObject(pTarget):hasSkill("rp_alter_master")) then
+	if(CreatureObject(pTarget):hasSkill("rp_alter_master") == true) then
 		skillToLearn = "already_mastered"
 		CreatureObject(pPlayer):sendSystemMessage("The target already has rank 10 in this skill.")
 		return
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b04")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b04") == true) then
 		skillToLearn = "rp_alter_master"
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b03")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b03") == true) then
 		skillToLearn = "rp_alter_b04"
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b02")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b02") == true) then
 		skillToLearn = "rp_alter_b03"
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b01")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_b01") == true) then
 		skillToLearn = "rp_alter_b02"
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a04")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a04") == true) then
 		skillToLearn = "rp_alter_b01"
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a03")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a03") == true) then
 		skillToLearn = "rp_alter_a04"
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a02")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a02") == true) then
 		skillToLearn = "rp_alter_a03"
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a01")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a01") == true) then
 		skillToLearn = "rp_alter_a02"
-	elseif (CreatureObject(pTarget):hasSkill("rp_alter_novice")) then
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_novice") == true) then
 		skillToLearn = "rp_alter_a01"
 	else
 		skillToLearn = "rp_alter_novice"
