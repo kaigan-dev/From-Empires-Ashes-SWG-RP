@@ -1066,7 +1066,7 @@ public:
             int rpSkillLevel = 0;
             if (armor != nullptr && armor.get() != nullptr) {
                 rpSkillLevel = armor.get()->getRpSkillLevel();
-                if (rpSkillLevel >= creature->getSkillMod("rp_strength")) {
+                if (rpSkillLevel > creature->getSkillMod("rp_strength")) {
                 	skillFlag = 1;
                 }
             }
