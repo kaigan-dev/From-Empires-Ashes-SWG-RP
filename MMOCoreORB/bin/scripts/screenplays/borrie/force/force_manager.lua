@@ -315,19 +315,26 @@ function BorForce:dmTrainSkillMenuCallback(pPlayer, pSui, eventIndex, args)
 	if (cancelPressed) then
 		return
 	end
+
+	local targetID = CreatureObject(pPlayer):getTargetID()
+	local pTarget = getSceneObject(targetID)
+	if (pTarget == nil or not SceneObject(pTarget):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
 	
 	local selection = args + 1
 	
 	local suiManager = LuaSuiManager()
 	
 	if(selection == 1) then --Alter
-		local sui = SuiMessageBox.new("BorForce", "dmTrainAlter", "alter")
+		local sui = SuiMessageBox.new("BorForce", "dmTrainAlter")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
 		sui.setTitle("Train Alter")
-		sui.setPrompt("Do you want to attempt to train the target's Alter skill?")
+		sui.setPrompt("Would you like to train a point of Alter? This will require sufficient XP, subject to an increase if the skill rank is above its parent attribute.")
 		sui.setOkButtonText("Yes")
 		sui.setCancelButtonText("No")
-		local pageId = sui.sendTo(pPlayer)	
+		local pageId = sui.sendTo(pTarget)	
 	elseif(selection == 2) then --Control
 			local sui = SuiMessageBox.new("BorForce", "dmTrainControl")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
@@ -944,22 +951,21 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		return
 	end
 
-	local skillName = args +1
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)
-	
+
 	if (pTarget == nil or not SceneObject(pTarget):isPlayerCreature()) then
 		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
 		return
 	end
 
 	local targetGhost = CreatureObject(pTarget):getPlayerObject()
-	
+
 	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
 		CreatureObject(pPlayer):sendSystemMessage("This target is not Force Sensitive")
 		return
 	end
-
+	
 	local skillToLearn = "unknown"
 	local baseXpCost = 0
 	local skillRank = 0
@@ -989,34 +995,32 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		skillToLearn = "rp_alter_b01"
 		baseXpCost = 10000
 		skillRank = 6
-	elseif (CreatureObject(pTarget):hasSkill("rp_" .. skillName .. "_a03") == true) then
-		skillToLearn = "rp_" .. skillName .. "_a04"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a03") == true) then
+		skillToLearn = "rp_alter_a04"
 		baseXpCost = 5000
 		skillRank = 5
-	elseif (CreatureObject(pTarget):hasSkill("rp_" .. skillName .. "_a02") == true) then
-		skillToLearn = "rp_" .. skillName .. "_a03"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a02") == true) then
+		skillToLearn = "rp_alter_a03"
 		baseXpCost = 4000
 		skillRank = 4
-	elseif (CreatureObject(pTarget):hasSkill("rp_" .. skillName .. "_a01") == true) then
-		skillToLearn = "rp_" .. skillName .. "_a02"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_a01") == true) then
+		skillToLearn = "rp_alter_a02"
 		baseXpCost = 3000
 		skillRank = 3
-	elseif (CreatureObject(pTarget):hasSkill("rp_" .. skillName .. "novice") == true) then
-		skillToLearn = "rp_" .. skillName .. "_a01"
+	elseif (CreatureObject(pTarget):hasSkill("rp_alter_novice") == true) then
+		skillToLearn = "rp_alter_a01"
 		baseXpCost = 2000
 		skillRank = 2
 	else
-		skillToLearn = "rp_" .. skillName .. "_novice"
+		skillToLearn = "rp_alter_novice"
 		baseXpCost = 1000
 		skillRank = 1
 	end
-
 
 	if (skillToLearn == "unknown") then
 		CreatureObject(pPlayer):sendSystemMessage("Something went wrong in determining the target's skill level.")
 		return
 	end
-
 
 	local totalxpCost = baseXpCost
 	local attributeRank = 0
@@ -1045,6 +1049,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 		return
 	end
 
+
 	local attSkillDiff = skillRank - attributeRank
 	if(attSkillDiff > 0) then
 		totalxpCost = attSkillDiff * 2 * baseXpCost
@@ -1063,7 +1068,7 @@ function BorForce:dmTrainAlter(pPlayer, pSui, eventIndex, args)
 			CreatureObject(pTarget):awardExperience("rp_general", negativeCost, false)
 			CreatureObject(pTarget):awardExperience("rp_frc_skill_cap", -1, false)
 			awardSkill(pTarget, skillToLearn)
-			CreatureObject(pPlayer):sendSystemMessage("Debug: We have charged the target " .. totalxpCost .. " xp, one force skill cap point, and granted " .. skillToLearn .. ".")
+			CreatureObject(pPlayer):sendSystemMessage("Debug: Charged the player " .. totalxpCost .. " and one force skill cap to award them " .. skillToLearn .. ".")
 		end
 	end
 end
