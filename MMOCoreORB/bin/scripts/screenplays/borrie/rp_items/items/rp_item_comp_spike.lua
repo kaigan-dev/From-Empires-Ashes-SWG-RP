@@ -4,10 +4,10 @@ BorRpItemComputerSpikeMenuComponent = {}
 function BorRpItemComputerSpikeMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuResponse, pPlayer)
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 
-	menuResponse:addRadialMenuItem(20, 3, "Roll Computer Skill")
+	menuResponse:addRadialMenuItem(20, 3, "Roll Computer Skill", pSceneObject)
 end
 
-function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID)
+function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID, pSceneObject)
 	if (pPlayer == nil or pObject == nil) then
 		return 0
 	end
@@ -18,7 +18,7 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		local result = roll + skillMod	+ 2
 
 		local msg = CreatureObject(pPlayer):getFirstName().. " uses a computer spike, rolling Computers: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF. Please delete your computer spike."
-		TangibleObject(pObject):decreaseUseCount()
+		TangibleObject(pSceneObject):decreaseUseCount()
 
 		broadcastMessageWithName(pPlayer, msg)
 	end
