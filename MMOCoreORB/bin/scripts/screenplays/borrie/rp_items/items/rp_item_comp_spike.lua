@@ -31,9 +31,9 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		--SceneObject(pObject):broadcastDestroyPrivate()
 		--SceneObject(pObject):broadcastDestroyPrivate()
 		
-		SceneObject(pObject):destroyObjectFromDatabase()
+		--SceneObject(pObject):destroyObjectFromDatabase()  --Does nothing. I'm not sure if that's better or worse.
 
-		--SceneObject(pObject):destroyObjectFromDatabase(true)
+		SceneObject(pObject):destroyObjectFromDatabase(true)
 		--broadcastDestroy(false)
 
 		broadcastMessageWithName(pPlayer, msg)
