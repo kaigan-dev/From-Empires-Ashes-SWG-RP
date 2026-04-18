@@ -17,25 +17,11 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		local roll = math.floor(math.random(1,20))
 		local result = roll + skillMod	+ 2
 
-		local msg = CreatureObject(pPlayer):getFirstName().. " uses a computer spike, rolling Computers: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF. Please delete your computer spike."
-		
-		
-		--TangibleObject(pObject):decreaseUseCount() --Attempt to call a nil value.
-		--TangibleObject(SceneObject(pObject)):decreaseUseCount(1, true)    --Still gives "attempt to call a nil value" even when provided parameters.
-		--TangibleObject(pObject):decreaseUseCount(1, true)
-
-		--SceneObject(pObject):getTangibleObject():decreaseUseCount()
-
-		--SceneObject(pObject):getTangibleObject():decreaseUseCount(1, true)
-
-		--SceneObject(pObject):broadcastDestroyPrivate()
-		--SceneObject(pObject):broadcastDestroyPrivate()
+		local msg = CreatureObject(pPlayer):getFirstName().. " uses a computer spike, rolling Computers: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF."
 		
 		SceneObject(pObject):destroyObjectFromWorld()
-		SceneObject(pObject):destroyObjectFromDatabase()  --This works, but only on server restart. So we have to delete it somewhere else too.
+		SceneObject(pObject):destroyObjectFromDatabase()
 
-		--SceneObject(pObject):destroyObjectFromDatabase(true)
-		--broadcastDestroy(false)
 
 		broadcastMessageWithName(pPlayer, msg)
 	end

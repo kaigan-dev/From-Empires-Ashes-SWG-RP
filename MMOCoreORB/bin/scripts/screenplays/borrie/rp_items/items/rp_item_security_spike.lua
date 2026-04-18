@@ -17,7 +17,10 @@ function BorRpItemSecuritySpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		local roll = math.floor(math.random(1,20))
 		local result = roll + skillMod	+ 2
 
-		local msg = CreatureObject(pPlayer):getFirstName().. " uses a security spike, rolling Slicing: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF. Please delete your security spike."
+		local msg = CreatureObject(pPlayer):getFirstName().. " uses a security spike, rolling Slicing: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF."
+
+		SceneObject(pObject):destroyObjectFromWorld()
+		SceneObject(pObject):destroyObjectFromDatabase()
 
 		broadcastMessageWithName(pPlayer, msg)
 	end

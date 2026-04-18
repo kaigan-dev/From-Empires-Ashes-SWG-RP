@@ -17,13 +17,13 @@ function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPla
 		local roll = math.floor(math.random(1,20))
 		local result = roll + skillMod	+ 2
 
-		local msg = CreatureObject(pPlayer):getFirstName().. " uses a hydrospanner, rolling Mechanics: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF. Please delete your hydrospanner."
+		local msg = CreatureObject(pPlayer):getFirstName().. " uses a hydrospanner, rolling Mechanics: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF."
+
+		SceneObject(pObject):destroyObjectFromWorld()
+		SceneObject(pObject):destroyObjectFromDatabase()
 
 		broadcastMessageWithName(pPlayer, msg)
 
-		--Neither of these work. They throw an "attempt to call a nil value" error instead.
-		--TangibleObject(pObject):decreaseUseCount(1, true)
-		--pObject:decreaseUseCount(1, true)
 	end
 	
 	return 0
