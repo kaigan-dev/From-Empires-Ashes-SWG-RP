@@ -22,9 +22,10 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		
 		--TangibleObject(pObject):decreaseUseCount() --Attempt to call a nil value.
 		--TangibleObject(SceneObject(pObject)):decreaseUseCount(1, true)    --Still gives "attempt to call a nil value" even when provided parameters.
+		--TangibleObject(pObject):decreaseUseCount(1, true)
 
-		TangibleObject(pObject):decreaseUseCount(1, true)
-		--SceneObject(pObject):getTangibleObject():decreaseUseCount()
+		SceneObject(pObject):getTangibleObject():decreaseUseCount()
+
 		--SceneObject(pObject):getTangibleObject():decreaseUseCount(1, true)
 
 		broadcastMessageWithName(pPlayer, msg)
