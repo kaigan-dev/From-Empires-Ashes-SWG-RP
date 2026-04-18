@@ -20,10 +20,10 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		local msg = CreatureObject(pPlayer):getFirstName().. " uses a computer spike, rolling Computers: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF. Please delete your computer spike."
 		
 		
-	
-		TangibleObject(SceneObject(pObject)):decreaseUseCount(1, true)
+		--TangibleObject(pObject):decreaseUseCount() --Attempt to call a nil value.
+		--TangibleObject(SceneObject(pObject)):decreaseUseCount(1, true)    --Still gives "attempt to call a nil value" even when provided parameters.
 
-
+		TangibleObject(pObject):decreaseUseCount(1, true)
 		--SceneObject(pObject):getTangibleObject():decreaseUseCount()
 		--SceneObject(pObject):getTangibleObject():decreaseUseCount(1, true)
 
