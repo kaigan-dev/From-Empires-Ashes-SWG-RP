@@ -31,9 +31,10 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		--SceneObject(pObject):broadcastDestroyPrivate()
 		--SceneObject(pObject):broadcastDestroyPrivate()
 		
-		--SceneObject(pObject):destroyObjectFromDatabase()  --Does nothing. I'm not sure if that's better or worse.
+		SceneObject(pObject):destroyObjectFromWorld()
+		SceneObject(pObject):destroyObjectFromDatabase()  --This works, but only on server restart. So we have to delete it somewhere else too.
 
-		SceneObject(pObject):destroyObjectFromDatabase(true)
+		--SceneObject(pObject):destroyObjectFromDatabase(true)
 		--broadcastDestroy(false)
 
 		broadcastMessageWithName(pPlayer, msg)
