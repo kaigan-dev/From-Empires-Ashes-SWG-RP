@@ -37,7 +37,12 @@ public:
         int toHitDC = GetToHitModifier(attacker, defender, weapon) + 10;
         int aimMod = 0;
         if(bodyPartTarget != -1) { //A Body Part was specified.
-            aimMod = bodyPartTarget;
+            if (bodyPartTarget == 3 && bodyPartTarget == 4 && bodyPartTarget == 5 && bodyPartTarget == 6 && bodyPartTarget == 7 && bodyPartTarget == 8) {
+                aimMod = 5;
+            }
+            else if (bodyPartTarget == 9 && bodyPartTarget == 10) {
+                aimMod = 10;
+            }
             DrainActionOrWill(attacker, 1);
         }
 
@@ -99,7 +104,7 @@ public:
         if(toHitRoll + skillCheck >= toHitDC || toHitRoll == 20) {
             if(bodyPartTarget != -1) {
                 //If we specified a target, we need to see if we can hit it.
-                if(toHitRoll + skillCheck + aimMod < toHitDC || toHitRoll == 20) {
+                if(toHitRoll + skillCheck + aimMod < toHitDC || toHitRoll == 1) {
                     //We failed to hit the target, so get a new target that isn't the one we specified.
                     int newTarget = BorDice::Roll(1, 10);
                     while(bodyPartTarget == newTarget) {

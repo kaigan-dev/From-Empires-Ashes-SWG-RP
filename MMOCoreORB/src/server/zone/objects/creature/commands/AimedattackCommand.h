@@ -132,7 +132,7 @@ public:
 			creature->getPlayerObject()->addSuiBox(box);
 			creature->sendMessage(box->generateMessage());
 		} catch (Exception& e) {
-			creature->sendSystemMessage("Error encountered when using train command.");
+			creature->sendSystemMessage("Error encountered when using aimed attack command.");
 		}
 	}
 
