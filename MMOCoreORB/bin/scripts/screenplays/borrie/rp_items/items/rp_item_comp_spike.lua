@@ -24,9 +24,17 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		--TangibleObject(SceneObject(pObject)):decreaseUseCount(1, true)    --Still gives "attempt to call a nil value" even when provided parameters.
 		--TangibleObject(pObject):decreaseUseCount(1, true)
 
-		SceneObject(pObject):getTangibleObject():decreaseUseCount()
+		--SceneObject(pObject):getTangibleObject():decreaseUseCount()
 
 		--SceneObject(pObject):getTangibleObject():decreaseUseCount(1, true)
+
+		--SceneObject(pObject):broadcastDestroyPrivate()
+		--SceneObject(pObject):broadcastDestroyPrivate()
+		
+		SceneObject(pObject):destroyObjectFromDatabase()
+
+		--SceneObject(pObject):destroyObjectFromDatabase(true)
+		--broadcastDestroy(false)
 
 		broadcastMessageWithName(pPlayer, msg)
 	end
