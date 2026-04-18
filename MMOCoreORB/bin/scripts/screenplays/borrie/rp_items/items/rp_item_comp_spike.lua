@@ -18,6 +18,7 @@ function BorRpItemComputerSpikeMenuComponent:handleObjectMenuSelect(pObject, pPl
 		local result = roll + skillMod	+ 2
 
 		local msg = CreatureObject(pPlayer):getFirstName().. " uses a computer spike, rolling Computers: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF. Please delete your computer spike."
+		TangibleObject(pObject):decreaseUseCount()
 
 		broadcastMessageWithName(pPlayer, msg)
 	end

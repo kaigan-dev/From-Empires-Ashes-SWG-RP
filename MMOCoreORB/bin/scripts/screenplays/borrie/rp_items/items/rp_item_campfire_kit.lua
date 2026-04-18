@@ -4,7 +4,7 @@ BorRpItemCampfireKitMenuComponent = {}
 function BorRpItemCampfireKitMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuResponse, pPlayer)
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 
-	menuResponse:addRadialMenuItem(20, 3, "Start Fire")
+	--menuResponse:addRadialMenuItem(20, 3, "Start Fire")
 end
 
 function BorRpItemCampfireKitMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID)
@@ -12,9 +12,11 @@ function BorRpItemCampfireKitMenuComponent:handleObjectMenuSelect(pObject, pPlay
 		return 0
 	end
 	
+	--[[
 	if (selectedID == 20) then 
 		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! - Borrie")
 	end
+	--]]
 	
 	return 0
 end
