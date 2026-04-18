@@ -149,7 +149,7 @@ public:
         String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, toHitRoll + skillCheck, bodyPartTarget, powerAttack, false, 1);
         
         //Apply Followup as per the reaction.
-        String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC) + "\\#FFFFFF";
+        String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, (toHitDC + aimMod)) + "\\#FFFFFF";
 
         String combatSpam = attacker->getFirstName() + " "+attackVerb+ " and hit their " + GetSlotDisplayName(bodyPartTarget) + "!";
         
