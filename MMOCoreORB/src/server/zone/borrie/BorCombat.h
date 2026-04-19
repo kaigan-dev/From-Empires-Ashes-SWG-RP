@@ -44,6 +44,7 @@ public:
                 aimMod = 10;
             }
             DrainActionOrWill(attacker, 1);
+            toHitDC += aimMod;
         }
 
         int skillCheck = 0;
@@ -54,39 +55,6 @@ public:
         else if(weapon->isRangedWeapon()) skillCheck = attacker->getSkillMod("rp_ranged");
 
         int toHitRoll = BorDice::Roll(1, 20);
-
-        /*
-        //Lightsaber Hurt self check.
-        if(weapon->isJediWeapon()) {
-            //Modify toHitDC if its our lightsaber.
-            if(weapon->getCraftersName() == attacker->getFirstName()) {
-                toHitDC -= 2;
-                if(toHitDC < 0)
-                    toHitDC = 0;
-            }
-
-            bool selfHit = false;
-            int saberSkill = attacker->getSkillMod("rp_lightsaber");
-            if(saberSkill == 0) {
-                if(toHitRoll < 18) {
-                    //Ouch
-                    selfHit = true;
-                    
-                } 
-            } else if(saberSkill < 3) {
-                if(toHitRoll == 1) {
-                    selfHit = true;
-                }
-            }
-
-            if(selfHit) {
-                BorEffect::PerformReactiveAnimation(attacker, attacker, "hit", GetSlotHitlocation(BorDice::Roll(1, 10)), true);
-                int totalDamage = GetDamageRoll(weapon->getMaxDamage(), weapon->getMinDamage(), weapon->getBonusDamage());
-                BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " accidently hurts themselves with the lightsaber, doing "+String::valueOf(totalDamage)+" damage!");
-                BorCharacter::ModPool(attacker, "health", totalDamage * -1, true);       
-                return;
-            }
-        } */
 
         if(powerAttack) {
             toHitDC += 5;
@@ -104,7 +72,7 @@ public:
         if(toHitRoll + skillCheck >= toHitDC || toHitRoll == 20) {
             if(bodyPartTarget != -1) {
                 //If we specified a target, we need to see if we can hit it.
-                if(toHitRoll + skillCheck + aimMod < toHitDC || toHitRoll == 1) {
+                if(toHitRoll + skillCheck < toHitDC || toHitRoll == 1) {
                     //We failed to hit the target, so get a new target that isn't the one we specified.
                     int newTarget = BorDice::Roll(1, 10);
                     while(bodyPartTarget == newTarget) {
@@ -149,7 +117,7 @@ public:
         String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, toHitRoll + skillCheck, bodyPartTarget, powerAttack, false, 1);
         
         //Apply Followup as per the reaction.
-        String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, (toHitDC + aimMod)) + "\\#FFFFFF";
+        String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC) + "\\#FFFFFF";
 
         String combatSpam = attacker->getFirstName() + " "+attackVerb+ " and hit their " + GetSlotDisplayName(bodyPartTarget) + "!";
         
@@ -175,7 +143,6 @@ public:
             }
         }
         
-
         //Dark Rebellion Rulebook Edition I, on Flurry Attack
         /* Instead of simply one attack, you’ll roll three to-hit to determine three different attacks, each providing half damage if they succeed. 
         If the target is using a combat stance that uses action points, they’ll have to spend twice as many action points to counter your attack, 
