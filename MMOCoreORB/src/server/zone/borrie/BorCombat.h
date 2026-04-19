@@ -26,7 +26,6 @@ public:
             }
         }
         
-
         String attackVerb = powerAttack ? "power attacked" : "attacked";
         if(bodyPartTarget != -1) 
             attackVerb = "aimed at "+defender->getFirstName()+"'s "+GetSlotDisplayName(bodyPartTarget);
@@ -37,10 +36,10 @@ public:
         int toHitDC = GetToHitModifier(attacker, defender, weapon) + 10;
         int aimMod = 0;
         if(bodyPartTarget != -1) { //A Body Part was specified.
-            if (bodyPartTarget == 3 && bodyPartTarget == 4 && bodyPartTarget == 5 && bodyPartTarget == 6 && bodyPartTarget == 7 && bodyPartTarget == 8) {
+            if (bodyPartTarget == 3 || bodyPartTarget == 4 || bodyPartTarget == 5 || bodyPartTarget == 6 || bodyPartTarget == 7 || bodyPartTarget == 8) {
                 aimMod = 5;
             }
-            else if (bodyPartTarget == 9 && bodyPartTarget == 10) {
+            else if (bodyPartTarget == 9 || bodyPartTarget == 10) {
                 aimMod = 10;
             }
             DrainActionOrWill(attacker, 1);
