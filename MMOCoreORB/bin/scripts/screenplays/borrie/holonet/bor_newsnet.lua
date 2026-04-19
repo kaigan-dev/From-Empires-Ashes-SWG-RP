@@ -198,8 +198,8 @@ function BorNewsnetMenuComponent:handleObjectMenuSelect(pObject, pPlayer, select
 	elseif(selectedID == 80) then --Check Upcoming Events
 		BorNewsnet:displayEventList(pPlayer, pObject)
 	--Delete Broadcast option from holonet terminals. Cagnaith 4/19/26
-		--elseif(selectedID == 81) then --Send Broadcast
-	--	BorNewsnet:promptBroadcast(pPlayer, pObject)
+	elseif(selectedID == 81) then --Send Broadcast
+		BorNewsnet:promptBroadcast(pPlayer, pObject)
 	end
 	
 	return 0
