@@ -144,7 +144,7 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 
 
 		{8.6, -0.9, 0.4, 86, 610030372, {"social"}} --[[replacement Bestine starport cantina npc]],
-		-- starport cantina npcs
+		-- starport cantina npcs,
 		{-4, -0.9, -4.8, 6, 610030372, {"drinker"}},
 		{-2.2, -0.9, -5, 2, 610030372, {"none"}},
 		{-0.3, -0.9, -4.8, 305, 610030372, {"social"}},
