@@ -124,10 +124,6 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{402.9, 0, 6621.2, 337, 0, {"none"}},
 		{407.5, 0, 6618.4, 34, 0, {"none"}},
 		{407.1, 0, 6614.5, 168, 0, {"social"}},
-		{407, 0, 6612.6, 8, 0, {"none"}},
-		{408.9, 0, 6612.9, 0, {"none"}},
-		{410.9, 0, 6612.2, 292, 0, {"none"}},
-		{410.2, 0, 6614.2, 236, 0, {"none"}},
 		{399.8, 0, 6615.8, 222, 0, {"none"}},
 		{387.1, 0.5, 6620.7, 352, 0, {"sit"}},
 		{412.4, 0, 6606.7, 36, 0, {"none"}},
@@ -144,7 +140,7 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 
 
 		{8.6, -0.9, 0.4, 86, 610030372, {"social"}} --[[replacement Bestine starport cantina npc]],
-		-- starport cantina npcs
+		-- starport cantina npcs,
 		{-4, -0.9, -4.8, 6, 610030372, {"drinker"}},
 		{-2.2, -0.9, -5, 2, 610030372, {"none"}},
 		{-0.3, -0.9, -4.8, 305, 610030372, {"social"}},
@@ -206,22 +202,22 @@ sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.i
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
 	
 	--TAILOR--
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 11.9, 2.2, -19.3, 610029850, 0, 0, -0.5, 0) --Shirts
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 7.9, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Shirts
 	SceneObject(sObj):setCustomObjectName("Shirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.4, 2.2, -16.6, 610029850, 0, 0, 1, 0) --Pants
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.4, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Pants
 	SceneObject(sObj):setCustomObjectName("Pants")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_pants")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.4, 2.2, -16.6, 610029850, 0, 0, 1, 0) --Footwear
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.4, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Footwear
 	SceneObject(sObj):setCustomObjectName("Footwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_footwear")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -4.4, 2.2, -16.6, 610029850, 0, 0, 1, 0) --Jacket
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -4.4, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Jacket
 	SceneObject(sObj):setCustomObjectName("Jacket")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
@@ -241,53 +237,53 @@ sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.i
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_bodysuits")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 2.4, 2.2, -16.6, 610029850, 0, 0, 1, 0) --Skirts
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 2.4, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Skirts
 	SceneObject(sObj):setCustomObjectName("Skirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_skirts")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -9.4, 2.2, -21.5, 610029850, 0, 0, 0, 0) --Women
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -9.4, 2.2, -22, 610029850, 0, 0, 0, 0) --Women
 	SceneObject(sObj):setCustomObjectName("Women's Wear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_women")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 2.2, -21.5, 610029850, 0, 0, -0.9, 0) --Heaad & Goggle
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 2.2, -21.6, 610029850, 0, 0, -0.9, 0) --Heaad & Goggle
 	SceneObject(sObj):setCustomObjectName("Headwear & Goggles")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_headwear")
 	SceneObject(sObj):populateInventoryFromContentList("tailor_goggles")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 3.7, -21.8, 610029850, 0, 0, -0.9, 0) --Handwear
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 3.7, -21.6, 610029850, 0, 0, -0.9, 0) --Handwear
 	SceneObject(sObj):setCustomObjectName("Handwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_handwear")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 5.2, -21.8, 610029850, 0, 0, -0.9, 0) --Jewelry
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 5.2, -21.6, 610029850, 0, 0, -0.9, 0) --Jewelry
 	SceneObject(sObj):setCustomObjectName("Jewelry")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_jewelry")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -3.4, 2.2, -21.8, 610029850, 0, 0, 0, 0) --Misc/Belts bro
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -3.4, 2.2, -22, 610029850, 0, 0, 0, 0) --Misc/Belts bro
 	SceneObject(sObj):setCustomObjectName("Belts, Bandoliers & Aprons")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_misc")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 0.4, 2.2, -21.8, 610029850, 0, 0, 0, 0) --Alien
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 0.4, 2.2, -22, 610029850, 0, 0, 0, 0) --Alien
 	SceneObject(sObj):setCustomObjectName("Alienwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_alien")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 3.4, 2.2, -21.8, 610029850, 0, 0, 0, 0) --Wookiee
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 3.4, 2.2, -22, 610029850, 0, 0, 0, 0) --Wookiee
 	SceneObject(sObj):setCustomObjectName("Wookiee Wear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_wookiee")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 6.4, 2.2, -21.8, 610029850, 0, 0, 0, 0)--Ithorian 1
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 6.4, 2.2, -22, 610029850, 0, 0, 0, 0)--Ithorian 1
 	SceneObject(sObj):setCustomObjectName("Ithorian Wear I")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_ithorian1")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 9.4, 2.2, -21.8, 610029850, 0, 0, 0, 0)--Ithorian 2
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 9.4, 2.2, -22, 610029850, 0, 0, 0, 0)--Ithorian 2
 	SceneObject(sObj):setCustomObjectName("Ithorian Wear II")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
