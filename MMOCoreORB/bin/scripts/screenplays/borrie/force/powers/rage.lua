@@ -70,7 +70,7 @@ function BorForce_Rage:performAbility(pPlayer, fpi)
 	
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue  .. " = " .. forceTotal .. " vs DC 10"
 		
-	if(forceTotal > 10) then
+	if(forceTotal >= 10) then
 		message = message .. ". They successfully stoke their rage, gaining a bouns of " .. fpi .. " to the damage of their next next attack!" 
 		--CreatureObject(pPlayer):doAnimation("force_persuasion")	
 		broadcastMessageWithName(pPlayer, message)
@@ -84,7 +84,7 @@ function BorForce_Rage:performAbility(pPlayer, fpi)
 	local composureValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_composure"))
 	local composureTotal = math.floor(forceDieValue + skillValue)
 			
-	if(composureTotal > 10) then
+	if(composureTotal >= 10) then
 		message = CreatureObject(pPlayer):getFirstName() .. " successfully harnesses their anger and may act freely (1d20: " .. composureDieValue .. " + " .. composureValue  .. " = " .. composureTotal .. " vs DC 10)!"
 		--CreatureObject(pPlayer):doAnimation("force_persuasion")	
 		broadcastMessageWithName(pPlayer, message)

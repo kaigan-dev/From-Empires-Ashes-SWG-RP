@@ -116,7 +116,7 @@ function BorForce_DominateMind:performAbility(pPlayer, fpi)
 	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderResolve .. " = " .. defenderTotal
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
-	if(forceTotal > 10) then
+	if(forceTotal >= 10) then
 		if(forceTotal > defenderTotal) then
 			message = message .. ". They succesfully take control of " .. targetName .. " and may determine their next " .. actionCount .. " actions!" 
 		end

@@ -109,7 +109,7 @@ function BorForce_Throw:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 
-	if(forceTotal > 10) then
+	if(forceTotal >= 10) then
 		message = message .. ". They throw their weapon at " .. targetName .. ", guiding it with the Force! Have the defender manually roll their defensive reaction if applicable. On a failure, they take the weapon's base damage plus " .. bonusDamage .. "."
 	
 	else

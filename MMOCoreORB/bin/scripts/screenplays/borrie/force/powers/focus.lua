@@ -66,13 +66,13 @@ function BorForce_Focus:performAbility(pPlayer, fpi)
 	
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue  .. " = " .. forceTotal .. " vs DC 15"
 		
-	if(forceTotal > 15) then
+	if(forceTotal >= 15) then
 		message = message .. ". They successfully hone their focus, gaining a bouns of " .. fpi .. " on their next active skill roll!" 
 	
 		CreatureObject(pPlayer):doAnimation("force_persuasion")	
 		broadcastMessageWithName(pPlayer, message)
 	end
-	if (forceTotal <= 15) then
+	if (forceTotal < 15) then
 		message = message .. ". But they fail to focus!"
 	
 		CreatureObject(pPlayer):doAnimation("force_persuasion")	

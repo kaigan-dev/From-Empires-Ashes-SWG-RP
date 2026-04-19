@@ -112,13 +112,13 @@ function BorForce_ChainLightning:performAbility(pPlayer, fpi)
 	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " = " .. forceTotal .. " vs DC " .. dc
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
-	if(forceTotal > dc) then
+	if(forceTotal >= dc) then
 		message = message .. ". They succesfully blast " .. targetName .. " and up to "  .. numTargets .. " other targets with lightning, dealing 1d8 + " .. fpi  .. " = " .. damageTotal .. " electric damage!"
 	
 		CreatureObject(pPlayer):doAnimation("force_lightning_1_particle_level_3")	
 		broadcastMessageWithName(pPlayer, message)
 	end
-	if (forceTotal <= dc) then
+	if (forceTotal < dc) then
 		message = message .. ". But they fail to call forth lightning!"
 	
 		CreatureObject(pPlayer):doAnimation("force_persuasion")	

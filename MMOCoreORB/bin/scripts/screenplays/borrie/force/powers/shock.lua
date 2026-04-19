@@ -116,7 +116,7 @@ function BorForce_Shock:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 
-	if(forceTotal > 10) then
+	if(forceTotal >= 10) then
 		message = message .. ". They succesfully zap " .. targetName .. ", dealing 1d8 = " .. damageTotal .. " electric damage. "
 	
 		if(forceTotal > defenderTotal) then
