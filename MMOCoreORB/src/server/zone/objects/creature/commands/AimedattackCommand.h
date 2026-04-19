@@ -120,15 +120,15 @@ public:
 			box->setPromptTitle("Aimed Attack Menu");
 			box->setCancelButton(true, "@cancel");
 			box->setOkButton(false, "@");
-			box->addMenuItem("Chest");
-			box->addMenuItem("Legs");
-			box->addMenuItem("Feet");
-			box->addMenuItem("Left Forearm");
-			box->addMenuItem("Right Forearm");
-			box->addMenuItem("Left Bicep");
-			box->addMenuItem("Right Bicep");
-			box->addMenuItem("Hands");
-			box->addMenuItem("Head");
+			box->addMenuItem("Chest (+0 DC)");
+			box->addMenuItem("Legs (+5 DC)");
+			box->addMenuItem("Feet (+5 DC)");
+			box->addMenuItem("Left Forearm (+5 DC)");
+			box->addMenuItem("Right Forearm (+5 DC)");
+			box->addMenuItem("Left Bicep (+5 DC)");
+			box->addMenuItem("Right Bicep (+5 DC)");
+			box->addMenuItem("Hands (+10 DC)");
+			box->addMenuItem("Head (+10 DC)");
 			creature->getPlayerObject()->addSuiBox(box);
 			creature->sendMessage(box->generateMessage());
 		} catch (Exception& e) {
