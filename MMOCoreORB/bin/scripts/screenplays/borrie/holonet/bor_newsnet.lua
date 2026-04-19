@@ -182,9 +182,9 @@ end
 function BorNewsnetMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuResponse, pPlayer)
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 
-	menuResponse:addRadialMenuItem(20, 2, "Read Headlines")
-	menuResponse:addRadialMenuItem(80, 2, "Check Upcoming Events")
-	--menuResponse:addRadialMenuItem(81, 3, "Send Broadcast")
+	menuResponse:addRadialMenuItem(20, 3, "Read Headlines")
+	menuResponse:addRadialMenuItem(80, 3, "Check Upcoming Events")
+	menuResponse:addRadialMenuItem(81, 3, "Send Broadcast")
 end
 
 function BorNewsnetMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID)
@@ -196,8 +196,8 @@ function BorNewsnetMenuComponent:handleObjectMenuSelect(pObject, pPlayer, select
 		BorNewsnet:displayHolonetOptions(pPlayer, pObject)		
 	elseif(selectedID == 80) then --Check Upcoming Events
 		BorNewsnet:displayEventList(pPlayer, pObject)
-	--elseif(selectedID == 81) then --Send Broadcast
-	--	BorNewsnet:promptBroadcast(pPlayer, pObject)
+	elseif(selectedID == 81) then --Send Broadcast
+		BorNewsnet:promptBroadcast(pPlayer, pObject)
 	end
 	
 	return 0
