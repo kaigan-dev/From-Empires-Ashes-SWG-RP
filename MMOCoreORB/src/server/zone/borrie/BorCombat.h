@@ -55,26 +55,36 @@ public:
 
         int toHitRoll = BorDice::Roll(1, 20);
 
+        //Consume ammo if appliable.
+        if(attacker->isPlayerCreature()) {  //NPCs don't use ammo
+                int maxAmmo = attacker->getWeapon()->getMaxAmmo();
+		        int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
+                String ammoType = attacker->getWeapon()->getAmmoType();
 
-        int maxAmmo = attacker->getWeapon()->getMaxAmmo();
-		int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
-        String ammoType = attacker->getWeapon()->getAmmoType();
-        commander->sendSystemMessage("Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed));
-        if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_disrupter") {
-            if(ammoUsed < maxAmmo) {
-                attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
+                int ammoToUse = 1;
+                if(powerattack) {
+                    ammoToUse = attacker->getWeapon()->getMaxAmmo() / 2;
+                }
+
+                commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
+                if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
+                    
+                    if(ammoUsed + ammoToUse <= maxAmmo) {
+                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
+                    }
+                    else {
+                        commander->sendSystemMessage("You don't have enough ammunition to attack.");
+                        return;
+                    }
+                }
             }
-            else {
-                commander->sendSystemMessage("You don't have enough ammunition to attack.");
-                return;
-            }
-        }
 
         if(powerAttack) {
             toHitDC += 5;
             int powerAttackCost = attacker->getStoredInt("power_attack_count");
             attacker->setStoredInt("power_attack_count", powerAttackCost + 1);
             DrainActionOrWill(attacker, 3 + powerAttackCost); //Changed to 3 from 1 as per rebalancing, 3/8/2023
+
             if(toHitRoll + skillCheck + (15 - skillCheck) < toHitDC) {
                 //Miss
                 BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " "+attackVerb+ " and missed!  \\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC) + "\\#FFFFFF"); 
@@ -213,6 +223,27 @@ public:
         bool hit3 = roll3 + skillCheck >= toHitDC + 10;
 
         DrainActionOrWill(attacker, 1);
+
+        //Consume ammo if appliable.
+        if(attacker->isPlayerCreature()) {  //NPCs don't use ammo
+                int maxAmmo = attacker->getWeapon()->getMaxAmmo();
+		        int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
+                String ammoType = attacker->getWeapon()->getAmmoType();
+
+                int ammoToUse = 3;
+
+                commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
+                if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
+                    
+                    if(ammoUsed + ammoToUse <= maxAmmo) {
+                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
+                    }
+                    else {
+                        commander->sendSystemMessage("You don't have enough ammunition to attack.");
+                        return;
+                    }
+                }
+            }
 
         //Absolute Miss
         if(!hit1 && !hit2 && !hit3) {
