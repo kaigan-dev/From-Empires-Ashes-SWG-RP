@@ -66,7 +66,7 @@ public:
                     ammoToUse = attacker->getWeapon()->getMaxAmmo() / 2;
                 }
 
-                commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
+                //commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
                 if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
                     
                     if(ammoUsed + ammoToUse <= maxAmmo) {
@@ -227,10 +227,9 @@ public:
                 int maxAmmo = attacker->getWeapon()->getMaxAmmo();
 		        int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
                 String ammoType = attacker->getWeapon()->getAmmoType();
-
                 int ammoToUse = 3;
 
-                commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
+                //commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
                 if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
                     
                     if(ammoUsed + ammoToUse <= maxAmmo) {
@@ -243,7 +242,7 @@ public:
                 }
             }
 
-            
+
         DrainActionOrWill(attacker, 1);
 
         //Absolute Miss
