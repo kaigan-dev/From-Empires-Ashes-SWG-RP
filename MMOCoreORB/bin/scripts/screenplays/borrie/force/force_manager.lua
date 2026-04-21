@@ -4146,7 +4146,7 @@ function BorForce:dmTrainTwistMind(pPlayer)
 		return
 	end	
 
-	local cancelPressed = (eventIndex == 1)
+	local cancelPressed = (eventIndex == 0)
 	if (cancelPressed) then
 		return
 	end
