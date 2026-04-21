@@ -256,7 +256,7 @@ void SharedWeaponObjectTemplate::readObject(LuaObject* templateData) {
 	itemValue = templateData->getIntField("itemValue");
 
 	maxAmmo = templateData->getIntField("maxAmmo");
-	itemValue = templateData->getStringField("ammoType");
+	ammoType = templateData->getStringField("ammoType");
 
 	primaryAttributeOnly	= templateData->getBooleanField("primaryAttributeOnly");
 	dexOnlyWeapon			= templateData->getBooleanField("dexOnlyWeapon");
