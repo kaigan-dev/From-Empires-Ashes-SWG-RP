@@ -3207,7 +3207,7 @@ end
 
 
 
-function BorForce:dmTrainAbsorb(pPlayer)
+function BorForce:dmTrainAbsorb(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3239,7 +3239,7 @@ function BorForce:dmTrainAbsorb(pPlayer)
 end
 
 
-function BorForce:dmTrainBody(pPlayer)
+function BorForce:dmTrainBody(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3270,7 +3270,7 @@ function BorForce:dmTrainBody(pPlayer)
 	end
 end
 
-function BorForce:dmTrainChainLightning(pPlayer)
+function BorForce:dmTrainChainLightning(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3303,7 +3303,7 @@ end
 
 
 
-function BorForce:dmTrainCrush(pPlayer)
+function BorForce:dmTrainCrush(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3335,7 +3335,7 @@ function BorForce:dmTrainCrush(pPlayer)
 end
 
 
-function BorForce:dmTrainDominateMind(pPlayer)
+function BorForce:dmTrainDominateMind(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3367,7 +3367,7 @@ function BorForce:dmTrainDominateMind(pPlayer)
 end
 
 
-function BorForce:dmTrainFlash(pPlayer)
+function BorForce:dmTrainFlash(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3400,7 +3400,7 @@ end
 
 
 
-function BorForce:dmTrainFocus(pPlayer)
+function BorForce:dmTrainFocus(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3433,7 +3433,7 @@ end
 
 
 
-function BorForce:dmTrainGrip(pPlayer)
+function BorForce:dmTrainGrip(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3465,7 +3465,7 @@ function BorForce:dmTrainGrip(pPlayer)
 end
 
 
-function BorForce:dmTrainHeal(pPlayer)
+function BorForce:dmTrainHeal(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3497,7 +3497,7 @@ function BorForce:dmTrainHeal(pPlayer)
 end
 
 
-function BorForce:dmTrainHealOther(pPlayer)
+function BorForce:dmTrainHealOther(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3529,7 +3529,7 @@ function BorForce:dmTrainHealOther(pPlayer)
 end
 
 
-function BorForce:dmTrainJump(pPlayer)
+function BorForce:dmTrainJump(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3561,7 +3561,7 @@ function BorForce:dmTrainJump(pPlayer)
 end
 
 
-function BorForce:dmTrainLightningPower(pPlayer)
+function BorForce:dmTrainLightningPower(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3593,7 +3593,7 @@ function BorForce:dmTrainLightningPower(pPlayer)
 end
 
 
-function BorForce:dmTrainLightsaberDeflect(pPlayer)
+function BorForce:dmTrainLightsaberDeflect(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3625,7 +3625,7 @@ function BorForce:dmTrainLightsaberDeflect(pPlayer)
 end
 
 
-function BorForce:dmTrainManipulateObject(pPlayer)
+function BorForce:dmTrainManipulateObject(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3657,7 +3657,7 @@ function BorForce:dmTrainManipulateObject(pPlayer)
 end
 
 
-function BorForce:dmTrainMeditate(pPlayer)
+function BorForce:dmTrainMeditate(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3689,7 +3689,7 @@ function BorForce:dmTrainMeditate(pPlayer)
 end
 
 
-function BorForce:dmTrainMindTrick(pPlayer)
+function BorForce:dmTrainMindTrick(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3721,7 +3721,7 @@ function BorForce:dmTrainMindTrick(pPlayer)
 end
 
 
-function BorForce:dmTrainPersuade(pPlayer)
+function BorForce:dmTrainPersuade(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3753,7 +3753,7 @@ function BorForce:dmTrainPersuade(pPlayer)
 end
 
 
-function BorForce:dmTrainPrecognition(pPlayer)
+function BorForce:dmTrainPrecognition(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3785,7 +3785,7 @@ function BorForce:dmTrainPrecognition(pPlayer)
 end
 
 
-function BorForce:dmTrainProjectImage(pPlayer)
+function BorForce:dmTrainProjectImage(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3817,7 +3817,7 @@ function BorForce:dmTrainProjectImage(pPlayer)
 end
 
 
-function BorForce:dmTrainPushPull(pPlayer)
+function BorForce:dmTrainPushPull(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3850,7 +3850,7 @@ function BorForce:dmTrainPushPull(pPlayer)
 end
 
 
-function BorForce:dmTrainRage(pPlayer)
+function BorForce:dmTrainRage(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3882,7 +3882,7 @@ function BorForce:dmTrainRage(pPlayer)
 end
 
 
-function BorForce:dmTrainReadMind(pPlayer)
+function BorForce:dmTrainReadMind(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3914,7 +3914,7 @@ function BorForce:dmTrainReadMind(pPlayer)
 end
 
 
-function BorForce:dmTrainShock(pPlayer)
+function BorForce:dmTrainShock(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3946,7 +3946,7 @@ function BorForce:dmTrainShock(pPlayer)
 end
 
 
-function BorForce:dmTrainSight(pPlayer)
+function BorForce:dmTrainSight(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -3978,7 +3978,7 @@ function BorForce:dmTrainSight(pPlayer)
 end
 
 
-function BorForce:dmTrainSpeed(pPlayer)
+function BorForce:dmTrainSpeed(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -4010,7 +4010,7 @@ function BorForce:dmTrainSpeed(pPlayer)
 end
 
 
-function BorForce:dmTrainStealth(pPlayer)
+function BorForce:dmTrainStealth(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -4042,7 +4042,7 @@ function BorForce:dmTrainStealth(pPlayer)
 end
 
 
-function BorForce:dmTrainStorm(pPlayer)
+function BorForce:dmTrainStorm(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -4074,7 +4074,7 @@ function BorForce:dmTrainStorm(pPlayer)
 end
 
 
-function BorForce:dmTrainTelekineticDeflect(pPlayer)
+function BorForce:dmTrainTelekineticDeflect(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -4107,7 +4107,7 @@ function BorForce:dmTrainTelekineticDeflect(pPlayer)
 end
 
 
-function BorForce:dmTrainThrow(pPlayer)
+function BorForce:dmTrainThrow(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
@@ -4140,13 +4140,13 @@ function BorForce:dmTrainThrow(pPlayer)
 end
 
 
-function BorForce:dmTrainTwistMind(pPlayer)
+function BorForce:dmTrainTwistMind(pPlayer, pSui, eventIndex)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
 	end	
 
-	local cancelPressed = (eventIndex == 0)
+	local cancelPressed = (eventIndex == 1)
 	if (cancelPressed) then
 		return
 	end
