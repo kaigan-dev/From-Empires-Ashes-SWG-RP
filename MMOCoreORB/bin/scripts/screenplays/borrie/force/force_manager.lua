@@ -3841,7 +3841,7 @@ function BorForce:dmTrainPushPull(pPlayer)
 	awardSkill(pPlayer, "rp_frc_pull")
 	awardSkill(pPlayer, "rp_frc_push")
 	--Confirm that skill has been granted, then send Message 
-	if(CreatureObject(pPlayer):hasSkill("rp_frc_pull") == true & CreatureObject(pPlayer):hasSkill("rp_frc_push") == true ) then
+	if(CreatureObject(pPlayer):hasSkill("rp_frc_pull") == true and CreatureObject(pPlayer):hasSkill("rp_frc_push") == true ) then
 		CreatureObject(pPlayer):sendSystemMessage("You have learned the Push/Pull power! You can use them with the /rpfpull & /rpfpush commands.")
 		CreatureObject(pPlayer):playMusicMessage("sound/mus_rp_force_aware.snd")
 	else
