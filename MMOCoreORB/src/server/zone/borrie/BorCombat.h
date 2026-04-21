@@ -222,8 +222,6 @@ public:
         bool hit2 = roll2 + skillCheck >= toHitDC + 5;
         bool hit3 = roll3 + skillCheck >= toHitDC + 10;
 
-        DrainActionOrWill(attacker, 1);
-
         //Consume ammo if appliable.
         if(attacker->isPlayerCreature()) {  //NPCs don't use ammo
                 int maxAmmo = attacker->getWeapon()->getMaxAmmo();
@@ -244,6 +242,9 @@ public:
                     }
                 }
             }
+
+            
+        DrainActionOrWill(attacker, 1);
 
         //Absolute Miss
         if(!hit1 && !hit2 && !hit3) {

@@ -406,9 +406,9 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 
 	//alm->insertAttribute("damage.wpn_wound_chance", woundsratio);
 
-	String ammoType = "";
+	String ammoType = getAmmoType();
 	StringBuffer ammoCount;
-	if (ammoType != "") {
+	if (ammoType != "None") {
 		if (ammoType == "ammo_energy")
 			ammoType = "Energy Powerpack";
 		else if (ammoType == "ammo_kinetic")
