@@ -145,7 +145,7 @@ public:
 						creature->getWeapon()->setStoredInt("ammo_used", 0);
 					}
 					else {
-						player->sendSystemMessage("You do not have enough credits to afford the reload.");
+						creature->sendSystemMessage("You do not have enough credits to afford the reload.");
 					}
 				}				
 			}
