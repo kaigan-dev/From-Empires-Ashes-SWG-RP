@@ -3213,6 +3213,20 @@ function BorForce:dmTrainAbsorb(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_absorb")
 	--Confirm that skill has been granted, then send Message 
@@ -3231,6 +3245,20 @@ function BorForce:dmTrainBody(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_body")
 	--Confirm that skill has been granted, then send Message 
@@ -3247,6 +3275,20 @@ function BorForce:dmTrainChainLightning(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_chain")
@@ -3267,6 +3309,20 @@ function BorForce:dmTrainCrush(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_crush")
 	--Confirm that skill has been granted, then send Message 
@@ -3285,6 +3341,20 @@ function BorForce:dmTrainDominateMind(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_dominate")
 	--Confirm that skill has been granted, then send Message 
@@ -3302,6 +3372,20 @@ function BorForce:dmTrainFlash(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_flash")
@@ -3322,6 +3406,20 @@ function BorForce:dmTrainFocus(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_focus")
 	--Confirm that skill has been granted, then send Message 
@@ -3341,6 +3439,20 @@ function BorForce:dmTrainGrip(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_grip")
 	--Confirm that skill has been granted, then send Message 
@@ -3358,6 +3470,20 @@ function BorForce:dmTrainHeal(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_heal")
@@ -3377,6 +3503,20 @@ function BorForce:dmTrainHealOther(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_healother")
 	--Confirm that skill has been granted, then send Message 
@@ -3394,6 +3534,20 @@ function BorForce:dmTrainJump(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_jump")
@@ -3413,6 +3567,20 @@ function BorForce:dmTrainLightning(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_lightning")
 	--Confirm that skill has been granted, then send Message 
@@ -3430,6 +3598,20 @@ function BorForce:dmTrainLightsaberDeflect(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_defense")
@@ -3449,6 +3631,20 @@ function BorForce:dmTrainManipulateObject(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_manip")
 	--Confirm that skill has been granted, then send Message 
@@ -3466,6 +3662,20 @@ function BorForce:dmTrainMeditate(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_meditate")
@@ -3485,6 +3695,20 @@ function BorForce:dmTrainMindTrick(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_trick")
 	--Confirm that skill has been granted, then send Message 
@@ -3502,6 +3726,20 @@ function BorForce:dmTrainPersuade(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_persuade")
@@ -3521,6 +3759,20 @@ function BorForce:dmTrainPrecognition(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_precog")
 	--Confirm that skill has been granted, then send Message 
@@ -3539,6 +3791,20 @@ function BorForce:dmTrainProjectImage(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_project")
 	--Confirm that skill has been granted, then send Message 
@@ -3556,6 +3822,20 @@ function BorForce:dmTrainPushPull(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_pull")
@@ -3576,6 +3856,20 @@ function BorForce:dmTrainRage(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_rage")
 	--Confirm that skill has been granted, then send Message 
@@ -3593,6 +3887,20 @@ function BorForce:dmTrainReadMind(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_read")
@@ -3612,6 +3920,20 @@ function BorForce:dmTrainShock(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_shock")
 	--Confirm that skill has been granted, then send Message 
@@ -3629,6 +3951,20 @@ function BorForce:dmTrainSight(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_sight")
@@ -3648,6 +3984,20 @@ function BorForce:dmTrainSpeed(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_speed")
 	--Confirm that skill has been granted, then send Message 
@@ -3665,6 +4015,20 @@ function BorForce:dmTrainStealth(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_stealth")
@@ -3684,6 +4048,20 @@ function BorForce:dmTrainStorm(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_storm")
 	--Confirm that skill has been granted, then send Message 
@@ -3701,6 +4079,21 @@ function BorForce:dmTrainTelekineticDeflect(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_deflect")
@@ -3720,6 +4113,21 @@ function BorForce:dmTrainThrow(pPlayer)
 		return
 	end	
 
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
+
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_throw")
 	--Confirm that skill has been granted, then send Message 
@@ -3737,6 +4145,21 @@ function BorForce:dmTrainTwistMind(pPlayer)
 	if (pGhost == nil) then
 		return
 	end	
+
+	local cancelPressed = (eventIndex == 1)
+	if (cancelPressed) then
+		return
+	end
+
+	if (pPlayer == nil or not SceneObject(pPlayer):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+
+	if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot learn force skills if you are not an awakened Force Sensitive.")
+		return
+	end
 
 	--Give Skill
 	awardSkill(pPlayer, "rp_frc_twist")
