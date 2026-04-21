@@ -43,6 +43,7 @@ protected:
 	int itemValue;
 
 	int maxAmmo;
+	String ammoType;
 
 	float woundsRatio;
 
