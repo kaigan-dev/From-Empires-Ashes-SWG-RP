@@ -59,6 +59,7 @@ public:
         int maxAmmo = attacker->getWeapon()->getMaxAmmo();
 		int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
         String ammoType = attacker->getWeapon()->getAmmoType();
+        commander->sendSystemMessage("Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed));
         if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_disrupter") {
             if(ammoUsed < maxAmmo) {
                 attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
