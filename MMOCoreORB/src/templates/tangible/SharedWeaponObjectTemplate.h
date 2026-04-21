@@ -177,6 +177,7 @@ public:
 		//rarity = "Common";
 		itemValue = 150;
 		maxAmmo = 10;
+		ammoType = "None";
 
 		bladeColor = -1;
 

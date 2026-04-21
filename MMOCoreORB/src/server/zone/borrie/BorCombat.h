@@ -55,6 +55,14 @@ public:
 
         int toHitRoll = BorDice::Roll(1, 20);
 
+        if(creature->getWeapon()->getStoredInt("ammo_used") < creature->getWeapon()->getMaxAmmo()) {
+        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
+        }
+        else {
+            commander->sendSystemMessage("You don't have enough ammunition to attack.");
+            return;
+        }
+
         if(powerAttack) {
             toHitDC += 5;
             int powerAttackCost = attacker->getStoredInt("power_attack_count");

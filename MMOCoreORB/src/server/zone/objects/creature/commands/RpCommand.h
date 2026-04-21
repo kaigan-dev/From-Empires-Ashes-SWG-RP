@@ -136,10 +136,12 @@ public:
 				if(creature->getWeapon() != nullptr) {
 					int maxAmmo = creature->getWeapon()->getMaxAmmo();
 					//String ammoType = creature->getWeapon()->getAmmoType();
-					int curAmmo = creature->getWeapon()->getStoredInt("ammo_used");
+					int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
 					//creature->sendSystemMessage("Current weapon stats. Max Ammo: " + String::valueOf(maxAmmo) + ". ammoType: " + ammoType + ". Current Ammo: " + String::valueOf(curAmmo) + ". We will now attempt to decrement one ammo.");
-					creature->sendSystemMessage("Current weapon stats. Max Ammo: " + String::valueOf(maxAmmo) + ". Current Ammo: " + String::valueOf(curAmmo) + ". We will now attempt to decrement one ammo.");
-					creature->getWeapon()->setStoredInt("ammo_used", curAmmo + 1);
+					//creature->sendSystemMessage("Current weapon stats. Max Ammo: " + String::valueOf(maxAmmo) + ". Current Ammo: " + String::valueOf(curAmmo) + ". We will now attempt to decrement one ammo.");
+					//creature->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
+					creature->sendSystemMessage("You reloaded your weapon.");
+					creature->getWeapon()->setStoredInt("ammo_used", 0);
 				}				
 			}
 		} catch (Exception& e) {
