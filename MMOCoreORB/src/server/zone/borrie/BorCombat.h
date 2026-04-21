@@ -70,7 +70,7 @@ public:
                 if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
                     
                     if(ammoUsed + ammoToUse <= maxAmmo) {
-                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
+                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + ammoToUse);
                     }
                     else {
                         commander->sendSystemMessage("You don't have enough ammunition to attack.");
@@ -236,7 +236,7 @@ public:
                 if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
                     
                     if(ammoUsed + ammoToUse <= maxAmmo) {
-                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
+                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + ammoToUse);
                     }
                     else {
                         commander->sendSystemMessage("You don't have enough ammunition to attack.");
