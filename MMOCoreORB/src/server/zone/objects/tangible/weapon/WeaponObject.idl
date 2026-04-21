@@ -53,6 +53,10 @@ class WeaponObject extends TangibleObject {
 	protected int rpSkillLevel;
 	protected int itemValue;
 
+	protected string ammoType;
+	protected int maxAmmo;
+	protected int currentAmmo;
+
 	protected int healthAttackCost;
 	protected int actionAttackCost;
 	protected int mindAttackCost;
@@ -261,8 +265,22 @@ class WeaponObject extends TangibleObject {
 		return weaponTemplate.getParryIsRestricted();
 	}
 
+	public void setAmmoType(string aType) {
+		ammoType = aType;
+	}
+
 	public void setCertified(boolean cert) {
 		certified = cert;
+	}
+
+	@read
+	public int getMaxAmmo() {
+		return maxAmmo;
+	}
+
+	@read
+	public string getAmmoType() {
+		return ammoType;
 	}
 
 	@read

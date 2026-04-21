@@ -102,6 +102,9 @@ void WeaponObjectImplementation::loadTemplateData(SharedObjectTemplate* template
 		//rarity = weaponTemplate->getRarity();
 		itemValue = weaponTemplate->getItemValue();
 
+		maxAmmo = weaponTemplate->getMaxAmmo();
+		ammoType = weaponTemplate->getAmmoType();
+
 		float templateAttackSpeed = weaponTemplate->getAttackSpeed();
 
 		if (templateAttackSpeed > 1)
@@ -402,6 +405,24 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 	//woundsratio << wnd << "%";
 
 	//alm->insertAttribute("damage.wpn_wound_chance", woundsratio);
+
+	String ammoType = "";
+	StringBuffer ammoCount;
+	if (ammoType != "") {
+		if (ammoType == "ammo_energy")
+			ammoType = "Energy Powerpack";
+		else if (ammoType == "ammo_kinetic")
+			ammoType = "Kinetic Slugs";
+		else if (ammoType == "ammo_disrupter")
+			ammoType = "Disrupter Powerpack";
+
+		if (getStoredInt("ammo_used") < 0)
+			setStoredInt("ammo_used", 0);
+		ammoCount << maxAmmo - getStoredInt("ammo_used") << "/" << maxAmmo;
+		alm->insertAttribute("wpn_ammo_count", ammoCount);
+		alm->insertAttribute("wpn_ammo_type", ammoType);
+	}
+
 
 	//Accuracy Modifiers
 	StringBuffer pblank;

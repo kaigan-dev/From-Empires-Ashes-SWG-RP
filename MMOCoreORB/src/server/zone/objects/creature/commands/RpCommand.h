@@ -132,6 +132,15 @@ public:
 					creature->sendSystemMessage("Speech command requires you to say something!");
 				}
 			}
+			else if(command == "reload") {
+				if(creature->getWeapon() != nullptr) {
+					int maxAmmo = creature->getWeapon()->getMaxAmmo();
+					String ammoType = creature->getWeapon()->getAmmoType();
+					int curAmmo = creature->getWeapon()->getStoredInt("ammo_used");
+					creature->sendSystemMessage("Current weapon stats. Max Ammo: " + String::valueOf(maxAmmo) + ". ammoType: " + ammoType + ". Current Ammo: " + String::valueOf(curAmmo) + ". We will now attempt to decrement one ammo.");
+					int curAmmo = creature->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
+				}				
+			}
 		} catch (Exception& e) {
 			creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
 			if(adminLevelCheck > 0) {
