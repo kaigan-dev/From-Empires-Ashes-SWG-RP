@@ -387,6 +387,9 @@ public:
 		return maxAmmo;
 	}
 
+	inline String getAmmoType() const {
+		return ammoType;
+	}
 	/*
 	inline String getRarity() const {
 		return rarity;
