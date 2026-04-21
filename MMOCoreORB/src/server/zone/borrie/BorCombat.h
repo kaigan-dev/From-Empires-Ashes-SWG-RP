@@ -62,7 +62,7 @@ public:
                 String ammoType = attacker->getWeapon()->getAmmoType();
 
                 int ammoToUse = 1;
-                if(powerattack) {
+                if(powerAttack) {
                     ammoToUse = attacker->getWeapon()->getMaxAmmo() / 2;
                 }
 
