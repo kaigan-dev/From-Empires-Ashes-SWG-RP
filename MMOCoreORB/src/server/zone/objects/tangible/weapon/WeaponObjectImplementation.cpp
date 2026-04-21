@@ -415,6 +415,8 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		ammoType = "Kinetic Slugs";
 	else if (ammoType == "ammo_disruptor")
 		ammoType = "Disrupter Powerpack";
+	else
+		ammoType = "None";
 
 	if (getStoredInt("ammo_used") < 0)
 		setStoredInt("ammo_used", 0);
