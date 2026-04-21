@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_carbine_corestrike_rancor_carbine = object_weapon_
 
 	itemValue = 600,
 
-	--Approx FEA Value 600
+	maxAmmo = 10,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

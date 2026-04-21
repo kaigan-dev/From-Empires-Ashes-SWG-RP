@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_carbine_ngantzarvel_9118_carbine = object_weapon_r
 
 	itemValue = 10000,
 
-	--Approx FEA Value 10000
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

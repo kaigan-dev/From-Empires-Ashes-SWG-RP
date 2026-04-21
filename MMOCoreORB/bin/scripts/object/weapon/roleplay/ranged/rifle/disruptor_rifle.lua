@@ -33,7 +33,8 @@ object_weapon_roleplay_ranged_rifle_disruptor_rifle = object_weapon_ranged_rifle
 
 	rarity="Legendary",
 	itemValue = 20000,
-	--Approx FEA Value 20000
+	maxAmmo = 10,
+	ammoType = "ammo_disruptor", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

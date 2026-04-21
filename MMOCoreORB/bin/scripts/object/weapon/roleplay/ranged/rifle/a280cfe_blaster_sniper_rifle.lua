@@ -26,6 +26,12 @@ object_weapon_roleplay_ranged_rifle_a280cfe_blaster_sniper_rifle = object_weapon
 
 	maxRange = 180,
 	maxRangeAccuracy = 99,
+
+	rarity="Uncommon",
+	itemValue = 600,
+	maxAmmo = 5,
+	ammoType = "ammo_energy", 
+	noDodgeReaction = true,
 	
 	primaryAttributeOnly = true,
 

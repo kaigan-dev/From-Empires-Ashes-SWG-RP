@@ -29,7 +29,8 @@ object_weapon_roleplay_ranged_pistol_dl44_metal_blaster_pistol = object_weapon_r
 	
 	rarity="Rare",
 	itemValue = 3000,
-	--Approx FEA Value 3000
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

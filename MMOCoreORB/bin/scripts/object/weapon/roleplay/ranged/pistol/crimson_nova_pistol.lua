@@ -29,7 +29,8 @@ object_weapon_roleplay_ranged_pistol_crimson_nova_pistol = object_weapon_ranged_
 	
 	rarity="Epic",
 	itemValue = 10000,
-	--Approx FEA Value 10000
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

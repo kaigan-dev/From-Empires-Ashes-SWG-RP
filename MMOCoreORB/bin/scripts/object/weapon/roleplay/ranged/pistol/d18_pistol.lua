@@ -29,7 +29,8 @@ object_weapon_roleplay_ranged_pistol_d18_pistol = object_weapon_ranged_pistol_sh
 	
 	rarity="Common",
 	itemValue = 150,
-	--Approx FEA Value 150
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -31,7 +31,8 @@ object_weapon_roleplay_ranged_rifle_laser_rifle = object_weapon_ranged_rifle_sha
 
 	rarity="Common",
 	itemValue = 150,
-	--Approx FEA Value 150
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

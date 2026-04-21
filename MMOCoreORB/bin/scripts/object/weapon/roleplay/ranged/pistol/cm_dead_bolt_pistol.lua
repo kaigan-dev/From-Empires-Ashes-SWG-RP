@@ -31,7 +31,8 @@ object_weapon_roleplay_ranged_pistol_cm_dead_bolt_pistol = object_weapon_ranged_
 	
 	rarity="Rare",
 	itemValue = 3000,
-	--Approx FEA Value 3000
+	maxAmmo = 6,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_carbine_charric_carbine = object_weapon_ranged_car
 
 	itemValue = 3000,
 
---Approx FEA Value 3000
+	maxAmmo = 10,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

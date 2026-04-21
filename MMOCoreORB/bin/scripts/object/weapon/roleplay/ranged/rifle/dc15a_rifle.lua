@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_rifle_dc15a_rifle = object_weapon_ranged_rifle_ep3
 
 	rarity="Uncommon",
 	itemValue = 600,
-	--Approx FEA Value 600
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

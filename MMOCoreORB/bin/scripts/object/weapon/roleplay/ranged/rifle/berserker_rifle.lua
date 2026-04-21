@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_rifle_berserker_rifle = object_weapon_ranged_rifle
 	rarity="Epic",
 	
 	itemValue = 10000,
-	--Approx FEA Value 10000
+	maxAmmo = 10,
+	ammoType = "ammo_kinetic",
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

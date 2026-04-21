@@ -33,7 +33,8 @@ object_weapon_roleplay_ranged_rifle_czerka_adventurer = object_weapon_ranged_rif
 
 	Rarity="Common",
 	itemValue = 150,
-	--Approx FEA Value 150
+	maxAmmo = 5,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

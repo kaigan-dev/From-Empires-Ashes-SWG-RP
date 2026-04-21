@@ -31,7 +31,8 @@ object_weapon_roleplay_ranged_pistol_striker_projectile_pistol = object_weapon_r
 	
 	rarity="Common",
 	itemValue = 150,
-	--Approx FEA Value 150
+	maxAmmo = 6,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

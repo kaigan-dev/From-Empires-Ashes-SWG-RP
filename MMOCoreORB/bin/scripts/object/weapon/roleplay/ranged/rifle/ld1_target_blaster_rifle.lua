@@ -33,7 +33,8 @@ object_weapon_roleplay_ranged_rifle_ld1_target_blaster_rifle = object_weapon_ran
 
 	rarity="Legendary",
 	itemValue = 20000,
-	--Approx FEA Value 20000
+	maxAmmo = 5,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

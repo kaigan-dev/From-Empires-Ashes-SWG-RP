@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_carbine_alliance_needler_carbine = object_weapon_r
 
 	itemValue = 150,
 
---Approx FEA Value 150
+	maxAmmo = 10,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

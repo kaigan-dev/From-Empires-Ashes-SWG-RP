@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_rifle_a280cfe_blaster_rifle = object_weapon_ranged
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 8, --Type of Die used in Damage
-	bonusDamage = 2,
+	bonusDamage = 4,
 
 	pointBlankRange = 8,
 	pointBlankAccuracy = 5,
@@ -28,6 +28,11 @@ object_weapon_roleplay_ranged_rifle_a280cfe_blaster_rifle = object_weapon_ranged
 	maxRangeAccuracy = 99,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Uncommon",
+	itemValue = 600,
+	maxAmmo = 5,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

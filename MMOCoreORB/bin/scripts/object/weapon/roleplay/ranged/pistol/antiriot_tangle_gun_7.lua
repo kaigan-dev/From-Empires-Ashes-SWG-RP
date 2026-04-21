@@ -29,7 +29,8 @@ object_weapon_roleplay_ranged_pistol_antiriot_tangle_gun_7 = object_weapon_range
 	
 	rarity="Uncommon",
 	itemValue = 600,
-	--Approx FEA Value 600
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
