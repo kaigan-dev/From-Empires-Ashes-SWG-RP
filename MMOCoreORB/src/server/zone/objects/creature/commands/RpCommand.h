@@ -137,11 +137,16 @@ public:
 					int maxAmmo = creature->getWeapon()->getMaxAmmo();
 					String ammoType = creature->getWeapon()->getAmmoType();
 					int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
-					//creature->sendSystemMessage("Current weapon stats. Max Ammo: " + String::valueOf(maxAmmo) + ". ammoType: " + ammoType + ". Current Ammo: " + String::valueOf(curAmmo) + ". We will now attempt to decrement one ammo.");
-					//creature->sendSystemMessage("Current weapon stats. Max Ammo: " + String::valueOf(maxAmmo) + ". Current Ammo: " + String::valueOf(curAmmo) + ". We will now attempt to decrement one ammo.");
-					//creature->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
-					creature->sendSystemMessage("You reloaded your weapon with " + ammoType + " rounds.");
-					creature->getWeapon()->setStoredInt("ammo_used", 0);
+					int creditCost = 10;
+
+					if(creature->getCashCredits() - creditCost >= 0) {
+						creature->subtractCashCredits(creditCost);
+						creature->sendSystemMessage("You reloaded your weapon with " + ammoType + " rounds. You have been charged " + creditCost + " credits for the ammo.");
+						creature->getWeapon()->setStoredInt("ammo_used", 0);
+					}
+					else {
+						player->sendSystemMessage("You do not have enough credits to afford the reload.");
+					}
 				}				
 			}
 		} catch (Exception& e) {
