@@ -436,7 +436,7 @@ function BorForce:dmTrainPowerMenuCallback(pPlayer, pSui, eventIndex, args)
 		local pageId = sui.sendTo(pTarget)	
 		CreatureObject(pPlayer):sendSystemMessage("A request to train Jump has been sent to the player.")
 		elseif(selection == 12) then --Lightning
-		local sui = SuiMessageBox.new("BorForce", "dmTrainLightning")
+		local sui = SuiMessageBox.new("BorForce", "dmTrainLightningPower")
 		sui.setTargetNetworkId(SceneObject(pGhost):getObjectID())
 		sui.setTitle("Train Lightning")
 		sui.setPrompt("Would you like to train the Lightning power? This will not cost XP.")
@@ -3561,7 +3561,7 @@ function BorForce:dmTrainJump(pPlayer)
 end
 
 
-function BorForce:dmTrainLightning(pPlayer)
+function BorForce:dmTrainLightningPower(pPlayer)
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 	if (pGhost == nil) then
 		return
