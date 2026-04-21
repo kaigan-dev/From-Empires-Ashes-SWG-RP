@@ -408,20 +408,20 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 
 	String ammoType = getAmmoType();
 	StringBuffer ammoCount;
-	if (ammoType != "None") {
-		if (ammoType == "ammo_energy")
-			ammoType = "Energy Powerpack";
-		else if (ammoType == "ammo_kinetic")
-			ammoType = "Kinetic Slugs";
-		else if (ammoType == "ammo_disruptor")
-			ammoType = "Disrupter Powerpack";
 
-		if (getStoredInt("ammo_used") < 0)
-			setStoredInt("ammo_used", 0);
-		ammoCount << maxAmmo - getStoredInt("ammo_used") << "/" << maxAmmo;
-		alm->insertAttribute("wpn_ammo_count", ammoCount);
-		alm->insertAttribute("wpn_ammo_type", ammoType);
-	}
+	if (ammoType == "ammo_energy")
+		ammoType = "Energy Powerpack";
+	else if (ammoType == "ammo_kinetic")
+		ammoType = "Kinetic Slugs";
+	else if (ammoType == "ammo_disruptor")
+		ammoType = "Disrupter Powerpack";
+
+	if (getStoredInt("ammo_used") < 0)
+		setStoredInt("ammo_used", 0);
+	ammoCount << maxAmmo - getStoredInt("ammo_used") << "/" << maxAmmo;
+	alm->insertAttribute("wpn_ammo_type", ammoType);
+	alm->insertAttribute("wpn_ammo_count", ammoCount);
+	
 
 
 	//Accuracy Modifiers
