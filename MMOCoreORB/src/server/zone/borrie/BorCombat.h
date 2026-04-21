@@ -59,7 +59,7 @@ public:
         int maxAmmo = attacker->getWeapon()->getMaxAmmo();
 		int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
         String ammoType = creature->getWeapon()->getAmmoType();
-        if(ammoType == "ammo_energy" OR ammoType == "ammo_kinetic" OR ammoType = "ammo_disrupter") {
+        if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType = "ammo_disrupter") {
             if(ammoUsed < maxAmmo) {
                 attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + 1);
             }
