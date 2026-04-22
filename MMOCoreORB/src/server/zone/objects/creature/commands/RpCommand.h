@@ -142,7 +142,7 @@ public:
 					if(creature->getCashCredits() - creditCost >= 0) {
 						creature->subtractCashCredits(creditCost);
 						BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " reloaded their weapon.");
-						creature->sendSystemMessage("You have been charged " + creditCost + " credits for the ammo.");
+						creature->sendSystemMessage("You have been charged " + String::valueOf(creditCost) + " credits for the ammo.");
 						creature->getWeapon()->setStoredInt("ammo_used", 0);
 					}
 					else {
