@@ -38,3 +38,8 @@ object_weapon_roleplay_melee_unarmed_wookiee_knuckler = SharedWeaponObjectTempla
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_melee_unarmed_wookiee_knuckler, "object/weapon/roleplay/melee/unarmed/wookiee_knuckler.iff")
 --******************************************************************************************************************************************************
+object_weapon_roleplay_melee_unarmed_crushgaunt = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/melee/unarmed/massassi_knuckler.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_melee_unarmed_crushgaunt, "object/weapon/roleplay/melee/unarmed/massassi_knuckler.iff")
+--********************************************************************************************************************************************************
