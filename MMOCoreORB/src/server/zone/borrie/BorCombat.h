@@ -325,7 +325,7 @@ public:
         return result;
     }
 
-    static String HandleCombatReaction(CreatureObject* attacker, CreatureObject* defender, int incomingDamage, int toHit, int slot, bool powerAttacked, bool flurryAttacked, int hitCount, bool headshotFlag) {
+    static String HandleCombatReaction(CreatureObject* attacker, CreatureObject* defender, int incomingDamage, int toHit, int slot, bool powerAttacked, bool flurryAttacked, int hitCount, bool headshotFlag = false) {
         WeaponObject* attackerWeapon = attacker->getWeapon();
         WeaponObject* defenderWeapon = defender->getWeapon();
         int defenderReactionType = defender->getStoredInt("reaction_stance");
