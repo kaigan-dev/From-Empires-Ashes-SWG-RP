@@ -320,7 +320,7 @@ public:
 
     static String GenerateOutputSpam(int roll, int skillMod, int diceCheck, int aimMod = 0) {
         if (aimMod > 0) {
-            return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(diceCheck) + " Aim Penalty)";
+            return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(diceCheck) + " Aim Penalty)";
         }
         else {
             return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ") ";
