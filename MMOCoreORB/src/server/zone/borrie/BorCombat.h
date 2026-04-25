@@ -93,20 +93,16 @@ public:
             } 
         }
 
+        int bonusDamage = weapon->getBonusDamage();
+        bool headshotFlag = false;
+
         if(toHitRoll + skillCheck >= toHitDC || toHitRoll == 20) {
-            if(bodyPartTarget != -1) {
-                //If we specified a target, we need to see if we can hit it.
-                if(toHitRoll + skillCheck < toHitDC || toHitRoll == 1) {
-                    //We failed to hit the target, so get a new target that isn't the one we specified.
-                    int newTarget = BorDice::Roll(1, 10);
-                    while(bodyPartTarget == newTarget) {
-                        newTarget = BorDice::Roll(1, 10);
-                    }
-                    bodyPartTarget = newTarget;
-                } 
-            } else {
-                //Randomly getting a body part.
-                bodyPartTarget = BorDice::Roll(1, 10);
+            // Headshot damage bonus!
+            if(bodyPartTarget == 10) {
+                float flBonusDamage = static_cast<float>(bonusDamage);
+                flbonusDamage = flbonusDamage * 1.25;
+                bonusDamage = static_cast<int>(flBonusDamage);
+                headshotFlag = true;
             }
         } else {
             //Miss
@@ -121,8 +117,6 @@ public:
 
         if(powerAttack)
             damageDieCount++;
-
-        int bonusDamage = weapon->getBonusDamage();
         
         if(weapon->isJediWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
@@ -327,18 +321,34 @@ public:
         }
     }
 
-    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, int armorSkillFlag) {
-        if(armorProtection > 0 && (damage > armorProtection && !(armorSkillFlag))) {
-            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
-        }   
-        else if(armorProtection > 0 && (damage <= armorProtection) && !(armorSkillFlag)) {
-            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag  = false, bool headshotFlag = false) {
+        if (!armorSkillFlag)
+        {
+            if (armorProtection > 0)
+            {
+                if (headshotFlag) {
+                    if(damage > armorProtection)  {
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25%% headshot bonus!)";
+                     }   
+                    else {
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                    }
+                }
+                else {
+                    if(damage > armorProtection)  {
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                     }   
+                    else {
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                    }
+                }
+            }
+            else {
+                return String::valueOf(finalDamage) + " damage!";
+            }
         }
-        else if(armorSkillFlag) {
+        else {
             return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
-        }
-        else { 
-            return String::valueOf(finalDamage) + " damage!";
         }
     }
 
@@ -673,9 +683,9 @@ public:
         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
         int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
-        int armorSkillFlag = 0;
+        bool armorSkillFlag = false;
         if (armor != nullptr && armor.get() != nullptr && defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
-            armorSkillFlag = 1;
+            armorSkillFlag = true;
         }
         
         return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag);
