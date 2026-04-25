@@ -100,7 +100,7 @@ public:
             // Headshot damage bonus!
             if(bodyPartTarget == 10) {
                 float flBonusDamage = static_cast<float>(bonusDamage);
-                flbonusDamage = flbonusDamage * 1.25;
+                flBonusDamage = flBonusDamage * 1.25;
                 bonusDamage = static_cast<int>(flBonusDamage);
                 headshotFlag = true;
             }
