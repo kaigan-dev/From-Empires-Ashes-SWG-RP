@@ -293,7 +293,7 @@ public:
             {
                 if (headshotFlag) {
                     if(damage > armorProtection)  {
-                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25%% headshot bonus!)";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
                      }   
                     else {
                         return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
@@ -310,7 +310,7 @@ public:
             }
             else {
                 if (headshotFlag) {
-                    return String::valueOf(finalDamage) + " damage! (25%% headshot bonus!)";
+                    return String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
                 }
                 else {
                     return String::valueOf(finalDamage) + " damage!";
