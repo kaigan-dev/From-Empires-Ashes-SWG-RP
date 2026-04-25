@@ -30,8 +30,8 @@ object_weapon_roleplay_ranged_carbine_dc15s_carbine = object_weapon_ranged_carbi
 	rarity = "Common",
 
 	itemValue = 150,
-
-	--Approx FEA Value 150
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

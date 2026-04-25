@@ -31,7 +31,8 @@ object_weapon_roleplay_ranged_pistol_flechette_pistol = object_weapon_ranged_pis
 	
 	rarity="Rare",
 	itemValue = 3000,
-	--Approx FEA Value 3000
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

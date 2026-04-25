@@ -82,7 +82,7 @@ function BorForce_Rage:performAbility(pPlayer, fpi)
 
 	local composureDieValue = math.random(1, 20)
 	local composureValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_composure"))
-	local composureTotal = math.floor(forceDieValue + skillValue)
+	local composureTotal = math.floor(composureDieValue + skillValue)
 			
 	if(composureTotal >= 10) then
 		message = CreatureObject(pPlayer):getFirstName() .. " successfully harnesses their anger and may act freely (1d20: " .. composureDieValue .. " + " .. composureValue  .. " = " .. composureTotal .. " vs DC 10)!"

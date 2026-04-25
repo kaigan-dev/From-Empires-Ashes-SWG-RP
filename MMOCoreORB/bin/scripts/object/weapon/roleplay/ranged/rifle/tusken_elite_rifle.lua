@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_rifle_tusken_elite_rifle = object_weapon_ranged_ri
 
 	rarity="Rare",
 	itemValue = 3000,
-	--Approx FEA Value 3000
+	maxAmmo = 1,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

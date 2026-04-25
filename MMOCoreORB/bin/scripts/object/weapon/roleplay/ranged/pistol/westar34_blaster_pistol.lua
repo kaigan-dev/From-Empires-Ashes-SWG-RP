@@ -29,7 +29,8 @@ object_weapon_roleplay_ranged_pistol_westar34_blaster_pistol = object_weapon_ran
 	
 	rarity = "Legendary",
 	itemValue = 20000,
-	--Approx FEA Value 20000
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -132,6 +132,24 @@ public:
 					creature->sendSystemMessage("Speech command requires you to say something!");
 				}
 			}
+			else if(command == "reload") {
+				if(creature->getWeapon() != nullptr) {
+					int maxAmmo = creature->getWeapon()->getMaxAmmo();
+					String ammoType = creature->getWeapon()->getAmmoType();
+					int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
+					int creditCost = 10;
+
+					if(creature->getCashCredits() - creditCost >= 0) {
+						creature->subtractCashCredits(creditCost);
+						BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " reloaded their weapon.");
+						creature->sendSystemMessage("You have been charged " + String::valueOf(creditCost) + " credits for the ammo.");
+						creature->getWeapon()->setStoredInt("ammo_used", 0);
+					}
+					else {
+						creature->sendSystemMessage("You do not have enough credits to afford the reload.");
+					}
+				}				
+			}
 		} catch (Exception& e) {
 			creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
 			if(adminLevelCheck > 0) {
@@ -173,3 +191,4 @@ public:
 };
 
 #endif 
+

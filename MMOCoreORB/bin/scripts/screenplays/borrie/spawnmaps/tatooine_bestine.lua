@@ -44,14 +44,15 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{879.7, 0, 6332.4, 100, 0, {"none"}},
 		{881.4, 0, 6331.8, 260, 0, {"social"}},
 	    {899.5, 0, 6363.1, 266, 0, {"tech"}},
-        {936.4, 0, 6345.5, 205, 0, {"ssocial"}},
+        {931.8, 0, 6351.1, 73, 0, {"none"}},
 		{933.1, 0, 6333.7, 100, 0, {"social"}},
 		{901.5, 0, 6410.9, 270, 0, {"sit"}},
 		{871.8, 0, 6377.8, 300, 0, {"none"}},
 		{794.3, 0, 6331, 25, 0, {"none"}},
 		{855, 0, 6348.1, 5, 0, {"tech"}},
-		{856.8, 0, 6344.1, 5, 0, {"crouch"}},
+		{856.8, 0, 6344.1, 5, 0, {"tech"}},
 		--Theatre and govenors palace plaza civilians,
+		{675.1, 0, 6558.4, 139, 0, {"social"}},
 		{737.4, 0.5, 6514.2, 170, 0, {"social"}},
 		{740, 0.5, 6513.7, 205, 0, {"none"}},
 		{737.2, 0.5, 6510.2, 1, 0, {"social"}},
@@ -73,7 +74,8 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{656.6, 0, 6533.3, 44, 0, {"none"}},
 		{659.1, 0, 6536, 231, 0, {"none"}},
 		{636.9, 0, 6555.2, 152, 0, {"none"}},
-		{635.1, 0, 6545.9, 18, 0, {"social"}},
+		{636.1, 0, 6551.8, 4, 0, {"social"}},
+		{655.2, 0.3, 6583.4, 0, {"social"}},
 		{637.7, 0, 6553.3, 310, 0, {"none"}},
 		{755.3, 0.5, 6587.2, 210, 0, {"none"}},
 		{753.9, 0.5, 6585.2, 33, 0, {"social"}},
@@ -87,6 +89,9 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{2.1, -0.5, 5.2, 88, 610029524, {"sittable"}},
 		
 		-- Market street civilians,
+		{447.5, 0, 6632.5, 222, 0, {"sit"}},
+		{345.2, 0, 6612.4, 245, 0, {"none"}},
+		{520.4, 0, 6557.9, 173, 0, {"none"}},
 		{543.5, 0, 6506.9, 36, 0, {"sit"}},
 		{547.3, 0, 6505.6, 305, 0, {"none"}},
 		{509, 0, 6584.4, 120, 0, {"none"}},
@@ -130,23 +135,61 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{423.5, 0, 6608.2, 220, 0, {"social"}},
 		{421.1, 0, 6609.7, 175, 0, {"none"}},
 		{450.3, 0, 6577.3, 187, 0, {"none"}},
-		{419.3, 0.5, 6592.2, 100, 0, {"none"}},
+		{421.6, 0.5, 6588.5, 316, 0, {"none"}},
 		{420.5, 0.5, 6593.7, 132, 0, {"none"}},
 		{422.4, 0.5, 6592.7, 280, 0, {"none"}},
-		{421.6, 0.5, 6590.6, 308, 0, {"social"}},
+		{421.6, 0.5, 6590.6, 166, 0, {"social"}},
 		{420.4, 0.5, 6589.2, 327, 0, {"none"}},
-	
+		{407.2, 0, 6612.3, 356, 0, {"none"}},
+		{409.1, 0, 6617.4, 309, 0, {"social"}},
+		{410.6, 0, 6617.6, 300, 0, {"none"}},
+
+		--outside starport and cityhalls street npcs,
+		{447, 0, 6700.9, 261, 0, {"none"}},
+		{446.1, 0, 6699, 316, 0, {"none"}},
+		{444.6, 0, 6700.1, 114, 0, {"social"}},
+		{445.4,  0, 6701.2, 143, 0, {"none"}},
+		{349.2, 0, 6616, 315, 0, {"none"}},
+		{347.8, 0, 6617.3, 127, 0, {"social"}},
+		{410.7, 0, 6725, 335, 0, {"none"}},
+		{407.8, 0, 6725.2, 17, 0, {"none"}},
+		{405.1, 0, 6728, 37, 0, {"none"}},
+		{411.4, 0, 6737.6, 206, 0, {"tech"}},
+		{437, 0, 6750, 334, 0, {"none"}},
+		{435.8, 0, 6571.9, 145, 0, {"social"}},
+		{436.6, 0, 6754, 86, 0, {"sit"}},
+		{499.5, 0, 6745.7, 65, 0, {"none"}},
+		{499.2, 0, 6746.3, 88, 0, {"none"}},
+		{499.5, 0, 6747.7, 127, 0, {"none"}},
+		{501.1, 0, 6748.3, 91, 0, {"social"}},
+		{502.7, 0, 6748.1, 279, 0, {"none"}},
+		{519.4, 0, 6739.5, 74, 0, {"social"}},
+		{521.1, 0, 6739.7, 269, 0, {"none"}},
+		{532.7, 0, 6748.9, 291, 0, {"none"}},
+		{531.2, 0, 6749.6, 127, 0, {"social"}},
+		{546, 1.1, 6718.1, 78, 0, {"none"}},
+		{557.3, 1.1, 6713.6, 148, 0, {"none"}},
+		{556.3, 1.1, 6712.4, 105, 0, {"none"}},
+		{556.6, 0, 6744.8, 212, 0, {"sit"}},
+		{493.5, 0, 6786.3, 220, 0, {"none"}},
+		{492.3, 0, 6785, 37, 0, {"social"}},
+		{629.7, 0, 6693.7, 153, 0, {"sit"}},
+		{628.1, 0, 6694.2, 208, 0, {"sit"}},
+		{640.2, 0, 6690.6, 339, 0, {"none"}},
+		{639.3, 0, 6692.9, 147, 0, {"social"}},
+		{649.3, 0.1, 6695.4, 46, 0, {"tech"}},
 
 
-
-		{8.6, -0.9, 0.4, 86, 610030372, {"social"}} --[[replacement Bestine starport cantina npc]],
+		{8.6, -0.9, 0.4, 86, 610030372, {"none"}} --[[replacement Bestine starport cantina npc]],
 		-- starport cantina npcs,
 		{-4, -0.9, -4.8, 6, 610030372, {"drinker"}},
 		{-2.2, -0.9, -5, 2, 610030372, {"none"}},
 		{-0.3, -0.9, -4.8, 305, 610030372, {"social"}},
 		{2.3, -0.9, -4.8, 5, 610030372, {"drinker"}},
 		{3.8, -0.9, -4.8, 354, 610030372, {"drinker"}},
-		{4.8, -0.9, -4.8, 345, 610030372, {"none"}},
+		{4.8, -0.9, -4.8, 254, 610030372, {"none"}},
+		{1.1, -0.9, -5.7, 253, 610030372, {"social"}},
+		{-0.4, -0.9, -5.9, 84, 610030372, {"none"}},
 		{5.3, -0.9, 5.7, 195, 610030372, {"social"}},
 		{3.7, -0.9, 5.9, 280, 610030372, {"social"}},
 		{1.9, -0.9, 6.2, 93, 610030372, {"none"}},
@@ -164,10 +207,19 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{35.7, 0.1, 3.1, 217, 610030371, {"sittable"}},
 		{25.7, -0.9, -18.7, 256, 610030373, {"sittable"}},
 		{25.7, -0.9, -19.6, 256, 610030373, {"sittable"}},
-		{22.1, -0.9, -19.6, 68, 10030373, {"sittable"}},
+		{22.1, -0.9, -19.6, 68, 610030373, {"sittable"}},
 		{21.9, -0.9, -18.3, 106, 610030373, {"social"}},
 		{22.7, -0.9, -17.4, 137, 610030373, {"sittable"}},
 		{24.2, -0.9, -21, 359, 610030373, {"sittable"}},
+
+		--Bestine entrance cantina 
+		{-0.1, 0.8, 4.3, 197, 610029388, {"none"}}, --barman
+		{-8.7, 0.7, 2.6, 153, 610029388, {"social"}},
+		{-3.1, -0.2, -5.5, 99, 610029388, {"sittable"}},
+		{-0.2, -0.2, -5.8, 257, 610029388, {"sittable"}},
+		{-2.2, 0.7, 2.9, 29, 610029388, {"drinker"}},
+		{7.5, -0.2, -10.1, 77, 610029388, {"tech"}},
+		
 
 	}
 	
@@ -189,7 +241,7 @@ function RpTatooineBestineScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setCustomObjectName("Tailors")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.iff", 502.9, 0, 6630.1, 0, 1, 0, -0.8, 0) --furniture/special Sign
 	SceneObject(sObj):setCustomObjectName("Specialty store")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.iff", 642.5, 0, 6488.1, 0, 1, 0, -0.8, 0) --medical clinic Sign
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.iff", 643.3, 0, 6484.4, 0, 1, 0, -0.8, 0) --medical clinic Sign
 	SceneObject(sObj):setCustomObjectName("Bestine clinic")
 sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.iff", 43.6, 60.4, 6467.3, 0, 1, 0, -0.8, 0) --junkyard Sign blah
 	SceneObject(sObj):setCustomObjectName("Good as new")
@@ -202,22 +254,22 @@ sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.i
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
 	
 	--TAILOR--
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 7.9, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Shirts
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 7.9, 2.2, -16.4, 610029850, 0, 0, 1, 0) --Shirts
 	SceneObject(sObj):setCustomObjectName("Shirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_shirts")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.4, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Pants
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 5.4, 2.2, -16.4, 610029850, 0, 0, 1, 0) --Pants
 	SceneObject(sObj):setCustomObjectName("Pants")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_pants")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.4, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Footwear
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -7.4, 2.2, -16.4, 610029850, 0, 0, 1, 0) --Footwear
 	SceneObject(sObj):setCustomObjectName("Footwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_footwear")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -4.4, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Jacket
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -4.4, 2.2, -16.4, 610029850, 0, 0, 1, 0) --Jacket
 	SceneObject(sObj):setCustomObjectName("Jacket")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
@@ -237,121 +289,121 @@ sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.i
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_bodysuits")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 2.4, 2.2, -16.5, 610029850, 0, 0, 1, 0) --Skirts
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 2.4, 2.2, -16.4, 610029850, 0, 0, 1, 0) --Skirts
 	SceneObject(sObj):setCustomObjectName("Skirts")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_skirts")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -9.4, 2.2, -22, 610029850, 0, 0, 0, 0) --Women
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -9.4, 2.2, -22.2, 610029850, 0, 0, 0, 0) --Women
 	SceneObject(sObj):setCustomObjectName("Women's Wear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_women")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 2.2, -21.6, 610029850, 0, 0, -0.9, 0) --Heaad & Goggle
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 2.2, -21.8, 610029850, 0, 0, -0.9, 0) --Heaad & Goggle
 	SceneObject(sObj):setCustomObjectName("Headwear & Goggles")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_headwear")
 	SceneObject(sObj):populateInventoryFromContentList("tailor_goggles")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 3.7, -21.6, 610029850, 0, 0, -0.9, 0) --Handwear
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 3.7, -21.8, 610029850, 0, 0, -0.9, 0) --Handwear
 	SceneObject(sObj):setCustomObjectName("Handwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_handwear")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 5.2, -21.6, 610029850, 0, 0, -0.9, 0) --Jewelry
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.4, 5.2, -21.8, 610029850, 0, 0, -0.9, 0) --Jewelry
 	SceneObject(sObj):setCustomObjectName("Jewelry")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_jewelry")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -3.4, 2.2, -22, 610029850, 0, 0, 0, 0) --Misc/Belts bro
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -3.4, 2.2, -22.2, 610029850, 0, 0, 0, 0) --Misc/Belts bro
 	SceneObject(sObj):setCustomObjectName("Belts, Bandoliers & Aprons")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_misc")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 0.4, 2.2, -22, 610029850, 0, 0, 0, 0) --Alien
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 0.4, 2.2, -22.2, 610029850, 0, 0, 0, 0) --Alien
 	SceneObject(sObj):setCustomObjectName("Alienwear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_alien")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 3.4, 2.2, -22, 610029850, 0, 0, 0, 0) --Wookiee
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 3.4, 2.2, -22.2, 610029850, 0, 0, 0, 0) --Wookiee
 	SceneObject(sObj):setCustomObjectName("Wookiee Wear")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_wookiee")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 6.4, 2.2, -22, 610029850, 0, 0, 0, 0)--Ithorian 1
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 6.4, 2.2, -22.2, 610029850, 0, 0, 0, 0)--Ithorian 1
 	SceneObject(sObj):setCustomObjectName("Ithorian Wear I")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_ithorian1")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 9.4, 2.2, -22, 610029850, 0, 0, 0, 0)--Ithorian 2
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 9.4, 2.2, -22.2, 610029850, 0, 0, 0, 0)--Ithorian 2
 	SceneObject(sObj):setCustomObjectName("Ithorian Wear II")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("tailor_ithorian2")
 	
 	--FURNITURE--
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -6.8, 0.4, 2.1, 610029600, 0, 0, 0, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -6.8, 0.4, 2.2, 610029600, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Cheap")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_cheap")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -9.4, 1, 6, 610029601, 0, 0, 0.5, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -9.4, 1, 6, 610029601, 0, 0, 0.3, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Elegant")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_elegant")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -9.4, 1, 8.5, 610029601, 0, 0, 0.5, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -9.4, 1, 8.5, 610029601, 0, 0, 0.3, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Modern")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_modern")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -6.9, 1, 4.5, 610029601, 0, 0, 1, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -6.9, 1, 4.3, 610029601, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Plain")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_plain")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -8.6, 0.4, 2.1, 61002960, 0, 0, -0.8, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -8.6, 0.4, 2.2, 610029600, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Technical")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_technical")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -10.2, 0.4, -0.4, 610029600, 0, 0, 0.5, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -7, 0.4, -0.4, 610029600, 0, 0, 0.5, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Misc")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_misc")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", 1.5, 1, 6, 610029601, 0, 0, -0.5, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", 1.5, 1, 6, 610029601, 0, 0, -0.3, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Decorative")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_decorative")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.5, 1, 9, 610029601, 0, 0, -0.5, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.5, 1, 9, 610029601, 0, 0, -0.3, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, City")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_city")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -4.8, 1, 9.4, 610029601, 0, 0, 0, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -4.8, 1, 10.3, 610029601, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Paintings")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_paintings")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", -1.7, 1, 9.4, 610029601, 0, 0, 0, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", -1.7, 1, 10.3, 610029601, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Plants")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_plants")
 	
 	--Jukebox--
-	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_jukebox.iff", 7.4, -0.5, -1.1, 610029524, 0, 0, -0.5, 0)
+	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_jukebox.iff", 7.4, -0.5, -1.1, 610029524, 0, 0, -0.7, 0)
 
 end
 
@@ -397,11 +449,11 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 434.7, 0, 6651, 223, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 328, 0, 6756.6, 170, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 327.1, 0, 6761.6, 9, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 330.4, 0, 6764.3, 315, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 330.4, 0, 6764.3, 125, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 327.9, 0, 6764.3, 5, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 327.9, 0, 6764.3, 176, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 369.4, 0, 6706.2, 167, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
@@ -445,7 +497,7 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Ronto")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 636.4, 0, 6502.7, 275, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Dewback")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 331.7, 0, 6636.2, 120, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 341.4, 0, 6611.1, 43, 0, "dewback", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Dewback")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 851.1, 0, 6464.9, 220, 0, "wed_treadwell", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "wed")
@@ -459,7 +511,15 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "r5")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 2.2, 0.3, 5.6, 144, 610029899, "r5", "default", "default", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "r5")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 470.6, 0, 6599.1, 322, 0, "r2", "default", "default", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "r2")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 753.3, 0, 6586.9, 112, 0, "r2", "default", "default", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "r2")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 420.4, 0, 6662.3, 209, 0, "r4", "default", "default", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "r4")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 909.7, 0, 6400.7, 270, 0, "eg6_power_droid", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "eg6")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 413.1, 0, 6607.5, 209, 0, "eg6_power_droid", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "eg6")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 794.7, 0.2, 6340.5, 280, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
@@ -525,6 +585,10 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("TK-785")
 	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 627.7, 0, 6517.3, 135, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-299")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 475.5, 0, 6765.6, 138, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-818")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 477.8, 0, 6768.2, 122, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-694")
 
 
 	-- Tutorial NPCs removed, copy/paste from other repositories needed agains--
@@ -609,7 +673,7 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Keli Rhom")]]
 	
 	--Mandalorian Scout
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 446.3, 0, 6630.8, 220, 0, "rp_zabrak_male", "mando_vagabond", "default", "myok_scov", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 420.9, 0, 6606.1, 29, 0, "rp_zabrak_male", "mando_vagabond", "default", "myok_scov", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Vagabond)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mando_noob")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mando_noob")
@@ -631,7 +695,7 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Dr. Faust")
 	
 	--The Dockmaster, Phoron Klia
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 428, 0, 6738.3, 165, 0, "rp_gran_male", "eisley_dockmaster_orroko_pimeub", "default", "eisley_dockmaster_orroko_pimeub") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 417.7, 0, 6732.4, 152, 0, "rp_gran_male", "eisley_dockmaster_orroko_pimeub", "default", "eisley_dockmaster_orroko_pimeub") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Phoron Klia (a Dockmaster)")
 	
 	--Moqeni, the Major Domo for the Hutts of Eisley

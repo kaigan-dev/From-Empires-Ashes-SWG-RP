@@ -33,8 +33,8 @@ object_weapon_roleplay_ranged_carbine_geoniasian_carbine = object_weapon_ranged_
 	rarity = "Epic",
 
 	itemValue = 10000,
-
---Approx FEA Value 10000
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

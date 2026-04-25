@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_rifle_dawnsorrow_rifle = object_weapon_ranged_rifl
 
 	rarity="Legendary",
 	itemValue = 20000,
-	--Approx FEA Value 20000
+	maxAmmo = 10,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

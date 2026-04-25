@@ -34,7 +34,8 @@ object_weapon_roleplay_ranged_rifle_t21_light_repeating_rifle = object_weapon_ra
 
 	rarity="Epic",
 	itemValue = 10000,
-	--Approx FEA Value 10000
+	maxAmmo = 20,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

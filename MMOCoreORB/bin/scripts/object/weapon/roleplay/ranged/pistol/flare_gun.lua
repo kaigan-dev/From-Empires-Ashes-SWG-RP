@@ -31,7 +31,8 @@ object_weapon_roleplay_ranged_pistol_flare_gun = object_weapon_ranged_pistol_sha
 	
 	rarity="Uncommon",
 	itemValue = 600,
-	--Approx FEA Value 600
+	maxAmmo = 4,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

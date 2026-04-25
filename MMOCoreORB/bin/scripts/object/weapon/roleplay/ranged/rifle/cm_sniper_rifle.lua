@@ -33,7 +33,8 @@ object_weapon_roleplay_ranged_rifle_cm_sniper_rifle = object_weapon_ranged_rifle
 
 	rarity="Rare",
 	itemValue = 3000,
-	--Approx FEA Value 3000
+	maxAmmo = 5,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

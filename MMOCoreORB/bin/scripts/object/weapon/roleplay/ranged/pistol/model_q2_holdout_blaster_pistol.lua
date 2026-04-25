@@ -29,7 +29,8 @@ object_weapon_roleplay_ranged_pistol_model_q2_holdout_blaster_pistol = object_we
 	
 	rarity = "Uncommon",
 	itemValue = 600,
-	--Approx FEA Value 600
+	maxAmmo = 4,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

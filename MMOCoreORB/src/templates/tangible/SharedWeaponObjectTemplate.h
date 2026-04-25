@@ -42,6 +42,9 @@ protected:
 	//String rarity;
 	int itemValue;
 
+	int maxAmmo;
+	String ammoType;
+
 	float woundsRatio;
 
 	int area;
@@ -173,6 +176,8 @@ public:
 		rpSkillLevel = 1;
 		//rarity = "Common";
 		itemValue = 150;
+		maxAmmo = 10;
+		ammoType = "None";
 
 		bladeColor = -1;
 
@@ -379,6 +384,13 @@ public:
 		return rpSkillLevel;
 	}
 
+	inline int getMaxAmmo() const {
+		return maxAmmo;
+	}
+
+	inline String getAmmoType() const {
+		return ammoType;
+	}
 	/*
 	inline String getRarity() const {
 		return rarity;

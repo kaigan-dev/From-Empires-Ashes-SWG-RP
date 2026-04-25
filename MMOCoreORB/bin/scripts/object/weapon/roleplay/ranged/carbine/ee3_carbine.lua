@@ -32,7 +32,8 @@ object_weapon_roleplay_ranged_carbine_ee3_carbine = object_weapon_ranged_carbine
 
 	itemValue = 3000,
 
-	--Approx FEA Value 3000
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

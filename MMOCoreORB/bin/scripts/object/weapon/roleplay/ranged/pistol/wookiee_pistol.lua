@@ -31,7 +31,8 @@ object_weapon_roleplay_ranged_pistol_wookiee_pistol = object_weapon_ranged_pisto
 	
 	rarity="Uncommon",
 	itemValue = 600,
-	--Approx FEA Value 600
+	maxAmmo = 6,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

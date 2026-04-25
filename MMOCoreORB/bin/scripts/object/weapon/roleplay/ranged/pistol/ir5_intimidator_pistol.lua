@@ -29,7 +29,8 @@ object_weapon_roleplay_ranged_pistol_ir5_intimidator_pistol = object_weapon_rang
 	
 	rarity="Rare",
 	itemValue = 3000,
-	--Approx FEA Value 3000
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

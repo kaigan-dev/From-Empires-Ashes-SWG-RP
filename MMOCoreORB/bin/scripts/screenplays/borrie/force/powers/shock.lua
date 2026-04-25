@@ -120,12 +120,12 @@ function BorForce_Shock:performAbility(pPlayer, fpi)
 		message = message .. ". They succesfully zap " .. targetName .. ", dealing 1d8 = " .. damageTotal .. " electric damage. "
 	
 		if(forceTotal > defenderTotal) then
-			message = message .. targetName .. " fails to resist the shock (1d20: " .. defenderDieValue .. " + " .. defenderCon .. " = " .. defenderTotal .. ") and is stunned and loses their next action!"
+			message = message .. targetName .. " fails to resist the shock (1d20: " .. defenderDieValue .. " + " .. defenderCon .. " = " .. defenderTotal .. ") vs DC " .. forceTotal .. " and is stunned and loses their next action!"
 	
 			CreatureObject(pPlayer):doAnimation("force_lightning_1_particle_level_1_medium")	
 
 		else
-			message = message .. targetName .. " successfully braces to resist the shock (1d20: " .. defenderDieValue .. " + " .. defenderCon .. " = " .. defenderTotal .. ") and is not stunned!"
+			message = message .. targetName .. " successfully braces to resist the shock (1d20: " .. defenderDieValue .. " + " .. defenderCon .. " = " .. defenderTotal .. ") vs DC " .. forceTotal .. " and is not stunned!"
 			CreatureObject(pPlayer):doAnimation("force_lightning_1_particle_level_1_medium")	
 			
 		end
