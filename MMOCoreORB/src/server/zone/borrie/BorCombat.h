@@ -309,7 +309,12 @@ public:
                 }
             }
             else {
-                return String::valueOf(finalDamage) + " damage!";
+                if (headshotFlag) {
+                    return String::valueOf(finalDamage) + " damage! (25%% headshot bonus!)";
+                }
+                else {
+                    return String::valueOf(finalDamage) + " damage!";
+                }
             }
         }
         else {
