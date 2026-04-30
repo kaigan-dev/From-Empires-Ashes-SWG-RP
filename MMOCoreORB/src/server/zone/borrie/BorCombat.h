@@ -415,10 +415,16 @@ public:
                     int damageDieType = weapon->getMaxDamage();
                     int bonusDamage = weapon->getBonusDamage();     
                     if(weapon->isJediWeapon()) {
-                            bonusDamage += attacker->getSkillMod("rp_lightsaber");
+                        bonusDamage += defender->getSkillMod("rp_lightsaber");
                     } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
-                        bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+                        if(attacker->isPlayerCreature()) {
+                            bonusDamage += defender->getSkillMod("rp_strength_damage_bonus");
+                        }
+                        else {
+                            bonusDamage += defender->getSkillMod("rp_strength") / 2;    
+                        }
                     } 
+
                     int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
                     ApplyAdjustedHealthDamage(attacker, defenderWeapon, returnDamage, slot);
 
@@ -965,10 +971,14 @@ public:
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
         else if ((weapon->getBonusDamage() == 0) && weapon->isJediWeapon())
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
-        else if (weapon->getBonusDamage() > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+        else if (attacker->isPlayerCreature() && weapon->getBonusDamage() > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
-        else if (weapon->getBonusDamage() == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+        else if (attacker->isPlayerCreature() && weapon->getBonusDamage() == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
+        else if (weapon->getBonusDamage() > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
+        else if (weapon->getBonusDamage() == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
         else if (weapon->getBonusDamage() > 0 && !(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage());
         else
