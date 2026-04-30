@@ -75,17 +75,13 @@ function endor_start:spawnSceneObjects()
 	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5965.8, 246.5, -2489.7, -178, 0, 0, 0, 0)
 	
 
-	
 end
 
 function endor_start:spawnMobiles()
 	--Species, Equipment, Skills, Customization
 	
-
-	
-	local pNpc
 	--Rebels at Bright Tree Village
-	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4763.9, 50.7, -2463.1, 76, 0, "human", "faction/rebel/grunt_army", "default", "random") --Equip, Skill, Customization
+	local pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4763.9, 50.7, -2463.1, 76, 0, "human", "faction/rebel/grunt_army", "default", "random") --Equip, Skill, Customization
 	
 	--[[
 	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 1006.88, 0, 120.202, 88, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
