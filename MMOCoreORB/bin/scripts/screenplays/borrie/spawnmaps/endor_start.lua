@@ -16,7 +16,7 @@ endor_start = CityScreenPlay:new {
 
 registerScreenPlay("endor_start",  true)
 
-function endor_startt:start()
+function endor_start:start()
 	if (isZoneEnabled(self.planet)) then
 		self:spawnMobiles()
 		self:spawnSceneObjects()
