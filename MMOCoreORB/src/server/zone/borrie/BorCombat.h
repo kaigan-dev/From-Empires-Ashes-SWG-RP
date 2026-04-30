@@ -112,7 +112,12 @@ public:
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
 
         } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
-            bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             if(attacker->isPlayerCreature()) {
+                bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             }
+            else {
+                bonusDamage += attacker->getSkillMod("rp_strength") / 2;    
+             }
         } 
 
         int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage);
@@ -223,7 +228,12 @@ public:
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
 
         } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
-            bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             if(attacker->isPlayerCreature()) {
+                bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             }
+            else {
+                bonusDamage += attacker->getSkillMod("rp_strength") / 2;    
+             }
         } 
 
         int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
