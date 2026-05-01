@@ -138,12 +138,12 @@ function endor_start:spawnSceneObjects()
 	
 	--spawnSceneObject("rp_dathomir", "object/tangible/terminal/terminal_travel_rp.iff", 1520.12, 127, 1489.68, 0, 0.953717, 0, -0.300706, 0)
 
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5965.8, 246.5, -2489.7, 0, 0.45, 0, 0, 0)
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5969.5, 247.5, -2490.9, 0, 0.95, 0, 0, 0)
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5960.7, 246.6, -2490.2, 0, 0.2, 0, 0, 0) 
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5957.8, 247, -2489.7, 0, -0.65, 0, 0, 0)  
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5954.7, 247, -2489.6, 0, -0.95, 0, 0, 0)
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5950.7, 247, -2490, 0, -0.2, 0, 0, 0)
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5965.8, 246.5, -2489.7, 0, 0.45, 0, 0.9, 0)
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5969.5, 247.5, -2490.9, 0, 0.95, 0, 0.6, 0)
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5960.7, 246.6, -2490.2, 0, 0.2, 0, 0.3, 0) 
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5957.8, 247, -2489.7, 0, -0.65, 0, -0.3, 0)  
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5954.7, 247, -2489.6, 0, -0.95, 0, -0.6, 0)
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5950.7, 247, -2490, 0, -0.2, 0, -0.9, 0)
 
 	--The second to last parameter squishes, so we don't ever seem to want it. Large negative value makes it much wider
 	
