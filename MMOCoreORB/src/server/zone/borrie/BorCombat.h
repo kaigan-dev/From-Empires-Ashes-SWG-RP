@@ -418,20 +418,25 @@ public:
                     int damageDieType = weapon->getMaxDamage();
                     int bonusDamage = weapon->getBonusDamage();    
                     defender->sendSystemMessage("Debug: We will now add bonus damage to the parry."); 
+                    attacker->sendSystemMessage("Debug: We will now add bonus damage to the parry."); 
                     if(weapon->isJediWeapon()) {
                         bonusDamage += defender->getSkillMod("rp_lightsaber");
                     } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
                         defender->sendSystemMessage("Debug: The defender is using an Unarmed or Melee weapon.");
+                        attacker->sendSystemMessage("Debug: The defender is using an Unarmed or Melee weapon.");
                         if(attacker->isPlayerCreature()) {
                             bonusDamage += defender->getSkillMod("rp_strength_damage_bonus");
                             defender->sendSystemMessage("Debug: The defender is a Player. Their str bonus is " + String::valueOf(defender->getSkillMod("rp_strength_damage_bonus")));
+                            attacker->sendSystemMessage("Debug: The defender is a Player. Their str bonus is " + String::valueOf(defender->getSkillMod("rp_strength_damage_bonus")));
                         }
                         else {
                             bonusDamage += defender->getSkillMod("rp_strength") / 2;    
                             defender->sendSystemMessage("Debug: The defender is NOT a Player. Their str bonus is " + String::valueOf(defender->getSkillMod("rp_strength") / 2));
+                            attacker->sendSystemMessage("Debug: The defender is NOT a Player. Their str bonus is " + String::valueOf(defender->getSkillMod("rp_strength") / 2));
                         }
                     }
                     defender->sendSystemMessage("Debug: Parry bonus damage logic has been calculated as " + String::valueOf(bonusDamage));
+                    attacker->sendSystemMessage("Debug: Parry bonus damage logic has been calculated as " + String::valueOf(bonusDamage));
 
 
                     int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
