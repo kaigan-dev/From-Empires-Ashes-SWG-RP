@@ -145,10 +145,10 @@ function endor_start:spawnSceneObjects()
 	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5954.7, 247, -2489.6, 0, 0.6, 0, -0.9, 0)
 	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5950.7, 247, -2490, 0, 0.9, 0, -0.9, 0)
 
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5962.0, 244.9, -2494.9, math.rad(30))
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5965.0, 244.9, -2494.9, math.rad(60))
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5968.0, 244.9, -2494.9, math.rad(90))
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5971.0, 244.9, -2494.9, math.rad(120))
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5962.0, 244.9, -2494.9, 0, math.rad(30))
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5965.0, 244.9, -2494.9, 0, math.rad(60))
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5968.0, 244.9, -2494.9, 0, math.rad(90))
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5971.0, 244.9, -2494.9, 0, math.rad(120))
 
 	--The second to last parameter squishes, so we don't ever seem to want it. Large negative value makes it much wider
 	--The best workign seems to be    spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5957.8, 247, -2489.7, 0, 0.3, 0, -0.9, 0)
