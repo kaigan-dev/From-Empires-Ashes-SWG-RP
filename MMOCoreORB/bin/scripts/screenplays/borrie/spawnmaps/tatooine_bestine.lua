@@ -75,8 +75,8 @@ function RpTatooineBestineScreenPlay:spawnCivilians()
 		{659.1, 0, 6536, 231, 0, {"none"}},
 		{636.9, 0, 6555.2, 152, 0, {"none"}},
 		{636.1, 0, 6551.8, 4, 0, {"social"}},
-		{655.2, 0.3, 6583.4, 0, {"social"}},
-		{637.7, 0, 6553.3, 310, 0, {"none"}},
+		{655.2, 0.3, 6583.4, 204, 0, {"social"}},
+		{638.3, 0, 6551.9, 332, 0, {"none"}},
 		{755.3, 0.5, 6587.2, 210, 0, {"none"}},
 		{753.9, 0.5, 6585.2, 33, 0, {"social"}},
 		-- palace-side cantina internal npcs,
@@ -342,25 +342,25 @@ sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.i
 	SceneObject(sObj):populateInventoryFromContentList("tailor_ithorian2")
 	
 	--FURNITURE--
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -6.8, 0.4, 2.2, 610029600, 0, 0, 1, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -6.8, 0.4, 2.3, 610029600, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Cheap")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_cheap")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -9.4, 1, 6, 610029601, 0, 0, 0.3, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 2.7, 0.4, 2.3, 610029600, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Elegant")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_elegant")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -9.4, 1, 8.5, 610029601, 0, 0, 0.3, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 4.5, 0.4, 2.3, 610029600, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Modern")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_modern")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -6.9, 1, 4.3, 610029601, 0, 0, 0, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 6.3, 0.4, 2.3, 610029600, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Plain")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
@@ -378,32 +378,32 @@ sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.i
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_misc")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", 1.5, 1, 6, 610029601, 0, 0, -0.3, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", -7, 1, 10.5, 610029601, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Decorative")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_decorative")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.5, 1, 9, 610029601, 0, 0, -0.3, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -6.9, 1, 4.1, 610029601, 0, 0, 0, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, City")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_city")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -4.8, 1, 10.3, 610029601, 0, 0, 1, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", -4.8, 1, 10.5, 610029601, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Paintings")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_paintings")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", -1.7, 1, 10.3, 610029601, 0, 0, 1, 0)
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", -1.7, 1, 10.5, 610029601, 0, 0, 1, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Plants")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_plants")
 	
 	--Jukebox--
-	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_jukebox.iff", 7.4, -0.5, -1.1, 610029524, 0, 0, -0.7, 0)
+	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_jukebox.iff", 7.4, -0.5, -1.1, 610029524, 0, 0, -0.8, 0)
 
 end
 
@@ -597,7 +597,7 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	--VENDORS--
 	
 	--Melee Vendor Light
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.8, 0.8, 1, 330, 610029732, "rp_moncal_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 490.2, 0, 6541.3, 80, 0, "rp_moncal_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Okibam Rotso (a Melee Weapons Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
