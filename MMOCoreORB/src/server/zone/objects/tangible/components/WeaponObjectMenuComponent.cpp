@@ -198,7 +198,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 		if(!doNotRepair) {
 			if(player->getCashCredits() - creditCost >= 0) {
-				player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
+				player->sendSystemMessage("Based on its rarity and damage, you have been charged " + std::to_string(creditCost) + " credits to repair this item.");
 				player->subtractCashCredits(creditCost);
 				tano->setConditionDamage(0, true);
 			}
