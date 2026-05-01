@@ -44,7 +44,7 @@
 object_weapon_melee_unarmed_unarmed_creature_medium = object_weapon_melee_unarmed_shared_unarmed_creature_medium:new {
 
 	playerRaces = {},
-	
+	invisible = 1,
 	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK,
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
 	attackType = MELEEATTACK,
