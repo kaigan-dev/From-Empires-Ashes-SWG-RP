@@ -21,21 +21,20 @@ function endor_start:start()
 		self:spawnMobiles()
 		self:spawnSceneObjects()
 		self:spawnCivilians()
-		self:spawnJunkPiles()
+		--self:spawnJunkPiles()
 	end
 end
 
 
-
+--[[
 function endor_start:spawnJunkPiles() 
 	local spawnPoints = {
-		--[[
 		{542.818, 0, 210.997, 0, 1, 0, 0, 0},
 		{538.877, -0.25, 223.016, 0, -0.0348994, 0, 0.999391, 0},
-		--]]
 	}
 	RpJunkPile:spawnJunkPiles(self.planet, spawnPoints, true)
 end
+--]]
 
 
 function endor_start:spawnCivilians() 
@@ -133,7 +132,7 @@ function endor_start:spawnSceneObjects()
 	--spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", -2.7419, 0.639421, 48.1677, 610008050, 1, 0, 0, 0)
 	--spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 2.54505, 0.639421, 48.1693, 610008050, 1, 0, 0, 0)
 	--Rebel base camp travel terminal:
-	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5965.8, 246.5, -2489.7, -178, 0, 0, 0, 0)
+	spawnSceneObject("rp_endor", "object/tangible/terminal/terminal_travel_rp.iff", 5965.8, 246.5, -2489.7, 0, 1, 0, 0, 0)
 	
 
 end
