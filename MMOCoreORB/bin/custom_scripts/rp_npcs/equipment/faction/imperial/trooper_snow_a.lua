@@ -1,0 +1,12 @@
+equipment = {
+	{"object/weapon/ranged/carbine/shared_carbine_e11.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_boots.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_bracer_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_bracer_r.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_chest_plate.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_gloves.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_helmet.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_leggings.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_bicep_l.iff", },
+	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_bicep_r.iff", },
+}
