@@ -146,8 +146,9 @@ function endor_start:spawnMobiles()
 	--Species, Equipment, Skills, Customization
 	
 	--Rebels at Bright Tree Village
-	local pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4763.9, 50.7, -2463.1, 76, 0, "rp_human_female", "faction/rebel/grunt_army", "default", "random") --Equip, Skill, Customization
-		setRandomCreatureName(pNpc, "human_female")
+	local pNpc
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4763.9, 50.7, -2463.1, 76, 0, "rp_human_female", "faction/rebel/grunt_army", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
 	--[[
 	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 1006.88, 0, 120.202, 88, 0, "bantha", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Bantha")
