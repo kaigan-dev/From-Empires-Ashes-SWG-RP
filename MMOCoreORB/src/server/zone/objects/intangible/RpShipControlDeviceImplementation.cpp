@@ -148,8 +148,7 @@ bool RpShipControlDeviceImplementation::canBeTradedTo(CreatureObject* player, Cr
 	return true;
 }
 
-/*   Borrie has everything commented out from here through the end of RpShipControlDeviceImplementation
-*/
+/*
 void RpShipControlDeviceImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuResponse, CreatureObject* player) {
 	if (isASubChildOf(player)) {
         menuResponse->addRadialMenuItem(80, 3, "@rp_ship:board_ship");
@@ -199,7 +198,6 @@ int RpShipControlDeviceImplementation::handleObjectMenuSelect(CreatureObject* pl
 
     return 0;
 }
-/*
 */
 
 void RpShipControlDeviceImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {

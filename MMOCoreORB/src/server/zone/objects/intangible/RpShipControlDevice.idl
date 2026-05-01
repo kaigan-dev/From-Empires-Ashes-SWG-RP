@@ -65,12 +65,6 @@ class RpShipControlDevice extends ControlDevice {
 	@dirty
 	public native boolean canBeTradedTo(CreatureObject player, CreatureObject receiver, int numberInTrade);
 
-	// Added fillObjectMenuResponse & handleObjectMenuSelect, probably incorrectly. Cagnaith 5/1/2026.
-	@dirty
-	public native void fillObjectMenuResponse(ObjectMenuResponse menuResponse, CreatureObject player);
-
-	@dirty
-	public native int handleObjectMenuSelect(CreatureObject player, byte selectedID);
 	
 	/**
 	 * Fills the attribute list message options that are sent to player creature
@@ -82,7 +76,6 @@ class RpShipControlDevice extends ControlDevice {
 	@local
 	@dirty
 	public native void fillAttributeList(AttributeListMessage msg, CreatureObject object);
-	
 	
 	@dirty
 	public boolean isRpShipControlDevice() {
