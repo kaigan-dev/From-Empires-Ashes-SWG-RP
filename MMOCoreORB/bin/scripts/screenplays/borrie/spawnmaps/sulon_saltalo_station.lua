@@ -187,7 +187,7 @@ function SulonSaltaloStationScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Targo Lien (a Melee Weapons Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
     SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
-	pNpc = 		 spawnRoleplayMobile("rp_sulon", "rp_convo_npc", 1, 4186.12, 6, -5375.92, 86, 0,  "rp_bith_male", "sulon_vendor_instrument_01", "default", "random", "rpg_shopkeeper") -- Instrument vendor
+	pNpc = 		 spawnRoleplayMobile("rp_sulon", "rp_convo_npc", 1, 4292.3, 6, -5409.1, 336, 0,  "rp_bith_male", "sulon_vendor_instrument_01", "default", "random", "rpg_shopkeeper") -- Instrument vendor
 	SceneObject(pNpc):setCustomObjectName("Snikk (an Instrument Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "music")
     SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
