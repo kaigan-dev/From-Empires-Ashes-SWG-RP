@@ -137,7 +137,9 @@ public:
         totalDamage = headshotDamage;
 
         //Damage the attacker's weapon
-        weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        if(!weapon->isInvisible()) {
+            weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        }
         
         //Calculate the Reaction
         //The 1 is hitCount
