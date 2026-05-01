@@ -316,7 +316,7 @@ function RoriNewRestussScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
 
 	--Luxury Vehicle Vendor
-	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -833.546, 83, 1547.87, 0, 0,			"rp_human_male", "tatooine_luxury_speeder_vendor", "default", "random", "rpg_shopkeeper") --Luxury Vehicle
+	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -808.5, 83, 1372.8, 276, 0,			"rp_human_male", "tatooine_luxury_speeder_vendor", "default", "random", "rpg_shopkeeper") --Luxury Vehicle
 	SceneObject(pNpc):setCustomObjectName("Galen Dravenmere (a Luxury Speeder Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle_luxury")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles_luxury")
@@ -328,7 +328,7 @@ function RoriNewRestussScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
 
 	--Weaponsmith, Ranged
-	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, 5.5842, 0.7, -0.634388, 269, 610014461,	"rp_human_female", "xovros_refugee_male4", "default", "random", "rpg_shopkeeper") -- Wep Ranged
+	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -923.1, 87.4, 1436.3, 264, 0,	"rp_human_female", "xovros_refugee_male4", "default", "random", "rpg_shopkeeper") -- Wep Ranged
 	SceneObject(pNpc):setCustomObjectName("Novvah Vex (a Ranged Weaponsmith)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
