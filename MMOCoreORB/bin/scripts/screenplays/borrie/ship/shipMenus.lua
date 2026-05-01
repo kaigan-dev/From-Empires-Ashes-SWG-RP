@@ -87,7 +87,7 @@ function RpShipControlDeviceMenuComponent:fillObjectMenuResponse(pSceneObject, p
 	
 	local eventID = readData(shipID .. ":landShip:shipStatus")
 	
-	--menuResponse:addRadialMenuItem(120, 3, "Board Ship")
+	menuResponse:addRadialMenuItem(120, 3, "Board Ship")
 	if(eventID ~= 2 and eventID ~= 3) then
 		menuResponse:addRadialMenuItem(81, 3, "Land Ship")
 	elseif(eventID == 3) then

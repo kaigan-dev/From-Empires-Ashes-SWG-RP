@@ -22,12 +22,12 @@ rpg_shop_general = {
 			}
 		},
 		{
-			name = "Boardable Ship (NOT CURRENTLY SPAWNABLE)",
+			name = "Boardable Ship",
 			minItems = 2,
 			items = {
 				{template = "object/tangible/deed/rp_ship_deed/rp_yt1300_deed.iff", cost = 25000, max = 10, chance = 100 , overridePrice = true},
-				{template = "object/tangible/deed/rp_ship_deed/rp_yt2400_deed.iff", cost = 32000, max = 10, chance = 100, overridePrice = true },
-				{template = "object/tangible/deed/rp_ship_deed/rp_ykl37r_deed.iff", cost = 37500, max = 10, chance = 100, overridePrice = true },	
+				{template = "object/tangible/deed/rp_ship_deed/rp_yt2400_deed.iff", cost = 30000, max = 10, chance = 100, overridePrice = true },
+				{template = "object/tangible/deed/rp_ship_deed/rp_ykl37r_deed.iff", cost = 20000, max = 10, chance = 100, overridePrice = true },	
 				--{template = "object/tangible/deed/rp_ship_deed/rp_sorosuub_space_yacht_deed.iff", cost = 62500, max = 10, chance = 100, overridePrice = true },	
 				--{template = "object/tangible/deed/rp_ship_deed/rp_blacksun_transport_deed.iff", cost = 162500, max = 10, chance = 100, overridePrice = true },					
 			}
