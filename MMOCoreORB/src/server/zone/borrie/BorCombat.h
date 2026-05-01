@@ -424,11 +424,11 @@ public:
                         defender->sendSystemMessage("Debug: The defender is using an Unarmed or Melee weapon.");
                         if(attacker->isPlayerCreature()) {
                             bonusDamage += defender->getSkillMod("rp_strength_damage_bonus");
-                            defender->sendSystemMessage("Debug: The defender is a Player. Their str bonus is " String::valueOf(defender->getSkillMod("rp_strength_damage_bonus")));
+                            defender->sendSystemMessage("Debug: The defender is a Player. Their str bonus is " + String::valueOf(defender->getSkillMod("rp_strength_damage_bonus")));
                         }
                         else {
                             bonusDamage += defender->getSkillMod("rp_strength") / 2;    
-                            defender->sendSystemMessage("Debug: The defender is NOT a Player. Their str bonus is " String::valueOf(defender->getSkillMod("rp_strength") / 2));
+                            defender->sendSystemMessage("Debug: The defender is NOT a Player. Their str bonus is " + String::valueOf(defender->getSkillMod("rp_strength") / 2));
                         }
                     }
                     defender->sendSystemMessage("Debug: Parry bonus damage logic has been calculated as " + String::valueOf(bonusDamage));
