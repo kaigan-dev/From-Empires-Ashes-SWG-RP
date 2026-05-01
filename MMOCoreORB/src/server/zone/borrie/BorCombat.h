@@ -252,7 +252,9 @@ public:
 
         if(totalDamage < 1) totalDamage = 1;
 
-        weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        if(!weapon->isInvisible()) {
+            weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        }
 
         int hitCount = 0;
         if(hit1) hitCount++;
@@ -371,17 +373,23 @@ public:
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
                     if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
-                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + 1000);
-                        defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + 1000);
+                            defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
                     }
                     else {
-                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        }
                     }
 
                     //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
                     if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
-                        attackerWeapon->setConditionDamage(attackerWeapon->getConditionDamage() + 1000);
-                        attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        if(!attackerWeapon->isInvisible()) {
+                            attackerWeapon->setConditionDamage(attackerWeapon->getConditionDamage() + 1000);
+                            attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
                     }
                     
                     DrainActionOrWill(defender, 1 * actionPointMod);
@@ -437,17 +445,23 @@ public:
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
                     if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
-                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + 1000);
-                        defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + 1000);
+                            defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
                     }
                     else {
-                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        }
                     }
 
                     //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
                     if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
-                        attackerWeapon->setConditionDamage(attackerWeapon->getConditionDamage() + 1000);
-                        attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        if(!attackerWeapon->isInvisible()) {
+                            attackerWeapon->setConditionDamage(attackerWeapon->getConditionDamage() + 1000);
+                            attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
                     }
 
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
