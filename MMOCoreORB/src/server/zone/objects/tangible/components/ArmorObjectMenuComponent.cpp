@@ -140,6 +140,11 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		int armorerSkill = player->getSkillMod("rp_armorer");
 		int rollResult = diceRoll + armorerSkill;
 
+		if(!repairAmt) {
+			player->sendSystemMessage("Your armor has no damage to repair.");
+			return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+		}
+
 		player->sendSystemMessage("Your armor has " + std::to_string(repairAmt) + " damage to repair.");
 
 		if(armorRarity == "Common") {

@@ -128,6 +128,11 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		int mechanicsSkill = player->getSkillMod("rp_mechanics");
 		int rollResult = diceRoll + mechanicsSkill;
 
+		if(!repairAmt) {
+			player->sendSystemMessage("Your weapon has no damage to repair.");
+			return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+		}
+
 		player->sendSystemMessage("Your weapon has " + std::to_string(repairAmt) + " damage to repair.");
 		
 
