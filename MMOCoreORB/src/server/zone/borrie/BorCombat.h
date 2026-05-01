@@ -761,8 +761,8 @@ public:
                                     armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                                 else
                                 {
-                                    armor->setConditionDamage(armor->getConditionDamage()+ 100);
-                                    creature->sendSystemMessage("Your " + armorName + " is severely damaged by the attack!"); 
+                                    armor->setConditionDamage(armor->getMaxCondition());
+                                    creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
                                 }
                             }
                             else {
@@ -780,8 +780,8 @@ public:
                                     armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                                 else
                                 {
-                                    armor->setConditionDamage(armor->getConditionDamage()+ 100);
-                                    creature->sendSystemMessage("Your " + armorName + " is severely damaged by the attack!"); 
+                                    armor->setConditionDamage(armor->getMaxCondition());
+                                    creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
                                 }
                             }
                             else {
