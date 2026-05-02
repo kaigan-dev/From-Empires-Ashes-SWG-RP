@@ -106,23 +106,30 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -11, 5.8, 71.8, 81, 
 
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 5.8, 65.1, -145, 610009473, "rp_human_male", "faction/hutt/trooper_swamp", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 11.4, 5.8, 62.9, -86, 610009473, "rp_weequay_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "human")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 7.4, 5.8, 59.8, -20, 610009473, "rp_weequay_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 4.6, 5.8, 62.6, 87, 610009473, "rp_human_female", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.4, 5.8, 64.9, 142, 610009473, "rp_rodian_female", "faction/hutt/trooper_swamp", "thug", "random") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.4, 5.8, 64.9, 142, 610009473, "rp_rodian_female", "faction/hutt/trooper_swamp", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.4, 5.8, 64.9, 142, 610009473, "rp_talz_male", "default", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "wookiee")
 
 
 
---Kitchen - Come back to give this one a distinct look. Can we give a droid a chef hat?
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "chefhat", "soldier_strong", "random") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Cookie")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -44.5, 3, 60, 176, 610009480, "21b_surgical_droid", "default", "droid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Klank")
 
+
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.2, 3, 55.5, -17, 610009447, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -15.1, 3, 56.2, 78, 610009447, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.8, 3, 57.5, 168, 610009447, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
 
 
 
@@ -146,13 +153,15 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 31.2, 0.2, 11.2, -83
 	setRandomCreatureName(pNpc, "zabrak")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 38.5, 0.2, 7, 24, 610009502, "rp_zabrak_male", "faction/hutt/tech", "mechanic", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "zabrak")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 37, 0.2, 8.7, 84, 610009502, "wed_treadwell", "default", "droid", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 37, 0.2, 8.7, 84, 610009502, "wed_treadwell", "default", "droid", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "wed")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 43.4, 0.2, -15.1, 170, 610009502, "rp_chiss_male", "faction/hutt/tech", "mechanic", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "chiss")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 43, 0.2, -8.2, -34, 610009502, "eg6_power_droid", "default", "droid", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 43, 0.2, -8.2, -34, 610009502, "eg6_power_droid", "default", "droid", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "eg6")
-
+--Overseer
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 31.6, 0.2, 1.5, 47, 610009502, "rp_rodian_male", "faction/hutt/officer", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
 
 
 
@@ -168,7 +177,7 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -25.5, 3.6, 47.4, 92
 	setRandomCreatureName(pNpc, "human")	
 
 
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 29.1, -86, 610009490, "rp_rodiany_male", "bountyhunter", "bountyhunter", "random") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 29.1, -86, 610009490, "rp_rodian_male", "bountyhunter", "bountyhunter", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 27.3, -60, 610009490, "rp_twilek_male", "bountyhunter", "bountyhunter", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "twilek")
