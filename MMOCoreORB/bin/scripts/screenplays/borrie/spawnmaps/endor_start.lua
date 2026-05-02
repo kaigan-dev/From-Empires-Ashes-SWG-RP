@@ -294,7 +294,7 @@ function endor_start:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
 
-	pNpc = spawnRoleplayMobile("rp_endor", "rp_convo_npc", 1, 5991.3, 250.0, -2519.4, -57, 0, "rp_wookiee_female", "faction/rebel/endor_trooper", "default", "random", "rpg_shopkeeper") 
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_convo_npc", 1, 5991.3, 250.0, -2519.4, -57, 0, "rp_wookiee_female", "default", "default", "random", "rpg_shopkeeper") 
 	SceneObject(pNpc):setCustomObjectName("Karraka (a Melee Weapon Quartermaster)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
