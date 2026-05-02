@@ -107,7 +107,7 @@ travel_destinations = {
 		name = "Endor",
 		zone = "rp_endor",
 		destinations = {
-			--{"Rebel Landing Zone", "rp_endor", 6060, 262, -2513, 0},
+			{"Rebel Landing Zone", "rp_endor", 6060, 262, -2513, 0},
 		}
 	
 	},
