@@ -154,6 +154,27 @@ function endor_start:spawnCivilians()
 		{4690.1, 30.9, -2522.9, -176, 0,{"none"}},
 		{4692.2, 30.9, -2533.3, -145, 0,{"none"}},
 		{4657.0, 31.0, -2495.6, -116, 0,{"none"}},
+		{4745.9, 40.8, -2525.3, 160, 0,{"none"}},
+		{4742.2, 40.8, -2516.6, 1, 0,{"none"}},
+		{4743.8, 40.8, -2512.7, -125, 0,{"none"}},
+		{4769.3, 51.7, -2493.1, 70, 0,{"none"}},
+		{4789.1, 57.8, -2420.1, 18, 0,{"none"}},
+		{4764.3, 46.9, -2357.9, 18, 0,{"none"}},
+		{4746.3, 42.1, -2346.6, -122, 0,{"none"}},
+		{4744.7, 42.1, -2353.3, 150, 0,{"none"}},
+		{4635.9, 32.0, -2356.9, -43, 0,{"none"}},
+		{4643.5, 20.0, -2358.2, -49, 0,{"none"}},
+		{4538.7, 19.0, -2387.6, -66, 0,{"none"}},
+		{4542.7, 19.9, -2385.3, 150, 0,{"none"}},
+		{4554.0, 30.0, -2453.0, 120, 0,{"none"}},
+		{4560.1, 30.0, -2454.0, -92, 0,{"none"}},
+		{4550.1, 30.0, -2454.0, -24, 0,{"none"}},
+		{4542.1, 30.0, -2457.0, 134, 0,{"none"}},
+		{4544.2, 30.0, -2469.3, 166, 0,{"none"}},
+		{4544.6, 30.0, -2476.2, 67, 0,{"none"}},
+		{4557.8, 30.0, -2488.4, 139, 0,{"none"}},
+		{4529.2, 29.7, -2444.5, 41, 0,{"none"}},
+
 
 
 		
@@ -280,6 +301,12 @@ function endor_start:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4691.3, 33.7, -2472.3, 69, 0, "rp_human_female", "faction/rebel/navy_trooper", "default", "random") --Equip, Skill, Customization
 		setRandomCreatureName(pNpc, "human")
 	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4688.6, 30.9, -2433.8, -174, 0, "rp_human_male", "faction/rebel/endor_trooper_a", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4556.2, 20.0, -2457.5, -22, 0, "rp_zabrak_male", "faction/rebel/endor_trooper_a", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "zabrak")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4526.8, 30.0, -2451.0, -74, 0, "rp_human_female", "faction/rebel/endor_trooper_a", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 4566.4, 29.9, -2484.0, 157, 0, "rp_human_male", "faction/rebel/endor_trooper_a", "default", "random") --Equip, Skill, Customization
 		setRandomCreatureName(pNpc, "human")
 	
 
@@ -432,7 +459,46 @@ function endor_start:spawnMobiles()
 
 
 	--Imperial PoWs at FOB
-
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5872.0, 222.6, -2543.7, 84, 0, "rp_human_female", "faction/imperial/officer", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5867.6, 222.6, -2538.0, -140, 0, "rp_human_male", "faction/imperial/officer", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5863.6, 222.6, -2542.3, 76, 0, "rp_human_male", "faction/imperial/officer", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5865.6, 222.6, -2541.9, -106, 0, "rp_human_male", "faction/imperial/officer", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5870.6, 222.7, -2552.4, -11, 0, "rp_human_female", "faction/imperial/officer", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5872.7, 222.6, -2548.1, -101, 0, "rp_human_male", "faction/imperial/officer", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5867.5, 222.6, -2548.1, -102, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5866.1, 222.6, -2540.1, -92, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5869.8, 222.6, -2540.6, -34, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5872.3, 222.6, -2540.1, -118, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5868.3, 222.6, -2543.7, -51, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5866.6, 222.6, -2543.2, 95, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5863.9, 222.6, -2543.8, 173, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5863.3, 222.6, -2545.5, 41, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5865.1, 222.6, -2545.0, -78, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5857.7, 222.6, -2543.9, -84, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5862.4, 222.6, -2540.3, -15, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5870.4, 222.6, -2546.2, 121, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5866.7, 222.6, -2549.8, 164, 0, "rp_human_male", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5862.9, 222.6, -2554.0, 0, 0, "rp_human_female", "faction/imperial/trooper_bs", "default", "random") --Equip, Skill, Customization
+		setRandomCreatureName(pNpc, "human")
 
 		--[[
 	
