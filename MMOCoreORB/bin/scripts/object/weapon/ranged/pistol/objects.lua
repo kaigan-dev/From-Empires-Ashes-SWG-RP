@@ -360,7 +360,7 @@ ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_de_1
 object_weapon_ranged_pistol_shared_pistol_dh17 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_dh17_pistol.iff"
 }
-ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_dh17, "object/weapon/ranged/pistol/shared_dh17_pistol.iff")
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_dh17_pistol, "object/weapon/ranged/pistol/shared_dh17_pistol.iff")
  
 
 object_weapon_ranged_pistol_shared_pistol_dl44 = SharedWeaponObjectTemplate:new {
