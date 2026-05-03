@@ -58,4 +58,4 @@ object_weapon_roleplay_ranged_pistol_scatter_pistol = object_weapon_ranged_pisto
 	experimentalCombineType = { 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_roleplay_ranged_pistol_scatter_pistol, "object/weapon/roleplay/ranged/pistol/scatter_pistol.iff")
+ObjectTemplates:addTemplate(object_weapon_roleplay_ranged_pistol_scatter_pistol, "object/weapon/roleplay/ranged/pistol/pistol_scatter.iff")
