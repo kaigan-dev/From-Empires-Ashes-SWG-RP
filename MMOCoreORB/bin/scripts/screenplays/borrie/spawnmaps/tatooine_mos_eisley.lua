@@ -577,14 +577,14 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setCustomObjectName("Toolbox")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/hoth/pr_hoth_toolbox.iff", 832.2, 0, 510.8, 0, math.rad(0))
 	SceneObject(sObj):setCustomObjectName("Toolbox")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 833.7, 0.1, 527.4, 0, math.rad(0))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 833.7, 0.2, 527.4, 0, math.rad(90))
 	SceneObject(sObj):setCustomObjectName("Toolbox")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 812.2, 0.3, 545.4, 0, math.rad(0))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 815.9, 0.43, 545.3, 0, math.rad(0))
 	SceneObject(sObj):setCustomObjectName("Toolbox")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_droid_r5_powerdown.iff", 820.4, 0, 517.8, 0, math.rad(0))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_droid_r5_powerdown.iff", 820.4, 0, 517.8, 0, math.rad(90))
 	SceneObject(sObj):setCustomObjectName("Repurposed R5 Droid")
 	spawnSceneObject("rp_tatooine", "object/tangible/loot/misc/speaker_s01.iff", 819.3, 0, 518.3, 0, math.rad(0))
-	spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/shared_pr_ch9_generator.iff", 820.3, 0.2, 545.6, 0, math.rad(0))
+	spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_generator.iff", 813.8, 0.2, 547.3, 0, math.rad(0))
 
 end
 
