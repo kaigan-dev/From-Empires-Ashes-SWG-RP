@@ -15,7 +15,7 @@ object_weapon_roleplay_melee_polearm_shock_lance = object_weapon_melee_polearm_s
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 8, --Type of Die used in Damage
+	maxDamage = 5, --Type of Die used in Damage
 	bonusDamage = 2,
 
 	pointBlankRange = 0,
