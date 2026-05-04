@@ -299,7 +299,7 @@ function endor_start:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5979.0, 249.8, -2490.9, -133, 0, "rp_moncal_male", "faction/rebel/navy_trooper", "factional/common/trooper", "random") --Equip, Skill, Customization
 		setRandomCreatureName(pNpc, "moncal")
 	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5821.7, 217.1, -2518.4, 121, 0, "rp_human_female", "faction/rebel/officer", "factional/common/officer_army", "random") --Equip, Skill, Customization
-		SceneObject(pNpc):setCustomObjectName("Sukoi (an Alliance Adjutant)")
+		SceneObject(pNpc):setCustomObjectName("Rebel Lieutenant (an Alliance Adjutant)")
 	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5834.0, 215.0, -2491.7, 7, 0, "rp_bothan_male", "faction/rebel/navy_trooper", "factional/common/trooper", "random") --Equip, Skill, Customization
 		setRandomCreatureName(pNpc, "bothan")
 	pNpc = spawnRoleplayMobile("rp_endor", "rp_base_npc", 1, 5832.6, 215.0, -2490.0, -179, 0, "rp_sullustan_male", "faction/rebel/pilot", "pilot", "random") --Equip, Skill, Customization
@@ -374,10 +374,15 @@ function endor_start:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
 
-	pNpc = spawnRoleplayMobile("rp_endor", "rp_convo_npc", 1, 6034.5, 260.0, 2509.8, 160, 0, "rp_twilek_male", "faction/rebel/navy_trooper", "factional/common/trooper", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Putta Mame (a General Goods Quartermaster)")
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_convo_npc", 1, 6034.5, 260.0, -2509.8, 160, 0, "rp_bothan_male", "faction/rebel/navy_trooper", "factional/common/trooper", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Forsk (a General Goods Quartermaster)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
+
+	pNpc = spawnRoleplayMobile("rp_endor", "rp_convo_npc", 1, 5813.8, 215.0, -2497.1, 33, 0, "rp_trandoshan_male", "faction/rebel/endor_trooper", "factional/common/trooper", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Claff Ssaugrik (a Backpack Quartermaster)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "backpacks")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_backpacks")
 
 
 	--Imperial PoWs at FOB
