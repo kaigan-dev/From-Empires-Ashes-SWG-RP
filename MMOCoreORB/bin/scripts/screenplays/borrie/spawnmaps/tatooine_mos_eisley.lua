@@ -555,6 +555,38 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	--Jukebox--
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_jukebox.iff", 27.0829, -0.894995, 8.68511, 610008176, -0.707107, 0, 0.707107, 0)
 
+
+	--Speeder chop shop on the north side of town
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/harvesting/shellfish_harvester.iff", 825.3, 0, 515.7, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Entry Panel")
+	spawnSceneObject("rp_tatooine", "object/tangible/storytepper/prop/pr_palette_supply_01.iff", 816.7, 0.3, 515.5, 0, math.rad(0))
+	spawnSceneObject("rp_tatooine", "object/tangible/storytepper/prop/pr_palette_supply_01.iff", 806.5, 0.3, 543.6, 0, math.rad(0))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_speeder_bike.iff", 817.7, 0.3, 546.4, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Half-disassembled Speeder Bike")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_speeder_bike.iff", 820.4, 0, 527.8, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Damaged Speeder Bike")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_swoop_bike.iff", 820.4, 0, 527.8, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Damaged Swoop")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_swoop_bike.iff", 803.1, 0.1, 529.4, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Half-disassembled Swoop")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/tatooine/frn_tatt_chair_cantina_seat_2.iff", 833.8, 0, 525.7, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Ragged Couch")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_landspeeder_xp34.iff", 803.1, 0.1, 529.4, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Damaged XP-34")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_hoth_toolbox.iff", 819.8, 0.1, 536.3, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Toolbox")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_hoth_toolbox.iff", 831.2, 0, 511.9, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Toolbox")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/slicing/slicing_weapon_upgrade_kit.iff", 836.4, 0, 532.6, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Toolbox")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/slicing/slicing_weapon_upgrade_kit.iff", 812.2, 0.2, 545.4, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Toolbox")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/technical/npe_sparky_r2.iff", 820.4, 0, 517.8, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Repurposed R2 Droid")
+	spawnSceneObject("rp_tatooine", "object/tangible/speaker/speaker.iff", 819.3, 0, 518.3, 0, math.rad(0))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/theme_park/nym/crashed_ship.iff", 807.2, 0.2, 521.4, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Crushed Shuttle")
+
 end
 
 function RpTatooineMosEisleyScreenPlay:spawnMobiles()
