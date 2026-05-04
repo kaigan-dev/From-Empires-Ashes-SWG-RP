@@ -112,7 +112,12 @@ public:
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
 
         } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
-            bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             if(attacker->isPlayerCreature()) {
+                bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             }
+            else {
+                bonusDamage += attacker->getSkillMod("rp_strength") / 2;    
+             }
         } 
 
         int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage);
@@ -128,8 +133,13 @@ public:
             headshotFlag = true;
         }
 
+        //Merge headshot damage back into the value that will be used going forward. If a headshot didn't happen, these will still be equal.
+        totalDamage = headshotDamage;
+
         //Damage the attacker's weapon
-        weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        if(!weapon->isInvisible()) {
+            weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        }
         
         //Calculate the Reaction
         //The 1 is hitCount
@@ -223,7 +233,12 @@ public:
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
 
         } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
-            bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             if(attacker->isPlayerCreature()) {
+                bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             }
+            else {
+                bonusDamage += attacker->getSkillMod("rp_strength") / 2;    
+             }
         } 
 
         int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
@@ -237,7 +252,9 @@ public:
 
         if(totalDamage < 1) totalDamage = 1;
 
-        weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        if(!weapon->isInvisible()) {
+            weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        }
 
         int hitCount = 0;
         if(hit1) hitCount++;
@@ -356,17 +373,23 @@ public:
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
                     if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
-                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + 1000);
-                        defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
+                            defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
                     }
                     else {
-                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        }
                     }
 
                     //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
                     if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
-                        attackerWeapon->setConditionDamage(attackerWeapon->getConditionDamage() + 1000);
-                        attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        if(!attackerWeapon->isInvisible()) {
+                            attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
+                            attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
                     }
                     
                     DrainActionOrWill(defender, 1 * actionPointMod);
@@ -403,29 +426,42 @@ public:
                     ManagedReference<WeaponObject*> weapon = defender->getWeapon();
 	                int damageDieCount = weapon->getMinDamage();
                     int damageDieType = weapon->getMaxDamage();
-                    int bonusDamage = weapon->getBonusDamage();     
+                    int bonusDamage = weapon->getBonusDamage();    
                     if(weapon->isJediWeapon()) {
-                            bonusDamage += attacker->getSkillMod("rp_lightsaber");
+                        bonusDamage += defender->getSkillMod("rp_lightsaber");
                     } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
-                        bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
-                    } 
+                        if(defender->isPlayerCreature()) {
+                            bonusDamage += defender->getSkillMod("rp_strength_damage_bonus");
+                        }
+                        else {
+                            bonusDamage += defender->getSkillMod("rp_strength") / 2;    
+                        }
+                    }
+
+
                     int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
                     ApplyAdjustedHealthDamage(attacker, defenderWeapon, returnDamage, slot);
 
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
                     if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
-                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + 1000);
-                        defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
+                            defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
                     }
                     else {
-                        defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        }
                     }
 
                     //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
                     if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
-                        attackerWeapon->setConditionDamage(attackerWeapon->getConditionDamage() + 1000);
-                        attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        if(!attackerWeapon->isInvisible()) {
+                            attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
+                            attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
                     }
 
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
@@ -725,8 +761,8 @@ public:
                                     armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                                 else
                                 {
-                                    armor->setConditionDamage(armor->getConditionDamage()+ 100);
-                                    creature->sendSystemMessage("Your " + armorName + " is severely damaged by the attack!"); 
+                                    armor->setConditionDamage(armor->getMaxCondition());
+                                    creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
                                 }
                             }
                             else {
@@ -744,8 +780,8 @@ public:
                                     armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                                 else
                                 {
-                                    armor->setConditionDamage(armor->getConditionDamage()+ 100);
-                                    creature->sendSystemMessage("Your " + armorName + " is severely damaged by the attack!"); 
+                                    armor->setConditionDamage(armor->getMaxCondition());
+                                    creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
                                 }
                             }
                             else {
@@ -955,10 +991,14 @@ public:
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
         else if ((weapon->getBonusDamage() == 0) && weapon->isJediWeapon())
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
-        else if (weapon->getBonusDamage() > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+        else if (attacker->isPlayerCreature() && weapon->getBonusDamage() > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
-        else if (weapon->getBonusDamage() == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+        else if (attacker->isPlayerCreature() && weapon->getBonusDamage() == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
+        else if (weapon->getBonusDamage() > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
+        else if (weapon->getBonusDamage() == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
         else if (weapon->getBonusDamage() > 0 && !(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
             return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage());
         else

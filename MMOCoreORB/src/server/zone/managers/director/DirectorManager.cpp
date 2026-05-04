@@ -4079,6 +4079,7 @@ int DirectorManager::getItemTemplateInformation(lua_State* L) {
 		result << stimpackTemplate->getGameObjectType() << endl;
 		//Healing Potential: 
 		result << "Healing Potential: " << stimpackTemplate->getDieCount() << "d" << stimpackTemplate->getDieType() << endl;
+		result << "Bonus Healing: " << stimpackTemplate->getBonusHealing()  << endl;
 		//Medicine Dice Check:
 		result << "Medicine DC: " << stimpackTemplate->getDieCheck() << endl;
 		//Is Droid

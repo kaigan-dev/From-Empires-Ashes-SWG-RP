@@ -140,6 +140,11 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 		int armorerSkill = player->getSkillMod("rp_armorer");
 		int rollResult = diceRoll + armorerSkill;
 
+		if(!repairAmt) {
+			player->sendSystemMessage("Your armor has no damage to repair.");
+			return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+		}
+
 		player->sendSystemMessage("Your armor has " + std::to_string(repairAmt) + " damage to repair.");
 
 		if(armorRarity == "Common") {
@@ -204,7 +209,7 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		if (!doNotRepair) {
 			if(player->getCashCredits() - creditCost >= 0) {
-				player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
+				player->sendSystemMessage("Based on its rarity and damage, you have been charged " + std::to_string(creditCost) + " credits to repair this item.");
 				player->subtractCashCredits(creditCost);
 				tano->setConditionDamage(0, true);
 			}

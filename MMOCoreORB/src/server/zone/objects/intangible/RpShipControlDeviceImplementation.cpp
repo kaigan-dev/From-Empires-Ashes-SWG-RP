@@ -165,7 +165,7 @@ int RpShipControlDeviceImplementation::handleObjectMenuSelect(CreatureObject* pl
         ManagedReference<BuildingObject*> shipBuilding = player->getZoneServer()->getObject(shipID).castTo<BuildingObject*>();
         
         if(shipBuilding == nullptr) {
-            player->sendSystemMessage("An error occured. Jawas have stolen your ship!");
+            player->sendSystemMessage("No ship structure exists to board.");
             return 1;
         }
 
@@ -176,7 +176,7 @@ int RpShipControlDeviceImplementation::handleObjectMenuSelect(CreatureObject* pl
         Zone* shipZone = shipBuilding->getZone();
         CellObject* cell = shipBuilding->getCell(entranceCell);
 
-        //player->sendSystemMessage("Debug Ship ID: " + String::valueOf(shipBuilding->getObjectID()) + " Cell: " + String::valueOf(entranceCell));
+        player->sendSystemMessage("Debug Ship ID: " + String::valueOf(shipBuilding->getObjectID()) + " Cell: " + String::valueOf(entranceCell));
 
         if(cell == nullptr) {
             player->sendSystemMessage("Could not find a valid entrance point for your ship.");
@@ -185,7 +185,7 @@ int RpShipControlDeviceImplementation::handleObjectMenuSelect(CreatureObject* pl
 
         uint64 cellID = shipBuilding->getCell(entranceCell)->getObjectID();
         
-        //player->sendSystemMessage("realCellID: " + String::valueOf(cellID));
+        player->sendSystemMessage("Debug: realCellID: " + String::valueOf(cellID));
         player->switchZone(shipZone->getZoneName(), entrancePoint.getX(), entrancePoint.getZ(), entrancePoint.getY(), cellID);
     } else if(selectedID == 81) { //Land Ship
 

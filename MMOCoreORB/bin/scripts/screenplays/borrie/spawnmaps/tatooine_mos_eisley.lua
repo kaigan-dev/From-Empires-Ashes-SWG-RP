@@ -853,13 +853,13 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
 
 	--Ranged Vendor Light
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 750.769, 0, 275.276, 222, 0, "rp_zabrak_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 731.8, 0.5, 279.1, 16, 0, "rp_zabrak_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Gjolan (a Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_ranged_novice")
 
 	--Camping Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 738.375, 0, 275.533, 90, 0, "rp_human_female", "xovros_vendor_camping", "default", "random", "rpg_shopkeeper") 
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 671.3, 0, 272.2, 14, 0, "rp_human_female", "xovros_vendor_camping", "default", "random", "rpg_shopkeeper") 
 	SceneObject(pNpc):setCustomObjectName("Raphella Lees (a Camping Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
@@ -913,7 +913,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
 	
 	--Weaponsmith Vendor (Melee)
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.467513, 0.75, -0.458854, 0, 610009368, "rp_trandoshan_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 839.7, 0, -140.7, 210, 0, "rp_trandoshan_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Rokk (a Weaponsmith Melee Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")

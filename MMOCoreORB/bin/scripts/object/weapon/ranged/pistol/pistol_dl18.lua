@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_weapon_melee_unarmed_unarmed_default_player = object_weapon_melee_unarmed_shared_unarmed_default_player:new {
+object_weapon_ranged_pistol_pistol_dl18 = object_weapon_ranged_pistol_shared_pistol_dl18:new {
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
@@ -63,66 +63,73 @@ object_weapon_melee_unarmed_unarmed_default_player = object_weapon_melee_unarmed
 				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff" },
-	invisible = 1,
+
 	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK,
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
-	attackType = MELEEATTACK,
-	weaponType = UNARMEDWEAPON,
-	
+	attackType = RANGEDATTACK,
+
 	-- ENERGY, KINETIC, ELECTRICITY, STUN, BLAST, HEAT, COLD, ACID, LIGHTSABER
-	damageType = KINETIC,
-	
+	damageType = ENERGY,
+
 	-- NONE, LIGHT, MEDIUM, HEAVY
-	armorPiercing = NONE, 
-	
+	armorPiercing = NONE,
+
 	-- combat_rangedspecialize_bactarifle, combat_rangedspecialize_rifle, combat_rangedspecialize_pistol, combat_rangedspecialize_heavy, combat_rangedspecialize_carbine
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
 	-- combat_meleespecialize_twohandlightsaber, combat_meleespecialize_polearmlightsaber, combat_meleespecialize_onehandlightsaber
-	xpType = "combat_meleespecialize_unarmed",
-	       
+	xpType = "combat_rangedspecialize_pistol",
+
 	-- See http://www.ocdsoft.com/files/certifications.xls
-	certificationsRequired = {  },
-
+	certificationsRequired = { "cert_pistol_dl18" },
 	-- See http://www.ocdsoft.com/files/accuracy.xls
-	creatureAccuracyModifiers = { "unarmed_accuracy" },
-	
+	creatureAccuracyModifiers = { "pistol_accuracy" },
+
+	creatureAimModifiers = { "pistol_aim", "aim" },
+
 	-- See http://www.ocdsoft.com/files/defense.xls
-	defenderDefenseModifiers = { "melee_defense" },
-	
-	-- can be dodge, counterattack, or block or a combination
-	-- Secondary defense when equipped
-	defenderSecondaryDefenseModifiers = { "unarmed_passive_defense" },
+	defenderDefenseModifiers = { "ranged_defense" },
 
-	defenderToughnessModifiers = { "unarmed_toughness" },
-	
+	-- Leave as "dodge" for now, may have additions later
+	defenderSecondaryDefenseModifiers = { "dodge" },
+
 	-- See http://www.ocdsoft.com/files/speed.xls
-	speedModifiers = { "unarmed_speed" },
-	
-	-- carbine_damage, onehandmelee_damage, pistol_damage, rifle_damage, twohandmelee_damage, unarmed_damage
-	damageModifiers = { "unarmed_damage" },
-	       
-	
-	-- The values below are the default values.  To be used for blue frog objects primarily
-	healthAttackCost = 10,
-	actionAttackCost = 10,
-        mindAttackCost = 10,
-	forceCost = 0,
-	
-	pointBlankAccuracy = 0,
-	pointBlankRange = 0,
-	
-	idealRange = 5,
-	idealAccuracy = 3,
-	
-	maxRange = 1,
-	maxRangeAccuracy = 99,
+	speedModifiers = { "pistol_speed" },
 
-	minDamage = 1,
-	maxDamage = 4,
-	
-	attackSpeed = 2,
-	
-	woundsRatio = 5
+	-- Leave blank for now
+	damageModifiers = { },
+
+
+	-- The values below are the default values.  To be used for blue frog objects primarily
+	healthAttackCost = 18,
+	actionAttackCost = 31,
+	mindAttackCost = 10,
+	forceCost = 0,
+
+	pointBlankRange = 0,
+	pointBlankAccuracy = 0,
+
+	idealRange = 20,
+	idealAccuracy = 10,
+
+	maxRange = 64,
+	maxRangeAccuracy = -60,
+
+	minDamage = 50,
+	maxDamage = 75,
+
+	attackSpeed = 3.2,
+
+	woundsRatio = 10,
+
+	numberExperimentalProperties = {1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2},
+	experimentalProperties = {"XX", "XX", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "XX", "XX", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ"},
+	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "exp_durability", "expRange", "null", "null", "expRange", "expEffeciency", "expEffeciency", "expEffeciency"},
+	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "roundsused", "hitpoints", "zerorangemod", "maxrangemod", "midrange", "midrangemod", "attackhealthcost", "attackactioncost", "attackmindcost"},
+	experimentalMin = {0, 0, 35, 53, 4.2, 7, 10, 750, -5, -60, 15, 7, 23, 44, 13},
+	experimentalMax = {0, 0, 65, 98, 2.9, 13, 40, 1500, 5, -60, 15, 13, 13, 22, 7},
+	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_melee_unarmed_unarmed_default_player, "object/weapon/melee/unarmed/unarmed_default_player.iff")
+ObjectTemplates:addTemplate(object_weapon_ranged_pistol_pistol_dl18, "object/weapon/ranged/pistol/pistol_dl18.iff")

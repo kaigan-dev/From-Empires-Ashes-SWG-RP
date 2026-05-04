@@ -709,4 +709,7 @@ function BorRpShip:onConfirmStarfighterLandBeaconCode(pPlayer, pSui, eventIndex,
 		CreatureObject(pPlayer):sendSystemMessage("Invalid beacon code \"" .. code .. "\"")
 	end
 
+
+
+
 end

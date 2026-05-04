@@ -128,6 +128,11 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		int mechanicsSkill = player->getSkillMod("rp_mechanics");
 		int rollResult = diceRoll + mechanicsSkill;
 
+		if(!repairAmt) {
+			player->sendSystemMessage("Your weapon has no damage to repair.");
+			return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+		}
+
 		player->sendSystemMessage("Your weapon has " + std::to_string(repairAmt) + " damage to repair.");
 		
 
@@ -198,7 +203,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 		if(!doNotRepair) {
 			if(player->getCashCredits() - creditCost >= 0) {
-				player->sendSystemMessage("Based on its rarity and damage, you will be charged " + std::to_string(creditCost) + " credits to repair this item.");
+				player->sendSystemMessage("Based on its rarity and damage, you have been charged " + std::to_string(creditCost) + " credits to repair this item.");
 				player->subtractCashCredits(creditCost);
 				tano->setConditionDamage(0, true);
 			}
