@@ -318,7 +318,7 @@ int NameManager::validateName(const String& name, int species) const {
 		specialCount = 0;
 		for (int i = 0; i < lastName.length(); i++) {
 			String singleChar = lastName.subString(i, i + 1);
-			if (isalpha(lastName.charAt(i)) == 0) {
+			if (isalnum(lastName.charAt(i)) == 0) {
 				if (!lastNameRules->getSpecialChars().contains(singleChar))
 					return NameManagerResult::DECLINED_RACE_INAPP;
 				else
