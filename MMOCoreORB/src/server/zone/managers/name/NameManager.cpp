@@ -297,12 +297,13 @@ int NameManager::validateName(const String& name, int species) const {
 	if (lastName != "" && (lastName.length() < lastNameRules->getMinChars() || lastName.length() > lastNameRules->getMaxChars()))
 		return NameManagerResult::DECLINED_RACE_INAPP;
 
-	// Iterates through the name, looking for non alphabetic characters and comparing it to the allowed
+	// FEA - Allow numeric characters in names. Kaigan, 5/4/26
+	// Iterates through the name, looking for non alphnumeric characters and comparing it to the allowed
 	// special characters in the rules, also counting total characters and comparing to the max
 	int specialCount = 0;
 	for (int i = 0; i < firstName.length(); i++) {
 		String singleChar = firstName.subString(i, i + 1);
-		if (isalpha(firstName.charAt(i)) == 0) {
+		if (isalnum(firstName.charAt(i)) == 0) {
 			if (!firstNameRules->getSpecialChars().contains(singleChar))
 				return NameManagerResult::DECLINED_RACE_INAPP;
 			else
