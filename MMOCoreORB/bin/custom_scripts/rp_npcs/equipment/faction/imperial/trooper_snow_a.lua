@@ -1,5 +1,5 @@
 equipment = {
-	{"object/weapon/ranged/carbine/shared_carbine_e11.iff", },
+	{"object/weapon/roleplay/ranged/carbine/e11_carbine.iff", },
 	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_boots.iff", },
 	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_bracer_l.iff", },
 	{"object/tangible/wearables/armor/roleplay/snow_trooper/armor_snowtrooper_bracer_r.iff", },
