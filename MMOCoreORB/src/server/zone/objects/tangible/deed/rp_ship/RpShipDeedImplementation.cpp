@@ -97,7 +97,7 @@ int RpShipDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byt
         	float x = (fmod((float)newShipID, 100.0f) * 140.0f) - 7000.0f;
         	float y = (((float)newShipID / 100.0f) * 140.0f) - 7000.0f;
 
-        	Zone* zone = server->getZoneServer()->getZone("rp_ship_a");
+        	Zone* zone = server->getZoneServer()->getZone("rp_ship_b");
 
         	StructureObject* structure = StructureManager::instance()->placeStructure(player, zone, generatedObjectTemplate, x, y, 0, 1);
 
