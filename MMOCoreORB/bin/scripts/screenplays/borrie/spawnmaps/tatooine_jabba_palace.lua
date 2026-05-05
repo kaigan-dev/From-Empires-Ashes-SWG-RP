@@ -124,11 +124,11 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -44.5, 3, 60, 176, 6
 
 
 
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.2, 3, 55.5, -17, 610009447, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.2, 3, 55.5, -17, 61000977, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -15.1, 3, 56.2, 78, 610009447, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -15.1, 3, 56.2, 78, 610009477, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.8, 3, 57.5, 168, 610009447, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.8, 3, 57.5, 168, 610009477, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 
 
