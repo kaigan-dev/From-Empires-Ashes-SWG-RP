@@ -98,8 +98,8 @@ object_weapon_melee_unarmed_unarmed_creature_colossal = object_weapon_melee_unar
 	maxRange = 15,
 	maxRangeAccuracy = 99,
 
-	minDamage = 8,
-	maxDamage = 4,
+	minDamage = 3,
+	maxDamage = 6,
 	
 	attackSpeed = 2,
 	
