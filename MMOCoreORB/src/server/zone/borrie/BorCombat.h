@@ -773,6 +773,9 @@ public:
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
             }
         }
+        else { //Take Full Damage
+            BorCharacter::ModPool(creature, "health", damage * -1, true);
+        }
     }
 
     static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
