@@ -774,9 +774,6 @@ public:
             }
         }
         else { //Take Full Damage
-            if (creature->isPlayerCreature()) {
-                creature->sendSystemMessage("Debug: Taking full damage without armor!");
-            }
             BorCharacter::ModPool(creature, "health", damage * -1, true);
         }
     }
