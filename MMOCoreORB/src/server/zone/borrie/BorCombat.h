@@ -713,7 +713,7 @@ public:
                 }
                 int finalDamage = damage - armorProtection;
                 if(finalDamage < 1) finalDamage = 1;
-                BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
+                BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
                 String armorName = armor->getCustomObjectName().toString();
                 if(armorName == "") {
                     armorName = armor->getObjectTemplate()->getObjectName();
@@ -742,7 +742,7 @@ public:
                             creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
                         }
                     }
-                } 
+                }
                 else {
                     if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
                         if(armor->getLightSaber() > 0)
@@ -751,7 +751,7 @@ public:
                         {
                             armor->setConditionDamage(armor->getMaxCondition());
                             if (creature->isPlayerCreature()) {
-                                creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
+                                creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!");
                             }
                         }
                     }
@@ -759,7 +759,7 @@ public:
                         armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                     }
                     if (creature->isPlayerCreature()) {
-                        creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage."); 
+                        creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage.");
                     }
                     if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
                     {
@@ -767,13 +767,16 @@ public:
                             creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
                         }
                     }
-                }               
+                }           
             }
             else { //Take Full Damage
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
             }
         }
         else { //Take Full Damage
+            if (creature->isPlayerCreature()) {
+                creature->sendSystemMessage("Debug: Taking full damage without armor!");
+            }
             BorCharacter::ModPool(creature, "health", damage * -1, true);
         }
     }
