@@ -141,9 +141,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{691.984, 0, 334.331, 271, 0,{"tech"}},
 		{703.42, 0.3, 364.449, 258, 0,{"sit"}},
 		{703.246, 0.3, 363.591, 269, 0,{"none"}},
-		{677.848, 0, 406.372, 27, 0,{"social"}},
-		{678.752, 0, 407.776, 211, 0,{"social"}},
-		{677.494, 0, 407.759, 128, 0,{"none"}},
 		{627.598, 0, 279.392, 262, 0,{"tech"}},
 		{568.913, 0, 268.028, 214, 0,{"none"}},
 		{572.985, -0.25, 335.949, 5, 0,{"tech"}},
@@ -814,7 +811,38 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
 	-- Imperial garrison 
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 546.2, 0, 73.4, 353, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-843")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 531.6, 3.5, 75.7, 23, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-406")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 526.4, 3.5, 76.3, 357, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-251")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 480.9, 0, 75.2, 331, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-599")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 538.9, 0, -61.5, 188, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-374")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 554.2, 4, -59.6, 8, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-732")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 31.3, 273, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-153")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 35.3, 273, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-185")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 571.9, 0, 57.4, 333, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-630")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 570.7, 0, 58.9, 135, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-694")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 600.7, 0, 3.4, 222, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-552")
 	
+	-- Telios Enclave (abandoned starport)
+
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 700.3, 0, 379.2, 182, 0, "rebel_mandalorian", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Ma'al Telios")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 696.8, 0, 379.2, 171, 0, "rebel_mandalorian", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Vorlen Telios")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 686.7, 0, 408.5, 185, 0, "rebel_mandalorian", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Arken Telios")
+
 
 	-- Tutorial NPCs--
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6, -4, -7.1, -11, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_tutorial")

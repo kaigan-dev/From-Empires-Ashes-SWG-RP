@@ -698,136 +698,83 @@ public:
     }
 
     static void ApplyAdjustedHealthDamage(CreatureObject* creature, WeaponObject* attackerWeapon, int damage, int slot) {
-        if(creature->isPlayerCreature()) { //Use their equipped armor
-            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(slot));
-            if(armor != nullptr && armor.get() != nullptr) {
-                if(!armor->isBroken()) {
-                    String damageType = GetDamageType(attackerWeapon);
-                    /*  Moving lightsaber into the normal damage logic for flat reduction.
-                    if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") { //Special Lightsaber Rules
-                        if(armor->getLightSaber() > 0) { //Can Resist Lightsabers
-                            //Take only 10 percent damage.
-                            BorCharacter::ModPool(creature, "health", (damage / 4 ) * -1, true);
-                            creature->sendSystemMessage("Your armor protected against the lightsaber!");
-                        } else { //Take Full Damage
-                            BorCharacter::ModPool(creature, "health", damage * -1, true);
-                            armor->setConditionDamage(100);
-                            creature->sendSystemMessage("Your armor was severely damaged by the lightsaber!");
-                        }
-                    } else {
-                     */
-                        //Get Defense
-  
-                        
-                        /* //Original system that takes into account armor penetration.
-                        int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
-                        int armorRating = armor->getRating();
-                        int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
-                        if(damageDivider != 0) {
-                            int adjustedDamage = damage / damageDivider;
-                            int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
-                            int finalDamage = adjustedDamage - armorProtection;
-                            if(finalDamage < 1) finalDamage = 1;
+        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(slot));
+        if(armor != nullptr && armor.get() != nullptr) {
+            if(!armor->isBroken()) {
+                String damageType = GetDamageType(attackerWeapon);
+                // Armor protection is only one if a character is untrained in the use of their armor.
+                int armorProtection = 1;
+                if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
+                {
+                    armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
+                    if(armorProtection < 0) {
+                        armorProtection = 0;
+                    }
+                }
+                int finalDamage = damage - armorProtection;
+                if(finalDamage < 1) finalDamage = 1;
+                BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
+                String armorName = armor->getCustomObjectName().toString();
+                if(armorName == "") {
+                    armorName = armor->getObjectTemplate()->getObjectName();
+                }
+                    
+                // Armor should not take condition damage greater than its armor protection value.
+                if (damage >= armorProtection) {
+                    if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
+                        if(armor->getLightSaber() > 0)
                             armor->setConditionDamage(armor->getConditionDamage() + armorProtection);
-                            BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
-                        } else { //Take Full Damage
-                            BorCharacter::ModPool(creature, "health", damage * -1, true);
-                        }  */
-
-                        //Armor handling (without penetration)
-
-                        // Armor protection is only one if a character is untrained in the use of their armor.
-                        int armorProtection = 1;
-                        if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
+                        else
                         {
-                            armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
-                            if(armorProtection < 0) {
-                                armorProtection = 0;
+                            armor->setConditionDamage(armor->getMaxCondition());
+                            if (creature->isPlayerCreature()) {
+                                creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
                             }
                         }
-                        int finalDamage = damage - armorProtection;
-                        if(finalDamage < 1) finalDamage = 1;
-                        BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
-                        String armorName = armor->getCustomObjectName().toString();
-                        if(armorName == "") {
-                            armorName = armor->getObjectTemplate()->getObjectName();
+                    }
+                    else {
+                        armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
+                    }
+                    creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");
+                    if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
+                    {
+                        if (creature->isPlayerCreature()) {
+                            creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
                         }
-                        
-                        // Armor should not take condition damage greater than its armor protection value.
-                        if (damage >= armorProtection) {
-                            if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
-                                if(armor->getLightSaber() > 0)
-                                    //armor->setConditionDamage(armorProtection);
-                                    armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
-                                else
-                                {
-                                    armor->setConditionDamage(armor->getMaxCondition());
-                                    creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
-                                }
-                            }
-                            else {
-                                armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
-                            }
-                            creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");
-                            if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
-                            {
-                                creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
-                            }
-                        } 
-                        else {
-                            if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
-                                if(armor->getLightSaber() > 0)
-                                    armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
-                                else
-                                {
-                                    armor->setConditionDamage(armor->getMaxCondition());
-                                    creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
-                                }
-                            }
-                            else {
-                                armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
-                            }
-                            
-                            creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage."); 
-                            if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
-                            {
-                                creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
-                            }
-                        }               
+                    }
                 }
-                else { //Take Full Damage
-                    BorCharacter::ModPool(creature, "health", damage * -1, true);
-                }
-            } else { //Take Full Damage
+                else {
+                    if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
+                        if(armor->getLightSaber() > 0)
+                            armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
+                        else
+                        {
+                            armor->setConditionDamage(armor->getMaxCondition());
+                            if (creature->isPlayerCreature()) {
+                                creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!");
+                            }
+                        }
+                    }
+                    else {
+                        armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
+                    }
+                    if (creature->isPlayerCreature()) {
+                        creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage.");
+                    }
+                    if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
+                    {
+                        if (creature->isPlayerCreature()) {
+                            creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
+                        }
+                    }
+                }           
+            }
+            else { //Take Full Damage
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
             }
-        } else { //Use their skill mod armor. 
-
-            String armorSlot = GetSlotName(slot);
-            String damageType = GetDamageType(attackerWeapon);
-            if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
-                if(creature->getStoredInt("rp_armor_" + armorSlot + "_Lightsaber") > 0) {
-                    //Take only 10 percent damage.
-                    BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
-                } else {
-                    BorCharacter::ModPool(creature, "health", damage * -1, true);
-                }
-            } else {
-                int armorRating = creature->getStoredInt("rp_armor_rating_" + armorSlot);
-                //Remove references to armor piercing, as it exists on weapons as a legacy attribute and should not be used.
-                //int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
-                //int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
-                int damageDivider = 1;
-                if(damageDivider != 0) {
-                    int adjustedDamage = damage / damageDivider;
-                    int armorProtection = creature->getStoredInt("rp_armor_" + armorSlot + "_" + GetDamageType(attackerWeapon));
-                    int finalDamage = adjustedDamage - armorProtection;
-                    BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
-                } else { //Take Full Damage
-
-                    BorCharacter::ModPool(creature, "health", damage * -1, true);
-                }
-            }            
+        }
+        else { //Take Full Damage
+            BorCharacter::ModPool(creature, "health", damage * -1, true);
         }
     }
 
