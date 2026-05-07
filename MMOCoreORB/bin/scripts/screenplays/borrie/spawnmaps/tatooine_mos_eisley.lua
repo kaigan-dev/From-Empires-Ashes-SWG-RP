@@ -76,7 +76,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{805.95, 0.3, 291.058, 3, 0,{"social"}},
 		{805.992, 0.3, 292.391, 165, 0,{"social"}},
 		{751.481, 0, 281.623, 89, 0,{"none"}},
-		{742.071, 0, 270.258, 88, 0,{"none"}},
 		{742.026, 0, 272.175, 88, 0,{"none"}},
 		{741.942, 0, 273.423, 136, 0,{"social"}},
 		{739.242, 0, 259.498, 86, 0,{"sit"}},
@@ -96,8 +95,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{713.048, 0, 228.529, 174, 0,{"none"}},
 		{724.63, 0, 228.469, 270, 0,{"none"}},
 		{722.356, 0, 228.943, 106, 0,{"social"}},
-		{725.584, 0, 228.344, 268, 0,{"none"}},
-		{724.628, 0, 227.484, 301, 0,{"social"}},
 		{714.922, 0, 218.042, 55, 0,{"social"}},
 		{715.789, 0, 218.362, 245, 0,{"social"}},
 		{757.266, 0, 241.415, 225, 0,{"none"}},
@@ -110,8 +107,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{729.448, 0, 225.639, 227, 0,{"sittable"}},
 		{728.656, 0, 223.951, 354, 0,{"sittable"}},
 		{727.89, 0, 225.425, 120, 0,{"sitchair"}},
-		{737.008, 0, 222.249, 5, 0,{"sitchair"}},
-		{737.8, 0, 223.748, 229, 0,{"sittable"}},
 		{708.302, 0, 207.688, 355, 0,{"none"}},
 		{746.231, 0, 241.039, 297, 0,{"social"}},
 		{745.039, 0, 241.71, 119, 0,{"social"}},
@@ -303,24 +298,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{502.745, 0, 256.812, 31, 0,{"social"}},
 		{517.93, 0, 345.475, 96, 0,{"none"}},
 		{527.154, 0, 367.227, 138, 0,{"sit"}},
-		{20.6076, -0.894993, 4.10171, 72, 610008176,{"sittable"}},
-		{21.3166, -0.894993, 5.58439, 158, 610008176,{"sittable"}},
-		{23.2705, -0.894994, 4.7568, 252, 610008176,{"sittable"}},
-		{16.5245, -0.894992, -3.1439, 232, 610008176,{"sittable"}},
-		{14.2375, -0.894992, -4.84698, 51, 610008176,{"sittable"}},
-		{14.6531, -0.894992, -2.90315, 135, 610008176,{"sittable"}},
-		{16.4756, -0.894992, -4.70127, 319, 610008176,{"sittable"}},
-		{20.9083, -0.894992, 14.5177, 358, 610008178,{"sitchair"}},
-		{22.5637, -0.894992, 16.6839, 260, 610008178,{"sitchair"}},
-		{22.5203, -0.894992, 15.7884, 210, 610008178,{"sitchair"}},
-		{4.5341, -0.894992, 17.3468, 294, 610008180,{"sitchair"}},
-		{4.58264, -0.894992, 16.0487, 271, 610008180,{"sitchair"}},
-		{2.90691, -0.894992, 14.2652, 358, 610008180,{"sittable"}},
-		{0.85307, -0.894992, 16.0249, 90, 610008180,{"sittable"}},
-		{9.70056, -0.894992, 18.1067, 345, 610008180,{"sittable"}},
-		{10.2159, -0.894992, 21.5839, 218, 610008180,{"sittable"}},
-		{7.54703, -0.894992, 21.2395, 145, 610008180,{"sittable"}},
-		{7.1906, -0.894992, 18.7056, 46, 610008180,{"sittable"}},
 		{-1.80855, -0.894993, 23.3928, 236, 610008182,{"sittable"}},
 		{-1.96477, -0.894992, 20.9954, 311, 610008182,{"sittable"}},
 		{22.1272, -0.894996, -19.5368, 76, 610008177,{"sittable"}},
@@ -700,10 +677,6 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Dewback")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 739.514, 0, 267.415, 181, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 740.048, 0, 266.856, 212, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 740.216, 0, 265.608, 0, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 708.338, 0, 216.865, 269, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 708.917, 0, 217.712, 239, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
