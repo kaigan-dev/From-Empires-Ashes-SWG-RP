@@ -98,8 +98,8 @@ object_weapon_melee_unarmed_unarmed_creature_medium = object_weapon_melee_unarme
 	maxRange = 5,
 	maxRangeAccuracy = 99,
 
-	minDamage = 3,
-	maxDamage = 4,
+	minDamage = 1,
+	maxDamage = 8,
 	
 	attackSpeed = 2,
 	

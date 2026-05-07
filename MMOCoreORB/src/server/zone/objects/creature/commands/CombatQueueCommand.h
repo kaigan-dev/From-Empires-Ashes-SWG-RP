@@ -226,7 +226,7 @@ public:
 			return TOOCLOSE;
 
 		if (!CollisionManager::checkLineOfSight(creature, targetObject)) {
-			creature->sendSystemMessage("@cbt_spam:los_fail"); // "You lost sight of your target."
+			//creature->sendSystemMessage("@cbt_spam:los_fail"); // "You lost sight of your target."
 			return GENERALERROR;
 		}
 
