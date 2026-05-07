@@ -1116,10 +1116,10 @@ public:
         int postureModifier = 0;
 
         //Handle attacker stance
-        if(attacker->isKneeling() && !tooClose) {
+        if(attacker->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
             postureModifier -= 2;
         } 
-        else if(attacker->isProne() && !tooClose) {
+        else if(attacker->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
             postureModifier -= 5;
         }
 
