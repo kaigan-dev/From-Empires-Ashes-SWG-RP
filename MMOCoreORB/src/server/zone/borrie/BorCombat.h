@@ -523,7 +523,7 @@ public:
                 if(dodgeRoll + maneuverabilitySkill >= toHit) { //Successful Dodge, not wearing Heavy Armor
                     reactionSpam += ", but " + defender->getFirstName() + " dodges out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
-                    int actionPointCost = 1
+                    int actionPointCost = 1;
                     if (rating == 1) { //Light Armor
                         actionPointCost = 2 * actionPointMod;
                     }
@@ -544,7 +544,7 @@ public:
                     String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
-                    int actionPointCost = 1
+                    int actionPointCost = 1;
                     if (rating == 1) { //Light Armor
                         actionPointCost = 2 * actionPointMod;
                     }
