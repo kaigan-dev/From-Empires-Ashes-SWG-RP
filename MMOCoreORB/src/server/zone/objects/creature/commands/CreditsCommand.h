@@ -23,16 +23,13 @@ public:
 
 		if (!checkInvalidLocomotions(creature))
 			return INVALIDLOCOMOTION;
- 
+
 		try {
 
 			ManagedReference<SceneObject* > object =
 					server->getZoneServer()->getObject(target);
 
 			ManagedReference<CreatureObject*> player = nullptr;
-
-			ManagedReference<SceneObject*> targetSceneObj = creature->getZoneServer()->getObject(target, false);
-			CreatureObject* targetCreatureObj = target->asCreatureObject();			
 
 			StringTokenizer args(arguments.toString());
 
@@ -109,7 +106,7 @@ public:
 
 			if(success) {
 				creature->sendSystemMessage(String::valueOf(amount) + " credits have been deposited successfully for " + player->getFirstName());
-				targetCreatureObj->sendSystemMessage("You have received " + String::valueOf(amount) + " credits in your " + location.toLowerCase() + ".");
+				player->sendSystemMessage("You have received " + String::valueOf(amount) + " credits in your " + location.toLowerCase() + ".");
 			}
 			else
 				creature->sendSystemMessage("invalid arguments for credits command:  /credits <firstname> <add/subtract> <amount> <bank/cash>");
