@@ -105,7 +105,8 @@ public:
 			}
 
 			if(success)
-				creature->sendSystemMessage("Credits have been deposited successfully for " + player->getFirstName());
+				creature->sendSystemMessage(amount + " credits have been deposited successfully for " + player->getFirstName());
+				target->sendSystemMessage("You have received " + amount + " credits in your " + location.toLowerCase() + ".");
 			else
 				creature->sendSystemMessage("invalid arguments for credits command:  /credits <firstname> <add/subtract> <amount> <bank/cash>");
 
