@@ -256,9 +256,9 @@ public:
              }
         } 
 
-        int damage1 = std::round(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
-        int damage2 = std::round(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
-        int damage3 = std::round(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
+        int damage1 = std::floor(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
+        int damage2 = std::floor(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
+        int damage3 = std::floor(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
@@ -523,15 +523,20 @@ public:
                 if(dodgeRoll + maneuverabilitySkill >= toHit) { //Successful Dodge, not wearing Heavy Armor
                     reactionSpam += ", but " + defender->getFirstName() + " dodges out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
+                    int actionPointCost = 1
                     if (rating == 1) { //Light Armor
-                        DrainActionOrWill(defender, 2 * actionPointMod);
+                        actionPointCost = 2 * actionPointMod;
                     }
                     else if (rating == 2) { //Medium Armor
-                        DrainActionOrWill(defender, 3 * actionPointMod);
+                        actionPointCost = 3 * actionPointMod;
                     }
                     else { //No Armor
-                        DrainActionOrWill(defender, 1 * actionPointMod);
+                        actionPointCost = 1 * actionPointMod;
                     }
+                    if(defender->isKneeling()) {
+                        actionPointCost++;
+                    }
+                    DrainActionOrWill(defender, actionPointCost);
                 }
 
                 else { //full fail
@@ -539,15 +544,20 @@ public:
                     String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
+                    int actionPointCost = 1
                     if (rating == 1) { //Light Armor
-                        DrainActionOrWill(defender, 2 * actionPointMod);
+                        actionPointCost = 2 * actionPointMod;
                     }
                     else if (rating == 2) { //Medium Armor
-                        DrainActionOrWill(defender, 3 * actionPointMod);
+                        actionPointCost = 3 * actionPointMod;
                     }
                     else { //No Armor
-                        DrainActionOrWill(defender, 1 * actionPointMod);
+                        actionPointCost = 1 * actionPointMod;
                     }
+                    if(defender->isKneeling()) {
+                        actionPointCost++;
+                    }
+                    DrainActionOrWill(defender, actionPointCost);
                 }
                 return reactionSpam;
             } else if(defenderReactionType == 4) { //Lightsaber Deflect
