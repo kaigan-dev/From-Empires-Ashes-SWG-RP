@@ -977,7 +977,7 @@ public:
         //Parry
         else if(reactionType == 2 && defenderWeapon->isMeleeWeapon() && attackerWeapon->isMeleeWeapon() && defenderAction > 1 && GetWeaponCondition(defenderWeapon) >= incomingDamage && !defenderWeapon->getParryIsRestricted()) return true;
         //Dodge
-        else if(reactionType == 3 && !defender->isProne() && !defender->isSitting() && defenderAction > 0 && !defenderWeapon->getDodgeIsRestricted()) return true;
+        else if(reactionType == 3 && !defender->isProne() && !defender->isSitting() && !defender->isKnockedDown() && defenderAction > 0 && !defenderWeapon->getDodgeIsRestricted()) return true;
         //Special Force
         else if(reactionType == 4 || reactionType == 5 || reactionType == 6 ) {
             int defenderForce = GetAvailableForcePoints(defender);
