@@ -143,7 +143,7 @@ public:
         // Headshot damage bonus!
         if(bodyPartTarget == 10) {
             float flHeadshotDamage = static_cast<float>(headshotDamage);
-            flHeadshotDamage = flHeadshotDamage * 1.25;
+            flHeadshotDamage = std::ceil(flHeadshotDamage * 1.25);
             headshotDamage = static_cast<int>(flHeadshotDamage);
             headshotFlag = true;
         }
@@ -256,9 +256,9 @@ public:
              }
         } 
 
-        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
-        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
-        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
+        int damage1 = std::round(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
+        int damage2 = std::round(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
+        int damage3 = std::round(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
