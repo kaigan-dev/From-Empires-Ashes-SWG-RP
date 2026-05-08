@@ -76,7 +76,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{805.95, 0.3, 291.058, 3, 0,{"social"}},
 		{805.992, 0.3, 292.391, 165, 0,{"social"}},
 		{751.481, 0, 281.623, 89, 0,{"none"}},
-		{742.071, 0, 270.258, 88, 0,{"none"}},
 		{742.026, 0, 272.175, 88, 0,{"none"}},
 		{741.942, 0, 273.423, 136, 0,{"social"}},
 		{739.242, 0, 259.498, 86, 0,{"sit"}},
@@ -96,8 +95,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{713.048, 0, 228.529, 174, 0,{"none"}},
 		{724.63, 0, 228.469, 270, 0,{"none"}},
 		{722.356, 0, 228.943, 106, 0,{"social"}},
-		{725.584, 0, 228.344, 268, 0,{"none"}},
-		{724.628, 0, 227.484, 301, 0,{"social"}},
 		{714.922, 0, 218.042, 55, 0,{"social"}},
 		{715.789, 0, 218.362, 245, 0,{"social"}},
 		{757.266, 0, 241.415, 225, 0,{"none"}},
@@ -110,8 +107,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{729.448, 0, 225.639, 227, 0,{"sittable"}},
 		{728.656, 0, 223.951, 354, 0,{"sittable"}},
 		{727.89, 0, 225.425, 120, 0,{"sitchair"}},
-		{737.008, 0, 222.249, 5, 0,{"sitchair"}},
-		{737.8, 0, 223.748, 229, 0,{"sittable"}},
 		{708.302, 0, 207.688, 355, 0,{"none"}},
 		{746.231, 0, 241.039, 297, 0,{"social"}},
 		{745.039, 0, 241.71, 119, 0,{"social"}},
@@ -146,9 +141,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{691.984, 0, 334.331, 271, 0,{"tech"}},
 		{703.42, 0.3, 364.449, 258, 0,{"sit"}},
 		{703.246, 0.3, 363.591, 269, 0,{"none"}},
-		{677.848, 0, 406.372, 27, 0,{"social"}},
-		{678.752, 0, 407.776, 211, 0,{"social"}},
-		{677.494, 0, 407.759, 128, 0,{"none"}},
 		{627.598, 0, 279.392, 262, 0,{"tech"}},
 		{568.913, 0, 268.028, 214, 0,{"none"}},
 		{572.985, -0.25, 335.949, 5, 0,{"tech"}},
@@ -303,24 +295,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{502.745, 0, 256.812, 31, 0,{"social"}},
 		{517.93, 0, 345.475, 96, 0,{"none"}},
 		{527.154, 0, 367.227, 138, 0,{"sit"}},
-		{20.6076, -0.894993, 4.10171, 72, 610008176,{"sittable"}},
-		{21.3166, -0.894993, 5.58439, 158, 610008176,{"sittable"}},
-		{23.2705, -0.894994, 4.7568, 252, 610008176,{"sittable"}},
-		{16.5245, -0.894992, -3.1439, 232, 610008176,{"sittable"}},
-		{14.2375, -0.894992, -4.84698, 51, 610008176,{"sittable"}},
-		{14.6531, -0.894992, -2.90315, 135, 610008176,{"sittable"}},
-		{16.4756, -0.894992, -4.70127, 319, 610008176,{"sittable"}},
-		{20.9083, -0.894992, 14.5177, 358, 610008178,{"sitchair"}},
-		{22.5637, -0.894992, 16.6839, 260, 610008178,{"sitchair"}},
-		{22.5203, -0.894992, 15.7884, 210, 610008178,{"sitchair"}},
-		{4.5341, -0.894992, 17.3468, 294, 610008180,{"sitchair"}},
-		{4.58264, -0.894992, 16.0487, 271, 610008180,{"sitchair"}},
-		{2.90691, -0.894992, 14.2652, 358, 610008180,{"sittable"}},
-		{0.85307, -0.894992, 16.0249, 90, 610008180,{"sittable"}},
-		{9.70056, -0.894992, 18.1067, 345, 610008180,{"sittable"}},
-		{10.2159, -0.894992, 21.5839, 218, 610008180,{"sittable"}},
-		{7.54703, -0.894992, 21.2395, 145, 610008180,{"sittable"}},
-		{7.1906, -0.894992, 18.7056, 46, 610008180,{"sittable"}},
 		{-1.80855, -0.894993, 23.3928, 236, 610008182,{"sittable"}},
 		{-1.96477, -0.894992, 20.9954, 311, 610008182,{"sittable"}},
 		{22.1272, -0.894996, -19.5368, 76, 610008177,{"sittable"}},
@@ -577,9 +551,9 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setCustomObjectName("Toolbox")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/hoth/pr_hoth_toolbox.iff", 832.2, 0, 510.8, 0, math.rad(0))
 	SceneObject(sObj):setCustomObjectName("Toolbox")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 833.7, 0.2, 527.4, 0, math.rad(90))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 833.7, 0.1, 527.4, 0, math.rad(90))
 	SceneObject(sObj):setCustomObjectName("Toolbox")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 815.9, 0.43, 545.3, 0, math.rad(0))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 815.9, 0.3, 545.3, 0, math.rad(0))
 	SceneObject(sObj):setCustomObjectName("Toolbox")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_droid_r5_powerdown.iff", 820.4, 0, 517.8, 0, math.rad(90))
 	SceneObject(sObj):setCustomObjectName("Repurposed R5 Droid")
@@ -700,10 +674,6 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Dewback")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 739.514, 0, 267.415, 181, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 740.048, 0, 266.856, 212, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 740.216, 0, 265.608, 0, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 708.338, 0, 216.865, 269, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 708.917, 0, 217.712, 239, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
@@ -841,7 +811,38 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
 	-- Imperial garrison 
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 546.2, 0, 73.4, 353, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-843")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 531.6, 3.5, 75.7, 23, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-406")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 526.4, 3.5, 76.3, 357, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-251")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 480.9, 0, 75.2, 331, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-599")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 538.9, 0, -61.5, 188, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-374")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 554.2, 4, -59.6, 8, 0, "stormtrooper", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-732")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 31.3, 273, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-153")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 35.3, 273, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-185")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 571.9, 0, 57.4, 333, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-630")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 570.7, 0, 58.9, 135, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-694")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 600.7, 0, 3.4, 222, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("TK-552")
 	
+	-- Telios Enclave (abandoned starport)
+
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 700.3, 0, 379.2, 182, 0, "rebel_mandalorian", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Ma'al Telios")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 696.8, 0, 379.2, 171, 0, "rebel_mandalorian", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Vorlen Telios")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 686.7, 0, 408.5, 185, 0, "rebel_mandalorian", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Arken Telios")
+
 
 	-- Tutorial NPCs--
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6, -4, -7.1, -11, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_tutorial")

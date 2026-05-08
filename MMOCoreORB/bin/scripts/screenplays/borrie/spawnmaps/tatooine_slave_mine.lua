@@ -145,7 +145,7 @@ function RpTatooineSlaveMineScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "human")	
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -0.6, -64.6, -240.3, 85, 610029999, "rp_wookiee_female", "slave3", "thug", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "wookiee")	
-		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -16.7, -63.4, -260, -179, 610029999, "human", "slave", "civilian", "random") --Equip, Skill, Customization
+		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -16.7, -63.4, -260, -179, 610029999, "rp_human_male", "slave1", "civilian", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -21.9, -62.9, -261, -156, 610029999, "rp_twilek_female", "slave4", "civilian", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "twilek")	
