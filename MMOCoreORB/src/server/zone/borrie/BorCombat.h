@@ -977,7 +977,7 @@ public:
         //Parry
         else if(reactionType == 2 && defenderWeapon->isMeleeWeapon() && attackerWeapon->isMeleeWeapon() && defenderAction > 1 && GetWeaponCondition(defenderWeapon) >= incomingDamage && !defenderWeapon->getParryIsRestricted()) return true;
         //Dodge
-        else if(reactionType == 3 && defender->isStanding() && defenderAction > 0 && !defenderWeapon->getDodgeIsRestricted()) return true;
+        else if(reactionType == 3 && !defender->isProne() && !defender->isSitting() && defenderAction > 0 && !defenderWeapon->getDodgeIsRestricted()) return true;
         //Special Force
         else if(reactionType == 4 || reactionType == 5 || reactionType == 6 ) {
             int defenderForce = GetAvailableForcePoints(defender);
@@ -999,20 +999,15 @@ public:
                     } else return false;
                 } else return false;
             } else if(reactionType == 5) {
-                //int telekineticsSkill = defender->getSkillMod("rp_telekinetics");
-                //int forceCost = 11 - telekineticsSkill;
                 int forceCost = 3;
-                if(forceCost <= 0) forceCost = 1;
                 if(defenderForce >= (forceCost)) {
                     return true;
                 } else return false;
             } else {
-                //int inwardSkill = defender->getSkillMod("rp_inward");
                 int forcePool = 999;
                 if(defender->isPlayerCreature()) {
                     forcePool = defender->getPlayerObject()->getForcePower();
                 }
-                //if(forcePool >= (12 - inwardSkill)) {
                 if(forcePool >= 3) {
                     return true;
                 } else return false;
