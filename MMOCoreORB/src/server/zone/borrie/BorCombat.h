@@ -26,16 +26,25 @@ public:
             }
         }
         
+        bool aimFlag = false;
+        if(bodyPartTarget != -1)
+        {
+            aimFlag = true;
+        }
+
         String attackVerb = powerAttack ? "power attacked" : "attacked";
-        if(bodyPartTarget != -1) 
+        if(aimFlag) {
             attackVerb = "aimed at "+defender->getFirstName()+"'s "+GetSlotDisplayName(bodyPartTarget);
-        else
+        }
+        else {
             attackVerb += " " + defender->getFirstName();
+        }
 
         //To Hit
         int toHitDC = GetToHitModifier(attacker, defender, weapon) + 10;
         int aimMod = 0;
-        if(bodyPartTarget != -1) { //A Body Part was specified.
+
+        if(aimFlag) { // Aimed attack.
             if (bodyPartTarget == 3 || bodyPartTarget == 4 || bodyPartTarget == 5 || bodyPartTarget == 6 || bodyPartTarget == 7 || bodyPartTarget == 8) {
                 aimMod = 5;
             }
@@ -44,6 +53,10 @@ public:
             }
             DrainActionOrWill(attacker, 1);
             toHitDC += aimMod;
+        }
+        // If not an aimed attack, we now need to determine which body part was hit.
+        else {
+            bodyPartTarget = BorDice::Roll(1, 10);
         }
 
         int skillCheck = 0;
@@ -735,7 +748,9 @@ public:
                     else {
                         armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
                     }
-                    creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");
+                    if (creature->isPlayerCreature()) {
+                        creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");
+                    }
                     if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
                     {
                         if (creature->isPlayerCreature()) {
