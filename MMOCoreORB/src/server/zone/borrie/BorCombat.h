@@ -94,9 +94,11 @@ public:
 
         if(powerAttack) {
             toHitDC += 5;
-            int powerAttackCost = attacker->getStoredInt("power_attack_count");
-            attacker->setStoredInt("power_attack_count", powerAttackCost + 1);
-            DrainActionOrWill(attacker, 3 + powerAttackCost); //Changed to 3 from 1 as per rebalancing, 3/8/2023
+            //Remove incrementing power attack cost. Cagnaith 5/8/26
+            //int powerAttackCost = attacker->getStoredInt("power_attack_count");
+            //attacker->setStoredInt("power_attack_count", powerAttackCost + 1);
+            //DrainActionOrWill(attacker, 3 + powerAttackCost); 
+            DrainActionOrWill(attacker, 3);
 
             if(toHitRoll + skillCheck + (15 - skillCheck) < toHitDC) {
                 //Miss
