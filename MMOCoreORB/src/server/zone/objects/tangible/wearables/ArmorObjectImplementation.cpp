@@ -77,7 +77,7 @@ void ArmorObjectImplementation::notifyLoadFromDatabase() {
 	if (rating != LIGHT && templateObject->getClientTemplateFileName().contains("armor_bounty_hunter_"))
 		rating = LIGHT;
 */
-	rating = templateObject->getRating();
+	rating = getRating();
 }
 
 void ArmorObjectImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
@@ -439,6 +439,8 @@ float ArmorObjectImplementation::getLightSaber() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::LIGHTSABER, lightSaber);
 	return value - getConditionReduction(value);
 }
+
+
 
 void ArmorObjectImplementation::setProtectionValue(int type, float value) {
 	if (type & SharedWeaponObjectTemplate::KINETIC)
