@@ -1080,7 +1080,7 @@ public:
 		} 
 		else if (creature->isKneeling()) {
 			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .66;
-			maxDistance = static_cast<int>(floatDistance);
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
 			if (skillFlag) {
 				floatDistance = static_cast<float>(maxDistance / 2);
 				maxDistance = static_cast<int>(floatDistance);
@@ -1092,7 +1092,7 @@ public:
 		}
 		else if (creature->isProne()) {
 			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .25;
-			maxDistance = static_cast<int>(floatDistance);
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
 			if (skillFlag) {
 				floatDistance = static_cast<float>(maxDistance * 0.5);
 				maxDistance = static_cast<int>(floatDistance);
@@ -1105,7 +1105,7 @@ public:
 		else {
 			maxDistance = maneuverability + athletics + 10;
 			float floatDistance = static_cast<float>(maxDistance);
-			maxDistance = static_cast<int>(floatDistance);
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
 			if (skillFlag) {
 				floatDistance = static_cast<float>(maxDistance * 0.5);
 				maxDistance = static_cast<int>(floatDistance);

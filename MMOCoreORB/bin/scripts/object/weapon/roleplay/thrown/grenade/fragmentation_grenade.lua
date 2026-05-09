@@ -22,7 +22,7 @@ object_weapon_roleplay_thrown_grenade_fragmentation_grenade = object_weapon_rang
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
-
+ 
 	idealRange = 24,
 	idealAccuracy = 10,
 
