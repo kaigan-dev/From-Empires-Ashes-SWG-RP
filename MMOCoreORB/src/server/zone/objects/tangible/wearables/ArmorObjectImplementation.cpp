@@ -51,7 +51,7 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 		rpSkillLevel = armorTemplate->getRpSkillLevel();
 	}
 
-	rating = armorTemplate->getRating();
+	
 
 	hitLocation = armorTemplate->getHitLocation();
 	if (hitLocation == ArmorObjectTemplate::NOLOCATION) {
