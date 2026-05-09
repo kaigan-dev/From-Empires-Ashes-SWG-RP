@@ -51,7 +51,7 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 		rpSkillLevel = armorTemplate->getRpSkillLevel();
 	}
 
-	
+	rating = armorTemplate->getRating();
 
 	hitLocation = armorTemplate->getHitLocation();
 	if (hitLocation == ArmorObjectTemplate::NOLOCATION) {
@@ -77,7 +77,7 @@ void ArmorObjectImplementation::notifyLoadFromDatabase() {
 	if (rating != LIGHT && templateObject->getClientTemplateFileName().contains("armor_bounty_hunter_"))
 		rating = LIGHT;
 */
-	rating = getRating();
+	
 }
 
 void ArmorObjectImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
