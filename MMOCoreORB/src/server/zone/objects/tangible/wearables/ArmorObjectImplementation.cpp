@@ -36,7 +36,7 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 		actionEncumbrance = armorTemplate->getActionEncumbrance();
 		mindEncumbrance = armorTemplate->getMindEncumbrance();
 	
-		rating = 0;
+		rating = armorTemplate->getRating();
 	
 		kinetic = armorTemplate->getKinetic();
 		energy = armorTemplate->getEnergy();
@@ -83,7 +83,7 @@ void ArmorObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cre
 	WearableObjectImplementation::fillAttributeList(alm, object);
 
 	//Armor Rating
-	rating = getRating();
+	
 	if (rating == LIGHT)
 		alm->insertAttribute("armorrating", "@obj_attr_n:armor_pierce_light"); //Light
 	else if (rating == MEDIUM)
