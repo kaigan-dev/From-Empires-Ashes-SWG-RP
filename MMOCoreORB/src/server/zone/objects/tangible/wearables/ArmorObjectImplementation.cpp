@@ -77,7 +77,7 @@ void ArmorObjectImplementation::notifyLoadFromDatabase() {
 	if (rating != LIGHT && templateObject->getClientTemplateFileName().contains("armor_bounty_hunter_"))
 		rating = LIGHT;
 */
-	rating = armorTemplate->getRating();
+	rating = templateObject->getRating();
 }
 
 void ArmorObjectImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
