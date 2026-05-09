@@ -71,13 +71,15 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 void ArmorObjectImplementation::notifyLoadFromDatabase() {
 	WearableObjectImplementation::notifyLoadFromDatabase();
 
+	ArmorObjectTemplate* armorTemplate = cast<ArmorObjectTemplate*>(getObjectTemplate());
+
 	if (templateObject == nullptr)
 		return;
 /*  Why would you overwrite the data files in the generic implementation? Why?
 	if (rating != LIGHT && templateObject->getClientTemplateFileName().contains("armor_bounty_hunter_"))
 		rating = LIGHT;
 */
-	
+	rating = armorTemplate->getRating();
 }
 
 void ArmorObjectImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
