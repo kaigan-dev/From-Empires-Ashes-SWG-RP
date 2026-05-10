@@ -668,10 +668,10 @@ float WeaponObjectImplementation::getMaxDamage(bool withPup) const {
 
 	if (powerupObject != nullptr && withPup) {
 		damage += (damage * powerupObject->getPowerupStat("maxDamage"));
-		return damage - getConditionReduction(damage);
+		return damage;
 	}
 
-	return damage - getConditionReduction(damage);
+	return damage;
 }
 
 float WeaponObjectImplementation::getMinDamage(bool withPup) const {
@@ -682,10 +682,10 @@ float WeaponObjectImplementation::getMinDamage(bool withPup) const {
 
 	if (powerupObject != nullptr && withPup) {
 		damage += (damage * powerupObject->getPowerupStat("minDamage"));
-		return damage - getConditionReduction(damage);
+		return damage;
 	}
 
-	return damage - getConditionReduction(damage);
+	return damage;
 }
 
 float WeaponObjectImplementation::getBonusDamage() const {

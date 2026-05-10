@@ -399,47 +399,47 @@ String ArmorObjectImplementation::getStringType(int type) const {
 
 float ArmorObjectImplementation::getKinetic() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::KINETIC, kinetic);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getEnergy() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::ENERGY, energy);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getElectricity() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::ELECTRICITY, electricity);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getStun() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::STUN, stun);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getBlast() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::BLAST, blast);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getHeat() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::HEAT, heat);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getCold() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::COLD, cold);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getAcid() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::ACID, acid);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getLightSaber() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::LIGHTSABER, lightSaber);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 
