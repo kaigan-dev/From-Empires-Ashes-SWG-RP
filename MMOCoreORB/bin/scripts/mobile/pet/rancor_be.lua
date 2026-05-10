@@ -2,7 +2,7 @@ rancor_be = Creature:new {
 	objectName = "@mob/creature_names:bio_engineered_rancor",
 	socialGroup = "rancor",
 	faction = "",
-	level = 35,
+	level = 5,
 	chanceHit = 0.2,
 	damageMin = 30,
 	damageMax = 40,
@@ -21,7 +21,7 @@ rancor_be = Creature:new {
 	tamingChance = 0,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE,
-	creatureBitmask = PACK + KILLER + STALKER,
+	creatureBitmask = PACK,
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
