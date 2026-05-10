@@ -44,14 +44,17 @@ public:
 			ManagedReference<SceneObject*> object;			  // The Target Object
 			ManagedReference<CreatureObject*> targetCreature; // The Target Object as a Creature
 
-			if(creature->getStoredInt("block_target_rolling") != 1) {
-				if (target != 0) {
-					object = server->getZoneServer()->getObject(target, false);
-					if (object->isCreatureObject())
-						targetCreature = object->asCreatureObject();
-					else
+			If(adminLevelCheck) {
+				if(creature->getStoredInt("block_target_rolling") != 1) {
+					if (target != 0) {
+						object = server->getZoneServer()->getObject(target, false);
+						if (object->isCreatureObject())
+							targetCreature = object->asCreatureObject();
+						else
+							targetCreature = creature;
+					} else
 						targetCreature = creature;
-				} else
+				} else 
 					targetCreature = creature;
 			} else 
 				targetCreature = creature;
