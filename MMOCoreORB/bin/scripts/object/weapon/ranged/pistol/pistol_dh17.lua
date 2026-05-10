@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_weapon_ranged_pistol_pistol_dh17 = object_weapon_ranged_pistol_shared_pistol_dh17:new { 
+object_weapon_ranged_pistol_pistol_dh17 = object_weapon_ranged_pistol_shared_pistol_dh17:new {
 
 
 	--[Info]
@@ -97,7 +97,7 @@ object_weapon_ranged_pistol_pistol_dh17 = object_weapon_ranged_pistol_shared_pis
 	experimentalMax = { 0, 0, 52, 124, 3, 13, 45, 1500, -40, -80, 30, 5, 18, 22, 11},
 	experimentalPrecision = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = { 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	
+
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_pistol_pistol_dh17, "object/weapon/ranged/pistol/pistol_dh17.iff")

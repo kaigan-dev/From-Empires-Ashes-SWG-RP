@@ -43,6 +43,15 @@
 
 object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared_rancor_deed:new {
 
+		skillTemplates = {
+			"creatures/large"
+	},
+
+		equipmentTemplates = {
+		{"rancor", {"creature_large"}},
+	},
+
+
 
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
