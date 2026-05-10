@@ -27,7 +27,7 @@ rancor_be = Creature:new {
 
 	template = {"object/mobile/rancor_hue.iff"},
 
-	skillTemplates = {
+	--[[skillTemplates = {
 			"creatures/large"
 	},
 	
@@ -35,7 +35,7 @@ rancor_be = Creature:new {
 	equipmentTemplates = {
 
 		{"rancor_hue", {"creature_large"}},
-	},
+	}, ]]--
 
 	customizationTemplates = {
 	},
