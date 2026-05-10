@@ -49,7 +49,7 @@ public:
 					if (target != 0) {
 						object = server->getZoneServer()->getObject(target, false);
 						//if (object->isCreatureObject())
-						if (object->isCreature())
+						if (object->isCreatureObject())
 							targetCreature = object->asCreatureObject();
 						else
 							targetCreature = creature;
