@@ -70,6 +70,6 @@ includeFile("tangible/wearables/armor/mandalorian_beta/serverobjects.lua")
 
 includeFile("tangible/wearables/armor/roleplay/serverobjects.lua")
 
-includeFile("tangible/wearables/armor/plasteel/serverobjects.lua")
+--includeFile("tangible/wearables/armor/plasteel/serverobjects.lua")
 
 -- Server Objects

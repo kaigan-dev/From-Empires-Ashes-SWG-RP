@@ -1,1 +1,1 @@
-includeFile("tangible/wearables/armor/plasteel/armor_plasteel_helmet.lua")
+--includeFile("tangible/wearables/armor/plasteel/armor_plasteel_helmet.lua")
