@@ -134,8 +134,7 @@ public:
 			}
 			else if(command == "reload") {
 				if(creature->getWeapon() != nullptr) {
-					if (!creature->getWeapon()->isInvisible()) {
-						creature->sendSystemMessage("Debug: Your weapon's invis status is " + String::valueOf(creature->getWeapon()->isInvisible()));
+					if (creature->getWeapon()->getMaxAmmo()) {
 						int maxAmmo = creature->getWeapon()->getMaxAmmo();
 						String ammoType = creature->getWeapon()->getAmmoType();
 						int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
@@ -152,7 +151,7 @@ public:
 						}
 					}
 					else {
-						creature->sendSystemMessage("You cannot reload your bare hands.");
+						creature->sendSystemMessage("This weapon does not use ammunition and cannot be reloaded.");
 					}
 				}				
 			}
