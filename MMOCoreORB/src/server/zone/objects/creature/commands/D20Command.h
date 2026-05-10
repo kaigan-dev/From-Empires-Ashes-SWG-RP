@@ -48,7 +48,8 @@ public:
 				if(creature->getStoredInt("block_target_rolling") != 1) {
 					if (target != 0) {
 						object = server->getZoneServer()->getObject(target, false);
-						if (object->isCreatureObject())
+						//if (object->isCreatureObject())
+						if (object->isCreature())
 							targetCreature = object->asCreatureObject();
 						else
 							targetCreature = creature;
