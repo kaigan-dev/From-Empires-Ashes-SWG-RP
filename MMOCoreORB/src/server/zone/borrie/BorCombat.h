@@ -1172,7 +1172,7 @@ public:
         int targetCount = 0; 
 
         //Yes I know we do this loop twice, but its to accurately report the target count.
-        for (int i = 0; i < targetCount; i++) {
+        for (int i = 0; i < closeObjects; i++) {
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
 				targetCount++;
