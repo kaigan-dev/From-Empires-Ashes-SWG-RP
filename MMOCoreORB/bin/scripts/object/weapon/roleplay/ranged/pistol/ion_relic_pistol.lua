@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_ion_relic_pistol = object_weapon_ranged_pis
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 3,
+	bonusDamage = 4,
 	
 	noPowerAttack = true,
 

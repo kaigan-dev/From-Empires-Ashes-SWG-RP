@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_dh17_pistol = object_weapon_ranged_pistol_s
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 0,
+	bonusDamage = 1,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,

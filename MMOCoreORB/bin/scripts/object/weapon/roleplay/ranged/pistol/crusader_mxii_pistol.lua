@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_crusader_mxii_pistol = object_weapon_ranged
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 5,
+	bonusDamage = 6,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,

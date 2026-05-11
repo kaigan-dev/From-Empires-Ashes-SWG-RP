@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_a280cfe_blaster_pistol = object_weapon_rang
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 4,
+	bonusDamage = 5,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,

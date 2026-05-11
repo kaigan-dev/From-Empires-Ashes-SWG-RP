@@ -43,7 +43,7 @@ skillSet = {
     {"rp_alter",            0, 0},
     {"rp_inward",           0, 0},
     --Pools
-    {"rp_health",           20, 20},
+    {"rp_health",           30, 30},
     {"rp_action",           10, 10},
     {"rp_will",             3, 3},
     {"rp_force",            0, 0},

@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_trandoshan_suppressor_pistol = object_weapo
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 5, --Type of Die used in Damage
-	bonusDamage = 1,
+	bonusDamage = 2,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,

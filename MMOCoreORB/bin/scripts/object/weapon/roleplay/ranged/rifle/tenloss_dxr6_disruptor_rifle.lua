@@ -14,7 +14,7 @@ object_weapon_roleplay_ranged_rifle_tenloss_dxr6_disruptor_rifle = object_weapon
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 2, --Amount of Die used in Damage
+	minDamage = 3, --Amount of Die used in Damage
 	maxDamage = 6, --Type of Die used in Damage
 	bonusDamage = 6,
 	
@@ -34,7 +34,7 @@ object_weapon_roleplay_ranged_rifle_tenloss_dxr6_disruptor_rifle = object_weapon
 
 	rarity="Legendary",
 	itemValue = 20000,
-	maxAmmo = 10,
+	maxAmmo = 3,
 	ammoType = "ammo_disruptor", 
 
 	--[Unused Elements from original game, included for compatability.]
