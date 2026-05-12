@@ -116,8 +116,8 @@ public:
 		}
 
 		if(playerCount < 0) playerCount = 0;
-        message = String::valueOf(playerCount) + "|" + String::valueOf(dmCount);
-        obsvRoom->broadcastMessage(new ChatRoomMessage(name, target->getZoneServer()->getGalaxyName(), message, obsvRoom->getRoomID(), false));
+        String message = String::valueOf(playerCount) + "|" + String::valueOf(dmCount);
+        obsvRoom->broadcastMessage(new ChatRoomMessage(target->getFirstName(), target->getZoneServer()->getGalaxyName(), message, obsvRoom->getRoomID(), false));
 	}
 
     static void PrintDMMessageToDiscord(CreatureObject* target, const UnicodeString& message) {
