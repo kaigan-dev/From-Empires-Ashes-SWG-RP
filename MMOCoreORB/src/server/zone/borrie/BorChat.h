@@ -70,7 +70,7 @@ public:
 	    }	
     }
 
-    static void PrintSpatialChatToDiscord(CreatureObject* target, const UnicodeString& message, String spatialChatType, short range) {
+    static void PrintSpatialChatToDiscord(CreatureObject* target, const UnicodeString& message, String spatialChatType, uint32 moodType, int languageID) {
         ChatManager* chatManager = target->getZoneServer()->getChatManager();
         ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.global");
 
@@ -85,8 +85,12 @@ public:
             name += " " + lastName;
         }
 
+        String moodName = chatManager->getMoodType(moodID);
+
+        String newMessage = spatialChatType + "|" + message + "|" + moodName + "|" + String::valueOf(languageID);
+
         if(!anonymous) {
-            obsvRoom->broadcastMessage(new ChatRoomMessage(name, target->getZoneServer()->getGalaxyName(), UnicodeString(spatialChatType + "|") + message, obsvRoom->getRoomID(), false));
+            obsvRoom->broadcastMessage(new ChatRoomMessage(name, target->getZoneServer()->getGalaxyName(), UnicodeString(newMessage), obsvRoom->getRoomID(), false));
         }
     }
 

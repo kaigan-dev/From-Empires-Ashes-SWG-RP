@@ -1106,7 +1106,7 @@ void ChatManagerImplementation::broadcastChatMessage(CreatureObject* sourceCreat
 		BorChat::RateOutgoingMessage(sourceCreature, message,  spatialChatType);
 
 	BorChat::PrintSpatialChatToDMs(sourceCreature, message);
-	BorChat::PrintSpatialChatToDiscord(sourceCreature, message, spatialChatTypeName, range);
+	BorChat::PrintSpatialChatToDiscord(sourceCreature, message, spatialChatTypeName, moodType, languageID);
 
 	//error(sourceCreature->getFirstName() + " has closeEntryObjects size of " + String::valueOf(closeEntryObjects.size()));
 
