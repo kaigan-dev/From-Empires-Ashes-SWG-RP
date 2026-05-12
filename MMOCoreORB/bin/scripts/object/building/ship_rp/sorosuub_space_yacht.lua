@@ -1,14 +1,20 @@
 object_building_ship_rp_sorosuub_space_yacht = object_building_ship_rp_shared_sorosuub_space_yacht:new {
-	entrancePoint = {0,0},
+	--entrancePoint = {0,0},
+	entrancePoint = {4.9, -5.7},
 	entranceCell = 1,
+	--Changing from cell ...17195   to ...17196, so +1 to entranceCell if needed.
 	
-	publicStructure = 0,
+	publicStructure = 1,
 	baseMaintenanceRate = 0,
 	
 	childObjects = {
 		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = 1.29997, z = -6.06955, y = 22.3475, ow = 0.707107, ox = 0, oy = 0.707107, oz = 0, cellid = 2, containmentType = -1},
 		{templateFile = "object/tangible/ship/roleplay/terminal_ship_exit.iff", x = 6.25243, z = -5.66955, y = 22.0239, ow = -0.687569, ox = 0.165071, oy = 0.687569, oz = 0.165071, cellid = 2, containmentType = -1},
 		{templateFile = "object/tangible/ship/roleplay/terminal_navicomputer.iff", x = -0.664788, z = 1.03045, y = 17.2, ow = 1, ox = 0, oy = 0, oz = 0, cellid = 1, containmentType = -1},
+
+		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = -2.1, z = -3.7,  y = -14.6, cellid = 5, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
+			--Cell ID 17200 should be +5 from the baseline
+		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = 0.00347227, z = 1.49857,  y = -20.3089, cellid = 9, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
 	},
 	
 }

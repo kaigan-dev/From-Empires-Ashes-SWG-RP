@@ -1,6 +1,10 @@
 object_building_ship_rp_yt1300 = object_building_ship_rp_shared_yt1300:new {
 	entrancePoint = {0,0},
+	-- 0, 0 sends us to the right place for once.
 	entranceCell = 1,
+
+	publicStructure = 1,
+	baseMaintenanceRate = 0,
 	
 	childObjects = {
 		{templateFile = "object/tangible/ship/roleplay/terminal_navicomputer.iff", x = 11.803, z = 1.28999, y = 9.71386, cellid = 2, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},

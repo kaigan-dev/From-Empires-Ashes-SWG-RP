@@ -65,8 +65,8 @@ string/en/error_message.stf	122	sys_eject_fail_move	The ejection attempt failed 
 			if(creature->getParent() == nullptr) {
 				//They're lost in space!
 				//Send to Eisley. 
-				creature->sendSystemMessage("Ejecting you to a safe location");
-				creature->switchZone("rp_tatooine", 1110, 0, -63, 0);
+				creature->sendSystemMessage("You cannot disembark while in space.");
+				//creature->switchZone("rp_tatooine", 1110, 0, -63, 0);
 				return SUCCESS;
 			}
 		}

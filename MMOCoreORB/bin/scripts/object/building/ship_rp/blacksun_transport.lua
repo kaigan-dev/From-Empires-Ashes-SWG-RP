@@ -1,10 +1,13 @@
 object_building_ship_rp_blacksun_transport = object_building_ship_rp_shared_blacksun_transport:new {
-	entrancePoint = {-5.4,-18.0},
+	--entrancePoint = {-5.4,-18.0},
+	entrancePoint = {0, -7.4},
 	entranceCell = 1,
+	--If boarding doesn't work after the change, try incrementing the cell number by 19ish. It went from cell ...17114 to ...17133
 	
-	publicStructure = 0,
+	publicStructure = 1,
 	baseMaintenanceRate = 0,
 	
+	--17114
 	childObjects = {
 		{templateFile = "object/tangible/ship/roleplay/terminal_navicomputer.iff", cellid =1, x = -0.0402446, z = 2.9, y = -9.78017, 		ow = 0, 			ox  = 0, oy = 1, 		oz =0, containmentType = -1 },
 		{templateFile = "object/tangible/terminal/terminal_elevator.iff", 	cellid =2, 			x = 0.0433849, z = -2.8, y = -25.0001, 		ow = 1, 			ox  = 0, oy = 0, 		oz =0, containmentType = -1 },

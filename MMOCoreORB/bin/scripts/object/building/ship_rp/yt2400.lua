@@ -1,6 +1,11 @@
 object_building_ship_rp_yt2400 = object_building_ship_rp_shared_yt2400:new {
-	entrancePoint = {23.7,5.9},
+	--entrancePoint = {23.7,5.9},
+	entrancePoint = {8.6, 2.9},
 	entranceCell = 1,
+	--We're going from cell 17264 to 17268, so +4 to entranceCell
+
+	publicStructure = 1,
+	baseMaintenanceRate = 0,
 	
 	childObjects = {
 		{templateFile = "object/tangible/ship/roleplay/terminal_ship_exit.iff", x = 13.231, z = 0.00637531, y = 3.00586, cellid = 5, ow = -0.707107, ox = 0, oy = 0.707107, oz = 0, containmentType = -1},
