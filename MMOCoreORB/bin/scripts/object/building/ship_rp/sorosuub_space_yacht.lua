@@ -3,7 +3,6 @@ object_building_ship_rp_sorosuub_space_yacht = object_building_ship_rp_shared_so
 	entrancePoint = {4.9, 22.1, -5.7},
 	entranceCell = 2,
 	
-	
 	publicStructure = 1,
 	baseMaintenanceRate = 0,
 	
@@ -13,14 +12,11 @@ object_building_ship_rp_sorosuub_space_yacht = object_building_ship_rp_shared_so
 		{templateFile = "object/tangible/ship/roleplay/terminal_navicomputer.iff", x = -0.664788, z = 1.03045, y = 17.2, ow = 1, ox = 0, oy = 0, oz = 0, cellid = 1, containmentType = -1},
 
 		
-		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = -2.1, z = -3.7,  y = -16.4, cellid = 6, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
-
-		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = -2.1, z = 1.3, y = -16.4, cellid = 6, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
-		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = 2.2, z = 1.2, y = -22.3, cellid = 11, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
-		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = 3.5, z = 1.3, y = -7.4, cellid = 6, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
-
-		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = 0.00347227, z = 1.49857,  y = -20.3089, cellid = 9, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
+		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = -2.1, z = -3.7,  y = -16.6, cellid = 6, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
+		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = -2.1, z = 1.3, y = -16.6, cellid = 6, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
+		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = 2.2, z = 1.2, y = -22.6, cellid = 11, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
+		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = 5, z = 1.3, y = -7.4, cellid = 6, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
+		{templateFile = "object/tangible/terminal/terminal_elevator.iff", x = 2.2, z = 5.3,  y = -22.6, cellid = 11, ow = 1, ox = 0, oy = 0, oz = 0, containmentType = -1},
 	},
-	
 }
 ObjectTemplates:addTemplate(object_building_ship_rp_sorosuub_space_yacht, "object/building/ship_rp/sorosuub_space_yacht.iff")
