@@ -96,7 +96,7 @@ public:
 
     static void PrintPlayerCountToDiscord(CreatureObject* target) {
 		ChatManager* chatManager = target->getZoneServer()->getChatManager();
-        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.playercount");
+        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.observer");
 		PlayerMap* playerMap = chatManager->getPlayerMap();
 		int playerCount = chatManager->getPlayerCount() - 1;
 		
