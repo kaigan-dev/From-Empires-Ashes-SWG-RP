@@ -85,7 +85,7 @@ public:
             name += " " + lastName;
         }
 
-        String moodName = chatManager->getMoodType(moodID);
+        String moodName = chatManager->getMoodType(moodType);
 
         UnicodeString newMessage = spatialChatType + "|" + message + "|" + moodName + "|" + String::valueOf(languageID);
 
