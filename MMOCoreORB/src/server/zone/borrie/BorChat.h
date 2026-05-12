@@ -87,10 +87,10 @@ public:
 
         String moodName = chatManager->getMoodType(moodID);
 
-        String newMessage = spatialChatType + "|" + message + "|" + moodName + "|" + String::valueOf(languageID);
+        UnicodeString newMessage = spatialChatType + "|" + message + "|" + moodName + "|" + String::valueOf(languageID);
 
         if(!anonymous) {
-            obsvRoom->broadcastMessage(new ChatRoomMessage(name, target->getZoneServer()->getGalaxyName(), UnicodeString(newMessage), obsvRoom->getRoomID(), false));
+            obsvRoom->broadcastMessage(new ChatRoomMessage(name, target->getZoneServer()->getGalaxyName(), newMessage, obsvRoom->getRoomID(), false));
         }
     }
 
