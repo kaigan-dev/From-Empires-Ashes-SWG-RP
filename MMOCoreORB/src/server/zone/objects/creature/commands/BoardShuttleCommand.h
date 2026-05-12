@@ -99,7 +99,7 @@ public:
 		// Check to make sure the creature is within range of a PlanetTravelPoint
 		if (closestPoint == nullptr) {
 			// Could do @player_structure:boarding_too_far here but this allows you to know in-game that no point was found
-			creature->sendSystemMessage("There is no shuttle or other boardable ships nearby.");
+			creature->sendSystemMessage("There is no boardable ship nearby.");
 			return GENERALERROR;
 		}
 
@@ -110,7 +110,7 @@ public:
 			creature->error("WARNING: Missing a shuttle object:" + closestPoint->toString());
 
 			// Different error so it's obvious from in-game that the shuttle did not link to this travel point.
-			creature->sendSystemMessage("Shuttle destroyed by terrorists.");
+			//creature->sendSystemMessage("Shuttle destroyed by terrorists.");
 			return GENERALERROR;
 		}
 
