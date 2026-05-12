@@ -1,7 +1,7 @@
 object_building_ship_rp_blacksun_transport = object_building_ship_rp_shared_blacksun_transport:new {
 	--entrancePoint = {-5.4,-18.0},
 	entrancePoint = {0, -7.4},
-	entranceCell = 1,
+	entranceCell = 15,
 	--If boarding doesn't work after the change, try incrementing the cell number by 19ish. It went from cell ...17114 to ...17133
 	
 	publicStructure = 1,

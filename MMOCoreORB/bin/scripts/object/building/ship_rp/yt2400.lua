@@ -1,7 +1,8 @@
 object_building_ship_rp_yt2400 = object_building_ship_rp_shared_yt2400:new {
 	--entrancePoint = {23.7,5.9},
-	entrancePoint = {8.6, 2.9},
-	entranceCell = 1,
+	entrancePoint = {8.6, 2.9, 0},
+--	entranceCell = 1,
+	entranceCell = 5,
 	--We're going from cell 17264 to 17268, so +4 to entranceCell
 
 	publicStructure = 1,

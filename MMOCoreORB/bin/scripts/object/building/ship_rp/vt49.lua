@@ -1,7 +1,7 @@
 object_building_ship_rp_vt49 = object_building_ship_rp_shared_vt49:new {
 	--entrancePoint = {0,0},
 	entrancePoint = {-7, -2},
-	entranceCell = 1,
+	entranceCell = 2,
 	--We want 17216 instead of 17215, so probably +1 to entranceCell
 	
 	publicStructure = 1,

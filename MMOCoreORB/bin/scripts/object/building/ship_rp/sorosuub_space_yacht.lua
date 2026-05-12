@@ -1,7 +1,7 @@
 object_building_ship_rp_sorosuub_space_yacht = object_building_ship_rp_shared_sorosuub_space_yacht:new {
 	--entrancePoint = {0,0},
 	entrancePoint = {4.9, -5.7},
-	entranceCell = 1,
+	entranceCell = 2,
 	--Changing from cell ...17195   to ...17196, so +1 to entranceCell if needed.
 	
 	publicStructure = 1,
