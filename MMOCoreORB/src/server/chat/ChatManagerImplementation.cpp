@@ -788,7 +788,7 @@ void ChatManagerImplementation::handleChatEnterRoomById(CreatureObject* player, 
 		room->addPlayer(player);
 		room->broadcastMessage(coer);
 	}
-
+	BorChat::PrintPlayerCountToDiscord(player);
 }
 
 void ChatManagerImplementation::handleSocialInternalMessage(CreatureObject* sender, const UnicodeString& arguments) {
@@ -2040,7 +2040,6 @@ void ChatManagerImplementation::handleChatCreateRoom(CreatureObject* player, uin
 
 	ChatOnCreateRoom* packet = new ChatOnCreateRoom(newRoom, requestID, error);
 	player->sendMessage(packet);
-
 }
 
 Reference<ChatRoom*> ChatManagerImplementation::createPersistentRoomByFullPath(CreatureObject* player, const String& path, const String& title, int requestID) {
@@ -2194,6 +2193,7 @@ void ChatManagerImplementation::handleChatLeaveRoom(CreatureObject* player, cons
 
 	Locker clocker(room, player);
 	room->removePlayer(player);
+	BorChat::PrintPlayerCountToDiscord(player);
 }
 
 void ChatManagerImplementation::handleChatQueryRoom(CreatureObject* player, const String& roomPath, int requestID) {
