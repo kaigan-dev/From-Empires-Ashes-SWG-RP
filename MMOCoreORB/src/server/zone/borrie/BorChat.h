@@ -116,7 +116,7 @@ public:
 		}
 
 		if(playerCount < 0) playerCount = 0;
-        String message = "PLAYERCOUNT|" + String::valueOf(playerCount) + "|" + String::valueOf(dmCount);
+        String message = "PLAYERCOUNT|" + String::valueOf(playerCount) + "|" + String::valueOf(dmCount)  + "|-";
         obsvRoom->broadcastMessage(new ChatRoomMessage(target->getFirstName(), target->getZoneServer()->getGalaxyName(), message, obsvRoom->getRoomID(), false));
 	}
 
