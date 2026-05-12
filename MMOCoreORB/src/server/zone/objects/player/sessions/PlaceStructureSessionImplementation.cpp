@@ -189,7 +189,7 @@ int PlaceStructureSessionImplementation::completeSession() {
 			emailBody.setTO(structureObject->getObjectName());
 			emailBody.setDI(ghost->getLotsRemaining());
 
-			chatManager->sendMail("@player_structure:construction_complete_sender", subject, emailBody, creature->getFirstName(), waypointObject);
+			//chatManager->sendMail("@player_structure:construction_complete_sender", subject, emailBody, creature->getFirstName(), waypointObject);
 		}
 
 		if (structureObject->isBuildingObject()) {
