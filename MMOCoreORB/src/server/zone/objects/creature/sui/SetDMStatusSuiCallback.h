@@ -29,7 +29,6 @@ public:
 
         player->setStoredString("rp_dm_status", status);
         player->sendSystemMessage("Your DM status has been set! Message: " + status);
-		BorChat::PrintPlayerCountToDiscord(player);
 	}
 };
 

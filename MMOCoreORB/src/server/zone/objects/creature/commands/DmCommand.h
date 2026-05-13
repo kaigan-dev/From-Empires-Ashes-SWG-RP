@@ -291,7 +291,6 @@ public:
 						if(subCommand == "clear") {
 							creature->deleteStoredString("rp_dm_status");
 							creature->sendSystemMessage("You've cleared your DM Status.");
-							BorChat::PrintPlayerCountToDiscord(creature);
 						}
 					} else {
 						BorrieRPG::SetDMStatus(creature);

@@ -94,32 +94,6 @@ public:
         }
     }
 
-    static void PrintPlayerCountToDiscord(CreatureObject* target) {
-		ChatManager* chatManager = target->getZoneServer()->getChatManager();
-        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.global");
-		PlayerMap* playerMap = chatManager->getPlayerMap();
-		int playerCount = chatManager->getPlayerCount() - 1;
-		
-		int dmCount = 0;
-
-		playerMap->resetIterator(false);
-
-		while (playerMap->hasNext(false)) {
-			ManagedReference<CreatureObject*> playerObject = playerMap->getNextValue(false);
-			ManagedReference<PlayerObject*> ghost = playerObject->getPlayerObject();
-			if(ghost->getAdminLevel() > 1) {
-				playerCount--;
-				if(playerObject->getStoredString("rp_dm_status") != "") {
-					dmCount++;
-				}
-			}
-		}
-
-		if(playerCount < 0) playerCount = 0;
-        String message = "PLAYERCOUNT|" + String::valueOf(playerCount) + "|" + String::valueOf(dmCount)  + "|-";
-        obsvRoom->broadcastMessage(new ChatRoomMessage(target->getFirstName(), target->getZoneServer()->getGalaxyName(), message, obsvRoom->getRoomID(), false));
-	}
-
     static void PrintDMMessageToDiscord(CreatureObject* target, const UnicodeString& message) {
         ChatManager* chatManager = target->getZoneServer()->getChatManager();
         ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.global");
