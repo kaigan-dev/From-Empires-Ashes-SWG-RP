@@ -514,7 +514,8 @@ public:
 
 		creature->getPlayerObject()->addSuiBox(sui);
 		creature->sendMessage(sui->generateMessage());
-		ChatManager::PrintPlayerCountToDiscord(creature);
+		ChatManager* chatManager = ServerCore::getZoneServer()->getChatManager();
+		chatManager->PrintPlayerCountToDiscord(creature);
 	}
 
 	static int GetChatTypeID(String chatType) {
