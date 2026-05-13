@@ -788,7 +788,11 @@ void ChatManagerImplementation::handleChatEnterRoomById(CreatureObject* player, 
 		room->addPlayer(player);
 		room->broadcastMessage(coer);
 	}
-	BorChat::PrintPlayerCountToDiscord(player);
+
+	ChatRoom* ooc = getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
+	if (roomID == ooc->getRoomID()) {
+		BorChat::PrintPlayerCountToDiscord(player);
+	}
 }
 
 void ChatManagerImplementation::handleSocialInternalMessage(CreatureObject* sender, const UnicodeString& arguments) {
@@ -2193,7 +2197,11 @@ void ChatManagerImplementation::handleChatLeaveRoom(CreatureObject* player, cons
 
 	Locker clocker(room, player);
 	room->removePlayer(player);
-	BorChat::PrintPlayerCountToDiscord(player);
+	
+	ChatRoom* ooc = getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
+	if (roomID == ooc->getRoomID()) {
+		BorChat::PrintPlayerCountToDiscord(player);
+	}
 }
 
 void ChatManagerImplementation::handleChatQueryRoom(CreatureObject* player, const String& roomPath, int requestID) {
