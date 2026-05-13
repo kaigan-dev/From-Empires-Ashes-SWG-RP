@@ -22,6 +22,7 @@
 #include "server/zone/managers/player/PlayerManager.h"
 #include "server/zone/managers/player/PlayerMap.h"
 #include "server/chat/ChatManager.h"
+#include "server/zone/borrie/BorChat.h"
 
 #include "server/login/account/Account.h"
 
@@ -514,8 +515,7 @@ public:
 
 		creature->getPlayerObject()->addSuiBox(sui);
 		creature->sendMessage(sui->generateMessage());
-		ChatManager* chatManager = ServerCore::getZoneServer()->getChatManager();
-		chatManager->PrintPlayerCountToDiscord(creature);
+		BorChat::PrintPlayerCountToDiscord(creature);
 	}
 
 	static int GetChatTypeID(String chatType) {
