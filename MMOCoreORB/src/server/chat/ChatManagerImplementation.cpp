@@ -2198,10 +2198,7 @@ void ChatManagerImplementation::handleChatLeaveRoom(CreatureObject* player, cons
 	Locker clocker(room, player);
 	room->removePlayer(player);
 	
-	Reference<ChatRoom*> ooc = getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
-	if (room == ooc) {
-		BorChat::PrintPlayerCountToDiscord(player);
-	}
+	BorChat::PrintPlayerCountToDiscord(player);
 }
 
 void ChatManagerImplementation::handleChatQueryRoom(CreatureObject* player, const String& roomPath, int requestID) {
