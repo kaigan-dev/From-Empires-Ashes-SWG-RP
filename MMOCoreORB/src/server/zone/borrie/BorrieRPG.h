@@ -515,7 +515,6 @@ public:
 
 		creature->getPlayerObject()->addSuiBox(sui);
 		creature->sendMessage(sui->generateMessage());
-		BorChat::PrintPlayerCountToDiscord(creature);
 	}
 
 	static int GetChatTypeID(String chatType) {

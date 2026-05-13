@@ -9,7 +9,7 @@
 #define SETDMSTATUSSUICALLBACK_H_
 
 #include "server/zone/objects/player/sui/SuiCallback.h"
-
+#include "server/zone/borrie/BorChat.h"
 
 class SetDMStatusSuiCallback : public SuiCallback {
 public:
@@ -29,7 +29,7 @@ public:
 
         player->setStoredString("rp_dm_status", status);
         player->sendSystemMessage("Your DM status has been set! Message: " + status);
-		
+		BorChat::PrintPlayerCountToDiscord(player);
 	}
 };
 

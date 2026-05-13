@@ -12,6 +12,7 @@
 #include "server/zone/borrie/BorUtil.h"
 #include "server/zone/borrie/BorDev.h"
 #include "server/zone/borrie/BorIO.h"
+#include "server/zone/borrie/BorChat.h"
 
 class DmCommand : public QueueCommand {
 
@@ -290,6 +291,7 @@ public:
 						if(subCommand == "clear") {
 							creature->deleteStoredString("rp_dm_status");
 							creature->sendSystemMessage("You've cleared your DM Status.");
+							BorChat::PrintPlayerCountToDiscord(creature);
 						}
 					} else {
 						BorrieRPG::SetDMStatus(creature);
