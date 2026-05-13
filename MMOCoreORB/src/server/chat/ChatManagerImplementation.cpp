@@ -789,7 +789,7 @@ void ChatManagerImplementation::handleChatEnterRoomById(CreatureObject* player, 
 		room->broadcastMessage(coer);
 	}
 
-	ChatRoom* ooc = getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
+	Reference<ChatRoom*> ooc = getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
 	if (roomID == ooc->getRoomID()) {
 		BorChat::PrintPlayerCountToDiscord(player);
 	}
@@ -2198,8 +2198,8 @@ void ChatManagerImplementation::handleChatLeaveRoom(CreatureObject* player, cons
 	Locker clocker(room, player);
 	room->removePlayer(player);
 	
-	ChatRoom* ooc = getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
-	if (roomID == ooc->getRoomID()) {
+	Reference<ChatRoom*> ooc = getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
+	if (room == ooc) {
 		BorChat::PrintPlayerCountToDiscord(player);
 	}
 }
