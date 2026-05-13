@@ -514,26 +514,8 @@ public:
 
 		creature->getPlayerObject()->addSuiBox(sui);
 		creature->sendMessage(sui->generateMessage());
+		PrintPlayerCountToDiscord(creature);
 	}
-
-	/*
-	static void ReportOnlineCount(CreatureObject* creature) {
-		StringBuffer fetchStatement;
-		fetchStatement << "SELECT COUNT(*) FROM rp_characters WHERE isonline = '1'";
-		UniqueReference<ResultSet*> fetchedResults(ServerDatabase::instance()->executeQuery(fetchStatement.toString()));
-		if (fetchedResults == nullptr) {
-			creature->sendSystemMessage("An error occured. Could not get online count. (ERROR:1)");
-		} else {
-			if (fetchedResults->next()) {
-				String count = fetchedResults->getString(0);
-				creature->sendSystemMessage("Current Online Players: " + count + ".");
-				// TODO: Want to retrieve more information and inform them of statuses.
-			} else {
-				creature->sendSystemMessage("An error occured. Could not get online count. (ERROR:2)");
-			}
-		}
-	} 
-	*/
 
 	static int GetChatTypeID(String chatType) {
 		if (chatType == "say")
