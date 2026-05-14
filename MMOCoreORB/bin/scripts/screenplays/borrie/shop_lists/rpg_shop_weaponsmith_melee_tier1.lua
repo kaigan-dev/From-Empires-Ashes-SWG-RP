@@ -29,7 +29,7 @@ shop_weapons_melee = {
 			name = "Polearms",
 			minItems = 1,
 			items = {
-				{template = "object/weapon/roleplay/melee/polearm/heavy_vibrolance.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/weapon/roleplay/melee/polearm/heavy_vibrolance.iff", cost = 800, max = 10, chance = 100, overridePrice = true },   --Rare, should not be on vendors.
 				{template = "object/weapon/roleplay/melee/polearm/metal_staff.iff", cost = 150, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/polearm/reinforced_staff.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/polearm/shock_lance.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
