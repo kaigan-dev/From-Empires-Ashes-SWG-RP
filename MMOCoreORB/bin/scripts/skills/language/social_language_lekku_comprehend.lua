@@ -18,7 +18,7 @@ social_language_lekku_comprehend = {
 	apprenticeshipsRequired = 0,
 	statsRequired = {},
 	speciesRequired = {
-		"twilek"
+		--"twilek"
 	},
 	jediStateRequired = 0,
 	skillAbility = {},
