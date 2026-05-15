@@ -256,9 +256,9 @@ public:
              }
         } 
 
-        int damage1 = std::floor(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
-        int damage2 = std::floor(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
-        int damage3 = std::floor(GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2);
+        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
+        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
+        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
