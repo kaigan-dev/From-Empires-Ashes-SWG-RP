@@ -171,7 +171,7 @@ nameManagerWookiee = {
 		{ "v", true, true, true, 1 },
 		{ "vv", false, true, true, 1 },
 		{ "w", true, true, true, 1 },
-		{ "wh", true, true, false, 1 },
+		--{ "wh", true, true, false, 1 },
 		{ "wr", true, true, false, 1 },
 		{ "ww", false, true, true, 1 },
 		{ "x", true, true, true, 1 },
