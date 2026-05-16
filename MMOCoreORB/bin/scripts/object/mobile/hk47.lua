@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
  
 
-object_mobile_hk47 = object_mobile_shared_hk47:new {
+object_mobile_hk47 = object_mobile_som_shared_hk47:new {
 
 }
 
