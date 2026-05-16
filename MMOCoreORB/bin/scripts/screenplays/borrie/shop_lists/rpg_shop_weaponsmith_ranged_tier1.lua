@@ -41,7 +41,7 @@ shop_weapons_ranged = {
 			name = "Rifles",
 			minItems = 1,
 			items = {
-				{template = "object/weapon/roleplay/ranged/rifle/a280_blaster_rifle.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/weapon/roleplay/ranged/rifle/a280_blaster_rifle.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/rifle/bowcaster.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/rifle/dlt19_heavy_blaster_rifle.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/ranged/rifle/ion_rifle.iff", cost = 900, max = 10, chance = 100, overridePrice = true },
