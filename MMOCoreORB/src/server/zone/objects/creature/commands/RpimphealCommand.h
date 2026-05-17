@@ -62,7 +62,6 @@ public:
 				TangibleObject* tangibleObject = dynamic_cast<TangibleObject*>(object.get());
 
 				if (tangibleObject != nullptr && tangibleObject->isAttackableBy(creature)) {
-				//if (tangibleObject != nullptr) {
 					object = creature;
 				} else {
 					creature->sendSystemMessage("@healing_response:healing_response_62"); //Target must be a player or a creature pet in order to heal damage.
@@ -78,11 +77,14 @@ public:
 		Locker clocker(targetCreature, creature);
 
 		//if ((targetCreature->isAiAgent() && !targetCreature->isPet()) || targetCreature->isDroidObject() || targetCreature->isVehicleObject() || targetCreature->isDead() || targetCreature->isRidingMount() || targetCreature->isAttackableBy(creature))
+			//This originally excluded creatures that are not pets. Removed. Cagnaith 5/17/26
 		if (targetCreature->isDroidObject() || targetCreature->isVehicleObject() || targetCreature->isDead() || targetCreature->isRidingMount() || targetCreature->isAttackableBy(creature))
 			targetCreature = creature;
 
-		if(!checkDistance(creature, targetCreature, 7))
+		if(!checkDistance(creature, targetCreature, 7)) {
+			creature->sendSystemMessage("Your target is too far away to heal.");
 			return TOOFAR;
+		}
 
 		if (creature != targetCreature && !CollisionManager::checkLineOfSight(creature, targetCreature)) {
 			creature->sendSystemMessage("@healing:no_line_of_sight"); // You cannot see your target.
