@@ -276,9 +276,11 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 	self:broadcastToPassengers(pShip, message)	
 	
 	--Try to land the ship at that location if possible.
+	--[[
 	if(selectedLandingSpot[9] == true) then
 		CreatureObject(pPlayer):sendSystemMessage("Debug: Point allows landing.")
 	end
+	--]]
 	
 end
 
@@ -408,7 +410,7 @@ function BorRpShip:shipLandedEmote(pShip)
 	if(SceneObject(pShip):isBuildingObject() == false) then
 		spatialMoodChat(pShip, "completes its landing sequence.", 0, 38)
 	else
-		spatialMoodChat(pShip, "completes its landing sequence, and drops down its boarding ramp.", 0, 38)
+		spatialMoodChat(pShip, "completes its landing sequence, and drops down its boarding ramp.", 0, 38)  --We ne ver hit this, and no one has ever cared.
 	end
 end
 
