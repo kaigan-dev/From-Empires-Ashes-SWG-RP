@@ -15,7 +15,7 @@ object_weapon_roleplay_ranged_pistol_de10_blaster_pistol = object_weapon_ranged_
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 4, --Type of Die used in Damage
+	maxDamage = 5, --Type of Die used in Damage
 	bonusDamage = 5,
 
 	pointBlankRange = 4,
