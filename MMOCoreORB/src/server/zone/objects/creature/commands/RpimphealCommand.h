@@ -61,7 +61,8 @@ public:
 			if (!object->isCreatureObject()) {
 				TangibleObject* tangibleObject = dynamic_cast<TangibleObject*>(object.get());
 
-				if (tangibleObject != nullptr && tangibleObject->isAttackableBy(creature)) {
+				//if (tangibleObject != nullptr && tangibleObject->isAttackableBy(creature)) {
+				if (tangibleObject != nullptr) {
 					object = creature;
 				} else {
 					creature->sendSystemMessage("@healing_response:healing_response_62"); //Target must be a player or a creature pet in order to heal damage.
