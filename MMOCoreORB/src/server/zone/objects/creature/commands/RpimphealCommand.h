@@ -61,8 +61,8 @@ public:
 			if (!object->isCreatureObject()) {
 				TangibleObject* tangibleObject = dynamic_cast<TangibleObject*>(object.get());
 
-				//if (tangibleObject != nullptr && tangibleObject->isAttackableBy(creature)) {
-				if (tangibleObject != nullptr) {
+				if (tangibleObject != nullptr && tangibleObject->isAttackableBy(creature)) {
+				//if (tangibleObject != nullptr) {
 					object = creature;
 				} else {
 					creature->sendSystemMessage("@healing_response:healing_response_62"); //Target must be a player or a creature pet in order to heal damage.
@@ -78,7 +78,7 @@ public:
 		Locker clocker(targetCreature, creature);
 
 		//if ((targetCreature->isAiAgent() && !targetCreature->isPet()) || targetCreature->isDroidObject() || targetCreature->isVehicleObject() || targetCreature->isDead() || targetCreature->isRidingMount() || targetCreature->isAttackableBy(creature))
-		if ((targetCreature->isAiAgent() && !targetCreature->isPet()) || targetCreature->isDroidObject() || targetCreature->isVehicleObject() || targetCreature->isDead() || targetCreature->isRidingMount())
+		if (targetCreature->isDroidObject() || targetCreature->isVehicleObject() || targetCreature->isDead() || targetCreature->isRidingMount() || targetCreature->isAttackableBy(creature))
 			targetCreature = creature;
 
 		if(!checkDistance(creature, targetCreature, 7))
