@@ -116,7 +116,9 @@ function BorRpShip:exitShip(pPlayer)
 	--Get Ship's last known landing spot
 	local shipLandingSpot = SceneObject(pShip):getStoredString("landing_spot")
 	if(shipLandingSpot == "") then
-		shipLandingSpot = "eisley_spaceport"
+		--shipLandingSpot = "eisley_spaceport"
+		CreatureObject(pPlayer):sendSystemMessage("You cannot disembark while in space.")
+		return
 	end
 	--Teleport them there. 
 	local point = BorPlanetManager.landing_points[shipLandingSpot]
