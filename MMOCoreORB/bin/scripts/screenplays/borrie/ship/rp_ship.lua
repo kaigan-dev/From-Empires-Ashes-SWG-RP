@@ -363,6 +363,8 @@ function BorRpShip:landShip(pObject, pPlayer)
 		return 0
 	end
 	
+	CreatureObject(pPlayer):sendSystemMessage("Debug: ship object is: " .. tostring(pObject))
+
 	--TODO: Make this template dynamic based on ship template
 	local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
 	local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
