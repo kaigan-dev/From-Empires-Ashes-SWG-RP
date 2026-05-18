@@ -392,6 +392,9 @@ function BorRpShip:landShip(pObject, pPlayer)
 	
 	setStoredObject(pShip, pPoint, "landing_point_object")
 	
+
+	CreatureObject(pPlayer):sendSystemMessage("Debug: spawnRoleplayMobile running with shipNpcTemplate: " .. tostring(shipNpcTemplate))
+	
 	--Spawn Ship
 	local pNpc = spawnRoleplayMobile(zoneName, "rp_base_npc", 1, posX, posZ, posY, angle, 0, shipNpcTemplate, "default", "default", "default")
 	
