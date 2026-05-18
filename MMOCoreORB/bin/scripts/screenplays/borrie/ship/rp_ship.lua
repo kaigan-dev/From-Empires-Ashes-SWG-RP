@@ -338,10 +338,12 @@ function BorRpShip:renameShipCallback(pPlayer, pSui, eventIndex, newName)
 end
 
 function BorRpShip:landShip(pObject, pPlayer)
+	--[[ TEMPORARILY disabled for testing.
 	if(SceneObject(pPlayer):getParent() ~= nil) then
 		CreatureObject(pPlayer):sendSystemMessage("You cannot do this inside a structure.")
 		return 0
 	end
+	--]]
 	
 	local pShip = getShipFromControlDevice(pObject)
 	
