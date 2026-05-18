@@ -248,6 +248,7 @@ end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
 	local pCell = SceneObject(pPlayer):getParent()
+	local pUI = SceneObject(pSui):getParent()
 	
 	if(pCell == nil) then
 		return 0
@@ -271,13 +272,14 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 		shipName = "The Ship"
 	end
 
+	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters SUI: " .. tostring(pUI))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Ship: " .. tostring(pShip))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters zone: " .. tostring(planetObject.landing_points[rowIndex + 1][3]))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters X: " .. tostring(planetObject.landing_points[rowIndex + 1][4]))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Z: " .. tostring(planetObject.landing_points[rowIndex + 1][5]))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Y: " .. tostring(planetObject.landing_points[rowIndex + 1][6]))
 
-	BorRpShip:landShipAt(pShip, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
+	BorRpShip:landShipAt(pUI, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
 	--BorRpShip:landShip(pShip, pPlayer)
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
@@ -365,7 +367,8 @@ function BorRpShip:landShip(pObject, pPlayer)
 		return 0
 	end
 	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: ship object is: " .. tostring(pObject))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: pObject is: " .. tostring(pObject))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: pShip is: " .. tostring(pShip))
 
 	--TODO: Make this template dynamic based on ship template
 	--local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
@@ -453,7 +456,8 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 		return 0
 	end
 	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: ship object is: " .. tostring(pObject))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: pObject is: " .. tostring(pObject))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: pShip is: " .. tostring(pShip))
 
 	--TODO: Make this template dynamic based on ship template
 	--local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
