@@ -248,7 +248,8 @@ end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
 	local pCell = SceneObject(pPlayer):getParent()
-	local pUI = SceneObject(pSui):getParent()
+	local pUI = SceneObject(pSui):getUsingObject()
+	local ppUI = SceneObject(pSui):getParent()
 	
 	if(pCell == nil) then
 		return 0
@@ -272,7 +273,8 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 		shipName = "The Ship"
 	end
 
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters SUI: " .. tostring(pUI))
+	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters pUI: " .. tostring(pUI))
+	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters ppUI: " .. tostring(ppUI))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Ship: " .. tostring(pShip))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters zone: " .. tostring(planetObject.landing_points[rowIndex + 1][3]))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters X: " .. tostring(planetObject.landing_points[rowIndex + 1][4]))
