@@ -248,8 +248,8 @@ end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
 	local pCell = SceneObject(pPlayer):getParent()
-	local pUI = SuiListBox(pSui):getUsingObject()
-	local ppUI = SceneObject(pSui):getParent()
+	local pUI = LuaSuiListBox(pSui):getUsingObject()
+	--local ppUI = SceneObject(pSui):getParent()
 	
 	if(pCell == nil) then
 		return 0
