@@ -281,7 +281,7 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Z: " .. tostring(planetObject.landing_points[rowIndex + 1][5]))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Y: " .. tostring(planetObject.landing_points[rowIndex + 1][6]))
 
-	BorRpShip:landShipAt(ppUI, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
+	BorRpShip:landShipAt(pShip, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
 	--BorRpShip:landShip(pShip, pPlayer)
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
@@ -342,12 +342,11 @@ function BorRpShip:renameShipCallback(pPlayer, pSui, eventIndex, newName)
 end
 
 function BorRpShip:landShip(pObject, pPlayer)
-	--[[ TEMPORARILY disabled for testing.
 	if(SceneObject(pPlayer):getParent() ~= nil) then
 		CreatureObject(pPlayer):sendSystemMessage("You cannot do this inside a structure.")
 		return 0
 	end
-	--]]
+
 	
 	local pShip = getShipFromControlDevice(pObject)
 	
@@ -373,8 +372,8 @@ function BorRpShip:landShip(pObject, pPlayer)
 	CreatureObject(pPlayer):sendSystemMessage("Debug: pShip is: " .. tostring(pShip))
 
 	--TODO: Make this template dynamic based on ship template
-	--local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
-	local flatTemplate = "object/building/poi/base/base_poi_small.iff"
+	local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
+	--local flatTemplate = "object/building/poi/base/base_poi_small.iff"
 	local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
 	
 	local posX = SceneObject(pPlayer):getWorldPositionX()
@@ -462,8 +461,8 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	CreatureObject(pPlayer):sendSystemMessage("Debug: pShip is: " .. tostring(pShip))
 
 	--TODO: Make this template dynamic based on ship template
-	--local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
-	local flatTemplate = "object/building/poi/base/base_poi_small.iff"
+	local flatTemplate = SceneObject(pShip):getStoredString("flatteningTemplate")
+	--local flatTemplate = "object/building/poi/base/base_poi_small.iff"
 	--local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
 	local shipNpcTemplate = SceneObject(pShip):getStoredString("appearanceMobile")
 	
