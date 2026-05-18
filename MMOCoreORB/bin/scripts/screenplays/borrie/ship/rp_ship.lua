@@ -274,11 +274,11 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Ship: " .. tostring(pShip))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters zone: " .. tostring(planetZone))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters X: " .. tostring(planetObject.landing_points[3]))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Z: " .. tostring(planetObject.landing_points[4]))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Y: " .. tostring(planetObject.landing_points[5]))
+	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters X: " .. tostring(planetObject.landing_points[rowIndex + 1][3]))
+	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Z: " .. tostring(planetObject.landing_points[rowIndex + 1][4]))
+	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Y: " .. tostring(planetObject.landing_points[rowIndex + 1][5]))
 
-	BorRpShip:landShipAt(pShip, pPlayer, planetZone, planetObject.landing_points[3], planetObject.landing_points[4], planetObject.landing_points[5])
+	BorRpShip:landShipAt(pShip, pPlayer, planetZone, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5])
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
 	
