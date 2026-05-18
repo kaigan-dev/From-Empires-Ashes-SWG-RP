@@ -270,7 +270,9 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 	if(shipName == "") then
 		shipName = "The Ship"
 	end
-	
+
+	BorRpShip:landShipAt(planetObject, pPlayer, planetObject.landing_points[3], planetObject.landing_points[4], planetObject.landing_points[5])
+
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
 	
 	self:broadcastToPassengers(pShip, message)	
@@ -401,6 +403,85 @@ function BorRpShip:landShip(pObject, pPlayer)
 	createEvent(29 * 1000, "BorRpShip", "notifyPointLanded", pPoint, "")
 	createEvent(29 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
 end
+
+
+function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, landY)
+	--[[   The player's location is not relevant.
+	if(SceneObject(pPlayer):getParent() ~= nil) then
+		CreatureObject(pPlayer):sendSystemMessage("You cannot do this inside a structure.")
+		return 0
+	end
+	--]]
+	
+	local pShip = getShipFromControlDevice(pObject)
+	
+	if(pShip == nil) then
+		--CreatureObject(pPlayer):sendSystemMessage("Could not find the ship! Aborting landing sequence...")
+		--return 0
+		pShip = pObject
+	end
+	
+	SceneObject(pShip):deleteStoredString("beacon_code")
+	
+	local shipID = SceneObject(pShip):getObjectID()
+	local currentLandingSpot = getStoredObject(pShip, "landing_point_object")
+	
+	local eventID = readData(shipID .. ":landShip:shipStatus")
+	
+	if(eventID ~= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("This ship is currently landed elsewhere. Take off to land somewhere else.")
+		return 0
+	end
+	
+	--TODO: Make this template dynamic based on ship template
+	local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
+	local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
+	
+	local posX = landX
+	local posY = landY
+	local posZ = landZ
+	local angle = 0
+	local zoneName = landZoneName
+	
+	local pPoint = spawnBuilding(pPlayer, flatTemplate, posX, posY, 0)
+	
+	if(pPoint == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Could not find the landing point object. Aborting landing sequence...")
+		return 0
+	end
+	
+	setStoredObject(pShip, pPoint, "landing_point_object")
+	
+	--Spawn Ship
+	local pNpc = spawnRoleplayMobile(zoneName, "rp_base_npc", 1, posX, posZ, posY, angle, 0, shipNpcTemplate, "default", "default", "default")
+	
+	if(pNpc == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Could not find the ship object for landing animation. Aborting landing sequence...")
+		SceneObject(pPoint):destroyObjectFromWorld()
+		SceneObject(pPoint):destroyObjectFromDatabase()
+		return 0
+	end
+	
+	setStoredObject(pPoint, pNpc, "appearance")
+	setStoredObject(pPoint, pShip, "connected_ship")
+	
+	local shipName = SceneObject(pShip):getCustomObjectName()
+	
+	if(shipName == "" or shipName == nil) then
+		shipName = "ship"
+	end
+	
+	SceneObject(pNpc):setCustomObjectName(shipName)
+	CreatureObject(pNpc):setPosture(PRONE)
+	createEvent(2 * 1000, "BorRpShip", "startLandAnimation", pNpc, "")
+	writeData(shipID .. ":landShip:shipStatus", 2) -- Landing
+	CreatureObject(pPlayer):sendSystemMessage("The " .. shipName .. " is now landing...")
+	createEvent(29 * 1000, "BorRpShip", "notifyShipLanded", pShip, "") --Time it takes for the player transport to land.
+	createEvent(29 * 1000, "BorRpShip", "notifyPointLanded", pPoint, "")
+	createEvent(29 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
+end
+
+
 
 function BorRpShip:startLandAnimation(pShip)
 	CreatureObject(pShip):setPosture(UPRIGHT)
