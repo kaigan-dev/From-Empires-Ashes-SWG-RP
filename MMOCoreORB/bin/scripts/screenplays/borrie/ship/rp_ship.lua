@@ -394,7 +394,7 @@ function BorRpShip:landShip(pObject, pPlayer)
 	
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: spawnRoleplayMobile running with shipNpcTemplate: " .. tostring(shipNpcTemplate))
-	
+
 	--Spawn Ship
 	local pNpc = spawnRoleplayMobile(zoneName, "rp_base_npc", 1, posX, posZ, posY, angle, 0, shipNpcTemplate, "default", "default", "default")
 	
@@ -453,6 +453,8 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 		return 0
 	end
 	
+	CreatureObject(pPlayer):sendSystemMessage("Debug: ship object is: " .. tostring(pObject))
+
 	--TODO: Make this template dynamic based on ship template
 	--local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
 	local flatTemplate = "object/building/poi/base/base_poi_small.iff"
