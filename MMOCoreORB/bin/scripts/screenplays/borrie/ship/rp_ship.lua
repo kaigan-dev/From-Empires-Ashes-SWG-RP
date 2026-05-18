@@ -368,7 +368,8 @@ function BorRpShip:landShip(pObject, pPlayer)
 	CreatureObject(pPlayer):sendSystemMessage("Debug: ship object is: " .. tostring(pObject))
 
 	--TODO: Make this template dynamic based on ship template
-	local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
+	--local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
+	local flatTemplate = "object/building/poi/base/base_poi_small.iff"
 	local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
 	
 	local posX = SceneObject(pPlayer):getWorldPositionX()
@@ -450,7 +451,8 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	end
 	
 	--TODO: Make this template dynamic based on ship template
-	local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
+	--local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
+	local flatTemplate = "object/building/poi/base/base_poi_small.iff"
 	local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
 	
 	local posX = landX
