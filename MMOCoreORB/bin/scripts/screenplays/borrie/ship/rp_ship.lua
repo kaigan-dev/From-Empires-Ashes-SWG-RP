@@ -461,10 +461,7 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	local angle = 0
 	local zoneName = landZoneName
 	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with pPlayer: " .. tostring(pPlayer))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with flatTemplate: " .. tostring(flatTemplate))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with posX: " .. tostring(posX))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with posY: " .. tostring(posY))
+
 
 	local pPoint = spawnBuilding(pPlayer, flatTemplate, posX, posY, 0)
 	
@@ -475,6 +472,10 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	
 	setStoredObject(pShip, pPoint, "landing_point_object")
 	
+	CreatureObject(pPlayer):sendSystemMessage("Debug: spawnRoleplayMobile running with zoneName: " .. tostring(zoneName))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: spawnRoleplayMobile running with shipNpcTemplate: " .. tostring(shipNpcTemplate))
+		
+
 	--Spawn Ship
 	local pNpc = spawnRoleplayMobile(zoneName, "rp_base_npc", 1, posX, posZ, posY, angle, 0, shipNpcTemplate, "default", "default", "default")
 	
