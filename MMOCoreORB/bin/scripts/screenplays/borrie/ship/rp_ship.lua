@@ -243,12 +243,12 @@ function BorRpShip:promptLandShipMenu(pPlayer, pObject)
 	end
 	
 	local suiManager = LuaSuiManager()
-	suiManager:sendListBoxAndOption(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentLanding, 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
+	suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentLanding, 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
 end
 
-function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex, pObject) 
+function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
 	local pCell = SceneObject(pPlayer):getParent()
-	local actualShip = SceneObject(pObject):getParent()
+	local pUI = SceneObject(pSui):getParent()
 	
 	if(pCell == nil) then
 		return 0
@@ -279,7 +279,7 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex, pObject
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Z: " .. tostring(planetObject.landing_points[rowIndex + 1][5]))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Y: " .. tostring(planetObject.landing_points[rowIndex + 1][6]))
 
-	BorRpShip:landShipAt(actualShip, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
+	BorRpShip:landShipAt(pUI, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
 	--BorRpShip:landShip(pShip, pPlayer)
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."

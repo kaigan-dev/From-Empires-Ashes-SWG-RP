@@ -814,68 +814,6 @@ void SuiManager::sendListBox(SceneObject* usingObject, SceneObject* player, cons
 	}
 }
 
-
-void SuiManager::sendListBoxAndOption(SceneObject* usingObject, SceneObject* player, const String& title, const String& text, const uint8& numOfButtons, const String& cancelButton, const String& otherButton, const String& okButton, LuaObject& options, const String& screenplay, const String& callback, const float& forceCloseDist) {
-	if (usingObject == nullptr)
-		return;
-
-	if (player == nullptr || !player->isCreatureObject())
-		return;
-
-	CreatureObject* creature = cast<CreatureObject*>(player);
-
-	PlayerObject* playerObject = creature->getPlayerObject();
-
-	if (playerObject != nullptr) {
-
-		ManagedReference<SuiListBox*> box = nullptr;
-
-		switch (numOfButtons) {
-		case 1:
-			box = new SuiListBox(creature, 0x00, SuiListBox::HANDLESINGLEBUTTON);
-			box->setCancelButton(false, "");
-			box->setOtherButton(false, "");
-			box->setOkButton(true, okButton);
-			break;
-		case 2:
-			box = new SuiListBox(creature, 0x00, SuiListBox::HANDLETWOBUTTON);
-			box->setCancelButton(true, cancelButton);
-			box->setOtherButton(false, "");
-			box->setOkButton(true, okButton);
-			break;
-		case 3:
-			box = new SuiListBox(creature, 0x00, SuiListBox::HANDLETHREEBUTTON);
-			box->setCancelButton(true, cancelButton);
-			box->setOtherButton(true, otherButton);
-			box->setOkButton(true, okButton);
-			break;
-		default:
-			return;
-			break;
-		}
-
-		if (options.isValidTable()) {
-			for (int i = 1; i <= options.getTableSize(); ++i) {
-				LuaObject table = options.getObjectAt(i);
-				box->addMenuItem(table.getStringAt(1), table.getLongAt(2));
-				table.pop();
-			}
-
-			options.pop();
-		}
-
-		box->setCallback(new LuaSuiCallback(creature->getZoneServer(), screenplay, callback, usingObject));
-		box->setPromptTitle(title);
-		box->setPromptText(text);
-		box->setUsingObject(usingObject);
-		box->setForceCloseDistance(forceCloseDist);
-
-		creature->sendMessage(box->generateMessage());
-		playerObject->addSuiBox(box);
-	}
-}
-
-
 void SuiManager::sendTransferBox(SceneObject* usingObject, SceneObject* player, const String& title, const String& text, LuaObject& optionsAddFrom, LuaObject& optionsAddTo, const String& screenplay, const String& callback) {
 	if (usingObject == nullptr)
 		return;
