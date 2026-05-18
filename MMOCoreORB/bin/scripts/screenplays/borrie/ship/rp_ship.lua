@@ -271,7 +271,7 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 		shipName = "The Ship"
 	end
 
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters")
+	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Ship: " .. tostring(pShip) .. ", zone: " .. toString(planetObject) .. ", X: " .. planetObject.landing_points[3] .. "Z: " .. planetObject.landing_points[4] .. ", Y: " .. planetObject.landing_points[5])
 
 	BorRpShip:landShipAt(pShip, pPlayer, planetObject, planetObject.landing_points[3], planetObject.landing_points[4], planetObject.landing_points[5])
 
@@ -408,7 +408,7 @@ end
 
 
 function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, landY)
-	--[[   The player's location is not relevant.
+	--[[   The player's location is not relevant when we're spawning the ship building elsewhere.
 	if(SceneObject(pPlayer):getParent() ~= nil) then
 		CreatureObject(pPlayer):sendSystemMessage("You cannot do this inside a structure.")
 		return 0
