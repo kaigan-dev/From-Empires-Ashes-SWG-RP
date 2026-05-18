@@ -271,7 +271,7 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 		shipName = "The Ship"
 	end
 
-	BorRpShip:landShipAt(planetObject, pPlayer, planetObject.landing_points[3], planetObject.landing_points[4], planetObject.landing_points[5])
+	BorRpShip:landShipAt(planetObject, pPlayer, currentPlanet, planetObject.landing_points[3], planetObject.landing_points[4], planetObject.landing_points[5])
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
 	
