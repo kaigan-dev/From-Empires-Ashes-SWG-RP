@@ -2229,7 +2229,7 @@ int DirectorManager::spawnBuildingInZone(lua_State* L) {
 
 	float x, y, angle;
 	uint64 parentID;
-	String script, zoneID;
+	String script, zoneID, zoneName;
 
 	zoneName = lua_tostring(L, -1);
 	angle = lua_tointeger(L, -2);
