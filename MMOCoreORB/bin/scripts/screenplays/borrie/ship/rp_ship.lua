@@ -273,6 +273,9 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 		shipName = "The Ship"
 	end
 
+	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pShip during landingCallback: " .. tostring(SceneObject(pShip):getStoredString("flatteningTemplate")))
+	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pShip during landingCallback: " .. tostring(SceneObject(pShip):getStoredString("appearanceMobile")))
+
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters pUI: " .. tostring(pUI))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters ppUI: " .. tostring(ppUI))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Ship: " .. tostring(pShip))
@@ -463,6 +466,11 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	
 	CreatureObject(pPlayer):sendSystemMessage("Debug: pObject is: " .. tostring(pObject))
 	CreatureObject(pPlayer):sendSystemMessage("Debug: pShip is: " .. tostring(pShip))
+
+	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pShip during landShipAt: " .. tostring(SceneObject(pShip):getStoredString("flatteningTemplate")))
+	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pShip during landShipAt: " .. tostring(SceneObject(pShip):getStoredString("appearanceMobile")))
+	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pObject during landShipAt: " .. tostring(pObject(pShip):getStoredString("flatteningTemplate")))
+	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pObject during landShipAt: " .. tostring(pObject(pShip):getStoredString("appearanceMobile")))
 
 	--TODO: Make this template dynamic based on ship template
 	local flatTemplate = SceneObject(pShip):getStoredString("flatteningTemplate")
