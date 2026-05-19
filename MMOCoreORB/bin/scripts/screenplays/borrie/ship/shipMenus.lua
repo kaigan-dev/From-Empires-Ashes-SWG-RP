@@ -82,6 +82,15 @@ function RpShipControlDeviceMenuComponent:fillObjectMenuResponse(pSceneObject, p
 	if(pShip == nil) then
 		pShip = pSceneObject
 	end
+
+	local fTemplate = tostring(SceneObject(pSceneObject):getStoredString("flatteningTemplate"))
+	local aMobile = tostring(SceneObject(pSceneObject):getStoredString("appearanceMobile"))
+
+	local fTemplate = tostring(SceneObject(pSceneObject):getStoredString("flatteningTemplate"))
+	local aMobile = tostring(SceneObject(pSceneObject):getStoredString("appearanceMobile"))
+
+	SceneObject(pShip):setStoredString("flatteningTemplate", fTemplate)
+	SceneObject(pShip):setStoredString("appearanceMobile", aMobile)
 	
 	local shipID = SceneObject(pShip):getObjectID()
 	
