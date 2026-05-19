@@ -472,7 +472,10 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	local angle = 0
 	local zoneName = landZoneName
 	
-
+	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with pPlayer: " .. tostring(pPlayer))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with flatTemplate: " .. tostring(flatTemplate))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with posX: " .. tostring(posX))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with posY: " .. tostring(posY))
 
 	local pPoint = spawnBuilding(pPlayer, flatTemplate, posX, posY, 0)
 	
