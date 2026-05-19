@@ -84,8 +84,8 @@ function RpShipControlDeviceMenuComponent:fillObjectMenuResponse(pSceneObject, p
 	end
 
 	CreatureObject(pPlayer):sendSystemMessage("Debug: Populating pShip " .. tostring(pShip) .. "flatteningTemplate and appearanceMobile with values " .. tostring(SceneObject(pSceneObject):getStoredString("flatteningTemplate")) .. " and " .. tostring(SceneObject(pSceneObject):getStoredString("appearanceMobile")))
-	SceneObject(pShip):setStoredString("flatteningTemplate", SceneObject(pSceneObject):getStoredString("flatteningTemplate"))
-	SceneObject(pShip):setStoredString("appearanceMobile", SceneObject(pSceneObject):getStoredString("appearanceMobile"))
+	SceneObject(pShip):setStoredString("flatteningTemplate", tostring(SceneObject(pSceneObject):getStoredString("flatteningTemplate")))
+	SceneObject(pShip):setStoredString("appearanceMobile", tostring(SceneObject(pSceneObject):getStoredString("appearanceMobile")))
 
 	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pShip during DeviceMenu update: " .. tostring(SceneObject(pShip):getStoredString("flatteningTemplate")))
 	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pShip during DeviceMenu update: " .. tostring(SceneObject(pShip):getStoredString("appearanceMobile")))
