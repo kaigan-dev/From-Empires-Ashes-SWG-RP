@@ -281,8 +281,12 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Z: " .. tostring(planetObject.landing_points[rowIndex + 1][5]))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Y: " .. tostring(planetObject.landing_points[rowIndex + 1][6]))
 
+	CreatureObject(pPlayer):sendSystemMessage("Landing attempt 1")
 	BorRpShip:landShipAt(pShip, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
 	--BorRpShip:landShip(pShip, pPlayer)
+	CreatureObject(pPlayer):sendSystemMessage("Landing attempt 2")
+	BorRpShip:landShipAt(ppUI, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
+	CreatureObject(pPlayer):sendSystemMessage("Landing has been attempted twice.")
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
 	
