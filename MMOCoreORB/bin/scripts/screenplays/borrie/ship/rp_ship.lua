@@ -284,12 +284,12 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Z: " .. tostring(planetObject.landing_points[rowIndex + 1][5]))
 	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Y: " .. tostring(planetObject.landing_points[rowIndex + 1][6]))
 
-	CreatureObject(pPlayer):sendSystemMessage("Landing attempt 1")
+	--CreatureObject(pPlayer):sendSystemMessage("Landing attempt 1")
 	BorRpShip:landShipAt(pShip, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
 	--BorRpShip:landShip(pShip, pPlayer)
-	CreatureObject(pPlayer):sendSystemMessage("Landing attempt 2")
-	BorRpShip:landShipAt(ppUI, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
-	CreatureObject(pPlayer):sendSystemMessage("Landing has been attempted twice.")
+	--CreatureObject(pPlayer):sendSystemMessage("Landing attempt 2")
+	--BorRpShip:landShipAt(ppUI, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
+	--CreatureObject(pPlayer):sendSystemMessage("Landing has been attempted twice.")
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
 	
@@ -469,8 +469,6 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 
 	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pShip during landShipAt: " .. tostring(SceneObject(pShip):getStoredString("flatteningTemplate")))
 	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pShip during landShipAt: " .. tostring(SceneObject(pShip):getStoredString("appearanceMobile")))
-	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pObject during landShipAt: " .. tostring(pObject(pShip):getStoredString("flatteningTemplate")))
-	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pObject during landShipAt: " .. tostring(pObject(pShip):getStoredString("appearanceMobile")))
 
 	--TODO: Make this template dynamic based on ship template
 	local flatTemplate = SceneObject(pShip):getStoredString("flatteningTemplate")
