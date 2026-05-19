@@ -380,6 +380,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->registerFunction("spawnSceneObject", spawnSceneObject);
 	luaEngine->registerFunction("spawnActiveArea", spawnActiveArea);
 	luaEngine->registerFunction("spawnBuilding", spawnBuilding);
+	luaEngine->registerFunction("spawnBuildingInZone", spawnBuildingInZone);
 	luaEngine->registerFunction("destroyBuilding", destroyBuilding);
 	luaEngine->registerFunction("getSceneObject", getSceneObject);
 	luaEngine->registerFunction("getCreatureObject", getCreatureObject);
@@ -2214,6 +2215,52 @@ int DirectorManager::spawnBuilding(lua_State* L) {
 	}
 	return 1;
 }
+
+
+
+int DirectorManager::spawnBuildingInZone(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 6) {
+		String err = "incorrect number of arguments passed to DirectorManager::spawnBuildingInZone";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	float x, y, angle;
+	uint64 parentID;
+	String script, zoneID;
+
+	zoneName = lua_tostring(L, -1);
+	angle = lua_tointeger(L, -2);
+	y = lua_tonumber(L, -3);
+	x = lua_tonumber(L, -4);
+	script = lua_tostring(L, -5);
+	CreatureObject* creature = (CreatureObject*)lua_touserdata(L, -6);
+
+	SharedStructureObjectTemplate* serverTemplate = dynamic_cast<SharedStructureObjectTemplate*>(TemplateManager::instance()->getTemplate(script.hashCode()));
+
+	Zone* zone = ServerCore::getZoneServer()->getZone(zoneName);
+
+	if (serverTemplate == nullptr) {
+		String err = "Unable to find template for building " + script;
+		printTraceError(L, err);
+		lua_pushnil(L);
+	} else {
+		StructureObject* structure = StructureManager::instance()->placeStructure(creature, zone, script, x, y, 0, 0);
+		if (structure == nullptr) {
+			String err = "Unable to spawn building " + script;
+			printTraceError(L, err);
+			lua_pushnil(L);
+		} else {
+			structure->_setUpdated(true);
+			lua_pushlightuserdata(L, structure);
+		}
+	}
+	return 1;
+}
+
+
 
 int DirectorManager::destroyBuilding(lua_State* L) {
 	int numberOfArguments = lua_gettop(L);
