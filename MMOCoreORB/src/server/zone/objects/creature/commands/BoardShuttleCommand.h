@@ -89,6 +89,7 @@ public:
 				}
 			} else {
 				creature->sendSystemMessage("You can't board this ship right now.");
+				return GENERALERROR;
 			}
 		}
 
