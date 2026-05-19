@@ -86,18 +86,11 @@ function RpShipControlDeviceMenuComponent:fillObjectMenuResponse(pSceneObject, p
 	local fTemplate = tostring(SceneObject(pSceneObject):getStoredString("flatteningTemplate"))
 	local aMobile = tostring(SceneObject(pSceneObject):getStoredString("appearanceMobile"))
 
-	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pSceneObject during DeviceMenu update: " .. tostring(SceneObject(pSceneObject):getStoredString("flatteningTemplate")))
-	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pSceneObject during DeviceMenu update: " .. tostring(SceneObject(pSceneObject):getStoredString("appearanceMobile")))
-
 	local fTemplate = tostring(SceneObject(pSceneObject):getStoredString("flatteningTemplate"))
 	local aMobile = tostring(SceneObject(pSceneObject):getStoredString("appearanceMobile"))
 
-	CreatureObject(pPlayer):sendSystemMessage("Debug: Populating pShip " .. tostring(pShip) .. "flatteningTemplate and appearanceMobile with values " .. fTemplate .. " and " .. aMobile)
 	SceneObject(pShip):setStoredString("flatteningTemplate", fTemplate)
 	SceneObject(pShip):setStoredString("appearanceMobile", aMobile)
-
-	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pShip during DeviceMenu update: " .. tostring(SceneObject(pShip):getStoredString("flatteningTemplate")))
-	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pShip during DeviceMenu update: " .. tostring(SceneObject(pShip):getStoredString("appearanceMobile")))
 	
 	local shipID = SceneObject(pShip):getObjectID()
 	

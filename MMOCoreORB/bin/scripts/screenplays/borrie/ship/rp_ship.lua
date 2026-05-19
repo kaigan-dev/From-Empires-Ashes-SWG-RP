@@ -248,8 +248,6 @@ end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
 	local pCell = SceneObject(pPlayer):getParent()
-	local pUI = LuaSuiListBox(pSui):getUsingObject()
-	local ppUI = SceneObject(pUI):getParent()
 	
 	if(pCell == nil) then
 		return 0
@@ -273,35 +271,11 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 		shipName = "The Ship"
 	end
 
-	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pShip during landingCallback: " .. tostring(SceneObject(pShip):getStoredString("flatteningTemplate")))
-	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pShip during landingCallback: " .. tostring(SceneObject(pShip):getStoredString("appearanceMobile")))
-
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters pUI: " .. tostring(pUI))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters ppUI: " .. tostring(ppUI))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Ship: " .. tostring(pShip))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters zone: " .. tostring(planetObject.landing_points[rowIndex + 1][3]))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters X: " .. tostring(planetObject.landing_points[rowIndex + 1][4]))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Z: " .. tostring(planetObject.landing_points[rowIndex + 1][5]))
-	CreatureObject(pPlayer):sendSystemMessage("Attempting to land with parameters Y: " .. tostring(planetObject.landing_points[rowIndex + 1][6]))
-
-	--CreatureObject(pPlayer):sendSystemMessage("Landing attempt 1")
 	BorRpShip:landShipAt(pShip, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
-	--BorRpShip:landShip(pShip, pPlayer)
-	--CreatureObject(pPlayer):sendSystemMessage("Landing attempt 2")
-	--BorRpShip:landShipAt(ppUI, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
-	--CreatureObject(pPlayer):sendSystemMessage("Landing has been attempted twice.")
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
 	
-	self:broadcastToPassengers(pShip, message)	
-	
-	--Try to land the ship at that location if possible.
-	--[[
-	if(selectedLandingSpot[9] == true) then
-		CreatureObject(pPlayer):sendSystemMessage("Debug: Point allows landing.")
-	end
-	--]]
-	
+	self:broadcastToPassengers(pShip, message)		
 end
 
 function BorRpShip:renameShip(pObject, pPlayer)
@@ -374,13 +348,8 @@ function BorRpShip:landShip(pObject, pPlayer)
 		CreatureObject(pPlayer):sendSystemMessage("This ship is currently landed elsewhere. Take off to land somewhere else.")
 		return 0
 	end
-	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: pObject is: " .. tostring(pObject))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: pShip is: " .. tostring(pShip))
 
-	--TODO: Make this template dynamic based on ship template
 	local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
-	--local flatTemplate = "object/building/poi/base/base_poi_small.iff"
 	local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
 	
 	local posX = SceneObject(pPlayer):getWorldPositionX()
@@ -388,11 +357,6 @@ function BorRpShip:landShip(pObject, pPlayer)
 	local posZ = SceneObject(pPlayer):getWorldPositionZ()
 	local angle = SceneObject(pPlayer):getDirectionAngle()
 	local zoneName = SceneObject(pPlayer):getZoneName()
-	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with pPlayer: " .. tostring(pPlayer))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with flatTemplate: " .. tostring(flatTemplate))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with posX: " .. tostring(posX))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with posY: " .. tostring(posY))
 
 	local pPoint = spawnBuilding(pPlayer, flatTemplate, posX, posY, 0)
 	
@@ -402,9 +366,6 @@ function BorRpShip:landShip(pObject, pPlayer)
 	end
 	
 	setStoredObject(pShip, pPoint, "landing_point_object")
-	
-
-	CreatureObject(pPlayer):sendSystemMessage("Debug: spawnRoleplayMobile running with shipNpcTemplate: " .. tostring(shipNpcTemplate))
 
 	--Spawn Ship
 	local pNpc = spawnRoleplayMobile(zoneName, "rp_base_npc", 1, posX, posZ, posY, angle, 0, shipNpcTemplate, "default", "default", "default")
@@ -433,7 +394,6 @@ function BorRpShip:landShip(pObject, pPlayer)
 	createEvent(29 * 1000, "BorRpShip", "notifyShipLanded", pShip, "") --Time it takes for the player transport to land.
 	createEvent(29 * 1000, "BorRpShip", "notifyPointLanded", pPoint, "")
 	createEvent(29 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
-	createEvent(34 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
 end
 
 
@@ -464,17 +424,8 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 		CreatureObject(pPlayer):sendSystemMessage("This ship is currently landed elsewhere. Take off to land somewhere else.")
 		return 0
 	end
-	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: pObject is: " .. tostring(pObject))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: pShip is: " .. tostring(pShip))
 
-	CreatureObject(pPlayer):sendSystemMessage("Flattening Template on pShip during landShipAt: " .. tostring(SceneObject(pShip):getStoredString("flatteningTemplate")))
-	CreatureObject(pPlayer):sendSystemMessage("Appearance Mobile on pShip during landShipAt: " .. tostring(SceneObject(pShip):getStoredString("appearanceMobile")))
-
-	--TODO: Make this template dynamic based on ship template
 	local flatTemplate = SceneObject(pShip):getStoredString("flatteningTemplate")
-	--local flatTemplate = "object/building/poi/base/base_poi_small.iff"
-	--local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
 	local shipNpcTemplate = SceneObject(pShip):getStoredString("appearanceMobile")
 	
 	local posX = landX
@@ -482,11 +433,6 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	local posZ = landZ
 	local angle = 0
 	local zoneName = landZoneName
-	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with pPlayer: " .. tostring(pPlayer))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with flatTemplate: " .. tostring(flatTemplate))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with posX: " .. tostring(posX))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: SpawnBuilding running with posY: " .. tostring(posY))
 
 	--local pPoint = spawnBuilding(pPlayer, flatTemplate, posX, posY, 0)
 	local pPoint = spawnBuildingInZone(pPlayer, flatTemplate, posX, posY, 0, zoneName)
@@ -496,11 +442,7 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 		return 0
 	end
 	
-	setStoredObject(pShip, pPoint, "landing_point_object")
-	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: spawnRoleplayMobile running with zoneName: " .. tostring(zoneName))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: spawnRoleplayMobile running with shipNpcTemplate: " .. tostring(shipNpcTemplate))
-		
+	setStoredObject(pShip, pPoint, "landing_point_object")		
 
 	--Spawn Ship
 	local pNpc = spawnRoleplayMobile(zoneName, "rp_base_npc", 1, posX, posZ, posY, angle, 0, shipNpcTemplate, "default", "default", "default")
@@ -529,7 +471,6 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	createEvent(29 * 1000, "BorRpShip", "notifyShipLanded", pShip, "") --Time it takes for the player transport to land.
 	createEvent(29 * 1000, "BorRpShip", "notifyPointLanded", pPoint, "")
 	createEvent(29 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
-	createEvent(34 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
 end
 
 
