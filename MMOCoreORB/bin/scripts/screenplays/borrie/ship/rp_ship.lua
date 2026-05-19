@@ -433,6 +433,7 @@ function BorRpShip:landShip(pObject, pPlayer)
 	createEvent(29 * 1000, "BorRpShip", "notifyShipLanded", pShip, "") --Time it takes for the player transport to land.
 	createEvent(29 * 1000, "BorRpShip", "notifyPointLanded", pPoint, "")
 	createEvent(29 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
+	createEvent(34 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
 end
 
 
@@ -522,13 +523,13 @@ function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, land
 	
 	SceneObject(pNpc):setCustomObjectName(shipName)
 	CreatureObject(pNpc):setPosture(PRONE)
-	--createEvent(2 * 1000, "BorRpShip", "startLandAnimation", pNpc, "")
-	createEvent(2 * 1, "BorRpShip", "startLandAnimation", pNpc, "")
+	createEvent(2 * 1000, "BorRpShip", "startLandAnimation", pNpc, "")
 	writeData(shipID .. ":landShip:shipStatus", 2) -- Landing
 	CreatureObject(pPlayer):sendSystemMessage("The " .. shipName .. " is now landing...")
 	createEvent(29 * 1000, "BorRpShip", "notifyShipLanded", pShip, "") --Time it takes for the player transport to land.
 	createEvent(29 * 1000, "BorRpShip", "notifyPointLanded", pPoint, "")
 	createEvent(29 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
+	createEvent(34 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
 end
 
 
