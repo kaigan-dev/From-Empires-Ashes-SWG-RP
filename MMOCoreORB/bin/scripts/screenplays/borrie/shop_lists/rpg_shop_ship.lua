@@ -6,7 +6,7 @@ rpg_shop_general = {
 			name = "Starfighter",
 			minItems = 1,
 			items = {
-				{template = "object/tangible/deed/rp_ship_deed/rp_scyk_deed.iff", cost = 5500, max = 10, chance = 100, overridePrice = true },
+				{template = "object/tangible/deed/rp_ship_deed/rp_scyk_deed.iff", cost = 7500, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/deed/rp_ship_deed/rp_z95_deed.iff", cost = 8000, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/deed/rp_ship_deed/rp_dunelizard_a_deed.iff", cost = 6875, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/deed/rp_ship_deed/rp_dunelizard_b_deed.iff", cost = 6875, max = 10, chance = 100, overridePrice = true },
