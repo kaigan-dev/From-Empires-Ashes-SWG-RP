@@ -1,7 +1,7 @@
 npc_template = {
 
 	randomName = "human",
-	title = "a thug",
+	title = "a crminal footsoldier",
 	baseTemplates = {
 		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female","rp_human_male","rp_human_male",
 		"rp_rodian_male", "rp_rodian_female","rp_rodian_male", "rp_rodian_female",
@@ -18,7 +18,7 @@ npc_template = {
 	},
 
 	skillTemplates = {
-			"thug"
+			"soldier"
 	},
 	
 	
