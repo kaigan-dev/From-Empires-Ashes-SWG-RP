@@ -15,8 +15,8 @@ object_weapon_roleplay_ranged_rifle_ion_rifle = object_weapon_ranged_rifle_share
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 2,
+	maxDamage = 6, --Type of Die used in Damage
+	bonusDamage = 3,
 
 	noPowerAttack = true,
 
