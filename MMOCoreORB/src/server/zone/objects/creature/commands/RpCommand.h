@@ -53,9 +53,9 @@ public:
 				// Intentionally left blank?
 			} else if (command == "copy") {
 				BorrieRPG::copyTarget(creature, object);
-			} //else if (command == "who") {
+			//} else if (command == "who") {
 				//BorrieRPG::ListOnlineCharacters(creature, false);
-			} //else if(command == "planetwho") {
+			//} else if(command == "planetwho") {
 				//BorrieRPG::ShowPlanetPopulations(creature);
 			} else if(command == "dmcall") {
 				if (args.hasMoreTokens()) {
