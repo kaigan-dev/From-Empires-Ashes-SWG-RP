@@ -14,8 +14,8 @@ object_weapon_roleplay_ranged_carbine_firestar_10k = object_weapon_ranged_carbin
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 10, --Type of Die used in Damage
+	minDamage = 2, --Amount of Die used in Damage
+	maxDamage = 6, --Type of Die used in Damage
 	bonusDamage = 1,
 
 	pointBlankRange = 16,

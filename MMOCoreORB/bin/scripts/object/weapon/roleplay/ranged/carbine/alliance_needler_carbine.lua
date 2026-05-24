@@ -14,9 +14,9 @@ object_weapon_roleplay_ranged_carbine_alliance_needler_carbine = object_weapon_r
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 0,
+	minDamage = 2, --Amount of Die used in Damage
+	maxDamage = 4, --Type of Die used in Damage
+	bonusDamage = 1,
 
 	noPowerAttack = true,
 
