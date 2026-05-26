@@ -31,7 +31,8 @@ function RpTatooineWayfarScreenPlay:spawnJunkPiles()
 
 	}
 	RpJunkPile:spawnJunkPiles(self.planet, spawnPoints, true)
-end]]
+end
+--]]
 
 function RpTatooineWayfarScreenPlay:spawnCivilians() 
 	local waypointList = {
