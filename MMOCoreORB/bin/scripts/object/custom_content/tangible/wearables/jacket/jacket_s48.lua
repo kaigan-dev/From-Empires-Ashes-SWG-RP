@@ -1,6 +1,6 @@
 
 object_tangible_wearables_jacket_jacket_s48 = object_tangible_wearables_jacket_shared_jacket_s48:new {
-    objectMenuComponent = "ArmorObjectMenuComponent",
+    --objectMenuComponent = "ArmorObjectMenuComponent",  --This causes the repair command to be visible, which can crash the server if used because the jacket doesn't have a rarity. Cagnaith 5/26/26
     playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
