@@ -1,6 +1,6 @@
 local Logger = require("utils.logger")
 
-RpTatooineMosEisleyScreenPlay = CityScreenPlay:new {
+RpTatooineWayfarScreenPlay = CityScreenPlay:new {
 	numberOfActs = 1,
 
 	screenplayName = "RpTatooineWayfarScreenPlay",
