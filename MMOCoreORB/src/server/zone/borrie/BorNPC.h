@@ -81,26 +81,34 @@ public:
 	static void ToggleAIWalks(CreatureObject* target, CreatureObject* commander) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();
 		Locker alock(agent);
-		if (agent->getCreatureBitmask() & CreatureFlag::TOGGLEWALK) {
-			agent->clearCreatureBit(CreatureFlag::TOGGLEWALK);
-			commander->sendSystemMessage("The target will run if need be.");
+		if (!target->isPlayerObject()) {
+			if (agent->getCreatureBitmask() & CreatureFlag::TOGGLEWALK) {
+				agent->clearCreatureBit(CreatureFlag::TOGGLEWALK);
+				commander->sendSystemMessage("The target will run if need be.");
+			} else {
+				agent->setCreatureBit(CreatureFlag::TOGGLEWALK);
+				commander->sendSystemMessage("The target is forced to walk.");
+			}
 		} else {
-			agent->setCreatureBit(CreatureFlag::TOGGLEWALK);
-			commander->sendSystemMessage("The target is forced to walk.");
+			commander->sendSystemMessage("The target must be an NPC.");
 		}
 	}
 
 	static void SetAIAlwaysWalks(CreatureObject* target, CreatureObject* commander, bool isOn, bool showMessage = false) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();
 		Locker alock(agent);
-		if (isOn) {
-			agent->clearCreatureBit(CreatureFlag::TOGGLEWALK);
-			if (showMessage)
-				commander->sendSystemMessage("The target will run if need be.");
+		if (!target->isPlayerObject()) {
+			if (isOn) {
+				agent->clearCreatureBit(CreatureFlag::TOGGLEWALK);
+				if (showMessage)
+					commander->sendSystemMessage("The target will run if need be.");
+			} else {
+				agent->setCreatureBit(CreatureFlag::TOGGLEWALK);
+				if (showMessage)
+					commander->sendSystemMessage("The target is forced to walk.");
+			}
 		} else {
-			agent->setCreatureBit(CreatureFlag::TOGGLEWALK);
-			if (showMessage)
-				commander->sendSystemMessage("The target is forced to walk.");
+			commander->sendSystemMessage("The target must be an NPC.");
 		}
 	}
 
@@ -159,12 +167,16 @@ public:
 	static void ToggleDirectFollow(CreatureObject* target, CreatureObject* commander) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();
 		Locker alock(agent);
-		if (agent->getCreatureBitmask() & CreatureFlag::DIRECTFOLLOW) {
-			agent->clearCreatureBit(CreatureFlag::DIRECTFOLLOW);
-			commander->sendSystemMessage("Target will no longer tightly follow you.");
+		if (!target->isPlayerObject()) {
+			if (agent->getCreatureBitmask() & CreatureFlag::DIRECTFOLLOW) {
+				agent->clearCreatureBit(CreatureFlag::DIRECTFOLLOW);
+				commander->sendSystemMessage("Target will no longer tightly follow you.");
+			} else {
+				agent->setCreatureBit(CreatureFlag::DIRECTFOLLOW);
+				commander->sendSystemMessage("Target will now tightly follow you.");
+			}
 		} else {
-			agent->setCreatureBit(CreatureFlag::DIRECTFOLLOW);
-			commander->sendSystemMessage("Target will now tightly follow you.");
+			commander->sendSystemMessage("The target must be an NPC.");
 		}
 	}
 
@@ -248,7 +260,7 @@ public:
 			throw Exception();
 		}
 		ManagedReference<CreatureObject*> targetCreature;
-		if (object->isCreatureObject()) {
+		if (object->isCreatureObject() && !object->isPlayerObject()) {
 			targetCreature = object->asCreatureObject();
 			if (targetCreature->getPlayerObject() != nullptr) {
 				if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() || isAdmin)
