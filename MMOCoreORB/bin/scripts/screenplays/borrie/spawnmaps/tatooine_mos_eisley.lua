@@ -340,10 +340,13 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{567.283, 0, 193.427, 285, 0,{"sit"}},
 		{-15.3, 0.9, 0.3, -86, 610008176,{"tech"}},
 		{9.4, 0.4, -10.3, 5, 610010243,{"sit"}},
-		{9.9, 0.4, -7.9, -168, 610010243,{"sit"}},
-		{5.5, 0.4, -3.8, -48, 610010243,{"sit"}},
+		--{9.9, 0.4, -7.9, -168, 610010243,{"sit"}},
+		{9.9, 0.4, -7.9, 192, 610010243,{"sit"}},
+		--{5.5, 0.4, -3.8, -48, 610010243,{"sit"}},
+		{5.5, 0.4, -3.8, 312, 610010243,{"sit"}},
 		{-2.7, 0.4, -5.1, 120, 610010243,{"social"}},
-		{-0.8, 0.4, -5.1, -138, 610010243,{"none"}},
+		--{-0.8, 0.4, -5.1, -138, 610010243,{"none"}},
+		{-0.8, 0.4, -5.1, 222, 610010243,{"none"}},
 	}
 	
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
@@ -878,9 +881,9 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 
 
 	--Nameless Bar & Grill
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 7.8, 0.4, -7.5, 133, 610010243, "rp_zabrak_female", "dressed_npe_pilot_aleas", "thug", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 7.8, 0.4, -7.5, 133, 610010243, "dressed_npe_pilot_aleas", "default", "thug", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Fyiamia Tige (a waitress)")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1.6, 0.4, -7.3, 37, 610010243, "rp_human_fmale", "space_privateer_broker_fired_worker", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1.6, 0.4, -7.3, 37, 610010243, "space_privateer_broker_fired_worker", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Apa Loimo (a bartender)")
 	
 
