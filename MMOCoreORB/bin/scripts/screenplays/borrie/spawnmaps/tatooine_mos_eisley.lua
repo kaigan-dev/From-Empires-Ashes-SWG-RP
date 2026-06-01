@@ -964,7 +964,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	
 	--Mandalorian Scout
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1199.24, 0, -63.3539, 131, 0, "rp_zabrak_male", "mando_vagabond", "default", "myok_scov", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Vagabond)")
+	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Arms Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mando_noob")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mando_noob")
 	
