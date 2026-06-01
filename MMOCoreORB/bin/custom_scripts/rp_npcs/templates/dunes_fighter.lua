@@ -60,7 +60,7 @@ npc_template = {
 	},
 
 		customVarOverrides = {
-		{"/shared_owner/blend_skinny", 50},
+		{"/shared_owner/blend_skinny", 100},
 		{"/shared_owner/blend_fat", 0},
 	}
 
