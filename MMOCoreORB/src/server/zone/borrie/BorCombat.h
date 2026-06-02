@@ -1157,6 +1157,9 @@ public:
         } 
 
 
+        message = "Checking for misses. To hit DC is " + String::valueOf(toHitDC) + "Roll is " + String::valueOf(toHitRoll) + "" + String::valueOf(throwSkill) "=" + String::valueOf(toHitRoll + throwSkill);
+        BorrieRPG::BroadcastMessage(attacker, message);
+
         if(toHitRoll + throwSkill < toHitDC) {
             //Miss the throwing roll, therefore we output text and do nothing.
             message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
