@@ -10,10 +10,9 @@ npc_template = {
     },
 
     equipmentTemplates = {
-        "creature_medium",
+        {"squill_hue", {"creature_medium"}},
     },
 
     customizationTemplates = {
-
     },
 }
