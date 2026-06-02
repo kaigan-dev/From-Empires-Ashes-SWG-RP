@@ -1020,3 +1020,8 @@ rp_endor = {
 	weatherEnabled = 1,
 	gcwEnabled = 0
 }
+
+rp_niamos = {
+	weatherEnabled = 1,
+	gcwEnabled = 0
+}
