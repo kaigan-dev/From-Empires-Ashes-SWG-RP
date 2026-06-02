@@ -339,6 +339,11 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{536.519, -0.25, 238.006, 349, 0,{"social"}},
 		{567.283, 0, 193.427, 285, 0,{"sit"}},
 		{-15.3, 0.9, 0.3, -86, 610008176,{"tech"}},
+		{9.4, 0.4, -10.3, 5, 610010243,{"sitchair"}},
+		{9.9, 0.4, -7.9, 192, 610010243,{"sitchair"}},
+		{5.5, 0.4, -3.8, 312, 610010243,{"sitchair"}},
+		{-2.7, 0.4, -5.1, 120, 610010243,{"social"}},
+		{-0.8, 0.4, -5.1, 222, 610010243,{"none"}},
 	}
 	
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
@@ -872,9 +877,12 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 
 
 
-
-
-
+	--Nameless Bar & Grill
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 7.8, 0.4, -7.5, 133, 610010243, "dressed_npe_pilot_aleas", "default", "thug", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Fyiamia Tige (a waitress)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1.6, 0.4, -7.3, 37, 610010243, "space_privateer_broker_fired_worker", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Apa Loimo (a bartender)")
+	
 
 	--VENDORS--
 	
@@ -956,7 +964,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	
 	--Mandalorian Scout
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1199.24, 0, -63.3539, 131, 0, "rp_zabrak_male", "mando_vagabond", "default", "myok_scov", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Vagabond)")
+	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Arms Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mando_noob")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mando_noob")
 	

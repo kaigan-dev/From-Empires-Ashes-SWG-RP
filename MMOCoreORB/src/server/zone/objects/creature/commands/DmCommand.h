@@ -170,8 +170,11 @@ public:
 					BorrieRPG::ShowPlayersWithPlanets(creature, true);
 				} else if(command == "togglewalk") { 
 					if(object != nullptr) {
-						if(object->isCreatureObject()) {
+						if(object->isCreatureObject() && !object->isPlayerCreature()) {
 							BorNPC::ToggleAIWalks(object->asCreatureObject(), creature);
+						}
+						else {
+							creature->sendSystemMessage("The target must be an NPC.");
 						}
 					}					
 				} else if(command == "banpassive") {
