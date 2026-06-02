@@ -1208,7 +1208,7 @@ public:
 				Locker locker(targetCreature, centerTarget);
 
 				//Handle Grenade Reaction.
-                message = "The grenade hits " + targetObject->getObjectName();
+                message = "The grenade hits " + String::valueOf(targetObject->getObjectName());
                 BorrieRPG::BroadcastMessage(attacker, message);
                 HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget));
 			}
