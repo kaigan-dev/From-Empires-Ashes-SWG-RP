@@ -1118,6 +1118,8 @@ public:
 
         int toHitRoll = BorDice::Roll(1, 20);
 
+        String message = "";
+
         SharedObjectTemplate* templateData = TemplateManager::instance()->getTemplate(grenade->getServerObjectCRC());
 
 		if (templateData == nullptr)
@@ -1137,9 +1139,9 @@ public:
 
         if(demoSkill < skillLevel) {
             int failureRoll = BorDice::Roll(1, 20);
-            if(failureRoll + demoSkill < 15) {
+            if(failureRoll + demoSkill <= (10 + skillLevel)) {
                 //Blow up in your face!
-                radius = radius / 4;
+                radius = radius / 2;
                 failedDemoCheck = true;
                 centerTarget = attacker;
             }
@@ -1147,13 +1149,18 @@ public:
 
         if(!failedDemoCheck) {
             //To hit roll will affect radius. 
-            if(toHitRoll + throwSkill <= toHitDC / 4) {
-                radius = radius / 8;
-            } else if(toHitRoll + throwSkill < toHitDC / 2) {
-                radius = radius / 4;
-            } else if(toHitRoll + throwSkill < toHitDC) {
+            if(toHitRoll + throwSkill < toHitDC) {
+                message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
+                message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
+                message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
+                message = message + ", missing wide of the mark!";
+                BorrieRPG::BroadcastMessage(attacker, message);
+                return
+            }
+            /* else if(toHitRoll + throwSkill < toHitDC) {
                 radius = radius / 2;
             }
+                */
         }
 
 		SortedVector<QuadTreeEntry*> closeObjects;
@@ -1179,7 +1186,6 @@ public:
 			}
 		}
 
-        String message = "";
 
         if(!failedDemoCheck) {
             //Attacker throws a grenade toward Defender (roll + skill = result), which explodes in the vicinity of X targets!
