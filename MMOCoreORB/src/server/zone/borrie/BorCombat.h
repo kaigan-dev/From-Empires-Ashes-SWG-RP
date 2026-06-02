@@ -1138,30 +1138,35 @@ public:
         CreatureObject* centerTarget = defender;
 
         if(demoSkill < skillLevel) {
+            // Skill is less than minimum requirement, prompting a check to avoid having it blow up on top of you.
             int failureRoll = BorDice::Roll(1, 20);
             if(failureRoll + demoSkill <= (10 + skillLevel)) {
-                //Blow up in your face!
-                radius = radius / 2;
-                failedDemoCheck = true;
-                centerTarget = attacker;
-            }
-        } 
+                //The grenade blows up in your face!
+                //radius = radius / 2;
+                //failedDemoCheck = true;
+                //centerTarget = attacker;
+                int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
 
-        if(!failedDemoCheck) {
-            //To hit roll will affect radius. 
-            if(toHitRoll + throwSkill < toHitDC) {
-                message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
-                message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
-                message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
-                message = message + ", missing wide of the mark!";
+                message = attacker->getFirstName() + " attempts to activate the " + grenade->getCustomObjectName().toString() + ", but it goes off prematurely, exploding the blast focused on their " + GetSlotDisplayName(slot);
+                String combatLogPrefix = ", causing \\#FF9999";
+                message += OrchestrateDamage(combatLogPrefix, attacker, grenade, totalDamage, slot);
                 BorrieRPG::BroadcastMessage(attacker, message);
                 return
             }
-            /* else if(toHitRoll + throwSkill < toHitDC) {
-                radius = radius / 2;
-            }
-                */
+            //If the check is successful, proceed with normal grenade logic.
+        } 
+
+
+        if(toHitRoll + throwSkill < toHitDC) {
+            //Miss the throwing roll, therefore we output text and do nothing.
+            message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
+            message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
+            message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
+            message = message + ", missing wide of the mark!";
+            BorrieRPG::BroadcastMessage(attacker, message);
+            return
         }
+
 
 		SortedVector<QuadTreeEntry*> closeObjects;
 		Zone* zone = centerTarget->getZone();
@@ -1187,16 +1192,12 @@ public:
 		}
 
 
-        if(!failedDemoCheck) {
-            //Attacker throws a grenade toward Defender (roll + skill = result), which explodes in the vicinity of X targets!
-            message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
-            message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
-            message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
-            message = message + ", which explodes in the vicinity of "+String::valueOf(targetCount)+" targets!";
-        } else {
-            //Attacker attempts to activate the grenade, but it goes off prematurely! The resulting explosion affects X targets!
-            message = attacker->getFirstName() + " attempts to activate the " + grenade->getCustomObjectName().toString() + ", but it goes off prematurely! The resulting explosion affects \\#FFFF00" + String::valueOf(targetCount) + "\\#. targets!";
-        }
+
+        //Expected output: "Attacker throws a grenade toward Defender (roll + skill = result), which explodes in the vicinity of X targets!""
+        message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
+        message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
+        message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
+        message = message + ", which explodes in the vicinity of "+String::valueOf(targetCount)+" targets!";
 
         BorrieRPG::BroadcastMessage(attacker, message);
 
@@ -1207,6 +1208,8 @@ public:
 				Locker locker(targetCreature, centerTarget);
 
 				//Handle Grenade Reaction.
+                message = "The grenade hits " + targetObject->getObjectName();
+                BorrieRPG::BroadcastMessage(attacker, message);
                 HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget));
 			}
 		}
