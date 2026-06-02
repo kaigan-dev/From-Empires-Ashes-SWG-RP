@@ -1146,12 +1146,12 @@ public:
                 //failedDemoCheck = true;
                 //centerTarget = attacker;
                 int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
-
-                message = attacker->getFirstName() + " attempts to activate the " + grenade->getCustomObjectName().toString() + ", but it goes off prematurely, exploding the blast focused on their " + GetSlotDisplayName(slot);
+                int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());
+                message = attacker->getFirstName() + " attempts to activate the " + grenade->getCustomObjectName().toString() + ", but it goes off prematurely, the blast focused on their " + GetSlotDisplayName(slot);
                 String combatLogPrefix = ", causing \\#FF9999";
                 message += OrchestrateDamage(combatLogPrefix, attacker, grenade, totalDamage, slot);
                 BorrieRPG::BroadcastMessage(attacker, message);
-                return
+                return;
             }
             //If the check is successful, proceed with normal grenade logic.
         } 
@@ -1164,7 +1164,7 @@ public:
             message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
             message = message + ", missing wide of the mark!";
             BorrieRPG::BroadcastMessage(attacker, message);
-            return
+            return;
         }
 
 
