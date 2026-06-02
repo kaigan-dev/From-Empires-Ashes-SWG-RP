@@ -1157,7 +1157,7 @@ public:
         } 
 
 
-        message = "Checking for misses. To hit DC is " + String::valueOf(toHitDC) + "Roll is " + String::valueOf(toHitRoll) + "" + String::valueOf(throwSkill) "=" + String::valueOf(toHitRoll + throwSkill);
+        message = "Checking for misses. To hit DC is " + String::valueOf(toHitDC) + "Roll is " + String::valueOf(toHitRoll) + "" + String::valueOf(throwSkill) + "=" + String::valueOf(toHitRoll + throwSkill);
         BorrieRPG::BroadcastMessage(attacker, message);
 
         if(toHitRoll + throwSkill < toHitDC) {
