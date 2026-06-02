@@ -1204,9 +1204,11 @@ public:
 
         BorrieRPG::BroadcastMessage(attacker, message);
 
-		for (int i = 0; i < targetCount; i++) {
-            message = "We are now entering the search for HandleGrenadeReaction targets. TargetCount is " + String::valueOf(targetCount);
-            BorrieRPG::BroadcastMessage(attacker, message);
+        message = "We are now entering the search for HandleGrenadeReaction targets. TargetCount is " + String::valueOf(targetCount);
+        BorrieRPG::BroadcastMessage(attacker, message);
+		
+        //Original target seeking
+        /*for (int i = 0; i < targetCount; i++) { 
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
                 message = "We have found a creature in range.";
@@ -1218,6 +1220,23 @@ public:
                 message = "The grenade hits " + String::valueOf(targetObject->getObjectName());
                 BorrieRPG::BroadcastMessage(attacker, message);
                 HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget));
+			}
+		}
+            */
+        int foundTargets = 0;
+        for (int i = 0; foundTargets < targetCount; i++) { 
+			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
+                message = "We have found an object in range.";
+                BorrieRPG::BroadcastMessage(attacker, message);
+			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
+				targetCreature = cast<CreatureObject*>(targetObject);
+				Locker locker(targetCreature, centerTarget);
+
+				//Handle Grenade Reaction.
+                message = "The grenade hits " + String::valueOf(targetObject->getObjectName());
+                BorrieRPG::BroadcastMessage(attacker, message);
+                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget));
+                foundTargets++;
 			}
 		}
     }
