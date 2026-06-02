@@ -1202,8 +1202,12 @@ public:
         BorrieRPG::BroadcastMessage(attacker, message);
 
 		for (int i = 0; i < targetCount; i++) {
+            message = "We are now entering the search for HandleGrenadeReaction targets. TargetCount is " + String::valueOf(targetCount);
+            BorrieRPG::BroadcastMessage(attacker, message);
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
+                message = "We have found a creature in range.";
+                BorrieRPG::BroadcastMessage(attacker, message);
 				targetCreature = cast<CreatureObject*>(targetObject);
 				Locker locker(targetCreature, centerTarget);
 
