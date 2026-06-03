@@ -1235,13 +1235,13 @@ public:
 				//Handle Grenade Reaction.
                 message = "The grenade hits " + String::valueOf(targetObject->getObjectName());
                 BorrieRPG::BroadcastMessage(attacker, message);
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget));
+                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoSkill);
                 foundTargets++;
 			}
 		}
     }
 
-    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance) {
+    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance, int demoSkill) {
         String message = victim->getFirstName() + " is in proximity of the grenade's blast radius!";
         //Distance affects the dodge roll. You either dodge, or you use telekinesis. 
         int maneuverabilitySkill = victim->getSkillMod("rp_maneuverability");
@@ -1250,13 +1250,11 @@ public:
 
         int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());
 
-        int diceCheck = (int)(grenade->getDamageRadius() * distance);
+        //int diceCheck = (int)(grenade->getDamageRadius() * distance);
 
-        if(diceCheck > 28)
-            diceCheck = 28;
-
-        if(diceCheck < 10)
-            diceCheck = 10;
+        int demoRoll = BorDice::Roll(1, 20);
+        int demoTotal = demoRoll + demoSkill;
+        
 
         int dodgeRoll = BorDice::Roll(1, 20);
 
@@ -1264,12 +1262,14 @@ public:
             //Dodge
             message = message + " They hurdle to get out of the way ";
             message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(maneuverabilitySkill)+" vs DC: "+String::valueOf(diceCheck)+")";
-            dodgedSuccessfully = maneuverabilitySkill >= diceCheck;
+            if(dodgeRoll + maneuverabilitySkill >= demoTotal)
+                dodgedSuccessfully = true;
         } else {
             //Stand Ground with the Force.
             message = message + " They brace themselves keenly ";
             message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(telekinesisSkill)+" vs DC: "+String::valueOf(diceCheck)+")";
-            dodgedSuccessfully = telekinesisSkill >= diceCheck;
+            if(dodgeRoll + telekinesisSkill >= demoTotal)
+                dodgedSuccessfully = true;
         }
 
         int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
@@ -1282,7 +1282,7 @@ public:
         } else {
             //Take Minimum Damage
             message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot);
-            totalDamage = grenade->getMinDamage();
+            totalDamage = totalDamage / 2;
             String combatLogPrefix = ", and taking only \\#FF9999";
             message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot);
         }
