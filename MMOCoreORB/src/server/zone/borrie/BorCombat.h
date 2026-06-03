@@ -1250,8 +1250,7 @@ public:
 
         int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());
 
-        //int diceCheck = (int)(grenade->getDamageRadius() * distance);
-
+        //The avoidance DC for grenades is set to the result of the attacker's Demolitions check.
         int demoRoll = BorDice::Roll(1, 20);
         int demoTotal = demoRoll + demoSkill;
         
@@ -1261,13 +1260,13 @@ public:
         if(maneuverabilitySkill >= telekinesisSkill) {
             //Dodge
             message = message + " They hurdle to get out of the way ";
-            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(maneuverabilitySkill)+" vs DC: "+String::valueOf(diceCheck)+")";
+            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(maneuverabilitySkill)+" vs DC: "+String::valueOf(demoTotal)+")";
             if(dodgeRoll + maneuverabilitySkill >= demoTotal)
                 dodgedSuccessfully = true;
         } else {
-            //Stand Ground with the Force.
-            message = message + " They brace themselves keenly ";
-            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(telekinesisSkill)+" vs DC: "+String::valueOf(diceCheck)+")";
+            //Push the grenade away.
+            message = message + " They raise their hand towards the grenade ";
+            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(telekinesisSkill)+" vs DC: "+String::valueOf(demoTotal)+")";
             if(dodgeRoll + telekinesisSkill >= demoTotal)
                 dodgedSuccessfully = true;
         }
@@ -1275,12 +1274,12 @@ public:
         int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
 
         if(!dodgedSuccessfully) {
-            //Take Damage
+            //Take damage
             message = message + ", which fails, the blast focused on their " + GetSlotDisplayName(slot);
             String combatLogPrefix = ", causing \\#FF9999";
             message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot);
         } else {
-            //Take Minimum Damage
+            //Take half damage
             message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot);
             totalDamage = totalDamage / 2;
             String combatLogPrefix = ", and taking only \\#FF9999";
