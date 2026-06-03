@@ -1136,11 +1136,11 @@ public:
 
         bool failedDemoCheck = false;
         CreatureObject* centerTarget = defender;
+        int demoTotal = BorDice::Roll(1, 20) + demoSkill;
 
         if(demoSkill < skillLevel) {
             // Skill is less than minimum requirement, prompting a check to avoid having it blow up on top of you.
-            int failureRoll = BorDice::Roll(1, 20);
-            if(failureRoll + demoSkill <= (10 + skillLevel)) {
+            if(demoTotal <= (10 + skillLevel)) {
                 //The grenade blows up in your face!
                 //radius = radius / 2;
                 //failedDemoCheck = true;
@@ -1235,25 +1235,20 @@ public:
 				//Handle Grenade Reaction.
                 message = "The grenade hits " + String::valueOf(targetObject->getObjectName());
                 BorrieRPG::BroadcastMessage(attacker, message);
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoSkill);
+                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal);
                 foundTargets++;
 			}
 		}
     }
 
-    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance, int demoSkill) {
+    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance, int demoTotal) {
         String message = victim->getFirstName() + " is in proximity of the grenade's blast radius!";
         //Distance affects the dodge roll. You either dodge, or you use telekinesis. 
         int maneuverabilitySkill = victim->getSkillMod("rp_maneuverability");
         int telekinesisSkill = victim->getSkillMod("rp_telekinesis");
         bool dodgedSuccessfully = false;
 
-        int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());
-
-        //The avoidance DC for grenades is set to the result of the attacker's Demolitions check.
-        int demoRoll = BorDice::Roll(1, 20);
-        int demoTotal = demoRoll + demoSkill;
-        
+        int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());      
 
         int dodgeRoll = BorDice::Roll(1, 20);
 
