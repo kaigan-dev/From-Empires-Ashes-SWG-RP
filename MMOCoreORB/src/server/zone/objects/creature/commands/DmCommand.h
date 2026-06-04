@@ -264,7 +264,8 @@ public:
 										creature->sendSystemMessage("You can reward the lastroll, credits, or general experience.");
 									}
 								}
-								
+								ObjectController* controller = creature->getZoneServer()->getObjectController();
+								controller->logAdminCommand(creature, this, target, arguments);
 							} else {
 
 							}
@@ -510,6 +511,8 @@ public:
 								} else if(specific == "skill") {
 									BorCharacter::ModifyFreePoints(creature, object->asCreatureObject(), "skill", 1);
 								}
+								ObjectController* controller = creature->getZoneServer()->getObjectController();
+								controller->logAdminCommand(creature, this, target, arguments);
 							} else {
 								creature->sendSystemMessage("You need to specify 'attribute' or 'skill' when using '/dm grantpoint' ex: '/dm grantpoint skill'");
 							}
@@ -530,6 +533,8 @@ public:
 								} else if(specific == "skill") {
 									BorCharacter::ModifyFreePoints(creature, object->asCreatureObject(), "skill", -1);
 								}
+								ObjectController* controller = creature->getZoneServer()->getObjectController();
+								controller->logAdminCommand(creature, this, target, arguments);
 							} else {
 								creature->sendSystemMessage("You need to specify 'attribute' or 'skill' when using '/dm removepoint' ex: '/dm removepoint skill'");
 							}
@@ -549,6 +554,8 @@ public:
 									int dsValue = Integer::valueOf(valueString);
 									BorCharacter::AddDarksidePoints(object->asCreatureObject(), dsValue, true);
 									creature->sendSystemMessage(object->asCreatureObject()->getFirstName() + " has fallen by " + valueString + " points of corruption");
+									ObjectController* controller = creature->getZoneServer()->getObjectController();
+									controller->logAdminCommand(creature, this, target, arguments);
 								}
 							}
 						}
@@ -563,6 +570,8 @@ public:
 									int dsValue = Integer::valueOf(valueString);
 									BorCharacter::RemoveDarksidePoints(object->asCreatureObject(), dsValue);
 									creature->sendSystemMessage(object->asCreatureObject()->getFirstName() + "'s corruption has faded by " + valueString + " points");
+									ObjectController* controller = creature->getZoneServer()->getObjectController();
+									controller->logAdminCommand(creature, this, target, arguments);
 								}
 							}
 						}
@@ -574,7 +583,8 @@ public:
 								int amount;
 								amount = args.getIntToken();
 								BorCharacter::RewardGeneralRPExperience(object->asCreatureObject(), creature, amount, true);
-								//Prints to log. ...?
+								ObjectController* controller = creature->getZoneServer()->getObjectController();
+								controller->logAdminCommand(creature, this, target, arguments);
 							} else {
 								creature->sendSystemMessage("You need to specify an amount of experience to give.");
 								//Run a Lua Script that gives a menu.
@@ -589,6 +599,8 @@ public:
 					if(object != nullptr) {
 						if(object->isCreatureObject()) {
 							BorCharacter::ToggleJedi(creature, object->asCreatureObject());
+							ObjectController* controller = creature->getZoneServer()->getObjectController();
+							controller->logAdminCommand(creature, this, target, arguments);
 						} else {
 							creature->sendSystemMessage("Target must be a creature");
 						}
