@@ -76,8 +76,6 @@ public:
 					player->addBankCredits(amount);
 					success = true;
 				}
-				ObjectController* controller = creature->getZoneServer()->getObjectController();
-				controller->logAdminCommand(creature, this, target, arguments);
 
 			} else if (action == "subtract") {
 
@@ -89,8 +87,6 @@ public:
 						TransactionLog trx(player, TrxCode::CUSTOMERSERVICE, player->getCashCredits(), true);
 						player->clearCashCredits();
 					}
-					ObjectController* controller = creature->getZoneServer()->getObjectController();
-					controller->logAdminCommand(creature, this, target, arguments);
 					success = true;
 				}
 
