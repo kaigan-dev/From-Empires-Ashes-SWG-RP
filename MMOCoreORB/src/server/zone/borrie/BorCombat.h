@@ -1136,15 +1136,12 @@ public:
 
         bool failedDemoCheck = false;
         CreatureObject* centerTarget = defender;
+        int demoTotal = BorDice::Roll(1, 20) + demoSkill;
 
         if(demoSkill < skillLevel) {
             // Skill is less than minimum requirement, prompting a check to avoid having it blow up on top of you.
-            int failureRoll = BorDice::Roll(1, 20);
-            if(failureRoll + demoSkill <= (10 + skillLevel)) {
+            if(demoTotal <= (10 + skillLevel)) {
                 //The grenade blows up in your face!
-                //radius = radius / 2;
-                //failedDemoCheck = true;
-                //centerTarget = attacker;
                 int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
                 int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());
                 message = attacker->getFirstName() + " attempts to activate the " + grenade->getCustomObjectName().toString() + ", but it goes off prematurely, the blast focused on their " + GetSlotDisplayName(slot);
@@ -1153,15 +1150,11 @@ public:
                 BorrieRPG::BroadcastMessage(attacker, message);
                 return;
             }
-            //If the check is successful, proceed with normal grenade logic.
+            //If the check is successful, do nothing and proceed with normal grenade logic.
         } 
 
-
-        message = "Checking for misses. To hit DC is " + String::valueOf(toHitDC) + "Roll is " + String::valueOf(toHitRoll) + "" + String::valueOf(throwSkill) + "=" + String::valueOf(toHitRoll + throwSkill);
-        BorrieRPG::BroadcastMessage(attacker, message);
-
         if(toHitRoll + throwSkill < toHitDC) {
-            //Miss the throwing roll, therefore we output text and do nothing.
+            //The throwing roll was missed, therefore we output text and do nothing.
             message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
             message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
             message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
@@ -1194,95 +1187,60 @@ public:
 			}
 		}
 
-
-
-        //Expected output: "Attacker throws a grenade toward Defender (roll + skill = result), which explodes in the vicinity of X targets!""
         message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
         message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
         message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
         message = message + ", which explodes in the vicinity of "+String::valueOf(targetCount)+" targets!";
 
         BorrieRPG::BroadcastMessage(attacker, message);
-
-        message = "We are now entering the search for HandleGrenadeReaction targets. TargetCount is " + String::valueOf(targetCount);
-        BorrieRPG::BroadcastMessage(attacker, message);
-		
-        //Original target seeking
-        /*for (int i = 0; i < targetCount; i++) { 
-			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
-			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
-                message = "We have found a creature in range.";
-                BorrieRPG::BroadcastMessage(attacker, message);
-				targetCreature = cast<CreatureObject*>(targetObject);
-				Locker locker(targetCreature, centerTarget);
-
-				//Handle Grenade Reaction.
-                message = "The grenade hits " + String::valueOf(targetObject->getObjectName());
-                BorrieRPG::BroadcastMessage(attacker, message);
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget));
-			}
-		}
-            */
+            
         int foundTargets = 0;
         for (int i = 0; foundTargets < targetCount; i++) { 
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
-                message = "We have found an object in range.";
-                BorrieRPG::BroadcastMessage(attacker, message);
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
 				targetCreature = cast<CreatureObject*>(targetObject);
 				Locker locker(targetCreature, centerTarget);
-
-				//Handle Grenade Reaction.
-                message = "The grenade hits " + String::valueOf(targetObject->getObjectName());
-                BorrieRPG::BroadcastMessage(attacker, message);
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget));
+                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal);
                 foundTargets++;
 			}
 		}
     }
 
-    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance) {
+    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance, int demoTotal) {
         String message = victim->getFirstName() + " is in proximity of the grenade's blast radius!";
-        //Distance affects the dodge roll. You either dodge, or you use telekinesis. 
         int maneuverabilitySkill = victim->getSkillMod("rp_maneuverability");
         int telekinesisSkill = victim->getSkillMod("rp_telekinesis");
         bool dodgedSuccessfully = false;
 
-        int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());
-
-        int diceCheck = (int)(grenade->getDamageRadius() * distance);
-
-        if(diceCheck > 28)
-            diceCheck = 28;
-
-        if(diceCheck < 10)
-            diceCheck = 10;
+        int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());      
 
         int dodgeRoll = BorDice::Roll(1, 20);
 
         if(maneuverabilitySkill >= telekinesisSkill) {
             //Dodge
             message = message + " They hurdle to get out of the way ";
-            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(maneuverabilitySkill)+" vs DC: "+String::valueOf(diceCheck)+")";
-            dodgedSuccessfully = maneuverabilitySkill >= diceCheck;
+            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(maneuverabilitySkill)+" vs DC: "+String::valueOf(demoTotal)+")";
+            if(dodgeRoll + maneuverabilitySkill >= demoTotal)
+                dodgedSuccessfully = true;
         } else {
-            //Stand Ground with the Force.
-            message = message + " They brace themselves keenly ";
-            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(telekinesisSkill)+" vs DC: "+String::valueOf(diceCheck)+")";
-            dodgedSuccessfully = telekinesisSkill >= diceCheck;
+            //Push the grenade away.
+            message = message + " They raise their hand towards the grenade ";
+            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(telekinesisSkill)+" vs DC: "+String::valueOf(demoTotal)+")";
+            if(dodgeRoll + telekinesisSkill >= demoTotal)
+                dodgedSuccessfully = true;
         }
 
         int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
 
         if(!dodgedSuccessfully) {
-            //Take Damage
+            //Take damage
             message = message + ", which fails, the blast focused on their " + GetSlotDisplayName(slot);
             String combatLogPrefix = ", causing \\#FF9999";
             message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot);
         } else {
-            //Take Minimum Damage
+            //Take half damage
             message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot);
-            totalDamage = grenade->getMinDamage();
+            totalDamage = totalDamage / 2;
             String combatLogPrefix = ", and taking only \\#FF9999";
             message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot);
         }
