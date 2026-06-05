@@ -7,6 +7,7 @@
 
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/objects/transaction/TransactionLog.h"
+#include "server/zone/managers/objectcontroller/ObjectController.h"
 
 class CreditsCommand : public QueueCommand {
 public:
@@ -106,6 +107,8 @@ public:
 			if(success) {
 				creature->sendSystemMessage(String::valueOf(amount) + " credits have been deposited successfully for " + player->getFirstName());
 				player->sendSystemMessage("You have received " + String::valueOf(amount) + " credits in your " + location.toLowerCase() + ".");
+				ObjectController* controller = creature->getZoneServer()->getObjectController();
+				controller->logAdminCommand(creature, this, target, arguments);
 			}
 			else
 				creature->sendSystemMessage("invalid arguments for credits command:  /credits <firstname> <add/subtract> <amount> <bank/cash>");
