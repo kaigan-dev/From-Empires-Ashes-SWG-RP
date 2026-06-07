@@ -4,7 +4,7 @@
 object_weapon_roleplay_ranged_rifle_dc15a_rifle = object_weapon_ranged_rifle_ep3_shared_rifle_dc15:new {
 
 	--[Info]
-	customName = "DC-15A Rifle",
+	customName = "DC-15A Repeating Rifle",
 
 	--[Stats]
 	attackType = RANGEDATTACK,
