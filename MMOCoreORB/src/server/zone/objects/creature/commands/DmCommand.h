@@ -473,7 +473,7 @@ public:
 				if (command == "name") {
 					if (args.hasMoreTokens()) {
 						if(object != nullptr) {
-							if(!object.isPlayerCreature()) {
+							if(!object->isPlayerCreature()) {
 							String newName = arguments.toString().subString(1 + command.length(), arguments.toString().length());
 							BorrieRPG::SetName(creature, object, newName);
 							}
@@ -498,7 +498,7 @@ public:
 							creature->sendSystemMessage("/dm randomname <type> - Valid Types: stormtrooper, scouttrooper, darktrooper, swamptrooper, r2, r3, r4, r5, r6, r7, r8, r9, 3po, eg6, wed, le, ra7, human, rodian, trandoshan, moncal, wookiee, bothan, twilek, zabrak, ithorian, sullustan");
 						} else {
 							if(object != nullptr) {
-								if(!object.isPlayerCreature()) {
+								if(!object->isPlayerCreature()) {
 								BorrieRPG::SetRandomName(creature, object, specific);
 								}
 								else {
