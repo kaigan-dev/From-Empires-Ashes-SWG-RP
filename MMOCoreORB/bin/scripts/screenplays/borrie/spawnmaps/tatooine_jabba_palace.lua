@@ -187,7 +187,7 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 27.3, -60, 6
 	setRandomCreatureName(pNpc, "trandoshan")	
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 7.2, 2, 41.9, 122, 610009490, "rp_weequay_female", "faction/hutt/grunt_army", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.9, 2, 39.9, 82, 610009490, "rp_nautolan_female", "faction/hutt/officer", "soldier", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.9, 2, 39.9, 82, 610009490, "rp_nautolan_male", "faction/hutt/officer", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 40.3, -94, 610009490, "rp_trandoshan_female", "faction/hutt/officer_navy", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "trandoshan")	
