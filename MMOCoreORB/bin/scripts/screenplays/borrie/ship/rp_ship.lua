@@ -312,14 +312,14 @@ function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
         return 0
     end
 	
-    if(input == nil or input == "") then
+    if(inputData == nil or inputData == "") then
             CreatureObject(pPlayer):sendSystemMessage("No coordinates entered.")
         	return 0
     end
 
 	--local suiManager = LuaSuiManager()
 	
-	local xStr, yStr = string.match(input, "(-?%d+%.?%d*)[%s,]+(-?%d+%.?%d*)")
+	local xStr, yStr = string.match(inputData, "(-?%d+%.?%d*)[%s,]+(-?%d+%.?%d*)")
     local landX = tonumber(xStr)
     local landY = tonumber(yStr)
     if(landX == nil or landY == nil) then
