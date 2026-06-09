@@ -250,8 +250,7 @@ end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
 	local pCell = SceneObject(pPlayer):getParent()
-	local actualShip = SceneObject(pObject):getParent()
-
+	
 	if(pCell == nil) then
 		return 0
 	end
