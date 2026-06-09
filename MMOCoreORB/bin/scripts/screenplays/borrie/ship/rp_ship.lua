@@ -146,10 +146,6 @@ function BorRpShip:exitShip(pPlayer)
 	end	
 end
 
-	SceneObject(pShip):setStoredString("landing_spot", "custom_coordinates")
-	SceneObject(pShip):setStoredString("custom_landing_name", "coordinates " .. landX .. ", " .. landY)
-	SceneObject(pShip):setStoredString("custom_landingX", landX)
-	SceneObject(pShip):setStoredString("custom_landingY", landY)
 
 function BorRpShip:broadcastToPassengers(pShip, message)
 	--If it is not a building ship, no one to alert.
