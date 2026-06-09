@@ -243,8 +243,8 @@ function BorRpShip:promptLandShipMenu(pPlayer, pObject)
 	SceneObject(pShip):deleteStoredString("beacon_code")
 	
 	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
+	local currentPlanetArr = BorPlanetManager.planets[currentPlanet]
 	local currentLanding = SceneObject(pShip):getStoredString("landing_spot")
-	local onSpotLandPoint
 	
 	local options = {}
 	local planetObject = BorPlanetManager.planets[currentPlanet]
@@ -264,7 +264,7 @@ function BorRpShip:promptLandShipMenu(pPlayer, pObject)
 	end
 	
 	local suiManager = LuaSuiManager()
-	suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. planetObject[2], 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
+	suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentPlanetArr.name, 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
 end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
