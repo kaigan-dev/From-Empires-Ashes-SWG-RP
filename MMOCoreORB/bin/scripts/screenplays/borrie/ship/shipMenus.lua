@@ -48,7 +48,7 @@ function ShipNavicomputerMenuComponent:fillObjectMenuResponse(pSceneObject, pMen
 	elseif(eventID == 0) then 
 		menuResponse:addRadialMenuItem(80, 3, "Plot a Course")
 		menuResponse:addRadialMenuItem(81, 3, "Land the Ship")
-		menuResponse:addRadialMenuItem(83, 3, "Travel to Beacon")
+		--menuResponse:addRadialMenuItem(83, 3, "Travel to Beacon")
 	end
 	
 end
@@ -64,8 +64,8 @@ function ShipNavicomputerMenuComponent:handleObjectMenuSelect(pObject, pPlayer, 
 		BorRpShip:promptLandShipMenu(pPlayer, pObject)
 	elseif(selectedID == 82) then --Take Off
 		BorRpShip:takeOffShip(pObject, pPlayer, true)
-	elseif(selectedID == 83) then --Travel to Beacon
-		BorRpShip:promptBeaconLanding(pPlayer, pObject)
+	--elseif(selectedID == 83) then --Travel to Beacon
+	--	BorRpShip:promptBeaconLanding(pPlayer, pObject)
 	end
 	
 	return 0
