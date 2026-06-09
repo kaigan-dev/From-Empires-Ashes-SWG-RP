@@ -245,7 +245,7 @@ function BorRpShip:promptLandShipMenu(pPlayer, pObject)
 	table.insert(options, {"Enter Coordinates", 0})
 	
 	local suiManager = LuaSuiManager()
-	suiManager:sendListBoxAndOption(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentLanding, 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
+	suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentLanding, 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
 end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
@@ -303,7 +303,7 @@ function BorRpShip:promptCoordinateLanding(pPlayer, pObject)
                 table.insert(options, planetData)
         end
         local suiManager = LuaSuiManager()
-        suiManager:sendListBoxAndOption(pObject, pPlayer, "Navicomputer", "Select a planet for coordinate landing.", 1, "@cancel", "", "", "BorRpShip", "selectCoordinateZone", 10, options)
+        suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a planet for coordinate landing.", 1, "@cancel", "", "", "BorRpShip", "selectCoordinateZone", 10, options)
 end
 
 
