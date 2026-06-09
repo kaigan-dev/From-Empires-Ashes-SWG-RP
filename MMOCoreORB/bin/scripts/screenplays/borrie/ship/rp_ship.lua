@@ -120,12 +120,18 @@ function BorRpShip:exitShip(pPlayer)
 		CreatureObject(pPlayer):sendSystemMessage("You cannot disembark while in space.")
 		return
 	end
-	--Teleport them there. 
-	--local point = BorPlanetManager.landing_points[shipLandingSpot]
-	if(shipLandingSpot ~= nil) then
+
+
+	local point = BorPlanetManager.landing_points[shipLandingSpot]
+	--Populate the landing location using a different variable if the ship is at custom coordinates, since those won't be in the planet landing points list.
+	if (shipLandingSpot == "custom_coordinates") then
+		point = SceneObject(pShip):getStoredString("custom_landing")
+	end
+
+	--Teleport them to the target location
+	if(point ~= nil) then
 		--------------------------------ZONE--------X------Z------Y-------CELL---
-		--SceneObject(pPlayer):switchZone(point[3], point[4],point[5],point[6], point[8]) 
-		SceneObject(pPlayer):switchZone(shipLandingSpot[3], shipLandingSpot[4],shipLandingSpot[5],shipLandingSpot[6], shipLandingSpot[8]) 
+		SceneObject(pPlayer):switchZone(point[3], point[4],point[5],point[6], point[8]) 
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("Something horrible has occured. Could not locate landing point for this ship. Contact administration to get you out.")
 	end	
@@ -246,7 +252,7 @@ function BorRpShip:promptLandShipMenu(pPlayer, pObject)
 	table.insert(options, {"Enter Coordinates", 0})
 	
 	local suiManager = LuaSuiManager()
-	suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentLanding[2], 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
+	suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentLanding, 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
 end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
@@ -277,7 +283,7 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
             return 0
     end
 		
-	SceneObject(pShip):setStoredString("landing_spot", selectedLandingSpot)
+	SceneObject(pShip):setStoredString("landing_spot", selectedLandingSpot[1])
 	
 	local shipName = SceneObject(pShip):getCustomObjectName()
 	if(shipName == "") then
@@ -317,8 +323,6 @@ function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
             CreatureObject(pPlayer):sendSystemMessage("No coordinates entered.")
         	return 0
     end
-
-	--local suiManager = LuaSuiManager()
 	
 	local xStr, yStr = string.match(inputData, "(-?%d+%.?%d*)[%s,]+(-?%d+%.?%d*)")
     local landX = tonumber(xStr)
@@ -347,9 +351,10 @@ function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
 
 	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
 	CreatureObject(pPlayer):sendSystemMessage("Debug: current planet is" .. currentPlanet)
-	local selectedLandingSpot = {"custom_coordinates", "coordinates " .. landX .. ", " .. landY, currentPlanet, landX, 0, landY, -45, 0, true}
-	SceneObject(pShip):setStoredString("landing_spot", selectedLandingSpot)
-
+	local selectedLandingSpot = "custom_coordinates"
+	local selectedLandingPoint = {"custom_coordinates", "coordinates " .. landX .. ", " .. landY, currentPlanet, landX, 0, landY, -45, 0, true}
+	SceneObject(pShip):setStoredString("custom_landing", selectedLandingPoint)
+	
 	CreatureObject(pPlayer):sendSystemMessage("Debug: X coordinate is" .. landX)
 	CreatureObject(pPlayer):sendSystemMessage("Debug: Y coordinate is" .. landY)
 	
@@ -358,9 +363,9 @@ function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
 		shipName = "The Ship"
 	end
 
-	BorRpShip:landShipAt(pShip, pPlayer, selectedLandingSpot[3], selectedLandingSpot[4], selectedLandingSpot[5], selectedLandingSpot[6])
+	BorRpShip:landShipAt(pShip, pPlayer, selectedLandingPoint[3], selectedLandingPoint[4], selectedLandingPoint[5], selectedLandingPoint[6])
 
-	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
+	local message = shipName .. " has now landed at " .. selectedLandingPoint[2] .. "."
 	
 	self:broadcastToPassengers(pShip, message)
 end
