@@ -116,7 +116,6 @@ function BorRpShip:exitShip(pPlayer)
 	--Get Ship's last known landing spot
 	local shipLandingSpot = SceneObject(pShip):getStoredString("landing_spot")
 	if(shipLandingSpot == "") then
-		--shipLandingSpot = "eisley_spaceport"
 		CreatureObject(pPlayer):sendSystemMessage("You cannot disembark while in space.")
 		return
 	end
@@ -125,7 +124,17 @@ function BorRpShip:exitShip(pPlayer)
 	local point = BorPlanetManager.landing_points[shipLandingSpot]
 	--Populate the landing location using a different variable if the ship is at custom coordinates, since those won't be in the planet landing points list.
 	if (shipLandingSpot == "custom_coordinates") then
-		point = SceneObject(pShip):getStoredString("custom_landing")
+		local landX = SceneObject(pShip):getStoredString("custom_landingX")
+		local landY = SceneObject(pShip):getStoredString("custom_landingY")
+		local landName = SceneObject(pShip):getStoredString("custom_landing_name")
+		local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
+
+		if (landX ~= nil and landY ~= nil and landName ~= nil and currentPlanet ~= nil) then
+			SceneObject(pPlayer):switchZone(currentPlanet, landX, 0, landY, 0) 
+			return
+		else 
+			CreatureObject(pPlayer):sendSystemMessage("Something horrible has occured. Could not locate landing point for this ship. Contact administration to get you out.")
+		end
 	end
 
 	--Teleport them to the target location
@@ -136,6 +145,11 @@ function BorRpShip:exitShip(pPlayer)
 		CreatureObject(pPlayer):sendSystemMessage("Something horrible has occured. Could not locate landing point for this ship. Contact administration to get you out.")
 	end	
 end
+
+	SceneObject(pShip):setStoredString("landing_spot", "custom_coordinates")
+	SceneObject(pShip):setStoredString("custom_landing_name", "coordinates " .. landX .. ", " .. landY)
+	SceneObject(pShip):setStoredString("custom_landingX", landX)
+	SceneObject(pShip):setStoredString("custom_landingY", landY)
 
 function BorRpShip:broadcastToPassengers(pShip, message)
 	--If it is not a building ship, no one to alert.
@@ -350,20 +364,24 @@ function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
     end
 
 	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
-	CreatureObject(pPlayer):sendSystemMessage("Debug: current planet is" .. currentPlanet)
-	local selectedLandingSpot = "custom_coordinates"
-	local selectedLandingPoint = {"custom_coordinates", "coordinates " .. landX .. ", " .. landY, currentPlanet, landX, 0, landY, -45, 0, true}
-	SceneObject(pShip):setStoredString("custom_landing", selectedLandingPoint)
+	CreatureObject(pPlayer):sendSystemMessage("Debug: current planet is " .. currentPlanet)
+	--local selectedLandingSpot = "custom_coordinates"
+	--local selectedLandingPoint = {"custom_coordinates", "coordinates " .. landX .. ", " .. landY, currentPlanet, landX, 0, landY, -45, 0, true}
+	SceneObject(pShip):setStoredString("landing_spot", "custom_coordinates")
+	SceneObject(pShip):setStoredString("custom_landing_name", "coordinates " .. landX .. ", " .. landY)
+	SceneObject(pShip):setStoredString("custom_landingX", landX)
+	SceneObject(pShip):setStoredString("custom_landingY", landY)
 	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: X coordinate is" .. landX)
-	CreatureObject(pPlayer):sendSystemMessage("Debug: Y coordinate is" .. landY)
+	CreatureObject(pPlayer):sendSystemMessage("Debug: Landing Zone name is " .. getStoredString("landing_spot"))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: X coordinate is " .. getStoredString("custom_landingX"))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: Y coordinate is " .. getStoredString("custom_landingY"))
 	
 	local shipName = SceneObject(pShip):getCustomObjectName()
 	if(shipName == "") then
 		shipName = "The Ship"
 	end
 
-	BorRpShip:landShipAt(pShip, pPlayer, selectedLandingPoint[3], selectedLandingPoint[4], selectedLandingPoint[5], selectedLandingPoint[6])
+	BorRpShip:landShipAt(pShip, pPlayer, currentPlanet, landX, 0, landY)
 
 	local message = shipName .. " has now landed at " .. selectedLandingPoint[2] .. "."
 	
