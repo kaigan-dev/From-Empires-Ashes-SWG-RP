@@ -261,17 +261,21 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 		return 0
 	end	
 
-	--If "Enter Coordinates" was selected, stop current logic to request coordinates.
-    if(rowIndex + 1 > #planetObject.landing_points) then
-            BorRpShip:promptCoordinateLanding(pPlayer, pShip)
-            return 0
-    end
-	
 	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
 	local planetObject = BorPlanetManager.planets[currentPlanet]
 	local selectedLandingSpot = planetObject.landing_points[rowIndex + 1]
 	
-	
+	if(planetObject == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Error occured. Could not find planet.")
+		return 0
+	end
+
+	--If "Enter Coordinates" was selected, stop current logic to request coordinates.
+    if(rowIndex + 1 > planetObject.landing_points) then
+            BorRpShip:promptCoordinateLanding(pPlayer, pShip)
+            return 0
+    end
+		
 	SceneObject(pShip):setStoredString("landing_spot", selectedLandingSpot[1])
 	
 	local shipName = SceneObject(pShip):getCustomObjectName()
