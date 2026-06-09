@@ -300,39 +300,78 @@ function BorRpShip:promptCoordinateLanding(pPlayer, pObject)
         if(pShip == nil) then
                 return 0
         end
-        local options = {}
-        for i = 1, #BorPlanetManager.planets_index, 1 do
-                local planetData = {BorPlanetManager.planets_index[i][1], BorPlanetManager.planets_index[i][2]}
-                table.insert(options, planetData)
-        end
+
         local suiManager = LuaSuiManager()
-        suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a planet for coordinate landing.", 1, "@cancel", "", "", "BorRpShip", "selectCoordinateZone", 10, options)
+        --suiManager:sendInputBox(pObject, pPlayer, "Navicomputer", "Select a planet for coordinate landing.", 1, "@cancel", "", "", "BorRpShip", "selectCoordinateZone", 10, options)
+		suiManager:sendInputBox(pObject, pPlayer, "BorRpShip", "selectCoordinates", "Enter landing coordinates as: X, Y", "@ok")
 end
 
 
-function BorRpShip:selectCoordinateZone(pPlayer, pSui, eventIndex, rowIndex, pObject)
-        if(eventIndex == 1) then
-                return 0
-        end
-        rowIndex = tonumber(rowIndex)
-        local selected = BorPlanetManager.planets_index[rowIndex + 1]
-        if(selected == nil) then
-                CreatureObject(pPlayer):sendSystemMessage("Invalid planet selection.")
-                return 0
-        end
-        SceneObject(pPlayer):setStoredString("coord_landing_zone", selected[2])
-        local suiManager = LuaSuiManager()
-        suiManager:sendInputBox(pObject, pPlayer, "BorRpShip", "onConfirmCoordinateLanding", "Enter landing coordinates as: X, Y\n\nPlanet: " .. selected[1], "@ok")
+function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
+    if(eventIndex == 1) then
+        return 0
+    end
+	
+    if(input == nil or input == "") then
+            CreatureObject(pPlayer):sendSystemMessage("No coordinates entered.")
+        	return 0
+    end
+
+	--local suiManager = LuaSuiManager()
+	
+	local xStr, yStr = string.match(input, "(-?%d+%.?%d*)[%s,]+(-?%d+%.?%d*)")
+    local landX = tonumber(xStr)
+    local landY = tonumber(yStr)
+    if(landX == nil or landY == nil) then
+        CreatureObject(pPlayer):sendSystemMessage("Invalid coordinates. Use format: X, Y")
+        return 0
+    end
+
+    local inputBox = LuaSuiBox(pSui)
+    local pObject = inputBox:getUsingObject()
+    if(pObject == nil) then
+        CreatureObject(pPlayer):sendSystemMessage("Error finding ship control device.")
+        return 0
+    end
+    local pCell = SceneObject(pPlayer):getParent()
+    if(pCell == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Player parent cell not found.")
+        return 0
+    end
+    local pShip = SceneObject(pCell):getParent()
+    if(pShip == nil) then
+        CreatureObject(pPlayer):sendSystemMessage("Parent ship not found.")
+		return 0
+    end
+
+	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
+	CreatureObject(pPlayer):sendSystemMessage("Debug: current planet is" .. currentPlanet)
+	local selectedLandingSpot = {"custom_coordinates", "coordinates " .. landX .. ", " .. landY, currentPlanet, landX, 0, landY, -45, 0, true}
+	SceneObject(pShip):setStoredString("landing_spot", selectedLandingSpot[1])
+
+	CreatureObject(pPlayer):sendSystemMessage("Debug: X coordinate is" .. landX)
+	CreatureObject(pPlayer):sendSystemMessage("Debug: Y coordinate is" .. landY)
+	
+	local shipName = SceneObject(pShip):getCustomObjectName()
+	if(shipName == "") then
+		shipName = "The Ship"
+	end
+
+	BorRpShip:landShipAt(pShip, pPlayer, selectedLandingSpot[3], selectedLandingSpot[4], selectedLandingSpot[5], selectedLandingSpot[6])
+
+	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
+	
+	self:broadcastToPassengers(pShip, message)
 end
 
-
+--[[  Prior version of land at coordinates for reference.
 function BorRpShip:onConfirmCoordinateLanding(pPlayer, pSui, eventIndex, input)
         if(eventIndex == 1) then
                 return 0
         end
         if(input == nil or input == "") then
                 CreatureObject(pPlayer):sendSystemMessage("No coordinates entered.")
-                return 0
+            	return 0
         end
         local xStr, yStr = string.match(input, "(-?%d+%.?%d*)[%s,]+(-?%d+%.?%d*)")
         local landX = tonumber(xStr)
@@ -371,6 +410,7 @@ function BorRpShip:onConfirmCoordinateLanding(pPlayer, pSui, eventIndex, input)
         local message = shipName .. " has now landed at " .. landX .. ", " .. landY .. "."
         self:broadcastToPassengers(pShip, message)
 end
+--]]
 
 
 function BorRpShip:renameShip(pObject, pPlayer)
