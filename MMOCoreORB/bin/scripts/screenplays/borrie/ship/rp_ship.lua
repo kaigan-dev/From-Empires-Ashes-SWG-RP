@@ -368,9 +368,9 @@ function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
 	SceneObject(pShip):setStoredString("custom_landingX", landX)
 	SceneObject(pShip):setStoredString("custom_landingY", landY)
 	
-	CreatureObject(pPlayer):sendSystemMessage("Debug: Landing Zone name is " .. getStoredString("landing_spot"))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: X coordinate is " .. getStoredString("custom_landingX"))
-	CreatureObject(pPlayer):sendSystemMessage("Debug: Y coordinate is " .. getStoredString("custom_landingY"))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: Landing Zone name is " .. SceneObject(pShip):getStoredString("landing_spot"))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: X coordinate is " .. SceneObject(pShip):getStoredString("custom_landingX"))
+	CreatureObject(pPlayer):sendSystemMessage("Debug: Y coordinate is " .. SceneObject(pShip):getStoredString("custom_landingY"))
 	
 	local shipName = SceneObject(pShip):getCustomObjectName()
 	if(shipName == "") then
