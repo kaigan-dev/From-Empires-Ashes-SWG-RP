@@ -271,7 +271,7 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 	end
 
 	--If "Enter Coordinates" was selected, stop current logic to request coordinates.
-    if(rowIndex + 1 > planetObject.landing_points) then
+    if(rowIndex + 1 > #planetObject.landing_points) then
             BorRpShip:promptCoordinateLanding(pPlayer, pShip)
             return 0
     end
