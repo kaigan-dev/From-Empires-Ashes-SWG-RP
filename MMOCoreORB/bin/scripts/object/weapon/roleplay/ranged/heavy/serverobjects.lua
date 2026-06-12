@@ -1,0 +1,1 @@
+includeFile("weapon/roleplay/ranged/heavy/flamethrower.lua")
