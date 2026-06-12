@@ -19,17 +19,19 @@ function RpShipCallerMenuComponent:handleObjectMenuSelect(pObject, pPlayer, sele
 	end
 	
 	if (selectedID == 20) then 
-		self:callShip(pObject, pPlayer)
+		--CreatureObject(pPlayer):sendSystemMessage("Getting ship ID from caller.")
+		--local shipID = SceneObject(pObject):getStoredLong("structure")
+		--CreatureObject(pPlayer):sendSystemMessage("Ship ID from caller is " .. shipID .. ". Getting shipBuilding from zone.")
+		CreatureObject(pPlayer):sendSystemMessage("Getting ship from caller.")
+		local pShip = getShipFromControlDevice(pObject)
+		CreatureObject(pPlayer):sendSystemMessage("Ship from caller is " .. pShip .. ". Getting shipID.")
+		local shipID = SceneObject(pShip):getObjectID()
+		CreatureObject(pPlayer):sendSystemMessage("Ship ID caller is " .. shipID .. ". Attempting landing by ship.")
+		BorRpShip:landShip(pShip, pPlayer)
+		CreatureObject(pPlayer):sendSystemMessage("Attempting landing by ship ID.")
+		BorRpShip:landShip(shipID, pPlayer)
 	end
-	
+
 	return 0
 end
 
-function RpShipCallerMenuComponent:callShip(pObject, pPlayer)
-	CreatureObject(pPlayer):sendSystemMessage("Getting ship ID from caller.")
-	local shipID = SceneObject(pObject):getStoredLong("structure")
-	CreatureObject(pPlayer):sendSystemMessage("Ship ID from caller is " .. shipID .. ". Getting shipBuilding from zone.")
-	local shipBuilding = CreatureObject(pPlayer):getZoneServer():getObject(shipID)
-	CreatureObject(pPlayer):sendSystemMessage("Shipbuilding is " .. shipBuilding .. ". Calling landShip.")
-	BorRpShip:landShip(shipBuilding, pPlayer)
-end

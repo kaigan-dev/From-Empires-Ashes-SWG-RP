@@ -204,3 +204,10 @@ void RpShipControlDeviceImplementation::fillAttributeList(AttributeListMessage* 
 	SceneObjectImplementation::fillAttributeList(alm, object);
     //alm->insertAttribute("test", 1);
 }
+
+
+
+void RpShipControlDeviceImplementation::callLandShip(SceneObject* sceneObject, CreatureObject* player, int structureID) {
+        ManagedReference<BuildingObject*> shipBuilding = getZoneServer()->getObject(structureID).castTo<BuildingObject*>();
+        BorRpShip:landShip(shipBuilding, player);
+}
