@@ -921,10 +921,8 @@ function BorRpShip:createCaller(pObject, pPlayer)
 
 	local newSerial = generateSerial()
 	TangibleObject(pItem):setSerialNumber(newSerial)
-	
-	CreatureObject(pPlayer):sendSystemMessage("Retrieving ship's structure ID")
+
 	local shipID = SceneObject(pObject):getStoredLong("structure")
-	CreatureObject(pPlayer):sendSystemMessage("Ship's structure ID value is " .. shipID)
 
 	SceneObject(pItem):setStoredLong("structure", shipID)
 
