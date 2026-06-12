@@ -118,7 +118,7 @@ function RpShipControlDeviceMenuComponent:handleObjectMenuSelect(pObject, pPlaye
 	elseif(selectedID == 82) then --Send Ship Away
 		BorRpShip:takeOffShip(pObject, pPlayer, false)
 	elseif(selectedID == 83) then --Generate Caller
-		
+		BorRpShip:createCaller(pObject, pPlayer)
 	elseif(selectedID == 84) then --Rename Ship
 		BorRpShip:renameShip(pObject, pPlayer)
 	end
