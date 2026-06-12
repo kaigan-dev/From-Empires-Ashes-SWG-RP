@@ -28,8 +28,8 @@ function RpShipCallerMenuComponent:handleObjectMenuSelect(pObject, pPlayer, sele
 		local shipID = SceneObject(pShip):getObjectID()
 		CreatureObject(pPlayer):sendSystemMessage("Ship ID caller is " .. shipID .. ". Attempting landing by ship.")
 		BorRpShip:landShip(pShip, pPlayer)
-		CreatureObject(pPlayer):sendSystemMessage("Attempting landing by ship ID.")
-		BorRpShip:landShip(shipID, pPlayer)
+		--CreatureObject(pPlayer):sendSystemMessage("Attempting landing by ship ID.")
+		--BorRpShip:landShip(shipID, pPlayer)
 	end
 
 	return 0
