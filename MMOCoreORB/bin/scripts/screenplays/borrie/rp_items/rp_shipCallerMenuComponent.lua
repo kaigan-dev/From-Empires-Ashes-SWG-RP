@@ -29,7 +29,7 @@ function RpShipCallerMenuComponent:callShip(pObject, pPlayer)
 	CreatureObject(pPlayer):sendSystemMessage("Getting ship ID from caller.")
 	local shipID = SceneObject(pObject):getStoredLong("structure")
 	CreatureObject(pPlayer):sendSystemMessage("Ship ID from caller is " .. shipID .. ". Getting shipBuilding from zone.")
-	local shipBuilding = getZoneServer():getObject(shipID)
+	local shipBuilding = CreatureObject(pPlayer):getZoneServer():getObject(shipID)
 	CreatureObject(pPlayer):sendSystemMessage("Shipbuilding is " .. shipBuilding .. ". Calling landShip.")
 	BorRpShip:landShip(shipBuilding, pPlayer)
 end
