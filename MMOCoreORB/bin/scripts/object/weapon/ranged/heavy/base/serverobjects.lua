@@ -46,3 +46,4 @@
 
 -- Server Objects
 includeFile("weapon/ranged/heavy/base/heavy_weapon_base.lua")
+includeFile("weapon/roleplay/ranged/heavy/flamethrower.lua")
