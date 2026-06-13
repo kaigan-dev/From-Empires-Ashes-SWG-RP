@@ -901,8 +901,33 @@ function BorRpShip:onConfirmStarfighterLandBeaconCode(pPlayer, pSui, eventIndex,
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("Invalid beacon code \"" .. code .. "\"")
 	end
+end
 
 
 
+function BorRpShip:createCaller(pObject, pPlayer)
+	local pInventory = SceneObject(pPlayer):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return
+	end
+
+	local pItem = giveItem(pInventory, "object/tangible/borrp/utility/ship_caller.iff", -1)	
+
+	if(pItem == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Failed to spawn ship caller.")
+		return
+	end
+
+	local newSerial = generateSerial()
+	TangibleObject(pItem):setSerialNumber(newSerial)
+
+	local shipID = SceneObject(pObject):getStoredLong("structure")
+
+	SceneObject(pItem):setStoredLong("structure", shipID)
+
+	local customName = SceneObject(pObject):getCustomObjectName()
+
+	SceneObject(pItem):setCustomObjectName("Caller (" ..customName.. ")")
 
 end
