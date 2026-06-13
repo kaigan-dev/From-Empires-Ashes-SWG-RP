@@ -355,3 +355,8 @@ object_weapon_ranged_heavy_shared_launcher = SharedWeaponObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_heavy_shared_launcher, "object/weapon/ranged/heavy/shared_launcher.iff")
+
+object_weapon_roleplay_ranged_heavy_flamethrower = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/ranged/heavy/flamethrower.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_heavy_flamethrower, "object/weapon/roleplay/ranged/heavy/flamethrower.iff")
