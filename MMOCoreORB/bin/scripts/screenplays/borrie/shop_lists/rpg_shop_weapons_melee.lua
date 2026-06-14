@@ -22,6 +22,7 @@ shop_weapons_melee = {
 				{template = "object/weapon/roleplay/melee/onehanded/rsf_sword.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/onehanded/sword.iff", cost = 150, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/onehanded/vibrosword.iff", cost = 600, max = 10, chance = 100, overridePrice = true },				
+				{template = "object/weapon/roleplay/melee/onehanded/stun_baton.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 
@@ -46,7 +47,6 @@ shop_weapons_melee = {
 				{template = "object/weapon/roleplay/melee/onehanded/stone_knife.iff", cost = 150, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/onehanded/survival_knife.iff", cost = 500, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/melee/onehanded/vibroblade.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
-				{template = "object/weapon/roleplay/melee/onehanded/stun_baton.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 
