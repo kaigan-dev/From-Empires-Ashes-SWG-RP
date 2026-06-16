@@ -1,5 +1,5 @@
 object_weapon_melee_plasma_saber_2h_sword_2h_sword_saber_stellan_gios_closed = object_weapon_melee_plasma_saber_2h_sword_shared_2h_sword_saber_stellan_gios_closed:new {
-	alternateGrip = "object/weapon/roleplay/lightsaber/single/1h/sword_saber_starcruiser.iff",
+	alternateGrip = "object/weapon/lightsaber/single/1h/sword_saber_starcruiser.iff",
 
 	attackType = MELEEATTACK,
 	damageType = LIGHTSABER,

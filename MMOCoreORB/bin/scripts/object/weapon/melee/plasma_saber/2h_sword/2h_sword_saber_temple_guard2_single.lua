@@ -1,5 +1,5 @@
 object_weapon_melee_plasma_saber_2h_sword_2h_sword_saber_temple_guard2_single = object_weapon_melee_plasma_saber_2h_sword_shared_2h_sword_saber_temple_guard2_single:new {
-	alternateGrip = "object/weapon/roleplay/lightsaber/single/1h/sword_saber_temple_guard2_single.iff",
+	alternateGrip = "object/weapon/lightsaber/single/1h/sword_saber_temple_guard2_single.iff",
 
 	attackType = MELEEATTACK,
 	damageType = LIGHTSABER,

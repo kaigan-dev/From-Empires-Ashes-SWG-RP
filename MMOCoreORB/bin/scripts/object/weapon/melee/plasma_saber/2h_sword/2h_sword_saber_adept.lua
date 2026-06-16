@@ -1,5 +1,5 @@
 object_weapon_melee_plasma_saber_2h_sword_2h_sword_saber_adept = object_weapon_melee_plasma_saber_2h_sword_shared_2h_sword_saber_adept:new {
-	alternateGrip = "object/weapon/roleplay/lightsaber/single/1h/sword_saber_adept.iff",
+	alternateGrip = "object/weapon/lightsaber/single/1h/sword_saber_adept.iff",
 
 	attackType = MELEEATTACK,
 	damageType = LIGHTSABER,
