@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_weapon_ranged_heavy_flamethrower = object_weapon_ranged_heavy_shared_flamethrower:new {
+object_weapon_ranged_heavy_flamethrower = object_weapon_ranged_heavy_shared_heavy_flamethrower:new {
 
 	objectMenuComponent = "FireHeavyWeaponMenuComponent",
 
@@ -134,4 +134,4 @@ object_weapon_ranged_heavy_flamethrower = object_weapon_ranged_heavy_shared_flam
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_ranged_heavy_flamethrower, "object/weapon/ranged/heavy/flamethrower.iff")
+ObjectTemplates:addTemplate(object_weapon_ranged_heavy_flamethrower, "object/weapon/ranged/heavy/heavy_flamethrower.iff")
