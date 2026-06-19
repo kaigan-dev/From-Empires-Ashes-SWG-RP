@@ -55,7 +55,6 @@ public:
 
 		//Highjacking this command for RP Player Ships.
 		//Get nearest structures, check each one until we have the nearest which is a landing point. 
-		creature->sendSystemMessage("Debug: We are now in BoardShuttleCommand.");
 
 		ManagedReference<PlayerManager*> playerManager = creature->getZoneServer()->getPlayerManager();
 
@@ -63,15 +62,12 @@ public:
 
 
 		if(closestPlayerShip != nullptr) {
-			creature->sendSystemMessage("Debug: closestPlayerShip is not null.");
 			if(closestPlayerShip->getStoredInt("acceptingPassengers") == 1) {
-				creature->sendSystemMessage("Debug: acceptingPassengers is 1.");
 				//Teleport 'em aboard.
 				uint64 shipID = closestPlayerShip->getStoredLong("connected_ship");
 				ManagedReference<BuildingObject*> shipBuilding = creature->getZoneServer()->getObject(shipID).castTo<BuildingObject*>();
         
         		if(shipBuilding != nullptr) {
-					creature->sendSystemMessage("Debug: shipBuilding is not null.");
             		Reference<SharedBuildingObjectTemplate*> shipTemplate = dynamic_cast<SharedBuildingObjectTemplate*>(shipBuilding->getObjectTemplate());
 
        				Vector3 entrancePoint = shipTemplate->getEntrancePoint();
@@ -102,7 +98,6 @@ public:
 		}
 
 
-		creature->sendSystemMessage("Debug: Proceeding with boarding logic.");
 		ManagedReference<PlanetManager*> planetManager = zone->getPlanetManager();
 
 		Reference<PlanetTravelPoint*> closestPoint = planetManager->getNearestPlanetTravelPoint(creature, 128.f);
