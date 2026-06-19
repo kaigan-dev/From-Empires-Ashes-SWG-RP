@@ -1165,8 +1165,8 @@ public:
 
 
 		SortedVector<QuadTreeEntry*> closeObjects;
-		//Zone* zone = centerTarget->getZone();
-        Zone* zone = centerTarget->getCurrentZone();
+		Zone* zone = centerTarget->getZone();
+        //Zone* zone = centerTarget->getCurrentZone();
         //Zone* zone = centerTarget->getLocalZone();
         //Zone* zone = centerTarget->asSceneObject->getParent();
 
@@ -1180,11 +1180,11 @@ public:
 		if (centerTarget->getCloseObjects() == nullptr) {
             attacker->sendSystemMessage("Debug: getCloseObjects returned null.");
 			//zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), radius, &closeObjects, true);
-            int objCount = zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
+            int objCount = zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
             attacker->sendSystemMessage("Debug: getInRangeObjects returned " + String::valueOf(objCount) + " objects in range " + String::valueOf(ZoneServer::CLOSEOBJECTRANGE));
 		}
 		else {
-            attacker->sendSystemMessage("Debug: getCloseObjects returned data.");
+            attacker->sendSystemMessage("Debug: getCloseObjects returned data.");        
 			CloseObjectsVector* closeVector = (CloseObjectsVector*) centerTarget->getCloseObjects();
 			closeVector->safeCopyReceiversTo(closeObjects, CloseObjectsVector::CREOTYPE);
 		}
