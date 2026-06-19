@@ -1105,13 +1105,6 @@ Zone* SceneObjectImplementation::getZone() {
 	}
 }
 
-Zone* SceneObjectImplementation::getCurrentZone() {
-	//return zone;
-	return this->zone;
-	//auto root = getRootParent();
-	//return root;
-}
-
 Zone* SceneObjectImplementation::getZoneUnsafe() const {
 	auto root = const_cast<SceneObjectImplementation*>(this)->getRootParentUnsafe();
 

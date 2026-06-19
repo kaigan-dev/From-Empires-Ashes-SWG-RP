@@ -1166,40 +1166,29 @@ public:
 
 		SortedVector<QuadTreeEntry*> closeObjects;
 		Zone* zone = centerTarget->getZone();
-        //Zone* zone = centerTarget->getCurrentZone();
-        //Zone* zone = centerTarget->getLocalZone();
-        //Zone* zone = centerTarget->asSceneObject->getParent();
 
         if(zone == nullptr) {
-            attacker->sendSystemMessage("Debug: Attempt to get Zone resulted in a null pointer.");
+            attacker->sendSystemMessage("Attempt to get Zone resulted in a null pointer. It really shouldn't do that. Contact the Admins.");
             return;
         }
 
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
 		if (centerTarget->getCloseObjects() == nullptr) {
-            attacker->sendSystemMessage("Debug: getCloseObjects returned null.");
-			//zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), radius, &closeObjects, true);
-            int objCount = zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
-            attacker->sendSystemMessage("Debug: getInRangeObjects returned " + String::valueOf(objCount) + " objects in range " + String::valueOf(ZoneServer::CLOSEOBJECTRANGE));
+			zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), radius, &closeObjects, true);
+            //zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
 		}
-		else {
-            attacker->sendSystemMessage("Debug: getCloseObjects returned data.");        
+		else {      
 			CloseObjectsVector* closeVector = (CloseObjectsVector*) centerTarget->getCloseObjects();
 			closeVector->safeCopyReceiversTo(closeObjects, CloseObjectsVector::CREOTYPE);
 		}
 
         int targetCount = 0; 
 
-        attacker->sendSystemMessage("Debug: commencing loop to check through " + String::valueOf(closeObjects.size()) + " objects found in closeObjects.");
         //Yes I know we do this loop twice, but its to accurately report the target count.
         for (int i = 0; i < closeObjects.size(); i++) {
-            attacker->sendSystemMessage("Debug: Checking object number " + String::valueOf(i));
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
-            if(targetObject->isCreatureObject())
-                attacker->sendSystemMessage("Debug: Found a creature. Checking range.");
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
-                attacker->sendSystemMessage("Debug: Found a creature in range!");
 				targetCount++;
 			}
 		}
