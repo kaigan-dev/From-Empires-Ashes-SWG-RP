@@ -1170,9 +1170,11 @@ public:
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
 		if (centerTarget->getCloseObjects() == nullptr) {
+            attacker->sendSystemMessage("Debug: getCloseObjects returned null.");
 			zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), radius, &closeObjects, true);
 		}
 		else {
+            attacker->sendSystemMessage("Debug: getCloseObjects returned data.");
 			CloseObjectsVector* closeVector = (CloseObjectsVector*) centerTarget->getCloseObjects();
 			closeVector->safeCopyReceiversTo(closeObjects, CloseObjectsVector::CREOTYPE);
 		}
