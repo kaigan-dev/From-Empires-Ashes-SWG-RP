@@ -618,7 +618,7 @@ function BorRpShip:notifyShipLanded(pShip)
 	local posY = SceneObject(pPoint):getWorldPositionY()
 	local zoneName = SceneObject(pPoint):getZoneName()
 	local planetName = BorPlanetManager.planets[zoneName].name
-	self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. posX .. ", " .. posY .. ", " .. planetName .. ".")	
+	self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. math.floor(posX) .. ", " .. math.floor(posY) .. ", " .. planetName .. ".")	
 end
 
 function BorRpShip:notifyPointLanded(pPoint)
@@ -861,7 +861,7 @@ function BorRpShip:onConfirmLandBeaconCode(pPlayer, pSui, eventIndex, code)
 			shipName = "ship"
 		end
 
-		self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. posX .. ", " .. posY .. ", " .. planetName .. ".")	
+		self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. math.floor(posX) .. ", " .. math.floor(posY) .. ", " .. planetName .. ".")	
 		
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("Invalid beacon code \"" .. code .. "\"")
