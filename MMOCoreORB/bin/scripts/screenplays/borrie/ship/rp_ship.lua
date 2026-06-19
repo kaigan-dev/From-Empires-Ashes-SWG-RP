@@ -305,7 +305,7 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 	BorRpShip:landShipAt(pShip, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
 
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
-	
+		
 	self:broadcastToPassengers(pShip, message)		
 end
 
@@ -367,17 +367,11 @@ function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
     end
 
 	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
-	--CreatureObject(pPlayer):sendSystemMessage("Debug: current planet is " .. currentPlanet)
-	--local selectedLandingSpot = "custom_coordinates"
-	--local selectedLandingPoint = {"custom_coordinates", "coordinates " .. landX .. ", " .. landY, currentPlanet, landX, 0, landY, -45, 0, true}
+
 	SceneObject(pShip):setStoredString("landing_spot", "custom_coordinates")
 	SceneObject(pShip):setStoredString("custom_landing_name", "coordinates " .. landX .. ", " .. landY)
 	SceneObject(pShip):setStoredString("custom_landingX", landX)
 	SceneObject(pShip):setStoredString("custom_landingY", landY)
-	
-	--CreatureObject(pPlayer):sendSystemMessage("Debug: Landing Zone name is " .. SceneObject(pShip):getStoredString("landing_spot"))
-	--CreatureObject(pPlayer):sendSystemMessage("Debug: X coordinate is " .. SceneObject(pShip):getStoredString("custom_landingX"))
-	--CreatureObject(pPlayer):sendSystemMessage("Debug: Y coordinate is " .. SceneObject(pShip):getStoredString("custom_landingY"))
 	
 	local shipName = SceneObject(pShip):getCustomObjectName()
 	if(shipName == "") then
@@ -386,9 +380,11 @@ function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
 
 	BorRpShip:landShipAt(pShip, pPlayer, currentPlanet, landX, 0, landY)
 
-	local message = shipName .. " has now landed at " .. selectedLandingPoint[2] .. "."
+	--local message = shipName .. " has now landed at " .. selectedLandingPoint[2] .. "."
+
+	--self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. math.floor(landX) .. ", " .. math.floor(landY) .. ", " .. planetName .. ".")	
 	
-	self:broadcastToPassengers(pShip, message)
+	--self:broadcastToPassengers(pShip, message)
 end
 
 
@@ -514,18 +510,9 @@ end
 
 
 function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, landY)
-	--[[   The player's location is not relevant when we're spawning the ship building elsewhere.
-	if(SceneObject(pPlayer):getParent() ~= nil) then
-		CreatureObject(pPlayer):sendSystemMessage("You cannot do this inside a structure.")
-		return 0
-	end
-	--]]
-	
 	local pShip = getShipFromControlDevice(pObject)
 	
 	if(pShip == nil) then
-		--CreatureObject(pPlayer):sendSystemMessage("Could not find the ship! Aborting landing sequence...")
-		--return 0
 		pShip = pObject
 	end
 	
