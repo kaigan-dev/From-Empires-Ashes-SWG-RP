@@ -3288,9 +3288,7 @@ StructureObject* PlayerManagerImplementation::getInRangeBoardableRpShip(Creature
 					if(shipObject->isBuildingObject()) {
 						//Check to see if the player is on the admin list, entry list, or if the ship is private
 						BuildingObject* shipStructure = cast<BuildingObject*>( shipObject.get());
-						if(shipStructure->isPublicStructure()) {
-							validEntry = true;
-						} else if(shipStructure->isOnAdminList(creature)) {
+						if(shipStructure->isOnAdminList(creature)) {
 							validEntry = true;
 						} else if(shipStructure->isAllowedEntry(creature)) {
 							creature->sendSystemMessage("Debug: You are allowed entry to this building.");
