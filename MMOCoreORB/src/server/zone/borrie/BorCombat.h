@@ -1175,7 +1175,8 @@ public:
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
 		if (centerTarget->getCloseObjects() == nullptr) {
-			zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), radius, &closeObjects, true);
+			//zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), radius, &closeObjects, true);
+            zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true);
             //zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
 		}
 		else {      
