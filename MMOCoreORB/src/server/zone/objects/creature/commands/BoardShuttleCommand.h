@@ -64,7 +64,6 @@ public:
 
 		if(closestPlayerShip != nullptr) {
 			creature->sendSystemMessage("Debug: closestPlayerShip is not null.");
-			creature->sendSystemMessage("Debug: closestPlayerShip is " + closestPlayerShip.toString());
 			if(closestPlayerShip->getStoredInt("acceptingPassengers") == 1) {
 				creature->sendSystemMessage("Debug: acceptingPassengers is 1.");
 				//Teleport 'em aboard.
