@@ -973,6 +973,9 @@ class SceneObject extends QuadTreeEntry implements Logger, Metrics {
 	@dirty
 	public native Zone getZone();
 
+	@dirty
+	public native Zone getCurrentZone();
+
 	@read
 	public native Zone getZoneUnsafe();
 
