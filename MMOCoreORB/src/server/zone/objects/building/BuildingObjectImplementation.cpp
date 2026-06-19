@@ -406,15 +406,22 @@ bool BuildingObjectImplementation::isAllowedEntry(CreatureObject* player) {
 		}
 	}
 
-	if (getOwnerObjectID() == player->getObjectID())
+	if (getOwnerObjectID() == player->getObjectID()) {
+		player->sendSystemMessage("Debug: You own this building.");
 		return true;
+	}
 
-	if (isOnBanList(player))
+	if (isOnBanList(player)) {
+		player->sendSystemMessage("Debug: You are banned from this building.");
 		return false;
+	}
 
-	if (isPrivateStructure() && !isOnEntryList(player))
+	if (isPrivateStructure() && !isOnEntryList(player)) {
+		player->sendSystemMessage("Debug: You are not on the entry list for this building and it is private.");
 		return false;
+	}
 
+	player->sendSystemMessage("Debug: No specific conditions were encountered so you are permitted entry.");
 	return true;
 }
 
