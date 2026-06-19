@@ -1183,10 +1183,10 @@ public:
 
         int targetCount = 0; 
 
-        attacker->sendSystemMessage("Debug: commencing loop to check through " + String::valueof(closeObjects.size()) + " objects found in closeObjects.");
+        attacker->sendSystemMessage("Debug: commencing loop to check through " + String::valueOf(closeObjects.size()) + " objects found in closeObjects.");
         //Yes I know we do this loop twice, but its to accurately report the target count.
         for (int i = 0; i < closeObjects.size(); i++) {
-            attacker->sendSystemMessage("Debug: Checking object number " + String::valueof(i));
+            attacker->sendSystemMessage("Debug: Checking object number " + String::valueOf(i));
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
             if(targetObject->isCreatureObject())
                 attacker->sendSystemMessage("Debug: Found a creature. Checking range.");
