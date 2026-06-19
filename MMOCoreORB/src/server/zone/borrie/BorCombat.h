@@ -1166,8 +1166,13 @@ public:
 
 		SortedVector<QuadTreeEntry*> closeObjects;
 		//Zone* zone = centerTarget->getZone();
-        //Zone* zone = centerTarget->getCurrentZone();   //This seg faults.
-        ManagedReference<Zone*> zone = centerTarget->getCurrentZone();
+        Zone* zone = centerTarget->getCurrentZone();   //This seg faults.
+        //Zone* zone = centerTarget->asSceneObject->getParent();
+
+        if(zone == nullptr) {
+            attacker->sendSystemMessage("Debug: Attempt to get Zone resulted in a null pointer.");
+            return;
+        }
 
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
