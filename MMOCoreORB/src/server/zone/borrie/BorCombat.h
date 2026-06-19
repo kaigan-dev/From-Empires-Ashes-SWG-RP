@@ -1166,7 +1166,8 @@ public:
 
 		SortedVector<QuadTreeEntry*> closeObjects;
 		//Zone* zone = centerTarget->getZone();
-        Zone* zone = centerTarget->getCurrentZone();
+        //Zone* zone = centerTarget->getCurrentZone();   //This seg faults.
+        ManagedReference<Zone*> zone = centerTarget->getZone();
 
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
