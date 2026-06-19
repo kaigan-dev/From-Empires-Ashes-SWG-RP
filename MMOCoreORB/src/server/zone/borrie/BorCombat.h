@@ -1166,8 +1166,8 @@ public:
 
 		SortedVector<QuadTreeEntry*> closeObjects;
 		//Zone* zone = centerTarget->getZone();
-        //Zone* zone = centerTarget->getCurrentZone();
-        Zone* zone = centerTarget->getLocalZone();
+        Zone* zone = centerTarget->getCurrentZone();
+        //Zone* zone = centerTarget->getLocalZone();
         //Zone* zone = centerTarget->asSceneObject->getParent();
 
         if(zone == nullptr) {
