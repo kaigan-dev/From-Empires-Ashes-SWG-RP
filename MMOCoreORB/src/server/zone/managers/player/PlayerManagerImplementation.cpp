@@ -3293,9 +3293,11 @@ StructureObject* PlayerManagerImplementation::getInRangeBoardableRpShip(Creature
 						} else if(shipStructure->isOnAdminList(creature)) {
 							validEntry = true;
 						} else if(shipStructure->isAllowedEntry(creature)) {
+							creature->sendSystemMessage("Debug: You are allowed entry to this building.");
 							validEntry = true;
 						}
 					} else { //Non-Building Ship
+						creature->sendSystemMessage("Debug: The ship isn't a building for some reason. That's probably not good.");
 						//Check to see if player owns the shipObject
 						SceneObject* datapad = creature->getSlottedObject("datapad");
 						if(shipObject->getParentID() == datapad->getObjectID()) {
@@ -3304,6 +3306,7 @@ StructureObject* PlayerManagerImplementation::getInRangeBoardableRpShip(Creature
 					}	
 
 					if(validEntry) {
+						creature->sendSystemMessage("Debug: validEntry is true.");
 						structure = structureObject;
 						distance = dist;
 					}				
@@ -3312,8 +3315,10 @@ StructureObject* PlayerManagerImplementation::getInRangeBoardableRpShip(Creature
 		}
 	}
 
-	if (distance < 10)
+	if (distance < 10) {
+		creature->sendSystemMessage("Debug: There is a ship in range.");
 		return structure;
+	}
 
 	return nullptr;
 }
