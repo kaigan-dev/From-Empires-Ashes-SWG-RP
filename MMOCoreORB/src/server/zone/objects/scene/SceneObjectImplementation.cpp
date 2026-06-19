@@ -1106,8 +1106,8 @@ Zone* SceneObjectImplementation::getZone() {
 }
 
 Zone* SceneObjectImplementation::getCurrentZone() {
-	return zone;
-	//return this->zone;
+	//return zone;
+	return this->zone;
 	//auto root = getRootParent();
 	//return root;
 }
