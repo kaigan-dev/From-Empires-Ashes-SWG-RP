@@ -1165,7 +1165,8 @@ public:
 
 
 		SortedVector<QuadTreeEntry*> closeObjects;
-		Zone* zone = centerTarget->getZone();
+		//Zone* zone = centerTarget->getZone();
+        Zone* zone = centerTarget->getZoneServer();
 
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
@@ -1173,7 +1174,7 @@ public:
             attacker->sendSystemMessage("Debug: getCloseObjects returned null.");
 			//zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), radius, &closeObjects, true);
             int objCount = zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
-            attacker->sendSystemMessage("Debug: getInRangeObjects returned " + String::valueOf(objCount) + "objects.");
+            attacker->sendSystemMessage("Debug: getInRangeObjects returned " + String::valueOf(objCount) + " objects in range " + String::valueOf(ZoneServer::CLOSEOBJECTRANGE));
 		}
 		else {
             attacker->sendSystemMessage("Debug: getCloseObjects returned data.");
