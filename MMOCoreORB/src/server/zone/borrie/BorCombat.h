@@ -1172,7 +1172,7 @@ public:
 		if (centerTarget->getCloseObjects() == nullptr) {
             attacker->sendSystemMessage("Debug: getCloseObjects returned null.");
 			//zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), radius, &closeObjects, true);
-            zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true);
+            zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
 		}
 		else {
             attacker->sendSystemMessage("Debug: getCloseObjects returned data.");
