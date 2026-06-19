@@ -1173,7 +1173,7 @@ public:
             attacker->sendSystemMessage("Debug: getCloseObjects returned null.");
 			//zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), radius, &closeObjects, true);
             int objCount = zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
-            attacker->sendSystemMessage("Debug: getInRangeObjects returned " + toString::valueOf(objCount) + "objects.");
+            attacker->sendSystemMessage("Debug: getInRangeObjects returned " + String::valueOf(objCount) + "objects.");
 		}
 		else {
             attacker->sendSystemMessage("Debug: getCloseObjects returned data.");
@@ -1183,10 +1183,10 @@ public:
 
         int targetCount = 0; 
 
-        attacker->sendSystemMessage("Debug: commencing loop to check through " + toString::valueof(closeObjects.size()) + " objects found in closeObjects.");
+        attacker->sendSystemMessage("Debug: commencing loop to check through " + String::valueof(closeObjects.size()) + " objects found in closeObjects.");
         //Yes I know we do this loop twice, but its to accurately report the target count.
         for (int i = 0; i < closeObjects.size(); i++) {
-            attacker->sendSystemMessage("Debug: Checking object number " + toString::valueof(i));
+            attacker->sendSystemMessage("Debug: Checking object number " + String::valueof(i));
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
             if(targetObject->isCreatureObject())
                 attacker->sendSystemMessage("Debug: Found a creature. Checking range.");
