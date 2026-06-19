@@ -55,6 +55,7 @@ public:
 
 		//Highjacking this command for RP Player Ships.
 		//Get nearest structures, check each one until we have the nearest which is a landing point. 
+		creature->sendSystemMessage("We are now in BoardShuttleCommand.");
 
 		ManagedReference<PlayerManager*> playerManager = creature->getZoneServer()->getPlayerManager();
 
@@ -91,6 +92,9 @@ public:
 				creature->sendSystemMessage("You can't board this ship right now.");
 				return GENERALERROR;
 			}
+		}else {
+				creature->sendSystemMessage("No ship with boarding permissions found.");
+				return GENERALERROR;
 		}
 
 		ManagedReference<PlanetManager*> planetManager = zone->getPlanetManager();
