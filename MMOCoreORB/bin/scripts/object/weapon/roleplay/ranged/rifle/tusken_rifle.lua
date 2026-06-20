@@ -34,7 +34,7 @@ object_weapon_roleplay_ranged_rifle_tusken_rifle = object_weapon_ranged_rifle_sh
 	rarity="Common",
 	itemValue = 150,
 	maxAmmo = 1,
-	ammoType = "ammo_kinetic", 
+	ammoType = "ammo_tusken", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
