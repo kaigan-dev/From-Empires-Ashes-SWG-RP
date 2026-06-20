@@ -140,8 +140,8 @@ public:
 						int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
 						int creditCost = 10;
 
-						if(ammoType == 'ammo_tusken') {
-							creditCost=2
+						if(ammoType == "ammo_tusken") {
+							creditCost=2;
 						}
 
 						if(creature->getCashCredits() - creditCost >= 0) {
