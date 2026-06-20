@@ -15,7 +15,7 @@ object_weapon_roleplay_melee_onehanded_elite_gaderiffi_stick = object_weapon_mel
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 3, --Type of Die used in Damage
+	maxDamage = 5, --Type of Die used in Damage
 	bonusDamage = 4,
 
 	pointBlankRange = 0,
