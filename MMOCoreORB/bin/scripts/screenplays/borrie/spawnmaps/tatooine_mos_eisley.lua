@@ -369,8 +369,8 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setCustomObjectName("Mos Eisley Police Station")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_wall_style_01.iff", 1030.25, 6.2793, 245.364, 0, 0.707107, 0, 0.707107, 0) --Club
 	SceneObject(sObj):setCustomObjectName("The Twin Suns Saloon")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_upright_style_01.iff", 606.332, 0, -83.3598, 0, 0.707107, 0, 0.707107, 0) --Lodge
-	SceneObject(sObj):setCustomObjectName("Dunewalker Lodge")
+	--sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_upright_style_01.iff", 606.332, 0, -83.3598, 0, 0.707107, 0, 0.707107, 0) --Lodge
+	--SceneObject(sObj):setCustomObjectName("Dunewalker Lodge")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_upright_style_01.iff", 450.508, 1.99023, 157.077, 0, 1, 0, 0, 0) --Clinic
 	SceneObject(sObj):setCustomObjectName("Mos Eisley Medical Clinic")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s02.iff", 830.15, 0, -36.813, 0, 0.707107, 0, 0.707107, 0) --Arena Place
@@ -1015,6 +1015,13 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Tiroir Ciouskar (a Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship")
+	
+
+	-- PERSONAL --
+
+	--Telok's basilisk
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1221.9, -1, 154, -3, 0, "basilisk_war_droid", "default", "creatures_large", "random")
+	SceneObject(pNpc):setCustomObjectName("Kih'parjai")
 	
 
 end
