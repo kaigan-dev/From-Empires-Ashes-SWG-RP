@@ -1020,7 +1020,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	-- PERSONAL --
 
 	--Telok's basilisk
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1221.9, -1, 154, -3, 0, "basilisk_war_droid", "default", "creatures_large", "random")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1221.9, -2.5, 154, 6, 0, "basilisk_war_droid", "default", "creatures/large", "random")
 	SceneObject(pNpc):setCustomObjectName("Kih'parjai")
 	
 
