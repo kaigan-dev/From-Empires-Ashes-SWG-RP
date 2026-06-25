@@ -159,6 +159,16 @@ public:
 					}
 				}				
 			}
+			else if(command == "heropoint" || command == "hp" || command == "hero") {
+				if(targetCreature->getStoredInt("hero_point_used")) {
+					creature->sendSystemMessage("You have already used your hero point since your last long rest.");
+				}
+				else {
+					BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has used their hero point and may reroll their last skill check if they are not in combat.");
+					targetCreature->setStoredInt("hero_point_used", 1);
+				}
+				
+			}
 		} catch (Exception& e) {
 			creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
 			if(adminLevelCheck > 0) {

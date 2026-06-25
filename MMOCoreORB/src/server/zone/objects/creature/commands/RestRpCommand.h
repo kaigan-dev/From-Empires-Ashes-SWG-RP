@@ -72,6 +72,7 @@ public:
 				else if(command == "long") {
 					BorCharacter::FillAllPools(targetCreature);
 					//BorCharacter::HandleDarksideFading(targetCreature);
+					targetCreature->setStoredInt("hero_point_used", 0);
 				}
  
 				targetCreature->setStoredInt("power_attack_count", 0);

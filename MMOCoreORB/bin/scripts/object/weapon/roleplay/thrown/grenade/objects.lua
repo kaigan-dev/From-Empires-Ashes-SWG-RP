@@ -33,3 +33,8 @@ object_weapon_roleplay_thrown_grenade_shared_cryoban_grenade = SharedWeaponObjec
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_thrown_grenade_shared_cryoban_grenade, "object/weapon/roleplay/thrown/grenade/shared_cryoban_grenade.iff")
 --********************************************************************************************************************************************************************
+object_weapon_roleplay_thrown_grenade_shared_ion_grenade = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/thrown/grenade/shared_ion_grenade.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_thrown_grenade_shared_ion_grenade, "object/weapon/roleplay/thrown/grenade/shared_ion_grenade.iff")
+--********************************************************************************************************************************************************************
