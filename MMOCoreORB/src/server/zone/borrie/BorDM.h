@@ -110,6 +110,28 @@ public:
 		SkillManager::instance()->awardSkill("social_language_ithorian_comprehend", target, true, true, true, true, 1);
 		SkillManager::instance()->awardSkill("social_language_sullustan_speak", target, true, true, true, true, 1);
 		SkillManager::instance()->awardSkill("social_language_sullustan_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_mistryl_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_mistryl_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_huttese_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_huttese_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_esselean_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_esselean_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_miralukese_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_miralukese_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_sephi_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_sephi_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_ewok_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_ewok_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_binary_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_binary_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_astromech_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_astromech_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_jawatrade_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_jawatrade_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_mandoa_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_mandoa_comprehend", target, true, true, true, true, 1);
+
+
 	}
 
 	
