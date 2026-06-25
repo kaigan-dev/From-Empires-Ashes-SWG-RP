@@ -108,7 +108,7 @@ end
 function RpTatooineWayfarScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
 	
-	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 4462.8, 8.4, -6844.8, 610008050, 1, 0, 0.5, 0)
+	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 4462.8, 8.4, -6844.8, 0, 1, 0, 0.5, 0)
 	
 
 	
