@@ -78,6 +78,7 @@ travel_destinations = {
 			{"Anchorhead", "rp_tatooine", -560, 0.0, -1770, 0},
 			{"Mos Eisley", "rp_tatooine", 1150, 0.0, 100, 0},
 			{"Bestine", "rp_tatooine", 330, 0.0, 6646, 0},
+			{"Wayfar", "rp_tatooine", 4465.8, 8.7, -6847, 0},
 		}	
 	},
 	
