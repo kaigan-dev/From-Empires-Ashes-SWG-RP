@@ -414,7 +414,19 @@ public:
 			//creature->sendSystemMessage("Trying to train attribute");
 		}
 		*/
+		int totalAttributes = 0;
+
+		int += BorSkill::GetRealSkillLevel(creature, "strength");
+		int += BorSkill::GetRealSkillLevel(creature, "charisma");
+		int += BorSkill::GetRealSkillLevel(creature, "precision");
+		int += BorSkill::GetRealSkillLevel(creature, "dexterity");
+		int += BorSkill::GetRealSkillLevel(creature, "mindfulness");
+		int += BorSkill::GetRealSkillLevel(creature, "intelligence");
+		int += BorSkill::GetRealSkillLevel(creature, "constitution");
+		int += BorSkill::GetRealSkillLevel(creature, "awareness");
  
+		if(totalAttributes >= 48) return false;
+	
 		if(parentAttribute == "" && points > 0) return true;
 		
 		//creature->sendSystemMessage("CanTrainNextSkill: hasXP is " + std::to_string(hasXP));

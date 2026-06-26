@@ -331,7 +331,7 @@ public:
 		} else {
 			suibox->setPromptTitle("Not eligible for training.");
 			//Failure. Can't train.
-			suibox->setPromptText("You are not currently eligible to train this attribute. You do not have enough experience points.");
+			suibox->setPromptText("You are not currently eligible to train this attribute. You do not have enough experience points or have already raised your total attributes to 48.");
 			suibox->setCallback(new TrainCommandSuiCallback(server, -1, state));
 			suibox->setCancelButton(true, "Go Back");
 		}	
