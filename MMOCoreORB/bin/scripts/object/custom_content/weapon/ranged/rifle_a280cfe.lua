@@ -132,4 +132,4 @@ object_weapon_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_shared_rif
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_ranged_rifle_rifle_mandalorian, "object/weapon/ranged/rifle/rifle_mandalorian.iff")
+ObjectTemplates:addTemplate(object_weapon_ranged_rifle_rifle_a280cfe, "object/weapon/ranged/rifle/a280cfe_blaster_rifle.iff")
