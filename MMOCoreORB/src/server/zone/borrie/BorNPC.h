@@ -253,35 +253,45 @@ public:
 		const ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 		String prefix = "";
-		bool isMine;
+		bool isMine = false;
 
 		if (object == nullptr) {
 			creature->sendSystemMessage("ERROR: Target required for OtherSpeak commands. They cannot be another player.");
-			throw Exception();
+			return;
 		}
 		ManagedReference<CreatureObject*> targetCreature;
-		if (object->isCreatureObject() && !object->isPlayerObject()) {
+		if (object->isCreatureObject()) {
 			targetCreature = object->asCreatureObject();
-			if (targetCreature->getPlayerObject() != nullptr) {
-				if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() || isAdmin)
+			if (targetCreature->getPlayerObject() != nullptr) {    //Is the target a player? If so, allow only other characters on their account to control them.
+				//if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() || isAdmin)
+				if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID())
 					isMine = true;
 				else {
 					creature->sendSystemMessage("ERROR: You can only speak through NPCs, characters or pets that you own.");
-					throw Exception();
+					return;
 				}
-			} else
+			} else if (isAdmin) {   //If the target is not a player, allow admins to control them.
 				isMine = creature == targetCreature->getLinkedCreature().get();
-			if (!isAdmin && !isMine)
-				prefix = "[" + creature->getFirstName() + "] ";
+			}
+			else {   //If the target is not a player and the controller is not an admin, deny access. We shouldn't actually hit this step because of the earlier "else return".
+				isMine = false;
+			}
+			
+			if (!isMine) {
+				//prefix = "[" + creature->getFirstName() + "] ";   //Old behavior. We don't want to let anyone speak through any creature. This will specify who is controlling the target creature if we wanted to use it somewhere though.
+				creature->sendSystemMessage("ERROR: You can only speak through characters or pets that you own.");
+				return;
+			}
+				
 
 			Locker locker(targetCreature);
 			creature->getZoneServer()->getChatManager()->broadcastChatMessage(targetCreature, prefix + speech, 0, chatType, creature->getMoodID(), 0);
 		} else {
-			creature->sendSystemMessage("ERROR: Only creatures and characters can speak.");
-			throw Exception();
+			creature->sendSystemMessage("ERROR: Only creatures can speak.");
+			return;
 		}
 	}
-
+ 
 	static int GetTargetDistance(CreatureObject* creature, SceneObject* object) {
 		if (object == nullptr)
 			return -1;
