@@ -271,7 +271,8 @@ public:
 					return;
 				}
 			} else if (isAdmin) {   //If the target is not a player, allow admins to control them.
-				isMine = creature == targetCreature->getLinkedCreature().get();
+				//isMine = creature == targetCreature->getLinkedCreature().get();
+				isMine = true;
 			}
 			else {   //If the target is not a player and the controller is not an admin, deny access. We shouldn't actually hit this step because of the earlier "else return".
 				isMine = false;
