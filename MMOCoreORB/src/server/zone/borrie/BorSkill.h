@@ -416,14 +416,14 @@ public:
 		*/
 		int totalAttributes = 0;
 
-		int += BorSkill::GetRealSkillLevel(creature, "strength");
-		int += BorSkill::GetRealSkillLevel(creature, "charisma");
-		int += BorSkill::GetRealSkillLevel(creature, "precision");
-		int += BorSkill::GetRealSkillLevel(creature, "dexterity");
-		int += BorSkill::GetRealSkillLevel(creature, "mindfulness");
-		int += BorSkill::GetRealSkillLevel(creature, "intelligence");
-		int += BorSkill::GetRealSkillLevel(creature, "constitution");
-		int += BorSkill::GetRealSkillLevel(creature, "awareness");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "strength");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "charisma");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "precision");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "dexterity");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "mindfulness");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "intelligence");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "constitution");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "awareness");
  
 		if(totalAttributes >= 48) return false;
 	
