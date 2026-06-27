@@ -3,6 +3,7 @@
 
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/managers/creature/CreatureManager.h"
+#include "server/zone/managers/"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
 
 //#include "templates/roleplay/RoleplayManager.h"
@@ -35,7 +36,13 @@ public:
 	}
 
 	static ManagedReference<ArmorObject*> GetArmorAtSlot(CreatureObject* creature, String slot) {
-		return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		if (creature->isPlayerCreature())
+			return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		else {
+			SceneObject* slob = creature->getSlottedObject(slot);
+			ManagedReference<ArmorObject*> npcArm = cast<ArmorObject*>(slob);
+			return npcArm;
+		}
 	}
 
 	static void SetChatPrefix(CreatureObject* creature, String prefix) {
