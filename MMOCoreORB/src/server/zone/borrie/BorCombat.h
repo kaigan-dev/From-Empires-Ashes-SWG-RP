@@ -957,7 +957,7 @@ public:
     }
 
     static String GetWeaponDamageString(CreatureObject* attacker, WeaponObject* weapon, bool powerAttacked) {
-        int minDamage = weapon(getMinDamage());
+        int minDamage = weapon->getMinDamage();
         if (powerAttacked)
             minDamage++;
         if ((weapon->getBonusDamage() > 0) && weapon->isJediWeapon())
