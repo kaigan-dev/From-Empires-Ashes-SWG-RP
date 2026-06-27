@@ -56,7 +56,7 @@ public:
         }
         // If not an aimed attack, we now need to determine which body part was hit.
         else {
-            int targetRoll = BorDice:Roll(1, 20);
+            int targetRoll = BorDice::Roll(1, 20);
             if (targetRoll == 1 || targetRoll == 2 || targetRoll == 3) {
                 bodyPartTarget = 1; // Chest
             }
