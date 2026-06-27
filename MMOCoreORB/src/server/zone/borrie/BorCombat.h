@@ -56,7 +56,40 @@ public:
         }
         // If not an aimed attack, we now need to determine which body part was hit.
         else {
-            bodyPartTarget = BorDice::Roll(1, 10);
+            int targetRoll = BorDice:Roll(1, 20);
+            if (targetRoll == 1 || targetRoll == 2 || targetRoll == 3) {
+                bodyPartTarget = 1; // Chest
+            }
+            else if (targetRoll == 4 || targetRoll == 5) {
+                bodyPartTarget = 2; // Chest
+            }
+            else if (targetRoll == 6 || targetRoll == 7) {
+                bodyPartTarget = 3; // Legs
+            }
+            else if (targetRoll == 8 || targetRoll == 9) {
+                bodyPartTarget = 4; // Feet
+            }
+            else if (targetRoll == 10 || targetRoll == 11) {
+                bodyPartTarget = 5; // Left Forearm
+            }
+            else if (targetRoll == 12 || targetRoll == 13) {
+                bodyPartTarget = 6; // Right Forearm
+            }
+            else if (targetRoll == 14 || targetRoll == 15) {
+                bodyPartTarget = 7; // Left Bracer
+            }
+            else if (targetRoll == 16 || targetRoll == 17) {
+                bodyPartTarget = 8; // Right Bracer
+            }
+            else if (targetRoll == 18 || targetRoll == 19) {
+                bodyPartTarget = 9; // Hands
+            }
+            else if (targetRoll == 20) {
+                bodyPartTarget = 10; // Head
+            }
+            else {
+                bodyPartTarget = 1; // Default to Chest in the event of an 'unusual' roll.
+            }
         }
 
         int skillCheck = 0;
