@@ -15,11 +15,11 @@ object_weapon_roleplay_ranged_rifle_tusken_elite_rifle = object_weapon_ranged_ri
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 8, --Type of Die used in Damage
+	maxDamage = 6, --Type of Die used in Damage
 	bonusDamage = 6,
 	
 	noPowerAttack = true,
-	noDodgeReaction = true,
+	--noDodgeReaction = true,  --Removed because it is no longer a sniper rifle.
 
 	pointBlankRange = 100,
 	pointBlankAccuracy = 5,

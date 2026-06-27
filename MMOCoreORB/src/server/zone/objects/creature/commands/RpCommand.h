@@ -159,7 +159,7 @@ public:
 					}
 				}				
 			}
-			else if(command == "heropoint" || command == "hp" || command == "hero") {
+			else if(command == "heropoint" || command == "hero") {
 				if(creature->getStoredInt("hero_point_used")) {
 					creature->sendSystemMessage("You have already used your hero point since your last long rest.");
 				}

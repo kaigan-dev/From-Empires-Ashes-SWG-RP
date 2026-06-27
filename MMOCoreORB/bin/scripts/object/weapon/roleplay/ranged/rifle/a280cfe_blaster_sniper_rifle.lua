@@ -15,8 +15,8 @@ object_weapon_roleplay_ranged_rifle_a280cfe_blaster_sniper_rifle = object_weapon
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 8, --Type of Die used in Damage
-	bonusDamage = 2,
+	maxDamage = 4, --Type of Die used in Damage
+	bonusDamage = 8,
 
 	pointBlankRange = 8,
 	pointBlankAccuracy = 5,
