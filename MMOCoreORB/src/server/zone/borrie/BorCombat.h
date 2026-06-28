@@ -289,9 +289,9 @@ public:
              }
         } 
 
-        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false) / 2;
-        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false) / 2;
-        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false) / 2;
+        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
+        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
+        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
@@ -1294,7 +1294,7 @@ public:
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
 				targetCreature = cast<CreatureObject*>(targetObject);
 				Locker locker(targetCreature, centerTarget);
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal, nat20, false);
+                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal, nat20);
                 foundTargets++;
 			}
 		}
