@@ -46,8 +46,8 @@ public:
 		}
 	}
 
-	static String RollRPDie(CreatureObject* creature, String roll, int mod = 0) {
-		int numDice, diceValue, nTempResult, nResult = 0;
+	static String RollRPDie(CreatureObject* creature, String roll, int mod = 0, String advDis) {
+		int numDice, diceValue, nTempResult, nResult = 0, nSecTempResult;
 		String sNumDice, sDiceValue, DiceRollString;
 		StringTokenizer args(roll);
 		args.setDelimeter("d");
@@ -76,13 +76,34 @@ public:
 					else
 						DiceRollString += " + ";
 				}
+				if (advDis) {
+					for (int i = 0; i < numDice; i++) {
+						nSecTempResult = System::random(diceValue - 1) + 1;
+						DiceRollString += String::valueOf(nTempResult);
+						nResult += nTempResult;
+						if (i == numDice - 1)
+							DiceRollString += " =";
+						else
+							DiceRollString += " + ";
+					}
+				}
 
-				if (mod != 0)
-					return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) +
-						   ") Result: " + String::valueOf(nResult + mod);
-				else
-					return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
-
+				if(!advDis) {
+					if (mod != 0)
+						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
+					else
+						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
+				} else if (advDis == "advantage" or advDis == "adv") {
+					if (mod != 0)
+						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
+					else
+						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
+				} else if (advDis == "disadvantage" or advDis == "disadv") {
+					if (mod != 0)
+						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
+					else
+						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
+				}
 			} else {
 				// Return, we need the full thing.
 				return "fail";
@@ -92,11 +113,33 @@ public:
 		return "fail";
 	}
 
-	static String RollSkill(CreatureObject* creature, String skillName) {
+	static String RollSkill(CreatureObject* creature, String skillName, String advDis) {
 		int value = creature->getSkillMod("rp_" + skillName);
 		int Roll = System::random(19) + 1;
-		return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) +
-			   ". Result: " + String::valueOf(value + Roll);
+		int secondRoll = System::random(19) + 1;
+
+		if(!advDis) {
+			return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+		}
+		else if(advDis == "advantage" || advDis == "adv") {
+			if(Roll > secondRoll) {
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+			}
+			else {
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+			}
+		}
+		else if(advDis == "disadvantage" || advDis == "disadv") {
+			if(Roll < secondRoll) {
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+			}
+			else {
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+			}
+		}
+		else {
+			return "Skill roll failed. Please pass only parameters 'advantage', 'adv', 'disadvantage', or 'disadv'.";
+		}
 	}
 
 	static int Roll(int dieCount, int dieType) {

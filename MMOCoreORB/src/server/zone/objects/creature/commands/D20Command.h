@@ -61,24 +61,40 @@ public:
 				targetCreature = creature;
 			
 
-			String command, Result, secondCommand;
+			String command, Result, secondCommand, thirdCommand;
 			if (args.hasMoreTokens()) {
 				args.getStringToken(command);
+				creature->sendSystemMessage("Debug: First command is " + command + ".");
 				command = command.toLowerCase();
-
+				if (args.hasMoreTokens()) {
+					args.getStringToken(secondCommand);
+					secondCommand = secondCommand.toLowerCase();
+					creature->sendSystemMessage("Debug: Second command is " + secondCommand + ".");
+				}
+				if (args.hasMoreTokens()) {
+					args.getStringToken(thirdCommand);
+					thirdCommand = thirdCommand.toLowerCase();
+					creature->sendSystemMessage("Debug: Third command is " + thirdCommand + ".");
+				}
 				
 
 				if (command == "help") {
 					HelpDisplay(creature);
-				} else if (BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) {
+					return SUCCESS;
+				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && !secondCommand) {     //Roll without Advantage or Disadvantage
 					if(adminLevelCheck > 0) {
-						BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command));
+						BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
 					} else {
 						//Original. Allowed players to roll for NPCs.
 						//BorrieRPG::BroadcastRoll(creature, targetCreature, BorDice::RollSkill(targetCreature, command));
-						BorrieRPG::BroadcastRoll(creature, BorDice::RollSkill(creature, command));
+						BroadcastMessage(creature, BorDice::RollSkill(creature, command, secondCommand));
 					}
-					
+				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && secondCommand) {     //Roll with Advantage or Disadvantage
+					if(adminLevelCheck > 0) {
+						BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
+					} else {
+						BorrieRPG::BroadcastRoll(creature, BorDice::RollSkill(creature, command, secondCommand));
+					}
 				} else if (BorDice::GetCommandIsDie(command)) {
 					if (args.hasMoreTokens()) {
 						args.getStringToken(secondCommand);
