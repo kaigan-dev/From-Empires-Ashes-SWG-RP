@@ -83,7 +83,7 @@ public:
 					return SUCCESS;
 				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && (secondCommand == "" || secondCommand == "secret")) {     //Roll without Advantage or Disadvantage
 					if(adminLevelCheck > 0) {
-						if(thirdCommand == "secret") {
+						if(secondCommand == "secret") {
 							BorrieRPG::BroadcastAmongAdmins(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
 						}
 						else {
