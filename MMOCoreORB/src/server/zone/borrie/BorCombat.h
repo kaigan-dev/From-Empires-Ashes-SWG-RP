@@ -100,8 +100,9 @@ public:
         else if(weapon->isRangedWeapon()) skillCheck = attacker->getSkillMod("rp_ranged");
 
         int toHitRoll = BorDice::Roll(1, 20);
+        bool nat20 = false;
         if (toHitRoll == 20) {
-            bool nat20 = true;
+            nat20 = true;
         }
 
         //Consume ammo if appliable.
@@ -497,8 +498,9 @@ public:
                 return reactionSpam;
             } else if(defenderReactionType == 2) { //Parry
                 int meleeRoll = BorDice::Roll(1, 20);
+                bool meleeNat20 = false;
                 if (meleeRoll == 20) {
-                    bool meleeNat20 = true;
+                    meleeNat20 = true;
                 }
                 int meleeSkill = 0;
 
