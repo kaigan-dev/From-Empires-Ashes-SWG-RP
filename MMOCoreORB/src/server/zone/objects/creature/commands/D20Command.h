@@ -71,11 +71,6 @@ public:
 					secondCommand = secondCommand.toLowerCase();
 					creature->sendSystemMessage("Debug: Second command is " + secondCommand + ".");
 				}
-				if (args.hasMoreTokens()) {
-					args.getStringToken(thirdCommand);
-					thirdCommand = thirdCommand.toLowerCase();
-					creature->sendSystemMessage("Debug: Third command is " + thirdCommand + ".");
-				}
 				
 
 				if (command == "help") {

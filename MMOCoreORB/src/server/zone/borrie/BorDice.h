@@ -46,7 +46,7 @@ public:
 		}
 	}
 
-	static String RollRPDie(CreatureObject* creature, String roll, int mod = 0, String advDis = "") {
+	static String RollRPDie(CreatureObject* creature, String roll, int mod = 0) {
 		int numDice, diceValue, nTempResult = 0, nResult = 0, nSecTempResult;
 		String sNumDice, sDiceValue, DiceRollString;
 		StringTokenizer args(roll);
@@ -76,34 +76,22 @@ public:
 					else
 						DiceRollString += " + ";
 				}
-				if (advDis != "") {
-					for (int i = 0; i < numDice; i++) {
-						nSecTempResult = System::random(diceValue - 1) + 1;
-						DiceRollString += String::valueOf(nTempResult);
-						nResult += nTempResult;
-						if (i == numDice - 1)
-							DiceRollString += " =";
-						else
-							DiceRollString += " + ";
-					}
+
+				for (int i = 0; i < numDice; i++) {
+					nSecTempResult = System::random(diceValue - 1) + 1;
+					DiceRollString += String::valueOf(nTempResult);
+					nResult += nTempResult;
+					if (i == numDice - 1)
+						DiceRollString += " =";
+					else
+						DiceRollString += " + ";
 				}
 
-				if(advDis == "") {
-					if (mod != 0)
+				if (mod != 0)
 						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
 					else
 						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
-				} else if (advDis == "advantage" or advDis == "adv") {
-					if (mod != 0)
-						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
-					else
-						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
-				} else if (advDis == "disadvantage" or advDis == "disadv") {
-					if (mod != 0)
-						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
-					else
-						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
-				}
+
 			} else {
 				// Return, we need the full thing.
 				return "fail";
@@ -123,18 +111,18 @@ public:
 		}
 		else if(advDis == "advantage" || advDis == "adv") {
 			if(Roll > secondRoll) {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 			}
 			else {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage= (" + String::valueOf(Roll) + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
 			}
 		}
 		else if(advDis == "disadvantage" || advDis == "disadv") {
 			if(Roll < secondRoll) {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 			}
 			else {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
 			}
 		}
 		else {
