@@ -498,7 +498,7 @@ public:
             } else if(defenderReactionType == 2) { //Parry
                 int meleeRoll = BorDice::Roll(1, 20);
                 if (meleeRoll == 20) {
-                    bool meleeNat20 == true;
+                    bool meleeNat20 = true;
                 }
                 int meleeSkill = 0;
 
