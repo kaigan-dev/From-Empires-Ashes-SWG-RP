@@ -111,18 +111,18 @@ public:
 		}
 		else if(advDis == "advantage" || advDis == "adv") {
 			if(Roll > secondRoll) {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 			}
 			else {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage= (" + String::valueOf(Roll) + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage= (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
 			}
 		}
 		else if(advDis == "disadvantage" || advDis == "disadv") {
 			if(Roll < secondRoll) {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 			}
 			else {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
 			}
 		}
 		else {
