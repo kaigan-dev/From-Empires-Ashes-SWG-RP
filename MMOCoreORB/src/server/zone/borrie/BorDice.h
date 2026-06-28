@@ -105,6 +105,9 @@ public:
 		int value = creature->getSkillMod("rp_" + skillName);
 		int Roll = System::random(19) + 1;
 		int secondRoll = System::random(19) + 1;
+		if(advDis = "secret") {
+			advDis = "";
+		}
 
 		if(advDis == "") {
 			return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
@@ -114,7 +117,7 @@ public:
 				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 			}
 			else {
-				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage= (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
 			}
 		}
 		else if(advDis == "disadvantage" || advDis == "disadv") {
@@ -126,7 +129,7 @@ public:
 			}
 		}
 		else {
-			return "Skill roll failed. Please pass only parameters 'advantage', 'adv', 'disadvantage', or 'disadv'.";
+			return "Skill roll failed. If using an additional parameter, please use format '/d20 <skillName> <advantage/disadvantage>'.";
 		}
 	}
 
