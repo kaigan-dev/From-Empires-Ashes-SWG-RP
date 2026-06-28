@@ -100,6 +100,9 @@ public:
         else if(weapon->isRangedWeapon()) skillCheck = attacker->getSkillMod("rp_ranged");
 
         int toHitRoll = BorDice::Roll(1, 20);
+        if (toHitRoll == 20) {
+            bool nat20 = true;
+        }
 
         //Consume ammo if appliable.
         if(attacker->isPlayerCreature()) {  //NPCs don't use ammo
@@ -164,7 +167,7 @@ public:
              }
         } 
 
-        int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage);
+        int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20, powerAttack);
 
         bool headshotFlag = false;
         int headshotDamage = totalDamage;
@@ -285,9 +288,9 @@ public:
              }
         } 
 
-        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
-        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
-        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
+        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20, false) / 2;
+        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20, false) / 2;
+        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20, false) / 2;
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
@@ -329,12 +332,22 @@ public:
         } 
     }
 
-    static int GetDamageRoll(int dieType, int dieCount, int bonusDamage) {
+    static int GetDamageRoll(int dieType, int dieCount, int bonusDamage, bool nat20, bool powerAttack) {
         int totalDamage = bonusDamage;
-        for(int i = 0;i<dieCount;i++) {
+        // Maximize all damage dice (except the Power Attack die) on a critical hit.
+        if (nat20 && !powerAttacked) {
+            totalDamage += dieType * dieCount;
+        }
+        // Don't maximize the Power Attack die on a crit.
+        else if (nat20 && powerAttacked) {
+            totalDamage += (dieType - 1) * dieCount;
             totalDamage += BorDice::Roll(1, dieType);
         }
-
+        else {
+            for(int i = 0;i<dieCount;i++) {
+                totalDamage += BorDice::Roll(1, dieType);
+            }
+        }
         return totalDamage;
     }
 
@@ -347,17 +360,33 @@ public:
         }
     }
 
-    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag  = false, bool headshotFlag = false) {
+    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag  = false, bool headshotFlag = false, bool nat20 = false) {
         if (!armorSkillFlag)
         {
             if (armorProtection > 0)
             {
-                if (headshotFlag) {
+                if (headshotFlag && nat20) {
+                    if(damage > armorProtection)  {
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                     }   
+                    else {
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
+                    }
+                }
+                else if (headshotFlag && !nat20) {
                     if(damage > armorProtection)  {
                         return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
                      }   
                     else {
-                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                    }
+                }
+                else if (!headshotFlag && nat20) {
+                    if(damage > armorProtection)  {
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                     }   
+                    else {
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
                     }
                 }
                 else {
@@ -370,8 +399,14 @@ public:
                 }
             }
             else {
-                if (headshotFlag) {
+                if (headshotFlag && nat20) {
+                    return String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                }
+                else if (headshotFlag && !nat20) {
                     return String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                }
+                else if (!headshotFlag && nat20) {
+                    return String::valueOf(finalDamage) + " damage! (Critical hit!)";
                 }
                 else {
                     return String::valueOf(finalDamage) + " damage!";
@@ -379,7 +414,18 @@ public:
             }
         }
         else {
-            return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                if (headshotFlag && nat20) {
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                }
+                else if (headshotFlag && !nat20) {
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                }
+                else if (!headshotFlag && nat20) {
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                }
+                else {
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                }
         }
     }
 
@@ -391,11 +437,10 @@ public:
         return result;
     }
 
-    static String HandleCombatReaction(CreatureObject* attacker, CreatureObject* defender, int incomingDamage, int toHit, int slot, bool powerAttacked, bool flurryAttacked, int hitCount, bool headshotFlag = false) {
+    static String HandleCombatReaction(CreatureObject* attacker, CreatureObject* defender, int incomingDamage, int toHit, int slot, bool powerAttacked, bool flurryAttacked, int hitCount, bool headshotFlag = false, bool nat20 = false) {
         WeaponObject* attackerWeapon = attacker->getWeapon();
         WeaponObject* defenderWeapon = defender->getWeapon();
         int defenderReactionType = defender->getStoredInt("reaction_stance");
-        //int defenderAction = defender->`AM(3);
 
         String reactionSpam = "";
         String damageModString = powerAttacked ? " X 2" : "";
@@ -437,7 +482,7 @@ public:
                     }
                     
                     DrainActionOrWill(defender, 1 * actionPointMod);
-                    reactionSpam += defender->getFirstName() + " successfully defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
+                    reactionSpam += " " + defender->getFirstName() + " successfully defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     reactionSpam += ", absorbing \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage into their weapon.";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), true);
     
@@ -445,13 +490,16 @@ public:
                     //BorCharacter::ModPool(defender, "health", incomingDamage * -1, true);
                     DrainActionOrWill(defender, 1 * actionPointMod);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), false);
-                    reactionSpam += defender->getFirstName() + " tries to defend against the attack, but fails (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
+                    reactionSpam += " " + defender->getFirstName() + " tries to defend against the attack, but fails (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                 }
                 return reactionSpam;
             } else if(defenderReactionType == 2) { //Parry
                 int meleeRoll = BorDice::Roll(1, 20);
+                if (meleeRoll == 20) {
+                    bool meleeNat20 == true;
+                }
                 int meleeSkill = 0;
 
                 if(defenderWeapon->isJediWeapon()) 
@@ -482,10 +530,8 @@ public:
                         }
                     }
 
-
-                    int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
+                    int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, meleeNat20, powerAttacked) / 2;
                     ApplyAdjustedHealthDamage(attacker, defenderWeapon, returnDamage, slot);
-
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
                     if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
@@ -1149,6 +1195,9 @@ public:
         int throwSkill = attacker->getSkillMod("rp_throwing");
 
         int toHitRoll = BorDice::Roll(1, 20);
+        if (toHitRoll == 20) {
+            bool nat20 = true;
+        }
 
         String message = "";
 
@@ -1175,7 +1224,7 @@ public:
             if(demoTotal <= (10 + skillLevel)) {
                 //The grenade blows up in your face!
                 int slot = GetSlotHitlocation(BorDice::Roll(1, 10));
-                int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());
+                int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage(), nat20, false);
                 message = attacker->getFirstName() + " attempts to activate the " + grenade->getCustomObjectName().toString() + ", but it goes off prematurely, the blast focused on their " + GetSlotDisplayName(slot);
                 String combatLogPrefix = ", causing \\#FF9999";
                 message += OrchestrateDamage(combatLogPrefix, attacker, grenade, totalDamage, slot);
@@ -1194,7 +1243,6 @@ public:
             BorrieRPG::BroadcastMessage(attacker, message);
             return;
         }
-
 
 		SortedVector<QuadTreeEntry*> closeObjects;
 		Zone* zone = centerTarget->getZone();
@@ -1239,19 +1287,19 @@ public:
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
 				targetCreature = cast<CreatureObject*>(targetObject);
 				Locker locker(targetCreature, centerTarget);
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal);
+                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal, nat20);
                 foundTargets++;
 			}
 		}
     }
 
-    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance, int demoTotal) {
+    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance, int demoTotal, bool nat20) {
         String message = victim->getFirstName() + " is in proximity of the grenade's blast radius!";
         int maneuverabilitySkill = victim->getSkillMod("rp_maneuverability");
         int telekinesisSkill = victim->getSkillMod("rp_telekinesis");
         bool dodgedSuccessfully = false;
 
-        int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());      
+        int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage(), nat20, false);
 
         int dodgeRoll = BorDice::Roll(1, 20);
 
