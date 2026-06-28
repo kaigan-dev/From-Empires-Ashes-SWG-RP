@@ -105,7 +105,7 @@ public:
 		int value = creature->getSkillMod("rp_" + skillName);
 		int Roll = System::random(19) + 1;
 		int secondRoll = System::random(19) + 1;
-		if(advDis = "secret") {
+		if(advDis == "secret") {
 			advDis = "";
 		}
 
