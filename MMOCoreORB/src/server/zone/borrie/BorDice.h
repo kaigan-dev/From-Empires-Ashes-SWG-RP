@@ -47,7 +47,7 @@ public:
 	}
 
 	static String RollRPDie(CreatureObject* creature, String roll, int mod = 0, String advDis = "") {
-		int numDice, diceValue, nTempResult, nResult = 0, nSecTempResult;
+		int numDice, diceValue, nTempResult = 0, nResult = 0, nSecTempResult;
 		String sNumDice, sDiceValue, DiceRollString;
 		StringTokenizer args(roll);
 		args.setDelimeter("d");
