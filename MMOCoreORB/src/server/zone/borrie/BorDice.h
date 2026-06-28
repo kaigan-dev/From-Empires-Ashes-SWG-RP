@@ -76,7 +76,7 @@ public:
 					else
 						DiceRollString += " + ";
 				}
-				if (advDis) {
+				if (advDis != "") {
 					for (int i = 0; i < numDice; i++) {
 						nSecTempResult = System::random(diceValue - 1) + 1;
 						DiceRollString += String::valueOf(nTempResult);
@@ -88,7 +88,7 @@ public:
 					}
 				}
 
-				if(!advDis) {
+				if(advDis == "") {
 					if (mod != 0)
 						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
 					else
@@ -118,7 +118,7 @@ public:
 		int Roll = System::random(19) + 1;
 		int secondRoll = System::random(19) + 1;
 
-		if(!advDis) {
+		if(advDis == "") {
 			return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 		}
 		else if(advDis == "advantage" || advDis == "adv") {
