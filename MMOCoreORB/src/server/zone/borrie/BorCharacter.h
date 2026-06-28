@@ -35,7 +35,13 @@ public:
 	}
 
 	static ManagedReference<ArmorObject*> GetArmorAtSlot(CreatureObject* creature, String slot) {
-		return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		if (creature->isPlayerCreature())
+			return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		else {
+			SceneObject* slob = creature->getSlottedObject(slot);
+			ManagedReference<ArmorObject*> npcArm = cast<ArmorObject*>(slob);
+			return npcArm;
+		}
 	}
 
 	static void SetChatPrefix(CreatureObject* creature, String prefix) {

@@ -56,7 +56,40 @@ public:
         }
         // If not an aimed attack, we now need to determine which body part was hit.
         else {
-            bodyPartTarget = BorDice::Roll(1, 10);
+            int targetRoll = BorDice::Roll(1, 20);
+            if (targetRoll == 1 || targetRoll == 2 || targetRoll == 3) {
+                bodyPartTarget = 1; // Chest
+            }
+            else if (targetRoll == 4 || targetRoll == 5) {
+                bodyPartTarget = 2; // Chest
+            }
+            else if (targetRoll == 6 || targetRoll == 7) {
+                bodyPartTarget = 3; // Legs
+            }
+            else if (targetRoll == 8 || targetRoll == 9) {
+                bodyPartTarget = 4; // Feet
+            }
+            else if (targetRoll == 10 || targetRoll == 11) {
+                bodyPartTarget = 5; // Left Forearm
+            }
+            else if (targetRoll == 12 || targetRoll == 13) {
+                bodyPartTarget = 6; // Right Forearm
+            }
+            else if (targetRoll == 14 || targetRoll == 15) {
+                bodyPartTarget = 7; // Left Bracer
+            }
+            else if (targetRoll == 16 || targetRoll == 17) {
+                bodyPartTarget = 8; // Right Bracer
+            }
+            else if (targetRoll == 18 || targetRoll == 19) {
+                bodyPartTarget = 9; // Hands
+            }
+            else if (targetRoll == 20) {
+                bodyPartTarget = 10; // Head
+            }
+            else {
+                bodyPartTarget = 1; // Default to Chest in the event of an 'unusual' roll.
+            }
         }
 
         int skillCheck = 0;
@@ -94,10 +127,6 @@ public:
 
         if(powerAttack) {
             toHitDC += 5;
-            //Remove incrementing power attack cost. Cagnaith 5/8/26
-            //int powerAttackCost = attacker->getStoredInt("power_attack_count");
-            //attacker->setStoredInt("power_attack_count", powerAttackCost + 1);
-            //DrainActionOrWill(attacker, 3 + powerAttackCost); 
             DrainActionOrWill(attacker, 3);
 
             if(toHitRoll + skillCheck + (15 - skillCheck) < toHitDC) {
@@ -381,7 +410,7 @@ public:
                 int defenseSkill = defender->getSkillMod("rp_defending");
 
                 if(attackerWeapon->isRangedWeapon()) {
-                    String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                 }
                 else if(defenseRoll + defenseSkill > toHit) { //Success
@@ -417,7 +446,7 @@ public:
                     DrainActionOrWill(defender, 1 * actionPointMod);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), false);
                     reactionSpam += defender->getFirstName() + " tries to defend against the attack, but fails (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
-                    String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                 }
                 return reactionSpam;
@@ -486,7 +515,7 @@ public:
                     DrainActionOrWill(defender, 3);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
                     reactionSpam += ". " + defender->getFirstName() + " tries to parry the attack, but fails (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit);
-                    String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                 }
                 return reactionSpam;
@@ -511,7 +540,7 @@ public:
                 {
                     reactionSpam += ", " + defender->getFirstName() + " is unable to dodge due to their heavy armor! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
-                    String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                 }
 
@@ -541,7 +570,7 @@ public:
 
                 else { //full fail
                     reactionSpam += ", " + defender->getFirstName() + " tries to dodge out of the way and fails! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
-                    String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
                     int actionPointCost = 1;
@@ -598,7 +627,7 @@ public:
                         //Ouch time.
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
                         reactionSpam += defender->getFirstName() + " tries to deflect the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
-                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                     }                   
                 } else {
@@ -611,7 +640,7 @@ public:
                         reactionSpam += attacker->getFirstName() + "'s weapon is sundered by " + attacker->getFirstName() + "'s lightsaber!";
                     } else {
                         reactionSpam += defender->getFirstName() + " fails to deflect the attack (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
-                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                     }
                     BorEffect::PerformReactiveAnimation(attacker, defender, "hit", GetSlotHitlocation(slot), true);
@@ -638,7 +667,7 @@ public:
                     //Can't deflect.
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     defender->sendSystemMessage("You cannot deflect this attack telekinetically. You recieved full damage.");
-                    String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                 } 
                 else if(deflectRoll + telekineticSkill >= toHit) {
@@ -650,7 +679,7 @@ public:
                 else {
                     //Full Damage
                     reactionSpam += defender->getFirstName() + " fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
-                    String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                     DrainForce(defender, forceCost);
                 }
@@ -681,7 +710,7 @@ public:
                         reactionSpam += defender->getFirstName() + " absorbs the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                     } else {
                         reactionSpam += defender->getFirstName() + " fails to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
-                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag); 
                     }
                 } else if(attackerWeapon->isJediWeapon()) {
@@ -690,14 +719,14 @@ public:
                         reactionSpam += defender->getFirstName() + " blocks the attack with their hand and is unharmed (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                     } else {
                         reactionSpam += defender->getFirstName() + " fails to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
-                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);            
                     }
                 } else {
                     //Can't block this. Full attack.
                     defender->sendSystemMessage("You cannot absorb this attack. You recieved full damage.");
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
-                    String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+                    String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
                 }
                 return reactionSpam;
@@ -706,7 +735,7 @@ public:
         } 
         //Simply accept the damage.
         BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
-        String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon) + ") = \\#FF9999";
+        String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
         return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag);
     }
  
@@ -960,23 +989,26 @@ public:
         else return CombatManager::HIT_BODY;
     }
 
-    static String GetWeaponDamageString(CreatureObject* attacker, WeaponObject* weapon) {
+    static String GetWeaponDamageString(CreatureObject* attacker, WeaponObject* weapon, bool powerAttacked) {
+        int minDamage = weapon->getMinDamage();
+        if (powerAttacked)
+            minDamage++;
         if ((weapon->getBonusDamage() > 0) && weapon->isJediWeapon())
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
+            return String::valueOf(minDamage) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
         else if ((weapon->getBonusDamage() == 0) && weapon->isJediWeapon())
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
+            return String::valueOf(minDamage) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
         else if (attacker->isPlayerCreature() && weapon->getBonusDamage() > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
+            return String::valueOf(minDamage) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
         else if (attacker->isPlayerCreature() && weapon->getBonusDamage() == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
+            return String::valueOf(minDamage) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
         else if (weapon->getBonusDamage() > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
+            return String::valueOf(minDamage) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
         else if (weapon->getBonusDamage() == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
+            return String::valueOf(minDamage) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
         else if (weapon->getBonusDamage() > 0 && !(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage());
+            return String::valueOf(minDamage) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage());
         else
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage());
+            return String::valueOf(minDamage) + "d" + String::valueOf(weapon->getMaxDamage());
     }
 
     static bool CanPerformReaction(CreatureObject* defender, int reactionType, int incomingDamage, WeaponObject* attackerWeapon, WeaponObject* defenderWeapon) {
