@@ -289,9 +289,9 @@ public:
              }
         } 
 
-        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20, false) / 2;
-        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20, false) / 2;
-        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20, false) / 2;
+        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false) / 2;
+        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false) / 2;
+        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false) / 2;
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
@@ -336,11 +336,11 @@ public:
     static int GetDamageRoll(int dieType, int dieCount, int bonusDamage, bool nat20, bool powerAttack) {
         int totalDamage = bonusDamage;
         // Maximize all damage dice (except the Power Attack die) on a critical hit.
-        if (nat20 && !powerAttacked) {
+        if (nat20 && !powerAttack) {
             totalDamage += dieType * dieCount;
         }
         // Don't maximize the Power Attack die on a crit.
-        else if (nat20 && powerAttacked) {
+        else if (nat20 && powerAttack) {
             totalDamage += (dieType - 1) * dieCount;
             totalDamage += BorDice::Roll(1, dieType);
         }
@@ -1219,7 +1219,12 @@ public:
 
         bool failedDemoCheck = false;
         CreatureObject* centerTarget = defender;
-        int demoTotal = BorDice::Roll(1, 20) + demoSkill;
+        int demoRoll = BorDice::Roll(1, 20);
+        int demoTotal = demoRoll + demoSkill;
+        bool nat20 = false;
+        if (demoRoll == 20) {
+            nat20 = true;
+        }
 
         if(demoSkill < skillLevel) {
             // Skill is less than minimum requirement, prompting a check to avoid having it blow up on top of you.
@@ -1289,7 +1294,7 @@ public:
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
 				targetCreature = cast<CreatureObject*>(targetObject);
 				Locker locker(targetCreature, centerTarget);
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal, nat20);
+                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal, nat20, false);
                 foundTargets++;
 			}
 		}
