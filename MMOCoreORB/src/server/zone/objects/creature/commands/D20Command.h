@@ -81,15 +81,15 @@ public:
 				if (command == "help") {
 					HelpDisplay(creature);
 					return SUCCESS;
-				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && !secondCommand) {     //Roll without Advantage or Disadvantage
+				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) and !secondCommand) {     //Roll without Advantage or Disadvantage
 					if(adminLevelCheck > 0) {
 						BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
 					} else {
 						//Original. Allowed players to roll for NPCs.
 						//BorrieRPG::BroadcastRoll(creature, targetCreature, BorDice::RollSkill(targetCreature, command));
-						BroadcastMessage(creature, BorDice::RollSkill(creature, command, secondCommand));
+						BorrieRPG::BroadcastMessage(creature, BorDice::RollSkill(creature, command, secondCommand));
 					}
-				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && secondCommand) {     //Roll with Advantage or Disadvantage
+				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) and secondCommand) {     //Roll with Advantage or Disadvantage
 					if(adminLevelCheck > 0) {
 						BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
 					} else {

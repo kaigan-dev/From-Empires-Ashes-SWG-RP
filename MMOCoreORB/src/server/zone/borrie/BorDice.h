@@ -46,7 +46,7 @@ public:
 		}
 	}
 
-	static String RollRPDie(CreatureObject* creature, String roll, int mod = 0, String advDis) {
+	static String RollRPDie(CreatureObject* creature, String roll, int mod = 0, String advDis = "") {
 		int numDice, diceValue, nTempResult, nResult = 0, nSecTempResult;
 		String sNumDice, sDiceValue, DiceRollString;
 		StringTokenizer args(roll);
