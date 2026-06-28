@@ -111,7 +111,7 @@ public:
 						}
 					} else {
 						if(thirdCommand == "secret") {
-						outputMsg = BorDice::RollSkill(creature, command, secondCommand);
+						String outputMsg = BorDice::RollSkill(creature, command, secondCommand);
 						BorrieRPG::BroadcastAmongAdmins(creature, outputMsg);
 						creature->sendSystemMessage(outputMsg);
 						}
