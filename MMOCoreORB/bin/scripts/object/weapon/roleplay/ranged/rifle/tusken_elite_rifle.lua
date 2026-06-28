@@ -21,7 +21,7 @@ object_weapon_roleplay_ranged_rifle_tusken_elite_rifle = object_weapon_ranged_ri
 	noPowerAttack = true,
 	--noDodgeReaction = true,  --Removed because it is no longer a sniper rifle.
 
-	pointBlankRange = 100,
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
 	idealRange = 120,
