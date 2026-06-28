@@ -64,17 +64,17 @@ public:
 			String command, Result, secondCommand, thirdCommand;
 			if (args.hasMoreTokens()) {
 				args.getStringToken(command);
-				creature->sendSystemMessage("Debug: First command is " + command + ".");
+				//creature->sendSystemMessage("Debug: First command is " + command + ".");
 				command = command.toLowerCase();
 				if (args.hasMoreTokens()) {
 					args.getStringToken(secondCommand);
 					secondCommand = secondCommand.toLowerCase();
-					creature->sendSystemMessage("Debug: Second command is " + secondCommand + ".");
+					//creature->sendSystemMessage("Debug: Second command is " + secondCommand + ".");
 				}
 				if (args.hasMoreTokens()) {
 					args.getStringToken(thirdCommand);
 					thirdCommand = thirdCommand.toLowerCase();
-					creature->sendSystemMessage("Debug: Third command is " + thirdCommand + ".");
+					//creature->sendSystemMessage("Debug: Third command is " + thirdCommand + ".");
 				}
 
 
