@@ -783,7 +783,7 @@ public:
         } 
         //Simply accept the damage.
         BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
-        attacker->sendSystemMessage("The value of the nat20 variable is: " + nat20);
+        attacker->sendSystemMessage("The value of the nat20 variable is: " + String::valueOf(nat20));
         String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked) + ") = \\#FF9999";
         return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20);
     }
