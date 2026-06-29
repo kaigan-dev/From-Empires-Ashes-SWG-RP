@@ -56,40 +56,7 @@ public:
         }
         // If not an aimed attack, we now need to determine which body part was hit.
         else {
-            int targetRoll = BorDice::Roll(1, 20);
-            if (targetRoll == 1 || targetRoll == 2 || targetRoll == 3) {
-                bodyPartTarget = 1; // Chest
-            }
-            else if (targetRoll == 4 || targetRoll == 5) {
-                bodyPartTarget = 2; // Chest
-            }
-            else if (targetRoll == 6 || targetRoll == 7) {
-                bodyPartTarget = 3; // Legs
-            }
-            else if (targetRoll == 8 || targetRoll == 9) {
-                bodyPartTarget = 4; // Feet
-            }
-            else if (targetRoll == 10 || targetRoll == 11) {
-                bodyPartTarget = 5; // Left Forearm
-            }
-            else if (targetRoll == 12 || targetRoll == 13) {
-                bodyPartTarget = 6; // Right Forearm
-            }
-            else if (targetRoll == 14 || targetRoll == 15) {
-                bodyPartTarget = 7; // Left Bracer
-            }
-            else if (targetRoll == 16 || targetRoll == 17) {
-                bodyPartTarget = 8; // Right Bracer
-            }
-            else if (targetRoll == 18 || targetRoll == 19) {
-                bodyPartTarget = 9; // Hands
-            }
-            else if (targetRoll == 20) {
-                bodyPartTarget = 10; // Head
-            }
-            else {
-                bodyPartTarget = 1; // Default to Chest in the event of an 'unusual' roll.
-            }
+            bodyPartTarget = GetBodyPartTarget();
         }
 
         int skillCheck = 0;
@@ -234,6 +201,8 @@ public:
             nat20 = true;
         }
 
+        int bodyPartTarget = GetBodyPartTarget();
+        
         int lowestRoll = std::min(std::min(roll1, roll2), roll3);
 
         int skillCheck = 0;
@@ -317,7 +286,7 @@ public:
         if(roll2 > highestRoll) highestRoll = roll2;
         if(roll3 > highestRoll) highestRoll = roll3; 
 
-        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, BorDice::Roll(1, 10), false, true, hitCount, nat20);
+        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, bodyPartTarget, false, true, hitCount, nat20);
 
         //Apply Followup as per the reaction.
         String toHitString = "\\#DBDBDB" + GenerateFlurryOutputSpam(roll1, roll2, roll3, skillCheck, toHitDC) + "\\#FFFFFF";
@@ -883,6 +852,43 @@ public:
         else { //Take Full Damage
             BorCharacter::ModPool(creature, "health", damage * -1, true);
         }
+    }
+
+    static int GetBodyPartTarget() {
+        int targetRoll = BorDice::Roll(1, 20);
+        int bodyPartTarget = 1;
+        if (targetRoll == 1 || targetRoll == 2 || targetRoll == 3) {
+            bodyPartTarget = 1; // Chest
+        }
+        else if (targetRoll == 4 || targetRoll == 5) {
+             bodyPartTarget = 2; // Chest
+         }
+        else if (targetRoll == 6 || targetRoll == 7) {
+            bodyPartTarget = 3; // Legs
+        }
+        else if (targetRoll == 8 || targetRoll == 9) {
+            bodyPartTarget = 4; // Feet
+        }
+        else if (targetRoll == 10 || targetRoll == 11) {
+            bodyPartTarget = 5; // Left Forearm
+        }
+        else if (targetRoll == 12 || targetRoll == 13) {
+            bodyPartTarget = 6; // Right Forearm
+        }
+        else if (targetRoll == 14 || targetRoll == 15) {
+            bodyPartTarget = 7; // Left Bracer
+        }
+        else if (targetRoll == 16 || targetRoll == 17) {
+            bodyPartTarget = 8; // Right Bracer
+        }
+        else if (targetRoll == 18 || targetRoll == 19) {
+            bodyPartTarget = 9; // Hands
+        }
+        else if (targetRoll == 20) {
+            bodyPartTarget = 10; // Head
+        }
+ 
+        return bodyPartTarget;
     }
 
     static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
