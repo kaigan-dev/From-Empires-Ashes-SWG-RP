@@ -841,11 +841,11 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	
 	-- Telios Enclave (abandoned starport)
 
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 700.3, 0, 379.2, 182, 0, "mando_rebel", "default", "default", "default") --Equip, Skill, Customization
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 700.3, 0, 379.2, 182, 0, "rp_human_male", "mando_rebel", "bountyhunter", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Ma'al Telios")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 696.8, 0, 379.2, 171, 0, "mando_rebel", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 696.8, 0, 379.2, 171, 0, "rp_human_male", "mando_rebel", "bountyhunter", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Vorlen Telios")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 686.7, 0, 408.5, 185, 0, "mando_rebel", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 686.7, 0, 408.5, 185, 0, "rp_human_male", "mando_rebel", "bountyhunter", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Arken Telios")
 
 

@@ -3,7 +3,6 @@ npc_template = {
 	randomName = "human",
 	baseTemplates = {
 		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female", "rp_human_male", "rp_human_male",  "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male",
-		"rp_bothan_male", "rp_bothan_female", 
 		"rp_rodian_male", "rp_rodian_female", 
 		"rp_trandoshan_male", "rp_trandoshan_female",
 		"rp_twilek_male", "rp_twilek_female", 
