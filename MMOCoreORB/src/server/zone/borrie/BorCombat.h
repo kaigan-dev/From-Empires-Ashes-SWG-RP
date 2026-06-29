@@ -191,7 +191,7 @@ public:
         
         //Calculate the Reaction
         //The 1 is hitCount
-        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, toHitRoll + skillCheck, bodyPartTarget, powerAttack, false, 1, headshotFlag);
+        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, toHitRoll + skillCheck, bodyPartTarget, powerAttack, false, 1, headshotFlag, nat20);
         
         //Apply Followup as per the reaction.
         String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC, aimMod, bodyPartTarget) + "\\#FFFFFF";
@@ -228,7 +228,11 @@ public:
         int toHitDC = GetToHitModifier(attacker, defender, weapon) + 10;
         int roll1 = BorDice::Roll(1, 20); 
         int roll2 = BorDice::Roll(1, 20); 
-        int roll3 = BorDice::Roll(1, 20); 
+        int roll3 = BorDice::Roll(1, 20);
+        int nat20 = false;
+        if (roll1 == 20 || roll2 == 20 || roll3 == 20) {
+            nat20 = true;
+        }
 
         int lowestRoll = std::min(std::min(roll1, roll2), roll3);
 
@@ -313,7 +317,7 @@ public:
         if(roll2 > highestRoll) highestRoll = roll2;
         if(roll3 > highestRoll) highestRoll = roll3; 
 
-        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, BorDice::Roll(1, 10), false, true, hitCount);
+        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, BorDice::Roll(1, 10), false, true, hitCount, nat20);
 
         //Apply Followup as per the reaction.
         String toHitString = "\\#DBDBDB" + GenerateFlurryOutputSpam(roll1, roll2, roll3, skillCheck, toHitDC) + "\\#FFFFFF";
@@ -1172,7 +1176,6 @@ public:
         else if(attacker->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
             postureModifier -= 5;
         }
-
 
         //Handle defender stance
         if(defender->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
