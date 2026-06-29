@@ -371,7 +371,7 @@ public:
                         return "(nat20 is" + String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
                      }   
                     else {
-                        return "(nat20 is" + String::valueOf(nat20) + ") " String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
+                        return "(nat20 is" + String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
                     }
                 }
                 else if (headshotFlag && !nat20) {
