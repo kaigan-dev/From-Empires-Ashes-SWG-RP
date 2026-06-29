@@ -372,64 +372,64 @@ public:
             {
                 if (headshotFlag && nat20) {
                     if(damage > armorProtection)  {
-                        return String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
                      }   
                     else {
-                        return String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
                     }
                 }
                 else if (headshotFlag && !nat20) {
                     if(damage > armorProtection)  {
-                        return String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
                      }   
                     else {
-                        return String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
                     }
                 }
                 else if (!headshotFlag && nat20) {
                     if(damage > armorProtection)  {
-                        return String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
                      }   
                     else {
-                        return String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
                     }
                 }
                 else {
                     if(damage > armorProtection)  {
-                        return String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
                      }   
                     else {
-                        return String::valueOf(nat20) + ") " + String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                        return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
                     }
                 }
             }
             else {
                 if (headshotFlag && nat20) {
-                    return String::valueOf(nat20) + ") " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                    return String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
                 }
                 else if (headshotFlag && !nat20) {
-                    return String::valueOf(nat20) + ") " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                    return String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
                 }
                 else if (!headshotFlag && nat20) {
-                    return String::valueOf(nat20) + ") " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                    return String::valueOf(finalDamage) + " damage! (Critical hit!)";
                 }
                 else {
-                    return String::valueOf(nat20) + ") " + String::valueOf(finalDamage) + " damage!";
+                    return String::valueOf(finalDamage) + " damage!";
                 }
             }
         }
         else {
                 if (headshotFlag && nat20) {
-                    return String::valueOf(nat20) + ") " + String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
                 }
                 else if (headshotFlag && !nat20) {
-                    return String::valueOf(nat20) + ") " + String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
                 }
                 else if (!headshotFlag && nat20) {
-                    return String::valueOf(nat20) + ") " + String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
                 }
                 else {
-                    return String::valueOf(nat20) + ") " + String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
                 }
         }
     }
