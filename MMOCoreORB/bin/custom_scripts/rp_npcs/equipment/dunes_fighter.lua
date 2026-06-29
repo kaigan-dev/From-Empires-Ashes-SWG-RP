@@ -1,6 +1,5 @@
 equipment = {
-{
-        "object/weapon/melee/unarmed/shared_unarmed_default_player.iff", },
+        {"object/weapon/melee/unarmed/shared_unarmed_default_player.iff", },
         {"object/weapon/melee/unarmed/unarmed_default_player.iff", "/private/index_color_blade", 0, },
         {"object/tangible/wearables/jacket/jacket_s24.iff", "/private/index_color_1", 2, },
         {"object/tangible/wearables/shirt/shirt_s24.iff", "/private/index_color_1", 66, },

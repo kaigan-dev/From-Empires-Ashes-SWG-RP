@@ -1,10 +1,5 @@
 equipment = {
 	{"object/tangible/wearables/robe/robe_s05.iff", "/private/index_color_1", 34, },
-	{"object/tangible/wearables/robe/robe_s05.iff", "/private/index_color_1", 34, },
-	{"object/tangible/wearables/robe/robe_s05.iff", "/private/index_color_1", 34, },
-	{"object/tangible/wearables/robe/robe_s05.iff", "/private/index_color_1", 34, },
-	{"object/tangible/wearables/robe/robe_s05.iff", "/private/index_color_1", 34, },
-	{"object/tangible/wearables/robe/robe_s05.iff", "/private/index_color_1", 34, },
 	{"object/tangible/wearables/shirt/nightsister_shirt_s02.iff", "/private/index_color_1", 78, },
 	{"object/tangible/wearables/armor/roleplay/chitin/armor_chitin_s01_chest_plate.iff", "/private/index_color_1", 4, "/private/index_color_0", 120, },
 	{"object/tangible/wearables/armor/roleplay/rebel_battle/armor_rebel_battle_helmet.iff", "/private/index_color_2", 4, "/private/index_color_1", 4, },
