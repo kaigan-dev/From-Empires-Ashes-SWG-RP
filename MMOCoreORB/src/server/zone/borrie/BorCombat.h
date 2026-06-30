@@ -373,10 +373,10 @@ public:
         if (bodyPartTarget != -1) {
             String result = "";
             // Advantage
-            if (advDis = 1) {
+            if (advDis == 1) {
                 result = "(1d20 (advantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")";
             }
-            if (advDis = 2) {
+            if (advDis == 2) {
                 result = "(1d20 (disadvantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")";
             }
             else {
