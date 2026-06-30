@@ -40,6 +40,13 @@ public:
 
 		if (args.hasMoreTokens()) {
 			args.getStringToken(command);
+			bool noLos = false;
+			if(args.hasMoreTokens()) {
+				String commandIsNolos;
+				args.getStringToken(commandIsNolos);
+				if(commandIsNolos == "nolos")
+					noLos = true;
+			}
 		}
 
 		if(command == "check") {
@@ -72,6 +79,10 @@ public:
 		
 		if(command == "nolos") {
 			BorCombat::AttackTarget(creature, targetCreature, creature, -1, true, true);
+		} else if(command == "advantage" || command == "adv") {
+				BorCombat::AttackTarget(creature, targetCreature, creature, -1, true, noLos, 1);
+		} else if(command == "disadvantage" || command == "dis" || command == "disadv") {
+				BorCombat::AttackTarget(creature, targetCreature, creature, -1, true, noLos, 2);
 		} else {
 			BorCombat::AttackTarget(creature, targetCreature, creature, -1, true, false);
 		}

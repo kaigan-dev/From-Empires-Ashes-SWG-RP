@@ -62,8 +62,22 @@ public:
 
 		if (args.hasMoreTokens()) {
 			args.getStringToken(command);
+			bool noLos = false;
+			if(args.hasMoreTokens()) {
+				String commandIsNolos;
+				args.getStringToken(commandIsNolos);
+				if(commandIsNolos == "nolos")
+					noLos = true;
+			}
+
 			if(command == "nolos") {
 				BorCombat::FlurryAttackTarget(creature, targetCreature, creature, true);
+				return SUCCESS;
+			} else if(command == "advantage" || command == "adv") {
+				BorCombat::FlurryAttackTarget(creature, targetCreature, creature, noLos, 1);
+				return SUCCESS;
+			} else if(command == "disadvantage" || command == "dis" || command == "disadv") {
+				BorCombat::FlurryAttackTarget(creature, targetCreature, creature, noLos, 2);
 				return SUCCESS;
 			}
 		} 

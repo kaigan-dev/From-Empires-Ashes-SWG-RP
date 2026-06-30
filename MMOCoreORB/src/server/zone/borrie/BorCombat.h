@@ -12,7 +12,7 @@
 
 class BorCombat : public Logger {
 public:
-	static void AttackTarget(CreatureObject* attacker, CreatureObject* defender, CreatureObject* commander, int bodyPartTarget, bool powerAttack, bool ignoreLOS = false) {
+	static void AttackTarget(CreatureObject* attacker, CreatureObject* defender, CreatureObject* commander, int bodyPartTarget, bool powerAttack, bool ignoreLOS = false, int advDis = 0) {
         ManagedReference<WeaponObject*> weapon = attacker->getWeapon();
         if(weapon->isBroken()) {
             commander->sendSystemMessage("Your weapon is broken, and you can't attack with a broken weapon.");
@@ -66,7 +66,24 @@ public:
         else if(weapon->isMeleeWeapon()) skillCheck = attacker->getSkillMod("rp_melee");
         else if(weapon->isRangedWeapon()) skillCheck = attacker->getSkillMod("rp_ranged");
 
-        int toHitRoll = BorDice::Roll(1, 20);
+        int roll1 = 0;
+        int roll2 = 0;
+        int toHitRoll = 0;
+        // Roll with Advantage
+        if (advDis == 1) {
+            roll1 = BorDice::Roll(1, 20);
+            roll2 = BorDice::Roll(1, 20);
+            toHitRoll = std::max(roll1, roll2);
+        }
+        // Roll with Disadvantage
+        else if (advDis == 2) {
+            roll1 = BorDice::Roll(1, 20);
+            roll2 = BorDice::Roll(1, 20);
+            toHitRoll = std::min(roll1, roll2);
+        }
+        else {
+            toHitRoll = BorDice::Roll(1, 20);
+        }
         bool nat20 = false;
         if (toHitRoll == 20) {
             nat20 = true;
@@ -173,7 +190,7 @@ public:
         
 	}
 
-    static void FlurryAttackTarget(CreatureObject* attacker, CreatureObject* defender, CreatureObject* commander, bool ignoreLOS = false) {
+    static void FlurryAttackTarget(CreatureObject* attacker, CreatureObject* defender, CreatureObject* commander, bool ignoreLOS = false, int advDis = 0) {
         ManagedReference<WeaponObject*> weapon = attacker->getWeapon();
         if(weapon->isBroken()) {
             commander->sendSystemMessage("Your weapon is broken, and you can't attack with a broken weapon.");
@@ -193,9 +210,36 @@ public:
         though they’ll only need to defeat your highest to-hit roll in order to counter all three attacks. */
 
         int toHitDC = GetToHitModifier(attacker, defender, weapon) + 10;
-        int roll1 = BorDice::Roll(1, 20); 
-        int roll2 = BorDice::Roll(1, 20); 
-        int roll3 = BorDice::Roll(1, 20);
+
+        int roll1 = 0;
+        int roll2 = 0; 
+        int roll3 = 0;
+
+        int r1 = BorDice::Roll(1, 20); 
+        int r2 = BorDice::Roll(1, 20);
+        int r3 = BorDice::Roll(1, 20); 
+        int r4 = BorDice::Roll(1, 20);
+        int r5 = BorDice::Roll(1, 20); 
+        int r6 = BorDice::Roll(1, 20);
+
+        // Roll with Advantage
+        if (advDis == 1) {
+            roll1 = std::max(r1, r2);
+            roll2 = std::max(r3, r4);
+            roll3 = std::max(r5, r6);
+        }
+        // Roll with Disadvantage
+        else if (advDis == 2) {
+            roll1 = std::min(r1, r2);
+            roll2 = std::min(r3, r4);
+            roll3 = std::min(r5, r6);
+        }
+        else {
+            roll1 = BorDice::Roll(1, 20); 
+            roll2 = BorDice::Roll(1, 20); 
+            roll3 = BorDice::Roll(1, 20);
+        }
+
         int nat20 = false;
         if (roll1 == 20 || roll2 == 20 || roll3 == 20) {
             nat20 = true;
@@ -325,16 +369,28 @@ public:
         return totalDamage;
     }
 
-    static String GenerateOutputSpam(int roll, int skillMod, int diceCheck, int aimMod = 0, int bodyPartTarget = -1) {
+    static String GenerateOutputSpam(int roll, int skillMod, int diceCheck, int aimMod = 0, int bodyPartTarget = -1, int advDis = 0, int roll1 = 0, int roll2 = 0) {
         if (bodyPartTarget != -1) {
-            return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+            String result = "";
+            // Advantage
+            if (advDis = 1) {
+                result = "(1d20 (advantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")";
+            }
+            if (advDis = 2) {
+                result = "(1d20 (disadvantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")";
+            }
+            else {
+                result = "(1d20: " + String::valueOf(roll);
+            }
         }
         else {
             return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ") ";
         }
+        result += " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+        return result;
     }
 
-    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag = false, bool headshotFlag = false, bool nat20 = false) {
+    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag = false, bool headshotFlag = false, bool nat20 = false)
         if (!armorSkillFlag)
         {
             if (armorProtection > 0)
@@ -403,10 +459,26 @@ public:
         }
     }
 
-    static String GenerateFlurryOutputSpam(int roll1, int roll2, int roll3, int skillMod, int diceCheck) {
-        String result = "(3d20: "+ String::valueOf(roll1) + ", ";
-        result += String::valueOf(roll2) + ", ";
-        result += String::valueOf(roll3) + " ";
+    static String GenerateFlurryOutputSpam(int roll1, int roll2, int roll3, int skillMod, int diceCheck, int advDis = 0, int r1 = 0, int r2 = 0, int r3 = 0, int r4 = 0, int r5 = 0, int r6 = 0) {
+        String result = "";
+
+        // Advantage
+        if (advDis == 1) {
+            result = "(3d20 (advantage): " + "(" + String::valueOf(r1) + "," + " " + String::valueOf(r2) + ")" + ", ";
+            result += "(" + String::valueOf(r3) + "," + " " + String::valueOf(r4) + ")" + ", ";
+            result += "(" + String::valueOf(r5) + "," + " " + String::valueOf(r6) + ") ";
+        }
+        //Disadvantage
+        else if (advDis == 2) {
+            result = "(3d20 (disadvantage): " + "(" + String::valueOf(r1) + "," + " " + String::valueOf(r2) + ")" + ", ";
+            result += "(" + String::valueOf(r3) + "," + " " + String::valueOf(r4) + ")" + ", ";
+            result += "(" + String::valueOf(r5) + "," + " " + String::valueOf(r6) + ") ";
+        }
+        else {
+            result = "(3d20: "+ String::valueOf(roll1) + ", ";
+            result += String::valueOf(roll2) + ", ";
+            result += String::valueOf(roll3) + " ";
+        }
         result += "+ " + String::valueOf(skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck+5)+", " + String::valueOf(diceCheck+10) +" ) "; 
         return result;
     }
