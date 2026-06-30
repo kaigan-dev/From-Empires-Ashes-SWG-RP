@@ -4,8 +4,6 @@ equipment = {
 	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bicep_r.iff", },
 	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_l.iff", },
 	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_r.iff", },
-	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_l.iff", },
-	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_bracer_r.iff", },
 	{"object/tangible/wearables/shirt/shirt_s10.iff", },
 	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_chest_plate.iff", },
 	{"object/tangible/wearables/armor/roleplay/bone/armor_bone_s01_gloves.iff", },
