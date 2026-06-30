@@ -98,6 +98,7 @@ function RpTatooineWayfarScreenPlay:spawnCivilians()
 		{22.1, 1.3, 5.5, 139, 610030417, {"sittable"}},
 		{24.3, 1.3, 3.3, 306, 610030417, {"sittable"}},
 
+		-- Wayfar Misty Dragon Spice Den
 		{11.8, 0.6, 7.2, 183, 610030520, {"sittable"}},
 		{11.1, 0.6, 7.2, 183, 610030520, {"sittable"}},
 
@@ -106,7 +107,7 @@ function RpTatooineWayfarScreenPlay:spawnCivilians()
 
 		{-8.6, 0.6, -12.5, 351, 610030526, {"sit"}},
 		{-7.7, 0.6, -12.5, 346, 610030526, {"sit"}},
-		{-5.5, 0.6, -4.1, 167, 610030526, {"sittable"}},
+		{-5.3, 0.6, -3.4, 167, 610030526, {"sittable"}},
 	
 	}
 	
@@ -226,8 +227,8 @@ function RpTatooineWayfarScreenPlay:spawnMobiles()
 	createTemplatedRoleplayNPC("faction/hutt/grunt_army", -12.8, 5.1, 4.5, -5, 610030522 ,"rp_tatooine")
 
 	createTemplatedRoleplayNPC("faction/hutt/grunt_navy", 0.6, 5.1, -10.7, 107, 610030525 ,"rp_tatooine")
-	createTemplatedRoleplayNPC("faction/hutt/tech_medic", -7.2, 5.1, -10.4, -159, 610030522 ,"rp_tatooine")
-	createTemplatedRoleplayNPC("faction/hutt/grunt_navy", -3.9, 5.1, -2.8, 22, 610030522 ,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/hutt/tech_medic", -7.2, 5.1, -10.4, -159, 610030525 ,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/hutt/grunt_navy", -3.9, 5.1, -2.8, 22, 610030525 ,"rp_tatooine")
 
 
 end
