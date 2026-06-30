@@ -11,7 +11,7 @@ npc_template = {
     },
 
     equipmentTemplates = {
-        {"som/hk47", {"faction/ithorian/pifi_guardian"}},
+        --{"som/hk47", {"faction/ithorian/pifi_guardian"}},
         
     },
 

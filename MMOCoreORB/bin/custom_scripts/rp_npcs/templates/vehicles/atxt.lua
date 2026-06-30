@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "An ATXT",
+	name = "ATXT",
 	baseTemplates = {
 		"atxt",
 	},

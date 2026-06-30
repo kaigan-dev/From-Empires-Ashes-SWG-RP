@@ -11,7 +11,7 @@ npc_template = {
     },
 
     equipmentTemplates = {
-        {"som/hk77", {"superbattle"}},
+        --{"som/hk77", {"superbattle"}},
         
     },
 
