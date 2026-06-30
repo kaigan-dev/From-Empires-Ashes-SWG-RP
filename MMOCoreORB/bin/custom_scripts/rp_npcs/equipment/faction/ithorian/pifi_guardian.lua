@@ -8,7 +8,4 @@ equipment = {
     {"object/tangible/wearables/armor/roleplay/ithorian_guardian/ith_armor_s02_helmet.iff", "private/index_color_1", 213,},
     {"object/tangible/wearables/armor/roleplay/ithorian_guardian/ith_armor_s02_leggings.iff", "private/index_color_1", 204,},
     {"object/tangible/wearables/armor/roleplay/ithorian_guardian/ith_armor_s02_boots.iff", "private/index_color_1", 204,},
-
-    
-
 }
