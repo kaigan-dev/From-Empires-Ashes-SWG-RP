@@ -1,5 +1,5 @@
 npc_template = {
-	name = "An IG-100 Magnaguard Droid",
+	name = "IG-100 Magnaguard Droid",
 
     baseTemplates = {
         "magnaguard",
@@ -11,9 +11,8 @@ npc_template = {
     },
 
     equipmentTemplates = {
-		{"magnaguard", {"electrostaff"}},
-
-        
+		--{"magnaguard", {"electrostaff"}},
+        {"magnaguard", {"faction/republic/trooper"}},
     },
 
 }
