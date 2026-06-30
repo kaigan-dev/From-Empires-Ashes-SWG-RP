@@ -390,7 +390,7 @@ public:
         return result;
     }
 
-    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag = false, bool headshotFlag = false, bool nat20 = false)
+    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag = false, bool headshotFlag = false, bool nat20 = false) {
         if (!armorSkillFlag)
         {
             if (armorProtection > 0)
