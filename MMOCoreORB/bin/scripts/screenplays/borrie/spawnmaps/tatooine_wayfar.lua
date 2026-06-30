@@ -97,6 +97,16 @@ function RpTatooineWayfarScreenPlay:spawnCivilians()
 		{20.5, 1.6, 12.7, 177, 610030417, {"none"}},
 		{22.1, 1.3, 5.5, 139, 610030417, {"sittable"}},
 		{24.3, 1.3, 3.3, 306, 610030417, {"sittable"}},
+
+		{11.8, 0.6, 7.2, 183, 610030520, {"sittable"}},
+		{11.1, 0.6, 7.2, 183, 610030520, {"sittable"}},
+
+		{5.5, 0.6, -6.7, 157, 610030527, {"sit"}},
+		{8.7, 0.6, -13, 45, 610030527, {"sittable"}},
+
+		{-8.6, 0.6, -12.5, 351, 610030526, {"sit"}},
+		{-7.7, 0.6, -12.5, 346, 610030526, {"sit"}},
+		{-5.5, 0.6, -4.1, 167, 610030526, {"sittable"}},
 	
 	}
 	
@@ -206,8 +216,18 @@ function RpTatooineWayfarScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
 	
 
-	
+	-- Misty Dragon Spice Den
+	createTemplatedRoleplayNPC("faction/hutt/grunt_army", 12.5, 0.6, 5.5, -101, 610030520 ,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/hutt/grunt_army", -1.5, 5.1, 2.1, -3, 610030520 ,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/hutt/grunt_army", 8.6, 5.1, 2.1, -5, 610030520 ,"rp_tatooine")
 
+	createTemplatedRoleplayNPC("faction/hutt/grunt_army", -7.2, 5.1, 8.2, 89, 610030522 ,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/hutt/grunt_army", -13.8, 5.1, 4.4, -7, 610030522 ,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/hutt/grunt_army", -12.8, 5.1, 4.5, -5, 610030522 ,"rp_tatooine")
+
+	createTemplatedRoleplayNPC("faction/hutt/grunt_navy", 0.6, 5.1, -10.7, 107, 610030525 ,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/hutt/tech_medic", -7.2, 5.1, -10.4, -159, 610030522 ,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/hutt/grunt_navy", -3.9, 5.1, -2.8, 22, 610030522 ,"rp_tatooine")
 
 
 end
