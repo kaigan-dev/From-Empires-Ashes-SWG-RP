@@ -21,6 +21,7 @@ planet = {
 		{"eisley_outskirts_east", "Mos Eisley Outskirts, East", "rp_tatooine", 1535, 0, -200, -45, 0, true},
 		{"bestine_starport_north", "Bestine Starport, North", "rp_tatooine", 404, 0, 6841, -45, 0, true},
 		{"bestine_starport_south", "Bestine Starport, South", "rp_tatooine", 297, 0, 6659, -45, 0, true},
+		{"Wayfar_shuttleport", "Wayfar", "rp_tatooine", 4462. 8. -6848. 180, 0, true},
 		--{"jabbas_palace", "Hutt Palace", "rp_tatooine", 3399, 50, -6817, -90, 0, true},
 		--{"sarlacc_pit", "Sarlacc Pit", "rp_tatooine", 6126, 20, -3783, -90, 0, true},
 		--{"jundland_wastes", "Jundland Waste", "rp_tatooine", -4400, 0, -70, -90, 0, true},
