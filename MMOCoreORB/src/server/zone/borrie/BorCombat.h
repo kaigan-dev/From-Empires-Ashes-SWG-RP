@@ -373,11 +373,11 @@ public:
         if (bodyPartTarget != -1) {
             // Advantage
             if (advDis == 1) {
-                return "(1d20 (advantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")" " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+                return "(1d20 (advantage): (" + String::valueOf(roll1) + ", " + String::valueOf(roll2) + ")" + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
             }
             // Disadvantage
             else if (advDis == 2) {
-                return "(1d20 (disadvantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")" " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+                return "(1d20 (disadvantage): (" + String::valueOf(roll1) + ", " + String::valueOf(roll2) + ")" + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
             }
             else {
                 return "(1d20: " + String::valueOf(roll) " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
@@ -386,11 +386,11 @@ public:
         else {
             // Advantage
             if (advDis == 1) {
-                return "(1d20 (advantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")" " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+                return "(1d20 (advantage): (" + String::valueOf(roll1) + ", " + String::valueOf(roll2) + ")" + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
             }
             // Disadvantage
             else if (advDis == 2) {
-                return "(1d20 (disadvantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")" " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+                return "(1d20 (disadvantage): (" + String::valueOf(roll1) + ", " + String::valueOf(roll2) + ")" + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
             }
             else {
                 return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ") ";
@@ -472,15 +472,15 @@ public:
 
         // Advantage
         if (advDis == 1) {
-            result = "(3d20 (advantage): " + "(" + String::valueOf(r1) + "," + " " + String::valueOf(r2) + ")" + ", ";
-            result += "(" + String::valueOf(r3) + "," + " " + String::valueOf(r4) + ")" + ", ";
-            result += "(" + String::valueOf(r5) + "," + " " + String::valueOf(r6) + ") ";
+            result = "(3d20 (advantage): (" + String::valueOf(r1) + ", " + String::valueOf(r2) + "), ";
+            result += "(" + String::valueOf(r3) + ", " + String::valueOf(r4) + "), ";
+            result += "(" + String::valueOf(r5) + ", " + String::valueOf(r6) + ") ";
         }
         //Disadvantage
         else if (advDis == 2) {
-            result = "(3d20 (disadvantage): " + "(" + String::valueOf(r1) + "," + " " + String::valueOf(r2) + ")" + ", ";
-            result += "(" + String::valueOf(r3) + "," + " " + String::valueOf(r4) + ")" + ", ";
-            result += "(" + String::valueOf(r5) + "," + " " + String::valueOf(r6) + ") ";
+            result = "(3d20 (disadvantage): (" + String::valueOf(r1) + ", " + String::valueOf(r2) + "), ";
+            result += "(" + String::valueOf(r3) + ", " + String::valueOf(r4) + "), ";
+            result += "(" + String::valueOf(r5) + ", " + String::valueOf(r6) + ") ";
         }
         else {
             result = "(3d20: "+ String::valueOf(roll1) + ", ";
