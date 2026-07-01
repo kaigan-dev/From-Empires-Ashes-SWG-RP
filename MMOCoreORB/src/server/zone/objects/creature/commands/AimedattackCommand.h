@@ -76,7 +76,7 @@ public:
 				if (subCommand == "advantage" || subCommand == "adv") {
 					advDis = 1;
 				}
-				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand = "disadv") {
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand == "disadv") {
 					advDis = 2;
 				}
 			}
@@ -88,7 +88,7 @@ public:
 				if (subCommand == "advantage" || subCommand == "adv") {
 					advDis = 1;
 				}
-				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand = "disadv") {
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand == "disadv") {
 					advDis = 2;
 				}
 			}
@@ -100,7 +100,7 @@ public:
 				if (subCommand == "advantage" || subCommand == "adv") {
 					advDis = 1;
 				}
-				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand = "disadv") {
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand == "disadv") {
 					advDis = 2;
 				}
 			}
