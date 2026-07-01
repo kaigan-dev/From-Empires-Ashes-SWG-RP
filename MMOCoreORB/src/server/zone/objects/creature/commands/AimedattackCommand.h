@@ -73,10 +73,10 @@ public:
 				if(subCommand == "nolos") {
 					ignoreLOS = true;
 				}
-				if (subCommand == "advantage" || subcommand == "adv") {
+				if (subCommand == "advantage" || subCommand == "adv") {
 					advDis = 1;
 				}
-				if (subCommand == "disadvantage"  || subcommand == "dis" || subcommand = "disadv") {
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand = "disadv") {
 					advDis = 2;
 				}
 			}
@@ -85,10 +85,10 @@ public:
 				if(subCommand == "nolos") {
 					ignoreLOS = true;
 				}
-				if (subCommand == "advantage" || subcommand == "adv") {
+				if (subCommand == "advantage" || subCommand == "adv") {
 					advDis = 1;
 				}
-				if (subCommand == "disadvantage"  || subcommand == "dis" || subcommand = "disadv") {
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand = "disadv") {
 					advDis = 2;
 				}
 			}
@@ -97,10 +97,10 @@ public:
 				if(subCommand == "nolos") {
 					ignoreLOS = true;
 				}
-				if (subCommand == "advantage" || subcommand == "adv") {
+				if (subCommand == "advantage" || subCommand == "adv") {
 					advDis = 1;
 				}
-				if (subCommand == "disadvantage"  || subcommand == "dis" || subcommand = "disadv") {
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand = "disadv") {
 					advDis = 2;
 				}
 			}
