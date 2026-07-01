@@ -38,9 +38,9 @@ public:
 		StringTokenizer args(arguments.toString());
 		String command; 
 
+		bool noLos = false;
 		if (args.hasMoreTokens()) {
 			args.getStringToken(command);
-			bool noLos = false;
 			if(args.hasMoreTokens()) {
 				String commandIsNolos;
 				args.getStringToken(commandIsNolos);
