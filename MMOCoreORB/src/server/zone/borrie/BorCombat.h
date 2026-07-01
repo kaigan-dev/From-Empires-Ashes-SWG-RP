@@ -371,23 +371,31 @@ public:
 
     static String GenerateOutputSpam(int roll, int skillMod, int diceCheck, int aimMod = 0, int bodyPartTarget = -1, int advDis = 0, int roll1 = 0, int roll2 = 0) {
         if (bodyPartTarget != -1) {
-            String result = "";
             // Advantage
             if (advDis == 1) {
-                result = "(1d20 (advantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")";
+                return "(1d20 (advantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")" " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
             }
-            if (advDis == 2) {
-                result = "(1d20 (disadvantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")";
+            // Disadvantage
+            else if (advDis == 2) {
+                return "(1d20 (disadvantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")" " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
             }
             else {
-                result = "(1d20: " + String::valueOf(roll);
+                return "(1d20: " + String::valueOf(roll) " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
             }
         }
         else {
-            return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ") ";
+            // Advantage
+            if (advDis == 1) {
+                return "(1d20 (advantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")" " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+            }
+            // Disadvantage
+            else if (advDis == 2) {
+                return "(1d20 (disadvantage): " + "(" + String::valueOf(roll1) + "," + " " + String::valueOf(roll2) + ")" " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+            }
+            else {
+                return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ") ";
+            }
         }
-        result += " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
-        return result;
     }
 
     static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag = false, bool headshotFlag = false, bool nat20 = false) {
