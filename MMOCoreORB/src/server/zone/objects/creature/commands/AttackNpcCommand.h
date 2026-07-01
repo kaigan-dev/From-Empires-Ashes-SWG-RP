@@ -107,9 +107,9 @@ public:
 			} else if(command == "nolos") {
 				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, true);
 			} else if(command == "advantage" || command == "adv") {
-				BorCombat::AttackTarget(creature, targetCreature, creature, -1, false, noLos, 1);
+				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, noLos, 1);
 			} else if(command == "disadvantage" || command == "dis" || command == "disadv") {
-				BorCombat::AttackTarget(creature, targetCreature, creature, -1, false, noLos, 2);
+				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, noLos, 2);
 			}
 		} else {
 			BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false);
