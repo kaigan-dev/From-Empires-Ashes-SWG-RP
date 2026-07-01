@@ -74,10 +74,10 @@ public:
 					ignoreLOS = true;
 				}
 				if (subCommand == "advantage" || subcommand == "adv") {
-					advDis = 1
+					advDis = 1;
 				}
 				if (subCommand == "disadvantage"  || subcommand == "dis" || subcommand = "disadv") {
-					advDis = 2
+					advDis = 2;
 				}
 			}
 			if(args.hasMoreTokens()) {
@@ -86,10 +86,10 @@ public:
 					ignoreLOS = true;
 				}
 				if (subCommand == "advantage" || subcommand == "adv") {
-					advDis = 1
+					advDis = 1;
 				}
 				if (subCommand == "disadvantage"  || subcommand == "dis" || subcommand = "disadv") {
-					advDis = 2
+					advDis = 2;
 				}
 			}
 			if(args.hasMoreTokens()) {
@@ -98,10 +98,10 @@ public:
 					ignoreLOS = true;
 				}
 				if (subCommand == "advantage" || subcommand == "adv") {
-					advDis = 1
+					advDis = 1;
 				}
 				if (subCommand == "disadvantage"  || subcommand == "dis" || subcommand = "disadv") {
-					advDis = 2
+					advDis = 2;
 				}
 			}
 
