@@ -9,9 +9,7 @@ npc_template = {
 			"atst"
 	},
 	
-	
 	equipmentTemplates = {
-		{"atst", {"atst"}},
 	},	
 	
 	customizationTemplates = {
