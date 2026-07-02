@@ -77,6 +77,7 @@ public:
 						DiceRollString += " + ";
 				}
 
+				/*  We shouldn't need this if we don't have advantage for misc dice rolls. Also as it stands this duplicates all rolls.
 				for (int i = 0; i < numDice; i++) {
 					nSecTempResult = System::random(diceValue - 1) + 1;
 					DiceRollString += String::valueOf(nTempResult);
@@ -86,6 +87,7 @@ public:
 					else
 						DiceRollString += " + ";
 				}
+				*/
 
 				if (mod != 0)
 						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
