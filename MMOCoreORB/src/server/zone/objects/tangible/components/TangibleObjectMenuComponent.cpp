@@ -86,7 +86,9 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 
 			if(tano->isWeaponObject()) {
 				menuResponse->addRadialMenuItemToRadialID(91, 102, 3, "Set Damage");
-			}			
+			}	
+
+			menuResponse->addRadialMenuItemToRadialID(91, 103, 3, "Give a copy to Target");		
 		}
 	}
 
@@ -351,6 +353,34 @@ int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 		ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
 		ghost->addSuiBox(ibox);
 		player->sendMessage(ibox->generateMessage());
+	}
+
+	if(selectedID == 103) { //Give a copy to Target
+		BorrieRPG::copyTarget(player, sceneObject, true);  //Copy item
+
+		ManagedReference<SceneObject*> playerTarget = player->getZoneServer()->getObject(player->getTargetID());
+		if(playerTarget != nullptr) {
+			if(playerTarget->isCreatureObject()) {
+				CreatureObject* targetCreature = playerTarget->asCreatureObject();
+				ManagedReference<SceneObject*> inventory = playerTarget->getSlottedObject("inventory");
+				if (inventory == nullptr || inventory->isContainerFullRecursive()) {
+					player->sendSystemMessage("Target inventory is full, so the item could not be sent.");
+					return 0;
+				}
+
+				if (inventory->transferObject(sceneObject, -1, true)) {
+					inventory->broadcastObject(sceneObject, true);
+					player->sendSystemMessage("Gave " + targetCreature->getCustomObjectName() + " \"" + sceneObject->getCustomObjectName() + ".\"" );
+					targetCreature->sendSystemMessage("You recieved \"" + sceneObject->getCustomObjectName() + ".\"");
+				} else {
+					player->sendSystemMessage("Error transferring object to target.");
+				}
+			} else {
+				player->sendSystemMessage("Your target needs to be a player.");
+			}
+		} else {
+			player->sendSystemMessage("You need to have a target.");
+		}
 	}
 	
 	return ObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
