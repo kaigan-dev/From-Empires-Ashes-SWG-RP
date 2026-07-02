@@ -56,4 +56,5 @@ skillSet = {
     {"rp_armor_bonus_heat",          4, 4},
     {"rp_armor_bonus_cold",          4, 4},
     {"rp_armor_bonus_acid",          4, 4},
+    {"rp_armor_bonus_lightsaber",    0, 0},
 }
