@@ -845,9 +845,9 @@ public:
         
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
         int armorProtection = 0;
-        String damageType = GetDamageType(attackerWeapon;
+        String damageType = GetDamageType(attackerWeapon);
         
-        if (creature->isPlayerCreature() || (armor != nullptr || armor.get() != nullptr)) {
+        if (defender->isPlayerCreature() || (armor != nullptr || armor.get() != nullptr)) {
             armorProtection = GetArmorProtection(defender, armor, damageType);
         }
         else {
