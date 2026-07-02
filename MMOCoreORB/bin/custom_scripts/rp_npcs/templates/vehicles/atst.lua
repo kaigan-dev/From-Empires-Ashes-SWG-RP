@@ -6,12 +6,11 @@ npc_template = {
 	},
 
 	skillTemplates = {
-			"atst"
+		"atst"
 	},
 	
-	
 	equipmentTemplates = {
-		{"atst", {"atst"}},
+		"atst"
 	},	
 	
 	customizationTemplates = {
