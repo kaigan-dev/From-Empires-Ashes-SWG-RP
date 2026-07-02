@@ -853,35 +853,35 @@ public:
         else {
             switch (damageType) {
 	            case "Kinetic":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_kinetic);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_kinetic");
 	    	        break;
 	            case "Energy":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_energy);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_energy");
 	    	        break;
 	            case "Electricity":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_electricity);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_electricity");
 	    	        break;
 	            case "Stun":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_stun);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_stun");
 	    	        break;
 	            case "Blast":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_blast);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_blast");
 	    	        break;
 	            case "Heat":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_heat);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_heat");
 	    	        break;
 	             case "Cold":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_cold);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_cold");
 	    	        break;
 	            case "Acid":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_acid);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_acid");
 	    	        break;
 	             case "Lightsaber":
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_lightsaber);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_lightsaber");
 	    	        break;
 	            // Default to Energy as the most common damage type. 
                 default:
-	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_energy);
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_energy");
 	    	        break;
             }
         }
