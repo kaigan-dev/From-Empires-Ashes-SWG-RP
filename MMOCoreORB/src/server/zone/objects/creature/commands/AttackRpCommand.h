@@ -55,14 +55,26 @@ public:
 
 		StringTokenizer args(arguments.toString());
 
-		String command; 
+		String command;
 
 		if (args.hasMoreTokens()) {
 			args.getStringToken(command);
+			bool noLos = false;
+			if(args.hasMoreTokens()) {
+				String commandIsNolos;
+				args.getStringToken(commandIsNolos);
+				if(commandIsNolos == "nolos")
+					noLos = true;
+			}
+			
 			if(command == "faux") {
 				BorEffect::PerformReactiveAnimation(targetCreature, creature, "hit", CombatManager::HIT_BODY, true);
 			} else if(command == "nolos") {
 				BorCombat::AttackTarget(creature, targetCreature, creature, -1, false, true);
+			} else if(command == "advantage" || command == "adv") {
+				BorCombat::AttackTarget(creature, targetCreature, creature, -1, false, noLos, 1);
+			} else if(command == "disadvantage" || command == "dis" || command == "disadv") {
+				BorCombat::AttackTarget(creature, targetCreature, creature, -1, false, noLos, 2);
 			}
 		} else {
 			BorCombat::AttackTarget(creature, targetCreature, creature, -1, false);
