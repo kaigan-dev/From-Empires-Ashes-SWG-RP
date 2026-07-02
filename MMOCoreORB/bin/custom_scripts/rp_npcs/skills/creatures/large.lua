@@ -47,4 +47,15 @@ skillSet = {
     {"rp_action",           25, 25},
     {"rp_will",             5, 5},
     {"rp_force",            0, 0},
+
+        --Armor
+    {"rp_armor_bonus_kinetic",       4, 4},
+    {"rp_armor_bonus_energy",        4, 4},
+    {"rp_armor_bonus_electricity",   2, 2},
+    {"rp_armor_bonus_stun",          4, 4},
+    {"rp_armor_bonus_blast",         0, 0},
+    {"rp_armor_bonus_heat",          2, 2},
+    {"rp_armor_bonus_cold",          2, 2},
+    {"rp_armor_bonus_acid",          2, 2},
+    {"rp_armor_bonus_lightsaber",    0, 0},
 }
