@@ -842,12 +842,50 @@ public:
  
     static String OrchestrateDamage(String combatLogPrefix, CreatureObject* defender, WeaponObject* attackerWeapon, int incomingDamage, int slot, bool headshotFlag = false, bool nat20 = false) {
         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+        
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
-        int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
+        int armorProtection = 0;
+        String damageType = GetDamageType(attackerWeapon);
+        
+        if (defender->isPlayerCreature() || (armor != nullptr || armor.get() != nullptr)) {
+            armorProtection = GetArmorProtection(defender, armor, damageType);
+        }
+        else {
+	            if (damageType == "Kinetic") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_kinetic");
+                }
+	            else if (damageType == "Energy") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_energy");
+                }
+	            else if (damageType == "Electricity") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_electricity");
+                }
+	            else if (damageType == "Stun") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_stun");
+                }
+	            else if (damageType == "Blast") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_blast");
+                }
+	            else if (damageType == "Heat") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_heat");
+                }
+	            else if (damageType == "Cold") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_cold");
+                }
+	            else if (damageType == "Acid") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_acid");
+                }
+	            else if (damageType == "Lightsaber") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_lightsaber");
+                }
+            }
+
         bool armorSkillFlag = false;
+
         if (armor != nullptr && armor.get() != nullptr && defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
             armorSkillFlag = true;
         }
+
         return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20);
     }
 
