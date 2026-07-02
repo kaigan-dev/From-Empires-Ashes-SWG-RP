@@ -851,40 +851,34 @@ public:
             armorProtection = GetArmorProtection(defender, armor, damageType);
         }
         else {
-            switch (damageType) {
-	            case "Kinetic":
+	            if (damageType == "Kinetic") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_kinetic");
-	    	        break;
-	            case "Energy":
+                }
+	            else if (damageType == "Energy") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_energy");
-	    	        break;
-	            case "Electricity":
+                }
+	            else if (damageType == "Electricity") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_electricity");
-	    	        break;
-	            case "Stun":
+                }
+	            else if (damageType == "Stun") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_stun");
-	    	        break;
-	            case "Blast":
+                }
+	            else if (damageType == "Blast") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_blast");
-	    	        break;
-	            case "Heat":
+                }
+	            else if (damageType == "Heat") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_heat");
-	    	        break;
-	             case "Cold":
+                }
+	            else if (damageType == "Cold") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_cold");
-	    	        break;
-	            case "Acid":
+                }
+	            else if (damageType == "Acid") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_acid");
-	    	        break;
-	             case "Lightsaber":
+                }
+	            else if (damageType == "Lightsaber") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_lightsaber");
-	    	        break;
-	            // Default to Energy as the most common damage type. 
-                default:
-	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_energy");
-	    	        break;
+                }
             }
-        }
 
         bool armorSkillFlag = false;
 
