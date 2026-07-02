@@ -842,12 +842,56 @@ public:
  
     static String OrchestrateDamage(String combatLogPrefix, CreatureObject* defender, WeaponObject* attackerWeapon, int incomingDamage, int slot, bool headshotFlag = false, bool nat20 = false) {
         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+        
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
-        int armorProtection = GetArmorProtection(defender, armor, GetDamageType(attackerWeapon));
+        int armorProtection = 0;
+        String damageType = GetDamageType(attackerWeapon;
+        
+        if (creature->isPlayerCreature() || (armor != nullptr || armor.get() != nullptr)) {
+            armorProtection = GetArmorProtection(defender, armor, damageType);
+        }
+        else {
+            switch (damageType) {
+	            case "Kinetic":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_kinetic);
+	    	        break;
+	            case "Energy":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_energy);
+	    	        break;
+	            case "Electricity":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_electricity);
+	    	        break;
+	            case "Stun":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_stun);
+	    	        break;
+	            case "Blast":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_blast);
+	    	        break;
+	            case "Heat":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_heat);
+	    	        break;
+	             case "Cold":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_cold);
+	    	        break;
+	            case "Acid":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_acid);
+	    	        break;
+	             case "Lightsaber":
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_lightsaber);
+	    	        break;
+	            // Default to Energy as the most common damage type. 
+                default:
+	    	        armorProtection = defender->getSkillMod(rp_armor_bonus_energy);
+	    	        break;
+            }
+        }
+
         bool armorSkillFlag = false;
+
         if (armor != nullptr && armor.get() != nullptr && defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
             armorSkillFlag = true;
         }
+
         return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20);
     }
 
