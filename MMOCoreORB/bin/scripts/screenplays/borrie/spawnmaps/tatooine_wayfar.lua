@@ -113,18 +113,12 @@ function RpTatooineWayfarScreenPlay:spawnCivilians()
 	
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
 end
-
+    
 
 
 function RpTatooineMosEisleyScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
-	--spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 4454.3, 8.3, -6846, 0, math.rad(180))
-	
-
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 4454.3, 8.3, -6846, 0, math.rad(180))
-
-
-	--spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 12.6536, 0.639421, 51.1838, 0, 0.909306, 0, -0.416129, 0)
 	
 end
 

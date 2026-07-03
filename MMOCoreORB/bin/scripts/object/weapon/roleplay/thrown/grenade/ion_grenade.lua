@@ -18,7 +18,7 @@ object_weapon_roleplay_thrown_grenade_ion_grenade = object_weapon_ranged_grenade
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 3, --Amount of Die used in Damage
 	maxDamage = 5, --Type of Die used in Damage
-	bonusDamage = 0,
+	bonusDamage = 1,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
@@ -33,10 +33,10 @@ object_weapon_roleplay_thrown_grenade_ion_grenade = object_weapon_ranged_grenade
 	
 	dodgeDC = 12,
 	
-	rpSkillLevel = 6,
+	rpSkillLevel = 5,
 	
 	rarity="Rare",
-	itemValue = 600,
+	itemValue = 750,
 	
 	animationType = "bug_bomb",
 

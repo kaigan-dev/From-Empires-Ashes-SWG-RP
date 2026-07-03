@@ -18,7 +18,7 @@ object_weapon_roleplay_thrown_grenade_poison_grenade = object_weapon_ranged_gren
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 2, --Amount of Die used in Damage
 	maxDamage = 8, --Type of Die used in Damage
-	bonusDamage = 0,
+	bonusDamage = 4,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
@@ -35,8 +35,8 @@ object_weapon_roleplay_thrown_grenade_poison_grenade = object_weapon_ranged_gren
 	
 	rpSkillLevel = 6,
 	
-	rarity="Uncommon",
-	itemValue = 600,
+	rarity="Epic",
+	itemValue = 2000,
 	animationType = "glop",
 
 	--[Unused Elements from original game, included for compatability.]

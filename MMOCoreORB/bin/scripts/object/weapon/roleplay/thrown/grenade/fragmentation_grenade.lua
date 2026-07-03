@@ -16,7 +16,7 @@ object_weapon_roleplay_thrown_grenade_fragmentation_grenade = object_weapon_rang
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 2, --Amount of Die used in Damage
+	minDamage = 3, --Amount of Die used in Damage
 	maxDamage = 6, --Type of Die used in Damage
 	bonusDamage = 0,
 
@@ -35,8 +35,8 @@ object_weapon_roleplay_thrown_grenade_fragmentation_grenade = object_weapon_rang
 	
 	rpSkillLevel = 1,
 	
-	rarity="Common",
-	itemValue = 600,
+	rarity="Uncommon",
+	itemValue = 200,
 	
 	animationType = "fragmentation",
 

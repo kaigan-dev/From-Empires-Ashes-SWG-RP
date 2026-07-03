@@ -73,8 +73,9 @@ rpg_shop_weapons_ranged_novice = {
 			name = "Grenades",
 			minItems = 1,
 			items = {
-				{template = "object/weapon/roleplay/thrown/grenade/fragmentation_grenade.iff", cost = 100, max = 10, chance = 100, overridePrice = true },
-				{template = "object/weapon/roleplay/thrown/grenade/glop_grenade.iff", cost = 100, max = 10, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/thrown/grenade/fragmentation_grenade.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/thrown/grenade/glop_grenade.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/thrown/grenade/cryoban_grenade.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 	}	
