@@ -118,17 +118,14 @@ end
 
 function RpTatooineMosEisleyScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
-	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 4472.6, 8.4, 6838, 0, 1, 0, -0.5, 0)
+	--spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 4454.3, 8.3, -6846, 0, math.rad(180))
 	
 
+	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 4454.3, 8.3, -6846, 0, math.rad(180))
+
+
+	--spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 12.6536, 0.639421, 51.1838, 0, 0.909306, 0, -0.416129, 0)
 	
-	--Signs
-	--[[
-	local sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.iff", 947.255, 0, 139.882, 0, 0.97237, 0, 0.233445, 0) --Tailor Sign
-	SceneObject(sObj):setCustomObjectName("Eisley Tailoring")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/swsovrp/prop2/thm_sign_welcome_hanging.iff", -1437.4, 190, 1942.8, 125, 0, 0, 1, 0) --Beware of Dog
-	SceneObject(sObj):setCustomObjectName("Beware of Dog")
-	--]]
 end
 
 function RpTatooineWayfarScreenPlay:spawnMobiles()
