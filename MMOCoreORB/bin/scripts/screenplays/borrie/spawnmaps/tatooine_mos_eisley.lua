@@ -344,6 +344,44 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{5.5, 0.4, -3.8, 312, 610010243,{"sitchair"}},
 		{-2.7, 0.4, -5.1, 120, 610010243,{"social"}},
 		{-0.8, 0.4, -5.1, 222, 610010243,{"none"}},
+		
+		--Red Light District
+		{479.7, 0, 398.7, 26, 0,{"social"}},
+		{480.8, 0, 399.9, 220, 0,{"social"}},
+		{447.1, 0, 438.4, 4, 0,{"none"}},
+		{518.3, 0, 431.4, 3, 0,{"social"}},
+		{519.1, 0, 432.6, 209, 0,{"social"}},
+		{517.9, 0, 432.5, 123, 0,{"social"}},
+		{482.0, 0, 406.5, 317, 0,{"tech"}},
+		{564.1, 0, 477.7, 54, 0,{"none"}},
+		{565.3, 0, 478.5, 243, 0,{"none"}},
+		{469.6, 0, 441.6, 194, 0,{"social"}},
+		{512.0, 0, 430.9, 162, 0,{"none"}},
+		{-2.7, 0.3, 0, 42, 610032132,{"sit"}},
+		{-6.7, 0.6, -1.1, 187, 610032134,{"sit"}},
+		{1.4, 0.6, -2.8, 168, 610032134,{"tech"}},
+
+		--The Lucky Despot
+		{-4.4, 7, -3.0, -171, 610032090,{"sitchair"}},
+		{-4.5, 7, -5.1, -6, 610032090,{"sittable"}},
+		{-7.3, 7, 8.1, -38, 610032090,{"sitchair"}},
+		{-9.2, 7, 8.5, 55, 610032090,{"sitchair"}},
+		{-12.0, 7, 1.8, -110, 610032090,{"drinker"}},
+		{-20.6, 9, 4, -122, 610032092,{"sittable"}},
+		{-20.6, 9, -1.6, -138, 610032092,{"none"}},
+		{-22.5, 9, -1.6, 135, 610032092,{"none"}},
+		{-22.6, 9, -3.5, 57, 610032092,{"none"}},
+		{3.7, 7, 6.0, 123, 610032093,{"sitchair"}},
+		{4.1, 7, 4.7, -91, 610032093,{"tech"}},
+		{18.7, 7, -4.8, 17, 610032094,{"sitchair"}},
+		{20, 7, -3.3, -122, 610032094,{"sitchair"}},
+		{17.9, 7, 9.9, 0, 610032094,{"tech"}},
+		{22.9, 7, 5.9, 1, 610032094,{"sitchair"}},
+		{21.9, 7, 8.6, 128, 610032094,{"sitchair"}},
+		{24.4, 7, 8.4, -115, 610032094,{"sitchair"}},
+		{24.3, 6, 6.9, -58, 610032094,{"drinker"}},
+		{32.8, 7, 1.7, 87, 610032097,{"drinker"}},
+		{28.6, 7, 7.4, 145, 610032097,{"sit"}},
 	}
 	
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
@@ -883,6 +921,25 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1.6, 0.4, -7.3, 37, 610010243, "space_privateer_broker_fired_worker", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Apa Loimo (a bartender)")
 	
+	--Red Light District
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 485.1, 9, 455.7, 136, 0, "rp_human_male", "faction/hutt/trooper", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 479.4, 0, 432.1, -139, 0, "rp_weequay_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+
+	--The Lucky Despot
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 20.7, 7, -12.1, -4, 610032094, "rp_human_male", "faction/hutt/trooper", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 16.5, 7, -18.0, 88, 610032098, "rp_zabrak_male", "faction/hutt/elite", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "zabrak")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 11.6, 7, -10.5, 80, 610032094, "rp_weequay_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 11.5, 7, -10.5, 91, 610032094, "rp_rodian_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1.5, 9, -17.0, -4, 610032091, "rp_weequay_male", "faction/hutt/eite", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -5.6, 9, -16.9, 0, 610032091, "rp_human_male", "faction/hutt/eite", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
 
 	--VENDORS--
 	
