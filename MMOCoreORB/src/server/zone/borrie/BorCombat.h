@@ -902,7 +902,13 @@ public:
         int armorProtection = 0;
         int finalDamage = 0;
 
-        if(armor != nullptr && armor.get() != nullptr) {
+        if (creature->getSkillMod("rp_armor_bonus_kinetic") > 0 || creature->getSkillMod("rp_armor_bonus_energy") > 0 || creature->getSkillMod("rp_armor_bonus_electricity") > 0 || creature->getSkillMod("rp_armor_bonus_stun") > 0 || creature->getSkillMod("rp_armor_bonus_blast") > 0 || creature->getSkillMod("rp_armor_bonus_heat") > 0 || creature->getSkillMod("rp_armor_bonus_cold") > 0 || creature->getSkillMod("rp_armor_bonus_acid") > 0 || creature->getSkillMod("rp_armor_bonus_lightsaber") > 0) {
+            armorProtection = GetSkillModArmorValue(creature, damageType);
+            finalDamage = damage - armorProtection;
+            if(finalDamage < 1) finalDamage = 1;
+            BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
+        }
+        else if(armor != nullptr && armor.get() != nullptr) {
             if(!armor->isBroken()) {
                 // Armor protection is only one if a character is untrained in the use of their armor.
                 armorProtection = 1;
@@ -972,13 +978,6 @@ public:
                         }
                     }
                 }           
-            }
-            // NPC skill mod armor.
-            else if (creature->getSkillMod("rp_armor_bonus_kinetic") > 0 || creature->getSkillMod("rp_armor_bonus_energy") > 0 || creature->getSkillMod("rp_armor_bonus_electricity") > 0 || creature->getSkillMod("rp_armor_bonus_stun") > 0 || creature->getSkillMod("rp_armor_bonus_blast") > 0 || creature->getSkillMod("rp_armor_bonus_heat") > 0 || creature->getSkillMod("rp_armor_bonus_cold") > 0 || creature->getSkillMod("rp_armor_bonus_acid") > 0 || creature->getSkillMod("rp_armor_bonus_lightsaber") > 0) {
-                    armorProtection = GetSkillModArmorValue(creature, damageType);
-                    finalDamage = damage - armorProtection;
-                    if(finalDamage < 1) finalDamage = 1;
-                    BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
             }
             else { //Take Full Damage
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
