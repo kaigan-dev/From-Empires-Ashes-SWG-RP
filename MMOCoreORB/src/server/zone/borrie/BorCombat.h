@@ -40,6 +40,30 @@ public:
             attackVerb += " " + defender->getFirstName();
         }
 
+        //Consume ammo if appliable.
+        if(attacker->isPlayerCreature()) {  //NPCs don't use ammo
+                int maxAmmo = attacker->getWeapon()->getMaxAmmo();
+		        int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
+                String ammoType = attacker->getWeapon()->getAmmoType();
+
+                int ammoToUse = 1;
+                if(powerAttack) {
+                    ammoToUse = attacker->getWeapon()->getMaxAmmo() / 2;
+                }
+
+                //commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
+                if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_tusken" ||ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
+                    
+                    if(ammoUsed + ammoToUse <= maxAmmo) {
+                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + ammoToUse);
+                    }
+                    else {
+                        commander->sendSystemMessage("You don't have enough ammunition to attack.");
+                        return;
+                    }
+                }
+            }
+
         //To Hit
         int toHitDC = GetToHitModifier(attacker, defender, weapon) + 10;
         int aimMod = 0;
@@ -89,29 +113,6 @@ public:
             nat20 = true;
         }
 
-        //Consume ammo if appliable.
-        if(attacker->isPlayerCreature()) {  //NPCs don't use ammo
-                int maxAmmo = attacker->getWeapon()->getMaxAmmo();
-		        int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
-                String ammoType = attacker->getWeapon()->getAmmoType();
-
-                int ammoToUse = 1;
-                if(powerAttack) {
-                    ammoToUse = attacker->getWeapon()->getMaxAmmo() / 2;
-                }
-
-                //commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
-                if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_tusken" ||ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
-                    
-                    if(ammoUsed + ammoToUse <= maxAmmo) {
-                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + ammoToUse);
-                    }
-                    else {
-                        commander->sendSystemMessage("You don't have enough ammunition to attack.");
-                        return;
-                    }
-                }
-            }
 
         if(powerAttack) {
             toHitDC += 5;
