@@ -56,6 +56,7 @@ public:
 		else if(index == 1) {
 			BorCharacter::FillAllPools(targetCreature);
 		//	BorCharacter::HandleDarksideFading(targetCreature);
+			targetCreature->setStoredInt("hero_point_used", 0);
 		}
 		else if(index == 2) {
 			BorCharacter::PerformMeditateRest(targetCreature);
