@@ -93,7 +93,7 @@ public:
 				return GENERALERROR;
 			}
 		}else {
-				creature->sendSystemMessage("No ship with boarding permissions found.");
+				creature->sendSystemMessage("No nearby ship found.");
 				return GENERALERROR;
 		}
 
