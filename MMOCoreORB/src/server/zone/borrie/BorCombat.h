@@ -979,7 +979,6 @@ public:
                     finalDamage = damage - armorProtection;
                     if(finalDamage < 1) finalDamage = 1;
                     BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
-                }
             }
             else { //Take Full Damage
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
