@@ -851,7 +851,21 @@ public:
             armorProtection = GetArmorProtection(defender, armor, damageType);
         }
         else {
-	            if (damageType == "Kinetic") {
+	        armorProtection = GetSkillModArmorValue(defender, damageType);
+        }
+
+        bool armorSkillFlag = false;
+
+        if (armor != nullptr && armor.get() != nullptr && defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
+            armorSkillFlag = true;
+        }
+
+        return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20);
+    }
+
+    static int GetSkillModArmorValue(CreatureObject* defender, String damageType) {
+                int armorProtection = 0;
+        	    if (damageType == "Kinetic") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_kinetic");
                 }
 	            else if (damageType == "Energy") {
@@ -878,32 +892,34 @@ public:
 	            else if (damageType == "Lightsaber") {
 	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_lightsaber");
                 }
-            }
-
-        bool armorSkillFlag = false;
-
-        if (armor != nullptr && armor.get() != nullptr && defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
-            armorSkillFlag = true;
-        }
-
-        return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20);
+                
+                return armorProtection;
     }
 
     static void ApplyAdjustedHealthDamage(CreatureObject* creature, WeaponObject* attackerWeapon, int damage, int slot) {
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(slot));
-        if(armor != nullptr && armor.get() != nullptr) {
+        String damageType = GetDamageType(attackerWeapon);
+        int armorProtection = 0;
+        int finalDamage = 0;
+
+        if (creature->getSkillMod("rp_armor_bonus_kinetic") > 0 || creature->getSkillMod("rp_armor_bonus_energy") > 0 || creature->getSkillMod("rp_armor_bonus_electricity") > 0 || creature->getSkillMod("rp_armor_bonus_stun") > 0 || creature->getSkillMod("rp_armor_bonus_blast") > 0 || creature->getSkillMod("rp_armor_bonus_heat") > 0 || creature->getSkillMod("rp_armor_bonus_cold") > 0 || creature->getSkillMod("rp_armor_bonus_acid") > 0 || creature->getSkillMod("rp_armor_bonus_lightsaber") > 0) {
+            armorProtection = GetSkillModArmorValue(creature, damageType);
+            finalDamage = damage - armorProtection;
+            if(finalDamage < 1) finalDamage = 1;
+            BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
+        }
+        else if(armor != nullptr && armor.get() != nullptr) {
             if(!armor->isBroken()) {
-                String damageType = GetDamageType(attackerWeapon);
                 // Armor protection is only one if a character is untrained in the use of their armor.
-                int armorProtection = 1;
+                armorProtection = 1;
                 if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
                 {
-                    armorProtection = GetArmorProtection(creature, armor, GetDamageType(attackerWeapon));
+                    armorProtection = GetArmorProtection(creature, armor, damageType);
                     if(armorProtection < 0) {
                         armorProtection = 0;
                     }
                 }
-                int finalDamage = damage - armorProtection;
+                finalDamage = damage - armorProtection;
                 if(finalDamage < 1) finalDamage = 1;
                 BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
                 String armorName = armor->getCustomObjectName().toString();
