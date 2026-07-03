@@ -974,7 +974,7 @@ public:
                 }           
             }
             // NPC skill mod armor.
-            else if (creature->getSkillMod("rp_armor_bonus_kinetic" > 0) || creature->getSkillMod("rp_armor_bonus_energy" > 0) || creature->getSkillMod("rp_armor_bonus_electricity" > 0) || creature->getSkillMod("rp_armor_bonus_stun" > 0) || creature->getSkillMod("rp_armor_bonus_blast" > 0) || creature->getSkillMod("rp_armor_bonus_heat" > 0) || creature->getSkillMod("rp_armor_bonus_cold" > 0) || creature->getSkillMod("rp_armor_bonus_acid" > 0) || creature->getSkillMod("rp_armor_bonus_lightsaber" > 0)) {
+            else if (creature->getSkillMod("rp_armor_bonus_kinetic") > 0 || creature->getSkillMod("rp_armor_bonus_energy") > 0 || creature->getSkillMod("rp_armor_bonus_electricity") > 0 || creature->getSkillMod("rp_armor_bonus_stun") > 0 || creature->getSkillMod("rp_armor_bonus_blast") > 0 || creature->getSkillMod("rp_armor_bonus_heat") > 0 || creature->getSkillMod("rp_armor_bonus_cold") > 0 || creature->getSkillMod("rp_armor_bonus_acid") > 0 || creature->getSkillMod("rp_armor_bonus_lightsaber") > 0) {
                     armorProtection = GetSkillModArmorValue(creature, damageType);
                     finalDamage = damage - armorProtection;
                     if(finalDamage < 1) finalDamage = 1;
