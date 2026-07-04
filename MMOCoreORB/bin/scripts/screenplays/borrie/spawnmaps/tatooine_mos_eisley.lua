@@ -390,7 +390,7 @@ end
 
 function RpTatooineMosEisleyScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
-	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -13.0021, 0.639421, 51.1865, 610008050, math.rad(90)))
+	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -13.0021, 0.639421, 51.1865, 610008050, math.rad(90))
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -2.7419, 0.639421, 48.1677, 610008050, math.rad(90))
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 2.54505, 0.639421, 48.1693, 610008050, math.rad(90))
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 12.6536, 0.639421, 51.1838, 610008050, math.rad(90))
