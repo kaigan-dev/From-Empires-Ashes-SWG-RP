@@ -116,7 +116,7 @@ end
     
 
 
-function RpTatooineMosEisleyScreenPlay:spawnSceneObjects() 
+function RpTatooineWayfarScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", 4454.3, 8.3, -6846, 0, math.rad(180))
 	
