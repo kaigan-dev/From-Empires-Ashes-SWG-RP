@@ -1081,7 +1081,7 @@ public:
 		int maxDistance = 6;
 
 		if (creature->isRidingMount()) {
-			maxDistance = piloting + 30;
+			maxDistance = (1.5 * piloting) + 35;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move on their mount. Their enhanced range is " + String::valueOf(maxDistance) + "m. ");
 		} 
 		else if (creature->isKneeling()) {
