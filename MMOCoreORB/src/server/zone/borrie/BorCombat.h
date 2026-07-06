@@ -599,7 +599,7 @@ public:
                             return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
                         }
                         else {
-                            return "ERROR: This should not occur! Please contact the admins!"
+                            return "ERROR: This should not occur! Please contact the admins!";
                         }
                     }
                     else if (!headshotFlag && nat20) {
