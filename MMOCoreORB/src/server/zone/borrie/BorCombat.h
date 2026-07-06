@@ -497,6 +497,7 @@ public:
                     }
                     else {
                         return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                    }
                 }
                 else {
                     if (headshotFlag && nat20) {
