@@ -528,6 +528,7 @@ public:
                 }
                 else {
                     return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                }
             }
             else {
                 if (headshotFlag && nat20) {
