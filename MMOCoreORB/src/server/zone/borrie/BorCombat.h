@@ -410,48 +410,136 @@ public:
         }
     }
 
-    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag = false, bool headshotFlag = false, bool nat20 = false, bool flurryAttacked = 0, int damage1 = 0, int damage2 = 0, int damage3 = 0) {
+    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag = false, bool headshotFlag = false, bool nat20 = false, int hitCount = 0, int damage1 = 0, int damage2 = 0, int damage3 = 0, int bonusDamage = 0) {
         if (!armorSkillFlag)
         {
             if (armorProtection > 0)
             {
-                if (flurryAttacked) {
+                if (hitCount > 0) {
                     if (headshotFlag && nat20) {
-                        if(damage > armorProtection)  {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        if(damage > armorProtection) {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!"
+                            }
                         }   
                         else {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!"
+                            }
                         }
                     }
                     else if (headshotFlag && !nat20) {
-                        if(damage > armorProtection)  {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
-                        }   
+                        if(damage > armorProtection) {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!"
+                            }  
+                        }    
                         else {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!"
+                            }
                         }
                     }
                     else if (!headshotFlag && nat20) {
-                        if(damage > armorProtection)  {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                        if(damage > armorProtection) {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!"
+                            }
                         }   
                         else {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!"
+                            }
                         }
                     }
                     else {
-                        if(damage > armorProtection)  {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                        if(damage > armorProtection) {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!"
+                            }
                         }   
                         else {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                           if (hitCount == 1) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!"
+                            }
                         }
                     }
                 }
                 else {
                     if (headshotFlag && nat20) {
-                        if(damage > armorProtection)  {
+                        if(damage > armorProtection) {
                             return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
                         }   
                         else {
@@ -459,7 +547,7 @@ public:
                         }
                     }
                     else if (headshotFlag && !nat20) {
-                        if(damage > armorProtection)  {
+                        if(damage > armorProtection) {
                             return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
                         }   
                         else {
@@ -467,7 +555,7 @@ public:
                         }
                     }
                     else if (!headshotFlag && nat20) {
-                        if(damage > armorProtection)  {
+                        if(damage > armorProtection) {
                             return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
                         }   
                         else {
@@ -475,7 +563,7 @@ public:
                         }
                     }
                     else {
-                        if(damage > armorProtection)  {
+                        if(damage > armorProtection) {
                             return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
                         }   
                         else {
@@ -485,18 +573,62 @@ public:
                 }
             }
             else {
-                if (flurryAttacked) {
+                if (hitCount > 0) {
                     if (headshotFlag && nat20) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        if (hitCount == 1) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        }
+                        if (hitCount == 2) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        }
+                        if (hitCount == 3) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        }
+                        else {
+                            return "ERROR: This should not occur! Please contact the admins!"
+                        }
                     }
                     else if (headshotFlag && !nat20) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        if (hitCount == 1) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        }
+                        if (hitCount == 2) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        }
+                        if (hitCount == 3) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        }
+                        else {
+                            return "ERROR: This should not occur! Please contact the admins!"
+                        }
                     }
                     else if (!headshotFlag && nat20) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                        if (hitCount == 1) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                        }
+                        if (hitCount == 2) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                        }
+                        if (hitCount == 3) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                        }
+                        else {
+                            return "ERROR: This should not occur! Please contact the admins!"
+                        }
                     }
                     else {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                        if (hitCount == 1) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                        }
+                        if (hitCount == 2) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                        }
+                        if (hitCount == 3) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                        }
+                        else {
+                            return "ERROR: This should not occur! Please contact the admins!"
+                        }
                     }
                 }
                 else {
@@ -516,18 +648,62 @@ public:
             }
         }
         else {
-            if (flurryAttacked) {
+            if (hitCount > 0) {
                 if (headshotFlag && nat20) {
-                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    if (hitCount == 1) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    }
+                    if (hitCount == 2) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    }
+                    if (hitCount == 3) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    }
+                    else {
+                        return "ERROR: This should not occur! Please contact the admins!"
+                    }
                 }
                 else if (headshotFlag && !nat20) {
-                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    if (hitCount == 1) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    }
+                    if (hitCount == 2) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    }
+                    if (hitCount == 3) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    }
+                    else {
+                        return "ERROR: This should not occur! Please contact the admins!"
+                    }
                 }
                 else if (!headshotFlag && nat20) {
-                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    if (hitCount == 1) {
+                        return String::valueOf(damage1) + " = " + (damage1 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    }
+                    if (hitCount == 2) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    }
+                    if (hitCount == 3) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    }
+                    else {
+                        return "ERROR: This should not occur! Please contact the admins!"
+                    }
                 }
                 else {
-                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    if (hitCount == 1) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    }
+                    if (hitCount == 2) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    }
+                    if (hitCount == 3) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    }
+                    else {
+                        return "ERROR: This should not occur! Please contact the admins!"
+                    }
                 }
             }
             else {
@@ -575,6 +751,7 @@ public:
         WeaponObject* attackerWeapon = attacker->getWeapon();
         WeaponObject* defenderWeapon = defender->getWeapon();
         int defenderReactionType = defender->getStoredInt("reaction_stance");
+        int bonusDamage = attackerWeapon->getBonusDamage();
 
         String reactionSpam = "";
         String damageModString = powerAttacked ? " X 2" : "";
@@ -590,7 +767,7 @@ public:
 
                 if(attackerWeapon->isRangedWeapon()) {
                     String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                 }
                 else if(defenseRoll + defenseSkill > toHit) { //Success
 
@@ -626,7 +803,7 @@ public:
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), false);
                     reactionSpam += " " + defender->getFirstName() + " tries to defend against the attack, but fails (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                 }
                 return reactionSpam;
             } else if(defenderReactionType == 2) { //Parry
@@ -697,7 +874,7 @@ public:
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
                     reactionSpam += ". " + defender->getFirstName() + " tries to parry the attack, but fails (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit);
                     String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                 }
                 return reactionSpam;
             } else if(defenderReactionType == 3) { //Dodge
@@ -722,7 +899,7 @@ public:
                     reactionSpam += ", " + defender->getFirstName() + " is unable to dodge due to their heavy armor! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
                     String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                    return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                    return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                 }
 
                 ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
@@ -752,7 +929,7 @@ public:
                 else { //full fail
                     reactionSpam += ", " + defender->getFirstName() + " tries to dodge out of the way and fails! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
                     int actionPointCost = 1;
                     if (rating == 1) { //Light Armor
@@ -809,7 +986,7 @@ public:
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
                         reactionSpam += defender->getFirstName() + " tries to deflect the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                     }                   
                 } else {
                     bool deflectableWeapon = attackerWeapon->isLightsaberResistant();
@@ -822,7 +999,7 @@ public:
                     } else {
                         reactionSpam += defender->getFirstName() + " fails to deflect the attack (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                     }
                     BorEffect::PerformReactiveAnimation(attacker, defender, "hit", GetSlotHitlocation(slot), true);
                 }                  
@@ -849,7 +1026,7 @@ public:
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     defender->sendSystemMessage("You cannot deflect this attack telekinetically. You recieved full damage.");
                     String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                 } 
                 else if(deflectRoll + telekineticSkill >= toHit) {
                     //No Damage
@@ -861,7 +1038,7 @@ public:
                     //Full Damage
                     reactionSpam += defender->getFirstName() + " fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
                     String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                     DrainForce(defender, forceCost);
                 }
                                 
@@ -892,7 +1069,7 @@ public:
                     } else {
                         reactionSpam += defender->getFirstName() + " fails to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3); 
+                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage); 
                     }
                 } else if(attackerWeapon->isJediWeapon()) {
                     DrainForce(defender, forceCost);
@@ -901,14 +1078,14 @@ public:
                     } else {
                         reactionSpam += defender->getFirstName() + " fails to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);            
+                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);            
                     }
                 } else {
                     //Can't block this. Full attack.
                     defender->sendSystemMessage("You cannot absorb this attack. You recieved full damage.");
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                 }
                 return reactionSpam;
             }
@@ -917,10 +1094,10 @@ public:
         //Simply accept the damage.
         BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
         String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
-        return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+        return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
     }
  
-    static String OrchestrateDamage(String combatLogPrefix, CreatureObject* defender, WeaponObject* attackerWeapon, int incomingDamage, int slot, bool headshotFlag = false, bool nat20 = false, bool flurryAttacked = false, int damage1 = 0, int damage2 = 0, int damage3 = 0) {
+    static String OrchestrateDamage(String combatLogPrefix, CreatureObject* defender, WeaponObject* attackerWeapon, int incomingDamage, int slot, bool headshotFlag = false, bool nat20 = false, int hitCount = 0, int damage1 = 0, int damage2 = 0, int damage3 = 0, int bonusDamage = 0) {
         ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
         
         ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
@@ -939,7 +1116,7 @@ public:
         if (armor != nullptr && armor.get() != nullptr && defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
             armorSkillFlag = true;
         }
-        return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
+        return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
     }
 
     static int GetSkillModArmorValue(CreatureObject* defender, String damageType) {
