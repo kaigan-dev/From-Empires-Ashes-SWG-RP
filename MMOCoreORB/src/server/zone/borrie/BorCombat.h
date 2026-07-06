@@ -340,7 +340,7 @@ public:
         if(roll3 > highestRoll) highestRoll = roll3; 
 
         bool nat20 = false;
-        if (highestRoll) == 20 {
+        if (highestRoll == 20) {
             nat20 = true;
         }
 
