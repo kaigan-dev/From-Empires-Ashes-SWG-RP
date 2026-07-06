@@ -517,16 +517,16 @@ public:
         else {
             if (flurryAttacked) {
                 if (headshotFlag && nat20) {
-                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
                 }
                 else if (headshotFlag && !nat20) {
-                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
                 }
                 else if (!headshotFlag && nat20) {
-                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
                 }
                 else {
-                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + (damage1 + damage2 + damage3) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
             }
             else {
                 if (headshotFlag && nat20) {
