@@ -92,12 +92,14 @@ public:
 			return false;
 		}
 
-		if (creature->getHAM(CreatureAttribute::ACTION) < 1) {
-			creature->sendSystemMessage("You do not have enough action to do that.");
+		if (creature->getHAM(CreatureAttribute::ACTION) < 1 && creature->getHAM(CreatureAttribute::MIND) < 2) {
+			creature->sendSystemMessage("You do not have enough action or will to do that.");
 			return false;
+		/* Formerly we were checking action and exiting if it was 0, so Will would never be checked.
 		} else if (creature->getHAM(CreatureAttribute::MIND) < 1) {
 			creature->sendSystemMessage("You do not have enough will to do that.");
 			return false;
+		*/
 		}
 
 		if (!creatureTarget->hasDamage(CreatureAttribute::HEALTH)) {
