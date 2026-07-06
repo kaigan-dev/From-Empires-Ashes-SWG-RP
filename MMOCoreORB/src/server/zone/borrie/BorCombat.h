@@ -241,6 +241,7 @@ public:
             roll3 = BorDice::Roll(1, 20);
         }
 
+        int nat20 = false;
         int nat20_1 = false;
         int nat20_2 = false;
         int nat20_3 = false;
@@ -252,6 +253,9 @@ public:
         }
          if (roll3 == 20) {
             nat20_3 == true;
+        }
+        if (nat20_1 == 20 || nat20_2 == 20 || nat20_3 == 20) {
+            nat20 = true;
         }
 
         int bodyPartTarget = GetBodyPartTarget();
@@ -337,12 +341,7 @@ public:
 
         int highestRoll = roll1;
         if(roll2 > highestRoll) highestRoll = roll2;
-        if(roll3 > highestRoll) highestRoll = roll3; 
-
-        bool nat20 = false;
-        if (highestRoll == 20) {
-            nat20 = true;
-        }
+        if(roll3 > highestRoll) highestRoll = roll3;
 
         String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, bodyPartTarget, false, true, hitCount, nat20);
 
