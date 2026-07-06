@@ -1177,63 +1177,6 @@ ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_tenlos
 
 object_weapon_ranged_rifle_shared_rifle_tusken = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_tusken.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/wp_rifle_tusken_s01.apt",
-	arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/hold_both.iff",
-	attackType = 1,
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 131084,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 1,
-	containerVolumeLimit = 0,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@weapon_detail:rifle_tusken",
-
-	gameObjectType = 131084,
-
-	locationReservationRadius = 0,
-	lookAtText = "@weapon_lookat:rifle_tusken",
-
-	noBuildRadius = 0,
-
-	objectName = "@weapon_name:rifle_tusken",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/default_weapon.iff",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	weaponEffect = "projectile_rifle",
-	weaponEffectIndex = 1,
-
-	clientObjectCRC = 2874182418,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/base/shared_tangible_craftable.iff", "object/weapon/base/shared_base_weapon.iff", "object/weapon/ranged/base/shared_base_ranged_weapon.iff", "object/weapon/ranged/rifle/base/shared_rifle_base.iff"}
-]]
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_tusken, "object/weapon/ranged/rifle/shared_rifle_tusken.iff")
