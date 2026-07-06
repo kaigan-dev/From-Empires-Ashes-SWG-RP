@@ -1487,7 +1487,7 @@ public:
             //Take damage
             message = message + ", which fails, the blast focused on their " + GetSlotDisplayName(slot);
             String combatLogPrefix = ", causing \\#FF9999";
-            message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot, false;
+            message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot, false);
         } else {
             //Take half damage
             message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot);
