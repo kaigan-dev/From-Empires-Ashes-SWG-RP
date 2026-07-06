@@ -339,6 +339,11 @@ public:
         if(roll2 > highestRoll) highestRoll = roll2;
         if(roll3 > highestRoll) highestRoll = roll3; 
 
+        bool nat20 = false;
+        if (highestRoll) == 20 {
+            nat20 = true;
+        }
+
         String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, bodyPartTarget, false, true, hitCount, nat20);
 
         //Apply Followup as per the reaction.
