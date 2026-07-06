@@ -428,7 +428,7 @@ public:
                                 return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
                             }
                             else {
-                                return "ERROR: This should not occur! Please contact the admins!"
+                                return "ERROR: This should not occur! Please contact the admins!";
                             }
                         }   
                         else {
@@ -442,7 +442,7 @@ public:
                                 return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
                             }
                             else {
-                                return "ERROR: This should not occur! Please contact the admins!"
+                                return "ERROR: This should not occur! Please contact the admins!";
                             }
                         }
                     }
@@ -458,7 +458,7 @@ public:
                                 return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
                             }
                             else {
-                                return "ERROR: This should not occur! Please contact the admins!"
+                                return "ERROR: This should not occur! Please contact the admins!";
                             }  
                         }    
                         else {
@@ -472,7 +472,7 @@ public:
                                 return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
                             }
                             else {
-                                return "ERROR: This should not occur! Please contact the admins!"
+                                return "ERROR: This should not occur! Please contact the admins!";
                             }
                         }
                     }
@@ -488,7 +488,7 @@ public:
                                 return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
                             }
                             else {
-                                return "ERROR: This should not occur! Please contact the admins!"
+                                return "ERROR: This should not occur! Please contact the admins!";
                             }
                         }   
                         else {
@@ -502,7 +502,7 @@ public:
                                 return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
                             }
                             else {
-                                return "ERROR: This should not occur! Please contact the admins!"
+                                return "ERROR: This should not occur! Please contact the admins!";
                             }
                         }
                     }
@@ -518,7 +518,7 @@ public:
                                 return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
                             }
                             else {
-                                return "ERROR: This should not occur! Please contact the admins!"
+                                return "ERROR: This should not occur! Please contact the admins!";
                             }
                         }   
                         else {
@@ -532,7 +532,7 @@ public:
                                 return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
                             }
                             else {
-                                return "ERROR: This should not occur! Please contact the admins!"
+                                return "ERROR: This should not occur! Please contact the admins!";
                             }
                         }
                     }
@@ -585,7 +585,7 @@ public:
                             return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
                         }
                         else {
-                            return "ERROR: This should not occur! Please contact the admins!"
+                            return "ERROR: This should not occur! Please contact the admins!";
                         }
                     }
                     else if (headshotFlag && !nat20) {
@@ -613,7 +613,7 @@ public:
                             return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
                         }
                         else {
-                            return "ERROR: This should not occur! Please contact the admins!"
+                            return "ERROR: This should not occur! Please contact the admins!";
                         }
                     }
                     else {
@@ -627,7 +627,7 @@ public:
                             return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
                         }
                         else {
-                            return "ERROR: This should not occur! Please contact the admins!"
+                            return "ERROR: This should not occur! Please contact the admins!";
                         }
                     }
                 }
@@ -660,7 +660,7 @@ public:
                         return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
                     }
                     else {
-                        return "ERROR: This should not occur! Please contact the admins!"
+                        return "ERROR: This should not occur! Please contact the admins!";
                     }
                 }
                 else if (headshotFlag && !nat20) {
@@ -674,7 +674,7 @@ public:
                         return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
                     }
                     else {
-                        return "ERROR: This should not occur! Please contact the admins!"
+                        return "ERROR: This should not occur! Please contact the admins!";
                     }
                 }
                 else if (!headshotFlag && nat20) {
@@ -688,7 +688,7 @@ public:
                         return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
                     }
                     else {
-                        return "ERROR: This should not occur! Please contact the admins!"
+                        return "ERROR: This should not occur! Please contact the admins!";
                     }
                 }
                 else {
@@ -702,7 +702,7 @@ public:
                         return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
                     }
                     else {
-                        return "ERROR: This should not occur! Please contact the admins!"
+                        return "ERROR: This should not occur! Please contact the admins!";
                     }
                 }
             }
