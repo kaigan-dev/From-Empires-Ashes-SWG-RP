@@ -939,10 +939,7 @@ public:
         if (armor != nullptr && armor.get() != nullptr && defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
             armorSkillFlag = true;
         }
-
-        if (!flurryAttacked) {
-            return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
-        }
+        return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20, flurryAttacked, damage1, damage2, damage3);
     }
 
     static int GetSkillModArmorValue(CreatureObject* defender, String damageType) {
