@@ -241,9 +241,17 @@ public:
             roll3 = BorDice::Roll(1, 20);
         }
 
-        int nat20 = false;
-        if (roll1 == 20 || roll2 == 20 || roll3 == 20) {
-            nat20 = true;
+        int nat20_1 = false;
+        int nat20_2 = false;
+        int nat20_3 = false;
+        if (roll1 == 20) {
+            nat20_1 == true;
+        }
+        if (roll2 == 20) {
+            nat20_2 == true;
+        }
+         if (roll3 == 20) {
+            nat20_3 == true;
         }
 
         int bodyPartTarget = GetBodyPartTarget();
@@ -307,9 +315,9 @@ public:
              }
         } 
 
-        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
-        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
-        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
+        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_1, false) / 2;
+        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_2, false) / 2;
+        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_3, false) / 2;
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
