@@ -240,6 +240,7 @@ public:
             roll3 = BorDice::Roll(1, 20);
         }
 
+        int nat20 = false;
         int nat20_1 = false;
         int nat20_2 = false;
         int nat20_3 = false;
@@ -251,6 +252,9 @@ public:
         }
         if (roll3 == 20) {
             nat20_3 = true;
+        }
+        if (nat20_1 == true || nat20_2 == true || nat20_3 == true) {
+            nat20 = true;
         }
 
         int bodyPartTarget = GetBodyPartTarget();
