@@ -1,7 +1,9 @@
 object_tangible_borrp_crafting_shared_weapon_receiver = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/borrp/crafting/shared_comp_weapon_receiver_pistol_common.iff"
 }
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_weapon_receiver, "object/tangible/borrp/crafting/shared_comp_weapon_receiver_pistol_common.iff")
+
 object_tangible_borrp_crafting_shared_carbine_receiver = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/borrp/crafting/comp_weapon_receiver_carbine_common.iff"
 }
-
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_carbine_receiver, "object/tangible/borrp/crafting/comp_weapon_receiver_carbine_common.iff")
