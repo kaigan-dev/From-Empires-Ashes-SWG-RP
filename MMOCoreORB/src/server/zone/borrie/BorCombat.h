@@ -242,19 +242,7 @@ public:
         }
 
         int nat20 = false;
-        int nat20_1 = false;
-        int nat20_2 = false;
-        int nat20_3 = false;
-        if (roll1 == 20) {
-            nat20_1 == true;
-        }
-        if (roll2 == 20) {
-            nat20_2 == true;
-        }
-         if (roll3 == 20) {
-            nat20_3 == true;
-        }
-        if (nat20_1 == 20 || nat20_2 == 20 || nat20_3 == 20) {
+        if (roll1 == 20 || roll2 == 20 || roll3 == 20) {
             nat20 = true;
         }
 
@@ -319,9 +307,9 @@ public:
              }
         } 
 
-        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_1, false) / 2;
-        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_2, false) / 2;
-        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_3, false) / 2;
+        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
+        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
+        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, false, false) / 2;
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
@@ -341,7 +329,7 @@ public:
 
         int highestRoll = roll1;
         if(roll2 > highestRoll) highestRoll = roll2;
-        if(roll3 > highestRoll) highestRoll = roll3;
+        if(roll3 > highestRoll) highestRoll = roll3; 
 
         String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, bodyPartTarget, false, true, hitCount, nat20);
 
