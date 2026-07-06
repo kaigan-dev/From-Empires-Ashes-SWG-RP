@@ -1201,7 +1201,7 @@ public:
             minDamage++;
         }
         if (hitCount > 0) {
-            for (int i = 0; i < hitCount; i++) {
+            for (int i = 1; i < hitCount; i++) {
                 minDamage++;
                 totalBonusDamage += bonusDamage;
             }
