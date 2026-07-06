@@ -360,7 +360,6 @@ public:
 
     static int GetDamageRoll(int dieType, int dieCount, int bonusDamage, bool nat20, bool powerAttack) {
         int totalDamage = bonusDamage;
-        }
         // Maximize all damage dice (except the Power Attack die) on a critical hit.
         if (nat20 && !powerAttack) {
             totalDamage += dieType * dieCount;
