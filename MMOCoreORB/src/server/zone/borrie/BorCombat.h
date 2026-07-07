@@ -419,13 +419,13 @@ public:
                     if (headshotFlag && nat20) {
                         if(damage > armorProtection) {
                             if (hitCount == 1) {
-                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus, critical hit!)";
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus, critical hit!)";
                             }
                             if (hitCount == 2) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus, critical hit!)";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus, critical hit!)";
                             }
                             if (hitCount == 3) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus, critical hit!)";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus, critical hit!)";
                             }
                             else {
                                 return "ERROR: This should not occur! Please contact the admins!";
@@ -433,13 +433,13 @@ public:
                         }   
                         else {
                             if (hitCount == 1) {
-                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(halved for Flurry Attack, minimum) damage, despite a critical headshot!";
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(halved by Flurry Attack, minimum) damage, despite a critical headshot!";
                             }
                             if (hitCount == 2) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(halved for Flurry Attack, minimum) damage, despite a critical headshot!";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(halved by Flurry Attack, minimum) damage, despite a critical headshot!";
                             }
                             if (hitCount == 3) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(halved for Flurry Attack, minimum) damage, despite a critical headshot!";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(halved by Flurry Attack, minimum) damage, despite a critical headshot!";
                             }
                             else {
                                 return "ERROR: This should not occur! Please contact the admins!";
@@ -449,13 +449,13 @@ public:
                     else if (headshotFlag && !nat20) {
                         if(damage > armorProtection) {
                             if (hitCount == 1) {
-                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus!)";
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus!)";
                             }
                             if (hitCount == 2) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus!)";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus!)";
                             }
                             if (hitCount == 3) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus!)";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus!)";
                             }
                             else {
                                 return "ERROR: This should not occur! Please contact the admins!";
@@ -463,13 +463,13 @@ public:
                         }    
                         else {
                             if (hitCount == 1) {
-                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage, despite a headshot!";
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage, despite a headshot!";
                             }
                             if (hitCount == 2) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage, despite a headshot!";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage, despite a headshot!";
                             }
                             if (hitCount == 3) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage, despite a headshot!";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage, despite a headshot!";
                             }
                             else {
                                 return "ERROR: This should not occur! Please contact the admins!";
@@ -479,13 +479,13 @@ public:
                     else if (!headshotFlag && nat20) {
                         if(damage > armorProtection) {
                             if (hitCount == 1) {
-                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, critical hit!)";
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, critical hit!)";
                             }
                             if (hitCount == 2) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, critical hit!)";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, critical hit!)";
                             }
                             if (hitCount == 3) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, critical hit!)";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, critical hit!)";
                             }
                             else {
                                 return "ERROR: This should not occur! Please contact the admins!";
@@ -493,13 +493,13 @@ public:
                         }   
                         else {
                             if (hitCount == 1) {
-                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage, despite a critical hit!";
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage, despite a critical hit!";
                             }
                             if (hitCount == 2) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage, despite a critical hit!";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage, despite a critical hit!";
                             }
                             if (hitCount == 3) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage, despite a critical hit!";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage, despite a critical hit!";
                             }
                             else {
                                 return "ERROR: This should not occur! Please contact the admins!";
@@ -509,13 +509,13 @@ public:
                     else {
                         if(damage > armorProtection) {
                             if (hitCount == 1) {
-                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack!)";
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack!)";
                             }
                             if (hitCount == 2) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack!)";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack!)";
                             }
                             if (hitCount == 3) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack!)";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack!)";
                             }
                             else {
                                 return "ERROR: This should not occur! Please contact the admins!";
@@ -523,13 +523,13 @@ public:
                         }   
                         else {
                            if (hitCount == 1) {
-                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage!";
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage!";
                             }
                             if (hitCount == 2) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage!";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage!";
                             }
                             if (hitCount == 3) {
-                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved for Flurry Attack, minimum) damage!";
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (halved by Flurry Attack, minimum) damage!";
                             }
                             else {
                                 return "ERROR: This should not occur! Please contact the admins!";
@@ -576,13 +576,13 @@ public:
                 if (hitCount > 0) {
                     if (headshotFlag && nat20) {
                         if (hitCount == 1) {
-                            return String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus, critical hit!)";
+                            return String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus, critical hit!)";
                         }
                         if (hitCount == 2) {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus, critical hit!)";
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus, critical hit!)";
                         }
                         if (hitCount == 3) {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus, critical hit!)";
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus, critical hit!)";
                         }
                         else {
                             return "ERROR: This should not occur! Please contact the admins!";
@@ -590,13 +590,13 @@ public:
                     }
                     else if (headshotFlag && !nat20) {
                         if (hitCount == 1) {
-                            return String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus!)";
+                            return String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus!)";
                         }
                         if (hitCount == 2) {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus!)";
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus!)";
                         }
                         if (hitCount == 3) {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, 25% headshot bonus!)";
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, 25% headshot bonus!)";
                         }
                         else {
                             return "ERROR: This should not occur! Please contact the admins!";
@@ -604,13 +604,13 @@ public:
                     }
                     else if (!headshotFlag && nat20) {
                         if (hitCount == 1) {
-                            return String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, critical hit!)";
+                            return String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, critical hit!)";
                         }
                         if (hitCount == 2) {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, critical hit!)";
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, critical hit!)";
                         }
                         if (hitCount == 3) {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack, critical hit!)";
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack, critical hit!)";
                         }
                         else {
                             return "ERROR: This should not occur! Please contact the admins!";
@@ -618,13 +618,13 @@ public:
                     }
                     else {
                         if (hitCount == 1) {
-                            return String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack!)";
+                            return String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack!)";
                         }
                         if (hitCount == 2) {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack!)";
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack!)";
                         }
                         if (hitCount == 3) {
-                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (Halved for Flurry Attack!)";
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (Halved by Flurry Attack!)";
                         }
                         else {
                             return "ERROR: This should not occur! Please contact the admins!";
@@ -651,13 +651,13 @@ public:
             if (hitCount > 0) {
                 if (headshotFlag && nat20) {
                     if (hitCount == 1) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
                     }
                     if (hitCount == 2) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
                     }
                     if (hitCount == 3) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
                     }
                     else {
                         return "ERROR: This should not occur! Please contact the admins!";
@@ -665,13 +665,13 @@ public:
                 }
                 else if (headshotFlag && !nat20) {
                     if (hitCount == 1) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
                     }
                     if (hitCount == 2) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
                     }
                     if (hitCount == 3) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
                     }
                     else {
                         return "ERROR: This should not occur! Please contact the admins!";
@@ -679,13 +679,13 @@ public:
                 }
                 else if (!headshotFlag && nat20) {
                     if (hitCount == 1) {
-                        return String::valueOf(damage1) + " = " + (damage1 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                        return String::valueOf(damage1) + " = " + (damage1 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
                     }
                     if (hitCount == 2) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
                     }
                     if (hitCount == 3) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
                     }
                     else {
                         return "ERROR: This should not occur! Please contact the admins!";
@@ -693,13 +693,13 @@ public:
                 }
                 else {
                     if (hitCount == 1) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor!";
                     }
                     if (hitCount == 2) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor!";
                     }
                     if (hitCount == 3) {
-                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage (halved for Flurry Attack), only blocking 1 point due to insufficent Strength for their armor!";
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage (halved by Flurry Attack), only blocking 1 point due to insufficent Strength for their armor!";
                     }
                     else {
                         return "ERROR: This should not occur! Please contact the admins!";
