@@ -342,7 +342,7 @@ public:
         if(roll2 > highestRoll) highestRoll = roll2;
         if(roll3 > highestRoll) highestRoll = roll3;
 
-        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, bodyPartTarget, false, true, hitCount, nat20, true, damage1, damage2, damage3);
+        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, bodyPartTarget, false, true, hitCount, false, nat20, damage1, damage2, damage3);
 
         //Apply Followup as per the reaction.
         String toHitString = "\\#DBDBDB" + GenerateFlurryOutputSpam(roll1, roll2, roll3, skillCheck, toHitDC, advDis, r1, r2, r3, r4, r5, r6) + "\\#FFFFFF";
