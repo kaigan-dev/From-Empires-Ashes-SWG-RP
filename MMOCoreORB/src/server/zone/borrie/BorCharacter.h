@@ -1173,7 +1173,7 @@ public:
 				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters and set a waypoint. They can still move " + String::valueOf(distanceLeft) + " meters.");
 					
 				// Null check and move the waypoint.
-				if (waypont != nullptr) {
+				if (waypoint != nullptr) {
 					auto worldPosition = creature->getWorldPosition();
 					waypoint.get()->setPosition(worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
 					ghost->addWaypoint(waypoint, false, true); 
