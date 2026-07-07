@@ -1179,6 +1179,7 @@ public:
 					ghost->addWaypoint(waypoint, false, true); 
 				}
 			}
+		}
 	}
 
 	static void AddDarksidePoints(CreatureObject* creature, int amount, bool playMusic) {
