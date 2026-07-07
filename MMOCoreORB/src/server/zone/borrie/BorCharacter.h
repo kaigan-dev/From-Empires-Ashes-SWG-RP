@@ -1121,6 +1121,8 @@ public:
 			}
 		}	
 									
+		creature->setStoredInt("distance_left", maxDistance);
+		creature->setStoredInt("distance_moved", 0);
 		creature->sendSystemMessage("Move to your desired destination, using the Last Position waypoint to keep track of your distance. Use the move (rpmove) ability to confirm your movement.");
 	}
 

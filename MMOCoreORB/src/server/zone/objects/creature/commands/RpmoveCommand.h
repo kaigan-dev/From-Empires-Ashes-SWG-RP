@@ -39,7 +39,8 @@ public:
 				if (args.hasMoreTokens()) {
 					command = args.getStringToken();
 				}
-				if (command == "waypoint" || command == "way" || command == "wp") {
+				if (command == "waypoint" || command == "way" || command == "wp") 
+				{
 					BorCharacter::RoleplayMoveWaypoint(creature);
 				}
 				else {
