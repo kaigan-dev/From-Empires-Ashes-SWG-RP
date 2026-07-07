@@ -1170,7 +1170,7 @@ public:
 				creature->setStoredInt("distance_left",  distanceLeft);
 				creature->setStoredInt("distance_moved",  creature->getStoredInt("distance_moved") + distance);
 
-				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters and set a waypoint. They can still move " + String::valueOf(remainingDistance) + " meters.");
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters and set a waypoint. They can still move " + String::valueOf(distanceLeft) + " meters.");
 					
 				// Null check and move the waypoint.
 				if (waypont != nullptr) {
