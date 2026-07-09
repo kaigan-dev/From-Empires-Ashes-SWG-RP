@@ -114,7 +114,7 @@ public:
 		if(advDis == "") {
 			return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 		}
-		else if(advDis == "advantage" || advDis == "adv") {
+		else if(advDis == "advantage" || advDis == "adv" || advDis = "Advantage" || advDis == "Adv" || advDis == "ADVANTAGE") {
 			if(Roll > secondRoll) {
 				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 			}
@@ -122,7 +122,7 @@ public:
 				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
 			}
 		}
-		else if(advDis == "disadvantage" || advDis == "disadv") {
+		else if(advDis == "disadvantage" || advDis == "disadv" || advDis == "Disadvantage" || advDis == "Disadv" || advDis == "DISADVANTAGE") {
 			if(Roll < secondRoll) {
 				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
 			}
@@ -131,7 +131,7 @@ public:
 			}
 		}
 		else {
-			return "Skill roll failed. If using an additional parameter, please use format '/d20 <skillName> <advantage/disadvantage>'.";
+			return "Skill roll failed. If using an additional parameter, please use format '/d20 <skillName> <advantage/disadvantage/secret>'.";
 		}
 	}
 

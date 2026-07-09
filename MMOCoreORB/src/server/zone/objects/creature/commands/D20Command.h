@@ -81,7 +81,7 @@ public:
 				if (command == "help") {
 					HelpDisplay(creature);
 					return SUCCESS;
-				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && (secondCommand == "" || secondCommand == "secret")) {     //Roll without Advantage or Disadvantage
+				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && (secondCommand == "" || secondCommand == "secret" || secondCommand == "Secret" || secondCommand == "SECRET")) {     //Roll without Advantage or Disadvantage
 					if(adminLevelCheck > 0) {
 						if(secondCommand == "secret") {
 							BorrieRPG::BroadcastAmongAdmins(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
@@ -101,7 +101,7 @@ public:
 							BorrieRPG::BroadcastMessage(creature, BorDice::RollSkill(creature, command, secondCommand));
 						}
 					}
-				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && (secondCommand != "" && secondCommand != "secret")) {     //Roll with Advantage or Disadvantage
+				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && (secondCommand != "" && secondCommand != "secret" && secondCommand != "Secret" && secondCommand != "SECRET")) {     //Roll with Advantage or Disadvantage
 					if(adminLevelCheck > 0) {
 						if(thirdCommand == "secret") {
 							BorrieRPG::BroadcastAmongAdmins(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
