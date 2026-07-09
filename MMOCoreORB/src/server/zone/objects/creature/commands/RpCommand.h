@@ -138,10 +138,24 @@ public:
 						int maxAmmo = creature->getWeapon()->getMaxAmmo();
 						String ammoType = creature->getWeapon()->getAmmoType();
 						int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
-						int creditCost = 10;
+						int creditCost = 30;  //Reloading a Common weapon costs 30 credits
 
-						if(ammoType == "ammo_tusken") {
-							creditCost=2;
+						if(creature->getWeapon()->getItemValue() >= 500) {   //Reloading an Uncommon weapon costs  40
+							creditCost += 10;
+						}
+						if(creature->getWeapon()->getItemValue() >= 1500) {  //Reloading a Rare weapon costs 50
+							creditCost += 10;
+						}
+						if(creature->getWeapon()->getItemValue() >= 8000) {  //Reloading an Epic weapon costs 70
+							creditCost += 20;
+						}
+						if(creature->getWeapon()->getItemValue() >= 15000) {  //Reloading a Legendary weapon costs 100
+							creditCost += 30;
+						}
+
+
+						if(ammoType == "ammo_tusken") {   //Reloading a Tusken weapon (which have 1 ammunition and cap out at Rare tier) costs 10
+							creditCost=10;
 						}
 
 						if(creature->getCashCredits() - creditCost >= 0) {
