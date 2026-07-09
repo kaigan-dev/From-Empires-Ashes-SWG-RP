@@ -1023,7 +1023,6 @@ public:
 		return (int)(creature->getDistanceTo(&coord));
 	}
 	
-
 	static void InitializeRoleplayMove(CreatureObject* creature) {
 		//Roll Athletics to get bonus movement. Base movement is 10 meters. 
 		//int roll = System::random(9) + 1;
@@ -1122,6 +1121,8 @@ public:
 			}
 		}	
 									
+		creature->setStoredInt("distance_left", maxDistance);
+		creature->setStoredInt("distance_moved", 0);
 		creature->sendSystemMessage("Move to your desired destination, using the Last Position waypoint to keep track of your distance. Use the move (rpmove) ability to confirm your movement.");
 	}
 
@@ -1141,6 +1142,45 @@ public:
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters from their last position.");
 			ghost->removeWaypoint(waypoint->getObjectID(), true, true);
 			waypoint = waypoint.get();
+		}
+	}
+
+	static void RoleplayMoveWaypoint(CreatureObject* creature) {
+		PlayerObject* ghost = creature->getPlayerObject();
+		if (ghost == nullptr) {
+			return;
+		}
+
+		// Get previous movement waypoint. If null, mark undefined movement.
+		ManagedReference<WaypointObject*> waypoint = ghost->getSurveyWaypoint();
+		if(waypoint == nullptr) {
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has moved.");
+		} 
+		else {
+			Locker locker(waypoint);
+			auto worldPosition = waypoint->getWorldPosition();
+			int distance = GetDistance(creature, worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
+			
+			int distanceLeft = creature->getStoredInt("distance_left") - distance;
+			
+			if (distanceLeft <= 0) {
+				creature->deleteStoredInt("distance_left");
+				ConfirmRoleplayMove(creature);
+				creature->deleteStoredInt("rp_moving");
+			}
+			else {
+				creature->setStoredInt("distance_left",  distanceLeft);
+				creature->setStoredInt("distance_moved",  creature->getStoredInt("distance_moved") + distance);
+
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters and set a waypoint. They can still move " + String::valueOf(distanceLeft) + " meters.");
+					
+				// Null check and move the waypoint.
+				if (waypoint != nullptr) {
+					auto worldPosition = creature->getWorldPosition();
+					waypoint.get()->setPosition(worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
+					ghost->addWaypoint(waypoint, false, true); 
+				}
+			}
 		}
 	}
 
