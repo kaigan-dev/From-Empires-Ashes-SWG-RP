@@ -970,34 +970,35 @@ public:
                 if(attackerWeapon->isRangedWeapon()) {
                     bool canDeflect = attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC;
                     
-                    if(canDeflect && deflectRoll + lightsaberSkill >= toHit + 4) {
-                        //If you roll higher than the attack roll+4, you'll reflect blaster bots back to their originator at half damage.
-                        reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                    //if(canDeflect && deflectRoll + lightsaberSkill >= toHit + 4) {
+                    if(canDeflect && deflectRoll + lightsaberSkill >= 18) {
+                        //If you roll 18+, you'll reflect blaster bots back to their originator at half damage.
+                        reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 18)";
                         reactionSpam += ", sending it back to its origin, dealing \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage to " + attacker->getFirstName() +"!";
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                         ApplyAdjustedHealthDamage(attacker, attackerWeapon, incomingDamage / 2, slot);
-                    } else if(deflectRoll + lightsaberSkill >= toHit) { 
+                    } else if(deflectRoll + lightsaberSkill >= 15) { 
                         //If you roll higher than the attacker's to-hit roll, you will deflect blaster bolts and take no damage.
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
-                        reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit/2)+")";
+                        reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 15)";
                         reactionSpam += ", sending it harmlessly away.";
                     } else {
                         //Ouch time.
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
-                        reactionSpam += defender->getFirstName() + " tries to deflect the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                        reactionSpam += defender->getFirstName() + " tries to deflect the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 15)";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                     }                   
                 } else {
                     bool deflectableWeapon = attackerWeapon->isLightsaberResistant();
                     
-                    if(deflectRoll + lightsaberSkill >= toHit && deflectableWeapon) {
+                    if(deflectRoll + lightsaberSkill >= 15 && deflectableWeapon) {
                         //If you roll higher or equal to their to-hit roll, you avoid damage entirely.
-                        reactionSpam += ", but " + defender->getFirstName() + " successfully deflects the attack entirely. (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                        reactionSpam += ", but " + defender->getFirstName() + " successfully deflects the attack entirely. (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 15)";
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                         reactionSpam += attacker->getFirstName() + "'s weapon is sundered by " + attacker->getFirstName() + "'s lightsaber!";
                     } else {
-                        reactionSpam += defender->getFirstName() + " fails to deflect the attack (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                        reactionSpam += defender->getFirstName() + " fails to deflect the attack (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 15)";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                     }
@@ -1028,15 +1029,15 @@ public:
                     String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                 } 
-                else if(deflectRoll + telekineticSkill >= toHit) {
+                else if(deflectRoll + telekineticSkill >= 15) {
                     //No Damage
-                    reactionSpam += defender->getFirstName() + " raises their hand and deflects the attack away (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
+                    reactionSpam += defender->getFirstName() + " raises their hand and deflects the attack away (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ") vs DC 15";
                     BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), false);
                     DrainForce(defender, forceCost);
                 }
                 else {
                     //Full Damage
-                    reactionSpam += defender->getFirstName() + " fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
+                    reactionSpam += defender->getFirstName() + " fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ") vs DC 15";
                     String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
                     reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);
                     DrainForce(defender, forceCost);
@@ -1056,7 +1057,7 @@ public:
                 int absorbRoll = BorDice::Roll(1, 20);
                 int absorbSkill = defender->getSkillMod("rp_inward");
 
-                bool passed = absorbRoll + absorbSkill >= toHit;
+                bool passed = absorbRoll + absorbSkill >= 15;
 
                 //int forceCost = 12 - absorbSkill;
                 //if(forceCost <= 0) forceCost = 1;
@@ -1065,18 +1066,18 @@ public:
                 if(attackerWeapon->isRangedWeapon()) {
                     DrainForce(defender, forceCost);
                     if(passed && attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC) {
-                        reactionSpam += defender->getFirstName() + " absorbs the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                        reactionSpam += defender->getFirstName() + " absorbs the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ") vs DC 15";
                     } else {
-                        reactionSpam += defender->getFirstName() + " fails to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                        reactionSpam += defender->getFirstName() + " fails to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ") vs DC 15";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage); 
                     }
                 } else if(attackerWeapon->isJediWeapon()) {
                     DrainForce(defender, forceCost);
-                    if(passed) {
-                        reactionSpam += defender->getFirstName() + " blocks the attack with their hand and is unharmed (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                    if(absorbRoll + absorbSkill >= 18) {
+                        reactionSpam += defender->getFirstName() + " blocks the attack with their hand and is unharmed (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ") vs DC 18";
                     } else {
-                        reactionSpam += defender->getFirstName() + " fails to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                        reactionSpam += defender->getFirstName() + " fails to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ") vs DC 18";
                         String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
                         reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, hitCount, damage1, damage2, damage3, bonusDamage);            
                     }
