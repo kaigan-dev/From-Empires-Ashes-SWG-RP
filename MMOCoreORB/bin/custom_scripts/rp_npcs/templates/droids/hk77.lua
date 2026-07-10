@@ -7,12 +7,11 @@ npc_template = {
     },
 
     skillTemplates = {
-        "specops_strong",
+        "hk77",
     },
 
     equipmentTemplates = {
-        --{"som/hk77", {"superbattle"}},
-        
+               
     },
 
 }

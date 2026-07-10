@@ -7,12 +7,11 @@ npc_template = {
     },
 
     skillTemplates = {
-        "specops_strong",
+        "hk47",
     },
 
     equipmentTemplates = {
-        --{"som/hk47", {"faction/ithorian/pifi_guardian"}},
-        
+                
     },
 
 }
