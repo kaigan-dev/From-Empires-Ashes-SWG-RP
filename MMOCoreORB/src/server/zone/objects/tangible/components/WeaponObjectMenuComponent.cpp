@@ -147,7 +147,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 				doNotRepair = true;
 			}
 		}
-		else if(itemValue =<= 900) {
+		else if(itemValue <= 900) {
 			if(rollResult >= 10) {
 				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 				creditCost = static_cast<int>(tempCost);
