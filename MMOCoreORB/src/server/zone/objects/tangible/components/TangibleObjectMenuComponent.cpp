@@ -119,8 +119,10 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 }
 
 int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
-	if (!sceneObject->isTangibleObject())
+	if (!sceneObject->isTangibleObject()) {
+		player->sendSystemMessage("The object is not a sceneObject. Menu selection failed.");
 		return 0;
+	}
 
 	TangibleObject* tano = cast<TangibleObject*>( sceneObject);
 
