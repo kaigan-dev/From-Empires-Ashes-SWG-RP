@@ -370,7 +370,7 @@ public:
         }
         // Don't maximize the Power Attack die on a crit.
         else if (nat20 && powerAttack) {
-            totalDamage += (dieType - 1) * dieCount;
+            totalDamage += dieType * (dieCount - 1);
             totalDamage += BorDice::Roll(1, dieType);
         }
         else {
