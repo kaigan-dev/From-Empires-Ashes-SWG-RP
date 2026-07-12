@@ -7,12 +7,11 @@ npc_template = {
     },
 
     skillTemplates = {
-        "specops_strong",
+        "magnaguard",
     },
 
     equipmentTemplates = {
-		--{"magnaguard", {"electrostaff"}},
-        {"magnaguard", {"faction/republic/trooper"}},
+		{"magnaguard", {"electrostaff"}},
     },
 
 }

@@ -140,6 +140,11 @@ public:
 						int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
 						int creditCost = 30;  //Reloading a Common weapon costs 30 credits
 
+						if(ammoUsed == 0) {
+							creature->sendSystemMessage("Your weapon is already at full ammunition.");
+							return SUCCESS;
+						}
+
 						if(creature->getWeapon()->getItemValue() >= 500) {   //Reloading an Uncommon weapon costs  40
 							creditCost += 10;
 						}
