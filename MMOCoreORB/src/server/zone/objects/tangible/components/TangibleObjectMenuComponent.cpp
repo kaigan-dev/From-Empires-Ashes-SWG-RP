@@ -124,12 +124,16 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 }
 
 int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
+	player->sendSystemMessage("Debug: Beginning handleObjectMenuSelect.");
+
 	if (!sceneObject->isTangibleObject()) {
 		player->sendSystemMessage("The object is not a sceneObject. Menu selection failed.");
 		return 0;
 	}
 
 	TangibleObject* tano = cast<TangibleObject*>( sceneObject);
+
+	player->sendSystemMessage("Debug: incoming sceneObject has been cast as tangible. We will now begin checking selectedID.");
 
 
 	if (selectedID == 69 && player->hasSkill("combat_smuggler_novice") ) { // Slice [PlayerLootCrate]
@@ -242,6 +246,8 @@ int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 	if(selectedID == 93) { //Set Writeable
 
 	} 
+
+	player->sendSystemMessage("Debug: We are about to check selectedID 94.");
 
 	if(selectedID == 94) { //Copy Object
 		player->sendSystemMessage("Debug: Attemping to copy tangible object.");
@@ -390,6 +396,8 @@ int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 			player->sendSystemMessage("You need to have a target.");
 		}
 	}
+
+	player->sendSystemMessage("Debug: We have completed checking of selectedID.");
 	
 	return ObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 
