@@ -59,7 +59,7 @@ public:
 
 		ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, BorCharacter::GetSlotName(slot));
 		// Null check, then goodbye existing armor
-        if (armor != nullptr)
+        if (armor != nullptr || armor.get() != nullptr )
 		{
 			armor->destroyObjectFromWorld(true);
 			armor->destroyObjectFromDatabase(true);
