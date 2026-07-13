@@ -17,17 +17,17 @@ npc_template = {
 	
 	
 	equipmentTemplates = {
-		{"rp_human_male", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_human_female", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_rodian_male", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_rodian_female", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_trandoshan_male", {"faction/issossxi_clan/hunter_base"}},
+		{"rp_human_male", {"faction/issossxi_clan/hunter_base2"}},
+		{"rp_human_female", {"faction/issossxi_clan/hunter_base3"}},
+		{"rp_rodian_male", {"faction/issossxi_clan/hunter_base4"}},
+		{"rp_rodian_female", {"faction/issossxi_clan/hunter_base_armoredfull5"}},
+		{"rp_trandoshan_male", {"faction/issossxi_clan/hunter_base_armoredfull2"}},
 		{"rp_trandoshan_female", {"faction/issossxi_clan/hunter_base"}},
 		{"rp_twilek_male", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_twilek_female", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_zabrak_male", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_zabrak_female", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_weequay_male", {"faction/issossxi_clan/hunter_base"}},
+		{"rp_twilek_female", {"faction/issossxi_clan/hunter_basearmoredfull3"}},
+		{"rp_zabrak_male", {"faction/issossxi_clan/hunter_base_armored"}},
+		{"rp_zabrak_female", {"faction/issossxi_clan/hunter_armored2"}},
+		{"rp_weequay_male", {"faction/issossxi_clan/hunter_armored3"}},
 		{"rp_nautolan_male", {"faction/issossxi_clan/hunter_base"}},
 		
 	},	
