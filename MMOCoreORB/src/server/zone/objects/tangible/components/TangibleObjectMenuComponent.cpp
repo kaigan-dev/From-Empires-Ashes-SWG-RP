@@ -239,6 +239,7 @@ int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 	} 
 
 	if(selectedID == 94) { //Copy Object
+		player->sendSystemMessage("Debug: Attemping to copy tangible object.");
 		BorrieRPG::copyTarget(player, sceneObject, true);
 	} 
 

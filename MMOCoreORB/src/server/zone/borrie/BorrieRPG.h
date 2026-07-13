@@ -731,17 +731,22 @@ public:
 	}
 
 	static void copyTarget(CreatureObject* creature, SceneObject* target, bool overrideFlag = false) {
-		if(target == nullptr) return;
+		if(target == nullptr) {
+			creature->sendSystemMessage("Copy target is null.");
+			return;
+		}
 		ManagedReference<TangibleObject*> tanoTarget = target->asTangibleObject();
 		String objectTemplate = target->getObjectTemplate()->getFullTemplateString();
 		objectTemplate = objectTemplate.replaceAll("shared_", "");
 		creature->sendSystemMessage("Cloning Object: " + objectTemplate);
 		ManagedReference<CraftingManager*> craftingManager = creature->getZoneServer()->getCraftingManager();
+
 		if (!objectTemplate.contains("object/tangible") && !objectTemplate.contains("object/weapon")) {
 			creature->sendSystemMessage("Templates must be a tangible or weapon object.");
 			return;
 		}
 		if (craftingManager == nullptr) {
+			creature->sendSystemMessage("Debug: Crafting manager is null.");
 			return;
 		}
 		Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());

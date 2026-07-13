@@ -8,9 +8,9 @@ function RpShipCallerMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuRes
 	if (pGhost == nil) then
 		return
 	end
-
-	menuResponse:addRadialMenuItem(20, 3, "Call Ship")
-
+		
+	menuResponse:addRadialMenuItem(24, 3, "Land Ship")
+	menuResponse:addRadialMenuItem(25, 3, "Send Ship Away")
 end
 
 function RpShipCallerMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID)
@@ -18,10 +18,16 @@ function RpShipCallerMenuComponent:handleObjectMenuSelect(pObject, pPlayer, sele
 		return 0
 	end
 	
-	if (selectedID == 20) then 
+	if (selectedID == 24) then 
 		local pShip = getShipFromControlDevice(pObject)
 		local shipID = SceneObject(pShip):getObjectID()
 		BorRpShip:landShip(pShip, pPlayer)
+	end
+
+	if (selectedID == 25) then 
+		local pShip = getShipFromControlDevice(pObject)
+		local shipID = SceneObject(pShip):getObjectID()
+		BorRpShip:takeOffShip(pObject, pPlayer, false)
 	end
 
 	return 0
