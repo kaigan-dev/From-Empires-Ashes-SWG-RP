@@ -4,6 +4,7 @@
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/managers/creature/CreatureManager.h"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
+#include "server/zone/borrie/BorCharacter.h"
 
 //#include "templates/roleplay/RoleplayManager.h"
 
@@ -49,6 +50,19 @@ public:
 		{
 			weapon->destroyObjectFromWorld(true);
 			weapon->destroyObjectFromDatabase(true);
+		}
+	}
+
+	static void UnarmorNPC(CreatureObject* creature, int slot) {
+		if(creature->isPlayerCreature())
+			return;
+
+		ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, BorCharacter::GetSlotName(slot));
+		// Null check, then goodbye existing armor
+        if (armor != nullptr)
+		{
+			armor->destroyObjectFromWorld(true);
+			armor->destroyObjectFromDatabase(true);
 		}
 	}
 
