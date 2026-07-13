@@ -70,6 +70,7 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 
 		if(player->getPlayerObject()->hasGodMode()) {
 			menuResponse->addRadialMenuItem(91, 3, "DM Options");
+			player->sendSystemMessage("Debug: You have selected the DM Options menu on a tangible object.");
 			menuResponse->addRadialMenuItemToRadialID(91, 92, 3, "Set Description");
 			menuResponse->addRadialMenuItemToRadialID(91, 93, 3, "Set Writeable");
 			menuResponse->addRadialMenuItemToRadialID(91, 94, 3, "Copy Object");
