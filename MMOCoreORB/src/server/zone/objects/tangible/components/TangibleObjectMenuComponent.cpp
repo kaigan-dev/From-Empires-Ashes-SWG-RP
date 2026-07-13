@@ -70,7 +70,6 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 
 		if(player->getPlayerObject()->hasGodMode()) {
 			menuResponse->addRadialMenuItem(91, 3, "DM Options");
-			player->sendSystemMessage("Debug: You have selected the DM Options menu on a tangible object.");
 			menuResponse->addRadialMenuItemToRadialID(91, 92, 3, "Set Description");
 			menuResponse->addRadialMenuItemToRadialID(91, 93, 3, "Set Writeable");
 			menuResponse->addRadialMenuItemToRadialID(91, 94, 3, "Copy Object");
@@ -80,6 +79,7 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 			menuResponse->addRadialMenuItemToRadialID(91, 98, 3, "Check Price");
 			menuResponse->addRadialMenuItemToRadialID(91, 99, 3, "Set Condition");
 
+			/*
 			if(tano->isArmorObject()) {
 				menuResponse->addRadialMenuItemToRadialID(91, 100, 3, "Set Armor Value");
 				menuResponse->addRadialMenuItemToRadialID(91, 101, 3, "Clear Armor Values");
@@ -88,7 +88,7 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 			if(tano->isWeaponObject()) {
 				menuResponse->addRadialMenuItemToRadialID(91, 102, 3, "Set Damage");
 			}	
-
+			*/
 			menuResponse->addRadialMenuItemToRadialID(91, 103, 3, "Give a copy to Target");		
 		}
 	}

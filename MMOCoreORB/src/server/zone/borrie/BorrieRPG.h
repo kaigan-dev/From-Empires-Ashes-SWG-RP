@@ -731,7 +731,7 @@ public:
 	}
 
 	static void copyTarget(CreatureObject* creature, SceneObject* target, bool overrideFlag = false) {
-		creature->sendSystemMessage("Debug: We are not attempting to copy an item.");
+		creature->sendSystemMessage("Debug: We are now attempting to copy an item.");
 
 		if(target == nullptr) {
 			creature->sendSystemMessage("Copy target is null.");
