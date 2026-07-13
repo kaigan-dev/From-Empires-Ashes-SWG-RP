@@ -213,6 +213,8 @@ includeFile("custom_content/weapon/ranged/som_rifle_dp23_generic.lua")
 includeFile("custom_content/weapon/ranged/som_rifle_mustafar_disruptor.lua")
 includeFile("custom_content/weapon/ranged/som_rifle_mustafar_disruptor_generic.lua")
 includeFile("custom_content/weapon/ranged/rifle_a280cfe.lua")
+includeFile("custom_content/weapon/ranged/carbine/carbine_dh17.lua")
+
 
 
 -- Post 14 Heavy
