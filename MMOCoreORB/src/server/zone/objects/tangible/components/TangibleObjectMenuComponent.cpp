@@ -79,7 +79,7 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 			menuResponse->addRadialMenuItemToRadialID(91, 98, 3, "Check Price");
 			menuResponse->addRadialMenuItemToRadialID(91, 99, 3, "Set Condition");
 
-			/*
+
 			if(tano->isArmorObject()) {
 				menuResponse->addRadialMenuItemToRadialID(91, 100, 3, "Set Armor Value");
 				menuResponse->addRadialMenuItemToRadialID(91, 101, 3, "Clear Armor Values");
@@ -88,12 +88,12 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 			if(tano->isWeaponObject()) {
 				menuResponse->addRadialMenuItemToRadialID(91, 102, 3, "Set Damage");
 			}	
-			*/
+
 			menuResponse->addRadialMenuItemToRadialID(91, 103, 3, "Give a copy to Target");		
 		}
 	}
 
-	
+	player->sendSystemMessage("Debug: The DM menu popoulated successfully.");
 
 	//WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
 
@@ -113,10 +113,14 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 		}
 	}
 
+	player->sendSystemMessage("Debug: The components menu was checked successfully.");
+
 	ManagedReference<SceneObject*> parent = tano->getParent().get();
 	if (parent != nullptr && parent->getGameObjectType() == SceneObjectType::STATICLOOTCONTAINER) {
 		menuResponse->addRadialMenuItem(10, 3, "@ui_radial:item_pickup"); //Pick up
 	}
+
+	player->sendSystemMessage("Debug: The pickup menu was checked successfully.");
 }
 
 int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
