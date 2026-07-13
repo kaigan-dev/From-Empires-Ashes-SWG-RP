@@ -76,7 +76,19 @@ function TatooineAnchorheadScreenPlay:spawnCivilians()
 		{-746.514, 0, -1813.73, 104, 0,{"social"}},
 		{-744.534, 0, -1812.67, 228, 0,{"social"}},
 		{-761.809, 0, -1855.44, 38, 0,{"sittable"}},
-	}
+
+		--Small Bar
+		{-2.9, 0.4, -5.8, 58, 610013857{"none"}},
+		{4.7, 0.4, -9.7, -179, 610013857{"tech"}},
+		{-0.8, 0.4, -10.0, -93, 610013857{"sit"}},
+		{9.6, 0.4, -1.0, 90, 610013857{"drinker"}},
+
+		--Cantina
+		{9.6, 0.8, 0.4, -22, 610013872,{"sit"}},
+		{8.9, 0.7, 2.5, 160, 610013872,{"sittable"}},
+		{5.8, -0.2, -11.3, -137, 610013872,{"sit"}},
+		{-1.5, -0.2, -9.0, 156, 610013872,{"drinker"}},
+	}	
 	
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
 end
@@ -90,6 +102,13 @@ function TatooineAnchorheadScreenPlay:spawnSceneObjects()
 	
 	--TAILOR--
 	
+	--VENDORS--
+
+	--Cheap Stimpack Vendor
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -16.0, 0.2, -1.5, 123, 610032853, "dressed_medic_trainer_02", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Del Vreerr (a Stimpack Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
 
 end
 

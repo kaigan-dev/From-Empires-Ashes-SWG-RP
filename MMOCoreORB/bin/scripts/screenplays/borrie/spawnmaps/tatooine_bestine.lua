@@ -597,74 +597,74 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	--VENDORS--
 	
 	--Melee Vendor Light
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 490.2, 0, 6541.3, 80, 0, "rp_moncal_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Okibam Rotso (a Melee Weapons Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 490.2, 0, 6541.3, 80, 0, "dressed_tatooine_fixer", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Elric Elroy (a Melee Weapons Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
 
 	--Ranged Vendor Light
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.2, 0.8, 0.6, 360, 610029732, "rp_zabrak_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Gjolan (a Ranged Weapon Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.2, 0.8, 0.6, 360, 610029732, "dressed_tatooine_gunrunner", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Kix Dher (a Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_ranged_novice")
 
 	--Camping Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 446.6, 0, 6573.8, 350, 0, "rp_human_female", "xovros_vendor_camping", "default", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Raphella Lees (a Camping Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 446.6, 0, 6573.8, 350, 0, "dressed_tatooine_trandoshan_slaver", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Ssaskh Siss (a Camping Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
 
 	--Instrument Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 422.6, 0.5, 6581.5, 80, 0, "rp_twilek_male", "xovros_hotel_receptionist", "default", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Nayosan Yi'frit (an Instrument Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 422.6, 0.5, 6581.5, 80, 0, "dressed_unarmed_trainer_03", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Dinc Herg (an Instrument Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "music")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
 
 	--Speeder Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 806, 0.8, 6415.1, 345, 0, "rp_rodian_male", "vehicle_dealer_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Sprei Ikiki (a Speeder Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 806, 0.8, 6415.1, 345, 0, "rp_rodian_female", "vehicle_dealer_vendor", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Vloow Jeconk(a Speeder Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
 
 	--Mount Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 515.5, 0, 6562.9, 225, 0, "rp_gotal_male", "vendor_mount", "default", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Pyvaln Rokk (a Mount Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 515.5, 0, 6562.9, 225, 0, "dressed_tatooine_spice_fiend", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Te'soch (a Mount Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mount")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mounts_tatooine")
 	
 	--Cheap Stimpack Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.8, 0.1, -7.3, 25, 610029510, "rp_gran_male", "xovros_nurse", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Horuuk Kyl (a Stimpack Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.8, 0.1, -7.3, 25, 610029510, "dressed_medic_trainer_01", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Rham Zornel (a Stimpack Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
 	
 	--Specialty Shop Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.8, 0.4, -8.5, 20, 610029600, "rp_rodian_male", "eisley_specialty_shop_beebo", "default", "eisley_specialty_shop_beebo", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Beebo (a Specialty Item Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -1.6, 0.4, -9.3, 20, 610029600, "dressed_smuggler_trainer_01", "default", "default", "eisley_specialty_shop_beebo", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Seangogyr Qurdus (a Specialty Item Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
 	
 	--Junker Ship Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 666.1, 5.2, 6726.5, 170, 0, "rp_sullustan_male", "sulon_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Nedd Tarunng (a Junker Ship Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 666.1, 5.2, 6726.5, 170, 0, "rp_sullustan_female", "sulon_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Zuur Tarunng (a Junker Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
 	
 	--Armorsmith Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -15.1, 1.1, -0.8, 30, 610029662, "rp_ithorian_male", "eisley_armorsmith_biemio_faom", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Biemio Faom (an Armorsmith Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -15.1, 1.1, -0.8, 30, 610029662, "dressed_2handsword_trainer_01", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Rex Hunter (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
 	
 	--Weaponsmith Vendor (Ranged)
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -3, 1.1, -8.5, 80, 610029664, "rp_quarren_male", "eisley_weaponsmith_kefarack_tajus", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Kefarack Tajus (a Weaponsmith Ranged Weapon Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -3, 1.1, -8.5, 80, 610029664, "dressed_ranger_trainer_01", "default", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Choi Dit (a Weaponsmith Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
 	
 	--Weaponsmith Vendor (Melee)
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -14.1, 1.1, -8.5, 105, 610029692, "rp_trandoshan_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Rokk (a Weaponsmith Melee Weapon Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -14.1, 1.1, -8.5, 105, 610029692, "dressed_1handsword_trainer_03", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Vo Seer (a Weaponsmith Melee Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
 
@@ -685,8 +685,8 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
 	
 	--Junk Dealer
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.3, -0.4, -1.4, 170, 610029908, "dressed_armorsmith_trainer_01", "default", "default", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Orek Flyn (a Junk Dealer)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.3, -0.4, -1.4, 170, 610029908, "dressed_tatooine_scavenger", "default", "default", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Shub Glitto (a Junk Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "junkdealer")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_junkdealer")
 	
@@ -707,20 +707,20 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Rimul Montom")
 	
 	--Backpack Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 606.9, 0, 6655.5, 2, 0, "rp_human_male", "xovros_refugee_male9", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Fregg Cobbxor (a Backpack Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 606.9, 0, 6655.5, 2, 0, "dressed_tatooine_nomad", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Dhorlash (a Backpack Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "backpacks")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_backpacks")
 	
 	--Luxury Vehicle Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 725, 0, 6627.1, 195, 0, "rp_human_male", "tatooine_luxury_speeder_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Gregonory Dyljen (a Luxury Vehicle Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 725, 0, 6627.1, 195, 0, "rp_twilek_female", "tatooine_luxury_speeder_vendor", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Luzza Imback (a Luxury Vehicle Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle_luxury")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles_luxury")
 	
 	--Full Ship Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 4.1, 0.8, 1.3, 345, 610029559, "rp_moncal_male", "eisley_dockmaster_orroko_pimeub", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Tiroir Ciouskar (a Ship Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 4.1, 0.8, 1.3, 345, 610029559, "dressed_tatooine_evil_settler", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Arkel Schwost (a Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship")
 	
