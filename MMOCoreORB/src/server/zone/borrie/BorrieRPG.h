@@ -731,7 +731,7 @@ public:
 	}
 
 	static void copyTarget(CreatureObject* creature, SceneObject* target, bool overrideFlag = false) {
-		creature->sendSystemMessage("Debug: We are now attempting to copy an item.");
+		//creature->sendSystemMessage("Debug: We are now attempting to copy an item.");
 
 		if(target == nullptr) {
 			creature->sendSystemMessage("Copy target is null.");
@@ -739,21 +739,21 @@ public:
 		}
 		ManagedReference<TangibleObject*> tanoTarget = target->asTangibleObject();
 
-		creature->sendSystemMessage("Debug: We have cast the sceneObject as a tangibleObject.");
+		//creature->sendSystemMessage("Debug: We have cast the sceneObject as a tangibleObject.");
 
 		String objectTemplate = target->getObjectTemplate()->getFullTemplateString();
 		objectTemplate = objectTemplate.replaceAll("shared_", "");
 		creature->sendSystemMessage("Cloning Object: " + objectTemplate);
 		ManagedReference<CraftingManager*> craftingManager = creature->getZoneServer()->getCraftingManager();
 
-		creature->sendSystemMessage("Debug: we have initialized the crafting manager");
+		//creature->sendSystemMessage("Debug: we have initialized the crafting manager");
 
 		if (!objectTemplate.contains("object/tangible") && !objectTemplate.contains("object/weapon")) {
 			creature->sendSystemMessage("Templates must be a tangible or weapon object.");
 			return;
 		}
 		if (craftingManager == nullptr) {
-			creature->sendSystemMessage("Debug: Crafting manager is null.");
+			creature->sendSystemMessage("Crafting manager is null.");
 			return;
 		}
 		Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());

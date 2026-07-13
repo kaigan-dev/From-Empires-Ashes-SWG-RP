@@ -93,7 +93,7 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 		}
 	}
 
-	player->sendSystemMessage("Debug: The DM menu popoulated successfully.");
+	//player->sendSystemMessage("Debug: The DM menu popoulated successfully.");
 
 	//WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
 
@@ -113,18 +113,18 @@ void TangibleObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObjec
 		}
 	}
 
-	player->sendSystemMessage("Debug: The components menu was checked successfully.");
+	//player->sendSystemMessage("Debug: The components menu was checked successfully.");
 
 	ManagedReference<SceneObject*> parent = tano->getParent().get();
 	if (parent != nullptr && parent->getGameObjectType() == SceneObjectType::STATICLOOTCONTAINER) {
 		menuResponse->addRadialMenuItem(10, 3, "@ui_radial:item_pickup"); //Pick up
 	}
 
-	player->sendSystemMessage("Debug: The pickup menu was checked successfully.");
+	//player->sendSystemMessage("Debug: The pickup menu was checked successfully.");
 }
 
 int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
-	player->sendSystemMessage("Debug: Beginning handleObjectMenuSelect.");
+	//player->sendSystemMessage("Debug: Beginning handleObjectMenuSelect.");
 
 	if (!sceneObject->isTangibleObject()) {
 		player->sendSystemMessage("The object is not a sceneObject. Menu selection failed.");
@@ -133,7 +133,7 @@ int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 
 	TangibleObject* tano = cast<TangibleObject*>( sceneObject);
 
-	player->sendSystemMessage("Debug: incoming sceneObject has been cast as tangible. We will now begin checking selectedID.");
+	//player->sendSystemMessage("Debug: incoming sceneObject has been cast as tangible. We will now begin checking selectedID.");
 
 
 	if (selectedID == 69 && player->hasSkill("combat_smuggler_novice") ) { // Slice [PlayerLootCrate]
@@ -246,8 +246,6 @@ int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 	if(selectedID == 93) { //Set Writeable
 
 	} 
-
-	player->sendSystemMessage("Debug: We are about to check selectedID 94.");
 
 	if(selectedID == 94) { //Copy Object
 		player->sendSystemMessage("Debug: Attemping to copy tangible object.");
@@ -397,7 +395,7 @@ int TangibleObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject
 		}
 	}
 
-	player->sendSystemMessage("Debug: We have completed checking of selectedID.");
+	//player->sendSystemMessage("Debug: We have completed checking of selectedID.");
 	
 	return ObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 
