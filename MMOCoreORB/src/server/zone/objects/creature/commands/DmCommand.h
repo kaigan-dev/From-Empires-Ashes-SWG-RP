@@ -475,41 +475,50 @@ public:
 						if (slotName == "legs" || slotName == "leg" || slotName == "knee" || slotName == "knees" || slotName == "dick" || slotName == "crotch" || slotName == "shins" || slotName == "groin") 
 						{
 							BorNPC::UnarmorNPC(creature, 3);
+							creature->sendSystemMessage("Armor removed from legs slot.");
 						} 
 						else if(slotName == "forearm" || slotName == "lowerarm" || slotName == "bracer") 
 						{
 							if(subSlot == "left") 
 							{
 								BorNPC::UnarmorNPC(creature, 5);
+								creature->sendSystemMessage("Armor removed from left bracer slot.");
 							} 
 							else 
 							{
 								BorNPC::UnarmorNPC(creature, 6);
+								creature->sendSystemMessage("Armor removed from right bracer slot.");
 							}
 						} 
 						else if(slotName == "bicep" || slotName == "upperarm" || slotName == "shoulder") 
 						{
 							if(subSlot == "left") {
 								BorNPC::UnarmorNPC(creature, 7);
+								creature->sendSystemMessage("Armor removed from left bicep slot.");
 							} else {
 								BorNPC::UnarmorNPC(creature, 8);
+								creature->sendSystemMessage("Armor removed from right bicep slot.");
 							}
 						} 
 						else if(slotName == "feet" || slotName == "foot" || slotName == "toes"  || slotName == "hoof" || slotName == "paw") 
 						{
 							BorNPC::UnarmorNPC(creature, 4);
+							creature->sendSystemMessage("Armor removed from boots slot.");
 						} 
 						else if(slotName == "chest" || slotName == "heart"  || slotName == "stomach" || slotName == "gut" || slotName == "ribs") 
 						{
 							BorNPC::UnarmorNPC(creature, 1);
+							creature->sendSystemMessage("Armor removed from chest slot.");
 						} 
 						else if(slotName == "hands"  || slotName == "gloves" || slotName == "fingers") 
 						{
 							BorNPC::UnarmorNPC(creature, 9);
+							creature->sendSystemMessage("Armor removed from hands slot.");
 						} 
 						else if (slotName == "head" || slotName == "face" || slotName == "eyes" || slotName == "neck" || slotName == "hat" || slotName == "helmet") 
 						{
 							BorNPC::UnarmorNPC(creature, 10);
+							creature->sendSystemMessage("Armor removed from head slot.");
 						}
 					}
 				}
