@@ -57,7 +57,7 @@ public:
 		if(creature->isPlayerCreature())
 			return;
 
-		ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, BorCharacter::GetSlotName(i));
+		ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, BorCharacter::GetSlotName(slot));
 		// Null check, then goodbye existing armor
         if (armor != nullptr)
 		{
