@@ -1,7 +1,7 @@
 npc_template = {
 
 	randomName = "human",
-	title = "a hunter",
+	title = "a mysterious brigand",
 	baseTemplates = {
 		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female","rp_human_male","rp_human_male",
 		"rp_rodian_male", "rp_rodian_female","rp_rodian_male", "rp_rodian_female",
@@ -13,22 +13,22 @@ npc_template = {
 		"rp_nautolan_male",
 	},
 
-	skillTemplates = {"issossxi_clan/hunter_base"},
+	skillTemplates = {"bandits/mountainbandit_elite"},
 	
 	
 	equipmentTemplates = {
-		{"rp_human_male", {"faction/issossxi_clan/hunter_base2"}},
-		{"rp_human_female", {"faction/issossxi_clan/hunter_base3"}},
-		{"rp_rodian_male", {"faction/issossxi_clan/hunter_base4"}},
-		{"rp_rodian_female", {"faction/issossxi_clan/hunter_base_armoredfull5"}},
-		{"rp_trandoshan_male", {"faction/issossxi_clan/hunter_base_armoredfull2"}},
-		{"rp_trandoshan_female", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_twilek_male", {"faction/issossxi_clan/hunter_base"}},
-		{"rp_twilek_female", {"faction/issossxi_clan/hunter_basearmoredfull3"}},
-		{"rp_zabrak_male", {"faction/issossxi_clan/hunter_base_armored"}},
-		{"rp_zabrak_female", {"faction/issossxi_clan/hunter_armored2"}},
-		{"rp_weequay_male", {"faction/issossxi_clan/hunter_armored3"}},
-		{"rp_nautolan_male", {"faction/issossxi_clan/hunter_base"}},
+		{"rp_human_male", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_human_female", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_rodian_male", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_rodian_female", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_trandoshan_male", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_trandoshan_female", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_twilek_male", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_twilek_female", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_zabrak_male", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_zabrak_female", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_weequay_male", {"faction/mountain_factions/mountainbandit_elite"}},
+		{"rp_nautolan_male", {"faction/mountain_factions/mountainbandit_elite"}},
 		
 	},	
 	

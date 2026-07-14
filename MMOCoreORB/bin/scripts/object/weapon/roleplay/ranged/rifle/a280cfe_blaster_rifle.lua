@@ -60,4 +60,4 @@ object_weapon_roleplay_ranged_rifle_a280cfe_rifle = object_weapon_ranged_rifle_s
 	experimentalCombineType = { 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_roleplay_ranged_rifle_a280cfe_rifle, "object/weapon/roleplay/ranged/rifle/a280cfe_blaster_rifle.iff")
+ObjectTemplates:addTemplate(object_weapon_roleplay_ranged_rifle_a280cfe_rifle, "object/weapon/roleplay/ranged/rifle/rifle_a280cfe.iff")

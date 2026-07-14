@@ -13,7 +13,7 @@ npc_template = {
 		"rp_nautolan_male",
 	},
 
-	skillTemplates = {"issossxi_clan/hunter_base"},
+	skillTemplates = {"issossxi_clan/hunter_elite"},
 	
 	
 	equipmentTemplates = {
@@ -30,7 +30,7 @@ npc_template = {
 		{"rp_weequay_male", {"faction/issossxi_clan/hunter_armored3"}},
 		{"rp_nautolan_male", {"faction/issossxi_clan/hunter_base"}},
 		
-	},	
+	},
 	
 	customizationTemplates = {
 		{"rp_human_male", {"random"}},
