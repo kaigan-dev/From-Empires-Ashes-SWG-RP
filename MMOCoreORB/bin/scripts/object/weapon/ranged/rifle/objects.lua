@@ -1243,3 +1243,10 @@ object_weapon_ranged_rifle_shared_rifle_victor_tusken = SharedWeaponObjectTempla
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_victor_tusken, "object/weapon/ranged/rifle/shared_rifle_victor_tusken.iff")
+--******************************************************************************************************************************************
+object_weapon_ranged_rifle_shared_rifle_a280cfe = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_a280cfe.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_a280cfe, "object/weapon/ranged/rifle/shared_rifle_a280cfe.iff")
+--******************************************************************************************************************************************
+
