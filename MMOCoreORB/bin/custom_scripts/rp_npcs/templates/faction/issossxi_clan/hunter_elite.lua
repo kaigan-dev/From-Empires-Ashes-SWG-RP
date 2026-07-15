@@ -9,7 +9,6 @@ npc_template = {
 		"rp_twilek_male", "rp_twilek_female",
 		"rp_zabrak_male", "rp_zabrak_female","rp_zabrak_male", "rp_zabrak_female",
 		"rp_nikto_male", "rp_nikto_male", "rp_nikto_male", "rp_nikto_male",
-		"rp_weequay_male","rp_weequay_male","rp_weequay_male",
 		"rp_nautolan_male",
 	},
 
@@ -27,11 +26,10 @@ npc_template = {
 		{"rp_twilek_female", {"faction/issossxi_clan/hunter_basearmoredfull3"}},
 		{"rp_zabrak_male", {"faction/issossxi_clan/hunter_base_armored"}},
 		{"rp_zabrak_female", {"faction/issossxi_clan/hunter_armored2"}},
-		{"rp_weequay_male", {"faction/issossxi_clan/hunter_armored3"}},
 		{"rp_nautolan_male", {"faction/issossxi_clan/hunter_base"}},
 		
 	},
-	
+
 	customizationTemplates = {
 		{"rp_human_male", {"random"}},
 		{"rp_human_female", {"random"}},
@@ -43,7 +41,6 @@ npc_template = {
 		{"rp_twilek_female", {"random"}},
 		{"rp_zabrak_male", {"random"}},
 		{"rp_zabrak_female", {"random"}},
-		{"rp_weequay_male", {"random"}},
 		{"rp_nautolan_male", {"random"}},
 		
 	},
