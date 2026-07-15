@@ -859,3 +859,9 @@ object_weapon_ranged_carbine_shared_carbine_nym_slugthrower = SharedWeaponObject
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_nym_slugthrower, "object/weapon/ranged/carbine/shared_carbine_nym_slugthrower.iff")
+-***************************************************************************************************************************************************
+object_weapon_ranged_carbine_shared_carbine_a280cfe = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_a280cfe.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_a280cfe, "object/weapon/ranged/carbine/shared_carbine_a280cfe.iff")
+--**************************************************************************************************************************************************
