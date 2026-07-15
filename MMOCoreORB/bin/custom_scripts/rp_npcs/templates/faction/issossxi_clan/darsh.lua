@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "Darsh Dul'Issos",
+	randomName = "Darsh Dul'Issos",
 	title = "a hunter",
 	baseTemplates = {
 		"rp_human_male",
@@ -15,7 +15,7 @@ npc_template = {
 	},
 	
 	customizationTemplates = {
-		{"rp_human_male", {"darsh"}},
+		{"rp_human_male", {"issossxi_clan/darsh"}},
 		
 	},
 
