@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "Rana Dul'Issos",
+	randomName = "Rana Dul'Issos",
 	title = "a hunter",
 	baseTemplates = {
 		"rp_human_female",
@@ -16,7 +16,7 @@ npc_template = {
 	},
 	
 	customizationTemplates = {
-		{"rp_human_female", {"rana"}},
+		{"rp_human_female", {"issossxi_clan/rana"}},
 		
 	},
 
