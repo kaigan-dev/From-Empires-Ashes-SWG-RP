@@ -125,12 +125,12 @@ object_weapon_roleplay_ranged_rifle_westarm5_blaster_rifle = SharedWeaponObjectT
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_westarm5_blaster_rifle, "object/weapon/roleplay/ranged/rifle/westarm5_blaster_rifle.iff")
 --****************************************************************************************************************************************************************
 object_weapon_roleplay_ranged_rifle_a280cfe_rifle = SharedWeaponObjectTemplate:new {
-	clientTemplateFileName = "object/weapon/roleplay/ranged/rifle/a280cfe_rifle.iff"
+	clientTemplateFileName = "object/weapon/roleplay/ranged/rifle/rifle_a280cfe.iff"
 }
-ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_a280cfe_rifle, "object/weapon/roleplay/ranged/rifle/a280cfe_rifle.iff")
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_rifle_a280cfe, "object/weapon/roleplay/ranged/rifle/rifle_a280cfe.iff")
 --********************************************************************************************************************************************************
-object_weapon_roleplay_ranged_rifle_a280cfe_blaster_sniper_rifle = SharedWeaponObjectTemplate:new {
-	clientTemplateFileName = "object/weapon/roleplay/ranged/rifle/shared_rifle_a280cfe_sniper.iff"
+object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/ranged/rifle/rifle_a280cfe_sniper.iff"
 }
-ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_a280cfe_blaster_sniper_rifle, "object/weapon/roleplay/ranged/rifle/shared_rifle_a280cfe_sniper.iff")
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper, "object/weapon/roleplay/ranged/rifle/rifle_a280cfe_sniper.iff")
 --********************************************************************************************************************************************************
