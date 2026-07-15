@@ -88,7 +88,7 @@ object_weapon_roleplay_ranged_carbine_wookiee_carbine = SharedWeaponObjectTempla
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_carbine_wookiee_carbine, "object/weapon/roleplay/ranged/carbine/wookiee_carbine.iff")
 --******************************************************************************************************************************************************
-object_weapon_roleplay_ranged_carbine_a280cfe_carbine = SharedWeaponObjectTemplate:new {
+object_weapon_roleplay_ranged_carbine_carbine_a280cfe = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/roleplay/ranged/carbine/carbine_a280cfe.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_carbine_carbine_a280cfe, "object/weapon/roleplay/ranged/carbine/carbine_a280cfe.iff")
