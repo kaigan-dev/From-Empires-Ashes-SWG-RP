@@ -16,18 +16,18 @@ object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 8,
+	bonusDamage = 9,
 
-	pointBlankRange = 8,
+	pointBlankRange = 100,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 256,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 260,
 	maxRangeAccuracy = 99,
 
-	rarity="Uncommon",
+	rarity="Epic",
 	itemValue = 600,
 	maxAmmo = 5,
 	ammoType = "ammo_energy", 
