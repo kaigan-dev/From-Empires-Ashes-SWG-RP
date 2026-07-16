@@ -1,6 +1,6 @@
 npc_template = {
 
-	randomName = "Rana Dul'Issos",
+	Name = "Rana Dul'Issos",
 	title = "a hunter",
 	baseTemplates = {
 		"rp_human_female",

@@ -1,6 +1,6 @@
 npc_template = {
 
-	randomName = "Darsh Dul'Issos",
+	Name = "Darsh Dul'Issos",
 	title = "a hunter",
 	baseTemplates = {
 		"rp_human_male",
