@@ -15,7 +15,7 @@ object_weapon_roleplay_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_s
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 8, --Type of Die used in Damage
+	maxDamage = 10, --Type of Die used in Damage
 	bonusDamage = 4,
 
 	pointBlankRange = 8,
@@ -29,7 +29,7 @@ object_weapon_roleplay_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_s
 	
 	primaryAttributeOnly = true,
 
-	rarity="Uncommon",
+	rarity="Epic",
 	itemValue = 600,
 	maxAmmo = 5,
 	ammoType = "ammo_energy", 
