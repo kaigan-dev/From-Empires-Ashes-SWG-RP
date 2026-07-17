@@ -167,9 +167,11 @@ object_weapon_roleplay_ranged_pistol_wookiee_pistol = SharedWeaponObjectTemplate
 	clientTemplateFileName = "object/weapon/roleplay/ranged/pistol/wookiee_pistol.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_pistol_wookiee_pistol, "object/weapon/roleplay/ranged/pistol/wookiee_pistol.iff")
+/*
 --**************************************************************************************************************************************************
 object_weapon_roleplay_ranged_pistol_pistol_a280cfe = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/roleplay/ranged/pistol/pistol_a280cfe.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_pistol_pistol_a280cfe, "object/weapon/roleplay/ranged/pistol/pistol_a280cfe.iff")
 --********************************************************************************************************************************************************************
+*/
