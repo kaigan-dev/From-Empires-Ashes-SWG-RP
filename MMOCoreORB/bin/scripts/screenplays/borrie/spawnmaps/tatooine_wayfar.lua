@@ -219,6 +219,9 @@ function RpTatooineWayfarScreenPlay:spawnMobiles()
 	createTemplatedRoleplayNPC("faction/hutt/grunt_navy", 0.6, 5.1, -10.7, 107, 610030525 ,"rp_tatooine")
 	createTemplatedRoleplayNPC("faction/hutt/tech_medic", -7.2, 5.1, -10.4, -159, 610030525 ,"rp_tatooine")
 	createTemplatedRoleplayNPC("faction/hutt/grunt_navy", -3.9, 5.1, -2.8, 22, 610030525 ,"rp_tatooine")
-
+	--Issossxi clan hunters
+	createTemplatedRoleplayNPC("faction/issossxi_clan/hunter_elite", 4422.97, 7.51, -6854, 50, 0,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/issossxi_clan/hunter_base", 4420.97, 7.43, -6853, 160, 0,"rp_tatooine")
+	createTemplatedRoleplayNPC("faction/issossxi_clan/hunter_base", 4419.97, 7.42, -6852, 220, 0,"rp_tatooine")
 
 end

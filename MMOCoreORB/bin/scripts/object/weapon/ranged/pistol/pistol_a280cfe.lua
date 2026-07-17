@@ -41,8 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_weapon_ranged_carbine_carbine_dh17 = object_weapon_ranged_carbine_shared_carbine_dh17:new {
-	
+object_weapon_ranged_pistol_pistol_a280cfe = object_weapon_ranged_pistol_shared_pistol_a280cfe:new {
+
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -72,69 +72,64 @@ object_weapon_ranged_carbine_carbine_dh17 = object_weapon_ranged_carbine_shared_
 	damageType = ENERGY,
 
 	-- NONE, LIGHT, MEDIUM, HEAVY
-	armorPiercing = LIGHT,
+	armorPiercing = NONE,
 
 	-- combat_rangedspecialize_bactarifle, combat_rangedspecialize_rifle, combat_rangedspecialize_pistol, combat_rangedspecialize_heavy, combat_rangedspecialize_carbine
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
 	-- combat_meleespecialize_twohandlightsaber, combat_meleespecialize_polearmlightsaber, combat_meleespecialize_onehandlightsaber
-	xpType = "combat_rangedspecialize_carbine",
+	xpType = "combat_rangedspecialize_pistol",
 
 	-- See http://www.ocdsoft.com/files/certifications.xls
-	certificationsRequired = { "cert_carbine_e11" },
+	certificationsRequired = { "cert_pistol_dl44" },
 	-- See http://www.ocdsoft.com/files/accuracy.xls
-	creatureAccuracyModifiers = { "carbine_accuracy" },
+	creatureAccuracyModifiers = { "pistol_accuracy" },
 
-	creatureAimModifiers = { "carbine_aim", "aim" },
+	creatureAimModifiers = { "pistol_aim", "aim" },
 
 	-- See http://www.ocdsoft.com/files/defense.xls
 	defenderDefenseModifiers = { "ranged_defense" },
 
 	-- Leave as "dodge" for now, may have additions later
-	defenderSecondaryDefenseModifiers = { "counterattack" },
+	defenderSecondaryDefenseModifiers = { "dodge" },
 
 	-- See http://www.ocdsoft.com/files/speed.xls
-	speedModifiers = { "carbine_speed" },
+	speedModifiers = { "pistol_speed" },
 
 	-- Leave blank for now
 	damageModifiers = { },
 
 
 	-- The values below are the default values.  To be used for blue frog objects primarily
-	healthAttackCost = 25,
-	actionAttackCost = 32,
-	mindAttackCost = 15,
+	healthAttackCost = 10,
+	actionAttackCost = 27,
+	mindAttackCost = 10,
 	forceCost = 0,
 
 	pointBlankRange = 0,
-	pointBlankAccuracy = -40,
+	pointBlankAccuracy = 0,
 
-	idealRange = 30,
-	idealAccuracy = 0,
+	idealRange = 8,
+	idealAccuracy = 25,
 
 	maxRange = 64,
 	maxRangeAccuracy = -80,
 
-	minDamage = 40,
-	maxDamage = 95,
+	minDamage = 20,
+	maxDamage = 90,
 
-	attackSpeed = 3.3,
+	attackSpeed = 3.4,
 
-	woundsRatio = 10,
+	woundsRatio = 7,
 
-	numberExperimentalProperties = {1, 1, 2, 2, 2, 2, 2, 2, 1, 1, 1, 2, 2, 2, 2},
-	experimentalProperties = {"XX", "XX", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "XX", "XX", "XX", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ"},
-	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "exp_durability", "null", "null", "null", "expRange", "expEffeciency", "expEffeciency", "expEffeciency"},
+	numberExperimentalProperties = {1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2},
+	experimentalProperties = {"XX", "XX", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ", "XX", "XX", "CD", "OQ", "CD", "OQ", "CD", "OQ", "CD", "OQ"},
+	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "exp_durability", "expRange", "null", "null", "expRange", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "roundsused", "hitpoints", "zerorangemod", "maxrangemod", "midrange", "midrangemod", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 28, 67, 4.3, 7, 15, 750, -40, -80, 30, -5, 33, 42, 20},
-	experimentalMax = {0, 0, 52, 124, 3, 13, 45, 1500, -40, -80, 30, 5, 18, 22, 11},
+	experimentalMin = {0, 0, 14, 63, 4.4, 5, 10, 750, -10, -80, 8, 18, 13, 35, 13},
+	experimentalMax = {0, 0, 26, 117, 3.1, 9, 50, 1500, -10, -80, 8, 33, 7, 19, 7},
 	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_ranged_carbine_carbine_dh17, "object/weapon/ranged/carbine/shared_carbine_dh17.iff")
-
-
-
-
-
+ObjectTemplates:addTemplate(object_weapon_ranged_pistol_pistol_a280cfe, "object/weapon/ranged/pistol/pistol_a280cfe.iff")
