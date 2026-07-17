@@ -1495,6 +1495,7 @@ object_weapon_ranged_pistol_shared_pistol_tangle = SharedWeaponObjectTemplate:ne
 ]]
 }
 
+--[[
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_tangle, "object/weapon/ranged/pistol/shared_pistol_tangle.iff")
 --**********************************************************************************************************************************************
 object_weapon_ranged_pistol_shared_pistol_a280cfe = SharedWeaponObjectTemplate:new {
@@ -1502,4 +1503,4 @@ object_weapon_ranged_pistol_shared_pistol_a280cfe = SharedWeaponObjectTemplate:n
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_a280cfe, "object/weapon/ranged/pistol/shared_pistol_a280cfe.iff")
 --**********************************************************************************************************************************************
-
+--]]
