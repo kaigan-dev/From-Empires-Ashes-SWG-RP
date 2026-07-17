@@ -15,8 +15,8 @@ object_weapon_roleplay_ranged_pistol_pistol_a280cfe = object_weapon_ranged_pisto
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 5,
+	maxDamage = 5, --Type of Die used in Damage
+	bonusDamage = 4,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
@@ -27,7 +27,7 @@ object_weapon_roleplay_ranged_pistol_pistol_a280cfe = object_weapon_ranged_pisto
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
-	rarity = "Legendary",
+	rarity = "Epic",
 	itemValue = 20000,
 	maxAmmo = 6,
 	ammoType = "ammo_energy", 
