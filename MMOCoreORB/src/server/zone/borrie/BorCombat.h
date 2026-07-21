@@ -1409,10 +1409,10 @@ public:
         else if(slot == 2) return "chest";
         else if(slot == 3) return "legs";
         else if(slot == 4) return "feet";
-        else if(slot == 5) return "left forearm";
-        else if(slot == 6) return "right forearm";
-        else if(slot == 7) return "left bracer";
-        else if(slot == 8) return "right bracer";
+        else if(slot == 5) return "left bracer";
+        else if(slot == 6) return "right bracer";
+        else if(slot == 7) return "left bicep";
+        else if(slot == 8) return "right bicep";
         else if(slot == 9) return "hands";
         else if(slot == 10) return "head";
         else return "chest";
