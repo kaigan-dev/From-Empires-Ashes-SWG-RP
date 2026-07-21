@@ -1679,7 +1679,7 @@ public:
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
         attacker->sendSystemMessage("Debug: We are targeting " + String::valueOf(closeObjects.size()) + " creatures before the search.");
-        attacker->sendSystemMessage("Debug: Targetting X: " + String::valueOf(centerTarget->getWorldPositionX()) + ", Y: " + String::valueOf(centerTarget->getWorldPositionY()) + );
+        attacker->sendSystemMessage("Debug: Targetting X: " + String::valueOf(centerTarget->getWorldPositionX()) + ", Y: " + String::valueOf(centerTarget->getWorldPositionY()));
         //Is it the Z axis?
 
         zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
