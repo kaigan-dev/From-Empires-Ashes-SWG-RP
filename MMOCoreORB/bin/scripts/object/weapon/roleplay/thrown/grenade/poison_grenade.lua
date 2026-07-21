@@ -29,7 +29,8 @@ object_weapon_roleplay_thrown_grenade_poison_grenade = object_weapon_ranged_gren
 	maxRange = 48,
 	maxRangeAccuracy = 99,
 	
-	area = 8,
+	--area = 8,
+	area = 100,
 	
 	dodgeDC = 16,
 	
