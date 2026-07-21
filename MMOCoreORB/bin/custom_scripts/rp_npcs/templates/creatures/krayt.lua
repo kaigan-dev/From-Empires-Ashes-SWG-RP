@@ -2,7 +2,7 @@ npc_template = {
 
 	name = "A Krayt Dragon",
 	baseTemplates = {
-		"krayt_dragon_grand",
+		"krayt_dragon_hue",
 	},
 
 	skillTemplates = {
@@ -11,7 +11,7 @@ npc_template = {
 	
 	
 	equipmentTemplates = {
-		{"kimogila", {"creature_colossal"}},
+		{"krayt_dragon_hue", {"creature_colossal"}},
 	},	
 	
 	customizationTemplates = {
