@@ -1678,17 +1678,13 @@ public:
 
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
-        attacker->sendSystemMessage("Debug: We are targeting " + String::valueOf(closeObjects.size()) + " creatures before the search.");
-        attacker->sendSystemMessage("Debug: Targetting X: " + String::valueOf(centerTarget->getWorldPositionX()) + ", Y: " + String::valueOf(centerTarget->getWorldPositionY()));
-        //Is it the Z axis?
 
-        //zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
-        zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), 500, &closeObjects, true, true);
-        /*  Replaced by the line above
+
+
+        zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), 500, &closeObjects, true);
+        /*  Replaced by the line above. We never seemed to have data in getCloseObjects, so the else statement below was not relevant. We will leave it present but commented for some time as a matter of caution.
 		if (centerTarget->getCloseObjects() == nullptr) {
-			//zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), radius, &closeObjects, true);
-            
-            //zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
+			zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);   //Prior working sta
 		}
 		else {      
 			CloseObjectsVector* closeVector = (CloseObjectsVector*) centerTarget->getCloseObjects();
@@ -1696,15 +1692,10 @@ public:
 		}
         */
 
-        attacker->sendSystemMessage("Debug: We are targeting " + String::valueOf(closeObjects.size()) + " creatures after the search.");
-
         int targetCount = 0; 
-        //Temporarily using arbitrary search size.       
         for (int i = 0; i < closeObjects.size(); i++) {
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
-            attacker->sendSystemMessage("Debug: Found an object in the search area.");
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
-                attacker->sendSystemMessage("Debug: Found a creature in the search area.");
 				targetCount++;
 			}
 		}
