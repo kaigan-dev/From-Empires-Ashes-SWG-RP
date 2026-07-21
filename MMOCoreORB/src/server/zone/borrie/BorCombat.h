@@ -1678,19 +1678,21 @@ public:
 
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
+
+
+
+        zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), 500, &closeObjects, true);
+        /*  Replaced by the line above. We never seemed to have data in getCloseObjects, so the else statement below was not relevant. We will leave it present but commented for some time as a matter of caution.
 		if (centerTarget->getCloseObjects() == nullptr) {
-			//zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), radius, &closeObjects, true);
-            zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true);
-            //zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
+			zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);   //Prior working sta
 		}
 		else {      
 			CloseObjectsVector* closeVector = (CloseObjectsVector*) centerTarget->getCloseObjects();
 			closeVector->safeCopyReceiversTo(closeObjects, CloseObjectsVector::CREOTYPE);
 		}
+        */
 
         int targetCount = 0; 
-
-        //Yes I know we do this loop twice, but its to accurately report the target count.
         for (int i = 0; i < closeObjects.size(); i++) {
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
