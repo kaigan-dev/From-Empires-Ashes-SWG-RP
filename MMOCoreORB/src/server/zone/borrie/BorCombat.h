@@ -1678,8 +1678,11 @@ public:
 
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
+        attacker->sendSystemMessage("Debug: We are targeting " + String::valueOf(closeObjects.size()) + " creatures before the search.");
+        attacker->sendSystemMessage("Debug: Targetting X: " + String::valueOf(centerTarget->getWorldPositionX()) + ", Y: " + String::valueOf(centerTarget->getWorldPositionY()) + );
+        //Is it the Z axis?
 
-        zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true);
+        zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);
         /*  Replaced by the line above
 		if (centerTarget->getCloseObjects() == nullptr) {
 			//zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), radius, &closeObjects, true);
@@ -1692,12 +1695,16 @@ public:
 		}
         */
 
+        attacker->sendSystemMessage("Debug: We are targeting " + String::valueOf(closeObjects.size()) + " creatures after the search.");
+
         int targetCount = 0; 
 
         //Yes I know we do this loop twice, but its to accurately report the target count.
         for (int i = 0; i < closeObjects.size(); i++) {
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
+            attacker->sendSystemMessage("Debug: Found an object in the search area.");
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
+                attacker->sendSystemMessage("Debug: Found an creature in the search area.");
 				targetCount++;
 			}
 		}
