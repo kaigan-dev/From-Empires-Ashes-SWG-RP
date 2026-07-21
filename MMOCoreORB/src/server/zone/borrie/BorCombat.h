@@ -1699,12 +1699,13 @@ public:
 
         int targetCount = 0; 
 
-        //Yes I know we do this loop twice, but its to accurately report the target count.
-        for (int i = 0; i < closeObjects.size(); i++) {
+        //Temporarily using arbitrary search size.       
+        //for (int i = 0; i < closeObjects.size(); i++) {
+        for (int i = 0; i < std::max(2, closeObjects.size()); i++) {
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
             attacker->sendSystemMessage("Debug: Found an object in the search area.");
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
-                attacker->sendSystemMessage("Debug: Found an creature in the search area.");
+                attacker->sendSystemMessage("Debug: Found a creature in the search area.");
 				targetCount++;
 			}
 		}
