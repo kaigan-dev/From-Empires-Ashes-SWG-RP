@@ -59,7 +59,7 @@ public:
 
 		SceneObject* armor = creature->getSlottedObject(slot);
 		// Null check, then goodbye existing armor
-        if (armor != nullptr || armor.get() != nullptr)
+        if (armor != nullptr)
 		{
 			armor->destroyObjectFromWorld(true);
 			armor->destroyObjectFromDatabase(true);
