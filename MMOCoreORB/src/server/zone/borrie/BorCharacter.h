@@ -35,8 +35,9 @@ public:
 	}
 
 	static ManagedReference<ArmorObject*> GetArmorAtSlot(CreatureObject* creature, String slot) {
-		if (creature->isPlayerCreature())
+		if (creature->isPlayerCreature()) {
 			return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		}
 		else {
 			SceneObject* slob = creature->getSlottedObject(slot);
 			ManagedReference<ArmorObject*> npcArm = cast<ArmorObject*>(slob);
