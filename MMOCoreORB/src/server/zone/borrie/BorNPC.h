@@ -57,7 +57,8 @@ public:
 		if(creature->isPlayerCreature())
 			return;
 
-		SceneObject* armor = creature->getSlottedObject(slot);
+		SceneObject* slob = creature->getSlottedObject(slot);
+		ManagedReference<ArmorObject*> armor = cast<ArmorObject*>(slob);
 		// Null check, then goodbye existing armor
         if (armor != nullptr)
 		{
