@@ -57,13 +57,12 @@ public:
 		if(creature->isPlayerCreature())
 			return;
 
-		ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, BorCharacter::GetSlotName(slot));
-		ManagedReference<SceneObject*> sceneArmor = cast<SceneObject*>(armor);
+		SceneObject* armor = creature->getSlottedObject(slot);
 		// Null check, then goodbye existing armor
         if (armor != nullptr || armor.get() != nullptr)
 		{
-			sceneArmor->destroyObjectFromWorld(true);
-			sceneArmor->destroyObjectFromDatabase(true);
+			armor->destroyObjectFromWorld(true);
+			armor->destroyObjectFromDatabase(true);
 		}
 	}
 
