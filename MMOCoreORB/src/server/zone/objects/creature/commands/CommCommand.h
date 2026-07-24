@@ -69,7 +69,10 @@ public:
 				creature->sendSystemMessage("You cannot speak in comms using a non-verbal language.");
 			}
 
-			if(ghost->getLanguageID() == 2 && player->getSkillMod("language_rodian_comprehend") > 0) {
+			if(ghost->getLanguageID() == 1) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 2 && player->getSkillMod("language_rodian_comprehend") > 0) {
 				knowsLanguage = true;
 			}
 			else if(ghost->getLanguageID() == 3 && player->getSkillMod("language_trandoshan_comprehend") > 0) {
