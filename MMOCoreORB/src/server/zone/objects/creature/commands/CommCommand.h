@@ -39,6 +39,7 @@ public:
 			String firstName;
 			if(args.hasMoreTokens()) {
 				args.getStringToken(firstName);
+				creature->sendSystemMessage("Debug: More tokens detected. Target name is " + firstName);
 				player = server->getZoneServer()->getPlayerManager()->getPlayer(firstName);
 			}
 
@@ -54,6 +55,7 @@ public:
 
 			if(args.hasMoreTokens()) {
 				args.getStringToken(messageString);
+				creature->sendSystemMessage("Debug: More tokens detected. Message is " + messageString);
 			}
 			else {
 				creature->sendSystemMessage("Comm command syntax is:  /comm firstName message");
