@@ -60,15 +60,16 @@ public:
 				return GENERALERROR;
 			}
 
-			player->sendSystemMessage("<C>" + messageString);
+			messageString = "<C>" + messageString;
+			player->sendSystemMessage(messageString);
 
-			else if (BorrieRPG::GetChatTypeID(command) != -1) {
-						//String speech = arguments.toString().subString(1 + command.length(), arguments.toString().length());
-						BorNPC::SpeakThroughNPC(creature, server->getZoneServer()->getObject(target, false), true, messageString, BorrieRPG::GetChatTypeID(command));
-					} else {
-						creature->sendSystemMessage("Invalid speech type.");
-					}
-				}
+			//if (BorrieRPG::GetChatTypeID(command) != -1) {
+					//String speech = arguments.toString().subString(1 + command.length(), arguments.toString().length());
+			BorNPC::SpeakThroughNPC(creature, server->getZoneServer()->getObject(target, false), true, messageString, BorrieRPG::GetChatTypeID(command));
+			//	} else {
+			//		creature->sendSystemMessage("Invalid speech type.");
+//				}
+			}
 
 		return SUCCESS;
 	}
