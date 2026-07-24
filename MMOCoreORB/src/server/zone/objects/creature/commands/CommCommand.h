@@ -65,11 +65,16 @@ public:
 
 			//if (BorrieRPG::GetChatTypeID(command) != -1) {
 					//String speech = arguments.toString().subString(1 + command.length(), arguments.toString().length());
-			BorNPC::SpeakThroughNPC(creature, server->getZoneServer()->getObject(creature, false), false, messageString, 0);
+			
+			BorNPC::SpeakThroughNPC(creature, creature->asSceneObject(), false, messageString, 0);
 			//	} else {
 			//		creature->sendSystemMessage("Invalid speech type.");
 //				}
 			}
+
+		catch (Exception& e) {
+			creature->sendSystemMessage("Invalid arguments for /comm command.");
+		}
 
 		return SUCCESS;
 	}
