@@ -34,16 +34,13 @@ public:
 		try {
 
 			ManagedReference<CreatureObject*> player = nullptr;
+			ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 			StringTokenizer args(arguments.toString());
 			String firstName;
 			if(args.hasMoreTokens()) {
 				args.getStringToken(firstName);
-				creature->sendSystemMessage("Debug: More tokens detected. Target name is " + firstName);
 				player = server->getZoneServer()->getPlayerManager()->getPlayer(firstName);
-			}
-			else {
-				creature->sendSystemMessage("Debug: No name token detected");
 			}
 
 			if (player == nullptr) {
@@ -56,20 +53,27 @@ public:
 			String messageString;
 
 			if(args.hasMoreTokens()) {
-				//args.getStringToken(messageString);
 				messageString = arguments.toString().subString(1 + firstName.length(), arguments.toString().length());
-				creature->sendSystemMessage("Debug: More tokens detected. Message is " + messageString);
 			}
 			else {
 				creature->sendSystemMessage("No message passed. Comm command syntax is:  /comm firstName message");
 				return GENERALERROR;
 			}
 
-			BorNPC::SpeakThroughNPC(creature, creature->asSceneObject(), false, messageString, 0);
+			//BorNPC::SpeakThroughNPC(creature, creature->asSceneObject(), false, messageString, 0);
+			creature->getZoneServer()->getChatManager()->broadcastChatMessage(creature, "<C> " + messageString, 0, chatType, creature->getMoodID(), 0U, ghost->getLanguageID());
 
-			messageString = "[" + creature->getFirstName() + " <C> " + messageString;
-			player->sendSystemMessage(messageString);
+			if(player->getSkillMod(ghost->getLanguageID()) = 0) {
+				messageString = "[" + creature->getFirstName() + "] <C> Speaks in a language you do not understand";
+				player->sendSystemMessage(messageString);
 			}
+			else {
+				messageString = "[" + creature->getFirstName() + "] <C> " + messageString;
+				player->sendSystemMessage(messageString);
+			}
+
+
+		}
 
 		catch (Exception& e) {
 			creature->sendSystemMessage("Invalid arguments for /comm command.");
