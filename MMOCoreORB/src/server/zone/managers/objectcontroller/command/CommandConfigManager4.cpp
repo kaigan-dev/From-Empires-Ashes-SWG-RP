@@ -486,6 +486,6 @@ void CommandConfigManager::registerCommands4() {
 	commandFactory.registerCommand<ToggleGripCommand>(String("togglegrip").toLowerCase());
 
 	//FEA
-	commandFactory.registerCommand<CommCommand>(String("comm").toLowerCase());
+	commandFactory.registerCommand<CommCommand>(String("comms").toLowerCase());
 
 }
