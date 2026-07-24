@@ -289,9 +289,11 @@ public:
 				//isMine = creature == targetCreature->getLinkedCreature().get();
 				isMine = true;
 			}
+			/* Remove check which should never be relevant for GMusage, as it will interfere with player /comm command.
 			else {   //If the target is not a player and the controller is not an admin, deny access. We shouldn't actually hit this step because of the earlier "else return".
 				isMine = false;
 			}
+			*/
 			
 			if (!isMine) {
 				//prefix = "[" + creature->getFirstName() + "] ";   //Old behavior. We don't want to let anyone speak through any creature. This will specify who is controlling the target creature if we wanted to use it somewhere though.
