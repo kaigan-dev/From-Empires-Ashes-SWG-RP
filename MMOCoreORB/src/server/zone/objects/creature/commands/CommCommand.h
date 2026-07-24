@@ -48,6 +48,11 @@ public:
 				return GENERALERROR;
 			}
 
+			if (player->getZone() == nullptr) {
+				creature->sendSystemMessage("This player is not online.");
+				return GENERALERROR;
+			}
+
 			Locker clocker(player, creature);
 
 			String messageString;
