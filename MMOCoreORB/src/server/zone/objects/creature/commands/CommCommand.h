@@ -63,7 +63,72 @@ public:
 			//BorNPC::SpeakThroughNPC(creature, creature->asSceneObject(), false, messageString, 0);
 			creature->getZoneServer()->getChatManager()->broadcastChatMessage(creature, "<C> " + messageString, 0, chatType, creature->getMoodID(), 0U, ghost->getLanguageID());
 
-			if(player->getSkillMod(ghost->getLanguageID()) = 0) {
+			bool knowsLanguage = false;
+
+			if(ghost->getLanguageID() == 9 || ghost->getLanguageID() == 18) {
+				creature->sendSystemMessage("You cannot speak in comms using a non-verbal language.");
+			}
+
+			if(ghost->getLanguageID() == 2 && player->getSkillMod(language_rodian_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 3 && player->getSkillMod(language_trandoshan_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 4 && player->getSkillMod(language_moncalamari_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 5 && player->getSkillMod(language_wookiee_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 6 && player->getSkillMod(language_bothan_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 7 && player->getSkillMod(language_twilek_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 8 && player->getSkillMod(language_zabrak_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 10 && player->getSkillMod(language_ithorian_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 11 && player->getSkillMod(language_sullustan_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 12 && player->getSkillMod(language_mistryl_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 13 && player->getSkillMod(language_huttese_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 14 && player->getSkillMod(language_esselean_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 15 && player->getSkillMod(language_miralukese_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 15 && player->getSkillMod(language_miralukese_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 16 && player->getSkillMod(language_sephi_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 17 && player->getSkillMod(language_ewok_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 19 && player->getSkillMod(language_astromech_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 20 && player->getSkillMod(language_jawatrade_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 21 && player->getSkillMod(language_mandoa_comprehend) > 0) {
+				knowsLanguage = true;
+			}
+
+
+			if(!knowsLanguage) {
 				messageString = "[" + creature->getFirstName() + "] <C> Speaks in a language you do not understand";
 				player->sendSystemMessage(messageString);
 			}
