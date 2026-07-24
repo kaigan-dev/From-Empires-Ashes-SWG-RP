@@ -56,7 +56,8 @@ public:
 			String messageString;
 
 			if(args.hasMoreTokens()) {
-				args.getStringToken(messageString);
+				//args.getStringToken(messageString);
+				messageString = arguments.toString().subString(1 + firstName.length(), arguments.toString().length());
 				creature->sendSystemMessage("Debug: More tokens detected. Message is " + messageString);
 			}
 			else {
@@ -64,7 +65,7 @@ public:
 				return GENERALERROR;
 			}
 
-			messageString = "<C>" + messageString;
+			messageString = "<C> " + messageString;
 			player->sendSystemMessage(messageString);
 
 			//if (BorrieRPG::GetChatTypeID(command) != -1) {
