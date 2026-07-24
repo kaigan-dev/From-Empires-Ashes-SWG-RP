@@ -61,7 +61,7 @@ public:
 			}
 
 			//BorNPC::SpeakThroughNPC(creature, creature->asSceneObject(), false, messageString, 0);
-			creature->getZoneServer()->getChatManager()->broadcastChatMessage(creature, "<C> " + messageString, 0, chatType, creature->getMoodID(), 0U, ghost->getLanguageID());
+			creature->getZoneServer()->getChatManager()->broadcastChatMessage(creature, "<C> " + messageString, 0, 1, creature->getMoodID(), 0U, ghost->getLanguageID());
 
 			bool knowsLanguage = false;
 
