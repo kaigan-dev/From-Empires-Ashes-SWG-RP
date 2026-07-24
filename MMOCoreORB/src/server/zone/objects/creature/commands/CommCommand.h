@@ -42,23 +42,25 @@ public:
 				creature->sendSystemMessage("Debug: More tokens detected. Target name is " + firstName);
 				player = server->getZoneServer()->getPlayerManager()->getPlayer(firstName);
 			}
+			else {
+				creature->sendSystemMessage("Debug: No name token detected");
+			}
 
 			if (player == nullptr) {
-				creature->sendSystemMessage("Comm command syntax is:  /comm firstName message");
+				creature->sendSystemMessage("No target name detected. Comm command syntax is:  /comm firstName message");
 				return GENERALERROR;
 			}
 
 			Locker clocker(player, creature);
 
 			String messageString;
-			args.getStringToken(messageString);
 
 			if(args.hasMoreTokens()) {
 				args.getStringToken(messageString);
 				creature->sendSystemMessage("Debug: More tokens detected. Message is " + messageString);
 			}
 			else {
-				creature->sendSystemMessage("Comm command syntax is:  /comm firstName message");
+				creature->sendSystemMessage("No message passed. Comm command syntax is:  /comm firstName message");
 				return GENERALERROR;
 			}
 
