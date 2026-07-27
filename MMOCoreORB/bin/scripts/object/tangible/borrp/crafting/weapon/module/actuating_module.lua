@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_weapon_module_actuating_module = object_tangible_borrp_crafting_shared_actuating_module:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_weapon_module_actuating_module, "object/tangible/borrp/crafting/weapon/module/actuating_module.iff")
