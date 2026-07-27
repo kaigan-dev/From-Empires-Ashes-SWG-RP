@@ -1,1 +1,1 @@
-includeFile("tangible/borrp/crafting/module/actuating_module.lua")
+includeFile("tangible/borrp/crafting/weapon/module/actuating_module.lua")
