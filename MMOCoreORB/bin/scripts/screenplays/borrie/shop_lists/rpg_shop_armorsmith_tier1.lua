@@ -91,8 +91,8 @@ rpg_shop = {
 				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_bicep_r.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_bracer_l.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_bracer_r.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
-				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chest_plate.iff", cost = 1600, max = 10, chance = 100, overridePrice = true },
-				--{template = "object/tangible/wearables/armor/roleplay/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chestplate.iff", cost = 1600, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/tangible/wearables/armor/roleplay/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chest_plate.iff", cost = 1600, max = 10, chance = 100, overridePrice = true }, --This covers the arms. Use the other chestplate instead.
+				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_chestplate.iff", cost = 2400, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_ceremonial/armor_kashyyykian_ceremonial_leggings.iff", cost = 800, max = 10, chance = 100, overridePrice = true },
 			}
 		},
@@ -105,8 +105,8 @@ rpg_shop = {
 				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_bicep_r.iff", cost = 2500, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_bracer_l.iff", cost = 2500, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_bracer_r.iff", cost = 2500, max = 10, chance = 100, overridePrice = true },
-				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_chest_plate.iff", cost = 5000, max = 10, chance = 100, overridePrice = true },
-				--{template = "object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_chestplate.iff", cost = 5000, max = 10, chance = 100, overridePrice = true },
+				--{template = "object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_chest_plate.iff", cost = 5000, max = 10, chance = 100, overridePrice = true }, --This covers the arms. Use the other chestplate instead.
+				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_chestplate.iff", cost = 7500, max = 10, chance = 100, overridePrice = true },
 				{template = "object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_leggings.iff", cost = 2500, max = 10, chance = 100, overridePrice = true },
 			}
 		},
