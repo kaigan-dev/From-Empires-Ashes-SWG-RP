@@ -1,5 +1,5 @@
 
-object_weapon_ranged_rifle_rifle_a280 = object_weapon_ranged_rifle_shared_rifle_a280:new {
+object_weapon_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_shared_rifle_a280cfe:new {
 	
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
@@ -90,4 +90,4 @@ object_weapon_ranged_rifle_rifle_a280 = object_weapon_ranged_rifle_shared_rifle_
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_ranged_rifle_rifle_a280, "object/weapon/ranged/rifle/rifle_a280.iff")
+ObjectTemplates:addTemplate(object_weapon_ranged_rifle_rifle_a280cfe, "object/weapon/ranged/rifle/rifle_a280cfe.iff")

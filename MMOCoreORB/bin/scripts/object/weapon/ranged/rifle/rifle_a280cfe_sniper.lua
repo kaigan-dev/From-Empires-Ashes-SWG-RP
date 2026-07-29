@@ -89,4 +89,4 @@ object_weapon_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_rifle_sha
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_ranged_rifle_rifle_a280cfe_sniper, "object/weapon/ranged/rifle/rifle_a280cfe.iff_sniper")
+ObjectTemplates:addTemplate(object_weapon_ranged_rifle_rifle_a280cfe_sniper, "object/weapon/ranged/rifle/rifle_a280cfe_sniper.iff")
