@@ -75,7 +75,7 @@ public:
 					if(time < creature->getStoredLong("last_rest")) {
 						uint64 timeRemaining = creature->getStoredLong("last_rest") - time;
 						creature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
-						return;
+						return GENERALERROR;
 					}
 
 					String zone = creature->getZone()->getZoneName();
