@@ -55,9 +55,9 @@ public:
 		}
 		else if(index == 1) {
 					uint64 time = Time::currentNanoTime() / 1000000;
-					if(time < creature->getStoredLong("last_rest")) {
-						uint64 timeRemaining = creature->getStoredLong("last_rest") - time;
-						creature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
+					if(time < targetCreature->getStoredLong("last_rest")) {
+						uint64 timeRemaining = targetCreature->getStoredLong("last_rest") - time;
+						targetCreature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
 						return;
 					}
 
