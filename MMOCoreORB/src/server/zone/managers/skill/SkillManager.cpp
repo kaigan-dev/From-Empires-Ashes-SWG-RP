@@ -432,7 +432,9 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 	SkillModManager::instance()->verifySkillBoxSkillMods(creature);
 
 	return true;
+	}
 }
+
 
 void SkillManager::removeSkillRelatedMissions(CreatureObject* creature, Skill* skill) {
 	if(skill->getSkillName().hashCode() == STRING_HASHCODE("combat_bountyhunter_investigation_03")) {
