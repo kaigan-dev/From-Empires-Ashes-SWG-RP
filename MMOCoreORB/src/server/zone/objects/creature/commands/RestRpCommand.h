@@ -70,9 +70,25 @@ public:
 
 				}
 				else if(command == "long") {
-					BorCharacter::FillAllPools(targetCreature);
-					//BorCharacter::HandleDarksideFading(targetCreature);
-					targetCreature->setStoredInt("hero_point_used", 0);
+					String zone = creature->getZone()->getZoneName();
+
+					bool isBuildingAdmin = false;
+					bool isBuildingAllowed = false;
+					ManagedReference<SceneObject*> rootParent = creature->getRootParent();
+					if(rootParent != nullptr && rootParent->isBuildingObject()) {
+	            		BuildingObject* building = cast<BuildingObject*>( rootParent.get());
+						isBuildingAdmin = building->isOnAdminList(creature);
+						isBuildingAllowed = building->isOnEntryList(creature);
+					}
+
+					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed) {
+						BorCharacter::FillAllPools(targetCreature);
+						//BorCharacter::HandleDarksideFading(targetCreature);
+						targetCreature->setStoredInt("hero_point_used", 0);
+					}
+					else {
+						creature->sendSystemMessage("You can only perform a long rest in a city or a building that you have been granted access to.");
+					}
 				}
  
 				targetCreature->setStoredInt("power_attack_count", 0);
