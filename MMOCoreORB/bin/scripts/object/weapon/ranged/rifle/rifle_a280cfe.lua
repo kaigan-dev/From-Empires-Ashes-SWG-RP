@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_weapon_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_shared_rifle_a280cfe:new {
+--[[object_weapon_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_shared_rifle_a280cfe:new {
 	
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
@@ -133,3 +133,4 @@ object_weapon_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_shared_rif
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_rifle_rifle_a280cfe, "object/weapon/ranged/rifle/rifle_a280cfe.iff")
+]]
