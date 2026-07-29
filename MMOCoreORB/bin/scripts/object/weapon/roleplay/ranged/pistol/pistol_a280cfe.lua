@@ -21,6 +21,8 @@ object_weapon_roleplay_ranged_pistol_pistol_a280cfe = object_weapon_ranged_pisto
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
+	noPowerAttack = true,
+
 	idealRange = 32,
 	idealAccuracy = 10,
 
