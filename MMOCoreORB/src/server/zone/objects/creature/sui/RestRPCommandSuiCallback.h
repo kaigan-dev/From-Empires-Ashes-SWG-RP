@@ -80,7 +80,7 @@ public:
 				isInCity = true;
 			}
 			
-			if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity) {
+			if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || adminLevelCheck > 0) {
 				BorCharacter::FillAllPools(targetCreature);
 				//BorCharacter::HandleDarksideFading(targetCreature);
 				targetCreature->setStoredInt("hero_point_used", 0);
