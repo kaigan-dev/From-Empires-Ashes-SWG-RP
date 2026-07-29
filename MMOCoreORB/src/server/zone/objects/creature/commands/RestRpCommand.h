@@ -71,8 +71,10 @@ public:
 
 				}
 				else if(command == "long") {
+					ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+					int adminLevelCheck = ghost->getAdminLevel();
 					uint64 time = Time::currentNanoTime() / 1000000;
-					if(time < creature->getStoredLong("last_rest")) {
+					if(time < creature->getStoredLong("last_rest") && adminLevelCheck == 0) {
 						uint64 timeRemaining = creature->getStoredLong("last_rest") - time;
 						creature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
 						return GENERALERROR;
