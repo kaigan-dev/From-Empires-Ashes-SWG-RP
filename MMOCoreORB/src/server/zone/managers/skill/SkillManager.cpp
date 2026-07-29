@@ -364,8 +364,8 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 		//if (skill->getSkillName().contains("force_sensitive") && skill->getSkillName().contains("_04"))
 			//JediManager::instance()->onFSTreeCompleted(creature, skill->getSkillName());
 
-		if(!dmOverride) {
-			if(skill->getSkillName().contains("rp_lightsaber") || skill->getSkillName().contains("rp_sense") || skill->getSkillName().contains("rp_lightning")
+		//if(!dmOverride) {
+		if(skill->getSkillName().contains("rp_lightsaber") || skill->getSkillName().contains("rp_sense") || skill->getSkillName().contains("rp_lightning")
 			|| skill->getSkillName().contains("rp_telekinesis") || skill->getSkillName().contains("rp_control") || skill->getSkillName().contains("rp_alter")
 			|| skill->getSkillName().contains("rp_inward")) {
 			//Prompt Force Immersion Update Check
@@ -377,7 +377,7 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 						creature->sendSystemMessage("Debug: Granting prog 4");
 						awardSkill("rp_force_prog_rank_04", creature, notifyClient, false, false);
 					}
-				}else if(creature->hasSkill("rp_force_prog_rank_02")) {
+				else if(creature->hasSkill("rp_force_prog_rank_02")) {
 					if(fsCount >= 15) {
 						creature->sendSystemMessage("Debug: Granting prog 3");
 						awardSkill("rp_force_prog_rank_03", creature, notifyClient, false, false);
@@ -393,7 +393,8 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 
 		MissionManager* missionManager = creature->getZoneServer()->getMissionManager();
 
-		
+	
+	/*
 		if (skill->getSkillName() == "force_title_jedi_rank_02") {
 			if (missionManager != nullptr)
 				missionManager->addPlayerToBountyList(creature->getObjectID(), ghost->calculateBhReward());
@@ -413,6 +414,7 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 			}
 		}
 	}
+	*/
 
 	
 
