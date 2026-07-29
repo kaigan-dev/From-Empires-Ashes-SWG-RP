@@ -431,8 +431,8 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 
 	SkillModManager::instance()->verifySkillBoxSkillMods(creature);
 
-	return true;
 	}
+	return true;
 }
 
 
