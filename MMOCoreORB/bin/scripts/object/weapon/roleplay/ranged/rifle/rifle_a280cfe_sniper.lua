@@ -4,36 +4,37 @@
 object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_rifle_shared_rifle_a280cfe_sniper:new {
 
 	--[Info]
-	customName = "A280 Blaster Sniper Rifle",
+	customName = "A280CFE (Sniper mode)",
 
 	--[Stats]
 	attackType = RANGEDATTACK,
 
-	damageType = ENERGY,
+	damageType = KINETIC,
 
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 9,
+	maxDamage = 6, --Type of Die used in Damage
+	bonusDamage = 4,
+	
+	noPowerAttack = true,
 
-	pointBlankRange = 100,
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
-	idealRange = 256,
+	idealRange = 120,
 	idealAccuracy = 10,
 
-	maxRange = 260,
+	maxRange = 256,
 	maxRangeAccuracy = 99,
-
-	rarity="Epic",
-	itemValue = 600,
-	maxAmmo = 5,
-	ammoType = "ammo_energy", 
-	noDodgeReaction = true,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Common",
+	itemValue = 150,
+	maxAmmo = 1,
+	ammoType = "ammo_tusken", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
@@ -61,4 +62,4 @@ object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_
 	experimentalCombineType = { 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper, "object/weapon/roleplay/ranged/rifle/rifle_a280cfe_sniper.iff")
+ObjectTemplates:addTemplate(object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper, "object/weapon/roleplay/ranged/rifle/a280cfe_sniper.iff")

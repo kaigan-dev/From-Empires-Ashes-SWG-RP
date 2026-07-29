@@ -40,7 +40,6 @@
 --gives permission to release a modified version without this exception; 
 --this exception also makes it possible to release a modified version 
 
-
 object_weapon_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_rifle_shared_rifle_a280cfe_sniper:new {
 	
 	playerRaces = { "object/creature/player/bothan_male.iff",
@@ -133,4 +132,3 @@ object_weapon_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_rifle_sha
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_rifle_rifle_a280cfe_sniper, "object/weapon/ranged/rifle/rifle_a280cfe_sniper.iff")
-
