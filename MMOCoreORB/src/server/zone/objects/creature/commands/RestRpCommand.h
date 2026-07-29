@@ -71,6 +71,13 @@ public:
 
 				}
 				else if(command == "long") {
+					uint64 time = Time::currentNanoTime() / 1000000;
+					if(time < creature->getStoredLong("last_rest")) {
+						uint64 timeRemaining = creature->getStoredLong("last_rest") - time;
+						creature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
+						return;
+					}
+
 					String zone = creature->getZone()->getZoneName();
 
 					bool isBuildingAdmin = false;
@@ -97,6 +104,7 @@ public:
 						BorCharacter::FillAllPools(targetCreature);
 						//BorCharacter::HandleDarksideFading(targetCreature);
 						targetCreature->setStoredInt("hero_point_used", 0);
+						creature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
 					}
 					else {
 						creature->sendSystemMessage("You can only perform a long rest in a city or a building that you have been granted access to.");
