@@ -54,44 +54,41 @@ public:
 			BorCharacter::PerformShortRest(targetCreature);
 		}
 		else if(index == 1) {
-					uint64 time = Time::currentNanoTime() / 1000000;
-					if(time < targetCreature->getStoredLong("last_rest")) {
-						uint64 timeRemaining = targetCreature->getStoredLong("last_rest") - time;
-						targetCreature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
-						return;
-					}
+			ManagedReference<PlayerObject*> ghost = targetCreature->getPlayerObject();
+			int adminLevelCheck = ghost->getAdminLevel();
+			uint64 time = Time::currentNanoTime() / 1000000;
+			if(time < targetCreature->getStoredLong("last_rest") && adminLevelCheck == 0) {
+				uint64 timeRemaining = targetCreature->getStoredLong("last_rest") - time;
+				targetCreature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
+				return;
+				}
 
-					String zone = targetCreature->getZone()->getZoneName();
+			String zone = targetCreature->getZone()->getZoneName();
 
-					bool isBuildingAdmin = false;
-					bool isBuildingAllowed = false;
-					ManagedReference<SceneObject*> rootParent = targetCreature->getRootParent();
-					if(rootParent != nullptr && rootParent->isBuildingObject()) {
-	            		BuildingObject* building = cast<BuildingObject*>( rootParent.get());
-						isBuildingAdmin = building->isOnAdminList(targetCreature);
-						isBuildingAllowed = building->isOnEntryList(targetCreature);
-					}
+			bool isBuildingAdmin = false;
+			bool isBuildingAllowed = false;
+			ManagedReference<SceneObject*> rootParent = targetCreature->getRootParent();
+			if(rootParent != nullptr && rootParent->isBuildingObject()) {
+	        	BuildingObject* building = cast<BuildingObject*>( rootParent.get());
+				isBuildingAdmin = building->isOnAdminList(targetCreature);
+				isBuildingAllowed = building->isOnEntryList(targetCreature);
+				}
 
-					bool isInCity = false;
-					ManagedReference<CityRegion*> cr = targetCreature->asSceneObject()->getCityRegion().get();
-					if(cr != nullptr) {
-						isInCity = true;
-					}
-					
-					/*
-					if(creature->isInsideRadius()) {
-					}
-					*/
-
-					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity) {
-						BorCharacter::FillAllPools(targetCreature);
-						//BorCharacter::HandleDarksideFading(targetCreature);
-						targetCreature->setStoredInt("hero_point_used", 0);
-						targetCreature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
-					}
-					else {
-						targetCreature->sendSystemMessage("You can only perform a long rest in a city or a building that you have been granted access to.");
-					}
+			bool isInCity = false;
+			ManagedReference<CityRegion*> cr = targetCreature->asSceneObject()->getCityRegion().get();
+			if(cr != nullptr) {
+				isInCity = true;
+			}
+			
+			if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity) {
+				BorCharacter::FillAllPools(targetCreature);
+				//BorCharacter::HandleDarksideFading(targetCreature);
+				targetCreature->setStoredInt("hero_point_used", 0);
+				targetCreature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
+			}
+			else {
+				targetCreature->sendSystemMessage("You can only perform a long rest in a city or a building that you have been granted access to.");
+			}
 		}
 		else if(index == 2) {
 			BorCharacter::PerformMeditateRest(targetCreature);
