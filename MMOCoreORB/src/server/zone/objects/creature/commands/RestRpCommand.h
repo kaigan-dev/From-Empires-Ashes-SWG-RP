@@ -83,7 +83,7 @@ public:
 					}
 
 					bool isInCity = false;
-					ManagedReference<CityRegion*> cr = creature->asSceneObject()->getCityRegion().get()
+					ManagedReference<CityRegion*> cr = creature->asSceneObject()->getCityRegion().get();
 					if(cr != nullptr) {
 						isInCity = true;
 					}
