@@ -32,7 +32,7 @@ object_weapon_roleplay_ranged_carbine_carbine_a280cfe = object_weapon_ranged_car
 
 	itemValue = 10000,
 
-	maxAmmo = 10,
+	maxAmmo = 8,
 	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
