@@ -1218,3 +1218,10 @@ object_weapon_ranged_carbine_shared_carbine_dh17 = SharedWeaponObjectTemplate:ne
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_dh17, "object/weapon/ranged/carbine/shared_carbine_dh17.iff")
 --********************************************************************************************************************************************
+object_weapon_ranged_rifle_shared_rifle_a280cfe_sniper = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_a280cfe_sniper.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_a280cfe_sniper, "object/weapon/ranged/rifle/shared_rifle_a280cfe_sniper.iff")
+--********************************************************************************************************************************************
