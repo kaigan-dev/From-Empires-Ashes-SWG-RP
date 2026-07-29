@@ -28,8 +28,8 @@ object_weapon_roleplay_ranged_pistol_pistol_a280cfe = object_weapon_ranged_pisto
 	maxRangeAccuracy = 99,
 	
 	rarity = "Epic",
-	itemValue = 20000,
-	maxAmmo = 6,
+	itemValue = 10000,
+	maxAmmo = 10,
 	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]

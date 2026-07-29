@@ -30,7 +30,7 @@ object_weapon_roleplay_ranged_carbine_carbine_a280cfe = object_weapon_ranged_car
 
 	rarity = "Epic",
 
-	itemValue = 3000,
+	itemValue = 10000,
 
 	maxAmmo = 10,
 	ammoType = "ammo_energy", 
