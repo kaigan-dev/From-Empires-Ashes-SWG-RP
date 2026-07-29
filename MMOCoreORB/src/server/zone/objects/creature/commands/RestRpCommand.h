@@ -7,7 +7,8 @@
 
 #include "server/zone/borrie/BorCharacter.h"
 #include "server/zone/objects/creature/sui/RestRPCommandSuiCallback.h"
-#include "server/zone/objects/region/CityRegionImplementation.cpp"
+#include "server/zone/objects/region/CityRegionImplementation.h"
+#include "server/zone/objects/region/CityRegion.h"
 
 class RestRpCommand : public QueueCommand {
 	
