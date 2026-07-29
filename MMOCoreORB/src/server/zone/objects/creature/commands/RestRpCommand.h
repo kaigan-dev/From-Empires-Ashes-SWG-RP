@@ -7,6 +7,7 @@
 
 #include "server/zone/borrie/BorCharacter.h"
 #include "server/zone/objects/creature/sui/RestRPCommandSuiCallback.h"
+#include "server/zone/objects/region/CityRegionImplementation.cpp"
 
 class RestRpCommand : public QueueCommand {
 	
@@ -81,7 +82,18 @@ public:
 						isBuildingAllowed = building->isOnEntryList(creature);
 					}
 
-					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed) {
+					bool isInCity = false;
+					ManagedReference<CityRegion*> cr = creature.asSceneObject().getCityRegion().get()
+					if(cr != nullptr) {
+						isInCity = true;
+					}
+					
+					/*
+					if(creature->isInsideRadius()) {
+					}
+					*/
+
+					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity) {
 						BorCharacter::FillAllPools(targetCreature);
 						//BorCharacter::HandleDarksideFading(targetCreature);
 						targetCreature->setStoredInt("hero_point_used", 0);
