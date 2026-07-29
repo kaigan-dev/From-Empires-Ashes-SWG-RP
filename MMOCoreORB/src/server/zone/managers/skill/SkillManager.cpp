@@ -370,20 +370,15 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 			|| skill->getSkillName().contains("rp_inward")) {
 			//Prompt Force Immersion Update Check
 			int fsCount = getForceSkillCount(creature);
-			creature->sendSystemMessage("Debug: We are granting a Force skill. Current force skill count is " + std::to_string(fsCount));
 			if(creature->hasSkill("rp_force_prog_rank_01")) {
-				creature->sendSystemMessage("Debug: the target has force prog 1 (awakened)");
 				if(fsCount >= 25) {
-						creature->sendSystemMessage("Debug: Granting prog 4");
 						awardSkill("rp_force_prog_rank_04", creature, notifyClient, false, false);
 					}
 				else if(creature->hasSkill("rp_force_prog_rank_02")) {
 					if(fsCount >= 15) {
-						creature->sendSystemMessage("Debug: Granting prog 3");
 						awardSkill("rp_force_prog_rank_03", creature, notifyClient, false, false);
 					}
 				} else if(creature->hasSkill("rp_force_prog_rank_01")) {
-					creature->sendSystemMessage("Debug: Granting prog 2");
 					awardSkill("rp_force_prog_rank_02", creature, notifyClient, false, false);
 				}  
 			}
