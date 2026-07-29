@@ -54,9 +54,36 @@ public:
 			BorCharacter::PerformShortRest(targetCreature);
 		}
 		else if(index == 1) {
-			BorCharacter::FillAllPools(targetCreature);
-		//	BorCharacter::HandleDarksideFading(targetCreature);
-			targetCreature->setStoredInt("hero_point_used", 0);
+					String zone = targetCreature->getZone()->getZoneName();
+
+					bool isBuildingAdmin = false;
+					bool isBuildingAllowed = false;
+					ManagedReference<SceneObject*> rootParent = targetCreature->getRootParent();
+					if(rootParent != nullptr && rootParent->isBuildingObject()) {
+	            		BuildingObject* building = cast<BuildingObject*>( rootParent.get());
+						isBuildingAdmin = building->isOnAdminList(targetCreature);
+						isBuildingAllowed = building->isOnEntryList(targetCreature);
+					}
+
+					bool isInCity = false;
+					ManagedReference<CityRegion*> cr = targetCreature->asSceneObject()->getCityRegion().get();
+					if(cr != nullptr) {
+						isInCity = true;
+					}
+					
+					/*
+					if(creature->isInsideRadius()) {
+					}
+					*/
+
+					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity) {
+						BorCharacter::FillAllPools(targetCreature);
+						//BorCharacter::HandleDarksideFading(targetCreature);
+						targetCreature->setStoredInt("hero_point_used", 0);
+					}
+					else {
+						targetCreature->sendSystemMessage("You can only perform a long rest in a city or a building that you have been granted access to.");
+					}
 		}
 		else if(index == 2) {
 			BorCharacter::PerformMeditateRest(targetCreature);
