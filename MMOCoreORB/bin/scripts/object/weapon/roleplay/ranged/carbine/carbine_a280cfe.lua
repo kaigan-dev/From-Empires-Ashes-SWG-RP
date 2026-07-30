@@ -27,6 +27,7 @@ object_weapon_roleplay_ranged_carbine_carbine_a280cfe = object_weapon_ranged_car
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	noPowerAttack = true,
 
 	rarity = "Epic",
 

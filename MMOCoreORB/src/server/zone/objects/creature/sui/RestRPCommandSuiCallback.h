@@ -79,15 +79,21 @@ public:
 			if(cr != nullptr) {
 				isInCity = true;
 			}
+
+			bool isInCamp = false;
+			ManagedReference<CampSiteActiveArea*> campArea = creature->getCurrentCamp();
+			if(campArea != nullptr) {
+				isInCamp = true;
+			}
 			
-			if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || adminLevelCheck > 0) {
+			if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || isInCamp || adminLevelCheck > 0) {
 				BorCharacter::FillAllPools(targetCreature);
 				//BorCharacter::HandleDarksideFading(targetCreature);
 				targetCreature->setStoredInt("hero_point_used", 0);
 				targetCreature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
 			}
 			else {
-				targetCreature->sendSystemMessage("You can only perform a long rest in a city or a building that you have been granted access to.");
+				targetCreature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
 			}
 		}
 		else if(index == 2) {
