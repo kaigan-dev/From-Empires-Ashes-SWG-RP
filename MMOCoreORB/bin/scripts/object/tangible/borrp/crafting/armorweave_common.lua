@@ -1,4 +1,4 @@
-object_tangible_borrp_crafting_armorweave_common = object_tangible_borrp_crafting_shared_actuating_module:new {
+object_tangible_borrp_crafting_armorweave_common = object_tangible_borrp_crafting_shared_armorweave:new {
 
 }
 ObjectTemplates:addTemplate(object_tangible_borrp_crafting_armorweave_common, "object/tangible/borrp/crafting/armorweave_common.iff")
