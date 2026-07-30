@@ -153,7 +153,8 @@ public:
 								for (int j = containerSize - 1; j >= 0; --j) {
 									ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
 
-									if (unknownItem->getObjectTemplate()->getObjectName() == "Disruptor Ammunition") {
+									//if (unknownItem->getObjectTemplate()->getObjectName() == "Disruptor Ammunition") {
+									if (unknownItem->getObjectName() == "Disruptor Ammunition") {
                 						ManagedReference<TangibleObject*> ammo = unknownItem->asTangibleObject();
                 						if (ammo != nullptr) {
 											BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " reloaded their disrupter.");
