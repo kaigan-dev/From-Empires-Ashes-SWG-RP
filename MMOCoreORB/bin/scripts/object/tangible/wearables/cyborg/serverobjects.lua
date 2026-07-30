@@ -46,7 +46,7 @@
 
 -- Server Objects
 
---[[  These crash the server when loaded and upon character deletion. Do not use them without significant testing.
+--  These crash the server when loaded and upon character deletion. Do not use them without significant testing.
 includeFile("tangible/wearables/cyborg/arm_l_s01.lua")
 includeFile("tangible/wearables/cyborg/arm_r_s01.lua")
 includeFile("tangible/wearables/cyborg/forearm_l_s01.lua")

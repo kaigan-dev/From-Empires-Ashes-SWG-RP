@@ -41,7 +41,7 @@
 --which carries forward this exception.
 
 
---[[ These crash the server when loaded and upon character deletion. Do not use them without significant testing.
+-- These crash the server when loaded and upon character deletion. Do not use them without significant testing.
 
 object_tangible_wearables_cyborg_shared_arm_l_s01 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/cyborg/shared_arm_l_s01.iff"
