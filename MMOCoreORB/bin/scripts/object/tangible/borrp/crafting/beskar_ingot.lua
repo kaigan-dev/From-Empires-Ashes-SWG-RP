@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_beskar_ingot = object_tangible_borrp_crafting_shared_beskar_ingot:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_Beskar_ingot, "object/tangible/borrp/crafting/beskar_ingot.iff")
