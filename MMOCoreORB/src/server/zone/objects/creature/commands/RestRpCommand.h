@@ -97,12 +97,17 @@ public:
 						isInCity = true;
 					}
 					
+					bool isInCamp = false;
+					ManagedReference<CampSiteActiveArea*> campArea = creature->getCurrentCamp();
+					if(campArea != nullptr) {
+						isInCamp = true;
+					}
 					/*
 					if(creature->isInsideRadius()) {
 					}
 					*/
 
-					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || adminLevelCheck > 0) {
+					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || isInCamp || adminLevelCheck > 0) {
 						BorCharacter::FillAllPools(targetCreature);
 						//BorCharacter::HandleDarksideFading(targetCreature);
 						targetCreature->setStoredInt("hero_point_used", 0);
