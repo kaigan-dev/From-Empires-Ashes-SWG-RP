@@ -145,6 +145,37 @@ public:
 							return SUCCESS;
 						}
 
+						if(ammoType == "ammo_disruptor") {
+							ManagedReference<SceneObject*> inv = creature->getSlottedObject("inventory");
+							if(inv != nullptr) {
+								int containerSize = inv->getContainerObjectsSize();
+								bool foundAmmo = false;
+								for (int j = containerSize - 1; j >= 0; --j) {
+									ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
+
+									if (unknownItem->getObjectTemplate()->getObjectName() == "Disruptor Ammunition") {
+                						ManagedReference<TangibleObject*> ammo = unknownItem->asTangibleObject();
+                						if (ammo != nullptr) {
+											BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " reloaded their disrupter.");
+							        		ammo->destroyObjectFromWorld(true);
+											ammo->destroyObjectFromDatabase(true);
+											creature->getWeapon()->setStoredInt("ammo_used", 0);
+											foundAmmo = true;
+											return;
+										}
+										else {
+											creature->sendSystemMessage("Found a disruptor ammo item which is of the wrong item type.");
+										}
+									}
+								}
+							}
+							else {
+								creature->sendSystemMessage("Could not retrieve your inventory.");
+							}
+							creature->sendSystemMessage("Could not find any disruptor ammunition in your inventory.");
+							return;
+						}
+
 						if(creature->getWeapon()->getItemValue() >= 500) {   //Reloading an Uncommon weapon costs  40
 							creditCost += 10;
 						}
