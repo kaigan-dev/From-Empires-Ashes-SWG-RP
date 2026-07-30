@@ -161,7 +161,7 @@ public:
 											ammo->destroyObjectFromDatabase(true);
 											creature->getWeapon()->setStoredInt("ammo_used", 0);
 											foundAmmo = true;
-											return;
+											return SUCCESS;
 										}
 										else {
 											creature->sendSystemMessage("Found a disruptor ammo item which is of the wrong item type.");
@@ -173,7 +173,7 @@ public:
 								creature->sendSystemMessage("Could not retrieve your inventory.");
 							}
 							creature->sendSystemMessage("Could not find any disruptor ammunition in your inventory.");
-							return;
+							return GENERALERROR;
 						}
 
 						if(creature->getWeapon()->getItemValue() >= 500) {   //Reloading an Uncommon weapon costs  40
