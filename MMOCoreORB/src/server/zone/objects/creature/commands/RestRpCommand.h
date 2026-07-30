@@ -102,10 +102,6 @@ public:
 					if(campArea != nullptr) {
 						isInCamp = true;
 					}
-					/*
-					if(creature->isInsideRadius()) {
-					}
-					*/
 
 					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || isInCamp || adminLevelCheck > 0) {
 						BorCharacter::FillAllPools(targetCreature);
@@ -114,7 +110,7 @@ public:
 						creature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
 					}
 					else {
-						creature->sendSystemMessage("You can only perform a long rest in a city or a building that you have been granted access to.");
+						creature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
 					}
 				}
  
