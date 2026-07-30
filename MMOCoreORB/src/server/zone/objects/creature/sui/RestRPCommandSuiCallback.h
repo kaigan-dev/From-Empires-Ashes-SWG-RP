@@ -81,7 +81,7 @@ public:
 			}
 
 			bool isInCamp = false;
-			ManagedReference<CampSiteActiveArea*> campArea = creature->getCurrentCamp();
+			ManagedReference<CampSiteActiveArea*> campArea = targetCreature->getCurrentCamp();
 			if(campArea != nullptr) {
 				isInCamp = true;
 			}
