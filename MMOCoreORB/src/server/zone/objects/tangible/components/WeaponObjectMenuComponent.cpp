@@ -125,7 +125,15 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		bool doNotRepair = false;
 
 		int diceRoll = BorDice::Roll(1, 20); 
-		int mechanicsSkill = player->getSkillMod("rp_mechanics");
+
+		if(weapon->isRangedWeapon() || weapon->isJediWeapon()) {
+			int mechanicsSkill = player->getSkillMod("rp_mechanics");
+		}
+		else {
+			int mechanicsSkill = player->getSkillMod("rp_armorer");
+		}
+
+
 		int rollResult = diceRoll + mechanicsSkill;
 
 		if(!repairAmt) {
