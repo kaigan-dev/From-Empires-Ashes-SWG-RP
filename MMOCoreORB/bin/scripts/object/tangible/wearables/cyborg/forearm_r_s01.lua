@@ -44,7 +44,36 @@
 
 --These crash the server when loaded and upon character deletion. Do not use them without significant testing.
 object_tangible_wearables_cyborg_forearm_r_s01 = object_tangible_wearables_cyborg_shared_forearm_r_s01:new {
+		templateType = ARMOROBJECT,
+
+
+	objectMenuComponent  = "ArmorObjectMenuComponent",
+
+
+	healthEncumbrance = 0,
+	armorEncumbrance = 0,
+	mindEncumbrance = 0,
+
+
+	maxCondition = 150,
+
+
+	rating = NONE,
+	rpskill = 0,
+
+
+	kinetic = 2,
+	energy = 2,
+	electricity = 2,
+	stun = 2,
+	blast = 2,
+	heat = 2,
+	cold = 2,
+	acid = 2,
+	lightsaber = -1,
+	lightSaber = -1,
 	
+	rarity = "Uncommon",
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_cyborg_forearm_r_s01, "object/tangible/wearables/cyborg/forearm_r_s01.iff")
