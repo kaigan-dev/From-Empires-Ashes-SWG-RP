@@ -34,6 +34,7 @@ public:
 		try {
 
 			ManagedReference<CreatureObject*> player = nullptr;
+			ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 			StringTokenizer args(arguments.toString());
 			String firstName;
@@ -43,34 +44,109 @@ public:
 			}
 
 			if (player == nullptr) {
-				creature->sendSystemMessage("Comm command syntax is:  /comm firstName message");
+				creature->sendSystemMessage("The Name is not a valid player character or no name was detected. Comm command syntax is:  /comm firstName message");
+				return GENERALERROR;
+			}
+
+			if (player->getZone() == nullptr) {
+				creature->sendSystemMessage("This player is not online.");
 				return GENERALERROR;
 			}
 
 			Locker clocker(player, creature);
 
 			String messageString;
-			args.getStringToken(messageString);
 
 			if(args.hasMoreTokens()) {
-				args.getStringToken(messageString);
+				messageString = arguments.toString().subString(1 + firstName.length(), arguments.toString().length());
 			}
 			else {
-				creature->sendSystemMessage("Comm command syntax is:  /comm firstName message");
+				creature->sendSystemMessage("No message passed. Comm command syntax is:  /comm firstName message");
 				return GENERALERROR;
 			}
 
-			messageString = "<C>" + messageString;
-			player->sendSystemMessage(messageString);
+			//BorNPC::SpeakThroughNPC(creature, creature->asSceneObject(), false, messageString, 0);
+			creature->getZoneServer()->getChatManager()->broadcastChatMessage(creature, "<C> " + messageString, 0, 1, creature->getMoodID(), 0U, ghost->getLanguageID());
 
-			//if (BorrieRPG::GetChatTypeID(command) != -1) {
-					//String speech = arguments.toString().subString(1 + command.length(), arguments.toString().length());
-			
-			BorNPC::SpeakThroughNPC(creature, creature->asSceneObject(), false, messageString, 0);
-			//	} else {
-			//		creature->sendSystemMessage("Invalid speech type.");
-//				}
+			bool knowsLanguage = false;
+
+			if(ghost->getLanguageID() == 9 || ghost->getLanguageID() == 18) {
+				creature->sendSystemMessage("You cannot speak in comms using a non-verbal language.");
 			}
+
+			if(ghost->getLanguageID() == 1) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 2 && player->getSkillMod("language_rodian_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 3 && player->getSkillMod("language_trandoshan_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 4 && player->getSkillMod("language_moncalamari_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 5 && player->getSkillMod("language_wookiee_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 6 && player->getSkillMod("language_bothan_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 7 && player->getSkillMod("language_twilek_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 8 && player->getSkillMod("language_zabrak_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 10 && player->getSkillMod("language_ithorian_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 11 && player->getSkillMod("language_sullustan_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 12 && player->getSkillMod("language_mistryl_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 13 && player->getSkillMod("language_huttese_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 14 && player->getSkillMod("language_esselean_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 15 && player->getSkillMod("language_miralukese_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 15 && player->getSkillMod("language_miralukese_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 16 && player->getSkillMod("language_sephi_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 17 && player->getSkillMod("language_ewok_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 19 && player->getSkillMod("language_astromech_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 20 && player->getSkillMod("language_jawatrade_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+			else if(ghost->getLanguageID() == 21 && player->getSkillMod("language_mandoa_comprehend") > 0) {
+				knowsLanguage = true;
+			}
+
+
+			if(!knowsLanguage) {
+				messageString = "[" + creature->getFirstName() + "] <C> Speaks in a language you do not understand";
+				player->sendSystemMessage(messageString);
+			}
+			else {
+				messageString = "[" + creature->getFirstName() + "] <C> " + messageString;
+				player->sendSystemMessage(messageString);
+			}
+
+
+		}
 
 		catch (Exception& e) {
 			creature->sendSystemMessage("Invalid arguments for /comm command.");
@@ -82,111 +158,3 @@ public:
 };
 
 #endif //COMMCOMMAND_H_
-
-
-
-
-
-/* Reference material
-class HpCommand : public QueueCommand {
-
-public:
-	HpCommand(const String& name, ZoneProcessServer* server) : QueueCommand(name, server) {
-
-	}
-
-	int doQueueCommand(CreatureObject* creature, const uint64& target, const UnicodeString& arguments) const {
-
-		if (!creature->isPlayerCreature())
-			return GENERALERROR;
-
-		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
-
-		if (ghost == nullptr)
-			return GENERALERROR;
-
-		int adminLevelCheck = ghost->getAdminLevel();
-
-		StringTokenizer args(arguments.toString());
-
-		ManagedReference<SceneObject*> object;
-		if (target != 0) {
-			object = server->getZoneServer()->getObject(target, false);
-		}
-
-		ManagedReference<CreatureObject*> targetCreature;
-
-		if (adminLevelCheck > 0) {
-			if (object != nullptr) {
-				if (object->isCreatureObject()) {
-					targetCreature = object->asCreatureObject();
-				} else {
-					targetCreature = creature;
-				}
-			} else {
-				targetCreature = creature;
-			}			
-		} else {
-			targetCreature = creature;
-		}
-
-		try {
-			String command, subCommand;
-			if (args.hasMoreTokens()) {
-				args.getStringToken(command);
-				// Direct Edit
-				if (args.hasMoreTokens()) {
-					args.getStringToken(subCommand);
-					if (BorCharacter::GetStringIsPool(command)) {
-						if (subCommand == "fill" || subCommand == "max") {
-							BorCharacter::FillPool(targetCreature, command);
-						} else {
-							BorCharacter::ModPool(targetCreature, command, Integer::valueOf(subCommand));
-						}
-					} else {
-						creature->sendSystemMessage("Invalid arguments for HP command. Requires value to edit pool with.");
-					}
-				} else {
-					if (command == "max" || command == "fill" || command == "rest" || command == "reset") {
-						BorCharacter::FillAllPools(targetCreature);
-					} else {
-						creature->sendSystemMessage("Invalid arguments for HP command. Requires you to specify a pool you wish to modify, and the value to modify it by, or 'fill' to max out all values.");
-					}
-					
-				}
-
-			} else {
-				// Open Menu, tell them who is the target. If I am at all privledged, make the target your target. Otherwise, target is yourself.
-				ManagedReference<SuiListBox*> box = new SuiListBox(creature, SuiWindowType::JUKEBOX_SELECTION);
-				box->setCallback(new HpCommandSuiCallback(creature->getZoneServer(), target, 0, 0, adminLevelCheck));
-				if (adminLevelCheck > 0)
-					box->setPromptTitle("HP Pool Menu, Target: " + targetCreature->getFirstName());
-				else {
-					box->setPromptTitle("HP Pool Menu");
-				}
-				box->setPromptText("Modify your pools with the HP command. Which action would you like to perform?");
-				box->setCancelButton(true, "@cancel");
-				box->addMenuItem("Modify a single pool");
-				box->addMenuItem("Max out and fill a single pool");
-				box->addMenuItem("Max out all pools");
-				creature->getPlayerObject()->addSuiBox(box);
-				creature->sendMessage(box->generateMessage());
-			}
-
-			
-
-		} catch (Exception& e) {
-			creature->sendSystemMessage("Invalid arguments for HP command.");
-		}
-
-		
-
-
-
-		return SUCCESS;
-	}
-
-};
-
-#endif 
-*/

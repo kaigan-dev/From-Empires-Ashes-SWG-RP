@@ -1205,12 +1205,7 @@ object_weapon_ranged_heavy_shared_ep3_loot_void = SharedWeaponObjectTemplate:new
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_heavy_shared_ep3_loot_void, "object/weapon/ranged/heavy/shared_ep3_loot_void.iff")
 --****************************************************************************************************************************************************************************
-object_weapon_ranged_rifle_shared_rifle_a280cfe = SharedWeaponObjectTemplate:new {
-	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_a280cfe.iff"
 
-}
-
-ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_a280cfe, "object/weapon/ranged/rifle/shared_rifle_a280cfe.iff")
 --****************************************************************************************************************************************************************************
 object_weapon_ranged_carbine_shared_carbine_dh17 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_dh17.iff"

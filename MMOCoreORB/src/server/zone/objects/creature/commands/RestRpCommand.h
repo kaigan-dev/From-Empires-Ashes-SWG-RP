@@ -7,6 +7,7 @@
 
 #include "server/zone/borrie/BorCharacter.h"
 #include "server/zone/objects/creature/sui/RestRPCommandSuiCallback.h"
+#include "server/zone/objects/region/CityRegion.h"
 
 class RestRpCommand : public QueueCommand {
 	
@@ -70,9 +71,47 @@ public:
 
 				}
 				else if(command == "long") {
-					BorCharacter::FillAllPools(targetCreature);
-					//BorCharacter::HandleDarksideFading(targetCreature);
-					targetCreature->setStoredInt("hero_point_used", 0);
+					ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+					int adminLevelCheck = ghost->getAdminLevel();
+					uint64 time = Time::currentNanoTime() / 1000000;
+					if(time < creature->getStoredLong("last_rest") && adminLevelCheck == 0) {
+						uint64 timeRemaining = creature->getStoredLong("last_rest") - time;
+						creature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
+						return GENERALERROR;
+					}
+
+					String zone = creature->getZone()->getZoneName();
+
+					bool isBuildingAdmin = false;
+					bool isBuildingAllowed = false;
+					ManagedReference<SceneObject*> rootParent = creature->getRootParent();
+					if(rootParent != nullptr && rootParent->isBuildingObject()) {
+	            		BuildingObject* building = cast<BuildingObject*>( rootParent.get());
+						isBuildingAdmin = building->isOnAdminList(creature);
+						isBuildingAllowed = building->isOnEntryList(creature);
+					}
+
+					bool isInCity = false;
+					ManagedReference<CityRegion*> cr = creature->asSceneObject()->getCityRegion().get();
+					if(cr != nullptr) {
+						isInCity = true;
+					}
+					
+					bool isInCamp = false;
+					ManagedReference<CampSiteActiveArea*> campArea = creature->getCurrentCamp();
+					if(campArea != nullptr) {
+						isInCamp = true;
+					}
+
+					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || isInCamp || adminLevelCheck > 0) {
+						BorCharacter::FillAllPools(targetCreature);
+						//BorCharacter::HandleDarksideFading(targetCreature);
+						targetCreature->setStoredInt("hero_point_used", 0);
+						creature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
+					}
+					else {
+						creature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
+					}
 				}
  
 				targetCreature->setStoredInt("power_attack_count", 0);

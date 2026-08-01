@@ -41,33 +41,41 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_draft_schematic_bio_engineer_creature_creature_bantha_saddle_armored = object_draft_schematic_bio_engineer_creature_shared_creature_bantha_saddle_armored:new {
 
---Children folder includes
-includeFile("weapon/ranged/pistol/base/serverobjects.lua")
+   templateType = DRAFTSCHEMATIC,
+   factoryCrateSize = 0,	
 
--- Server Objects
-includeFile("weapon/ranged/pistol/pistol_cdef.lua")
-includeFile("weapon/ranged/pistol/pistol_cdef_corsec.lua")
-includeFile("weapon/ranged/pistol/pistol_cdef_noob.lua")
-includeFile("weapon/ranged/pistol/pistol_d18.lua")
-includeFile("weapon/ranged/pistol/pistol_de_10.lua")
-includeFile("weapon/ranged/pistol/pistol_dh17.lua")
-includeFile("weapon/ranged/pistol/pistol_dl44.lua")
-includeFile("weapon/ranged/pistol/pistol_dl44_metal.lua")
-includeFile("weapon/ranged/pistol/pistol_dx2.lua")
-includeFile("weapon/ranged/pistol/pistol_fwg5.lua")
-includeFile("weapon/ranged/pistol/pistol_fwg5_quest.lua")
-includeFile("weapon/ranged/pistol/pistol_geonosian_sonic_blaster_loot.lua")
-includeFile("weapon/ranged/pistol/pistol_launcher.lua")
-includeFile("weapon/ranged/pistol/pistol_power5.lua")
-includeFile("weapon/ranged/pistol/pistol_republic_blaster.lua")
-includeFile("weapon/ranged/pistol/pistol_republic_blaster_quest.lua")
-includeFile("weapon/ranged/pistol/pistol_scatter.lua")
-includeFile("weapon/ranged/pistol/pistol_scout_blaster.lua")
---includeFile("weapon/ranged/pistol/pistol_scout_blaster_ammo_test_2.lua")
-includeFile("weapon/ranged/pistol/pistol_scout_blaster_corsec.lua")
-includeFile("weapon/ranged/pistol/pistol_srcombat.lua")
-includeFile("weapon/ranged/pistol/pistol_striker.lua")
-includeFile("weapon/ranged/pistol/pistol_striker_noob.lua")
-includeFile("weapon/ranged/pistol/pistol_tangle.lua")
-includeFile("weapon/ranged/pistol/pistol_a280cfe.lua")
+   customObjectName = "Armored Bantha",
+
+   craftingToolTab = 256, -- (See DraftSchematicObjectTemplate.h)
+   complexity = 22, 
+   size = 1, 
+   factoryCrateType = "object/factory/factory_crate_clothing.iff",
+
+   xpType = "crafting_bio_engineer_creature", 
+   xp = 250, 
+
+   assemblySkill = "bio_engineer_assembly", 
+   experimentingSkill = "bio_engineer_experimentation", 
+   customizationSkill = "bio_engineer_experimentation", 
+
+   customizationOptions = {},
+   customizationStringNames = {},
+   customizationDefaults = {},
+
+   ingredientTemplateNames = {"craft_creature_ingredients_n", "craft_creature_ingredients_n", "craft_creature_ingredients_n"},
+   ingredientTitleNames = {"dna_template", "protein_base", "organic_nutrition_materials"},
+   ingredientSlotType = {1, 0, 0},
+   resourceTypes = {"object/tangible/component/dna/shared_dna_template_generic.iff", "creature_food", "flora_food"},
+   resourceQuantities = {1, 55, 75},
+   contribution = {100, 100, 100},
+
+
+   targetTemplate = "object/tangible/tcg/series3/mount_deed_armored_bantha.iff", --find actual path
+
+   additionalTemplates = {
+             }
+
+}
+ObjectTemplates:addTemplate(object_draft_schematic_bio_engineer_creature_creature_bantha_saddle_armored, "object/draft_schematic/bio_engineer/creature/bantha_saddle_armored.iff")

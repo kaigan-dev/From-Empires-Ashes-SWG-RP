@@ -25,22 +25,8 @@ rancor_be = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	template = {"object/mobile/rancor_hue.iff"},
-
-	--[[skillTemplates = {
-			"creatures/large"
-	},
-	
-	
-	equipmentTemplates = {
-
-		{"rancor_hue", {"creature_large"}},
-	}, ]]--
-
-	customizationTemplates = {
-	},
+	templates = {"object/mobile/rancor_hue.iff"},
 	lootGroups = {},
-	scale = 1,
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

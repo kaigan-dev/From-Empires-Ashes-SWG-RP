@@ -15,8 +15,8 @@ object_weapon_roleplay_ranged_rifle_ld1_target_blaster_rifle = object_weapon_ran
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 9,
+	maxDamage = 8, --Type of Die used in Damage
+	bonusDamage = 10,
 
 	noDodgeReaction = true,
 

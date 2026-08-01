@@ -1494,13 +1494,10 @@ object_weapon_ranged_pistol_shared_pistol_tangle = SharedWeaponObjectTemplate:ne
 	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/base/shared_tangible_craftable.iff", "object/weapon/base/shared_base_weapon.iff", "object/weapon/ranged/base/shared_base_ranged_weapon.iff", "object/weapon/ranged/pistol/base/shared_pistol_base.iff"}
 ]]
 }
-
---[[
-ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_tangle, "object/weapon/ranged/pistol/shared_pistol_tangle.iff")
---**********************************************************************************************************************************************
 object_weapon_ranged_pistol_shared_pistol_a280cfe = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_a280cfe.iff"
 }
+
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_a280cfe, "object/weapon/ranged/pistol/shared_pistol_a280cfe.iff")
---**********************************************************************************************************************************************
---]]
+--**********************************************************************************************************************************************************
+

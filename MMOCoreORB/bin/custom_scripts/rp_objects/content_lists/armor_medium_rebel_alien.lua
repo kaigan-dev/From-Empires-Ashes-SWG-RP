@@ -37,7 +37,7 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_bracer_l.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_bracer_r.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_chestplate.iff", },
-	{"object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_chest_plate.iff", },
+	--{"object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_chest_plate.iff", }, --This covers the arms. Use the other chestplate instead.
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_hunting/armor_kashyyykian_hunting_leggings.iff", },	
 
 
