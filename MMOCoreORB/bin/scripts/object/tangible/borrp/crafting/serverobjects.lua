@@ -1,2 +1,11 @@
 
-includeFile("tangible/borrp/crafting/weapon/module/serverobjects.lua")
+includeFile("tangible/borrp/crafting/actuating_module.lua")
+includeFile("tangible/borrp/crafting/armorweave_common.lua")
+includeFile("tangible/borrp/crafting/armorweave_uncommon.lua")
+includeFile("tangible/borrp/crafting/armorweave_rare.lua")
+includeFile("tangible/borrp/crafting/armorweave_epic.lua")
+includeFile("tangible/borrp/crafting/armorweave_legendary.lua")
+includeFile("tangible/borrp/crafting/beskar_ingot.lua")
+includeFile("tangible/borrp/crafting/cryocoil.lua")
+includeFile("tangible/borrp/crafting/crystal.lua")
+includeFile("tangible/borrp/crafting/duraplas_common.lua")

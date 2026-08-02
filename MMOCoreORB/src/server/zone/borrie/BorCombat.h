@@ -52,7 +52,7 @@ public:
                 }
 
                 //commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
-                if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_tusken" ||ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
+                if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_tusken" ||ammoType == "ammo_disruptor") {   //If we are using a weapon that has ammo.
                     
                     if(ammoUsed + ammoToUse <= maxAmmo) {
                         attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + ammoToUse);
