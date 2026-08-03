@@ -101,7 +101,7 @@ function TatooineAnchorheadScreenPlay:spawnCivilians()
 		{14.1, 0.2, -3.5, -130, 610013821,{"none"}},
 
 		--Boarding House
-		{4.2, 0.4, -9.2, 24, 610017524,{"drinker"}},
+		{-4.2, 0.4, -9.2, 24, 610017524,{"drinker"}},
 		{1.7, 1.0, 4.9, 98, 610017525,{"tech"}},
 		{-6.2, -4.0, -5.1, -119, 610017528,{"drinker"}},
 
@@ -159,11 +159,11 @@ function TatooineAnchorheadScreenPlay:spawnMobiles()
     --Darklighter Estate
  	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1431.2, 0, -2622.1, 43, 0, "rp_human_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Security Guard")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1441.6, 0, -2612.8, 40, 0, "rp_human_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1441.6, 0, -2612.8, 40, 0, "rp_human_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Security Guard")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1517.3, 2, -2697.5, 42, 0, "rp_zabrak_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1517.3, 2, -2697.5, 42, 0, "rp_zabrak_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Security Guard")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1545.0, 0, -2746.9, -135, 0, "rp_human_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1545.0, 0, -2746.9, -135, 0, "rp_human_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Security Guard")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1549.4, 0, -2743.0, -136, 0, "rp_rodian_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Security Guard")
