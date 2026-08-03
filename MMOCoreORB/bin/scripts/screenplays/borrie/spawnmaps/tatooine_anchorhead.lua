@@ -92,7 +92,7 @@ function TatooineAnchorheadScreenPlay:spawnCivilians()
 		--Town Hall
 		{-18.8, 0.2, 2.1, 22, 610013819,{"sitchair"}},
 		{-20.6, 0.2, 8.6, -92, 610013819,{"sitchair"}},
-		{21.3, 0.2, -2.5, 81, 610013819,{"sitchair"}},
+		{-21.3, 0.2, -2.5, 81, 610013819,{"sitchair"}},
 		{-16.6, 0.2, 1.7, 162, 610013819,{"none"}},
 		{-14.5, 0.2, 7.2, 177, 610013819,{"sitchair"}},
 		{21.9, 0.2, 2.3, 93, 610013821,{"sitchair"}},
@@ -101,9 +101,9 @@ function TatooineAnchorheadScreenPlay:spawnCivilians()
 		{14.1, 0.2, -3.5, -130, 610013821,{"none"}},
 
 		--Boarding House
-		{4.2, 0.4, 9.2, 24, 610017524,{"drinker"}},
+		{4.2, 0.4, -9.2, 24, 610017524,{"drinker"}},
 		{1.7, 1.0, 4.9, 98, 610017525,{"tech"}},
-		{-6.2, -4.0, -5.1, -119, 610017584,{"drinker"}},
+		{-6.2, -4.0, -5.1, -119, 610017528,{"drinker"}},
 
 	}
 
@@ -117,7 +117,7 @@ end
 
 function TatooineAnchorheadScreenPlay:spawnMobiles()
 	--Species, Equipment, Skills, Customization
-	
+
 	local pNpc
  	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -748.4, 0, -1858.7, 11, 0, "rp_human_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
