@@ -172,3 +172,8 @@ object_weapon_roleplay_ranged_pistol_pistol_a280cfe = SharedWeaponObjectTemplate
 	clientTemplateFileName = "object/weapon/roleplay/ranged/pistol/pistol_a280cfe.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_pistol_pistol_a280cfe, "object/weapon/roleplay/ranged/pistol/pistol_a280cfe.iff")
+--********************************************************************************************************************
+object_weapon_roleplay_ranged_pistol_westar35_pistol = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/ranged/pistol/westar35_pistol.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_pistol_westar35_pistol, "object/weapon/roleplay/ranged/pistol/westar35_pistol.iff")
