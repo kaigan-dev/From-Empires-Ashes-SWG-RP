@@ -120,8 +120,8 @@ public:
 						}
 					}
 				} else if (BorDice::GetCommandIsDie(command)) {
-					if (args.hasMoreTokens()) {
-						args.getStringToken(secondCommand);
+					if (secondCommand != "") {
+						//args.getStringToken(secondCommand);
 						Result = BorDice::RollRPDie(targetCreature, command, Integer::valueOf(secondCommand));
 					} else
 						Result = BorDice::RollRPDie(targetCreature, command);
