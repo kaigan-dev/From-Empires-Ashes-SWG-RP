@@ -83,7 +83,8 @@ private:
 						targetPlayer, amount));
 
 		confirmbox->setPromptTitle("@base_player:tip_wire_title"); // Confirm Bank Transfer
-		confirmbox->setPromptText("@base_player:tip_wire_prompt"); // A surcharge of 5% will be added to your requested bank-to-bank transfer amount. Would you like to continue?
+		//confirmbox->setPromptText("@base_player:tip_wire_prompt"); // A surcharge of 5% will be added to your requested bank-to-bank transfer amount. Would you like to continue?
+		confirmbox->setPromptText("Are you sure that you want to send " + std::to_string(amount) + " to " + targetPlayer->getCreatureName() + "?");
 		confirmbox->setCancelButton(true, "@no");
 		confirmbox->setOkButton(true, "@yes");
 
