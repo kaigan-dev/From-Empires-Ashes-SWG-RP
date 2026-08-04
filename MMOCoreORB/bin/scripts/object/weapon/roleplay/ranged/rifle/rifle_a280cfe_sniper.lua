@@ -9,7 +9,7 @@ object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_
 	--[Stats]
 	attackType = RANGEDATTACK,
 
-	damageType = KINETIC,
+	damageType = ENERGY,
 
 	armorPiercing = NONE,
 
