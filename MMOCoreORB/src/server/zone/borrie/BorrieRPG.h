@@ -101,7 +101,6 @@ public:
 
         //Move Items to new Object
         if(weapon->isJediWeapon()) {
-			int condition = weapon->getConditionDamage();
             ManagedReference<SceneObject*> saberInv = weapon->getSlottedObject("saber_inv");
             ManagedReference<SceneObject*> newSaberInv = object->getSlottedObject("saber_inv");
 
