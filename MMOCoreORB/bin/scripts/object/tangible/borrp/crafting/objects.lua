@@ -3,7 +3,7 @@ object_tangible_borrp_crafting_shared_actuating_module = SharedTangibleObjectTem
 }
 ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_actuating_module, "object/tangible/borrp/crafting/shared_actuating_module.iff")
 --********************************************************************************************************************************
-object_tangible_borrp_crafting_shared_armorweave_common = SharedTangibleObjectTemplate:new {
+object_tangible_borrp_crafting_shared_armorweave = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/borrp/crafting/shared_armorweave_common.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_armorweave_common, "object/tangible/borrp/crafting/shared_armorweave_common.iff")
