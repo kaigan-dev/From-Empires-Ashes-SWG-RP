@@ -1500,4 +1500,10 @@ object_weapon_ranged_pistol_shared_pistol_a280cfe = SharedWeaponObjectTemplate:n
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_a280cfe, "object/weapon/ranged/pistol/shared_pistol_a280cfe.iff")
 --**********************************************************************************************************************************************************
+object_weapon_ranged_pistol_shared_pistol_westar35 = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_westar35.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_westar35, "object/weapon/ranged/pistol/shared_pistol_westar35.iff")
+--**********************************************************************************************************************************************************
 
