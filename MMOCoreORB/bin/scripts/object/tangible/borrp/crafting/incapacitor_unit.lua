@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_incapacitor_unit = object_tangible_borrp_crafting_shared_incapicator_unit:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_incapacitor_unit, "object/tangible/borrp/crafting/incapacitor_unit.iff")

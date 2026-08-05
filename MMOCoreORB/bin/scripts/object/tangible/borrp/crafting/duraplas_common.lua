@@ -1,5 +1,6 @@
 object_tangible_borrp_crafting_duraplas_common = object_tangible_borrp_crafting_shared_duraplas:new {
-
      customname = "Armorweave (Common)", 
+
+   rarity = "Common",
 }
 ObjectTemplates:addTemplate(object_tangible_borrp_crafting_duraplas_common, "object/tangible/borrp/crafting/duraplas_common.iff")

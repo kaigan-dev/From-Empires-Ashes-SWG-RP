@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_gas_converter = object_tangible_borrp_crafting_shared_gas_converter:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_gas_converter, "object/tangible/borrp/crafting/gas_convertor.iff")

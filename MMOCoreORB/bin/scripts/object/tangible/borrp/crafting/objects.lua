@@ -28,3 +28,63 @@ object_tangible_borrp_crafting_shared_duraplas = SharedTangibleObjectTemplate:ne
 }
 ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_duraplas, "object/tangible/borrp/crafting/shared_duraplas.iff")
 --********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_durasteel = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_durasteel.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_durasteel, "object/tangible/borrp/crafting/shared_durasteel.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_extended_barrel = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_extended_barrel.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_extended_barrel, "object/tangible/borrp/crafting/shared_extended_barrel.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_gas_cartridge = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_gas_cartridge.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_gas_cartridge, "object/tangible/borrp/crafting/shared_gas_cartridge.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_gas_convertor = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_gas_converter.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_gas_convertor, "object/tangible/borrp/crafting/shared_gas_convertor.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_incapicator_unit = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_incapicator_unit..iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_incapicator_unit, "object/tangible/borrp/crafting/shared_incapicator_unit..iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_ion_module = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_ion_module.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_ion_module, "object/tangible/borrp/crafting/shared_ion_module.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_kevlex = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_kevlex.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_kevlex, "object/tangible/borrp/crafting/shared_kevlex.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_leatherhide = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_leatherhide.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_leatherhide, "object/tangible/borrp/crafting/shared_leatherhide.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_munitions_chamber = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_munitions_chamber.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_munitions_chamber, "object/tangible/borrp/crafting/shared_munitions_chamber.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_obsidian = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_obsidian.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_obsidian, "object/tangible/borrp/crafting/shared_obsidian.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_phrik = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_phrik.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_phrik, "object/tangible/borrp/crafting/shared_phrik.iff")
+--********************************************************************************************************************************
+object_tangible_borrp_crafting_shared_plastoid = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/crafting/shared_plastoid.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_plastoid, "object/tangible/borrp/crafting/shared_plastoid.iff")
+--********************************************************************************************************************************

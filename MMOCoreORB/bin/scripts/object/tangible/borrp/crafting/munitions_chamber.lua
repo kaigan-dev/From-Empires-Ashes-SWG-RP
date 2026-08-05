@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_munitions_chamber = object_tangible_borrp_crafting_shared_munitions_chamber:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_munitions_chamber, "object/tangible/borrp/crafting/gas_convertor.iff")

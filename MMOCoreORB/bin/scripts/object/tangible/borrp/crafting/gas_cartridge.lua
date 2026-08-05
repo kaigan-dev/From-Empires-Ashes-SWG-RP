@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_gas_cartridge = object_tangible_borrp_crafting_shared_gas_cartridge:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_gas_cartridge, "object/tangible/borrp/crafting/gas_cartridge.iff")

@@ -1,4 +1,5 @@
 object_tangible_borrp_crafting_armorweave_epic = object_tangible_borrp_crafting_shared_armorweave:new {
+     customname = "Armorweave (Common)", 
 
      rarity = "Epic", 
 }
