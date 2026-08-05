@@ -44,7 +44,7 @@ public:
 			}
 
 			if (player == nullptr) {
-				creature->sendSystemMessage("The Name is not a valid player character or no name was detected. Comm command syntax is:  /comm firstName message");
+				creature->sendSystemMessage("The Name is not a valid player character or no name was detected. Alternatively, this can also happen if the charcter is nearby, in which case it can be worked around by duplicating their name in the command, eg. '/comm name name message'");
 				return GENERALERROR;
 			}
 
