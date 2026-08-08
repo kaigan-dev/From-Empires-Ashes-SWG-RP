@@ -36,6 +36,7 @@ public:
 			adminLevelCheck = 15;
 		}
 
+		creature->sendSystemMessage("Debug: Starting original target != 0 check and getObject.");
 		ManagedReference<SceneObject*> object;
 		if (target != 0) {
 			object = server->getZoneServer()->getObject(target, false);
@@ -46,6 +47,7 @@ public:
 
 		ManagedReference<CreatureObject*> targetCreature;
 
+		creature->sendSystemMessage("Debug: Starting isCreatureObject check.");
 		if (object->isCreatureObject()) {
 			targetCreature = object->asCreatureObject();
 		} else {
@@ -57,6 +59,8 @@ public:
 
 		String command;
 
+
+		creature->sendSystemMessage("Debug: Starting command parsing.");
 		if (args.hasMoreTokens()) {
 			args.getStringToken(command);
 			bool noLos = false;
@@ -77,6 +81,7 @@ public:
 				BorCombat::AttackTarget(creature, targetCreature, creature, -1, false, noLos, 2);
 			}
 		} else {
+			creature->sendSystemMessage("Debug: Starting actual attack somehow.");
 			BorCombat::AttackTarget(creature, targetCreature, creature, -1, false);
 		}
 
