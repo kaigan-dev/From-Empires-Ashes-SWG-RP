@@ -44,6 +44,9 @@ public:
 			return SUCCESS;
 		}
 
+		if (object == nullptr)
+			return GENERALERROR;
+
 		ManagedReference<CreatureObject*> targetCreature;
 
 		if (object->isCreatureObject()) {
@@ -77,6 +80,7 @@ public:
 				BorCombat::AttackTarget(creature, targetCreature, creature, -1, false, noLos, 2);
 			}
 		} else {
+			creature->sendSystemMessage("Debug: Starting actual attack somehow.");
 			BorCombat::AttackTarget(creature, targetCreature, creature, -1, false);
 		}
 

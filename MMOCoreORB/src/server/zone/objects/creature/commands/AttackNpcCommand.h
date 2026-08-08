@@ -56,6 +56,9 @@ public:
 			return SUCCESS;
 		}
 
+		if (object == nullptr)
+			return GENERALERROR;
+
 		ManagedReference<SceneObject*> storedObject;
 		if (storedTarget != 0) {
 			storedObject = server->getZoneServer()->getObject(storedTarget, false);
