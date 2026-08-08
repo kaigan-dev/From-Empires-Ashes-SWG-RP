@@ -50,7 +50,6 @@ public:
 
 		creature->sendSystemMessage("Debug: Starting isCreatureObject check.");
 		if (object->isCreatureObject()) {
-			return SUCCESS;
 			targetCreature = object->asCreatureObject();
 		} else {
 			creature->sendSystemMessage("You need a target to attack!");
