@@ -39,6 +39,7 @@ public:
 		creature->sendSystemMessage("Debug: Starting original target != 0 check and getObject.");
 		ManagedReference<SceneObject*> object;
 		if (target != 0) {
+			return SUCCESS;
 			object = server->getZoneServer()->getObject(target, false);
 		} else {
 			creature->sendSystemMessage("You need a target to attack!");
@@ -49,6 +50,7 @@ public:
 
 		creature->sendSystemMessage("Debug: Starting isCreatureObject check.");
 		if (object->isCreatureObject()) {
+			return SUCCESS;
 			targetCreature = object->asCreatureObject();
 		} else {
 			creature->sendSystemMessage("You need a target to attack!");
@@ -59,8 +61,8 @@ public:
 
 		String command;
 
-
 		creature->sendSystemMessage("Debug: Starting command parsing.");
+		return SUCCESS;
 		if (args.hasMoreTokens()) {
 			args.getStringToken(command);
 			bool noLos = false;
