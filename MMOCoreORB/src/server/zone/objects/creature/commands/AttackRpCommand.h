@@ -45,11 +45,13 @@ public:
 			return SUCCESS;
 		}
 
+		if (object == nullptr)
+			return GENERALERROR;
+
 		ManagedReference<CreatureObject*> targetCreature;
 
 		creature->sendSystemMessage("Debug: Starting isCreatureObject check.");
-		if (object->isCreatureObject()) {
-			return SUCCESS;
+		if (object->isCreatureObject()) {   //We are definitely crashing here.
 			targetCreature = object->asCreatureObject();
 		} else {
 			creature->sendSystemMessage("You need a target to attack!");
