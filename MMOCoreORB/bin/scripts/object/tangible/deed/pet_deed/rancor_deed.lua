@@ -55,7 +55,7 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	experimentalCombineType = {0, 0},
 	generatedObjectTemplate = "mobile/pet/rancor_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/rancor_hue.iff",
-	mobileTemplate = "rancor_be",	
+	mobileTemplate = "rancor_be",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_deed, "object/tangible/deed/pet_deed/rancor_deed.iff")
