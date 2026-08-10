@@ -7,7 +7,7 @@ npc_template = {
 	},
 
 	skillTemplates = {
-			"creatures/small"
+			"creatures/medium"
 	},
 	
 	
