@@ -81,7 +81,7 @@ public:
 		if (targetCreature->isDroidObject() || targetCreature->isVehicleObject() || targetCreature->isDead() || targetCreature->isRidingMount() || targetCreature->isAttackableBy(creature))
 			targetCreature = creature;
 
-		if(!checkDistance(creature, targetCreature, 7)) {
+		if(!checkDistance(creature, targetCreature, 5)) {
 			creature->sendSystemMessage("Your target is too far away to heal.");
 			return TOOFAR;
 		}

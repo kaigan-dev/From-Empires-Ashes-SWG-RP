@@ -2,6 +2,6 @@ object_tangible_borrp_crafting_simple_grip_legendary = object_tangible_borrp_cra
 
     customname = "Armorweave (Common)", 
 
-    rarity = "Common", 
+    rarity = "Legendary", 
 }
 ObjectTemplates:addTemplate(object_tangible_borrp_crafting_simple_grip_legendary, "object/tangible/borrp/crafting/simple_grip_legendary.iff")
