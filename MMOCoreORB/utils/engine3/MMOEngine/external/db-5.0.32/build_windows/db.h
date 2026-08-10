@@ -2096,7 +2096,7 @@ struct __db_qam_stat {
 	u_int32_t qs_cur_recno;		/* Next available record number. */
 };
 
-/*******************************************************
+*****************************************************
  * Environment.
  *******************************************************/
 #define	DB_REGION_MAGIC	0x120897	/* Environment magic number. */
