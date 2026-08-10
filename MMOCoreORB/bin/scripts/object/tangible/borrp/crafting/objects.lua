@@ -43,10 +43,10 @@ object_tangible_borrp_crafting_shared_gas_cartridge = SharedTangibleObjectTempla
 }
 ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_gas_cartridge, "object/tangible/borrp/crafting/shared_gas_cartridge.iff")
 --********************************************************************************************************************************
-object_tangible_borrp_crafting_shared_gas_convertor = SharedTangibleObjectTemplate:new {
+object_tangible_borrp_crafting_shared_gas_converter = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/borrp/crafting/shared_gas_converter.iff"
 }
-ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_gas_convertor, "object/tangible/borrp/crafting/shared_gas_convertor.iff")
+ObjectTemplates:addClientTemplate(object_tangible_borrp_crafting_shared_gas_convertor, "object/tangible/borrp/crafting/shared_gas_converter.iff")
 --********************************************************************************************************************************
 object_tangible_borrp_crafting_shared_incapicator_unit = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/borrp/crafting/shared_incapicator_unit.iff"
