@@ -6,7 +6,7 @@ object_weapon_roleplay_ranged_heavy_flamethrower = object_weapon_ranged_rifle_sh
 	--[Stats]
 	attackType = RANGEDATTACK,
 
-	damageType = ELECTRICITY,
+	damageType = HEAT,
 
 	armorPiercing = NONE,
 
