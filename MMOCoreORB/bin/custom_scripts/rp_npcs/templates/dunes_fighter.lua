@@ -1,7 +1,7 @@
 npc_template = {
 
 	randomName = "human",
-	title = "a Dunes Devil freedom fighter",
+	title = "a Dunes Devil",
 	baseTemplates = {
 		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female","rp_human_male", "rp_human_female",
 		"rp_bothan_male", "rp_bothan_female", 
