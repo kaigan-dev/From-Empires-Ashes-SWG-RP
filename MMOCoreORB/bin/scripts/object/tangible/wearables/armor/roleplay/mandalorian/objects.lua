@@ -61,3 +61,8 @@ object_tangible_wearables_armor_roleplay_mandalorian_shared_armor_mandalorian_he
 }
 ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_roleplay_mandalorian_shared_armor_mandalorian_helmet_lite_s02, "object/tangible/wearables/armor/roleplay/mandalorian/shared_armor_mandalorian_helmet_lite_s02.iff")
 --********************************************************************************************************************************************************************************************************************
+object_tangible_wearables_helmet_shared_armor_plasteel_helmet = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/helmet/shared_armor_plasteel_helmet.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_helmet_shared_armor_plasteel_helmet, "object/tangible/wearables/helmet/shared_armor_plasteel_helmet.iff.iff")
+--********************************************************************************************************************************************************************************************************************
