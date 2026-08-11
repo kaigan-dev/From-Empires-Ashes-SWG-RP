@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_wearables_hat_fedora_s01 = object_tangible_wearables_hat_shared_hat_fedora__s01:new {
+object_tangible_wearables_hat_fedora_s02 = object_tangible_wearables_hat_shared_hat_fedora_s02:new {
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -83,4 +83,4 @@ object_tangible_wearables_hat_fedora_s01 = object_tangible_wearables_hat_shared_
 	experimentalCombineType = {0, 0, 4, 4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_tangible_wearables_hat_hat_fedora_s01, "object/tangible/wearables/hat/hat_fedora_s01.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_hat_hat_fedora_s02, "object/tangible/wearables/hat/hat_fedora_s02.iff")
