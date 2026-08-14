@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Carrion Spat",
+	name = "Carrion Spat",
 	baseTemplates = {
 		"carrion_spat",
 	},

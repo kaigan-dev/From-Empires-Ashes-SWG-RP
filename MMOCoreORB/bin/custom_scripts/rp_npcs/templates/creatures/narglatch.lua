@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Narglatch",
+	name = "Narglatch",
 	baseTemplates = {
 		"narglatch",
 	},

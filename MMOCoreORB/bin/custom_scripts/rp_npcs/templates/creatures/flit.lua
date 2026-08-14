@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Flit",
+	name = "Flit",
 	baseTemplates = {
 		"flit_hue",
 	},

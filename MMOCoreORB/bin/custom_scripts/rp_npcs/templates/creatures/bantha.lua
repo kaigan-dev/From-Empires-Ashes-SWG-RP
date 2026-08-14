@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Bantha",
+	name = "Bantha",
 	baseTemplates = {
 		"bantha_saddle_armored",
 		"bantha",

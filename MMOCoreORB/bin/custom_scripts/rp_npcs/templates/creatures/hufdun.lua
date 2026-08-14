@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Huf-Dun",
+	name = "Huf-Dun",
 	baseTemplates = {
 		"huf_dun_hue",
 

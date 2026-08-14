@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Sand Panther",
+	name = "Sand Panther",
 	baseTemplates = {
 		"corellian_sand_panther",
 	},

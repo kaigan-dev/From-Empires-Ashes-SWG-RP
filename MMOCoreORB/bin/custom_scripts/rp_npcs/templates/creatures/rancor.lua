@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Rancor",
+	name = "Rancor",
 	baseTemplates = {
 		"rancor",
 		"rancor_hue",

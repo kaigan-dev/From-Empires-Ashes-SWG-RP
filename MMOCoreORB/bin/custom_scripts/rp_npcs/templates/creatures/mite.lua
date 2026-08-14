@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Rock Mite",
+	name = "Rock Mite",
 	baseTemplates = {
 		"meatlump_tanc_mite",
 	},

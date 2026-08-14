@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Tauntaun",
+	name = "Tauntaun",
 	baseTemplates = {
 		"tcg_armored_tauntaun",
 	},

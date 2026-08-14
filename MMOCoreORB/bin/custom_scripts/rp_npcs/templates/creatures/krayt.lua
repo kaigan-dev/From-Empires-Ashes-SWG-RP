@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Krayt Dragon",
+	name = "Krayt Dragon",
 	baseTemplates = {
 		"krayt_dragon_hue",
 	},

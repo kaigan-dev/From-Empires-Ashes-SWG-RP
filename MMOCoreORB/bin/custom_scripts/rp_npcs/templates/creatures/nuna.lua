@@ -1,6 +1,6 @@
 npc_template = {
 
-	name = "A Nuna",
+	name = "Nuna",
 	baseTemplates = {
 		"tcg_nuna_pet",
 	},
