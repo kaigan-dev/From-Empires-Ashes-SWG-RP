@@ -89,11 +89,16 @@ public:
 				}
 				*/
 
-				if (mod != 0)
+				if (mod != 0) {
 						//return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
-						return "Roll " + sNumDice + "d" + sDiceValue + " " + String::valueOf(mod) + ": " + DiceRollString + "Result = " + String::valueOf(nResult + mod);
+					if(mod > 0) {
+						return "Roll " + sNumDice + "d" + sDiceValue + " +" + String::valueOf(mod) + ": " + DiceRollString + " +" + String::valueOf(mod) + " Result = " + String::valueOf(nResult + mod);
+					}
 					else
-						return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
+						return "Roll " + sNumDice + "d" + sDiceValue + String::valueOf(mod) + ": " + DiceRollString + " +" + String::valueOf(mod) + " Result = " + String::valueOf(nResult + mod);
+				}
+				else
+					return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
 
 			} else {
 				// Return, we need the full thing.
