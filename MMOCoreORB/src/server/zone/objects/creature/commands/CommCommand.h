@@ -8,7 +8,7 @@
 #include "server/zone/objects/scene/SceneObject.h"
 //#include "server/zone/objects/transaction/TransactionLog.h"
 #include "server/zone/managers/objectcontroller/ObjectController.h"
-
+#include "server/zone/packets/player/PlayMusicMessage.h"
 #include "server/zone/borrie/BorCharacter.h"
 #include "server/zone/borrie/BorrieRPG.h"
 #include "server/zone/borrie/BorNPC.h"
@@ -144,7 +144,8 @@ public:
 				messageString = "[" + creature->getFirstName() + "] <C> " + messageString;
 				player->sendSystemMessage(messageString);
 			}
-
+			
+			player->playMusicMessage("sound/ui_incoming_im.snd");
 
 		}
 
