@@ -71,9 +71,7 @@ public:
 					nTempResult = System::random(diceValue - 1) + 1;
 					DiceRollString += String::valueOf(nTempResult);
 					nResult += nTempResult;
-					if (i == numDice - 1)
-						DiceRollString += " =";
-					else
+					if (i != numDice - 1)
 						DiceRollString += " + ";
 				}
 
@@ -98,7 +96,7 @@ public:
 						return "Roll " + sNumDice + "d" + sDiceValue + String::valueOf(mod) + ": " + DiceRollString + " +" + String::valueOf(mod) + " Result = " + String::valueOf(nResult + mod);
 				}
 				else
-					return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
+					return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result = " + String::valueOf(nResult);
 
 			} else {
 				// Return, we need the full thing.
