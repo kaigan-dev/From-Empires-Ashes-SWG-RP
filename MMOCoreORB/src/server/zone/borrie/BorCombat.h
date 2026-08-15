@@ -1590,26 +1590,28 @@ public:
         int postureModifier = 0;
 
         //Handle attacker stance
-        if(attacker->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
-            postureModifier -= 2;
-        } 
-        else if(attacker->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
-            postureModifier -= 5;
-        }
+        if(!attackerWeapon->isThrownWeapon()) {
+            if(attacker->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+                postureModifier -= 2;
+            } 
+            else if(attacker->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+                postureModifier -= 5;
+            }
 
-        //Handle defender stance
-        if(defender->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
-            postureModifier += 2;
-        } 
-        else if(defender->isKneeling() && !tooClose && attackerWeapon->isMeleeWeapon()) {
-            postureModifier -= 2;
-        } 
-        else if(defender->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
-            postureModifier += 5;
-        } 
-        else if(defender->isProne() && !tooClose && attackerWeapon->isMeleeWeapon()) {
-            postureModifier -= 5;
-        } 
+            //Handle defender stance
+            if(defender->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+                postureModifier += 2;
+            } 
+            else if(defender->isKneeling() && !tooClose && attackerWeapon->isMeleeWeapon()) {
+                postureModifier -= 2;
+            } 
+            else if(defender->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+                postureModifier += 5;
+            } 
+            else if(defender->isProne() && !tooClose && attackerWeapon->isMeleeWeapon()) {
+                postureModifier -= 5;
+            } 
+        }
 
         return distanceModifier + postureModifier;
     }
