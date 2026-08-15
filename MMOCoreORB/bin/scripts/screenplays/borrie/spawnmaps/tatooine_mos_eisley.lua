@@ -1079,6 +1079,10 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	--Telok's basilisk
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1221.9, -2.5, 154, 6, 0, "basilisk_war_droid", "default", "creatures/large", "random")
 	SceneObject(pNpc):setCustomObjectName("Kih'parjai")
+
+	--Seven's Home Defense Turret
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 11.1, 0.6, 10.3, -93, 281474994469410, "jawa", "t21", "unique/home_defense_turret", "default")
+	SceneObject(pNpc):setCustomObjectName("Home Defense Turret")
 	
 
 end
