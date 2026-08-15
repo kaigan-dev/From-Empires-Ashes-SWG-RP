@@ -7,3 +7,4 @@ includeFile("tangible/wearables/armor/roleplay/marauder_a/armor_marauder_s01_che
 includeFile("tangible/wearables/armor/roleplay/marauder_a/armor_marauder_s01_gloves.lua")
 includeFile("tangible/wearables/armor/roleplay/marauder_a/armor_marauder_s01_helmet.lua")
 includeFile("tangible/wearables/armor/roleplay/marauder_a/armor_marauder_s01_leggings.lua")
+includeFile("tangible/wearables/armor/roleplay/marauder_a/armor_privateer_ace_helmet.lua")
