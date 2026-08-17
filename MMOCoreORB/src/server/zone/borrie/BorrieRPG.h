@@ -149,7 +149,16 @@ public:
 
 
 	static void SwitchCFE(CreatureObject* creature, String CFEtype) {
-        
+        WeaponObject* equippedWeapon = creature->getWeapon();
+		if (equippedWeapon != nullptr) {
+			String equippedWeaponName = equippedWeapon->getCustomObjectName().toString();
+			if (equippedWeaponName.contains("A280CFE")) {
+				creature->sendSystemMessage("You must unequip your A280CFE before changing its mode.");
+				return;
+			}
+		}
+
+
 		//Check whether the player has an A280 CFE.
 		ManagedReference<SceneObject*> inv = creature->getSlottedObject("inventory");
 		ManagedReference<TangibleObject*> originalWeapon;
@@ -162,11 +171,11 @@ public:
 				if(unknownItem == nullptr)
 					continue;
 				String foundItemName = unknownItem->getCustomObjectName().toString();
-				creature->sendSystemMessage("Debug: item name is " + foundItemName);
+				//creature->sendSystemMessage("Debug: item name is " + foundItemName);
 				if (foundItemName.contains("A280CFE")) {
     				originalWeapon = unknownItem->asTangibleObject();
     				if (originalWeapon != nullptr) {
-						creature->sendSystemMessage("Debug: Found a CFE weapon to replace");
+						//creature->sendSystemMessage("Debug: Found a CFE weapon to replace");
 						foundCFE = true;
 						break;
 					}
