@@ -14,9 +14,9 @@ object_weapon_roleplay_ranged_pistol_fwg5_flechette_smart_pistol = object_weapon
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 3,
+	minDamage = 3, --Amount of Die used in Damage
+	maxDamage = 3, --Type of Die used in Damage
+	bonusDamage = 1,
 	
 	noPowerAttack = true,
 

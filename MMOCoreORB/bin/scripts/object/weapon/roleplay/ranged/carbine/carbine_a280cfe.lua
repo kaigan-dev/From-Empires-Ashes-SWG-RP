@@ -4,7 +4,7 @@
 object_weapon_roleplay_ranged_carbine_carbine_a280cfe = object_weapon_ranged_carbine_shared_carbine_a280cfe:new {
 
 	--[Info]
-	customName = "A280cfe Carbine",
+	customName = "A280CFE Carbine",
 
 	--[Stats]
 	attackType = RANGEDATTACK,

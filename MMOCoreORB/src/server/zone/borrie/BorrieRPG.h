@@ -98,14 +98,13 @@ public:
         object->setSerialNumber(serialNumber);
         object->setStoredString("dm_creator", weapon->getStoredString("dm_creator"));
 		object->setStoredString("rp_description", weapon->getStoredString("rp_description"));
+		int condition = weapon->getConditionDamage();
+		object->setConditionDamage(condition);
 
         //Move Items to new Object
         if(weapon->isJediWeapon()) {
             ManagedReference<SceneObject*> saberInv = weapon->getSlottedObject("saber_inv");
             ManagedReference<SceneObject*> newSaberInv = object->getSlottedObject("saber_inv");
-
-			int condition = weapon->getConditionDamage();
-			object->setConditionDamage(condition);
 
             if(saberInv != nullptr && newSaberInv != nullptr) {
                 int containerSize = saberInv->getContainerObjectsSize();
@@ -137,14 +136,112 @@ public:
 			creature->sendSystemMessage("Error transferring object to inventory.");
 		}
 
+		//Goodbye existing Weapon
+        weapon->destroyObjectFromWorld(true);
+		weapon->destroyObjectFromDatabase(true);
+
         //Equip the new item, destroy the old one.
         inventory->transferObject(weapon, -1, true);
 		creature->transferObject(object, 4, true);
 
-        //Goodbye existing Weapon
-        weapon->destroyObjectFromWorld(true);
-		weapon->destroyObjectFromDatabase(true);
+        
     }
+
+
+	static void SwitchCFE(CreatureObject* creature, String CFEtype) {
+        
+		//Check whether the player has an A280 CFE.
+		ManagedReference<SceneObject*> inv = creature->getSlottedObject("inventory");
+		ManagedReference<TangibleObject*> originalWeapon;
+
+		if(inv != nullptr) {
+			int containerSize = inv->getContainerObjectsSize();
+			bool foundCFE = false;
+			for (int j = containerSize - 1; j >= 0; --j) {
+				ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
+				if(unknownItem == nullptr)
+					continue;
+				if (unknownItem->getCustomObjectName().contains("A280CFE")) {
+    				originalWeapon = unknownItem->asTangibleObject();
+    				if (originalWeapon != nullptr) {
+						creature->sendSystemMessage("Debug: Found a CFE weapon to replace");
+						foundCFE = true;
+						break;
+					}
+					else {
+					creature->sendSystemMessage("Found an A280 CFE weapon which cannot be cast to tangible. Contact an admin for assistance.");
+					return GENERALERROR;
+					}
+				}
+			}
+			if(!foundCFE) {
+				creature->sendSystemMessage("You do not have an A280 CFE to modify.");
+				return GENERALERROR;
+			}
+		}
+		else {
+			creature->sendSystemMessage("You somehow do not have an inventory.");
+			return GENERALERROR;
+		}
+
+		String CFEpath;
+		//Determine new weapon
+		if(CFEtype == "pistol" || CFEtype == "PISTOL" || CFEtype == "Pistol") {
+			CFEpath = "object/weapon/roleplay/ranged/pistol/pistol_a280cfe.iff";
+		}
+		else if (CFEtype == "carbine" || CFEtype == "CARBINE" || CFEtype == "Carbine") {
+			CFEpath = "object/weapon/roleplay/ranged/carbine/carbine_a280cfe.iff";
+		}
+		else if (CFEtype == "rifle" || CFEtype == "RIFLE" || CFEtype == "Rifle") {
+			CFEpath = "object/weapon/roleplay/ranged/rifle/rifle_a280cfe.iff";
+		}
+		else if (CFEtype == "sniper" || CFEtype == "SNIPER" || CFEtype == "Sniper") {
+			CFEpath = "object/weapon/roleplay/ranged/rifle/sniper_a280cfe.iff";
+		}
+		else {
+			creature->sendSystemMessage("Invalid weapon type specified. You must specify pistol, carbine, rifle, or sniper.");
+			return GENERALERROR;
+		}
+
+
+		Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(CFEpath.hashCode());
+        if (shot == nullptr || !shot->isSharedTangibleObjectTemplate()) {
+			creature->sendSystemMessage("No object template was found at the specified path. Please contact an admin.");
+			return;
+		}
+
+        ManagedReference<TangibleObject*> object = (creature->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+		if (object == nullptr) {
+			creature->sendSystemMessage("Cannot cast template to tangible object. Please contact an admin.");
+			return;
+		}
+
+		
+        Locker olocker(object);
+		object->createChildObjects();
+
+		String craftersName = originalWeapon->getCraftersName();
+        object->setCraftersName(craftersName);
+        String serialNumber = originalWeapon->getSerialNumber();
+        object->setSerialNumber(serialNumber);
+        object->setStoredString("dm_creator", originalWeapon->getStoredString("dm_creator"));
+		object->setStoredString("rp_description", originalWeapon->getStoredString("rp_description"));
+		int condition = weapon->getConditionDamage();
+		object->setConditionDamage(condition);
+
+        //Give this new item to the player.
+        if (inventory->transferObject(object, -1, true)) {
+			inventory->broadcastObject(object, true);
+			//Goodbye existing Weapon
+        	originalWeapon->destroyObjectFromWorld(true);
+			originalWeapon->destroyObjectFromDatabase(true);
+		} else {
+			object->destroyObjectFromDatabase(true);
+			creature->sendSystemMessage("Error transferring object to inventory.");
+		}        
+    }
+
+
 
 	static void AlertTurn(CreatureObject* creature) {
 		UnicodeString message1(" --\\#pcontrast1 [ It's " + creature->getFirstName() + "'s turn! ]\\#. --");

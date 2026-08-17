@@ -4,7 +4,7 @@
 object_weapon_roleplay_ranged_pistol_pistol_a280cfe = object_weapon_ranged_pistol_shared_pistol_a280cfe:new {
 
 	--[Info]
-	customName = "A280cfe Blaster Pistol",
+	customName = "A280CFE Blaster Pistol",
 
 	--[Stats]
 	attackType = RANGEDATTACK,

@@ -111,6 +111,17 @@ public:
 				BorrieRPG::ToggleTargetRolling(creature);
 			} else if(command == "switchgrip") {
 				BorrieRPG::SwitchWeaponType(creature);
+			} else if(command == "switchcfe") {
+				if (args.hasMoreTokens()) {
+					String CFEtarget;
+					//CFEtarget = args.toString().subString(1 + command.length(), arguments.toString().length());
+					args.getStringToken(CFEtarget);
+					BorrieRPG::SwitchCFE(creature, CFEtarget);
+				}
+				else {
+					creature->sendSystemMessage("You must provide the destination weapon type. ie. '/switchcfe pistol'. Valid types include pistol, carbine, rifle, and sniper.");
+					return GENERALERROR;
+				}
 			} else if(command == "faction") {
 				BorCharacter::DisplayFactionValues(creature);
 			} else if(command == "savechar") {
@@ -153,7 +164,6 @@ public:
 								for (int j = containerSize - 1; j >= 0; --j) {
 									ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
 
-									//if (unknownItem->getObjectTemplate()->getObjectName() == "Disruptor Ammunition") {
 									if (unknownItem->getCustomObjectName() == "Disruptor Ammunition") {
                 						ManagedReference<TangibleObject*> ammo = unknownItem->asTangibleObject();
                 						if (ammo != nullptr) {
