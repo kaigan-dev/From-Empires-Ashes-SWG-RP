@@ -112,6 +112,27 @@ function BorForce:addCorruptionPoints(pTarget, value)
 	else 
 		CreatureObject(pTarget):setShockWounds(original + value)
 	end
+
+	--Corruption penalties only apply to Forcies
+	if(pTarget:hasSkill("rp_force_prog_novice")) then
+		if(original + value >= 10) then
+			awardSkill(pTarget, "rp_corruption_01")
+		end
+		if(original + value >= 20) then
+			awardSkill(pTarget, "rp_corruption_02")
+		end
+		if(original + value >= 30) then
+			awardSkill(pTarget, "rp_corruption_03")
+		end
+		if(original + value >= 40) then
+			awardSkill(pTarget, "rp_corruption_04")
+		end
+		if(original + value >= 50) then
+			awardSkill(pTarget, "rp_corruption_04")
+		end
+	end
+
+
 end
 
 function BorForce:gatherCrystal(pPlayer, pObject)
