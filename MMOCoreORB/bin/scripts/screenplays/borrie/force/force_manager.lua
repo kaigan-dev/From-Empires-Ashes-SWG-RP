@@ -646,6 +646,12 @@ function BorForce:dmForceSkillCapCallback(pPlayer, pSui, eventIndex, args)
 	local selection = args + 1
 	
 	local suiManager = LuaSuiManager()
+
+	--If the target is not Force Sensitive, they cannot gain Force Skill Cap
+	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == false) then
+		CreatureObject(pPlayer):sendSystemMessage("This target is not Force Sensitive")
+		return
+	end
 	
 	if(selection == 1) then --Add
 		CreatureObject(pTarget):awardExperience("rp_frc_skill_cap", 1, true)
