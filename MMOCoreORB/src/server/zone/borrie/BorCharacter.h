@@ -1201,21 +1201,23 @@ public:
 			creature->playMusicMessage("sound/music_short_darkside.snd");
 		}		
 
+		SkillManager* skillManager = creature->getZoneServer()->getSkillManager();
+
 		if(creature->hasSkill("rp_force_prog_novice")) {
 			if(totalPoints >= 10) {
-				awardSkill("rp_corruption_01", creature, true, false, false);
+				skillManager->awardSkill("rp_corruption_01", creature, true, false, false);
 				}
 			if(totalPoints >= 20) {
-				awardSkill("rp_corruption_02", creature, true, false, false);
+				skillManager->awardSkill("rp_corruption_02", creature, true, false, false);
 				}
 			if(totalPoints >= 30) {
-				awardSkill("rp_corruption_03", creature, true, false, false);
+				skillManager->awardSkill("rp_corruption_03", creature, true, false, false);
 			}  
 			if(totalPoints >= 40) {
-				awardSkill("rp_corruption_04", creature, true, false, false);
+				skillManager->awardSkill("rp_corruption_04", creature, true, false, false);
 			}  
 			if(totalPoints >= 50) {
-				awardSkill("rp_corruption_05", creature, true, false, false);
+				skillManager->awardSkill("rp_corruption_05", creature, true, false, false);
 			}  
 		}
 	}
