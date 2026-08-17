@@ -164,8 +164,6 @@ public:
 				String foundItemName = unknownItem->getCustomObjectName().toString();
 				creature->sendSystemMessage("Debug: item name is " + foundItemName);
 				if (foundItemName.contains("A280CFE")) {
-				//if (unknownItem->getCustomObjectName().starts_with("A280CFE")) {
-				// || unknownItem->getCustomObjectName() == "A280CFE Carbine" || unknownItem->getCustomObjectName() == "A280CFE Blaster Pistol" || unknownItem->getCustomObjectName() == "A280CFE Rifle" || unknownItem->getCustomObjectName() == "A280CFE Sniper Rifle") {
     				originalWeapon = unknownItem->asTangibleObject();
     				if (originalWeapon != nullptr) {
 						creature->sendSystemMessage("Debug: Found a CFE weapon to replace");
@@ -207,6 +205,13 @@ public:
 			return;
 		}
 
+		uint64 time = Time::currentNanoTime() / 1000000;
+		if(time < originalWeapon->getStoredLong("last_cfe_switch") && adminLevelCheck == 0) {
+			uint64 timeRemaining = originalWeapon->getStoredLong("last_cfe_switch") - time;
+			creature->sendSystemMessage("You can switch your CFE's weapon type again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
+			return;
+		}
+
 
 		Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(CFEpath.hashCode());
         if (shot == nullptr || !shot->isSharedTangibleObjectTemplate()) {
@@ -234,6 +239,8 @@ public:
 		object->setConditionDamage(condition);
 		int ammoUsed = originalWeapon->getStoredInt("ammo_used");
 		object->setStoredInt("ammo_used", ammoUsed);
+		object->setStoredLong("last_cfe_switch", time + 12 * 60 * 60 * 1000); 
+		
 
         //Give this new item to the player.
         if (inv->transferObject(object, -1, true)) {
