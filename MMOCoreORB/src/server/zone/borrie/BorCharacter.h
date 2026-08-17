@@ -1202,19 +1202,19 @@ public:
 		}		
 
 		if(creature->hasSkill("rp_force_prog_novice")) {
-			if(totalPpoints >= 10) {
+			if(totalPoints >= 10) {
 				awardSkill("rp_corruption_01", creature, true, false, false);
 				}
-			if(totalPpoints >= 20) {
+			if(totalPoints >= 20) {
 				awardSkill("rp_corruption_02", creature, true, false, false);
 				}
-			if(totalPpoints >= 30) {
+			if(totalPoints >= 30) {
 				awardSkill("rp_corruption_03", creature, true, false, false);
 			}  
-			if(totalPpoints >= 40) {
+			if(totalPoints >= 40) {
 				awardSkill("rp_corruption_04", creature, true, false, false);
 			}  
-			if(totalPpoints >= 50) {
+			if(totalPoints >= 50) {
 				awardSkill("rp_corruption_05", creature, true, false, false);
 			}  
 		}
