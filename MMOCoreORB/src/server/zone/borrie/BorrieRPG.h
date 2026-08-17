@@ -205,6 +205,13 @@ public:
 			return;
 		}
 
+		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+		if(ghost == nullptr) {
+			creature->sendSystemMessage("For some reason you are not a Player. Contact an admin for assistance.");
+			return;
+		}
+		int adminLevelCheck = ghost->getAdminLevel();
+
 		uint64 time = Time::currentNanoTime() / 1000000;
 		if(time < originalWeapon->getStoredLong("last_cfe_switch") && adminLevelCheck == 0) {
 			uint64 timeRemaining = originalWeapon->getStoredLong("last_cfe_switch") - time;
