@@ -243,7 +243,7 @@ end
 
 function BorForce:promptForceDMMenu(pPlayer) 
 	local suiManager = LuaSuiManager()
-	local options = {{"Make Target Force Aware", 0}, {"Spawn Lightsaber Crystal", 0}, {"Spawn Special Lightsaber Crystal", 0}, {"Spawn Training Device", 0}, {"Spawn Lightsaber Book", 0}, {"Spawn Lightsaber Components", 0}, {"Train Target's Force Skills",0}, {"Teach Target a Force Power",0}}
+	local options = {{"Make Target Force Aware", 0}, {"Spawn Lightsaber Crystal", 0}, {"Spawn Special Lightsaber Crystal", 0}, {"Spawn Training Device", 0}, {"Spawn Lightsaber Book", 0}, {"Spawn Lightsaber Components", 0}, {"Train Target's Force Skills",0}, {"Teach Target a Force Power",0}, {"Add or Remove Force Skill Cap",0}}
 	
 	suiManager:sendListBox(pPlayer, pPlayer, "DM Force Menu", "What would you like to do?", 1, "@cancel", "", "", "BorForce", "dmMenuCallback", 32, options)
 end
@@ -299,6 +299,10 @@ function BorForce:dmMenuCallback(pPlayer, pSui, eventIndex, args)
 		local suiManager = LuaSuiManager()
 		local options = {{"Absorb", 0}, {"Body", 0}, {"Chain Lightning", 0}, {"Crush", 0}, {"Dominate Mind",0}, {"Flash", 0}, {"Focus", 0}, {"Grip", 0}, {"Heal", 0}, {"Heal Other",0}, {"Jump",0}, {"Lightning", 0}, {"Lightsaber Deflect", 0}, {"Manipulate Object", 0}, {"Meditate",0}, {"Mind Trick",0}, {"Persuade",0}, {"Precognition", 0}, {"Project Image", 0}, {"Push/Pull", 0}, {"Rage", 0}, {"Read Mind",0}, {"Shock",0}, {"Sight",0}, {"Speed", 0}, {"Stealth", 0}, {"Storm", 0}, {"Telekinetic Deflect",0}, {"Throw", 0}, {"Twist Mind",0}}
 		suiManager:sendListBox(pPlayer, pPlayer, "Training Force Power", "Which power would you like to train?", 1, "@cancel", "", "", "BorForce", "dmTrainPowerMenuCallback", 32, options)
+	elseif(selection == 9) then --Give or remove Force Skill Cap
+		local suiManager = LuaSuiManager()
+		local options = {{"Increase", 0}, {"Decrease", 0}}
+		suiManager:sendListBox(pPlayer, pPlayer, "Adjust Force Skill Cap", "Increase or Decrease Force Skill Cap?", 1, "@cancel", "", "", "BorForce", "dmForceSkillCapCallback", 32, options)
 	end
 end
 
@@ -611,6 +615,46 @@ function BorForce:dmTrainPowerMenuCallback(pPlayer, pSui, eventIndex, args)
 	end
 end
 
+
+
+
+
+function BorForce:dmForceSkillCapCallback(pPlayer, pSui, eventIndex, args)
+	if (pPlayer == nil) then
+		return
+	end
+	
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+	
+	local cancelPressed = (eventIndex == 1)
+
+	if (cancelPressed) then
+		return
+	end
+
+	local targetID = CreatureObject(pPlayer):getTargetID()
+	local pTarget = getSceneObject(targetID)
+	if (pTarget == nil or not SceneObject(pTarget):isPlayerCreature()) then
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target, must be a valid player.")
+		return
+	end
+	
+	local selection = args + 1
+	
+	local suiManager = LuaSuiManager()
+	
+	if(selection == 1) then --Add
+		CreatureObject(pTarget):getZoneServer():getPlayerManager():awardExperience(creature, "rp_frc_skill_cap", 1, true, false, false);
+		CreatureObject(pPlayer):sendSystemMessage("A point of Force Skill Cap has been granted to the target player.")
+	elseif(selection == 2) then --Remove
+		CreatureObject(pTarget):getZoneServer():getPlayerManager():awardExperience(creature, "rp_frc_skill_cap", -1, true, false, false);
+		CreatureObject(pPlayer):sendSystemMessage("A point of Force Skill Cap has been removed from the target player.")
+	end
+end
 
 
 
