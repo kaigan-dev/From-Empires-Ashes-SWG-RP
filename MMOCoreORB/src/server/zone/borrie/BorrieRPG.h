@@ -161,7 +161,7 @@ public:
 				ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
 				if(unknownItem == nullptr)
 					continue;
-				if (unknownItem->getCustomObjectName().contains("A280CFE")) {
+				if (unknownItem->getCustomObjectName().find("A280CFE")) {
     				originalWeapon = unknownItem->asTangibleObject();
     				if (originalWeapon != nullptr) {
 						creature->sendSystemMessage("Debug: Found a CFE weapon to replace");
@@ -170,18 +170,18 @@ public:
 					}
 					else {
 					creature->sendSystemMessage("Found an A280 CFE weapon which cannot be cast to tangible. Contact an admin for assistance.");
-					return GENERALERROR;
+					return;
 					}
 				}
 			}
 			if(!foundCFE) {
 				creature->sendSystemMessage("You do not have an A280 CFE to modify.");
-				return GENERALERROR;
+				return;
 			}
 		}
 		else {
 			creature->sendSystemMessage("You somehow do not have an inventory.");
-			return GENERALERROR;
+			return;
 		}
 
 		String CFEpath;
@@ -200,7 +200,7 @@ public:
 		}
 		else {
 			creature->sendSystemMessage("Invalid weapon type specified. You must specify pistol, carbine, rifle, or sniper.");
-			return GENERALERROR;
+			return;
 		}
 
 
