@@ -648,10 +648,10 @@ function BorForce:dmForceSkillCapCallback(pPlayer, pSui, eventIndex, args)
 	local suiManager = LuaSuiManager()
 	
 	if(selection == 1) then --Add
-		CreatureObject(pTarget):getZoneServer():getPlayerManager():awardExperience(creature, "rp_frc_skill_cap", 1, true, false, false);
+		CreatureObject(pTarget):awardExperience("rp_frc_skill_cap", 1, true)
 		CreatureObject(pPlayer):sendSystemMessage("A point of Force Skill Cap has been granted to the target player.")
 	elseif(selection == 2) then --Remove
-		CreatureObject(pTarget):getZoneServer():getPlayerManager():awardExperience(creature, "rp_frc_skill_cap", -1, true, false, false);
+		CreatureObject(pTarget):awardExperience("rp_frc_skill_cap", -1, true)
 		CreatureObject(pPlayer):sendSystemMessage("A point of Force Skill Cap has been removed from the target player.")
 	end
 end
