@@ -4,7 +4,7 @@
 object_weapon_roleplay_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_shared_rifle_a280cfe:new {
 
 	--[Info]
-	customName = "A280CFE",
+	customName = "A280CFE Rifle",
 
 	--[Stats]
 	attackType = RANGEDATTACK,

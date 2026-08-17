@@ -161,7 +161,9 @@ public:
 				ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
 				if(unknownItem == nullptr)
 					continue;
-				if (unknownItem->getCustomObjectName().find("A280CFE")) {
+				if (std::toString(unknownItem->getCustomObjectName()).contains("A280CFE")) {
+				//if (unknownItem->getCustomObjectName().starts_with("A280CFE")) {
+				// || unknownItem->getCustomObjectName() == "A280CFE Carbine" || unknownItem->getCustomObjectName() == "A280CFE Blaster Pistol" || unknownItem->getCustomObjectName() == "A280CFE Rifle" || unknownItem->getCustomObjectName() == "A280CFE Sniper Rifle") {
     				originalWeapon = unknownItem->asTangibleObject();
     				if (originalWeapon != nullptr) {
 						creature->sendSystemMessage("Debug: Found a CFE weapon to replace");
@@ -226,12 +228,12 @@ public:
         object->setSerialNumber(serialNumber);
         object->setStoredString("dm_creator", originalWeapon->getStoredString("dm_creator"));
 		object->setStoredString("rp_description", originalWeapon->getStoredString("rp_description"));
-		int condition = weapon->getConditionDamage();
+		int condition = originalWeapon->getConditionDamage();
 		object->setConditionDamage(condition);
 
         //Give this new item to the player.
-        if (inventory->transferObject(object, -1, true)) {
-			inventory->broadcastObject(object, true);
+        if (inv->transferObject(object, -1, true)) {
+			inv->broadcastObject(object, true);
 			//Goodbye existing Weapon
         	originalWeapon->destroyObjectFromWorld(true);
 			originalWeapon->destroyObjectFromDatabase(true);

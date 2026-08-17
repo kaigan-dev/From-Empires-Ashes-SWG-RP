@@ -4,7 +4,7 @@
 object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_rifle_shared_rifle_a280cfe_sniper:new {
 
 	--[Info]
-	customName = "A280CFE (Sniper mode)",
+	customName = "A280CFE Sniper Rifle",
 
 	--[Stats]
 	attackType = RANGEDATTACK,
