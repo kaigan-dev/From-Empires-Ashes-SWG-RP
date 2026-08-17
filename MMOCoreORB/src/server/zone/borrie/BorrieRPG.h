@@ -221,8 +221,8 @@ public:
 		}
 		int adminLevelCheck = ghost->getAdminLevel();
 
+		uint64 time = Time::currentNanoTime() / 1000000;
 		if(originalWeapon->getStoredLong("last_cfe_switch") && originalWeapon->getStoredLong("last_cfe_switch") != 1) {
-			uint64 time = Time::currentNanoTime() / 1000000;
 			if(time < originalWeapon->getStoredLong("last_cfe_switch") && adminLevelCheck == 0) {
 				uint64 timeRemaining = originalWeapon->getStoredLong("last_cfe_switch") - time;
 				creature->sendSystemMessage("You can switch your CFE's weapon type again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
