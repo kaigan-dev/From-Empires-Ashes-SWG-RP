@@ -80,7 +80,6 @@ public:
 				BorCombat::AttackTarget(creature, targetCreature, creature, -1, false, noLos, 2);
 			}
 		} else {
-			creature->sendSystemMessage("Debug: Starting actual attack somehow.");
 			BorCombat::AttackTarget(creature, targetCreature, creature, -1, false);
 		}
 
