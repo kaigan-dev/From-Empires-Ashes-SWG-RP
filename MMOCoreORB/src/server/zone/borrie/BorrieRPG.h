@@ -197,10 +197,10 @@ public:
 			CFEpath = "object/weapon/roleplay/ranged/carbine/carbine_a280cfe.iff";
 		}
 		else if (CFEtype == "rifle" || CFEtype == "RIFLE" || CFEtype == "Rifle") {
-			CFEpath = "object/weapon/roleplay/ranged/rifle/rifle_a280cfe.iff";
+			CFEpath = "object/weapon/roleplay/ranged/rifle/a280cfe.iff";
 		}
 		else if (CFEtype == "sniper" || CFEtype == "SNIPER" || CFEtype == "Sniper") {
-			CFEpath = "object/weapon/roleplay/ranged/rifle/sniper_a280cfe.iff";
+			CFEpath = "object/weapon/roleplay/ranged/rifle/a280cfe_sniper.iff";
 		}
 		else {
 			creature->sendSystemMessage("Invalid weapon type specified. You must specify pistol, carbine, rifle, or sniper.");
@@ -232,6 +232,8 @@ public:
 		object->setStoredString("rp_description", originalWeapon->getStoredString("rp_description"));
 		int condition = originalWeapon->getConditionDamage();
 		object->setConditionDamage(condition);
+		int ammoUsed = originalWeapon->getStoredInt("ammo_used");
+		object->setStoredInt("ammo_used", ammoUsed);
 
         //Give this new item to the player.
         if (inv->transferObject(object, -1, true)) {
