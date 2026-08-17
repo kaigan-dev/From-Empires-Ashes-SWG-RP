@@ -113,22 +113,25 @@ function BorForce:addCorruptionPoints(pTarget, value)
 		CreatureObject(pTarget):setShockWounds(original + value)
 	end
 
+	local pGhost = CreatureObject(pTarget):getPlayerObject()
 	--Corruption penalties only apply to Forcies
-	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice")) then
+	
+	
+	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == true) then
 		if(original + value >= 10) then
-			awardSkill(PlayerObject(pTarget), "rp_corruption_01")
+			awardSkill(pGhost, "rp_corruption_01")
 		end
 		if(original + value >= 20) then
-			awardSkill(PlayerObject(pTarget), "rp_corruption_02")
+			awardSkill(pGhost, "rp_corruption_02")
 		end
 		if(original + value >= 30) then
-			awardSkill(PlayerObject(pTarget), "rp_corruption_03")
+			awardSkill(pGhost, "rp_corruption_03")
 		end
 		if(original + value >= 40) then
-			awardSkill(PlayerObject(pTarget), "rp_corruption_04")
+			awardSkill(pGhost, "rp_corruption_04")
 		end
 		if(original + value >= 50) then
-			awardSkill(PlayerObject(pTarget), "rp_corruption_04")
+			awardSkill(pGhost, "rp_corruption_04")
 		end
 	end
 
