@@ -161,7 +161,7 @@ public:
 				ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
 				if(unknownItem == nullptr)
 					continue;
-				if (std::toString(unknownItem->getCustomObjectName()).contains("A280CFE")) {
+				if (std::to_string(unknownItem->getCustomObjectName()).contains("A280CFE")) {
 				//if (unknownItem->getCustomObjectName().starts_with("A280CFE")) {
 				// || unknownItem->getCustomObjectName() == "A280CFE Carbine" || unknownItem->getCustomObjectName() == "A280CFE Blaster Pistol" || unknownItem->getCustomObjectName() == "A280CFE Rifle" || unknownItem->getCustomObjectName() == "A280CFE Sniper Rifle") {
     				originalWeapon = unknownItem->asTangibleObject();
