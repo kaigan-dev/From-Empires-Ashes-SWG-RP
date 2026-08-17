@@ -1200,6 +1200,24 @@ public:
 			creature->updateCooldownTimer("darkside_music", 60 * 1000);
 			creature->playMusicMessage("sound/music_short_darkside.snd");
 		}		
+
+		if(creature->hasSkill("rp_force_prog_novice")) {
+			if(totalPpoints >= 10) {
+				awardSkill("rp_corruption_01", creature, notifyClient, false, false);
+				}
+			if(totalPpoints >= 20) {
+				awardSkill("rp_corruption_02", creature, notifyClient, false, false);
+				}
+			if(totalPpoints >= 30) {
+				awardSkill("rp_corruption_03", creature, notifyClient, false, false);
+			}  
+			if(totalPpoints >= 40) {
+				awardSkill("rp_corruption_04", creature, notifyClient, false, false);
+			}  
+			if(totalPpoints >= 50) {
+				awardSkill("rp_corruption_05", creature, notifyClient, false, false);
+			}  
+		}
 	}
 
 	static void RemoveDarksidePoints(CreatureObject* creature, int amount) {

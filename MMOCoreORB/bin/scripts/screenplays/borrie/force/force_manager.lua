@@ -114,9 +114,9 @@ function BorForce:addCorruptionPoints(pTarget, value)
 	end
 
 	local pGhost = CreatureObject(pTarget):getPlayerObject()
-	--Corruption penalties only apply to Forcies
 	
 	
+	--[[ It looks like nothing actually calls addCorruptionPoints, so none of this is relevant.
 	if(CreatureObject(pTarget):hasSkill("rp_force_prog_novice") == true) then
 		if(original + value >= 10) then
 			awardSkill(pGhost, "rp_corruption_01")
@@ -134,7 +134,7 @@ function BorForce:addCorruptionPoints(pTarget, value)
 			awardSkill(pGhost, "rp_corruption_04")
 		end
 	end
-
+--]]
 
 end
 
