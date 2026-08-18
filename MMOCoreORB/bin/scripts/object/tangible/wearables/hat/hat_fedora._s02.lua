@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_wearables_hat_fedora_s02 = object_tangible_wearables_hat_shared_hat_fedora_s02:new {
+object_tangible_wearables_hat_hat_fedora_s02 = object_tangible_wearables_hat_shared_hat_fedora_s02:new {
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/bothan_female.iff",
 				"object/creature/player/human_male.iff",
@@ -54,6 +54,8 @@ object_tangible_wearables_hat_fedora_s02 = object_tangible_wearables_hat_shared_
 				"object/creature/player/sullustan_female.iff",
 				"object/creature/player/trandoshan_male.iff",
 				"object/creature/player/trandoshan_female.iff",
+				"object/creature/player/wookiee_male.iff",
+				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff",
 				"object/mobile/vendor/bothan_female.iff",
@@ -62,13 +64,14 @@ object_tangible_wearables_hat_fedora_s02 = object_tangible_wearables_hat_shared_
 				"object/mobile/vendor/human_male.iff",
 				"object/mobile/vendor/moncal_female.iff",
 				"object/mobile/vendor/moncal_male.iff",
-				"object/mobile/vendor/nikto_male.iff",
 				"object/mobile/vendor/rodian_female.iff",
 				"object/mobile/vendor/rodian_male.iff",
 				"object/mobile/vendor/sullustan_female.iff",
 				"object/mobile/vendor/sullustan_male.iff",
 				"object/mobile/vendor/trandoshan_female.iff",
 				"object/mobile/vendor/trandoshan_male.iff",
+				"object/mobile/vendor/wookiee_female.iff",
+				"object/mobile/vendor/wookiee_male.iff",
 				"object/mobile/vendor/zabrak_female.iff",
 				"object/mobile/vendor/zabrak_male.iff" },
 
