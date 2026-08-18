@@ -175,9 +175,13 @@ public:
 				if (foundItemName.contains("A280CFE")) {
     				originalWeapon = unknownItem->asTangibleObject();
     				if (originalWeapon != nullptr) {
-						//creature->sendSystemMessage("Debug: Found a CFE weapon to replace");
-						foundCFE = true;
-						break;
+						WeaponObject* weapon = cast<WeaponObject*>(originalWeapon);
+						if(weapon != nullptr) {
+							if(weapon->isRangedWeapon()) {
+								foundCFE = true;
+								break;
+							}
+						}
 					}
 					else {
 					creature->sendSystemMessage("Found an A280 CFE weapon which cannot be cast to tangible. Contact an admin for assistance.");
