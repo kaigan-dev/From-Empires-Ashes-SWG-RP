@@ -59,14 +59,14 @@ public:
 			} else if(command == "awaken") {
 				if(forceLevel > 2) { //Initiated and beyond
 					if(target != 0) {
-						BorUtil::CallScreenplayFunction(creature, "BorForce", "promptAwakenOther");
+						//BorUtil::CallScreenplayFunction(creature, "BorForce", "promptAwakenOther");
 					} else {
-						creature->sendSystemMessage("You can awaken another at the expense of some experience.");
+						//creature->sendSystemMessage("You can awaken another at the expense of some experience.");
 					}
 				} else if(forceLevel > 0) {
-					BorUtil::CallScreenplayFunction(creature, "BorForce", "promptAwakenSelf");
+					//BorUtil::CallScreenplayFunction(creature, "BorForce", "promptAwakenSelf");
 				} else {
-					creature->sendSystemMessage("You reach out, trying to grasp at anything beyond your own mind and body, but all you feel is a light breeze.");
+					//creature->sendSystemMessage("You reach out, trying to grasp at anything beyond your own mind and body, but all you feel is a light breeze.");
 				}				
 			} else if(command == "togglesaberschems") {
 				if(forceLevel > 0) {
@@ -74,17 +74,17 @@ public:
 				}
 			} else if(command == "meditate") {
 				if(forceLevel > 0) {
-					BorUtil::CallScreenplayFunction(creature, "BorForce", "startForceMeditation");
+					//BorUtil::CallScreenplayFunction(creature, "BorForce", "startForceMeditation");
 				} else {
-					creature->sendSystemMessage("You clear your mind, but the only thing you can hear is your own thoughts and breathing.");
+					//creature->sendSystemMessage("You clear your mind, but the only thing you can hear is your own thoughts and breathing.");
 				}				
 			} else if(command == "help") { 
-				creature->sendSystemMessage("This command allows you to interact with the force, if you are force sensitive. No arguments will prompt a menu.");
+				//creature->sendSystemMessage("This command allows you to interact with the force, if you are force sensitive. No arguments will prompt a menu.");
 			} else {
 				if(forceLevel > 0) {
-					BorUtil::CallScreenplayFunction(creature, "BorForce", "promptForceMenu");
+					//BorUtil::CallScreenplayFunction(creature, "BorForce", "promptForceMenu");
 				} else {
-					creature->sendSystemMessage("The Force does not speak to you.");
+					//creature->sendSystemMessage("The Force does not speak to you.");
 				}
 				
 			}
