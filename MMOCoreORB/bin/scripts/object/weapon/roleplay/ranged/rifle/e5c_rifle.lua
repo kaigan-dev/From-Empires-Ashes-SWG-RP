@@ -4,7 +4,7 @@
 object_weapon_roleplay_ranged_rifle_e5c_rifle = object_weapon_ranged_rifle_shared_rifle_e5c:new {
 
 	--[Info]
-	customName = "E5c Rifle",
+	customName = "Berserker Rifle",
 
 	--[Stats]
 	attackType = RANGEDATTACK,
