@@ -54,6 +54,8 @@ object_tangible_wearables_hat_hat_fedora_s02 = object_tangible_wearables_hat_sha
 				"object/creature/player/sullustan_female.iff",
 				"object/creature/player/trandoshan_male.iff",
 				"object/creature/player/trandoshan_female.iff",
+				"object/creature/player/twilek_male.iff",
+				"object/creature/player/twilek_female.iff",
 				"object/creature/player/wookiee_male.iff",
 				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/zabrak_male.iff",
