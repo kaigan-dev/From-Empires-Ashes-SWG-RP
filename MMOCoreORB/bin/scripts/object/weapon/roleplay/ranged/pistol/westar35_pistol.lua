@@ -4,19 +4,21 @@
 object_weapon_roleplay_ranged_pistol_westar35_pistol = object_weapon_ranged_pistol_shared_pistol_westar35:new {
 
 	--[Info]
-	customName = "WESTAR-35 Blaster Pistol",
+	customName = "Westar35 pistol",
 
 	--[Stats]
 	attackType = RANGEDATTACK,
 
-	damageType = ENERGY,
+	damageType = KINETIC,
 
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 5, --Type of Die used in Damage
-	bonusDamage = 5,
+	maxDamage = 3, --Type of Die used in Damage
+	bonusDamage = 4,
+	
+	noPowerAttack = true,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
@@ -27,10 +29,10 @@ object_weapon_roleplay_ranged_pistol_westar35_pistol = object_weapon_ranged_pist
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
-	rarity = "Legendary",
-	itemValue = 20000,
+	rarity="Rare",
+	itemValue = 3000,
 	maxAmmo = 6,
-	ammoType = "ammo_energy", 
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
