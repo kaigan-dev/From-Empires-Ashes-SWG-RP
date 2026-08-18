@@ -160,7 +160,8 @@ public:
 
 		//Check whether the player has an A280 CFE.
 		ManagedReference<SceneObject*> inv = creature->getSlottedObject("inventory");
-		ManagedReference<TangibleObject*> originalWeapon;
+		//ManagedReference<TangibleObject*> originalWeapon;
+		TangibleObject* originalWeapon;
 
 		if(inv != nullptr) {
 			int containerSize = inv->getContainerObjectsSize();
@@ -174,7 +175,7 @@ public:
 				if (foundItemName.contains("A280CFE")) {
     				originalWeapon = unknownItem->asTangibleObject();
     				if (originalWeapon != nullptr) {
-						ManagedReference<WeaponObject*> weapon = cast<WeaponObject*>(originalWeapon);
+						WeaponObject* weapon = cast<WeaponObject*>(originalWeapon);
 						if(weapon != nullptr) {
 							if(weapon->isRangedWeapon()) {
 								foundCFE = true;
