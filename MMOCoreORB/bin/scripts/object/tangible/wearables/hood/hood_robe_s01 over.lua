@@ -1,0 +1,4 @@
+object_tangible_wearables_hood_hood_robe_s01_over = object_tangible_wearables_hood_shared_hood_robe_s01_over:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_wearables_hood_hood_robe_s01_over, "object/tangible/wearables/hood/hood_robe_s01_over.iff")
