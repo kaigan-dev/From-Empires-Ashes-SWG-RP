@@ -135,3 +135,8 @@ object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper = SharedWeaponObjectTem
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper, "object/weapon/roleplay/ranged/rifle/a280cfe_sniper.iff")
+--********************************************************************************************************************************************************
+object_weapon_roleplay_ranged_rifle_e5c_rifle = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/ranged/rifle/e5c_rifle.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_e5c_rifle, "object/weapon/roleplay/ranged/rifle/e5c_rifle.iff")
