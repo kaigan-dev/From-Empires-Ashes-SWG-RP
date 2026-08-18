@@ -9,12 +9,12 @@ object_weapon_roleplay_ranged_pistol_westar35_pistol = object_weapon_ranged_pist
 	--[Stats]
 	attackType = RANGEDATTACK,
 
-	damageType = KINETIC,
+	damageType = ENERGY,
 
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 1, --Amount of Die used in Damage
+	minDamage = 2, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
 	bonusDamage = 4,
 	
@@ -29,10 +29,10 @@ object_weapon_roleplay_ranged_pistol_westar35_pistol = object_weapon_ranged_pist
 	maxRange = 86,
 	maxRangeAccuracy = 99,
 	
-	rarity="Rare",
-	itemValue = 3000,
+	rarity="Legendary",
+	itemValue = 20000,
 	maxAmmo = 6,
-	ammoType = "ammo_kinetic", 
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
