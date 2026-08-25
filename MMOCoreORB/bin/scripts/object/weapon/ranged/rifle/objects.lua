@@ -1255,3 +1255,15 @@ object_weapon_ranged_rifle_shared_rifle_a280cfe_sniper = SharedWeaponObjectTempl
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_a280cfe_sniper, "object/weapon/ranged/rifle/shared_rifle_a280cfe_sniper.iff")
+--*************************************************************************************************************************************************
+object_weapon_ranged_rifle_shared_rifle_e5c = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_e5c.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_e5c, "object/weapon/ranged/rifle/shared_rifle_e5c.iff")
+--*************************************************************************************************************************************************
+object_weapon_ranged_rifle_shared_rifle_e10 = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_e10.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_e10, "object/weapon/ranged/rifle/shared_rifle_e10.iff")
