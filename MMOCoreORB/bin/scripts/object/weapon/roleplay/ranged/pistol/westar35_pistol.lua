@@ -4,7 +4,7 @@
 object_weapon_roleplay_ranged_pistol_westar35_pistol = object_weapon_ranged_pistol_shared_pistol_westar35:new {
 
 	--[Info]
-	customName = "Westar35 pistol",
+	customName = "WESTAR-35 Pistol",
 
 	--[Stats]
 	attackType = RANGEDATTACK,
