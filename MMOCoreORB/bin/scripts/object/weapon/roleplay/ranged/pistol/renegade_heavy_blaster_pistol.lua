@@ -15,8 +15,8 @@ object_weapon_roleplay_ranged_pistol_renegade_heavy_blaster_pistol = object_weap
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 4,
+	maxDamage = 4, --Type of Die used in Damage
+	bonusDamage = 3,
 	
 	noPowerAttack = true,
 
