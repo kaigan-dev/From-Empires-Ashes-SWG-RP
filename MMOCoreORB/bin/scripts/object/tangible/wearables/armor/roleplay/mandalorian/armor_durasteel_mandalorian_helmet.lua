@@ -1,7 +1,7 @@
 --Armor template file for Borrie BoBaka's SWGEmu RPG System--
 
 
-object_tangible_wearables_armor_roleplay_mandalorian_armor_durasteel_mandalorian_helmet = object_tangible_wearables_helmet_shared_armor_plasteel_helmet.iff:new {
+object_tangible_wearables_armor_roleplay_mandalorian_armor_durasteel_mandalorian_helmet = object_tangible_wearables_helmet_shared_helmet_plasteel.iff:new {
 
 
 	templateType = ARMOROBJECT,
