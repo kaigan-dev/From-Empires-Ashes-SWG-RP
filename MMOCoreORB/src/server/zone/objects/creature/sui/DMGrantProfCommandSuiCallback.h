@@ -90,6 +90,7 @@ public:
 			int trainingLevel = 0;
 			
 			if(selection == 0) {
+				forceProfFlag = true;
 				if(index == 0) {
 					profName = "Jedi Guardian";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi");
@@ -208,14 +209,14 @@ public:
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 2) {
-		int profCode = index;
+		int profCode = selection;
 		int trainingLevel = 0;
 		String skillName, profName;
 
 		player->sendSystemMessage("Debug: In final step we have Index: " + String::valueOf(index) + ".");
 		player->sendSystemMessage("Debug: In final step we have Selection: " + String::valueOf(selection) + ".");
 
-		if(index > 100) { //If forceProfFlag
+		if(profCode > 100) { //If forceProfFlag
 			profCode -= 100;
 			if(profCode == 0) {
 					profName = "Jedi Guardian";
