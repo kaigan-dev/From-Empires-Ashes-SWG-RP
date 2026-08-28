@@ -34,8 +34,8 @@ public:
 		
 		player->sendSystemMessage("Target is " + grantProfTargetString);
 
-		uint64 grantProfTarget;
-		std::from_chars(grantProfTargetString.data(), grantProfTargetString.data + grantProfTargetString.size(), grantProfTarget);
+		uint64 grantProfTarget = std:stoull(grantProfTargetString);
+		//std::from_chars(grantProfTargetString.data(), grantProfTargetString.data + grantProfTargetString.size(), grantProfTarget);
 
 		player->sendSystemMessage("Debug: We have reached the end of the UI call");
 		/*
