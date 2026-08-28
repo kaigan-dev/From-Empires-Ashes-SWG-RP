@@ -4,18 +4,18 @@
 object_weapon_roleplay_ranged_rifle_e5c_rifle = object_weapon_ranged_rifle_shared_rifle_e5c:new {
 
 	--[Info]
-	customName = "Berserker Rifle",
+	customName = "E5-C Rifle",
 
 	--[Stats]
 	attackType = RANGEDATTACK,
 
-	damageType = KINETIC,
+	damageType = ENERGY,
 
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 8, --Type of Die used in Damage
+	maxDamage = 6, --Type of Die used in Damage
 	bonusDamage = 6,
 	
 	noPowerAttack = true,
@@ -31,7 +31,7 @@ object_weapon_roleplay_ranged_rifle_e5c_rifle = object_weapon_ranged_rifle_share
 	
 	primaryAttributeOnly = true,
 
-	rarity="Epic",
+	rarity="Rare",
 	
 	itemValue = 10000,
 	maxAmmo = 10,
