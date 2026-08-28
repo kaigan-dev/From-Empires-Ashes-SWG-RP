@@ -44,13 +44,14 @@ public:
 			
 			box->setCancelButton(true, "Cancel");
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, index));
-			//box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, 0));
+			//box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, selection));
 
 			box->setPromptTitle("Profession Training");
 			box->setPromptText("What profession would you like to grant?");
 
 			if(index == 0) {
 				forceProfFlag = true;
+				selection=0;
 				box->addMenuItem("Jedi Guardian"); // 0
 				box->addMenuItem("Jedi Sentinel"); // 1
 				box->addMenuItem("Jedi Consular"); // 2
@@ -58,26 +59,27 @@ public:
 				box->addMenuItem("Dark Jedi Sorcerer"); // 4
 			}
 			else {
-				box->addMenuItem("Soldier"); // 1
-				box->addMenuItem("Mandalorian"); // 2
-				box->addMenuItem("Teras Kasi"); // 3
-				box->addMenuItem("Medic"); // 4
-				box->addMenuItem("Engineer"); // 5
-				box->addMenuItem("Diplomat"); // 6
-				box->addMenuItem("Spy"); // 7
-				box->addMenuItem("Smuggler"); // 8
-				box->addMenuItem("Officer"); // 9
-				box->addMenuItem("Pilot"); // 10
-				box->addMenuItem("Surgeon"); // 11
-				box->addMenuItem("Researcher"); // 12
-				box->addMenuItem("Weaponsmith"); // 13
-				box->addMenuItem("Armorsmith"); // 14
-				box->addMenuItem("Assassin"); // 15
-				box->addMenuItem("Saboteur"); // 16
-				box->addMenuItem("Con Artist"); // 17
-				box->addMenuItem("Enforcer"); // 18
-				box->addMenuItem("Bounty Hunter"); // 19
-				box->addMenuItem("Scout"); // 20
+				selection=1;
+				box->addMenuItem("Soldier"); // 0
+				box->addMenuItem("Mandalorian"); // 1
+				box->addMenuItem("Teras Kasi"); // 2
+				box->addMenuItem("Medic"); // 3
+				box->addMenuItem("Engineer"); // 4
+				box->addMenuItem("Diplomat"); // 5
+				box->addMenuItem("Spy"); // 6
+				box->addMenuItem("Smuggler"); // 7
+				box->addMenuItem("Officer"); // 8
+				box->addMenuItem("Pilot"); // 9
+				box->addMenuItem("Surgeon"); // 10
+				box->addMenuItem("Researcher"); // 11
+				box->addMenuItem("Weaponsmith"); // 12
+				box->addMenuItem("Armorsmith"); // 13
+				box->addMenuItem("Assassin"); // 14
+				box->addMenuItem("Saboteur"); // 15
+				box->addMenuItem("Con Artist"); // 16
+				box->addMenuItem("Enforcer"); // 17
+				box->addMenuItem("Bounty Hunter"); // 18
+				box->addMenuItem("Scout"); // 19
 			}
 		
 			player->getPlayerObject()->addSuiBox(box);
@@ -89,7 +91,7 @@ public:
 			String profName = "Undefined";
 			int trainingLevel = 0;
 			
-			if(forceProfFlag) {
+			if(selection == 0) {
 				if(index == 0) {
 					profName = "Jedi Guardian";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi");
