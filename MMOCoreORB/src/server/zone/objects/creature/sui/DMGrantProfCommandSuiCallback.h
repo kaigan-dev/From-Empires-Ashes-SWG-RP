@@ -352,7 +352,8 @@ public:
 		else {
 			fullSkillName = skillName + "_rank_0" + trainingLevel;
 		}
-		
+
+		player->sendSystemMessage("Debug: Granting " + fullSkillName);
 		skillManager->awardSkill(fullSkillName, storedTarget, true, true, true);
 	}
 	}
