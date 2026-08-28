@@ -31,8 +31,7 @@ public:
 			return;
 
 		int index = Integer::valueOf(args->get(0).toString());
-		player->sendSystemMessage("Debug: Passed argument is " + index.toString());
-
+		
 		bool forceProfFlag = false;
 
 		ManagedReference<CreatureObject*> storedTarget = BorrieRPG::GetStoredCreature(player);
