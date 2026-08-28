@@ -198,6 +198,7 @@ public:
 		storedTarget->sendSystemMessage("Debug: We have reached the end of the UI call");
 	}
 
+	/*
 	String GetAttributeStringFromID(int id) {
 		if (id == 0)
 			return "awareness";
@@ -546,5 +547,6 @@ public:
 	}
 
 };
+*/
 
 #endif /* TRAINCOMMANDSUICALLBACK_H_ */
