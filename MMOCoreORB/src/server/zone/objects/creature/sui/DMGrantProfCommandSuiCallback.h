@@ -18,6 +18,8 @@ public:
 
 	void run(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args) {
 		bool cancelPressed = (eventIndex == 1);
+		if (cancelPressed)
+			return;
 
 		PlayerManager* playerManager = player->getZoneServer()->getPlayerManager();
  
@@ -29,10 +31,13 @@ public:
 			return;
 
 		int index = Integer::valueOf(args->get(0).toString());
+		player->sendSystemMessage("Debug: Passed argument is " + index.toString());
 
 		bool forceProfFlag = false;
 
 		ManagedReference<CreatureObject*> storedTarget = BorrieRPG::GetStoredCreature(player);
+
+		SkillManager* skillManager = storedTarget->getZoneServer()->getSkillManager();
 
 
 		if(state == 0 || state == -1) {
@@ -45,68 +50,159 @@ public:
 			box->setPromptTitle("Profession Training");
 			box->setPromptText("What profession would you like to grant?");
 
-			if(index == 1) {
+			if(index == 0) {
 				forceProfFlag = true;
-				box->addMenuItem("Jedi Guardian");
-				box->addMenuItem("Jedi Sentinel");
-				box->addMenuItem("Jedi Consular");
-				box->addMenuItem("Dark Warrior");
-				box->addMenuItem("Dark Sorcerer");
+				box->addMenuItem("Jedi Guardian"); // 0
+				box->addMenuItem("Jedi Sentinel"); // 1
+				box->addMenuItem("Jedi Consular"); // 2
+				box->addMenuItem("Dark Jedi Warrior"); // 3
+				box->addMenuItem("Dark Jedi Sorcerer"); // 4
 			}
 			else {
-				box->addMenuItem("Soldier");
-				box->addMenuItem("Mandalorian");
-				box->addMenuItem("Teras Kasi");
-				box->addMenuItem("Medic");
-				box->addMenuItem("Engineer");
-				box->addMenuItem("Diplomat");
-				box->addMenuItem("Spy");
-				box->addMenuItem("Smuggler");
-				box->addMenuItem("Officer");
-				box->addMenuItem("Pilot");
-				box->addMenuItem("Surgeon");
-				box->addMenuItem("Researcher");
-				box->addMenuItem("Weaponsmith");
-				box->addMenuItem("Armorsmith");
-				box->addMenuItem("Assassin");
-				box->addMenuItem("Saboteur");
-				box->addMenuItem("Con Artist");
-				box->addMenuItem("Enforcer");
-				box->addMenuItem("Bounty Hunter");
-				box->addMenuItem("Scout");
+				box->addMenuItem("Soldier"); // 1
+				box->addMenuItem("Mandalorian"); // 2
+				box->addMenuItem("Teras Kasi"); // 3
+				box->addMenuItem("Medic"); // 4
+				box->addMenuItem("Engineer"); // 5
+				box->addMenuItem("Diplomat"); // 6
+				box->addMenuItem("Spy"); // 7
+				box->addMenuItem("Smuggler"); // 8
+				box->addMenuItem("Officer"); // 9
+				box->addMenuItem("Pilot"); // 10
+				box->addMenuItem("Surgeon"); // 11
+				box->addMenuItem("Researcher"); // 12
+				box->addMenuItem("Weaponsmith"); // 13
+				box->addMenuItem("Armorsmith"); // 14
+				box->addMenuItem("Assassin"); // 15
+				box->addMenuItem("Saboteur"); // 16
+				box->addMenuItem("Con Artist"); // 17
+				box->addMenuItem("Enforcer"); // 18
+				box->addMenuItem("Bounty Hunter"); // 19
+				box->addMenuItem("Scout"); // 20
 			}
 		
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
 	}
-	else if (state == 1 && forceProfFlag == true) {
+	else if (state == 1) {
 			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::TEACH_OFFER);
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
 			//box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, 0));
 			box->setPromptTitle("Profession Training");
-
-			if(index <= 10) {
-				box->setPromptText("Debug: Profession index less than 10");
+			String profName = "Undefined";
+			int trainingLevel = 0;
+			
+			if(forceProfFlag) {
+				if(index == 0) {
+					profName = "Jedi Guardian";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi");
+				}
+				else if (index == 1) {
+					profName = "Jedi Sentinel";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_sentinel");
+				}
+				else if (index == 2) {
+					profName = "Jedi Consular";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_consular");
+				}
+				else if (index == 3) {
+					profName = "Dark Jedi Warrior";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_sith");
+				}
+				else if (index == 4) {
+					profName = "Dark Jedi Sorcerer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_drk_sorceror");
+				}
 			}
 			else {
-				box->setPromptText("Debug: Profession index greater than 10");
+				if(index == 0) {
+					profName = "Soldier";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_military");
+				}
+				else if (index == 1) {
+					profName = "Mandalorian";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_mando");
+				}
+				else if (index == 2) {
+					profName = "Teras Kasi";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_tka");
+				}
+				else if (index == 3) {
+					profName = "Medic";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_medical");
+				}
+				else if (index == 4) {
+					profName = "Engineer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_engineer");
+				}
+				else if (index == 5) {
+					profName = "Diplomat";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_diplomatic");
+				}
+				else if (index == 6) {
+					profName = "Spy";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_spy");
+				}
+				else if (index == 7) {
+					profName = "Smuggler";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_smuggler");
+				}
+				else if (index == 8) {
+					profName = "Officer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_officer");
+				}
+				else if (index == 9) {
+					profName = "Pilot";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_pilot");
+				}
+				else if (index == 10) {
+					profName = "Surgeon";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_surgeon");
+				}
+				else if (index == 11) {
+					profName = "Researcher";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_researcher");
+				}
+				else if (index == 12) {
+					profName = "Weaponsmith";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_weaponsmith");
+				}
+				else if (index == 13) {
+					profName = "Armorsmith";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_armorsmith");
+				}
+				else if (index == 14) {
+					profName = "Assassin";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_assassin");
+				}
+				else if (index == 15) {
+					profName = "Saboteur";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_saboteur");
+				}
+				else if (index == 16) {
+					profName = "Con Artist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_conart");
+				}
+				else if (index == 17) {
+					profName = "Enforcer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_enforcer");
+				}
+				else if (index == 18) {
+					profName = "Bounty Hunter";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_bh");
+				}
+				else if (index == 19) {
+					profName = "Scout";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scout");
+				}
 			}
+
+			trainingLevel += 1;  //The target level will always be current level +1
+			box->setPromptText("Train target in " + profName + " Profession rank " + trainingLevel + "?");
 			
 			box->setPromptTitle("Confirm training?"); 
-			box->setPromptText("Are you sure you want to train this attribute?");
 			box->setOkButton(true, "Confirm");
-			box->setCancelButton(true, "Go Back");
-
-			player->getPlayerObject()->addSuiBox(box);
-			player->sendMessage(box->generateMessage());
-	}
-	else if (state == 1 && forceProfFlag == false) {
-			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::TEACH_OFFER);
-			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
-			box->setPromptTitle("Confirm training?"); 
-			box->setPromptText("Are you sure you want to train this attribute?");
-			box->setOkButton(true, "Confirm");
-			box->setCancelButton(true, "Go Back");
+			box->setCancelButton(true, "Cancel");
 
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
