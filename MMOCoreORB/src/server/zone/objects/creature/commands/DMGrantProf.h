@@ -46,7 +46,8 @@ public:
 			return GENERALERROR;
 		}
 
-		BorrieRPG::SaveTarget(creature, targetSceneObject);
+		//BorrieRPG::SaveTarget(creature, targetSceneObject);
+		creature->setLocalData("storedtarget", String::valueOf(target->getObjectID()));
 		
 
 		try {

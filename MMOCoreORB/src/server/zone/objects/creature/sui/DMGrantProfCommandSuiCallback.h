@@ -213,8 +213,8 @@ public:
 		int trainingLevel = 0;
 		String skillName, profName;
 
-		player->sendSystemMessage("Debug: In final step we have Index: " + String::valueOf(index) + ".");
-		player->sendSystemMessage("Debug: In final step we have Selection: " + String::valueOf(selection) + ".");
+		//player->sendSystemMessage("Debug: In final step we have Index: " + String::valueOf(index) + ".");
+		//player->sendSystemMessage("Debug: In final step we have Selection: " + String::valueOf(selection) + ".");
 
 		if(profCode > 100) { //If forceProfFlag
 			profCode -= 100;
@@ -358,7 +358,7 @@ public:
 			fullSkillName = skillName + "_rank_0" + trainingLevel;
 		}
 
-		player->sendSystemMessage("Debug: Granting " + fullSkillName);
+		player->sendSystemMessage("Granting " + fullSkillName);
 		skillManager->awardSkill(fullSkillName, storedTarget, true, true, true);
 	}
 	}
