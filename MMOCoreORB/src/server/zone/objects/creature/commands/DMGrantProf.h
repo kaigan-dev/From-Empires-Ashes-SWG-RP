@@ -2,6 +2,7 @@
 #define DMGRANTPROF_H_
 
 #include "server/zone/borrie/BorDM.h"
+#include "server/zone/borrie/BorrieRPG.h"
 
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/objects/creature/ai/AiAgent.h"
@@ -33,8 +34,20 @@ public:
 
 		StringTokenizer args(arguments.toString());
 
-		String targetID = std::to_string(target);
-		creature>getStoredString("dm_grant_prof_target", targetID);
+		//String targetID = std::to_string(target);
+		//creature->setStoredString("dm_grant_prof_target", targetID);
+
+		ManagedReference<SceneObject*> targetSceneObject;
+		if (target != 0) {
+			targetSceneObject = server->getZoneServer()->getObject(target, false);
+		}
+		else {
+			creature->sendSystemMessage("You must target a character in order to grant them a profession.");
+			return GENERALERROR;
+		}
+
+		BorrieRPG::SaveTarget(creature, targetSceneObject);
+		
 
 		try {
 			ManagedReference<SuiListBox*> box = new SuiListBox(creature, SuiWindowType::JUKEBOX_SELECTION);

@@ -30,11 +30,13 @@ public:
 
 		int index = Integer::valueOf(args->get(0).toString());
 
-		String grantProfTargetString = player->getStoredString("dm_grant_prof_target");
-		
-		player->sendSystemMessage("Target is " + grantProfTargetString);
+		storedTarget = BorrieRPG::GetStoredCreature(creature);
 
-		uint64 grantProfTarget = std:stoull(grantProfTargetString);
+		//String grantProfTargetString = player->getStoredString("dm_grant_prof_target");
+		
+		//player->sendSystemMessage("Target is " + grantProfTargetString);
+
+		//uint64 grantProfTarget = std::stoull(grantProfTargetString);
 		//std::from_chars(grantProfTargetString.data(), grantProfTargetString.data + grantProfTargetString.size(), grantProfTarget);
 
 		player->sendSystemMessage("Debug: We have reached the end of the UI call");
