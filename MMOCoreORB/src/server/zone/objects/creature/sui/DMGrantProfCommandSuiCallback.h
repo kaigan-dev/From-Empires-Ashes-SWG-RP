@@ -32,15 +32,86 @@ public:
 
 		ManagedReference<CreatureObject*> storedTarget = BorrieRPG::GetStoredCreature(player);
 
-		//String grantProfTargetString = player->getStoredString("dm_grant_prof_target");
+
+		if(state == 0 || state == -1) {
+			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+			box->setCancelButton(true, "Cancel");
+			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, index));
+
+			box->setPromptTitle("Profession Training");
+			box->setPromptText("What profession would you like to grant?");
+
+			if(eventIndex = 1) {
+				box->addMenuItem("Jedi Guardian");
+				box->addMenuItem("Jedi Sentinel");
+				box->addMenuItem("Jedi Consular");
+				box->addMenuItem("Dark Warrior");
+				box->addMenuItem("Dark Sorcerer");
+			}
+			else {
+				box->addMenuItem("Soldier");
+				box->addMenuItem("Mandalorian");
+				box->addMenuItem("Teras Kasi");
+				box->addMenuItem("Medic");
+				box->addMenuItem("Engineer");
+				box->addMenuItem("Diplomat");
+				box->addMenuItem("Spy");
+				box->addMenuItem("Smuggler");
+				box->addMenuItem("Officer");
+				box->addMenuItem("Pilot");
+				box->addMenuItem("Surgeon");
+				box->addMenuItem("Researcher");
+				box->addMenuItem("Weaponsmith");
+				box->addMenuItem("Armorsmith");
+				box->addMenuItem("Assassin");
+				box->addMenuItem("Saboteur");
+				box->addMenuItem("Con Artist");
+				box->addMenuItem("Enforcer");
+				box->addMenuItem("Bounty Hunter");
+				box->addMenuItem("Scout");
+			}
 		
-		//player->sendSystemMessage("Target is " + grantProfTargetString);
+			player->getPlayerObject()->addSuiBox(box);
+			player->sendMessage(box->generateMessage());
+	}
+	else if (state == 1 && eventIndex == 1) {
+			suibox->setPromptTitle("Confirm training?"); 
+			suibox->setPromptText("Are you sure you want to train this attribute?");
+			suibox->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
+			suibox->setOkButton(true, "Confirm");
+			suibox->setCancelButton(true, "Go Back");
 
-		//uint64 grantProfTarget = std::stoull(grantProfTargetString);
-		//std::from_chars(grantProfTargetString.data(), grantProfTargetString.data + grantProfTargetString.size(), grantProfTarget);
+			player->getPlayerObject()->addSuiBox(box);
+			player->sendMessage(box->generateMessage());
+	}
+	else if (state == 1 && eventIndex == 2) {
+			suibox->setPromptTitle("Confirm training?"); 
+			suibox->setPromptText("Are you sure you want to train this attribute?");
+			suibox->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
+			suibox->setOkButton(true, "Confirm");
+			suibox->setCancelButton(true, "Go Back");
 
-		player->sendSystemMessage("Debug: We have reached the end of the UI call");
-		storedTarget->sendSystemMessage("Debug: We have reached the end of the UI call");
+			player->getPlayerObject()->addSuiBox(box);
+			player->sendMessage(box->generateMessage());
+	}
+		}
+	else if (state == 2) {
+			suibox->setPromptTitle("Confirm training?"); 
+			suibox->setPromptText("Are you sure you want to train this attribute?");
+			suibox->setCallback(new DMGrantProfCommandSuiCallback(server, 3, index));
+			suibox->setOkButton(true, "Confirm");
+			suibox->setCancelButton(true, "Go Back");
+
+			storedTarget->getPlayerObject()->addSuiBox(box);
+			storedTarget->sendMessage(box->generateMessage());
+	}
+	else if (state == 3) {
+		player->sendSystemMessage("Debug: Reached Train Step");
+		storedTarget->sendSystemMessage("Debug: Reached Train Step");
+	}
+
+
+
 		/*
 		if (state == -1) {//Top Menu
 			OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
@@ -122,6 +193,9 @@ public:
 		}
 
 		*/
+
+		player->sendSystemMessage("Debug: We have reached the end of the UI call");
+		storedTarget->sendSystemMessage("Debug: We have reached the end of the UI call");
 	}
 
 	String GetAttributeStringFromID(int id) {
