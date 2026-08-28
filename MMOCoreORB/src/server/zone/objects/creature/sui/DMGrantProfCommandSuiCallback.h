@@ -208,12 +208,10 @@ public:
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 2) {
-		player->sendSystemMessage("Debug: Reached Train Step using index " + selection);
-		storedTarget->sendSystemMessage("Debug: Reached Train Step using index " + selection);
-		int profCode = selection;
+		int profCode = index;
 		int trainingLevel = 0;
 		String skillName, profName;
-		if(selection > 100) { //If forceProfFlag
+		if(index > 100) { //If forceProfFlag
 			profCode -= 100;
 			if(profCode == 0) {
 					profName = "Jedi Guardian";
