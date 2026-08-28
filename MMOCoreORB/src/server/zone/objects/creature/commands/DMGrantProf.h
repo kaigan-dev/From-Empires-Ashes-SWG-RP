@@ -47,7 +47,7 @@ public:
 		}
 
 		//BorrieRPG::SaveTarget(creature, targetSceneObject);
-		creature->setLocalData("storedtarget", String::valueOf(target->getObjectID()));
+		creature->setLocalData("storedtarget", String::valueOf(targetSceneObject->getObjectID()));
 		
 
 		try {
