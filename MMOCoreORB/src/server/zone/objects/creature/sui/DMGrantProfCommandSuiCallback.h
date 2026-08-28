@@ -5,13 +5,13 @@
 #include "server/zone/objects/player/sui/transferbox/SuiTransferBox.h"
 
 
-class DmGrantProfCommandSuiCallback : public SuiCallback {
+class DMGrantProfCommandSuiCallback : public SuiCallback {
 private:
 	int state;
 	int selection;
 
 public:
-	DmGrantProfCommandSuiCallback(ZoneServer* server, int _state, int _selection) : SuiCallback(server) {
+	DMGrantProfCommandSuiCallback(ZoneServer* server, int _state, int _selection) : SuiCallback(server) {
 		state = _state;
 		selection = _selection;
 	}

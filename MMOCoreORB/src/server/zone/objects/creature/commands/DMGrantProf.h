@@ -9,7 +9,7 @@
 
 #include "server/zone/borrie/BorCharacter.h"
 
-#include "server/zone/objects/creature/sui/DmGrantProfCommandSuiCallback.h"
+#include "server/zone/objects/creature/sui/DMGrantProfCommandSuiCallback.h"
 
 class DmGrantProfCommand : public QueueCommand {
 
