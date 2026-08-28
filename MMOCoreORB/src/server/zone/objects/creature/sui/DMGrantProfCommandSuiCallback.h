@@ -41,7 +41,7 @@ public:
 			box->setPromptTitle("Profession Training");
 			box->setPromptText("What profession would you like to grant?");
 
-			if(eventIndex = 1) {
+			if(eventIndex == 1) {
 				box->addMenuItem("Jedi Guardian");
 				box->addMenuItem("Jedi Sentinel");
 				box->addMenuItem("Jedi Consular");
@@ -75,31 +75,38 @@ public:
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 1 && eventIndex == 1) {
-			suibox->setPromptTitle("Confirm training?"); 
-			suibox->setPromptText("Are you sure you want to train this attribute?");
-			suibox->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
-			suibox->setOkButton(true, "Confirm");
-			suibox->setCancelButton(true, "Go Back");
+			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
+
+			box->setPromptTitle("Profession Training");
+			box->setPromptText("What profession would you like to grant?");
+			box->setPromptTitle("Confirm training?"); 
+			box->setPromptText("Are you sure you want to train this attribute?");
+			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
+			box->setOkButton(true, "Confirm");
+			box->setCancelButton(true, "Go Back");
 
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 1 && eventIndex == 2) {
-			suibox->setPromptTitle("Confirm training?"); 
-			suibox->setPromptText("Are you sure you want to train this attribute?");
-			suibox->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
-			suibox->setOkButton(true, "Confirm");
-			suibox->setCancelButton(true, "Go Back");
+			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
+			box->setPromptTitle("Confirm training?"); 
+			box->setPromptText("Are you sure you want to train this attribute?");
+			box->setOkButton(true, "Confirm");
+			box->setCancelButton(true, "Go Back");
 
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 2) {
-			suibox->setPromptTitle("Confirm training?"); 
-			suibox->setPromptText("Are you sure you want to train this attribute?");
-			suibox->setCallback(new DMGrantProfCommandSuiCallback(server, 3, index));
-			suibox->setOkButton(true, "Confirm");
-			suibox->setCancelButton(true, "Go Back");
+				ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+			box->setCallback(new DMGrantProfCommandSuiCallback(server, 3, index));
+			box->setPromptTitle("Confirm training?"); 
+			box->setPromptText("Are you sure you want to train this attribute?");
+			box->setOkButton(true, "Confirm");
+			box->setCancelButton(true, "Go Back");
 
 			storedTarget->getPlayerObject()->addSuiBox(box);
 			storedTarget->sendMessage(box->generateMessage());
