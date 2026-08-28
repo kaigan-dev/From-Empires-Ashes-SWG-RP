@@ -38,7 +38,7 @@ public:
 
 		try {
 			ManagedReference<SuiListBox*> box = new SuiListBox(creature, SuiWindowType::JUKEBOX_SELECTION);
-			box->setCallback(new TrainCommandSuiCallback(creature->getZoneServer(), 0, 0));
+			box->setCallback(new DMGrantProfCommandSuiCallback(creature->getZoneServer(), 0, 0));
 			box->setPromptTitle("Offer Profession Training");
 			box->setPromptText("What profession would you like to train for the target?");			
 			box->setCancelButton(true, "@cancel");
