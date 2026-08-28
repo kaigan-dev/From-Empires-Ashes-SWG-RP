@@ -211,135 +211,136 @@ public:
 		player->sendSystemMessage("Debug: Reached Train Step using index " + selection);
 		storedTarget->sendSystemMessage("Debug: Reached Train Step using index " + selection);
 		int profCode = selection;
-		String skillName;
+		int trainingLevel = 0;
+		String skillName, profName;
 		if(selection > 100) { //If forceProfFlag
 			profCode -= 100;
 			if(profCode == 0) {
 					profName = "Jedi Guardian";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi");
-					skillName = "rp_training_jedi"
+					skillName = "rp_training_jedi";
 				}
 				else if (profCode == 1) {
 					profName = "Jedi Sentinel";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_sentinel");
-					skillName = "rp_training_jedi_sentinel"
+					skillName = "rp_training_jedi_sentinel";
 				}
 				else if (profCode == 2) {
 					profName = "Jedi Consular";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_consular");
-					skillName = "rp_training_jedi_consular"
+					skillName = "rp_training_jedi_consular";
 				}
 				else if (profCode == 3) {
 					profName = "Dark Jedi Warrior";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_sith");
-					skillName = "rp_training_sith"
+					skillName = "rp_training_sith";
 				}
 				else if (profCode == 4) {
 					profName = "Dark Jedi Sorcerer";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_drk_sorceror");
-					skillName = "rp_training_drk_sorceror"
+					skillName = "rp_training_drk_sorceror";
 				}
 		}
 		else {  //If not forceProfFlag
 			if(profCode == 0) {
 					profName = "Soldier";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_military");
-					skillName = "rp_training_military"
+					skillName = "rp_training_military";
 				}
 				else if (profCode == 1) {
 					profName = "Mandalorian";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_mando");
-					skillName = "rp_training_mando"
+					skillName = "rp_training_mando";
 				}
 				else if (profCode == 2) {
 					profName = "Teras Kasi";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_tka");
-					skillName = "rp_training_tka"
+					skillName = "rp_training_tka";
 				}
 				else if (profCode == 3) {
 					profName = "Medic";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_medical");
-					skillName = "rp_training_medical"
+					skillName = "rp_training_medical";
 				}
 				else if (profCode == 4) {
 					profName = "Engineer";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_engineer");
-					skillName = "rp_training_engineer"
+					skillName = "rp_training_engineer";
 				}
 				else if (profCode == 5) {
 					profName = "Diplomat";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_diplomatic");
-					skillName = "rp_training_diplomatic"
+					skillName = "rp_training_diplomatic";
 				}
 				else if (profCode == 6) {
 					profName = "Spy";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_spy");
-					skillName = "rp_training_spy"
+					skillName = "rp_training_spy";
 				}
 				else if (profCode == 7) {
 					profName = "Smuggler";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_smuggler");
-					skillName = "rp_training_smuggler"
+					skillName = "rp_training_smuggler";
 				}
 				else if (profCode == 8) {
 					profName = "Officer";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_officer");
-					skillName = "rp_training_officer"
+					skillName = "rp_training_officer";
 				}
 				else if (profCode == 9) {
 					profName = "Pilot";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_pilot");
-					skillName = "rp_training_pilot"
+					skillName = "rp_training_pilot";
 				}
 				else if (profCode == 10) {
 					profName = "Surgeon";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_surgeon");
-					skillName = "rp_training_surgeon"
+					skillName = "rp_training_surgeon";
 				}
 				else if (profCode == 11) {
 					profName = "Researcher";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_researcher");
-					skillName = "rp_training_researcher"
+					skillName = "rp_training_researcher";
 				}
 				else if (profCode == 12) {
 					profName = "Weaponsmith";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_weaponsmith");
-					skillName = "rp_training_weaponsmith"
+					skillName = "rp_training_weaponsmith";
 				}
 				else if (profCode == 13) {
 					profName = "Armorsmith";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_armorsmith");
-					skillName = "rp_training_armorsmith"
+					skillName = "rp_training_armorsmith";
 				}
 				else if (profCode == 14) {
 					profName = "Assassin";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_assassin");
-					skillName = "rp_training_assassin"
+					skillName = "rp_training_assassin";
 				}
 				else if (profCode == 15) {
 					profName = "Saboteur";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_saboteur");
-					skillName = "rp_training_saboteur"
+					skillName = "rp_training_saboteur";
 				}
 				else if (profCode == 16) {
 					profName = "Con Artist";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_conart");
-					skillName = "rp_training_conart"
+					skillName = "rp_training_conart";
 				}
 				else if (profCode == 17) {
 					profName = "Enforcer";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_enforcer");
-					skillName = "rp_training_enforcer"
+					skillName = "rp_training_enforcer";
 				}
 				else if (profCode == 18) {
 					profName = "Bounty Hunter";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_bh");
-					skillName = "rp_training_bh"
+					skillName = "rp_training_bh";
 				}
 				else if (profCode == 19) {
 					profName = "Scout";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scout");
-					skillName = "rp_training_scout"
+					skillName = "rp_training_scout";
 				}
 		}
 		
@@ -354,7 +355,7 @@ public:
 			fullSkillName = skillName + "_rank_0" + trainingLevel;
 		}
 		
-		skillManager->awardSkill(fullSkillName, creature, true, true, true);
+		skillManager->awardSkill(fullSkillName, storedTarget, true, true, true);
 	}
 
 		player->sendSystemMessage("Debug: We have reached the end of the UI call");
