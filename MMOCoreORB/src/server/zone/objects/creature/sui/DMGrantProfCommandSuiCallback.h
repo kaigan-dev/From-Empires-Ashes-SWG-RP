@@ -85,8 +85,6 @@ public:
 	}
 	else if (state == 1) {
 			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::TEACH_OFFER);
-			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
-			//box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, 0));
 			box->setPromptTitle("Profession Training");
 			String profName = "Undefined";
 			int trainingLevel = 0;
@@ -198,7 +196,10 @@ public:
 
 			trainingLevel += 1;  //The target level will always be current level +1
 			box->setPromptText("Train target in " + profName + " Profession rank " + trainingLevel + "?");
-			
+			int modifiedIndex = index;
+			if(forceProfFlag)
+				modifiedIndex += 100;
+			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, modifiedIndex));
 			box->setPromptTitle("Confirm training?"); 
 			box->setOkButton(true, "Confirm");
 			box->setCancelButton(true, "Cancel");
@@ -207,187 +208,160 @@ public:
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 2) {
-		player->sendSystemMessage("Debug: Reached Train Step");
-		storedTarget->sendSystemMessage("Debug: Reached Train Step");
-	}
-	
-
-
-		/*
-		if (state == -1) {//Top Menu
-			OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
-		} else if (state == 0) { //Primary Menu		
-			if (cancelPressed) {
-				return;
-			} else if(index == 0) {
-				OpenAttributeSelectionMenu(player, suiBox, eventIndex, args, state, selection);
-			} else if(index == 1) {
-				OpenSkillSelectionMenu(player, suiBox, eventIndex, args, state, selection);
-			} else if(index == 2) {
-
-			}
-		} else if (state == 1) { //Select Attribute
-			if (cancelPressed) {
-				OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}				
-
-			OpenConfirmAttributeSelectionWindow(player, suiBox, eventIndex, args, state, selection);
-		} else if (state == 2) { //Select Skill
-			if (cancelPressed) {
-				OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}				
-			
-			OpenConfirmSkillSelectionWindow(player, suiBox, eventIndex, args, state, selection);			
-		} else if (state == 3) { //Train a Attribute
-			if (cancelPressed) {
-				OpenAttributeSelectionMenu(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}				
-			
-			TrainAttribute(player, suiBox, eventIndex, args, state, selection);
-
-			OpenAttributeSelectionMenu(player, suiBox, eventIndex, args, state, selection);
-		} else if (state == 4) { //Train a Skill
-			if (cancelPressed) {
-				OpenSkillSelectionMenu(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}			
-			
-			TrainSkill(player, suiBox, eventIndex, args, state, selection);
-
-			OpenSkillSelectionMenu(player, suiBox, eventIndex, args, state, selection);
-		} else if (state == 5) { //Convert Exp: Show possiblities
-			if (cancelPressed) {
-				OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}
-		} else if(state == 6) { //Convert Exp: Select Attribute
-			if (cancelPressed) {
-				OpenConversionTypeDialogue(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}
-
-			OpenConversionAttributeList(player, suiBox, eventIndex, args, state, selection);
-
-		} else if(state == 7) { //Convert Exp: Select SKill
-			if (cancelPressed) {
-				OpenConversionTypeDialogue(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}
-
-			OpenConversionSkillList(player, suiBox, eventIndex, args, state, selection);
-		} else if (state == 8) { //Convert Exp: Select the amount: ATTRIBUTE
-			if (cancelPressed) {
-				OpenConversionAttributeList(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}
-
-
-		} else if (state == 9) { //Convert Exp: Select the amount: SKILL
-			if (cancelPressed) {
-				OpenConversionSkillList(player, suiBox, eventIndex, args, state, selection);
-				return;
-			}
-
+		player->sendSystemMessage("Debug: Reached Train Step using index " + selection);
+		storedTarget->sendSystemMessage("Debug: Reached Train Step using index " + selection);
+		int profCode = selection;
+		String skillName;
+		if(selection > 100) { //If forceProfFlag
+			profCode -= 100;
+			if(profCode == 0) {
+					profName = "Jedi Guardian";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi");
+					skillName = "rp_training_jedi"
+				}
+				else if (profCode == 1) {
+					profName = "Jedi Sentinel";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_sentinel");
+					skillName = "rp_training_jedi_sentinel"
+				}
+				else if (profCode == 2) {
+					profName = "Jedi Consular";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_consular");
+					skillName = "rp_training_jedi_consular"
+				}
+				else if (profCode == 3) {
+					profName = "Dark Jedi Warrior";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_sith");
+					skillName = "rp_training_sith"
+				}
+				else if (profCode == 4) {
+					profName = "Dark Jedi Sorcerer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_drk_sorceror");
+					skillName = "rp_training_drk_sorceror"
+				}
 		}
-
-		*/
+		else {  //If not forceProfFlag
+			if(profCode == 0) {
+					profName = "Soldier";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_military");
+					skillName = "rp_training_military"
+				}
+				else if (profCode == 1) {
+					profName = "Mandalorian";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_mando");
+					skillName = "rp_training_mando"
+				}
+				else if (profCode == 2) {
+					profName = "Teras Kasi";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_tka");
+					skillName = "rp_training_tka"
+				}
+				else if (profCode == 3) {
+					profName = "Medic";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_medical");
+					skillName = "rp_training_medical"
+				}
+				else if (profCode == 4) {
+					profName = "Engineer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_engineer");
+					skillName = "rp_training_engineer"
+				}
+				else if (profCode == 5) {
+					profName = "Diplomat";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_diplomatic");
+					skillName = "rp_training_diplomatic"
+				}
+				else if (profCode == 6) {
+					profName = "Spy";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_spy");
+					skillName = "rp_training_spy"
+				}
+				else if (profCode == 7) {
+					profName = "Smuggler";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_smuggler");
+					skillName = "rp_training_smuggler"
+				}
+				else if (profCode == 8) {
+					profName = "Officer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_officer");
+					skillName = "rp_training_officer"
+				}
+				else if (profCode == 9) {
+					profName = "Pilot";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_pilot");
+					skillName = "rp_training_pilot"
+				}
+				else if (profCode == 10) {
+					profName = "Surgeon";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_surgeon");
+					skillName = "rp_training_surgeon"
+				}
+				else if (profCode == 11) {
+					profName = "Researcher";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_researcher");
+					skillName = "rp_training_researcher"
+				}
+				else if (profCode == 12) {
+					profName = "Weaponsmith";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_weaponsmith");
+					skillName = "rp_training_weaponsmith"
+				}
+				else if (profCode == 13) {
+					profName = "Armorsmith";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_armorsmith");
+					skillName = "rp_training_armorsmith"
+				}
+				else if (profCode == 14) {
+					profName = "Assassin";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_assassin");
+					skillName = "rp_training_assassin"
+				}
+				else if (profCode == 15) {
+					profName = "Saboteur";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_saboteur");
+					skillName = "rp_training_saboteur"
+				}
+				else if (profCode == 16) {
+					profName = "Con Artist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_conart");
+					skillName = "rp_training_conart"
+				}
+				else if (profCode == 17) {
+					profName = "Enforcer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_enforcer");
+					skillName = "rp_training_enforcer"
+				}
+				else if (profCode == 18) {
+					profName = "Bounty Hunter";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_bh");
+					skillName = "rp_training_bh"
+				}
+				else if (profCode == 19) {
+					profName = "Scout";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scout");
+					skillName = "rp_training_scout"
+				}
+		}
+		
+		String fullSkillName;
+		if(trainingLevel == 0) {
+			fullSkillName = skillName + "_novice";
+		}
+		else if (trainingLevel == 9) {
+			fullSkillName = skillName + "_master";
+		}
+		else {
+			fullSkillName = skillName + "_rank_0" + trainingLevel;
+		}
+		
+		skillManager->awardSkill(fullSkillName, creature, true, true, true);
+	}
 
 		player->sendSystemMessage("Debug: We have reached the end of the UI call");
 		storedTarget->sendSystemMessage("Debug: We have reached the end of the UI call");
 	}
 
-
-	String GetAttributeStringFromID(int id) {
-		if (id == 0)
-			return "awareness";
-		else if (id == 1)
-			return "charisma";
-		else if (id == 2)
-			return "constitution";
-		else if (id == 3)
-			return "dexterity";
-		else if (id == 4)
-			return "intelligence";
-		else if (id == 5)
-			return "mindfulness";
-		else if (id == 6)
-			return "precision";
-		else if (id == 7)
-			return "strength";
-		else
-			return "";
-	}
-
-	String GetSkillStringFromID(int id) {
-		if (id == 0)
-			return "armorer";
-		else if (id == 1)
-			return "athletics";
-		else if (id == 2)
-			return "bluff";
-		else if (id == 3)
-			return "composure";
-		else if (id == 4)
-			return "computers";
-		else if (id == 5)
-			return "defending";
-		else if (id == 6)
-			return "demolitions";
-		else if (id == 7)
-			return "engineering";
-		else if (id == 8)
-			return "intimidation";
-		else if (id == 9)
-			return "investigation";
-		else if (id == 10)
-			return "larceny";
-		else if (id == 11)
-			return "maneuverability";
-		else if (id == 12)
-			return "mechanics";
-		else if (id == 13)
-			return "medicine";
-		else if (id == 14)
-			return "melee";
-		else if (id == 15)
-			return "persuasion";
-		else if (id == 16)
-			return "piloting";
-		else if (id == 17)
-			return "ranged";
-		else if (id == 18)
-			return "resolve";
-		else if (id == 19)
-			return "science";
-		else if (id == 20)
-			return "slicing";
-		else if (id == 21)
-			return "stealth";
-		else if (id == 22)
-			return "survival";
-		else if (id == 23)
-			return "throwing";
-		else if (id == 24)
-			return "unarmed";
-		else if (id == 25)
-			return "sense";
-		else if (id == 26)
-			return "lightning";
-		else if (id == 27)
-			return "telekinesis";
-		else if (id == 28)
-			return "control";
-		else if (id == 29)
-			return "alter";
-		else if (id == 30)
-			return "inward";
-		else
-			return "";
-	}
-
+/*
 	String GetSkillNumeral(int value) {
 		if(value == 0) return "[None]";
 		else if(value == 1) return "I";
@@ -648,6 +622,6 @@ public:
 	}
 
 };
+*/
 
-
-#endif /* TRAINCOMMANDSUICALLBACK_H_ */
+#endif /* DMGrantProfCOMMANDSUICALLBACK_H_ */
