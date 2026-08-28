@@ -25,8 +25,8 @@ public:
 			return;
 
 		
-		//if (args->size() < 1)
-		//	return;
+		if (args->size() < 1)
+			return;
 
 		int index = Integer::valueOf(args->get(0).toString());
 
@@ -45,7 +45,7 @@ public:
 			box->setPromptTitle("Profession Training");
 			box->setPromptText("What profession would you like to grant?");
 
-			if(selection == 1) {
+			if(index == 1) {
 				forceProfFlag = true;
 				box->addMenuItem("Jedi Guardian");
 				box->addMenuItem("Jedi Sentinel");
@@ -80,7 +80,7 @@ public:
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 1 && forceProfFlag == true) {
-			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::TEACH_OFFER);
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
 			//box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, 0));
 			box->setPromptTitle("Profession Training");
@@ -101,7 +101,7 @@ public:
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 1 && forceProfFlag == false) {
-			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::TEACH_OFFER);
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
 			box->setPromptTitle("Confirm training?"); 
 			box->setPromptText("Are you sure you want to train this attribute?");
