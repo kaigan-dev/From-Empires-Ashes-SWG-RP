@@ -40,6 +40,7 @@ public:
 		//std::from_chars(grantProfTargetString.data(), grantProfTargetString.data + grantProfTargetString.size(), grantProfTarget);
 
 		player->sendSystemMessage("Debug: We have reached the end of the UI call");
+		storedTarget->sendSystemMessage("Debug: We have reached the end of the UI call");
 		/*
 		if (state == -1) {//Top Menu
 			OpenTopMenu(player, suiBox, eventIndex, args, state, selection);
