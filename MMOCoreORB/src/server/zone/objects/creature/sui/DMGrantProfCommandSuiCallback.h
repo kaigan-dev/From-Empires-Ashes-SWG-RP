@@ -621,8 +621,8 @@ public:
 			player->sendSystemMessage("ERROR: Something happened. You were eligible for the skill you selected when you selected it, but you are no longer eligible.");
 		}
 	}
-
-};
 */
+};
+
 
 #endif /* DMGrantProfCOMMANDSUICALLBACK_H_ */
