@@ -94,7 +94,6 @@ public:
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
 	}
-		}
 	else if (state == 2) {
 			suibox->setPromptTitle("Confirm training?"); 
 			suibox->setPromptText("Are you sure you want to train this attribute?");
@@ -198,7 +197,7 @@ public:
 		storedTarget->sendSystemMessage("Debug: We have reached the end of the UI call");
 	}
 
-	/*
+
 	String GetAttributeStringFromID(int id) {
 		if (id == 0)
 			return "awareness";
@@ -547,6 +546,6 @@ public:
 	}
 
 };
-*/
+
 
 #endif /* TRAINCOMMANDSUICALLBACK_H_ */
