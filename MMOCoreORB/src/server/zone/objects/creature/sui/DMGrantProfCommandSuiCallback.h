@@ -211,6 +211,10 @@ public:
 		int profCode = index;
 		int trainingLevel = 0;
 		String skillName, profName;
+
+		player->sendSystemMessage("Debug: In final step we have Index: " + String::valueOf(index) + ".");
+		player->sendSystemMessage("Debug: In final step we have Selection: " + String::valueOf(selection) + ".");
+
 		if(index > 100) { //If forceProfFlag
 			profCode -= 100;
 			if(profCode == 0) {
