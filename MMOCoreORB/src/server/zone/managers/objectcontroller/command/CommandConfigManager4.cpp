@@ -488,6 +488,6 @@ void CommandConfigManager::registerCommands4() {
 
 	//FEA
 	commandFactory.registerCommand<CommCommand>(String("comm").toLowerCase());
-	commandFactory.registerCommand<DmCommand>(String("dmgrantprof").toLowerCase());
+	commandFactory.registerCommand<DmGrantProfCommand>(String("dmgrantprof").toLowerCase());
 
 }
