@@ -30,7 +30,7 @@ public:
 
 		int index = Integer::valueOf(args->get(0).toString());
 
-		ManagedReference<CreatureObject*> storedTarget; = BorrieRPG::GetStoredCreature(player);
+		ManagedReference<CreatureObject*> storedTarget = BorrieRPG::GetStoredCreature(player);
 
 		//String grantProfTargetString = player->getStoredString("dm_grant_prof_target");
 		
