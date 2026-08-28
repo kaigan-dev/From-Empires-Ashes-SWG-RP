@@ -30,18 +30,23 @@ public:
 
 		int index = Integer::valueOf(args->get(0).toString());
 
+		bool forceProfFlag = false;
+
 		ManagedReference<CreatureObject*> storedTarget = BorrieRPG::GetStoredCreature(player);
 
 
 		if(state == 0 || state == -1) {
 			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
+			
 			box->setCancelButton(true, "Cancel");
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, index));
+			//box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, 0));
 
 			box->setPromptTitle("Profession Training");
 			box->setPromptText("What profession would you like to grant?");
 
-			if(eventIndex == 1) {
+			if(selection == 1) {
+				forceProfFlag = true;
 				box->addMenuItem("Jedi Guardian");
 				box->addMenuItem("Jedi Sentinel");
 				box->addMenuItem("Jedi Consular");
@@ -74,22 +79,28 @@ public:
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
 	}
-	else if (state == 1 && eventIndex == 1) {
+	else if (state == 1 && forceProfFlag == true) {
 			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
-
+			//box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, 0));
 			box->setPromptTitle("Profession Training");
-			box->setPromptText("What profession would you like to grant?");
+
+			if(index <= 10) {
+				box->setPromptText("Debug: Profession index less than 10");
+			}
+			else {
+				box->setPromptText("Debug: Profession index greater than 10");
+			}
+			
 			box->setPromptTitle("Confirm training?"); 
 			box->setPromptText("Are you sure you want to train this attribute?");
-			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
 			box->setOkButton(true, "Confirm");
 			box->setCancelButton(true, "Go Back");
 
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
 	}
-	else if (state == 1 && eventIndex == 2) {
+	else if (state == 1 && forceProfFlag == false) {
 			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 2, index));
 			box->setPromptTitle("Confirm training?"); 
@@ -101,21 +112,10 @@ public:
 			player->sendMessage(box->generateMessage());
 	}
 	else if (state == 2) {
-				ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
-			box->setCallback(new DMGrantProfCommandSuiCallback(server, 3, index));
-			box->setPromptTitle("Confirm training?"); 
-			box->setPromptText("Are you sure you want to train this attribute?");
-			box->setOkButton(true, "Confirm");
-			box->setCancelButton(true, "Go Back");
-
-			storedTarget->getPlayerObject()->addSuiBox(box);
-			storedTarget->sendMessage(box->generateMessage());
-	}
-	else if (state == 3) {
 		player->sendSystemMessage("Debug: Reached Train Step");
 		storedTarget->sendSystemMessage("Debug: Reached Train Step");
 	}
-
+	
 
 
 		/*
