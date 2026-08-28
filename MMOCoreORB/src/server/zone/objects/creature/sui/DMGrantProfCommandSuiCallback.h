@@ -43,9 +43,6 @@ public:
 			ManagedReference<SuiListBox*> box = new SuiListBox(player, SuiWindowType::JUKEBOX_SELECTION);
 			
 			box->setCancelButton(true, "Cancel");
-			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, index));
-			//box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, selection));
-
 			box->setPromptTitle("Profession Training");
 			box->setPromptText("What profession would you like to grant?");
 
@@ -82,6 +79,7 @@ public:
 				box->addMenuItem("Scout"); // 19
 			}
 		
+			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, selection));
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
 	}
