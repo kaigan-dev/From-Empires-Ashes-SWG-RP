@@ -79,7 +79,7 @@ public:
 				box->addMenuItem("Scout"); // 19
 			}
 		
-			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, index));
+			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, selection));
 			player->getPlayerObject()->addSuiBox(box);
 			player->sendMessage(box->generateMessage());
 	}
