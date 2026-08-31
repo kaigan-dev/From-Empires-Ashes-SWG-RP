@@ -2,4 +2,5 @@ content = {
 	{"object/weapon/roleplay/ranged/rifle/trandoshan_hunting_rifle.iff", },
 	{"object/weapon/roleplay/ranged/rifle/tusken_elite_rifle.iff", },
 	{"object/weapon/roleplay/ranged/rifle/e10_rifle.iff", },
+	{"object/weapon/roleplay/ranged/rifle/e5c_rifle.iff", },	
 }
