@@ -346,6 +346,11 @@ public:
 					skillName = "rp_training_scout";
 				}
 		}
+
+		if(!storedTarget->hasSkill("rp_force_prog_rank_01")) {
+			player->sendSystemMessage("The target is not awakened, so they cannot learn Force professions.");
+			return;
+		}
 		
 		String fullSkillName;
 		if(trainingLevel == 0) {
