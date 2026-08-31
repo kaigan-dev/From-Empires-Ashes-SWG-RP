@@ -1272,10 +1272,9 @@ ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_e5c, "
 
 
 
---[[
+
 --*************************************************************************************************************************************************
 object_weapon_ranged_rifle_shared_rifle_dlt19x = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_dlt19x.iff"
 }
-ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_dlx19x, "object/weapon/ranged/rifle/shared_rifle_dlt19x.iff")
---]]
+ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_dlt19x, "object/weapon/ranged/rifle/shared_rifle_dlt19x.iff")

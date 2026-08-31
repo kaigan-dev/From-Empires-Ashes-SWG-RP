@@ -148,10 +148,9 @@ object_weapon_roleplay_ranged_rifle_rifle_e5c = SharedWeaponObjectTemplate:new {
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_rifle_e5c, "object/weapon/roleplay/ranged/rifle/e5c_rifle.iff")
 
---[[
+
 --****************************************************************************************************************************************************************
 object_weapon_roleplay_ranged_rifle_dlt19x_rifle = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/roleplay/ranged/rifle/dlt19x_rifle.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_rifle_dlt19x_rifle, "object/weapon/roleplay/ranged/rifle/dlt19x_rifle.iff")
---]]
