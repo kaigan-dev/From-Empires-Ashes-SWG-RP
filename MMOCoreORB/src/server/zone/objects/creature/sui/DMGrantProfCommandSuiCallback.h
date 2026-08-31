@@ -218,6 +218,10 @@ public:
 
 		if(profCode >= 100) { //If forceProfFlag
 			profCode -= 100;
+			if(!storedTarget->hasSkill("rp_force_prog_rank_01")) {
+				player->sendSystemMessage("The target is not awakened, so they cannot learn Force professions.");
+				return;
+			}
 			if(profCode == 0) {
 					profName = "Jedi Guardian";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi");
@@ -347,10 +351,6 @@ public:
 				}
 		}
 
-		if(!storedTarget->hasSkill("rp_force_prog_rank_01")) {
-			player->sendSystemMessage("The target is not awakened, so they cannot learn Force professions.");
-			return;
-		}
 		
 		String fullSkillName;
 		if(trainingLevel == 0) {
