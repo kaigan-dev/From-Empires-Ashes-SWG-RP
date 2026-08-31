@@ -46,6 +46,16 @@ public:
 			return GENERALERROR;
 		}
 
+		if (!targetSceneObject->isCreatureObject()) {
+			creature->sendSystemMessage("You must target a player in order to grant them a profession.");
+			return GENERALERROR;
+		}
+		else if(!targetSceneObject->isPlayerCreature()) {
+				creature->sendSystemMessage("You must target a player in order to grant them a profession.");
+				return GENERALERROR;
+		}
+		
+
 		//BorrieRPG::SaveTarget(creature, targetSceneObject);
 		creature->setLocalData("storedtarget", String::valueOf(targetSceneObject->getObjectID()));
 		
