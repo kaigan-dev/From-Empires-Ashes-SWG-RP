@@ -5,7 +5,7 @@ npc_template = {
 	skillTemplates = {"soldier_strong"},
 	
 	equipmentTemplates = {
-		{"rp_human_male", {"faction/imperial/trooper"}},
+		{"rp_human_male", {"faction/imperial/trooper_coruscant"}},
 	},	
 	
 	customizationTemplates = {
