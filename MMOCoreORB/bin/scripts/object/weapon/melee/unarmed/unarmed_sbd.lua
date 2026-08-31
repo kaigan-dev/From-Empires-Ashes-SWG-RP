@@ -41,7 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_weapon_melee_unarmed_unarmed_sbd = object_weapon_melee_unarmed_shared_unarmed_sbd:new {
+--object_weapon_melee_unarmed_unarmed_sbd = object_weapon_melee_unarmed_shared_unarmed_sbd:new {
+object_weapon_melee_unarmed_unarmed_sbd = object_weapon_ranged_pistol_shared_pistol_invisible:new {
 
 	playerRaces = {},
 	invisible = 1,
