@@ -1697,10 +1697,15 @@ public:
         int targetCount = 0; 
         for (int i = 0; i < closeObjects.size(); i++) {
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
-			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius) && !targetObject->isDead()) {
-				targetCount++;
+			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
+                targetCreature = cast<CreatureObject*>(targetObject);
+                if(!targetCreature->isDead()) {
+				    targetCount++;
+                }
 			}
 		}
+
+        targetCreature = nullptr;  //Cleanup, as we will be using this again in the next loop and don't want to risk having old data in it.
 
         message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
         message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
@@ -1712,11 +1717,13 @@ public:
         int foundTargets = 0;
         for (int i = 0; foundTargets < targetCount; i++) { 
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
-			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)  && !targetObject->isDead()) {
+			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
 				targetCreature = cast<CreatureObject*>(targetObject);
-				Locker locker(targetCreature, centerTarget);
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal);
-                foundTargets++;
+                if(!targetCreature->isDead()) {
+				    Locker locker(targetCreature, centerTarget);
+                    HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal);
+                    foundTargets++;
+                }
 			}
 		}
     }
