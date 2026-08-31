@@ -216,7 +216,7 @@ public:
 		//player->sendSystemMessage("Debug: In final step we have Index: " + String::valueOf(index) + ".");
 		//player->sendSystemMessage("Debug: In final step we have Selection: " + String::valueOf(selection) + ".");
 
-		if(profCode > 100) { //If forceProfFlag
+		if(profCode >= 100) { //If forceProfFlag
 			profCode -= 100;
 			if(profCode == 0) {
 					profName = "Jedi Guardian";
@@ -358,8 +358,9 @@ public:
 			fullSkillName = skillName + "_rank_0" + trainingLevel;
 		}
 
-		player->sendSystemMessage("Granting " + fullSkillName);
+		player->sendSystemMessage("Granting " + profName + " rank " + trainingLevel + " (fullSkillName).");
 		skillManager->awardSkill(fullSkillName, storedTarget, true, true, true);
+		storedTarget->sendSystemMessage("You have been awarded " + profName + " rank " + trainingLevel + "!");
 	}
 	}
 };
