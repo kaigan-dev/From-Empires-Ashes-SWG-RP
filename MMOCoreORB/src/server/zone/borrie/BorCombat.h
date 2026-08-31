@@ -1697,7 +1697,7 @@ public:
         int targetCount = 0; 
         for (int i = 0; i < closeObjects.size(); i++) {
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
-			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
+			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius) && !targetObject->isDead()) {
 				targetCount++;
 			}
 		}
@@ -1712,7 +1712,7 @@ public:
         int foundTargets = 0;
         for (int i = 0; foundTargets < targetCount; i++) { 
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
-			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
+			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)  && !targetObject->isDead()) {
 				targetCreature = cast<CreatureObject*>(targetObject);
 				Locker locker(targetCreature, centerTarget);
                 HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal);
