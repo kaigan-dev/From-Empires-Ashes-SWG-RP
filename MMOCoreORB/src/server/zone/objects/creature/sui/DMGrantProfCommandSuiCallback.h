@@ -363,9 +363,10 @@ public:
 			fullSkillName = skillName + "_rank_0" + trainingLevel;
 		}
 
-		player->sendSystemMessage("Granting " + profName + " rank " + trainingLevel + " (fullSkillName).");
+		int displayTrainingLevel = trainingLevel + 1;
+		player->sendSystemMessage("Granting " + profName + " rank " + displayTrainingLevel + " (" + fullSkillName + ").");
 		skillManager->awardSkill(fullSkillName, storedTarget, true, true, true);
-		storedTarget->sendSystemMessage("You have been awarded " + profName + " rank " + trainingLevel + "!");
+		storedTarget->sendSystemMessage("You have been awarded " + profName + " rank " + displayTrainingLevel + "!");
 	}
 	}
 };
