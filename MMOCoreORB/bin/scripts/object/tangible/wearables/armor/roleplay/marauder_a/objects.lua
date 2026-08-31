@@ -43,8 +43,3 @@ object_tangible_wearables_armor_roleplay_marauder_a_shared_armor_marauder_s01_le
 }
 ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_roleplay_marauder_a_shared_armor_marauder_s01_leggings, "object/tangible/wearables/armor/roleplay/marauder_a/shared_armor_marauder_s01_leggings.iff")
 --************************************************************************************************************************************************************************************************************************
-object_tangible_wearables_armor_roleplay_marauder_a_shared_armor_privateer_ace_helmet = SharedTangibleObjectTemplate:new {
-	clientTemplateFileName = "object/tangible/wearables/armor/roleplay/marauder_a/shared_armor_privateer_ace_helmet.iff"
-}
-ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_roleplay_marauder_a_shared_armor_privateer_ace_helmet, "object/tangible/wearables/armor/roleplay/marauder_a/shared_armor_privateer_ace_helmet.iff")
---********************************************************************************************************************************************************************************************************************
