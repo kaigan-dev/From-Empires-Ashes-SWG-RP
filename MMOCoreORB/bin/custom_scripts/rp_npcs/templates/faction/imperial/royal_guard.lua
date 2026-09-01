@@ -3,17 +3,14 @@ npc_template = {
 
     baseTemplates = {
         "royal_guard",
-
     },
 
     skillTemplates = {
         "factional/common/elite_prearmored",
     },
 
-    equipment = {
+    equipmentTemplates = {
         {"royal_guard", {"force_pike"}},
-
-        
-},
+     },
 
 }
