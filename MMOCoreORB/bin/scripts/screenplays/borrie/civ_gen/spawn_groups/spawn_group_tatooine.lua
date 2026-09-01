@@ -10,7 +10,7 @@ spawn_group = {
 		{"rp_bothan_male", 12},
 		{"rp_chiss_female", 1},
 		{"rp_chiss_male", 1},
-		{"rp_devaronian_male", 25},
+		--{"rp_devaronian_male", 25}, --Invisible faces when spawned with hoods, and we don't actually use the ClothingExclusions list.
 		{"rp_gotal_male", 10},
 		{"rp_gran_male", 50},
 		{"rp_human_male", 75},
