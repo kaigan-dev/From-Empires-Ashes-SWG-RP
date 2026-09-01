@@ -1,10 +1,6 @@
 skillSet = {
 	{"rp_constitution", 4, 4},
 	{"rp_charisma", 1, 1},
-	{"rp_force", 2, 2},
-	{"rp_will", 4, 4},
-	{"rp_action", 10, 10},
-	{"rp_health", 18, 18},
 	{"rp_inward", 0, 0},
 	{"rp_alter", 0, 0},
 	{"rp_telekinesis", 0, 0},
@@ -43,4 +39,12 @@ skillSet = {
 	{"rp_precision", 3, 3},
 	{"rp_dexterity", 2, 2},
 	{"rp_awareness", 1, 1},
+
+	--Pools
+	{"rp_force", 2, 2},
+	{"rp_will", 4, 4},
+	{"rp_action", 10, 10},
+	{"rp_health", 18, 18},
+
+
 }
