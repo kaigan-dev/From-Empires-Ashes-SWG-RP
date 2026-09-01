@@ -270,7 +270,7 @@ public:
 			//Goodbye existing Weapon
         	originalWeapon->destroyObjectFromWorld(true);
 			originalWeapon->destroyObjectFromDatabase(true);
-			creature->sendSystemMessage("Your A280 CFE has been reconfigured as a " + CFEType + ". You will be able to switch its weapon type again in 12 hours.");
+			creature->sendSystemMessage("Your A280 CFE has been reconfigured as a " + CFEtype + ". You will be able to switch its weapon type again in 12 hours.");
 		} else {
 			object->destroyObjectFromDatabase(true);
 			creature->sendSystemMessage("Error transferring object to inventory.");
