@@ -117,8 +117,8 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.4, 5.8, 64.9, 142,
 
 
 
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "chefhat", "soldier_strong", "random") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("Cookie")
+--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "chefhat", "soldier_strong", "random") --Equip, Skill, Customization
+--	SceneObject(pNpc):setCustomObjectName("Cookie")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -44.5, 3, 60, 176, 610009480, "21b_surgical_droid", "default", "droid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Klank")
 

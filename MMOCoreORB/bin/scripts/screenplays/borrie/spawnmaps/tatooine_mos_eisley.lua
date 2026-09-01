@@ -1084,5 +1084,9 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 11.1, 0.6, 10.3, -93, 281474994469410, "jawa", "t21", "unique/home_defense_turret", "default")
 	SceneObject(pNpc):setCustomObjectName("Home Defense Turret")
 	
+	--Sola's Cook
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -24.0, 0.2, 0.4, -94, 610008348, "gamorrean", "chefhat", "soldier_strong", "random") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Cookie")
+
 
 end
