@@ -17,7 +17,7 @@ npc_template = {
 		{"/shared_owner/blend_skinny", 100},
 		{"/shared_owner/blend_muscle", 100},
 		{"/shared_owner/blend_fat", 0},
-		{"height", 1.5},
+		{"height", 1.2},
 	}
 }
 
