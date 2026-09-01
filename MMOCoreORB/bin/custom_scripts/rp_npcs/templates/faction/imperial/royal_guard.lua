@@ -11,9 +11,9 @@ npc_template = {
     },
 
     equipment = {
-        {"royal_guard"}, {"force_pike"},
+        {"royal_guard", {"force_pike"}},
 
         
-    },
+},
 
 }
