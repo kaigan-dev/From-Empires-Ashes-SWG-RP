@@ -4,8 +4,8 @@ npc_template = {
 	skillTemplates = {"factional/common/elite"},
 	
 	equipmentTemplates = {
-		{"rp_human_male", {"faction/imperial/elite"}},
-		{"rp_human_female", {"faction/imperial/elite"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_female", {"faction/imperial/elite_eidolon"}},
 	},	
 	
 	customizationTemplates = {
@@ -14,8 +14,8 @@ npc_template = {
 	},	
 	
 	customVarOverrides = {
-		{"/shared_owner/blend_skinny", 71},
-		{"/shared_owner/blend_muscle", 71},
+		{"/shared_owner/blend_skinny", 100},
+		{"/shared_owner/blend_muscle", 100},
 		{"/shared_owner/blend_fat", 0},
 		{"height", 1.5},
 	}
