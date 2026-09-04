@@ -26,6 +26,8 @@
 #include "server/zone/objects/tangible/component/droid/DroidComponent.h"
 #include "server/zone/managers/crafting/labratories/DroidMechanics.h"
 
+#include "server/zone/borrie/BorUtil.h"
+
 void DroidDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData) {
 	DeedImplementation::loadTemplateData(templateData);
 
@@ -36,6 +38,7 @@ void DroidDeedImplementation::loadTemplateData(SharedObjectTemplate* templateDat
 
 	controlDeviceObjectTemplate = deedData->getControlDeviceObjectTemplate();
 	mobileTemplate = deedData->getMobileTemplate();
+	skillTemplate = deedData->getSkillTemplate();
 	species = deedData->getSpecies();
 }
 
@@ -340,6 +343,7 @@ int DroidDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte
 		droid->createChildObjects();
 		droid->setControlDevice(controlDevice);
 
+		/* Replace original HAM determination with RP stats
 		float maxHam = DroidMechanics::determineHam(overallQuality, species);
 		for (int i = 0; i < 9; ++i) {
 			if (i % 3 == 0) {
@@ -352,6 +356,11 @@ int DroidDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte
 				droid->setMaxHAM(i, maxHam / 10, false);
 			}
 		}
+		*/
+
+		BorUtil::ApplySkillTemplateToPet(droid, skillTemplate);
+
+			
 
 		// this will change to use stacked modules. we wont care about non droid modules as they aren't needed.
 		ManagedReference<SceneObject*> craftingComponentsSatchel = droid->getCraftedComponentsSatchel();
