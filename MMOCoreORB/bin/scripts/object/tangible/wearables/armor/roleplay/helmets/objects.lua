@@ -24,3 +24,13 @@ object_tangible_wearables_armor_roleplay_helmets_shared_armor_rebel_ace_helmet =
 }
 ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_roleplay_helmets_shared_armor_rebel_ace_helmet, "object/tangible/wearables/armor/roleplay/helmets/shared_armor_rebel_ace_helmet.iff")
 --********************************************************************************************************************************************************************************************************************
+object_tangible_wearables_armor_roleplay_helmets_shared_armor_helmet_s06 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/armor/roleplay/helmets/shared_armor_helmet_s06.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_roleplay_helmets_shared_armor_helmet_s06, "object/tangible/wearables/armor/roleplay/helmets/shared_armor_helmet_s06.iff")
+--********************************************************************************************************************************************************************************************************************
+object_tangible_wearables_armor_roleplay_helmets_shared_armor_helmet_tie_fighter = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/armor/roleplay/helmets/shared_armor_helmet_tie_fighter.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_roleplay_helmets_shared_armor_helmet_tie_fighter, "object/tangible/wearables/armor/roleplay/helmets/shared_armor_helmet_tie_fighter.iff")
+--********************************************************************************************************************************************************************************************************************
