@@ -323,6 +323,11 @@ class PetDeed extends Deed {
 	}
 
 	@read
+	public int isMountable() {
+		return mountable;
+	}
+
+	@read
 	@local
 	public native string getTemplateName();
 
