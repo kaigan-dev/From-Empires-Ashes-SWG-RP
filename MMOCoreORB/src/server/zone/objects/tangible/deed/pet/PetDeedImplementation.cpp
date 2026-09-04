@@ -39,6 +39,8 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 
 	controlDeviceObjectTemplate = deedData->getControlDeviceObjectTemplate();
 	mobileTemplate = deedData->getMobileTemplate();
+	skillTemplate = deedData->getSkillTemplate();
+	isMountable = deedData->isMountable();
 }
 
 void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
@@ -133,11 +135,14 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		}
 	}
 
-	if(getStoredInt("mount") == 1) {
+	//if(getStoredInt("mount") == 1) {
+	if(isMountable) {
 		alm->insertAttribute("mount", "Yes");
 	} else {
 		alm->insertAttribute("mount", "No");
 	}
+
+	
 
 	if(ranged && allowRanged)
 		alm->insertAttribute("dna_comp_ranged_attack", "Yes");
@@ -512,6 +517,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			controlDevice->growPet(player,true,true);
 			controlDevice->trainAsMount(player);
 		}
+
+		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
 
 		datapad->broadcastObject(controlDevice, true);
 		controlDevice->growPet(player,true);

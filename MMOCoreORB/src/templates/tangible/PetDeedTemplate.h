@@ -14,6 +14,8 @@ class PetDeedTemplate : public DeedTemplate {
 private:
 	String controlDeviceObjectTemplate;
 	String mobileTemplate;
+	String skillTemplate;
+	bool isMountable = 0;
 
 public:
 	PetDeedTemplate() {
@@ -28,6 +30,8 @@ public:
 		DeedTemplate::readObject(templateData);
 		controlDeviceObjectTemplate = templateData->getStringField("controlDeviceObjectTemplate");
 		mobileTemplate = templateData->getStringField("mobileTemplate");
+		skillTemplate = templateData->getStringField("skillTemplate");
+		isMountable = templateData->getBoolField("isMountable")
     }
 
 	String getControlDeviceObjectTemplate() {
@@ -36,6 +40,14 @@ public:
 
 	String getMobileTemplate() {
 		return mobileTemplate;
+	}
+
+	String getskillTemplate() const {
+		return skillTemplate;
+	}
+
+	bool isMountable() const {
+		return isMountable;
 	}
 
 };

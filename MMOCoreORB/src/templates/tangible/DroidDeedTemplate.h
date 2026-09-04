@@ -13,6 +13,7 @@
 class DroidDeedTemplate : public DeedTemplate {
 	String controlDeviceObjectTemplate;
 	String mobileTemplate;
+	String skillTemplate;
 	int species;
 
 public:
@@ -29,6 +30,7 @@ public:
 		controlDeviceObjectTemplate = templateData->getStringField("controlDeviceObjectTemplate");
 		mobileTemplate = templateData->getStringField("mobileTemplate");
 		species = templateData->getIntField("species");
+		skillTemplate = templateData->getStringField("skillTemplate");
 	}
 
 	const String& getControlDeviceObjectTemplate() const {
@@ -37,6 +39,10 @@ public:
 
 	const String& getMobileTemplate() const {
 		return mobileTemplate;
+	}
+
+	const String& getskillTemplate() const {
+		return skillTemplate;
 	}
 
 	int getSpecies() const {
