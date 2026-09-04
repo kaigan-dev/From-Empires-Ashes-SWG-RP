@@ -624,7 +624,7 @@ public:
                         creature->addSkillMod(SkillModManager::PERMANENTMOD, skillKey, finalSkill);
                         if(skillKey == "rp_health") {
                             creature->setMaxHAM(0, finalSkill);
-                            tarcreatureget->setBaseHAM(0, finalSkill);
+                            creature->setBaseHAM(0, finalSkill);
                             creature->setHAM(0, finalSkill);
                         } else if(skillKey == "rp_action") {
                             creature->setMaxHAM(3, finalSkill);
