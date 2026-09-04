@@ -1,7 +1,7 @@
 --Armor template file for Borrie BoBaka's SWGEmu RPG System--
 
 
-object_tangible_wearables_armor_roleplay_helmets_armor_privateer_ace_helmet = object_tangible_wearables_helmet_shared_helmet_fighter_privateer_ace:new {
+object_tangible_wearables_armor_roleplay_helmets_armor_blacksun_ace_helmet = object_tangible_wearables_helmet_shared_helmet_fighter_blacksun_ace:new {
 
 
 	templateType = ARMOROBJECT,
@@ -39,4 +39,4 @@ object_tangible_wearables_armor_roleplay_helmets_armor_privateer_ace_helmet = ob
 }
 
 
-ObjectTemplates:addTemplate(object_tangible_wearables_armor_roleplay_helmets_armor_privateer_ace_helmet, "object/tangible/wearables/armor/roleplay/helmets/armor_privateer_ace_helmet.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_armor_roleplay_helmets_armor_blacksun_ace_helmet, "object/tangible/wearables/armor/roleplay/helmets/armor_blacksun_ace_helmet.iff")
