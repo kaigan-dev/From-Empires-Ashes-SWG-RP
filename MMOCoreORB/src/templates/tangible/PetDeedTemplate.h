@@ -15,7 +15,7 @@ private:
 	String controlDeviceObjectTemplate;
 	String mobileTemplate;
 	String skillTemplate;
-	int isMountable = 0;
+	int mountable = 0;
 
 public:
 	PetDeedTemplate() {
@@ -47,7 +47,7 @@ public:
 	}
 
 	int isMountable() const {
-		return isMountable;
+		return mountable;
 	}
 
 };
