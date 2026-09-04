@@ -14,17 +14,18 @@ object_tangible_wearables_armor_roleplay_helmets_armor_privateer_ace_helmet = ob
 	armorEncumbrance = 0,
 	mindEncumbrance = 0,
 
-	maxCondition = 100,
+
+	maxCondition = 200,
 
 
 	rating = LIGHT,
 	rpskill = 2,
 
 
-	kinetic = 0,
-	energy = 4,
-	electricity = 4,
-	stun = 2,
+	kinetic = 1,
+	energy = 1,
+	electricity = 0,
+	stun = 0,
 	blast = 0,
 	heat = 1,
 	cold = 1,
