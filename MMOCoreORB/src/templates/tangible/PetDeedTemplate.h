@@ -31,7 +31,7 @@ public:
 		controlDeviceObjectTemplate = templateData->getStringField("controlDeviceObjectTemplate");
 		mobileTemplate = templateData->getStringField("mobileTemplate");
 		skillTemplate = templateData->getStringField("skillTemplate");
-		mountable = templateData->getIntField("isMountable")
+		mountable = templateData->getIntField("isMountable");
     }
 
 	String getControlDeviceObjectTemplate() {
