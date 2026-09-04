@@ -621,26 +621,25 @@ public:
                         int maxSkill = objData.getIntAt(3);     
                         //int finalSkill = System::random(maxSkill - minSkill) + 1 + minSkill;
                         int finalSkill = minSkill + System::random(maxSkill - minSkill);
-                        target->addSkillMod(SkillModManager::PERMANENTMOD, skillKey, finalSkill);
+                        creature->addSkillMod(SkillModManager::PERMANENTMOD, skillKey, finalSkill);
                         if(skillKey == "rp_health") {
-                            target->setMaxHAM(0, finalSkill);
-                            target->setBaseHAM(0, finalSkill);
-                            target->setHAM(0, finalSkill);
+                            creature->setMaxHAM(0, finalSkill);
+                            tarcreatureget->setBaseHAM(0, finalSkill);
+                            creature->setHAM(0, finalSkill);
                         } else if(skillKey == "rp_action") {
-                            target->setMaxHAM(3, finalSkill);
-                            target->setBaseHAM(3, finalSkill);
-                            target->setHAM(3, finalSkill);
+                            creature->setMaxHAM(3, finalSkill);
+                            creature->setBaseHAM(3, finalSkill);
+                            creature->setHAM(3, finalSkill);
                         } else if(skillKey == "rp_will") {
-                            target->setMaxHAM(6, finalSkill);
-                            target->setBaseHAM(6, finalSkill);
-                            target->setHAM(6, finalSkill);
+                            creature->setMaxHAM(6, finalSkill);
+                            creature->setBaseHAM(6, finalSkill);
+                            creature->setHAM(6, finalSkill);
                         }
                     }
                     objData.pop();
                 }
             } else {
-                if(creature != target)
-                    creature->sendSystemMessage("Skill Template  \"" + skillTemplate + "\" not found.");
+                creature->sendSystemMessage("Skill Template  \"" + skillTemplate + "\" not found.");
             }
             luaObject.pop();
     } 
