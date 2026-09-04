@@ -13,7 +13,6 @@
 #include "server/zone/borrie/BorDev.h"
 #include "server/zone/borrie/BorIO.h"
 #include "server/zone/borrie/BorChat.h"
-#include "server/zone/borrie/BorCombat.h"
 
 class DmCommand : public QueueCommand {
 
@@ -466,6 +465,10 @@ public:
 				{
 					if(args.hasMoreTokens()) 
 					{
+						if(object == nullptr || !object->isCreatureObject() || object->isPlayerCreature()) {
+							creature->sendSystemMessage("You need to target a non-player creature to remove armor from it.");
+							return GENERALERROR;
+						}
 						String slotName;
 						String subSlot;
 						bool removed = false;
@@ -476,42 +479,42 @@ public:
 						}
 						if (slotName == "legs" || slotName == "leg" || slotName == "knee" || slotName == "knees" || slotName == "dick" || slotName == "crotch" || slotName == "shins" || slotName == "groin") 
 						{
-							removed = BorNPC::RemoveNPCArmor(creature, "pants1");
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "pants1");
 						} 
 						else if(slotName == "forearm" || slotName == "lowerarm" || slotName == "bracer") 
 						{
 							if(subSlot == "left") 
 							{
-								removed = BorNPC::RemoveNPCArmor(creature, "bracer_upper_l");
+								removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "bracer_upper_l");
 							} 
 							else 
 							{
-								removed = BorNPC::RemoveNPCArmor(creature, "bracer_upper_r");
+								removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "bracer_upper_r");
 							}
 						} 
 						else if(slotName == "bicep" || slotName == "upperarm" || slotName == "shoulder") 
 						{
 							if(subSlot == "left") {
-								removed = BorNPC::RemoveNPCArmor(creature, "bicep_l");
+								removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "bicep_l");
 							} else {
-								removed = BorNPC::RemoveNPCArmor(creature, "bicep_r");
+								removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "bicep_r");
 							}
 						} 
 						else if(slotName == "feet" || slotName == "foot" || slotName == "toes"  || slotName == "hoof" || slotName == "paw") 
 						{
-							removed = BorNPC::RemoveNPCArmor(creature, "shoes");
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "shoes");
 						} 
 						else if(slotName == "chest" || slotName == "heart"  || slotName == "stomach" || slotName == "gut" || slotName == "ribs") 
 						{
-							removed = BorNPC::RemoveNPCArmor(creature, "chest2");
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "chest2");
 						} 
 						else if(slotName == "hands" || slotName == "gloves" || slotName == "fingers") 
 						{
-							removed = BorNPC::RemoveNPCArmor(creature, "gloves");
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "gloves");
 						} 
 						else if (slotName == "head" || slotName == "face" || slotName == "eyes" || slotName == "neck" || slotName == "hat" || slotName == "helmet") 
 						{
-							removed = BorNPC::RemoveNPCArmor(creature, "hat");
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "hat");
 						}
 						
 						if(removed) {
