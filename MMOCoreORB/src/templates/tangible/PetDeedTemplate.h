@@ -15,7 +15,7 @@ private:
 	String controlDeviceObjectTemplate;
 	String mobileTemplate;
 	String skillTemplate;
-	bool isMountable = 0;
+	int isMountable = 0;
 
 public:
 	PetDeedTemplate() {
@@ -31,7 +31,7 @@ public:
 		controlDeviceObjectTemplate = templateData->getStringField("controlDeviceObjectTemplate");
 		mobileTemplate = templateData->getStringField("mobileTemplate");
 		skillTemplate = templateData->getStringField("skillTemplate");
-		isMountable = templateData->getBoolField("isMountable")
+		isMountable = templateData->getIntField("isMountable")
     }
 
 	String getControlDeviceObjectTemplate() {
@@ -46,7 +46,7 @@ public:
 		return skillTemplate;
 	}
 
-	bool isMountable() const {
+	int isMountable() const {
 		return isMountable;
 	}
 
