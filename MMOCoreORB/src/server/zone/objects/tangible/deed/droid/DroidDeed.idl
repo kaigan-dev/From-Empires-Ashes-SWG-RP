@@ -25,6 +25,8 @@ class DroidDeed extends Deed {
 	protected HashTable<string,DroidComponent> modules;
 	protected int combatRating;
 
+	protected string skillTemplate;
+
 	public DroidDeed() {
 		Logger.setLoggingName("DroidDeed");
 		combatRating = 0;
