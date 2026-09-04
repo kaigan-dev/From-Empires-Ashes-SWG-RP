@@ -41,7 +41,7 @@ public:
 		return mobileTemplate;
 	}
 
-	const String& getskillTemplate() const {
+	const String& getSkillTemplate() const {
 		return skillTemplate;
 	}
 
