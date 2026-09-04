@@ -358,11 +358,10 @@ int DroidDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte
 		}
 		*/
 
-		Reference<DroidObject*> pet = droid.castTo<CreatureObject*>();
-
-		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
-
-		droid = pet.castTo<DroidObject*>();
+		//We'll need these, but I'd like to bring Dev back up so I'm removing them for now.
+		//Reference<DroidObject*> pet = droid.castTo<CreatureObject*>();
+		//BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
+		//droid = pet.castTo<DroidObject*>();
 
 		// this will change to use stacked modules. we wont care about non droid modules as they aren't needed.
 		ManagedReference<SceneObject*> craftingComponentsSatchel = droid->getCraftedComponentsSatchel();

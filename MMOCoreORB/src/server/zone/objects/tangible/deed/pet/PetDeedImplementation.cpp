@@ -42,7 +42,7 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	controlDeviceObjectTemplate = deedData->getControlDeviceObjectTemplate();
 	mobileTemplate = deedData->getMobileTemplate();
 	skillTemplate = deedData->getSkillTemplate();
-	isMountable = deedData->isMountable();
+	mountable = deedData->isMountable();
 }
 
 void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
@@ -138,7 +138,7 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 	}
 
 	//if(getStoredInt("mount") == 1) {
-	if(isMountable) {
+	if(mountable) {
 		alm->insertAttribute("mount", "Yes");
 	} else {
 		alm->insertAttribute("mount", "No");
