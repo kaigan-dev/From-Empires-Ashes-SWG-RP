@@ -30,7 +30,8 @@ heavy_rocket_launcher = {
 	{"area",8,8,0},
 	{"dodgeDC",12,12,0},
 	{"rpSkillLevel",1,1,0},
-	{"itemValue",200,200,0}
+	{"itemValue",200,200,0},
+	{"rarity","uncommon",0,0},
 
 	},
 
