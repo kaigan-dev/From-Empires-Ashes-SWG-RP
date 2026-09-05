@@ -18,19 +18,19 @@ heavy_rocket_launcher = {
 	--	{"attackactioncost",85,40,0},
 	--	{"attackmindcost",60,36,0},   
 		--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	{"minDamage",3,3,0}, --Amount of Die used in Damage
-	{"maxDamage",6,6,0}, --Type of Die used in Damage
+	{"minDamage",3,0,0}, --Amount of Die used in Damage
+	{"maxDamage",6,0,0}, --Type of Die used in Damage
 	{"bonusDamage",0,0,0},
-	{"pointBlankRange",4,4,0},
-	{"pointBlankAccuracy",5,5,0},
- 	{"idealRange",24,24,0},
-	{"idealAccuracy",10,10,0},
-	{"maxRange",48,48,0},
-	{"maxRangeAccuracy",99,99,0},
-	{"area",8,8,0},
-	{"dodgeDC",12,12,0},
-	{"rpSkillLevel",1,1,0},
-	{"itemValue",200,200,0},
+	{"pointBlankRange",4,0,0},
+	{"pointBlankAccuracy",5,0,0},
+ 	{"idealRange",24,0,0},
+	{"idealAccuracy",10,0,0},
+	{"maxRange",48,0,0},
+	{"maxRangeAccuracy",99,0,0},
+	{"area",8,0,0},
+	{"dodgeDC",12,0,0},
+	{"rpSkillLevel",1,0,0},
+	{"itemValue",200,0,0},
 	{"rarity","uncommon",0,0},
 
 	},
