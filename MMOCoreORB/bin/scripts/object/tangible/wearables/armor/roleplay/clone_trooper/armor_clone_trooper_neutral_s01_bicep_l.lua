@@ -27,9 +27,9 @@ object_tangible_wearables_armor_roleplay_clone_trooper_armor_clone_trooper_neutr
 	electricity = 0,
 	stun = 2,
 	blast = 0,
-	heat = 0,
+	heat = 2,
 	cold = 0,
-	acid = 0,
+	acid = 2,
 	lightsaber = -1,
 	lightSaber = -1,
 	
