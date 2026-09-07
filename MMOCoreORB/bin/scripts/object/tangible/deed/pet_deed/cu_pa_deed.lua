@@ -58,8 +58,8 @@ object_tangible_deed_pet_deed_cu_pa_deed = object_tangible_deed_pet_deed_shared_
 	controlDeviceObjectTemplate = "object/intangible/pet/cu_pa_hue.iff",
 	mobileTemplate = "cu_pa_be",
 	isMountable = 1,
-	skillTemplate = "creature_medium",
-	equipmentTemplate = "creatures/medium",
+	skillTemplate = "creatures/medium",
+	equipmentTemplate = "creature_medium",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_cu_pa_deed, "object/tangible/deed/pet_deed/cu_pa_deed.iff")
