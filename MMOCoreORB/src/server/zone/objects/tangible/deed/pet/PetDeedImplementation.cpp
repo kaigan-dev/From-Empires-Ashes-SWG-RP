@@ -526,6 +526,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
 		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
+		pet->setStoredString("rp_equip_template", equipmentTemplate);
 
 		datapad->broadcastObject(controlDevice, true);
 		controlDevice->growPet(player,true);

@@ -743,7 +743,7 @@ public:
 
                 LuaObject luaObject = lua->getGlobalObject("equipment");
 
-                if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
+                if (target == nullptr) {
                     luaObject.pop();
                     return;
                 }
