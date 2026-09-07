@@ -97,10 +97,9 @@ public:
 				targetCreature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
 
 				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
-					ManagedReference<AiAgent*> object = ghost->getActivePet(i);
-					object->healDamage(object->asCreatureObject(), CreatureAttribute::HEALTH, 100, true, false);
-    				object->healDamage(object->asCreatureObject(), CreatureAttribute::ACTION, 100, true, false);
-    				object->healDamage(object->asCreatureObject(), CreatureAttribute::MIND,   100,   true, false);
+					ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
+					BorCharacter::FillAllPools(pet->asCreatureObject());
+					//AiAgent* pet = cast<AiAgent*>(creature);   //or maybe reverse this
 				}
 			}
 			else {
