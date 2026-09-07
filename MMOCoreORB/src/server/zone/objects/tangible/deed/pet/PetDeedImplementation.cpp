@@ -139,7 +139,7 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 	}
 
 	//if(getStoredInt("mount") == 1) {
-	if(mountable) {
+	if(mountable == 1) {
 		alm->insertAttribute("mount", "Yes");
 	} else {
 		alm->insertAttribute("mount", "No");
