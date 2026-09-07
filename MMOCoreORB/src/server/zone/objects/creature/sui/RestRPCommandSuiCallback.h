@@ -1,6 +1,10 @@
 #ifndef RESTRPCOMMANDSUICALLBACK_H_
 #define RESTRPCOMMANDSUICALLBACK_H_
 
+#include "server/zone/objects/creature/ai/AiAgent.h"
+#include "server/zone/objects/creature/ai/Creature.h"
+#include "server/zone/objects/creature/ai/DroidObject.h"
+
 class RestRPCommandSuiCallback : public SuiCallback {
 private:
 	//int state;
@@ -91,6 +95,13 @@ public:
 				//BorCharacter::HandleDarksideFading(targetCreature);
 				targetCreature->setStoredInt("hero_point_used", 0);
 				targetCreature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
+
+				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+					ManagedReference<AiAgent*> object = ghost->getActivePet(i);
+					object->healDamage(object->asCreatureObject(), CreatureAttribute::HEALTH, 100, true, false);
+    				object->healDamage(object->asCreatureObject(), CreatureAttribute::ACTION, 100, true, false);
+    				object->healDamage(object->asCreatureObject(), CreatureAttribute::MIND,   100,   true, false);
+				}
 			}
 			else {
 				targetCreature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
