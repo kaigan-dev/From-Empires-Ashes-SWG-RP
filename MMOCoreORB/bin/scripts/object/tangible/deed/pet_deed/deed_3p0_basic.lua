@@ -60,7 +60,7 @@ object_tangible_deed_pet_deed_deed_3p0_basic = object_tangible_deed_pet_deed_sha
 	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	isMountable = 0,
-	skillTemplate = "droid.lua",
+	skillTemplate = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_deed_3p0_basic, "object/tangible/deed/pet_deed/deed_3p0_basic.iff")
