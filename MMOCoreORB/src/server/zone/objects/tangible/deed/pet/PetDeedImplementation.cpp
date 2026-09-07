@@ -525,12 +525,15 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 
 		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
-		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
 		pet->setStoredString("rp_equip_template", equipmentTemplate);
 
 		datapad->broadcastObject(controlDevice, true);
-		controlDevice->growPet(player,true);
 		controlDevice->callObject(player);
+
+		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
+
+		controlDevice->storeObject(player);
+		
 
 		//Remove the deed from it's container.
 		ManagedReference<SceneObject*> deedContainer = getParent().get();
@@ -538,6 +541,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		if (deedContainer != nullptr) {
 			destroyObjectFromWorld(true);
 		}
+
+		controlDevice->callObject(player);
 
 		generated = true;
 		player->sendSystemMessage("@pet/pet_menu:device_added"); // "A control device has been added to your datapad."
