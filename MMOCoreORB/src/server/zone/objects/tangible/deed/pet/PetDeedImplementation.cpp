@@ -42,6 +42,7 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	controlDeviceObjectTemplate = deedData->getControlDeviceObjectTemplate();
 	mobileTemplate = deedData->getMobileTemplate();
 	skillTemplate = deedData->getSkillTemplate();
+	equipmentlTemplate = deedData->getEquipmentTemplate();
 	mountable = deedData->isMountable();
 }
 
@@ -521,6 +522,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		}
 
 		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
+		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
 
 		datapad->broadcastObject(controlDevice, true);
 		controlDevice->growPet(player,true);

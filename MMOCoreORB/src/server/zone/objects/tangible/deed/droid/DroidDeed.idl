@@ -26,6 +26,7 @@ class DroidDeed extends Deed {
 	protected int combatRating;
 
 	protected string skillTemplate;
+	protected string equipmentTemplate;
 
 	public DroidDeed() {
 		Logger.setLoggingName("DroidDeed");
