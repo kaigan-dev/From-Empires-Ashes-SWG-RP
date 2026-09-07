@@ -99,7 +99,6 @@ public:
 				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 					ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
 					BorCharacter::FillAllPools(pet->asCreatureObject());
-					//AiAgent* pet = cast<AiAgent*>(creature);   //or maybe reverse this
 				}
 			}
 			else {
