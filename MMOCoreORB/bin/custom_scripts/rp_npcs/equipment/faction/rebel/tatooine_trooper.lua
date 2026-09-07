@@ -7,5 +7,5 @@ equipment = {
         {"object/tangible/wearables/pants/pants_s07.iff", "/private/index_color_2", 38, "/private/index_color_1", 7, },
         {"object/tangible/wearables/boots/boots_s05.iff", "/private/index_color_2", 190, "/private/index_color_1", 25, },
         {"object/tangible/wearables/gloves/gloves_s02.iff", "/private/index_color_1", 32, },
-        {"object/tangible/wearables/backpack/backpack_s01.iff", }
+        {"object/tangible/wearables/backpack/backpack_s01.iff", },
 }
