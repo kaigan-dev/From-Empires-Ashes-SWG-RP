@@ -516,10 +516,13 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			return 1;
 		}
 
+		// Always set pets to spawn as adults.
+		controlDevice->growPet(player,true,true);
+
 		if(getStoredInt("mount") == 1) {
-			controlDevice->growPet(player,true,true);
 			controlDevice->trainAsMount(player);
 		}
+
 
 		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
 		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
