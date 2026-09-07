@@ -8,4 +8,5 @@ equipment = {
         {"object/tangible/wearables/boots/boots_s05.iff", "/private/index_color_2", 91, "/private/index_color_1", 23, },
         {"object/tangible/wearables/gloves/gloves_s02.iff", "/private/index_color_1", 89, },
         {"object/tangible/wearables/helmet/helmet_s06.iff", "/private/index_color_2", 223, "/private/index_color_1", 218, },
+        {"object/weapon/roleplay/ranged/rifle/a280_blaster_rifle.iff", "/private/index_color_blade", 0, },
 }
