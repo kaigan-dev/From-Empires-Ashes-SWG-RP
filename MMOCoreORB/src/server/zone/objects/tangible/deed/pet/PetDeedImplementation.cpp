@@ -42,7 +42,7 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	controlDeviceObjectTemplate = deedData->getControlDeviceObjectTemplate();
 	mobileTemplate = deedData->getMobileTemplate();
 	skillTemplate = deedData->getSkillTemplate();
-	equipmentlTemplate = deedData->getEquipmentTemplate();
+	equipmentTemplate = deedData->getEquipmentTemplate();
 	mountable = deedData->isMountable();
 }
 
