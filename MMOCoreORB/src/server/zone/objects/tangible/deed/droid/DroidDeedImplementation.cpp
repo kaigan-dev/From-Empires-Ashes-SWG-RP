@@ -39,6 +39,7 @@ void DroidDeedImplementation::loadTemplateData(SharedObjectTemplate* templateDat
 	controlDeviceObjectTemplate = deedData->getControlDeviceObjectTemplate();
 	mobileTemplate = deedData->getMobileTemplate();
 	skillTemplate = deedData->getSkillTemplate();
+	equipmentTemplate = deedData->getEquipmentTemplate();
 	species = deedData->getSpecies();
 }
 
@@ -361,6 +362,7 @@ int DroidDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte
 		//We'll need these, but I'd like to bring Dev back up so I'm removing them for now.
 		//Reference<DroidObject*> pet = droid.castTo<CreatureObject*>();
 		//BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
+		//BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
 		//droid = pet.castTo<DroidObject*>();
 
 		// this will change to use stacked modules. we wont care about non droid modules as they aren't needed.

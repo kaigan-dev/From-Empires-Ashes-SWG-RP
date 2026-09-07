@@ -49,6 +49,7 @@ class PetDeed extends Deed {
 	protected string controlDeviceObjectTemplate;
 	protected string mobileTemplate;
 	protected string skillTemplate;
+	protected string equipmentTemplate;
 	protected int mountable;
 
 	protected int cleverness;

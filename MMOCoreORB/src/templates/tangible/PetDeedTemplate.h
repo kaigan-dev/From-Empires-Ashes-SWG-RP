@@ -15,6 +15,7 @@ private:
 	String controlDeviceObjectTemplate;
 	String mobileTemplate;
 	String skillTemplate;
+	String equipmentTemplate;
 	int mountable = 0;
 
 public:
@@ -31,6 +32,7 @@ public:
 		controlDeviceObjectTemplate = templateData->getStringField("controlDeviceObjectTemplate");
 		mobileTemplate = templateData->getStringField("mobileTemplate");
 		skillTemplate = templateData->getStringField("skillTemplate");
+		equipmentTemplate = templateData->getStringField("equipmentTemplate");
 		mountable = templateData->getIntField("isMountable");
     }
 
@@ -44,6 +46,10 @@ public:
 
 	String getSkillTemplate() const {
 		return skillTemplate;
+	}
+
+	String getEquipmentTemplate() const {
+		return equipmentTemplate;
 	}
 
 	int isMountable() const {
