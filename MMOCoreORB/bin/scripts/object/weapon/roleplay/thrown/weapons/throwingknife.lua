@@ -1,7 +1,7 @@
-/**object_weapon_roleplay_melee_throwingknife = object_weapon_melee_knife_shared_knife_dagger:new {
+object_weapon_roleplay_thrown_throwingknife = object_weapon_melee_knife_shared_knife_dagger:new {
 
 	--[Info]
-	customName = "Set of 5 throwing knives",
+	customName = "Throwing knife",
 
 	--[Stats]
 	attackType = RANGEDATTACK,
@@ -13,22 +13,21 @@
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 1,
+	bonusDamage = 3,
 
-	pointBlankRange = 7,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 21,
+	idealRange = 20,
 	idealAccuracy = 10,
 
-	maxRange = 35,
+	maxRange = 86,
 	maxRangeAccuracy = 99,
-
-	rarity="Common",
-	itemValue = 500,
-	maxAmmo = 5,
+	
+	rarity="Rare",
+	itemValue = 3000,
+	maxAmmo = 6,
 	ammoType = "ammo_kinetic", 
-	--Approx FEA Value 500
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",
@@ -56,4 +55,4 @@
 	experimentalCombineType = { 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_roleplay_melee_throwingknife, "object/weapon/roleplay/melee/onehanded/dagger.iff") **\
+ObjectTemplates:addTemplate(object_weapon_roleplay_thrown_throwingknife, "object/weapon/roleplay/ranged/thrown_throwing_knife")
