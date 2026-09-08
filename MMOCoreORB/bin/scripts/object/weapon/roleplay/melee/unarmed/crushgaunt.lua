@@ -57,4 +57,4 @@ object_weapon_roleplay_melee_unarmed_crushgaunt = object_weapon_melee_special_sh
 	experimentalCombineType = { 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_roleplay_melee_unarmed_crushgaunt, "object/weapon/roleplay/melee/unarmed/massassi_knuckler.iff")
+ObjectTemplates:addTemplate(object_weapon_roleplay_melee_unarmed_crushgaunt, "object/weapon/roleplay/melee/unarmed/crushgaunt.iff")
