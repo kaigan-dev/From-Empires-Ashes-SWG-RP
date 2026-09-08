@@ -39,10 +39,10 @@ public:
 		bool hasOwnership = false;
 
 		if (targetObject != nullptr) {
-			if (targetObject->isCreatureObject())
+			if (targetObject->isCreatureObject() && !targetObject->isPlayerCreature())
 				targetCreature = targetObject->asCreatureObject();
 			else {
-				creature->sendSystemMessage("Invalid target. Target must be a creature you have ownership over.");
+				creature->sendSystemMessage("Invalid target. Target must be an NPC creature you have ownership over.");
 				return INVALIDTARGET;
 			}
 

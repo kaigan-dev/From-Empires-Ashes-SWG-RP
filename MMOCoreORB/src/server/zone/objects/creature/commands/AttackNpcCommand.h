@@ -56,6 +56,9 @@ public:
 			return SUCCESS;
 		}
 
+		if (object == nullptr)
+			return GENERALERROR;
+
 		ManagedReference<SceneObject*> storedObject;
 		if (storedTarget != 0) {
 			storedObject = server->getZoneServer()->getObject(storedTarget, false);
@@ -106,6 +109,10 @@ public:
 				creature->sendSystemMessage("Not yet implemented, sorry.");
 			} else if(command == "nolos") {
 				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, true);
+			} else if(command == "advantage" || command == "adv") {
+				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, noLos, 1);
+			} else if(command == "disadvantage" || command == "dis" || command == "disadv") {
+				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, noLos, 2);
 			}
 		} else {
 			BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false);

@@ -4,7 +4,7 @@ BorForce_Absorb = {
 
 function BorForce_Absorb:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "As a defensive reaction, attempt to absorb the energy of an incoming non-kinetic attack at a cost of 3 Force pool. This rolls your Inward against the attack roll. On a success, you absorb the incoming bolt harmlessly, negating the damage."
+	helpMessage =  helpMessage .. "As a defensive reaction, attempt to absorb the energy of an incoming non-kinetic attack at a cost of 3 Force pool. This rolls your Inward against DC 15, or DC 18 if the attack is weilding a lightsaber. On a success, you absorb the incoming bolt harmlessly, negating the damage."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 

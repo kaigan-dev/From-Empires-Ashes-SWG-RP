@@ -16,14 +16,14 @@ heavy_rocket_launcher = {
 		{"midrangemod",20,60,0},
 		{"attackhealthcost",124,67,0},
 		{"attackactioncost",85,40,0},
-		{"attackmindcost",60,36,0},
+		{"attackmindcost",60,36,0},   
 	},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 750,
-	junkDealerTypeNeeded = JUNKARMS,
-	junkMinValue = 30,
-	junkMaxValue = 55
+	--randomDotChance = 750,
+	--junkDealerTypeNeeded = JUNKARMS,
+	--junkMinValue = 30,
+	--junkMaxValue = 55
 }
 
 addLootItemTemplate("heavy_rocket_launcher", heavy_rocket_launcher)

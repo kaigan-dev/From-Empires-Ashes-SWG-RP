@@ -20,7 +20,7 @@ skillSet = {
 	{"rp_piloting", 2, 2},
 	{"rp_melee", 8, 8},
 	{"rp_medicine", 0, 0},
-	{"rp_maneuverability", 4, 4},
+	{"rp_maneuverability", 8, 8},
 	{"rp_larceny", 0, 0},
 	{"rp_intimidation", 6, 6},
 	{"rp_engineering", 0, 0},

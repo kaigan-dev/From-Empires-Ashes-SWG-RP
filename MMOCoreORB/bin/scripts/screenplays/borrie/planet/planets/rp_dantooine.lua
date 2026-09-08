@@ -9,7 +9,7 @@ planet = {
 	
 	landing_points = {
 		--Tag, Name, Zone, x, z, y, angle, cell, shipVisible
-		{"dantooine_damarise_outpost", "Damarise Outpost", "rp_dantooine", 1368, 4, 3403, 0, true},
+		{"dantooine_damarise_outpost", "Damarise Outpost", "rp_dantooine", 1380, 4, 3403, 0, true},
 	}	
 }
 

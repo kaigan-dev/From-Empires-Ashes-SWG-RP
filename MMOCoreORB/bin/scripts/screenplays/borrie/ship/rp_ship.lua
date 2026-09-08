@@ -116,10 +116,28 @@ function BorRpShip:exitShip(pPlayer)
 	--Get Ship's last known landing spot
 	local shipLandingSpot = SceneObject(pShip):getStoredString("landing_spot")
 	if(shipLandingSpot == "") then
-		shipLandingSpot = "eisley_spaceport"
+		CreatureObject(pPlayer):sendSystemMessage("You cannot disembark while in space.")
+		return
 	end
-	--Teleport them there. 
+
+
 	local point = BorPlanetManager.landing_points[shipLandingSpot]
+	--Populate the landing location using a different variable if the ship is at custom coordinates, since those won't be in the planet landing points list.
+	if (shipLandingSpot == "custom_coordinates") then
+		local landX = SceneObject(pShip):getStoredString("custom_landingX")
+		local landY = SceneObject(pShip):getStoredString("custom_landingY")
+		local landName = SceneObject(pShip):getStoredString("custom_landing_name")
+		local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
+
+		if (landX ~= nil and landY ~= nil and landName ~= nil and currentPlanet ~= nil) then
+			SceneObject(pPlayer):switchZone(currentPlanet, landX, 0, landY, 0) 
+			return
+		else 
+			CreatureObject(pPlayer):sendSystemMessage("Something horrible has occured. Could not locate landing point for this ship. Contact administration to get you out.")
+		end
+	end
+
+	--Teleport them to the target location
 	if(point ~= nil) then
 		--------------------------------ZONE--------X------Z------Y-------CELL---
 		SceneObject(pPlayer):switchZone(point[3], point[4],point[5],point[6], point[8]) 
@@ -127,6 +145,7 @@ function BorRpShip:exitShip(pPlayer)
 		CreatureObject(pPlayer):sendSystemMessage("Something horrible has occured. Could not locate landing point for this ship. Contact administration to get you out.")
 	end	
 end
+
 
 function BorRpShip:broadcastToPassengers(pShip, message)
 	--If it is not a building ship, no one to alert.
@@ -224,8 +243,8 @@ function BorRpShip:promptLandShipMenu(pPlayer, pObject)
 	SceneObject(pShip):deleteStoredString("beacon_code")
 	
 	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
+	local currentPlanetArr = BorPlanetManager.planets[currentPlanet]
 	local currentLanding = SceneObject(pShip):getStoredString("landing_spot")
-	local onSpotLandPoint
 	
 	local options = {}
 	local planetObject = BorPlanetManager.planets[currentPlanet]
@@ -239,9 +258,13 @@ function BorRpShip:promptLandShipMenu(pPlayer, pObject)
 		local landingPoint = {planetObject.landing_points[i][2], 0}
 		table.insert(options, landingPoint)
 	end
+
+	if (currentPlanet ~= "rp_space") then
+		table.insert(options, {"Enter Coordinates", 0})
+	end
 	
 	local suiManager = LuaSuiManager()
-	suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentLanding, 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
+	suiManager:sendListBox(pObject, pPlayer, "Navicomputer", "Select a landing point.\n\nCurrent Location: " .. currentPlanetArr.name, 1, "@cancel", "", "", "BorRpShip", "landShipCallback", 10, options)
 end
 
 function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex) 
@@ -256,29 +279,114 @@ function BorRpShip:landShipCallback(pPlayer, pSui, eventIndex, rowIndex)
 	if(pShip == nil) then
 		return 0
 	end	
-	
+
 	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
-	
 	local planetObject = BorPlanetManager.planets[currentPlanet]
 	local selectedLandingSpot = planetObject.landing_points[rowIndex + 1]
 	
+	if(planetObject == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Error occured. Could not find planet.")
+		return 0
+	end
+
+	--If "Enter Coordinates" was selected, stop current logic to request coordinates.
+    if(rowIndex + 1 > #planetObject.landing_points) then
+            BorRpShip:promptCoordinateLanding(pPlayer, pShip)
+            return 0
+    end
+		
 	SceneObject(pShip):setStoredString("landing_spot", selectedLandingSpot[1])
 	
 	local shipName = SceneObject(pShip):getCustomObjectName()
 	if(shipName == "") then
 		shipName = "The Ship"
 	end
-	
+
+	BorRpShip:landShipAt(pShip, pPlayer, planetObject.landing_points[rowIndex + 1][3], planetObject.landing_points[rowIndex + 1][4], planetObject.landing_points[rowIndex + 1][5], planetObject.landing_points[rowIndex + 1][6])
+
 	local message = shipName .. " has now landed at " .. selectedLandingSpot[2] .. "."
-	
-	self:broadcastToPassengers(pShip, message)	
-	
-	--Try to land the ship at that location if possible.
-	if(selectedLandingSpot[9] == true) then
-		CreatureObject(pPlayer):sendSystemMessage("Debug: Point allows landing.")
-	end
-	
+		
+	self:broadcastToPassengers(pShip, message)		
 end
+
+
+function BorRpShip:promptCoordinateLanding(pPlayer, pObject)
+        local pCell = SceneObject(pPlayer):getParent()
+        if(pCell == nil) then
+                return 0
+        end
+        local pShip = SceneObject(pCell):getParent()
+        if(pShip == nil) then
+                return 0
+        end
+
+        local suiManager = LuaSuiManager()
+        --suiManager:sendInputBox(pObject, pPlayer, "Navicomputer", "Select a planet for coordinate landing.", 1, "@cancel", "", "", "BorRpShip", "selectCoordinateZone", 10, options)
+		suiManager:sendInputBox(pObject, pPlayer, "BorRpShip", "selectCoordinates", "Enter landing coordinates as: X, Y", "@ok")
+end
+
+
+function BorRpShip:selectCoordinates(pPlayer, pSui, eventIndex, inputData)
+    if(eventIndex == 1) then
+        return 0
+    end
+	
+    if(inputData == nil or inputData == "") then
+            CreatureObject(pPlayer):sendSystemMessage("No coordinates entered.")
+        	return 0
+    end
+	
+	local xStr, yStr = string.match(inputData, "(-?%d+%.?%d*)[%s,]+(-?%d+%.?%d*)")
+    local landX = tonumber(xStr)
+    local landY = tonumber(yStr)
+    if(landX == nil or landY == nil) then
+        CreatureObject(pPlayer):sendSystemMessage("Invalid coordinates. Use format: X, Y")
+        return 0
+    end
+
+	if(landX >= 7501 or landY >= 7501 or landX <= -7499 or landY <= -7499) then
+        CreatureObject(pPlayer):sendSystemMessage("Coordinates must be between -7500 and 7500")
+        return 0
+    end
+
+    local inputBox = LuaSuiBox(pSui)
+    local pObject = inputBox:getUsingObject()
+    if(pObject == nil) then
+        CreatureObject(pPlayer):sendSystemMessage("Error finding ship control device.")
+        return 0
+    end
+    local pCell = SceneObject(pPlayer):getParent()
+    if(pCell == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Player parent cell not found.")
+        return 0
+    end
+    local pShip = SceneObject(pCell):getParent()
+    if(pShip == nil) then
+        CreatureObject(pPlayer):sendSystemMessage("Parent ship not found.")
+		return 0
+    end
+
+	local currentPlanet = SceneObject(pShip):getStoredString("current_planet")
+
+	SceneObject(pShip):setStoredString("landing_spot", "custom_coordinates")
+	SceneObject(pShip):setStoredString("custom_landing_name", "coordinates " .. landX .. ", " .. landY)
+	SceneObject(pShip):setStoredString("custom_landingX", landX)
+	SceneObject(pShip):setStoredString("custom_landingY", landY)
+	
+	local shipName = SceneObject(pShip):getCustomObjectName()
+	if(shipName == "") then
+		shipName = "The Ship"
+	end
+
+	BorRpShip:landShipAt(pShip, pPlayer, currentPlanet, landX, 0, landY)
+
+	--local message = shipName .. " has now landed at " .. selectedLandingPoint[2] .. "."
+
+	--self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. math.floor(landX) .. ", " .. math.floor(landY) .. ", " .. planetName .. ".")	
+	
+	--self:broadcastToPassengers(pShip, message)
+end
+
 
 function BorRpShip:renameShip(pObject, pPlayer)
 	if(pObject == nil) then
@@ -324,6 +432,7 @@ function BorRpShip:renameShipCallback(pPlayer, pSui, eventIndex, newName)
 	CreatureObject(pPlayer):sendSystemMessage("You ship is now called \"" .. newName .. ".\"")
 end
 
+
 function BorRpShip:landShip(pObject, pPlayer)
 	if(SceneObject(pPlayer):getParent() ~= nil) then
 		CreatureObject(pPlayer):sendSystemMessage("You cannot do this inside a structure.")
@@ -349,8 +458,7 @@ function BorRpShip:landShip(pObject, pPlayer)
 		CreatureObject(pPlayer):sendSystemMessage("This ship is currently landed elsewhere. Take off to land somewhere else.")
 		return 0
 	end
-	
-	--TODO: Make this template dynamic based on ship template
+
 	local flatTemplate = SceneObject(pObject):getStoredString("flatteningTemplate")
 	local shipNpcTemplate = SceneObject(pObject):getStoredString("appearanceMobile")
 	
@@ -359,16 +467,18 @@ function BorRpShip:landShip(pObject, pPlayer)
 	local posZ = SceneObject(pPlayer):getWorldPositionZ()
 	local angle = SceneObject(pPlayer):getDirectionAngle()
 	local zoneName = SceneObject(pPlayer):getZoneName()
-	
+
+	SceneObject(pShip):setStoredString("current_planet", zoneName)
+
 	local pPoint = spawnBuilding(pPlayer, flatTemplate, posX, posY, 0)
 	
 	if(pPoint == nil) then
 		CreatureObject(pPlayer):sendSystemMessage("Could not find the landing point object. Aborting landing sequence...")
 		return 0
 	end
-	
+
 	setStoredObject(pShip, pPoint, "landing_point_object")
-	
+
 	--Spawn Ship
 	local pNpc = spawnRoleplayMobile(zoneName, "rp_base_npc", 1, posX, posZ, posY, angle, 0, shipNpcTemplate, "default", "default", "default")
 	
@@ -398,6 +508,76 @@ function BorRpShip:landShip(pObject, pPlayer)
 	createEvent(29 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
 end
 
+
+function BorRpShip:landShipAt(pObject, pPlayer, landZoneName, landX, landZ, landY)
+	local pShip = getShipFromControlDevice(pObject)
+	
+	if(pShip == nil) then
+		pShip = pObject
+	end
+	
+	SceneObject(pShip):deleteStoredString("beacon_code")
+	
+	local shipID = SceneObject(pShip):getObjectID()
+	local currentLandingSpot = getStoredObject(pShip, "landing_point_object")
+	
+	local eventID = readData(shipID .. ":landShip:shipStatus")
+	
+	if(eventID ~= 0) then
+		CreatureObject(pPlayer):sendSystemMessage("This ship is currently landed elsewhere. Take off to land somewhere else.")
+		return 0
+	end
+
+	local flatTemplate = SceneObject(pShip):getStoredString("flatteningTemplate")
+	local shipNpcTemplate = SceneObject(pShip):getStoredString("appearanceMobile")
+	
+	local posX = landX
+	local posY = landY
+	local posZ = landZ
+	local angle = 0
+	local zoneName = landZoneName
+
+	--local pPoint = spawnBuilding(pPlayer, flatTemplate, posX, posY, 0)
+	local pPoint = spawnBuildingInZone(pPlayer, flatTemplate, posX, posY, 0, zoneName)
+	
+	if(pPoint == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Could not find the landing point object. Aborting landing sequence...")
+		return 0
+	end
+	
+	setStoredObject(pShip, pPoint, "landing_point_object")		
+
+	--Spawn Ship
+	local pNpc = spawnRoleplayMobile(zoneName, "rp_base_npc", 1, posX, posZ, posY, angle, 0, shipNpcTemplate, "default", "default", "default")
+	
+	if(pNpc == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Could not find the ship object for landing animation. Aborting landing sequence...")
+		SceneObject(pPoint):destroyObjectFromWorld()
+		SceneObject(pPoint):destroyObjectFromDatabase()
+		return 0
+	end
+	
+	setStoredObject(pPoint, pNpc, "appearance")
+	setStoredObject(pPoint, pShip, "connected_ship")
+	
+	local shipName = SceneObject(pShip):getCustomObjectName()
+	
+	if(shipName == "" or shipName == nil) then
+		shipName = "ship"
+	end
+	
+	SceneObject(pNpc):setCustomObjectName(shipName)
+	CreatureObject(pNpc):setPosture(PRONE)
+	createEvent(2 * 1000, "BorRpShip", "startLandAnimation", pNpc, "")
+	writeData(shipID .. ":landShip:shipStatus", 2) -- Landing
+	CreatureObject(pPlayer):sendSystemMessage("The " .. shipName .. " is now landing...")
+	createEvent(29 * 1000, "BorRpShip", "notifyShipLanded", pShip, "") --Time it takes for the player transport to land.
+	createEvent(29 * 1000, "BorRpShip", "notifyPointLanded", pPoint, "")
+	createEvent(29 * 1000, "BorRpShip", "shipLandedEmote", pNpc, "")
+end
+
+
+
 function BorRpShip:startLandAnimation(pShip)
 	CreatureObject(pShip):setPosture(UPRIGHT)
 end
@@ -406,7 +586,7 @@ function BorRpShip:shipLandedEmote(pShip)
 	if(SceneObject(pShip):isBuildingObject() == false) then
 		spatialMoodChat(pShip, "completes its landing sequence.", 0, 38)
 	else
-		spatialMoodChat(pShip, "completes its landing sequence, and drops down its boarding ramp.", 0, 38)
+		spatialMoodChat(pShip, "completes its landing sequence, and drops down its boarding ramp.", 0, 38)  --We ne ver hit this, and no one has ever cared.
 	end
 end
 
@@ -425,7 +605,7 @@ function BorRpShip:notifyShipLanded(pShip)
 	local posY = SceneObject(pPoint):getWorldPositionY()
 	local zoneName = SceneObject(pPoint):getZoneName()
 	local planetName = BorPlanetManager.planets[zoneName].name
-	self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. posX .. ", " .. posY .. ", " .. planetName .. ".")	
+	self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. math.floor(posX) .. ", " .. math.floor(posY) .. ", " .. planetName .. ".")	
 end
 
 function BorRpShip:notifyPointLanded(pPoint)
@@ -668,7 +848,7 @@ function BorRpShip:onConfirmLandBeaconCode(pPlayer, pSui, eventIndex, code)
 			shipName = "ship"
 		end
 
-		self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. posX .. ", " .. posY .. ", " .. planetName .. ".")	
+		self:broadcastToPassengers(pShip, "The " .. shipName .. " has landed at " .. math.floor(posX) .. ", " .. math.floor(posY) .. ", " .. planetName .. ".")	
 		
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("Invalid beacon code \"" .. code .. "\"")
@@ -708,8 +888,33 @@ function BorRpShip:onConfirmStarfighterLandBeaconCode(pPlayer, pSui, eventIndex,
 	else 
 		CreatureObject(pPlayer):sendSystemMessage("Invalid beacon code \"" .. code .. "\"")
 	end
+end
 
 
 
+function BorRpShip:createCaller(pObject, pPlayer)
+	local pInventory = SceneObject(pPlayer):getSlottedObject("inventory")
+
+	if (pInventory == nil) then
+		return
+	end
+
+	local pItem = giveItem(pInventory, "object/tangible/borrp/utility/ship_caller.iff", -1)	
+
+	if(pItem == nil) then
+		CreatureObject(pPlayer):sendSystemMessage("Failed to spawn ship caller.")
+		return
+	end
+
+	local newSerial = generateSerial()
+	TangibleObject(pItem):setSerialNumber(newSerial)
+
+	local shipID = SceneObject(pObject):getStoredLong("structure")
+
+	SceneObject(pItem):setStoredLong("structure", shipID)
+
+	local customName = SceneObject(pObject):getCustomObjectName()
+
+	SceneObject(pItem):setCustomObjectName("Caller (" ..customName.. ")")
 
 end

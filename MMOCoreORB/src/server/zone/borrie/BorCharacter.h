@@ -35,7 +35,14 @@ public:
 	}
 
 	static ManagedReference<ArmorObject*> GetArmorAtSlot(CreatureObject* creature, String slot) {
-		return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		if (creature->isPlayerCreature()) {
+			return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		}
+		else {
+			SceneObject* slob = creature->getSlottedObject(slot);
+			ManagedReference<ArmorObject*> npcArm = cast<ArmorObject*>(slob);
+			return npcArm;
+		}
 	}
 
 	static void SetChatPrefix(CreatureObject* creature, String prefix) {
@@ -286,7 +293,7 @@ public:
 		String report = creature->getFirstName() + " has fully rested, filling all of their pools.";
 		report += " (Was H:" + String::valueOf(lastHealth);
 		report += ", A:" + String::valueOf(lastAction);
-		report += ", W:" + String::valueOf(lastWill);
+		report += ", W:" + String::valueOf(lastWill) + ")";
 
 		/* Disable public reporting of Force pool filling
 		if (creature->isPlayerCreature()) {
@@ -1017,7 +1024,6 @@ public:
 		return (int)(creature->getDistanceTo(&coord));
 	}
 	
-
 	static void InitializeRoleplayMove(CreatureObject* creature) {
 		//Roll Athletics to get bonus movement. Base movement is 10 meters. 
 		//int roll = System::random(9) + 1;
@@ -1075,12 +1081,12 @@ public:
 		int maxDistance = 6;
 
 		if (creature->isRidingMount()) {
-			maxDistance = piloting + 30;
+			maxDistance = (1.5 * piloting) + 35;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move on their mount. Their enhanced range is " + String::valueOf(maxDistance) + "m. ");
 		} 
 		else if (creature->isKneeling()) {
 			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .66;
-			maxDistance = static_cast<int>(floatDistance);
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
 			if (skillFlag) {
 				floatDistance = static_cast<float>(maxDistance / 2);
 				maxDistance = static_cast<int>(floatDistance);
@@ -1092,7 +1098,7 @@ public:
 		}
 		else if (creature->isProne()) {
 			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .25;
-			maxDistance = static_cast<int>(floatDistance);
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
 			if (skillFlag) {
 				floatDistance = static_cast<float>(maxDistance * 0.5);
 				maxDistance = static_cast<int>(floatDistance);
@@ -1105,7 +1111,7 @@ public:
 		else {
 			maxDistance = maneuverability + athletics + 10;
 			float floatDistance = static_cast<float>(maxDistance);
-			maxDistance = static_cast<int>(floatDistance);
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
 			if (skillFlag) {
 				floatDistance = static_cast<float>(maxDistance * 0.5);
 				maxDistance = static_cast<int>(floatDistance);
@@ -1116,6 +1122,8 @@ public:
 			}
 		}	
 									
+		creature->setStoredInt("distance_left", maxDistance);
+		creature->setStoredInt("distance_moved", 0);
 		creature->sendSystemMessage("Move to your desired destination, using the Last Position waypoint to keep track of your distance. Use the move (rpmove) ability to confirm your movement.");
 	}
 
@@ -1138,6 +1146,45 @@ public:
 		}
 	}
 
+	static void RoleplayMoveWaypoint(CreatureObject* creature) {
+		PlayerObject* ghost = creature->getPlayerObject();
+		if (ghost == nullptr) {
+			return;
+		}
+
+		// Get previous movement waypoint. If null, mark undefined movement.
+		ManagedReference<WaypointObject*> waypoint = ghost->getSurveyWaypoint();
+		if(waypoint == nullptr) {
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has moved.");
+		} 
+		else {
+			Locker locker(waypoint);
+			auto worldPosition = waypoint->getWorldPosition();
+			int distance = GetDistance(creature, worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
+			
+			int distanceLeft = creature->getStoredInt("distance_left") - distance;
+			
+			if (distanceLeft <= 0) {
+				creature->deleteStoredInt("distance_left");
+				ConfirmRoleplayMove(creature);
+				creature->deleteStoredInt("rp_moving");
+			}
+			else {
+				creature->setStoredInt("distance_left",  distanceLeft);
+				creature->setStoredInt("distance_moved",  creature->getStoredInt("distance_moved") + distance);
+
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters and set a waypoint. They can still move " + String::valueOf(distanceLeft) + " meters.");
+					
+				// Null check and move the waypoint.
+				if (waypoint != nullptr) {
+					auto worldPosition = creature->getWorldPosition();
+					waypoint.get()->setPosition(worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
+					ghost->addWaypoint(waypoint, false, true); 
+				}
+			}
+		}
+	}
+
 	static void AddDarksidePoints(CreatureObject* creature, int amount, bool playMusic) {
 		float points = creature->getShockWounds();
 
@@ -1153,6 +1200,26 @@ public:
 			creature->updateCooldownTimer("darkside_music", 60 * 1000);
 			creature->playMusicMessage("sound/music_short_darkside.snd");
 		}		
+
+		SkillManager* skillManager = creature->getZoneServer()->getSkillManager();
+
+		if(creature->hasSkill("rp_force_prog_novice")) {
+			if(totalPoints >= 10) {
+				skillManager->awardSkill("rp_corruption_01", creature, true, false, false);
+				}
+			if(totalPoints >= 20) {
+				skillManager->awardSkill("rp_corruption_02", creature, true, false, false);
+				}
+			if(totalPoints >= 30) {
+				skillManager->awardSkill("rp_corruption_03", creature, true, false, false);
+			}  
+			if(totalPoints >= 40) {
+				skillManager->awardSkill("rp_corruption_04", creature, true, false, false);
+			}  
+			if(totalPoints >= 50) {
+				skillManager->awardSkill("rp_corruption_05", creature, true, false, false);
+			}  
+		}
 	}
 
 	static void RemoveDarksidePoints(CreatureObject* creature, int amount) {

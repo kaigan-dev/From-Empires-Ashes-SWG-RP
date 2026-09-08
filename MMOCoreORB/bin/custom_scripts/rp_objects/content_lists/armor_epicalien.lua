@@ -3,7 +3,7 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_bicep_r.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_bracer_l.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_bracer_r.iff", },
-	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_chest_plate.iff", },
+	--{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_chest_plate.iff", },  --This piece covers arms. Use the other chestplate instead.
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_chestplate.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_leggings.iff", },
 	
@@ -12,7 +12,6 @@ content = {
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_bicep_r_camo.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_bracer_l_camo.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_bracer_r_camo.iff", },
-	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_chest_plate_camo.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_chestplate_camo.iff", },
 	{"object/tangible/wearables/armor/roleplay/kashyyykian_black_mountain/armor_kashyyykian_black_mtn_leggings_camo.iff", },
 

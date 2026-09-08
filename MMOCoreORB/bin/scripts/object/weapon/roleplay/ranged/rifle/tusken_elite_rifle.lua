@@ -19,9 +19,9 @@ object_weapon_roleplay_ranged_rifle_tusken_elite_rifle = object_weapon_ranged_ri
 	bonusDamage = 6,
 	
 	noPowerAttack = true,
-	noDodgeReaction = true,
+	--noDodgeReaction = true,  --Removed because it is no longer a sniper rifle.
 
-	pointBlankRange = 100,
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
 	idealRange = 120,
@@ -35,7 +35,7 @@ object_weapon_roleplay_ranged_rifle_tusken_elite_rifle = object_weapon_ranged_ri
 	rarity="Rare",
 	itemValue = 3000,
 	maxAmmo = 1,
-	ammoType = "ammo_kinetic", 
+	ammoType = "ammo_tusken", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

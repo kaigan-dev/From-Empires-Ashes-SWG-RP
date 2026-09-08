@@ -11,3 +11,4 @@ includeFile("tangible/wearables/armor/roleplay/mandalorian/armor_mandalorian_hel
 
 includeFile("tangible/wearables/armor/roleplay/mandalorian/armor_mandalorian_helmet_s02.lua")
 includeFile("tangible/wearables/armor/roleplay/mandalorian/armor_mandalorian_helmet_lite_s02.lua")
+includeFile("tangible/wearables/armor/roleplay/mandalorian/armor_durasteel_mandalorian_helmet.lua")

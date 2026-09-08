@@ -1,6 +1,10 @@
 #ifndef RESTRPCOMMANDSUICALLBACK_H_
 #define RESTRPCOMMANDSUICALLBACK_H_
 
+#include "server/zone/objects/creature/ai/AiAgent.h"
+#include "server/zone/objects/creature/ai/Creature.h"
+#include "server/zone/objects/creature/ai/DroidObject.h"
+
 class RestRPCommandSuiCallback : public SuiCallback {
 private:
 	//int state;
@@ -54,8 +58,52 @@ public:
 			BorCharacter::PerformShortRest(targetCreature);
 		}
 		else if(index == 1) {
-			BorCharacter::FillAllPools(targetCreature);
-		//	BorCharacter::HandleDarksideFading(targetCreature);
+			ManagedReference<PlayerObject*> ghost = targetCreature->getPlayerObject();
+			int adminLevelCheck = ghost->getAdminLevel();
+			uint64 time = Time::currentNanoTime() / 1000000;
+			if(time < targetCreature->getStoredLong("last_rest") && adminLevelCheck == 0) {
+				uint64 timeRemaining = targetCreature->getStoredLong("last_rest") - time;
+				targetCreature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
+				return;
+				}
+
+			String zone = targetCreature->getZone()->getZoneName();
+
+			bool isBuildingAdmin = false;
+			bool isBuildingAllowed = false;
+			ManagedReference<SceneObject*> rootParent = targetCreature->getRootParent();
+			if(rootParent != nullptr && rootParent->isBuildingObject()) {
+	        	BuildingObject* building = cast<BuildingObject*>( rootParent.get());
+				isBuildingAdmin = building->isOnAdminList(targetCreature);
+				isBuildingAllowed = building->isOnEntryList(targetCreature);
+				}
+
+			bool isInCity = false;
+			ManagedReference<CityRegion*> cr = targetCreature->asSceneObject()->getCityRegion().get();
+			if(cr != nullptr) {
+				isInCity = true;
+			}
+
+			bool isInCamp = false;
+			ManagedReference<CampSiteActiveArea*> campArea = targetCreature->getCurrentCamp();
+			if(campArea != nullptr) {
+				isInCamp = true;
+			}
+			
+			if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || isInCamp || adminLevelCheck > 0) {
+				BorCharacter::FillAllPools(targetCreature);
+				//BorCharacter::HandleDarksideFading(targetCreature);
+				targetCreature->setStoredInt("hero_point_used", 0);
+				targetCreature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
+
+				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+					ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
+					BorCharacter::FillAllPools(pet->asCreatureObject());
+				}
+			}
+			else {
+				targetCreature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
+			}
 		}
 		else if(index == 2) {
 			BorCharacter::PerformMeditateRest(targetCreature);

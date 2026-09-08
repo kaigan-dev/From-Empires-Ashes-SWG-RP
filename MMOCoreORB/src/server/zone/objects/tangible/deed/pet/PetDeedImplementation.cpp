@@ -30,6 +30,8 @@
 #include "server/zone/objects/creature/events/SampleDeedTask.h"
 #include "server/zone/managers/crafting/labratories/Genetics.h"
 
+#include "server/zone/borrie/BorUtil.h"
+
 void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData) {
 	DeedImplementation::loadTemplateData(templateData);
 	PetDeedTemplate* deedData = dynamic_cast<PetDeedTemplate*>(templateData);
@@ -39,6 +41,9 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 
 	controlDeviceObjectTemplate = deedData->getControlDeviceObjectTemplate();
 	mobileTemplate = deedData->getMobileTemplate();
+	skillTemplate = deedData->getSkillTemplate();
+	equipmentTemplate = deedData->getEquipmentTemplate();
+	mountable = deedData->isMountable();
 }
 
 void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
@@ -133,11 +138,14 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		}
 	}
 
-	if(getStoredInt("mount") == 1) {
+	//if(getStoredInt("mount") == 1) {
+	if(mountable == 1) {
 		alm->insertAttribute("mount", "Yes");
 	} else {
 		alm->insertAttribute("mount", "No");
 	}
+
+	
 
 	if(ranged && allowRanged)
 		alm->insertAttribute("dna_comp_ranged_attack", "Yes");
@@ -508,14 +516,24 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			return 1;
 		}
 
-		if(getStoredInt("mount") == 1) {
-			controlDevice->growPet(player,true,true);
+		// Always set pets to spawn as adults.
+		controlDevice->growPet(player,true,true);
+
+		if(mountable == 1 || getStoredInt("mount") == 1) {
 			controlDevice->trainAsMount(player);
 		}
 
+
+		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
+		pet->setStoredString("rp_equip_template", equipmentTemplate);
+
 		datapad->broadcastObject(controlDevice, true);
-		controlDevice->growPet(player,true);
 		controlDevice->callObject(player);
+
+		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
+
+		controlDevice->storeObject(player);
+		
 
 		//Remove the deed from it's container.
 		ManagedReference<SceneObject*> deedContainer = getParent().get();
@@ -523,6 +541,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		if (deedContainer != nullptr) {
 			destroyObjectFromWorld(true);
 		}
+
+		controlDevice->callObject(player);
 
 		generated = true;
 		player->sendSystemMessage("@pet/pet_menu:device_added"); // "A control device has been added to your datapad."
@@ -568,9 +588,11 @@ bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObjec
 	mind = ham;
 	regen = DnaManager::instance()->valueForLevel(DnaManager::REG_LEVEL,oldLevel);
 	float dps = DnaManager::instance()->valueForLevel(DnaManager::DPS_LEVEL,oldLevel);
+	/*  Remove anything that sets damage, just in case.
 	damageMin = round((dps * 2.0) * 0.5);
 	attackSpeed = 2.0;
 	damageMax = round((dps * 2.0) * 1.5);
+	*/
 	chanceHit = DnaManager::instance()->valueForLevel(DnaManager::HIT_LEVEL,oldLevel);
 
 	// Adjust Armor Now

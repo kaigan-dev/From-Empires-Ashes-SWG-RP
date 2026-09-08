@@ -261,6 +261,10 @@
 #include "server/zone/objects/creature/commands/HolsterCommand.h"
 #include "server/zone/objects/creature/commands/StowCommand.h"
 
+//FEA
+#include "server/zone/objects/creature/commands/CommCommand.h"
+#include "server/zone/objects/creature/commands/DMGrantProf.h"
+
 using namespace server::zone::managers::objectcontroller::command;
 
 
@@ -481,5 +485,9 @@ void CommandConfigManager::registerCommands4() {
 	commandFactory.registerCommand<StowCommand>(String("stow").toLowerCase());
 	commandFactory.registerCommand<ToggleOocCommand>(String("toggleooc").toLowerCase());
 	commandFactory.registerCommand<ToggleGripCommand>(String("togglegrip").toLowerCase());
+
+	//FEA
+	commandFactory.registerCommand<CommCommand>(String("comm").toLowerCase());
+	commandFactory.registerCommand<DmGrantProfCommand>(String("dmgrantprof").toLowerCase());
 
 }

@@ -1,5 +1,5 @@
 npc_template = {
-	name = "An IG-100 Magnaguard Droid",
+	name = "IG-100 Magnaguard Droid",
 
     baseTemplates = {
         "magnaguard",
@@ -7,13 +7,11 @@ npc_template = {
     },
 
     skillTemplates = {
-        "specops_strong",
+        "magnaguard",
     },
 
     equipmentTemplates = {
 		{"magnaguard", {"electrostaff"}},
-
-        
     },
 
 }

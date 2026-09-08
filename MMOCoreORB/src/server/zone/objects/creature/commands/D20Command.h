@@ -44,40 +44,87 @@ public:
 			ManagedReference<SceneObject*> object;			  // The Target Object
 			ManagedReference<CreatureObject*> targetCreature; // The Target Object as a Creature
 
-			if(creature->getStoredInt("block_target_rolling") != 1) {
-				if (target != 0) {
-					object = server->getZoneServer()->getObject(target, false);
-					if (object->isCreatureObject())
-						targetCreature = object->asCreatureObject();
-					else
+			if(adminLevelCheck) {
+				if(creature->getStoredInt("block_target_rolling") != 1) {
+					if (target != 0) {
+						object = server->getZoneServer()->getObject(target, false);
+						//if (object->isCreatureObject())
+								if (object == nullptr) {
+									targetCreature = creature;
+								}
+						if (object->isCreatureObject())
+							targetCreature = object->asCreatureObject();
+						else
+							targetCreature = creature;
+					} else
 						targetCreature = creature;
-				} else
+				} else 
 					targetCreature = creature;
 			} else 
 				targetCreature = creature;
 			
 
-			String command, Result, secondCommand;
+			String command, Result, secondCommand, thirdCommand;
 			if (args.hasMoreTokens()) {
 				args.getStringToken(command);
+				//creature->sendSystemMessage("Debug: First command is " + command + ".");
 				command = command.toLowerCase();
+				if (args.hasMoreTokens()) {
+					args.getStringToken(secondCommand);
+					secondCommand = secondCommand.toLowerCase();
+					//creature->sendSystemMessage("Debug: Second command is " + secondCommand + ".");
+				}
+				if (args.hasMoreTokens()) {
+					args.getStringToken(thirdCommand);
+					thirdCommand = thirdCommand.toLowerCase();
+					//creature->sendSystemMessage("Debug: Third command is " + thirdCommand + ".");
+				}
 
-				
 
 				if (command == "help") {
 					HelpDisplay(creature);
-				} else if (BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) {
+					return SUCCESS;
+				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && (secondCommand == "" || secondCommand == "secret" || secondCommand == "Secret" || secondCommand == "SECRET")) {     //Roll without Advantage or Disadvantage
 					if(adminLevelCheck > 0) {
-						BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command));
+						if(secondCommand == "secret") {
+							BorrieRPG::BroadcastAmongAdmins(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
+						}
+						else {
+							BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
+						}
 					} else {
 						//Original. Allowed players to roll for NPCs.
 						//BorrieRPG::BroadcastRoll(creature, targetCreature, BorDice::RollSkill(targetCreature, command));
-						BorrieRPG::BroadcastRoll(creature, BorDice::RollSkill(creature, command));
+						if(secondCommand == "secret") {
+							String outputMsg = BorDice::RollSkill(creature, command, secondCommand);
+							BorrieRPG::BroadcastAmongAdmins(creature, outputMsg);
+							creature->sendSystemMessage(outputMsg);
+						}
+						else {
+							BorrieRPG::BroadcastMessage(creature, BorDice::RollSkill(creature, command, secondCommand));
+						}
 					}
-					
+				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && (secondCommand != "" && secondCommand != "secret" && secondCommand != "Secret" && secondCommand != "SECRET")) {     //Roll with Advantage or Disadvantage
+					if(adminLevelCheck > 0) {
+						if(thirdCommand == "secret") {
+							BorrieRPG::BroadcastAmongAdmins(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
+						}
+						else {
+							BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
+						}
+					} else {
+						if(thirdCommand == "secret") {
+						String outputMsg = BorDice::RollSkill(creature, command, secondCommand);
+						BorrieRPG::BroadcastAmongAdmins(creature, outputMsg);
+						creature->sendSystemMessage(outputMsg);
+						}
+						else {
+						BorrieRPG::BroadcastRoll(creature, BorDice::RollSkill(creature, command, secondCommand));
+						}
+					}
 				} else if (BorDice::GetCommandIsDie(command)) {
-					if (args.hasMoreTokens()) {
-						args.getStringToken(secondCommand);
+					if (secondCommand != "") {
+						//args.getStringToken(secondCommand);
 						Result = BorDice::RollRPDie(targetCreature, command, Integer::valueOf(secondCommand));
 					} else
 						Result = BorDice::RollRPDie(targetCreature, command);

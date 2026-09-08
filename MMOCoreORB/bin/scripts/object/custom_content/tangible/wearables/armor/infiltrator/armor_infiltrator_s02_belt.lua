@@ -45,7 +45,7 @@ object_tangible_wearables_armor_infiltrator_armor_infiltrator_s02_belt = object_
 	templateType = ARMOROBJECT,
 
 	faction = "",
-    objectMenuComponent = "ArmorObjectMenuComponent",
+    --objectMenuComponent = "ArmorObjectMenuComponent",
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",
 				"object/creature/player/smc_male.iff",

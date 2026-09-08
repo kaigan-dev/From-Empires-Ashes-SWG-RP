@@ -14,9 +14,9 @@ object_weapon_roleplay_ranged_pistol_disruptor_pistol = object_weapon_ranged_pis
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 1, --Amount of Die used in Damage
+	minDamage = 2, --Amount of Die used in Damage
 	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 4,
+	bonusDamage = 5,
 	
 	noPowerAttack = true,
 
@@ -31,7 +31,7 @@ object_weapon_roleplay_ranged_pistol_disruptor_pistol = object_weapon_ranged_pis
 	
 	rarity="Legendary",
 	itemValue = 20000,
-	maxAmmo = 6,
+	maxAmmo = 3,
 	ammoType = "ammo_disruptor", 
 
 	--[Unused Elements from original game, included for compatability.]

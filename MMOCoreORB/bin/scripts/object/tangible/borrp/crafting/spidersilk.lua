@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_spidersilk = object_tangible_borrp_crafting_shared_spidersilk:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_spidersilk, "object/tangible/borrp/crafting/spidersilk.iff")

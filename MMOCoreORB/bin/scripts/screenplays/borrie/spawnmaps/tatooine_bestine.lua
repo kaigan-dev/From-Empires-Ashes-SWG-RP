@@ -540,54 +540,54 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 501.5, 0, 6746.2, 323, 0, "3po_protocol_droid_silver", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "3po")
 	-- Bestine imp garrison
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 819.2, 0, 6452.2, 171, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 819.2, 0, 6452.2, 171, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-338")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 830.3, 0, 6446.4, 216, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 830.3, 0, 6446.4, 216, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-294")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 814.2, 0, 6514.8, 296, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 814.2, 0, 6514.8, 296, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-156")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 807.8, 0, 6504.1, 296, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 807.8, 0, 6504.1, 296, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-723")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 876.7, 7, 6492.3, 150, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 876.7, 7, 6492.3, 150, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-481")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 832.9, 7, 6489.6, 256, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 832.9, 7, 6489.6, 256, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-257")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 854.5, 0, 6529.3, 33, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 854.5, 0, 6529.3, 33, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-319")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 873.9, 0.2, 6568.2, 209, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 873.9, 0.2, 6568.2, 209, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-148")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 913.4, 1.1, 6529.4, 292, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 913.4, 1.1, 6529.4, 292, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-647")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 911.9, 1.1, 6534.8, 169, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 911.9, 1.1, 6534.8, 169, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-473")
 	-- general trooper security
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 850.3, 0.1, 6588, 31, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 850.3, 0.1, 6588, 31, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-326")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 837.6, 0.1, 6596.7, 40, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 837.6, 0.1, 6596.7, 40, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-769")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 635.7, 0, 6634.1, 28, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 635.7, 0, 6634.1, 28, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-415")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 574.3, 0, 6630.7, 313, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 574.3, 0, 6630.7, 313, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-282")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 537.1, 0, 6597.1, 20, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 537.1, 0, 6597.1, 20, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-751")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 493.4, 0, 6559, 27, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 493.4, 0, 6559, 27, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-510")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 421.5, 0, 6629.2, 127, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 421.5, 0, 6629.2, 127, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-106")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 373.3, 0, 6728.2, 115, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 373.3, 0, 6728.2, 115, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-299")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 381, 0, 6739.3, 80, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 381, 0, 6739.3, 80, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-842")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 537.4, 0, 6742.1, 126, 0, "stormtrooper", "faction/imperialtrooper_a", "default", "default") --Equip, Skill, Customization
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 537.4, 0, 6742.1, 126, 0, "stormtrooper", "faction/imperialtrooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-405")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 541.6, 0, 6690.5, 312, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 541.6, 0, 6690.5, 312, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-785")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 627.7, 0, 6517.3, 135, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 627.7, 0, 6517.3, 135, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-299")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 475.5, 0, 6765.6, 138, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 475.5, 0, 6765.6, 138, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-818")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 477.8, 0, 6768.2, 122, 0, "stormtrooper", "faction/imperial/trooper_a", "default", "default") --Equip, Skill, Customization
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 477.8, 0, 6768.2, 122, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("TK-694")
 
 
@@ -597,74 +597,74 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	--VENDORS--
 	
 	--Melee Vendor Light
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 490.2, 0, 6541.3, 80, 0, "rp_moncal_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Okibam Rotso (a Melee Weapons Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 490.2, 0, 6541.3, 80, 0, "dressed_tatooine_fixer", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Elric Elroy (a Melee Weapons Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
 
 	--Ranged Vendor Light
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.2, 0.8, 0.6, 360, 610029732, "rp_zabrak_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Gjolan (a Ranged Weapon Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.2, 0.8, 0.6, 360, 610029732, "dressed_tatooine_gunrunner", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Kix Dher (a Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_ranged_novice")
 
 	--Camping Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 446.6, 0, 6573.8, 350, 0, "rp_human_female", "xovros_vendor_camping", "default", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Raphella Lees (a Camping Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 446.6, 0, 6573.8, 350, 0, "dressed_tatooine_trandoshan_slaver", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Ssaskh Siss (a Camping Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
 
 	--Instrument Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 422.6, 0.5, 6581.5, 80, 0, "rp_twilek_male", "xovros_hotel_receptionist", "default", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Nayosan Yi'frit (an Instrument Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 422.6, 0.5, 6581.5, 80, 0, "dressed_unarmed_trainer_03", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Dinc Herg (an Instrument Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "music")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
 
 	--Speeder Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 806, 0.8, 6415.1, 345, 0, "rp_rodian_male", "vehicle_dealer_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Sprei Ikiki (a Speeder Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 806, 0.8, 6415.1, 345, 0, "rp_rodian_female", "vehicle_dealer_vendor", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Vloow Jeconk(a Speeder Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
 
 	--Mount Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 515.5, 0, 6562.9, 225, 0, "rp_gotal_male", "vendor_mount", "default", "random", "rpg_shopkeeper") 
-	SceneObject(pNpc):setCustomObjectName("Pyvaln Rokk (a Mount Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 515.5, 0, 6562.9, 225, 0, "dressed_tatooine_spice_fiend", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Te'soch (a Mount Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mount")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mounts_tatooine")
 	
 	--Cheap Stimpack Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.8, 0.1, -7.3, 25, 610029510, "rp_gran_male", "xovros_nurse", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Horuuk Kyl (a Stimpack Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.8, 0.1, -7.3, 25, 610029510, "dressed_medic_trainer_01", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Rham Zornel (a Stimpack Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
 	
 	--Specialty Shop Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.8, 0.4, -8.5, 20, 610029600, "rp_rodian_male", "eisley_specialty_shop_beebo", "default", "eisley_specialty_shop_beebo", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Beebo (a Specialty Item Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -1.6, 0.4, -9.3, 20, 610029600, "dressed_smuggler_trainer_01", "default", "default", "eisley_specialty_shop_beebo", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Seangogyr Qurdus (a Specialty Item Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
 	
 	--Junker Ship Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 666.1, 5.2, 6726.5, 170, 0, "rp_sullustan_male", "sulon_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Nedd Tarunng (a Junker Ship Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 666.1, 5.2, 6726.5, 170, 0, "rp_sullustan_female", "sulon_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Zuur Tarunng (a Junker Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
 	
 	--Armorsmith Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -15.1, 1.1, -0.8, 30, 610029662, "rp_ithorian_male", "eisley_armorsmith_biemio_faom", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Biemio Faom (an Armorsmith Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -15.1, 1.1, -0.8, 30, 610029662, "dressed_2handsword_trainer_01", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Rex Hunter (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
 	
 	--Weaponsmith Vendor (Ranged)
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -3, 1.1, -8.5, 80, 610029664, "rp_quarren_male", "eisley_weaponsmith_kefarack_tajus", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Kefarack Tajus (a Weaponsmith Ranged Weapon Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -3, 1.1, -8.5, 80, 610029664, "dressed_ranger_trainer_01", "default", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Choi Dit (a Weaponsmith Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
 	
 	--Weaponsmith Vendor (Melee)
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -14.1, 1.1, -8.5, 105, 610029692, "rp_trandoshan_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Rokk (a Weaponsmith Melee Weapon Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -14.1, 1.1, -8.5, 105, 610029692, "dressed_1handsword_trainer_03", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Vo Seer (a Weaponsmith Melee Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
 
@@ -674,7 +674,7 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	
 	--Mandalorian Scout
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 420.9, 0, 6606.1, 29, 0, "rp_zabrak_male", "mando_vagabond", "default", "myok_scov", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Vagabond)")
+	SceneObject(pNpc):setCustomObjectName("Tinurru (a Mandalorian Arms Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mando_noob")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mando_noob")
 	
@@ -685,8 +685,8 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
 	
 	--Junk Dealer
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.3, -0.4, -1.4, 170, 610029908, "dressed_armorsmith_trainer_01", "default", "default", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Orek Flyn (a Junk Dealer)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.3, -0.4, -1.4, 170, 610029908, "dressed_tatooine_scavenger", "default", "default", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Shub Glitto (a Junk Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "junkdealer")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_junkdealer")
 	
@@ -707,20 +707,20 @@ function RpTatooineBestineScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Rimul Montom")
 	
 	--Backpack Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 606.9, 0, 6655.5, 2, 0, "rp_human_male", "xovros_refugee_male9", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Fregg Cobbxor (a Backpack Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 606.9, 0, 6655.5, 2, 0, "dressed_tatooine_nomad", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Dhorlash (a Backpack Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "backpacks")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_backpacks")
 	
 	--Luxury Vehicle Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 725, 0, 6627.1, 195, 0, "rp_human_male", "tatooine_luxury_speeder_vendor", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Gregonory Dyljen (a Luxury Vehicle Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 725, 0, 6627.1, 195, 0, "rp_twilek_female", "tatooine_luxury_speeder_vendor", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Luzza Imback (a Luxury Vehicle Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle_luxury")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles_luxury")
 	
 	--Full Ship Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 4.1, 0.8, 1.3, 345, 610029559, "rp_moncal_male", "eisley_dockmaster_orroko_pimeub", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Tiroir Ciouskar (a Ship Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 4.1, 0.8, 1.3, 345, 610029559, "dressed_tatooine_evil_settler", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Arkel Schwost (a Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship")
 	

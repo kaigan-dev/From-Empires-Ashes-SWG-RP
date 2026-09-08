@@ -11,3 +11,5 @@ includeFile("weapon/roleplay/thrown/grenade/objects.lua")
 includeFile("weapon/roleplay/lightsaber/single/1h/objects.lua")
 includeFile("weapon/roleplay/lightsaber/single/2h/objects.lua")
 includeFile("weapon/roleplay/lightsaber/double/objects.lua")
+
+includeFile("weapon/roleplay/ranged/heavy/objects.lua")

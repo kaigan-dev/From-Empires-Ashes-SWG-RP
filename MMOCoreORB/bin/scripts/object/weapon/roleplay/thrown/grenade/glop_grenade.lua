@@ -17,7 +17,7 @@ object_weapon_roleplay_thrown_grenade_glop_grenade = object_weapon_ranged_grenad
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 4, --Amount of Die used in Damage
-	maxDamage = 2, --Type of Die used in Damage
+	maxDamage = 3, --Type of Die used in Damage
 	bonusDamage = 0,
 
 	pointBlankRange = 4,
@@ -33,10 +33,10 @@ object_weapon_roleplay_thrown_grenade_glop_grenade = object_weapon_ranged_grenad
 	
 	dodgeDC = 18,
 	
-	rpSkillLevel = 4,
+	rpSkillLevel = 3,
 	
-	rarity="Common",
-	itemValue = 600,
+	rarity="Uncommon",
+	itemValue = 200,
 	animationType = "glop",
 
 	--[Unused Elements from original game, included for compatability.]

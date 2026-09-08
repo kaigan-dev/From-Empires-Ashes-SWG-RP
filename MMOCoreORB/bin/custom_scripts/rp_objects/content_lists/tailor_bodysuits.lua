@@ -2,7 +2,7 @@ content = {
 	{"object/tangible/wearables/bodysuit/shared_bodysuit_s01.iff", },
 	{"object/tangible/wearables/bodysuit/shared_bodysuit_s06.iff", },
 	{"object/tangible/wearables/bodysuit/shared_bodysuit_s08.iff", },
-	{"object/tangible/wearables/bodysuit/shared_bodysuit_s08_generic.iff", },
+	--{"object/tangible/wearables/bodysuit/shared_bodysuit_s08_generic.iff", },   --Has only female mesh. Use bodysuit_s08 instead.
 	{"object/tangible/wearables/bodysuit/shared_bodysuit_s12.iff", },
 	{"object/tangible/wearables/bodysuit/shared_bodysuit_s13.iff", },
 	{"object/tangible/wearables/bodysuit/shared_bodysuit_s14.iff", },

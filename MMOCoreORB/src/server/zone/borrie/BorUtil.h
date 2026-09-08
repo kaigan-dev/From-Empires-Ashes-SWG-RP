@@ -602,6 +602,48 @@ public:
             luaObject.pop();
     } 
 
+
+    static void ApplySkillTemplateToPet(CreatureObject* creature, String skillTemplate) {
+            Lua* lua = DirectorManager::instance()->getLuaInstance();
+
+            skillTemplate = skillTemplate.toLowerCase();
+
+            lua->runFile("custom_scripts/rp_npcs/skills/" + skillTemplate + ".lua");
+
+            LuaObject luaObject = lua->getGlobalObject("skillSet");
+
+            if(luaObject.isValidTable()) {
+                for (int i = 1; i <= luaObject.getTableSize(); ++i) {
+                    LuaObject objData = luaObject.getObjectAt(i);
+                    if (objData.isValidTable()) {
+                        String skillKey = objData.getStringAt(1);
+                        int minSkill = objData.getIntAt(2);
+                        int maxSkill = objData.getIntAt(3);     
+                        //int finalSkill = System::random(maxSkill - minSkill) + 1 + minSkill;
+                        int finalSkill = minSkill + System::random(maxSkill - minSkill);
+                        creature->addSkillMod(SkillModManager::PERMANENTMOD, skillKey, finalSkill);
+                        if(skillKey == "rp_health") {
+                            creature->setMaxHAM(0, finalSkill);
+                            creature->setBaseHAM(0, finalSkill);
+                            creature->setHAM(0, finalSkill);
+                        } else if(skillKey == "rp_action") {
+                            creature->setMaxHAM(3, finalSkill);
+                            creature->setBaseHAM(3, finalSkill);
+                            creature->setHAM(3, finalSkill);
+                        } else if(skillKey == "rp_will") {
+                            creature->setMaxHAM(6, finalSkill);
+                            creature->setBaseHAM(6, finalSkill);
+                            creature->setHAM(6, finalSkill);
+                        }
+                    }
+                    objData.pop();
+                }
+            } else {
+                creature->sendSystemMessage("Skill Template  \"" + skillTemplate + "\" not found.");
+            }
+            luaObject.pop();
+    } 
+
     static void ApplyEquipmentTemplateToNPC(CreatureObject* creature, CreatureObject* target, String equipmentTemplate) {
             try {
 
@@ -687,6 +729,94 @@ public:
             } catch (Exception& e) {
 			    // creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
                 creature->sendSystemMessage("Error with Equipment: " +  e.getMessage());
+		    }   
+    } 
+
+
+     static void ApplyEquipmentTemplateToPet(CreatureObject* target, String equipmentTemplate) {
+            try {
+
+                equipmentTemplate = equipmentTemplate.toLowerCase();
+
+                Lua* lua = DirectorManager::instance()->getLuaInstance();
+                lua->runFile("custom_scripts/rp_npcs/equipment/" + equipmentTemplate + ".lua");
+
+                LuaObject luaObject = lua->getGlobalObject("equipment");
+
+                if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
+                    luaObject.pop();
+                    return;
+                }
+
+                if(luaObject.isValidTable()) {
+                    for (int i = 1; i <= luaObject.getTableSize(); ++i) {
+                        LuaObject objData = luaObject.getObjectAt(i);
+                        if (objData.isValidTable()) {
+
+                            ManagedReference<SceneObject*> inventory = target->getSlottedObject("inventory");
+                            if (inventory == nullptr) {
+                                objData.pop();
+                                continue;
+                            }
+
+                            String objectTemplate = objData.getStringAt(1);
+                            objectTemplate = objectTemplate.replaceAll("shared_", "");
+                            Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());
+
+                            if(shot == nullptr) {
+                                objData.pop();
+                                continue;
+                            }
+
+                            TangibleObject* clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+
+                            if (clothing == nullptr) {
+                                objData.pop();
+                                continue;
+                            }
+
+                            Locker locker(clothing);
+                            clothing->createChildObjects();
+
+                            //Add Customization Variables       
+                            int fieldSize = objData.getTableSize();
+                            int index = 2;
+                            
+                            while(index + 1 <= fieldSize) {
+
+                                String varName = objData.getStringAt(index);
+
+                                int16 value = objData.getIntAt(index + 1);
+
+                                clothing->setCustomizationVariable(varName, value, true);
+
+
+                                index+=2;
+                            }   
+
+                            //Transfer
+                            if (inventory->transferObject(clothing, -1, true)) {
+                                inventory->broadcastObject(clothing, true);
+                            } else {
+                                clothing->destroyObjectFromDatabase(true);
+                                objData.pop();
+                                continue;
+                            }
+
+                            //Equip
+                            target->getZone()->getCreatureManager()->addWearableItem(target, clothing);
+
+                            
+                        }
+                        objData.pop();
+                    }
+                } else {
+                    //creature->sendSystemMessage("Equipment Template  \"" + equipmentTemplate + "\" not found.");
+                }
+                luaObject.pop();
+            } catch (Exception& e) {
+			    // creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
+                //creature->sendSystemMessage("Error with Equipment: " +  e.getMessage());
 		    }   
     } 
 

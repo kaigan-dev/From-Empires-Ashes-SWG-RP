@@ -1,5 +1,5 @@
 npc_template = {
-	name = "An IG-88 Assassin Droid",
+	name = "IG-88 Assassin Droid",
     --The IG88 template really wants to be referred to using capitol letters for some reason. call it with "/dm createnpc droids/IG88".
 
     baseTemplates = {
@@ -11,7 +11,8 @@ npc_template = {
     },
 
     equipmentTemplates = {
-        {"ig_88", {"vortex"}},
+--        {"ig_88", {"vortex"}},
+        {"ig_88", {"faction/republic/trooper"}},
         
     },
 

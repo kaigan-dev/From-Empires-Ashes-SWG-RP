@@ -350,7 +350,7 @@ function SpaceTansariiPointStationScreenPlay:spawnMobiles()
 	
 	--Mando Scout Vendor
 	local pNpc = spawnRoleplayMobile("rp_space", "rp_convo_npc", 1, 21.421, -29.2, -27.0809, 0, 808263, "rp_human_male", "tsp_vendor_mando", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Hylao (a Mandalorian Vagabond)")
+	SceneObject(pNpc):setCustomObjectName("Hylao (a Mandalorian Arms Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mando_noob")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mando_noob")
 	

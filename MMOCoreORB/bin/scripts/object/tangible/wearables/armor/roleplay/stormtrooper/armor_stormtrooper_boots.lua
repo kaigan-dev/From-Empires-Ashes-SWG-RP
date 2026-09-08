@@ -17,7 +17,7 @@ object_tangible_wearables_armor_roleplay_stormtrooper_armor_stormtrooper_boots =
 
 	maxCondition = 200,
 
-
+ 
 	rating = MEDIUM,
 	rpskill = 4,
 

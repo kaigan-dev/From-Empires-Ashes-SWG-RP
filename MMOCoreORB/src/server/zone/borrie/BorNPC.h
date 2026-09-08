@@ -4,6 +4,7 @@
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/managers/creature/CreatureManager.h"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
+#include "server/zone/borrie/BorCharacter.h"
 
 //#include "templates/roleplay/RoleplayManager.h"
 
@@ -52,6 +53,36 @@ public:
 		}
 	}
 
+	static bool RemoveNPCArmor(CreatureObject* target, String slot, bool destroy = true) {
+		if (target == nullptr || target->isPlayerCreature())
+			return false;
+
+		ManagedReference<SceneObject*> worn = target->getSlottedObject(slot);
+		if (worn == nullptr || !worn->isTangibleObject())
+			return false;
+
+		Locker clocker(target);
+		Locker ilocker(worn);
+
+		// NPC templates use the plain ContainerComponent, so the wearables delta vector is normally
+		// untouched for them. This is a no-op when the item is not listed, and keeps the client's
+		// CREO6 wearables list correct for any creature template that does track it.
+		target->removeWearableObject(worn->asTangibleObject(), true);
+
+		// If the item is not being destroyed, try to transfer it to the NPC's inventory. If that fails, destroy it.
+		if (!destroy) {
+			ManagedReference<SceneObject*> inventory = target->getSlottedObject("inventory");
+			if (inventory != nullptr && inventory->transferObject(worn, -1, true))
+				return true;
+		}
+
+		worn->destroyObjectFromWorld(true);
+		worn->destroyObjectFromDatabase(true);
+
+		return true;
+	}
+
+
 	static void ToggleAlwaysOnAI(CreatureObject* target, CreatureObject* commander) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();
 		Locker alock(agent);
@@ -81,26 +112,34 @@ public:
 	static void ToggleAIWalks(CreatureObject* target, CreatureObject* commander) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();
 		Locker alock(agent);
-		if (agent->getCreatureBitmask() & CreatureFlag::TOGGLEWALK) {
-			agent->clearCreatureBit(CreatureFlag::TOGGLEWALK);
-			commander->sendSystemMessage("The target will run if need be.");
+		if (!target->isPlayerObject()) {
+			if (agent->getCreatureBitmask() & CreatureFlag::TOGGLEWALK) {
+				agent->clearCreatureBit(CreatureFlag::TOGGLEWALK);
+				commander->sendSystemMessage("The target will run if need be.");
+			} else {
+				agent->setCreatureBit(CreatureFlag::TOGGLEWALK);
+				commander->sendSystemMessage("The target is forced to walk.");
+			}
 		} else {
-			agent->setCreatureBit(CreatureFlag::TOGGLEWALK);
-			commander->sendSystemMessage("The target is forced to walk.");
+			commander->sendSystemMessage("The target must be an NPC.");
 		}
 	}
 
 	static void SetAIAlwaysWalks(CreatureObject* target, CreatureObject* commander, bool isOn, bool showMessage = false) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();
 		Locker alock(agent);
-		if (isOn) {
-			agent->clearCreatureBit(CreatureFlag::TOGGLEWALK);
-			if (showMessage)
-				commander->sendSystemMessage("The target will run if need be.");
+		if (!target->isPlayerObject()) {
+			if (isOn) {
+				agent->clearCreatureBit(CreatureFlag::TOGGLEWALK);
+				if (showMessage)
+					commander->sendSystemMessage("The target will run if need be.");
+			} else {
+				agent->setCreatureBit(CreatureFlag::TOGGLEWALK);
+				if (showMessage)
+					commander->sendSystemMessage("The target is forced to walk.");
+			}
 		} else {
-			agent->setCreatureBit(CreatureFlag::TOGGLEWALK);
-			if (showMessage)
-				commander->sendSystemMessage("The target is forced to walk.");
+			commander->sendSystemMessage("The target must be an NPC.");
 		}
 	}
 
@@ -159,12 +198,16 @@ public:
 	static void ToggleDirectFollow(CreatureObject* target, CreatureObject* commander) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();
 		Locker alock(agent);
-		if (agent->getCreatureBitmask() & CreatureFlag::DIRECTFOLLOW) {
-			agent->clearCreatureBit(CreatureFlag::DIRECTFOLLOW);
-			commander->sendSystemMessage("Target will no longer tightly follow you.");
+		if (!target->isPlayerObject()) {
+			if (agent->getCreatureBitmask() & CreatureFlag::DIRECTFOLLOW) {
+				agent->clearCreatureBit(CreatureFlag::DIRECTFOLLOW);
+				commander->sendSystemMessage("Target will no longer tightly follow you.");
+			} else {
+				agent->setCreatureBit(CreatureFlag::DIRECTFOLLOW);
+				commander->sendSystemMessage("Target will now tightly follow you.");
+			}
 		} else {
-			agent->setCreatureBit(CreatureFlag::DIRECTFOLLOW);
-			commander->sendSystemMessage("Target will now tightly follow you.");
+			commander->sendSystemMessage("The target must be an NPC.");
 		}
 	}
 
@@ -241,35 +284,48 @@ public:
 		const ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 		String prefix = "";
-		bool isMine;
+		bool isMine = false;
 
 		if (object == nullptr) {
 			creature->sendSystemMessage("ERROR: Target required for OtherSpeak commands. They cannot be another player.");
-			throw Exception();
+			return;
 		}
 		ManagedReference<CreatureObject*> targetCreature;
 		if (object->isCreatureObject()) {
 			targetCreature = object->asCreatureObject();
-			if (targetCreature->getPlayerObject() != nullptr) {
-				if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() || isAdmin)
+			if (targetCreature->getPlayerObject() != nullptr) {    //Is the target a player? If so, allow only other characters on their account to control them.
+				//if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() || isAdmin)
+				if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID())
 					isMine = true;
 				else {
 					creature->sendSystemMessage("ERROR: You can only speak through NPCs, characters or pets that you own.");
-					throw Exception();
+					return;
 				}
-			} else
-				isMine = creature == targetCreature->getLinkedCreature().get();
-			if (!isAdmin && !isMine)
-				prefix = "[" + creature->getFirstName() + "] ";
+			} else if (isAdmin) {   //If the target is not a player, allow admins to control them.
+				//isMine = creature == targetCreature->getLinkedCreature().get();
+				isMine = true;
+			}
+			/* Remove check which should never be relevant for GMusage, as it will interfere with player /comm command.
+			else {   //If the target is not a player and the controller is not an admin, deny access. We shouldn't actually hit this step because of the earlier "else return".
+				isMine = false;
+			}
+			*/
+			
+			if (!isMine) {
+				//prefix = "[" + creature->getFirstName() + "] ";   //Old behavior. We don't want to let anyone speak through any creature. This will specify who is controlling the target creature if we wanted to use it somewhere though.
+				creature->sendSystemMessage("ERROR: You can only speak through characters or pets that you own.");
+				return;
+			}
+				
 
 			Locker locker(targetCreature);
 			creature->getZoneServer()->getChatManager()->broadcastChatMessage(targetCreature, prefix + speech, 0, chatType, creature->getMoodID(), 0);
 		} else {
-			creature->sendSystemMessage("ERROR: Only creatures and characters can speak.");
-			throw Exception();
+			creature->sendSystemMessage("ERROR: Only creatures can speak.");
+			return;
 		}
 	}
-
+ 
 	static int GetTargetDistance(CreatureObject* creature, SceneObject* object) {
 		if (object == nullptr)
 			return -1;

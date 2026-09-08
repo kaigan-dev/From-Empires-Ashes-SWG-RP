@@ -1,6 +1,6 @@
 skillSet = {
     --Stats
-    {"rp_awareness",        3, 30}, --Skillmod, min value, max value
+    {"rp_awareness",        3, 3}, --Skillmod, min value, max value
     {"rp_charisma",         1, 1},
     {"rp_constitution",     3, 3},
     {"rp_dexterity",        3, 3},

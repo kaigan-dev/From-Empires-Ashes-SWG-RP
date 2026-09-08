@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_ir5_intimidator_pistol = object_weapon_rang
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 2,
+	bonusDamage = 3,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,

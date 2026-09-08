@@ -9,7 +9,6 @@ content = {
 	{"object/weapon/roleplay/melee/onehanded/rsf_sword.iff", },
 	{"object/weapon/roleplay/melee/onehanded/sword.iff", },
 	{"object/weapon/roleplay/melee/onehanded/vibrosword.iff", },
-	{"object/weapon/roleplay/melee/polearm/heavy_vibrolance.iff", },
 	{"object/weapon/roleplay/melee/polearm/wood_staff.iff", },
 	{"object/weapon/roleplay/melee/polearm/metal_staff.iff", },
 	{"object/weapon/roleplay/melee/polearm/reinforced_staff.iff", },

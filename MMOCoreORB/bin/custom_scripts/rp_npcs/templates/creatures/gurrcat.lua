@@ -1,13 +1,13 @@
 npc_template = {
 
-	name = "A Gurrcat",
+	name = "Gurrcat",
 	baseTemplates = {
 		"gurrcat",
 		"gurreck",
 	},
 
 	skillTemplates = {
-			"creatures/small"
+			"creatures/medium"
 	},
 	
 	

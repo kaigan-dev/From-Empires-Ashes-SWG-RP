@@ -88,28 +88,50 @@ public:
 
 	static void GrantLanguageSkills(CreatureObject* creature, CreatureObject* target) {
 		creature->sendSystemMessage(target->getFirstName() + " has been taught all language related skills.");
-		SkillManager::instance()->awardSkill("social_language_basic_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_basic_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_rodian_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_rodian_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_trandoshan_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_trandoshan_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_moncalamari_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_moncalamari_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_wookiee_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_wookiee_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_bothan_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_bothan_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_twilek_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_twilek_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_zabrak_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_zabrak_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_lekku_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_lekku_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_ithorian_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_ithorian_comprehend", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_sullustan_speak", target, true, true, true, 1);
-		SkillManager::instance()->awardSkill("social_language_sullustan_comprehend", target, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_basic_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_basic_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_rodian_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_rodian_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_trandoshan_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_trandoshan_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_moncalamari_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_moncalamari_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_wookiee_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_wookiee_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_bothan_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_bothan_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_twilek_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_twilek_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_zabrak_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_zabrak_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_lekku_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_lekku_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_ithorian_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_ithorian_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_sullustan_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_sullustan_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_mistryl_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_mistryl_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_huttese_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_huttese_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_esselean_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_esselean_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_miralukese_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_miralukese_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_sephi_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_sephi_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_ewok_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_ewok_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_binary_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_binary_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_astromech_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_astromech_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_jawatrade_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_jawatrade_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_mandoa_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_mandoa_comprehend", target, true, true, true, true, 1);
+
+
 	}
 
 	

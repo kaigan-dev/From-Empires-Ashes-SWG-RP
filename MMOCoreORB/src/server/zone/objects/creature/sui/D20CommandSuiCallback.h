@@ -160,12 +160,12 @@ public:
 		} else if (state == 3) { //Roll Attribute
 			//Gather which selected attribute via index.
 			String attribute = GetAttributeStringFromID(index);
-			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, attribute));
+			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, attribute, ""));
 			return;
 		} else if (state == 4) { //Roll Skill
 			// Gather which selected skill via index.
 			String skill = GetSkillStringFromID(index);
-			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, skill));
+			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, skill, ""));
 			return;
 		} else if (state == 5) { //Roll Die
 			//Use die type and then the args to run the die.

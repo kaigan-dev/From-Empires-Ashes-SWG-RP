@@ -5,7 +5,7 @@ BorForce_Defense = {
 
 function BorForce_Defense:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "As a defensive reaction, attempt to intercept ranged energy attacks with an equipped lightsaber at a cost of 3 AP. The defender rolls Lightsaber against the attack roll, harmlessly deflecting the shot if successful. If the defender's roll is at least 4 higher than the attack roll, the shot is deflected back at its source dealing half damage."
+	helpMessage =  helpMessage .. "As a defensive reaction, attempt to intercept ranged energy attacks with an equipped lightsaber at a cost of 3 AP. The defender rolls Lightsaber against DC 15, harmlessly deflecting the shot if successful. Additionally if the defender's roll is meets DC 18, the shot is deflected back at its source dealing half damage."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 

@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_se14_blaster_pistol = object_weapon_ranged_
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 2, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 0,
+	bonusDamage = 1,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,

@@ -117,14 +117,14 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.4, 5.8, 64.9, 142,
 
 
 
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "chefhat", "soldier_strong", "random") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("Cookie")
+--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -40.2, 3, 62.9, -95, 610009480, "gamorrean", "chefhat", "soldier_strong", "random") --Equip, Skill, Customization
+--	SceneObject(pNpc):setCustomObjectName("Cookie")
 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -44.5, 3, 60, 176, 610009480, "21b_surgical_droid", "default", "droid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Klank")
 
 
 
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.2, 3, 55.5, -17, 61000977, "jawa", "default", "default", "default") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -13.2, 3, 55.5, -17, 610009477, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -15.1, 3, 56.2, 78, 610009477, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
@@ -185,9 +185,9 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 27.3, -60, 6
 
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.4, 2, 41.9, -135, 610009490, "rp_trandoshan_male", "faction/hutt/grunt_navy", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "trandoshan")	
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 7.2, 2, 41.9, 122, 610009490, "rp_weequay_female", "faction/hutt/grunt_army", "soldier_strong", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 7.2, 2, 41.9, 122, 610009490, "rp_weequay_male", "faction/hutt/grunt_army", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.9, 2, 39.9, 82, 610009490, "rp_nautolan_female", "faction/hutt/officer", "soldier", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.9, 2, 39.9, 82, 610009490, "rp_nautolan_male", "faction/hutt/officer", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 40.3, -94, 610009490, "rp_trandoshan_female", "faction/hutt/officer_navy", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "trandoshan")	
@@ -200,8 +200,10 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 9.8, 2, 27.3, -60, 6
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 6.8, 2, 35.9, 94, 610009490, "rp_nikto_male", "faction/hutt/trooper_snow", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
 
+	--[[
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -10.7, 2, 44, 93, 610009490, "dressed_dancer_trainer_twk_female_01", "default", "civilian", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
+	--]]
 
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 8.2, 2, 39.3, 4, 610009490, "rp_bothan_female", "slave1", "civilian", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "bothan")
@@ -218,9 +220,10 @@ pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -30.1, 3, 58.2, -2, 
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -52.5, 3, 38.7, -92, 610009484, "rp_chiss_female", "faction/hutt/elite", "soldier_strong", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "chiss")	
 
+	--[[
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -42.1, 3, 38.6, 1, 610009489, "dressed_dancer_trainer_human_female_02", "default", "civilian", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")	
-
+--]]
 
 	--[[
 		pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1800.4, 112.2, 3244.8, -12, 0, "rp_human_male", "faction/hutt/trooper", "thug", "random") --Equip, Skill, Customization

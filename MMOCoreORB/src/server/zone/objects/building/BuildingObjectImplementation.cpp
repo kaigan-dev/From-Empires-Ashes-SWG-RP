@@ -406,14 +406,17 @@ bool BuildingObjectImplementation::isAllowedEntry(CreatureObject* player) {
 		}
 	}
 
-	if (getOwnerObjectID() == player->getObjectID())
+	if (getOwnerObjectID() == player->getObjectID()) {
 		return true;
+	}
 
-	if (isOnBanList(player))
+	if (isOnBanList(player)) {
 		return false;
+	}
 
-	if (isPrivateStructure() && !isOnEntryList(player))
+	if (isPrivateStructure() && !isOnEntryList(player)) {
 		return false;
+	}
 
 	return true;
 }

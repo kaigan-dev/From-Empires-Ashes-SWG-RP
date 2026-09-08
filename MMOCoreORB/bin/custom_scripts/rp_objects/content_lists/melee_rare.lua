@@ -14,4 +14,5 @@ content = {
 	{"object/weapon/roleplay/melee/polearm/force_pike.iff", },
 	{"object/weapon/roleplay/melee/polearm/kashyyyk_lance.iff", },
 	{"object/weapon/roleplay/melee/polearm/poison_pike.iff", },
+	{"object/weapon/roleplay/melee/polearm/heavy_vibrolance.iff", },
 }

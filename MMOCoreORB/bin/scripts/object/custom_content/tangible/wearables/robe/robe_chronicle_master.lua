@@ -54,14 +54,14 @@ object_tangible_wearables_robe_robe_chronicle_master = object_tangible_wearables
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff" },
 				
-				skillMods = {
-				    {"jedi_force_power_max", 250},
-				    {"jedi_force_power_regen", 10}
-				},
+			--	skillMods = {
+			--	    {"jedi_force_power_max", 250},
+			--	    {"jedi_force_power_regen", 10}
+			--	},
 
-				noTrade = 1,
+			--	noTrade = 1,
 
 				objectMenuComponent = "RobeObjectMenuComponent",
-				attributeListComponent = "JediRobeAttributeListComponent",
+			--	attributeListComponent = "JediRobeAttributeListComponent",
 }
 ObjectTemplates:addTemplate(object_tangible_wearables_robe_robe_chronicle_master, "object/tangible/wearables/robe/robe_chronicle_master.iff")

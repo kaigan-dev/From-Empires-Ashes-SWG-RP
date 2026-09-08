@@ -45,9 +45,9 @@ object_tangible_wearables_armor_mandalorian_imperial_armor_mandalorian_imperial_
 
 	templateType = ARMOROBJECT,
 	
-	objectMenuComponent = "ArmorObjectMenuComponent",
+	--objectMenuComponent = "ArmorObjectMenuComponent",
 
-	faction = "imperial",
+	--faction = "imperial",
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",

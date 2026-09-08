@@ -1,0 +1,17 @@
+area_prefab = {
+        {"Storage Tanks", "object/tangible/storyteller/prop/pr_tank_farm.iff",-26.5869, 0, -14.726, 1, 0, 0, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",22.5007, -2, -26.9941, 0.382683, 0, 0.92388, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",28.0854, -2, -13.4548, 0.707107, 0, 0.707107, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",22.5522, -2, 31.0475, 0.92388, 0, 0.382683, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",28.1064, -2, 2.50031, 0.707107, 0, 0.707107, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",-3.1106, -2, 35.6254, 1, 0, 0, 0},
+        {"Gate", "object/tangible/swsovrp/prop2/sewer_pipe_multi_2ends_s01.iff",-30.2681, 0, 3.69763, 0.976296, 0, 0.21644, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",28.1069, -2, 17.6369, 0.707107, 0, 0.707107, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",9.05176, -2, -32.6068, 1, 0, 0, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",-31.8076, -2, -7.61847, 0.707107, 0, 0.707107, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",-31.6362, -2, 16.3669, 0.707107, 0, 0.707107, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",-6.85815, -2, -32.611, 1, 0, 0, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",-26.0293, -2, 29.968, 0.382683, 0, 0.92388, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",-12.5508, -2, 35.5514, 1, 0, 0, 0},
+        {"Fence", "object/tangible/swsovrp/prop/thm_corl_imprv_wall_4x16_s03.iff",9.03711, -1.9944, 36.0301, 0.999048, 0, -0.0436194, 0},
+}

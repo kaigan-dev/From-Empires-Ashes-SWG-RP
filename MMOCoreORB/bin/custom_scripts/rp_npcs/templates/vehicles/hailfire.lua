@@ -1,6 +1,6 @@
 npc_template = {
 
-	Name = "A Hailfire Droid Tank",
+	name = "Hailfire Droid Tank",
 	baseTemplates = {
 		"hailfire_droid",
 	},

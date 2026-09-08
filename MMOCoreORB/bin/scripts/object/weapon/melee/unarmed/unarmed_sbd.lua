@@ -42,9 +42,10 @@
 
 
 object_weapon_melee_unarmed_unarmed_sbd = object_weapon_melee_unarmed_shared_unarmed_sbd:new {
+--object_weapon_melee_unarmed_unarmed_sbd = object_weapon_ranged_pistol_shared_pistol_invisible:new {    --Results in them performing only melee attacks, presumably indicating that it doesn't actually spawn.
 
-	playerRaces = {},
-	invisible = 1,
+	--playerRaces = {},
+	--invisible = 1,
 	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK,
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
 	attackType = RANGEDATTACK,
@@ -59,6 +60,7 @@ object_weapon_melee_unarmed_unarmed_sbd = object_weapon_melee_unarmed_shared_una
 	-- combat_rangedspecialize_bactarifle, combat_rangedspecialize_rifle, combat_rangedspecialize_pistol, combat_rangedspecialize_heavy, combat_rangedspecialize_carbine
 	-- combat_meleespecialize_unarmed, combat_meleespecialize_twohand, combat_meleespecialize_polearm, combat_meleespecialize_onehand, combat_general,
 	-- combat_meleespecialize_twohandlightsaber, combat_meleespecialize_polearmlightsaber, combat_meleespecialize_onehandlightsaber
+	--[[
 	xpType = "combat_meleespecialize_unarmed",
 	       
 	-- See http://www.ocdsoft.com/files/certifications.xls
@@ -81,9 +83,9 @@ object_weapon_melee_unarmed_unarmed_sbd = object_weapon_melee_unarmed_shared_una
 	
 	-- carbine_damage, onehandmelee_damage, pistol_damage, rifle_damage, twohandmelee_damage, unarmed_damage
 	damageModifiers = { "unarmed_damage" },
-	       
+	    --]]
 	
-	-- The values below are the default values.  To be used for blue frog objects primarily
+	
 	healthAttackCost = 0,
 	actionAttackCost = 0,
 	mindAttackCost = 0,

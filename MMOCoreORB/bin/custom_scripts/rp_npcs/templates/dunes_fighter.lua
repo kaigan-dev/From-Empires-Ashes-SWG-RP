@@ -1,7 +1,7 @@
 npc_template = {
 
 	randomName = "human",
-	title = "a Dunes Devil freedom fighter",
+	title = "a Dunes Devil",
 	baseTemplates = {
 		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female","rp_human_male", "rp_human_female",
 		"rp_bothan_male", "rp_bothan_female", 
@@ -60,8 +60,8 @@ npc_template = {
 	},
 
 		customVarOverrides = {
-		{"/shared_owner/blend_skinny", 50},
-		{"/shared_owner/blend_fat", 0},
+		--{"/shared_owner/blend_skinny", 100},
+		--{"/shared_owner/blend_fat", 0},
 	}
 
 	--armor = "stormtrooper",

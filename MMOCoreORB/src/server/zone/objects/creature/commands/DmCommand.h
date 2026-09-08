@@ -12,6 +12,7 @@
 #include "server/zone/borrie/BorUtil.h"
 #include "server/zone/borrie/BorDev.h"
 #include "server/zone/borrie/BorIO.h"
+#include "server/zone/borrie/BorChat.h"
 
 class DmCommand : public QueueCommand {
 
@@ -169,8 +170,11 @@ public:
 					BorrieRPG::ShowPlayersWithPlanets(creature, true);
 				} else if(command == "togglewalk") { 
 					if(object != nullptr) {
-						if(object->isCreatureObject()) {
+						if(object->isCreatureObject() && !object->isPlayerCreature()) {
 							BorNPC::ToggleAIWalks(object->asCreatureObject(), creature);
+						}
+						else {
+							creature->sendSystemMessage("The target must be an NPC.");
 						}
 					}					
 				} else if(command == "banpassive") {
@@ -260,7 +264,8 @@ public:
 										creature->sendSystemMessage("You can reward the lastroll, credits, or general experience.");
 									}
 								}
-								
+								ObjectController* controller = creature->getZoneServer()->getObjectController();
+								controller->logAdminCommand(creature, this, target, arguments);
 							} else {
 
 							}
@@ -455,7 +460,72 @@ public:
 							}
 						}
 					}
-				}else if (BorrieRPG::GetChatTypeID(command) != -1) {
+				}
+				else if(command == "unarmor" || command == "ua" || command == "removearmor" || command == "ra") 
+				{
+					if(args.hasMoreTokens()) 
+					{
+						if(object == nullptr || !object->isCreatureObject() || object->isPlayerCreature()) {
+							creature->sendSystemMessage("You need to target a non-player creature to remove armor from it.");
+							return GENERALERROR;
+						}
+						String slotName;
+						String subSlot;
+						bool removed = false;
+						args.getStringToken(slotName);
+						if (args.hasMoreTokens()) 
+						{
+							args.getStringToken(subSlot);
+						}
+						if (slotName == "legs" || slotName == "leg" || slotName == "knee" || slotName == "knees" || slotName == "dick" || slotName == "crotch" || slotName == "shins" || slotName == "groin") 
+						{
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "pants1");
+						} 
+						else if(slotName == "forearm" || slotName == "lowerarm" || slotName == "bracer") 
+						{
+							if(subSlot == "left") 
+							{
+								removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "bracer_upper_l");
+							} 
+							else 
+							{
+								removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "bracer_upper_r");
+							}
+						} 
+						else if(slotName == "bicep" || slotName == "upperarm" || slotName == "shoulder") 
+						{
+							if(subSlot == "left") {
+								removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "bicep_l");
+							} else {
+								removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "bicep_r");
+							}
+						} 
+						else if(slotName == "feet" || slotName == "foot" || slotName == "toes"  || slotName == "hoof" || slotName == "paw") 
+						{
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "shoes");
+						} 
+						else if(slotName == "chest" || slotName == "heart"  || slotName == "stomach" || slotName == "gut" || slotName == "ribs") 
+						{
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "chest2");
+						} 
+						else if(slotName == "hands" || slotName == "gloves" || slotName == "fingers") 
+						{
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "gloves");
+						} 
+						else if (slotName == "head" || slotName == "face" || slotName == "eyes" || slotName == "neck" || slotName == "hat" || slotName == "helmet") 
+						{
+							removed = BorNPC::RemoveNPCArmor(object->asCreatureObject(), "hat");
+						}
+						
+						if(removed) {
+							creature->sendSystemMessage("Armor successfully removed.");
+						}
+						else {
+							creature->sendSystemMessage("Armor removal failed. Please check the slot name, target, and ensure the armor is present, then try again.");
+						}
+					}
+				}
+				else if (BorrieRPG::GetChatTypeID(command) != -1) {
 					if (args.hasMoreTokens()) {
 						String speech = arguments.toString().subString(1 + command.length(), arguments.toString().length());
 						BorNPC::SpeakThroughNPC(creature, server->getZoneServer()->getObject(target, false), true, speech, BorrieRPG::GetChatTypeID(command));
@@ -468,8 +538,13 @@ public:
 				if (command == "name") {
 					if (args.hasMoreTokens()) {
 						if(object != nullptr) {
+							if(!object->isPlayerCreature()) {
 							String newName = arguments.toString().subString(1 + command.length(), arguments.toString().length());
 							BorrieRPG::SetName(creature, object, newName);
+							}
+							else {
+								creature->sendSystemMessage("Players cannot be renamed.");
+							}
 						}						
 					} else {
 						creature->sendSystemMessage("You need to input a name!");
@@ -488,7 +563,12 @@ public:
 							creature->sendSystemMessage("/dm randomname <type> - Valid Types: stormtrooper, scouttrooper, darktrooper, swamptrooper, r2, r3, r4, r5, r6, r7, r8, r9, 3po, eg6, wed, le, ra7, human, rodian, trandoshan, moncal, wookiee, bothan, twilek, zabrak, ithorian, sullustan");
 						} else {
 							if(object != nullptr) {
+								if(!object->isPlayerCreature()) {
 								BorrieRPG::SetRandomName(creature, object, specific);
+								}
+								else {
+									creature->sendSystemMessage("Players cannot be renamed.");
+								}
 							} else {
 								creature->sendSystemMessage("You need a target to assign them a random name!");
 							}
@@ -506,6 +586,8 @@ public:
 								} else if(specific == "skill") {
 									BorCharacter::ModifyFreePoints(creature, object->asCreatureObject(), "skill", 1);
 								}
+								ObjectController* controller = creature->getZoneServer()->getObjectController();
+								controller->logAdminCommand(creature, this, target, arguments);
 							} else {
 								creature->sendSystemMessage("You need to specify 'attribute' or 'skill' when using '/dm grantpoint' ex: '/dm grantpoint skill'");
 							}
@@ -526,6 +608,8 @@ public:
 								} else if(specific == "skill") {
 									BorCharacter::ModifyFreePoints(creature, object->asCreatureObject(), "skill", -1);
 								}
+								ObjectController* controller = creature->getZoneServer()->getObjectController();
+								controller->logAdminCommand(creature, this, target, arguments);
 							} else {
 								creature->sendSystemMessage("You need to specify 'attribute' or 'skill' when using '/dm removepoint' ex: '/dm removepoint skill'");
 							}
@@ -545,6 +629,8 @@ public:
 									int dsValue = Integer::valueOf(valueString);
 									BorCharacter::AddDarksidePoints(object->asCreatureObject(), dsValue, true);
 									creature->sendSystemMessage(object->asCreatureObject()->getFirstName() + " has fallen by " + valueString + " points of corruption");
+									ObjectController* controller = creature->getZoneServer()->getObjectController();
+									controller->logAdminCommand(creature, this, target, arguments);
 								}
 							}
 						}
@@ -559,6 +645,8 @@ public:
 									int dsValue = Integer::valueOf(valueString);
 									BorCharacter::RemoveDarksidePoints(object->asCreatureObject(), dsValue);
 									creature->sendSystemMessage(object->asCreatureObject()->getFirstName() + "'s corruption has faded by " + valueString + " points");
+									ObjectController* controller = creature->getZoneServer()->getObjectController();
+									controller->logAdminCommand(creature, this, target, arguments);
 								}
 							}
 						}
@@ -570,7 +658,8 @@ public:
 								int amount;
 								amount = args.getIntToken();
 								BorCharacter::RewardGeneralRPExperience(object->asCreatureObject(), creature, amount, true);
-								//Prints to log. ...?
+								ObjectController* controller = creature->getZoneServer()->getObjectController();
+								controller->logAdminCommand(creature, this, target, arguments);
 							} else {
 								creature->sendSystemMessage("You need to specify an amount of experience to give.");
 								//Run a Lua Script that gives a menu.
@@ -585,6 +674,8 @@ public:
 					if(object != nullptr) {
 						if(object->isCreatureObject()) {
 							BorCharacter::ToggleJedi(creature, object->asCreatureObject());
+							ObjectController* controller = creature->getZoneServer()->getObjectController();
+							controller->logAdminCommand(creature, this, target, arguments);
 						} else {
 							creature->sendSystemMessage("Target must be a creature");
 						}

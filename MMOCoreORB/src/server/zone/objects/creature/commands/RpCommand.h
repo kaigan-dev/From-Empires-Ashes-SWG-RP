@@ -53,10 +53,10 @@ public:
 				// Intentionally left blank?
 			} else if (command == "copy") {
 				BorrieRPG::copyTarget(creature, object);
-			} else if (command == "who") {
-				BorrieRPG::ListOnlineCharacters(creature, false);
-			} else if(command == "planetwho") {
-				BorrieRPG::ShowPlanetPopulations(creature);
+			//} else if (command == "who") {
+				//BorrieRPG::ListOnlineCharacters(creature, false);
+			//} else if(command == "planetwho") {
+				//BorrieRPG::ShowPlanetPopulations(creature);
 			} else if(command == "dmcall") {
 				if (args.hasMoreTokens()) {
 					String speech = arguments.toString().subString(1 + command.length(), arguments.toString().length());
@@ -111,6 +111,17 @@ public:
 				BorrieRPG::ToggleTargetRolling(creature);
 			} else if(command == "switchgrip") {
 				BorrieRPG::SwitchWeaponType(creature);
+			} else if(command == "switchcfe") {
+				if (args.hasMoreTokens()) {
+					String CFEtarget;
+					//CFEtarget = args.toString().subString(1 + command.length(), arguments.toString().length());
+					args.getStringToken(CFEtarget);
+					BorrieRPG::SwitchCFE(creature, CFEtarget);
+				}
+				else {
+					creature->sendSystemMessage("You must provide the destination weapon type. ie. '/switchcfe pistol'. Valid types include pistol, carbine, rifle, and sniper.");
+					return GENERALERROR;
+				}
 			} else if(command == "faction") {
 				BorCharacter::DisplayFactionValues(creature);
 			} else if(command == "savechar") {
@@ -134,21 +145,90 @@ public:
 			}
 			else if(command == "reload") {
 				if(creature->getWeapon() != nullptr) {
-					int maxAmmo = creature->getWeapon()->getMaxAmmo();
-					String ammoType = creature->getWeapon()->getAmmoType();
-					int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
-					int creditCost = 10;
+					if (creature->getWeapon()->getMaxAmmo()) {
+						int maxAmmo = creature->getWeapon()->getMaxAmmo();
+						String ammoType = creature->getWeapon()->getAmmoType();
+						int ammoUsed = creature->getWeapon()->getStoredInt("ammo_used");
+						int creditCost = 30;  //Reloading a Common weapon costs 30 credits
 
-					if(creature->getCashCredits() - creditCost >= 0) {
-						creature->subtractCashCredits(creditCost);
-						BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " reloaded their weapon.");
-						creature->sendSystemMessage("You have been charged " + String::valueOf(creditCost) + " credits for the ammo.");
-						creature->getWeapon()->setStoredInt("ammo_used", 0);
+						if(ammoUsed == 0) {
+							creature->sendSystemMessage("Your weapon is already at full ammunition.");
+							return SUCCESS;
+						}
+
+						if(ammoType == "ammo_disruptor") {
+							ManagedReference<SceneObject*> inv = creature->getSlottedObject("inventory");
+							if(inv != nullptr) {
+								int containerSize = inv->getContainerObjectsSize();
+								bool foundAmmo = false;
+								for (int j = containerSize - 1; j >= 0; --j) {
+									ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
+
+									if (unknownItem->getCustomObjectName() == "Disruptor Ammunition") {
+                						ManagedReference<TangibleObject*> ammo = unknownItem->asTangibleObject();
+                						if (ammo != nullptr) {
+											BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " reloaded their disrupter.");
+							        		ammo->destroyObjectFromWorld(true);
+											ammo->destroyObjectFromDatabase(true);
+											creature->getWeapon()->setStoredInt("ammo_used", 0);
+											foundAmmo = true;
+											return SUCCESS;
+										}
+										else {
+											creature->sendSystemMessage("Found a disruptor ammo item which is of the wrong item type.");
+										}
+									}
+								}
+							}
+							else {
+								creature->sendSystemMessage("Could not retrieve your inventory.");
+							}
+							creature->sendSystemMessage("Could not find any disruptor ammunition in your inventory.");
+							return GENERALERROR;
+						}
+
+						if(creature->getWeapon()->getItemValue() >= 500) {   //Reloading an Uncommon weapon costs  40
+							creditCost += 10;
+						}
+						if(creature->getWeapon()->getItemValue() >= 1500) {  //Reloading a Rare weapon costs 50
+							creditCost += 10;
+						}
+						if(creature->getWeapon()->getItemValue() >= 8000) {  //Reloading an Epic weapon costs 70
+							creditCost += 20;
+						}
+						if(creature->getWeapon()->getItemValue() >= 15000) {  //Reloading a Legendary weapon costs 100
+							creditCost += 30;
+						}
+
+
+						if(ammoType == "ammo_tusken") {   //Reloading a Tusken weapon (which have 1 ammunition and cap out at Rare tier) costs 10
+							creditCost=10;
+						}
+
+						if(creature->getCashCredits() - creditCost >= 0) {
+							creature->subtractCashCredits(creditCost);
+							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " reloaded their weapon.");
+							creature->sendSystemMessage("You have been charged " + String::valueOf(creditCost) + " credits for the ammo.");
+							creature->getWeapon()->setStoredInt("ammo_used", 0);
+						}
+						else {
+							creature->sendSystemMessage("You do not have enough credits to afford the reload.");
+						}
 					}
 					else {
-						creature->sendSystemMessage("You do not have enough credits to afford the reload.");
+						creature->sendSystemMessage("This weapon does not use ammunition and cannot be reloaded.");
 					}
 				}				
+			}
+			else if(command == "heropoint" || command == "hero") {
+				if(creature->getStoredInt("hero_point_used")) {
+					creature->sendSystemMessage("You have already used your hero point since your last long rest.");
+				}
+				else {
+					BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has used their hero point and may reroll their last skill check if they are not in combat.");
+					creature->setStoredInt("hero_point_used", 1);
+				}
+				
 			}
 		} catch (Exception& e) {
 			creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");

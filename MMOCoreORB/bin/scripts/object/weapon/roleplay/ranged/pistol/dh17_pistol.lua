@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_dh17_pistol = object_weapon_ranged_pistol_s
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 4, --Type of Die used in Damage
-	bonusDamage = 0,
+	bonusDamage = 1,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
@@ -58,4 +58,4 @@ object_weapon_roleplay_ranged_pistol_dh17_pistol = object_weapon_ranged_pistol_s
 	experimentalCombineType = { 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
 
-ObjectTemplates:addTemplate(object_weapon_roleplay_ranged_pistol_dh17_pistol, "object/weapon/ranged/pistol/pistol_dh17.iff")
+ObjectTemplates:addTemplate(object_weapon_roleplay_ranged_pistol_dh17_pistol, "object/weapon/roleplay/ranged/pistol/dh17_pistol.iff")

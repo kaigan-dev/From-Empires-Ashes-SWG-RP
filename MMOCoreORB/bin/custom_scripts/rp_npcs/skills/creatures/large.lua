@@ -23,7 +23,7 @@ skillSet = {
     {"rp_maneuverability",  2, 2},
     {"rp_mechanics",        0, 0},
     {"rp_medicine",         0, 0},
-    {"rp_melee",            7, 7},
+    {"rp_melee",            8, 8},
     {"rp_persuasion",       0, 0},
     {"rp_piloting",         0, 0},
     {"rp_ranged",           0, 0},
@@ -33,7 +33,7 @@ skillSet = {
     {"rp_stealth",          0, 0},
     {"rp_survival",         5, 5},
     {"rp_throwing",         0, 0},
-    {"rp_unarmed",          7, 7},
+    {"rp_unarmed",          8, 8},
     --Force
     {"rp_lightsaber",       0, 0},
     {"rp_sense",            0, 0},
@@ -43,8 +43,19 @@ skillSet = {
     {"rp_alter",            0, 0},
     {"rp_inward",           0, 0},
     --Pools
-    {"rp_health",           60, 60},
+    {"rp_health",           100, 100},
     {"rp_action",           25, 25},
     {"rp_will",             5, 5},
     {"rp_force",            0, 0},
+
+        --Armor
+    {"rp_armor_bonus_kinetic",       4, 4},
+    {"rp_armor_bonus_energy",        4, 4},
+    {"rp_armor_bonus_electricity",   2, 2},
+    {"rp_armor_bonus_stun",          4, 4},
+    {"rp_armor_bonus_blast",         0, 0},
+    {"rp_armor_bonus_heat",          2, 2},
+    {"rp_armor_bonus_cold",          2, 2},
+    {"rp_armor_bonus_acid",          2, 2},
+    {"rp_armor_bonus_lightsaber",    0, 0},
 }

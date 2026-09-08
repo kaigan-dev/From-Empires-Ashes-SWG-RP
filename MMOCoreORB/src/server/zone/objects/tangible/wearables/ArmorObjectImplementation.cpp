@@ -36,7 +36,7 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 		actionEncumbrance = armorTemplate->getActionEncumbrance();
 		mindEncumbrance = armorTemplate->getMindEncumbrance();
 	
-		rating = 0;
+		rating = armorTemplate->getRating();
 	
 		kinetic = armorTemplate->getKinetic();
 		energy = armorTemplate->getEnergy();
@@ -71,18 +71,22 @@ void ArmorObjectImplementation::loadTemplateData(SharedObjectTemplate* templateD
 void ArmorObjectImplementation::notifyLoadFromDatabase() {
 	WearableObjectImplementation::notifyLoadFromDatabase();
 
+	ArmorObjectTemplate* armorTemplate = cast<ArmorObjectTemplate*>(getObjectTemplate());
+
 	if (templateObject == nullptr)
 		return;
 /*  Why would you overwrite the data files in the generic implementation? Why?
 	if (rating != LIGHT && templateObject->getClientTemplateFileName().contains("armor_bounty_hunter_"))
 		rating = LIGHT;
 */
+	rating = armorTemplate->getRating();
 }
 
 void ArmorObjectImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
 	WearableObjectImplementation::fillAttributeList(alm, object);
 
 	//Armor Rating
+	
 	if (rating == LIGHT)
 		alm->insertAttribute("armorrating", "@obj_attr_n:armor_pierce_light"); //Light
 	else if (rating == MEDIUM)
@@ -395,48 +399,50 @@ String ArmorObjectImplementation::getStringType(int type) const {
 
 float ArmorObjectImplementation::getKinetic() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::KINETIC, kinetic);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getEnergy() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::ENERGY, energy);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getElectricity() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::ELECTRICITY, electricity);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getStun() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::STUN, stun);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getBlast() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::BLAST, blast);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getHeat() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::HEAT, heat);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getCold() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::COLD, cold);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getAcid() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::ACID, acid);
-	return value - getConditionReduction(value);
+	return value;
 }
 
 float ArmorObjectImplementation::getLightSaber() const {
 	float value = getTypeValue(SharedWeaponObjectTemplate::LIGHTSABER, lightSaber);
-	return value - getConditionReduction(value);
+	return value;
 }
+
+
 
 void ArmorObjectImplementation::setProtectionValue(int type, float value) {
 	if (type & SharedWeaponObjectTemplate::KINETIC)

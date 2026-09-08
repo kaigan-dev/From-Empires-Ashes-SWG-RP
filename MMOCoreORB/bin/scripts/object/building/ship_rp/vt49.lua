@@ -1,7 +1,12 @@
 object_building_ship_rp_vt49 = object_building_ship_rp_shared_vt49:new {
-	entrancePoint = {0,0},
-	entranceCell = 1,
+	--entrancePoint = {0,0},
+	entrancePoint = {-7, -2},
+	entranceCell = 2,
+	--We want 17216 instead of 17215, so probably +1 to entranceCell
 	
+	publicStructure = 1,
+	baseMaintenanceRate = 0,
+
 	childObjects = {	
 		{templateFile = "object/tangible/ship/roleplay/terminal_navicomputer.iff", x = -2.2277, z = 3.66616, y = 0.784991, cellid = 1, ow = -1, ox = 0, oy = 0, oz = 0, containmentType = -1},
 		{templateFile = "object/tangible/ship/roleplay/terminal_ship_exit.iff", x = -7.78854, z = -1.5, y = 2.07172, cellid = 2, ow = 0, ox = 0, oy = -1, oz = 0, containmentType = -1},

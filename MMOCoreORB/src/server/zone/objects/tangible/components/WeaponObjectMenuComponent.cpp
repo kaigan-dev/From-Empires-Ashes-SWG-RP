@@ -125,7 +125,16 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		bool doNotRepair = false;
 
 		int diceRoll = BorDice::Roll(1, 20); 
-		int mechanicsSkill = player->getSkillMod("rp_mechanics");
+		int mechanicsSkill;
+
+		if(weapon->isRangedWeapon() || weapon->isJediWeapon()) {
+			mechanicsSkill = player->getSkillMod("rp_mechanics");
+		}
+		else {
+			mechanicsSkill = player->getSkillMod("rp_armorer");
+		}
+
+
 		int rollResult = diceRoll + mechanicsSkill;
 
 		if(!repairAmt) {
@@ -136,7 +145,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		player->sendSystemMessage("Your weapon has " + std::to_string(repairAmt) + " damage to repair.");
 		
 
-		if(itemValue == 150) {
+		if(itemValue <= 150) {
 			if(rollResult >= 8) {
 				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 				creditCost = static_cast<int>(tempCost);
@@ -147,7 +156,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 				doNotRepair = true;
 			}
 		}
-		else if(itemValue == 600) {
+		else if(itemValue <= 900) {
 			if(rollResult >= 10) {
 				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 				creditCost = static_cast<int>(tempCost);
@@ -158,7 +167,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 				doNotRepair = true;
 			}
 		}
-		else if(itemValue == 3000) {
+		else if(itemValue <= 3000) {
 			if(rollResult >= 12) {
 				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 				tempCost = tempCost * 3 / 4;
@@ -170,7 +179,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 				doNotRepair = true;
 			}
 		}
-		else if(itemValue == 10000) {
+		else if(itemValue <= 10000) {
 			if(rollResult >= 15) {
 				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 				tempCost = tempCost * 2 / 3;
@@ -182,8 +191,8 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 				doNotRepair = true;
 			}
 		}
-		else if(itemValue == 20000) {
-			if(rollResult >= 8) {
+		else if(itemValue <= 50000) {
+			if(rollResult >= 18) {
 				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 				tempCost = tempCost / 2;
 				creditCost = static_cast<int>(tempCost);

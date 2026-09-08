@@ -788,7 +788,6 @@ void ChatManagerImplementation::handleChatEnterRoomById(CreatureObject* player, 
 		room->addPlayer(player);
 		room->broadcastMessage(coer);
 	}
-
 }
 
 void ChatManagerImplementation::handleSocialInternalMessage(CreatureObject* sender, const UnicodeString& arguments) {
@@ -1102,11 +1101,11 @@ void ChatManagerImplementation::broadcastChatMessage(CreatureObject* sourceCreat
 
 	String spatialChatTypeName = spatialChatTypeNames.get(spatialChatType);
 
-	if(spatialChatTypeName != "whisper")
+	//if(spatialChatTypeName != "whisper")
 		BorChat::RateOutgoingMessage(sourceCreature, message,  spatialChatType);
 
 	BorChat::PrintSpatialChatToDMs(sourceCreature, message);
-	BorChat::PrintSpatialChatToDiscord(sourceCreature, message, spatialChatTypeName, range);
+	BorChat::PrintSpatialChatToDiscord(sourceCreature, message, spatialChatTypeName, moodType, languageID);
 
 	//error(sourceCreature->getFirstName() + " has closeEntryObjects size of " + String::valueOf(closeEntryObjects.size()));
 
@@ -2040,7 +2039,6 @@ void ChatManagerImplementation::handleChatCreateRoom(CreatureObject* player, uin
 
 	ChatOnCreateRoom* packet = new ChatOnCreateRoom(newRoom, requestID, error);
 	player->sendMessage(packet);
-
 }
 
 Reference<ChatRoom*> ChatManagerImplementation::createPersistentRoomByFullPath(CreatureObject* player, const String& path, const String& title, int requestID) {

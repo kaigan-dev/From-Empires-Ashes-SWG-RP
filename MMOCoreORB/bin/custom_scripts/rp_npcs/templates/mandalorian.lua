@@ -5,6 +5,7 @@ npc_template = {
         "dressed_death_watch_grey",
         "dressed_death_watch_gold",
         "dressed_death_watch_silver",
+        "dressed_death_watch_red",
         "dressed_bh_male_twk_01",
         "dressed_bh_male_human_03",
         "dressed_fs_village_enemy_mellichae",
