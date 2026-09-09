@@ -1,7 +1,7 @@
-DantooineTokaneScreenPlay = CityScreenPlay:new {
+DantooineTokareScreenPlay = CityScreenPlay:new {
 	numberOfActs = 1,
 
-	screenplayName = "DantooineTokaneScreenPlay",
+	screenplayName = "DantooineTokareScreenPlay",
 
 	planet = "rp_dantooine",	
 	
@@ -10,9 +10,9 @@ DantooineTokaneScreenPlay = CityScreenPlay:new {
 	}
 }
 
-registerScreenPlay("DantooineTokaneScreenPlay",  true)
+registerScreenPlay("DantooineTokareScreenPlay",  true)
 
-function DantooineTokaneScreenPlay:start()
+function DantooineTokareScreenPlay:start()
 	if (isZoneEnabled(self.planet)) then
 		self:spawnMobiles()
 		self:spawnSceneObjects()
@@ -21,14 +21,14 @@ function DantooineTokaneScreenPlay:start()
 	end
 end
 
-function DantooineTokaneScreenPlay:spawnJunkPiles() 
+function DantooineTokareScreenPlay:spawnJunkPiles() 
 	local spawnPoints = {
 		{},
 	}
 	RpJunkPile:spawnJunkPiles(self.planet, spawnPoints, false)
 end
 
-function DantooineTokaneScreenPlay:spawnCivilians() 
+function DantooineTokareScreenPlay:spawnCivilians() 
 	local waypointList = {
 		{-114.6, 4.5, 3461.1, 100, 0,{"social"}},
         {-113.5, 4.4, 3461.8, -141, 0,{"social"}},
@@ -99,12 +99,12 @@ function DantooineTokaneScreenPlay:spawnCivilians()
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_dantooine", waypointList, self.walkpointList, "dantooine", "dantooine")
 end
 
-function DantooineTokaneScreenPlay:spawnSceneObjects() 
+function DantooineTokareScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
 	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -30.1, 11.9, 3634.2, 0, 0.992546, 0, -0.121869, 0)
 end
 
-function DantooineTokaneScreenPlay:spawnMobiles()
+function DantooineTokareScreenPlay:spawnMobiles()
 	--Species, Equipment, Skills, Customization
 
 	local pNpc
@@ -118,14 +118,14 @@ function DantooineTokaneScreenPlay:spawnMobiles()
 
     --Melee Vendor Light
 	
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 0.4, 0.9, 0.2, 73, 610036421, "rp_trandoshan_female", "tokane_vendor_melee_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 0.4, 0.9, 0.2, 73, 610036421, "rp_trandoshan_female", "tokare_vendor_melee_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Hartam Dyssk (a Melee Weapons Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
 
     --Ranged Vendor Light
 
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 0.3, 0.9, 5.6, 103, 610036421, "rp_trandoshan_male", "tokane_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 0.3, 0.9, 5.6, 103, 610036421, "rp_trandoshan_male", "tokare_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Bhokhssushk Dyssk (a Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_ranged_novice")
@@ -139,7 +139,7 @@ function DantooineTokaneScreenPlay:spawnMobiles()
 
     --Armorsmith Vendor
 
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 9.7, 0.9, 3.3, -106, 610036421, "rp_trandoshan_female", "tokane_vendor_armor_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 9.7, 0.9, 3.3, -106, 610036421, "rp_trandoshan_female", "tokare_vendor_armor_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Mhohssa Dyssk (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
