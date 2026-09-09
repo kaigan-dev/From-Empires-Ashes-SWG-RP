@@ -27,4 +27,5 @@ content = {
 	{"object/tangible/wearables/mask/shared_mask_sith_s01.iff",},
 	{"object/tangible/wearables/hood/shared_hood_kubaz_s01.iff",},
 	{"object/tangible/wearables/hood/shared_hood_robe_s01_over.iff",},
+	{"object/tangible/wearables/hat/shared_hat_fedora_s02.iff", },
 }

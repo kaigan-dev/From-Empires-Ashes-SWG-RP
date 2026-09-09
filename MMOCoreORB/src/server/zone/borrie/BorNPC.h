@@ -53,19 +53,35 @@ public:
 		}
 	}
 
-	static void UnarmorNPC(CreatureObject* creature, int slot) {
-		if(creature->isPlayerCreature())
-			return;
+	static bool RemoveNPCArmor(CreatureObject* target, String slot, bool destroy = true) {
+		if (target == nullptr || target->isPlayerCreature())
+			return false;
 
-		SceneObject* slob = creature->getSlottedObject(slot);
-		ManagedReference<ArmorObject*> armor = cast<ArmorObject*>(slob);
-		// Null check, then goodbye existing armor
-        if (armor != nullptr)
-		{
-			armor->destroyObjectFromWorld(true);
-			armor->destroyObjectFromDatabase(true);
+		ManagedReference<SceneObject*> worn = target->getSlottedObject(slot);
+		if (worn == nullptr || !worn->isTangibleObject())
+			return false;
+
+		Locker clocker(target);
+		Locker ilocker(worn);
+
+		// NPC templates use the plain ContainerComponent, so the wearables delta vector is normally
+		// untouched for them. This is a no-op when the item is not listed, and keeps the client's
+		// CREO6 wearables list correct for any creature template that does track it.
+		target->removeWearableObject(worn->asTangibleObject(), true);
+
+		// If the item is not being destroyed, try to transfer it to the NPC's inventory. If that fails, destroy it.
+		if (!destroy) {
+			ManagedReference<SceneObject*> inventory = target->getSlottedObject("inventory");
+			if (inventory != nullptr && inventory->transferObject(worn, -1, true))
+				return true;
 		}
+
+		worn->destroyObjectFromWorld(true);
+		worn->destroyObjectFromDatabase(true);
+
+		return true;
 	}
+
 
 	static void ToggleAlwaysOnAI(CreatureObject* target, CreatureObject* commander) {
 		ManagedReference<AiAgent*> agent = target->asAiAgent();

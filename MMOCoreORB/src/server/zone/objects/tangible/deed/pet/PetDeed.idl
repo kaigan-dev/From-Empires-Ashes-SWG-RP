@@ -48,6 +48,9 @@ class PetDeed extends Deed {
 
 	protected string controlDeviceObjectTemplate;
 	protected string mobileTemplate;
+	protected string skillTemplate;
+	protected string equipmentTemplate;
+	protected int mountable;
 
 	protected int cleverness;
 	protected int endurance;
@@ -318,6 +321,11 @@ class PetDeed extends Deed {
 	@read
 	public int getHardiness() {
 		return hardiness;
+	}
+
+	@read
+	public int isMountable() {
+		return mountable;
 	}
 
 	@read

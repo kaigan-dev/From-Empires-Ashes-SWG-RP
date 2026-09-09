@@ -293,7 +293,7 @@ public:
 		String report = creature->getFirstName() + " has fully rested, filling all of their pools.";
 		report += " (Was H:" + String::valueOf(lastHealth);
 		report += ", A:" + String::valueOf(lastAction);
-		report += ", W:" + String::valueOf(lastWill);
+		report += ", W:" + String::valueOf(lastWill) + ")";
 
 		/* Disable public reporting of Force pool filling
 		if (creature->isPlayerCreature()) {
