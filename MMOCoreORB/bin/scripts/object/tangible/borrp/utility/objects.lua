@@ -29,3 +29,8 @@ object_tangible_borrp_utility_shared_ship_caller = SharedTangibleObjectTemplate:
 }
 ObjectTemplates:addClientTemplate(object_tangible_borrp_utility_shared_ship_caller, "object/tangible/borrp/utility/shared_ship_caller.iff")
 --********************************************************************************************************************************************
+object_tangible_borrp_utility_shared_disruptor_ammo = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/borrp/utility/shared_disruptor_ammo.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_borrp_utility_shared_disruptpr_ammo, "object/tangible/borrp/utility/shared_disruptor_ammo.iff")
+--********************************************************************************************************************************************
