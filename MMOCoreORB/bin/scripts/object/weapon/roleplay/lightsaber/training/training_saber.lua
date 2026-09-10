@@ -1,5 +1,5 @@
 object_weapon_roleplay_lightsaber_training_training_saber = object_weapon_melee_plasma_saber_sword_shared_sword_saber_starcruiser:new {
-	alternateGrip = "object/weapon/roleplay/lightsaber/single/2h/2h_sword_saber_aayla.iff",
+	
 
 	attackType = MELEEATTACK,
 	damageType = STUN,
