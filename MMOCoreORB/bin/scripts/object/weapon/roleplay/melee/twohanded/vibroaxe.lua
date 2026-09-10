@@ -26,6 +26,8 @@ object_weapon_roleplay_melee_twohanded_vibroaxe = object_weapon_melee_axe_shared
 
 	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

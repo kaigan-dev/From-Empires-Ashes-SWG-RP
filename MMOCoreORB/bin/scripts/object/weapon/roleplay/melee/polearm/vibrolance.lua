@@ -27,6 +27,8 @@ object_weapon_roleplay_melee_polearm_vibrolance = object_weapon_melee_polearm_sh
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Uncommon",
 	itemValue = 600,
 	--Approx FEA Value 600

@@ -27,6 +27,8 @@ object_weapon_roleplay_melee_onehanded_elite_gaderiffi_stick = object_weapon_mel
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Rare",
 	itemValue = 3000,
 	--Approx FEA Value 3000

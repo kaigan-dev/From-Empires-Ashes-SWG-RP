@@ -29,6 +29,8 @@ object_weapon_roleplay_melee_polearm_poison_pike = object_weapon_melee_polearm_s
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Rare",
 	itemValue = 3000,
 	--Approx FEA Value 3000

@@ -29,6 +29,8 @@ object_weapon_roleplay_melee_unarmed_blaster_fist = object_weapon_melee_special_
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Legendary",
 	itemValue = 20000,
 	--Approx FEA Value 20000

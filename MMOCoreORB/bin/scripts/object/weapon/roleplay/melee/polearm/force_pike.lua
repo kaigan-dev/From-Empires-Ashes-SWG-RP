@@ -27,6 +27,8 @@ object_weapon_roleplay_melee_polearm_force_pike = object_weapon_melee_polearm_sh
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Rare",
 	itemValue = 3000,
 	--Approx FEA Value 3000

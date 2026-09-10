@@ -26,6 +26,8 @@ object_weapon_roleplay_melee_onehanded_lightfoil_01_blue = object_weapon_melee_s
 
 	maxRange = 3,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	bladeColor = 40,
 
