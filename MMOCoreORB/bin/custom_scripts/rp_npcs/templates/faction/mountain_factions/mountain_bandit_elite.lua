@@ -8,7 +8,6 @@ npc_template = {
 		"rp_trandoshan_male", "rp_trandoshan_female",
 		"rp_twilek_male", "rp_twilek_female",
 		"rp_zabrak_male", "rp_zabrak_female","rp_zabrak_male", "rp_zabrak_female",
-		"rp_nikto_male", "rp_nikto_male", "rp_nikto_male", "rp_nikto_male",
 		"rp_weequay_male","rp_weequay_male","rp_weequay_male",
 		"rp_nautolan_male",
 	},
