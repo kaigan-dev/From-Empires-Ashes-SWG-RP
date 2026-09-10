@@ -1,14 +1,32 @@
 npc_template = {
+
 	randomName = "darktrooper",
 	baseTemplates = {"rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_male", "rp_human_female"},
 	skillTemplates = {"factional/common/elite"},
 	
 	equipmentTemplates = {
 		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
+		{"rp_human_male", {"faction/imperial/elite_eidolon"}},
 		{"rp_human_female", {"faction/imperial/elite_eidolon"}},
 	},	
 	
 	customizationTemplates = {
+		{"rp_human_male", {"random"}},
+		{"rp_human_male", {"random"}},
+		{"rp_human_male", {"random"}},
+		{"rp_human_male", {"random"}},
+		{"rp_human_male", {"random"}},
+		{"rp_human_male", {"random"}},
+		{"rp_human_male", {"random"}},
+		{"rp_human_male", {"random"}},
+		{"rp_human_male", {"random"}},
 		{"rp_human_male", {"random"}},
 		{"rp_human_female", {"random"}},
 	},	
@@ -17,7 +35,7 @@ npc_template = {
 		{"/shared_owner/blend_skinny", 100},
 		{"/shared_owner/blend_muscle", 100},
 		{"/shared_owner/blend_fat", 0},
-		{"height", 1.2},
+		{"height", 1.5},
 	}
 }
 

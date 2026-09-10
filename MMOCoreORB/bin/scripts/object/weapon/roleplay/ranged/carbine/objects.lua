@@ -93,3 +93,8 @@ object_weapon_roleplay_ranged_carbine_carbine_a280cfe = SharedWeaponObjectTempla
 	clientTemplateFileName = "object/weapon/roleplay/ranged/carbine/carbine_a280cfe.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_carbine_carbine_a280cfe, "object/weapon/roleplay/ranged/carbine/carbine_a280cfe.iff")
+--******************************************************************************************************************************************************
+object_weapon_roleplay_ranged_carbine_carbine_tusken = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/ranged/carbine/carbine_tusken.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_carbine_carbine_tusken, "object/weapon/roleplay/ranged/carbine/carbine_tusken.iff")

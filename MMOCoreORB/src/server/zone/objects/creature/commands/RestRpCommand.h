@@ -108,6 +108,11 @@ public:
 						//BorCharacter::HandleDarksideFading(targetCreature);
 						targetCreature->setStoredInt("hero_point_used", 0);
 						creature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
+
+						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+							ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
+							BorCharacter::FillAllPools(pet->asCreatureObject());
+				}
 					}
 					else {
 						creature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");

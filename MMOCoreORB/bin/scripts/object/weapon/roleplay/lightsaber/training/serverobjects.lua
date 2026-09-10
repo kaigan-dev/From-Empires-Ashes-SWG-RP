@@ -1,0 +1,1 @@
+includeFile("weapon/roleplay/lightsaber/training_training_saber.lua")

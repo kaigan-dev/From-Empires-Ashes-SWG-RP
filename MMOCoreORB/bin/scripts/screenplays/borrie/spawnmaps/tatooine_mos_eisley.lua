@@ -853,30 +853,30 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
-	-- Imperial garrison 
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 546.2, 0, 73.4, 353, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-843")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 531.6, 3.5, 75.7, 23, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-406")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 526.4, 3.5, 76.3, 357, 0, "stormtrooper", "faction/imperial/trooper", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-251")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 480.9, 0, 75.2, 331, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-599")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 538.9, 0, -61.5, 188, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-374")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 554.2, 4, -59.6, 8, 0, "stormtrooper", "faction/imperial/trooper", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-732")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 31.3, 273, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-153")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 35.3, 273, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-185")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 571.9, 0, 57.4, 333, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-630")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 570.7, 0, 58.9, 135, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-694")
-	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 600.7, 0, 3.4, 222, 0, "stormtrooper", "faction/imperial/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("TK-552")
-	
+	-- Former Imperial garrison, now Alliance
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 546.2, 0, 73.4, 353, 0, "rp_human_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 531.6, 3.5, 75.7, 23, 0, "rp_human_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 526.4, 3.5, 76.3, 357, 0, "rp_human_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 480.9, 0, 75.2, 331, 0, "rp_rodian_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 538.9, 0, -61.5, 188, 0, "rp_sullustan_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 554.2, 4, -59.6, 8, 0, "rp_zabrak_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 31.3, 273, 0, "rp_moncal_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 35.3, 273, 0, "rp_bothan_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 571.9, 0, 57.4, 333, 0, "rp_bothan_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 570.7, 0, 58.9, 135, 0, "rp_zabrak_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 600.7, 0, 3.4, 222, 0, "rp_human_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+
 	-- Telios Enclave (abandoned starport)
 
 	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 700.3, 0, 379.2, 182, 0, "rp_human_male", "mando_rebel", "bountyhunter", "default") --Equip, Skill, Customization

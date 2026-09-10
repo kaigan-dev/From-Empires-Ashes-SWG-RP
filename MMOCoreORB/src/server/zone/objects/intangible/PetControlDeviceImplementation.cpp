@@ -842,6 +842,7 @@ void PetControlDeviceImplementation::fillAttributeList(AttributeListMessage* alm
 			alm->insertAttribute("creature_action", pet->getBaseHAM(3));
 			alm->insertAttribute("creature_mind", pet->getBaseHAM(6));
 
+			/*  We will get armor from the creature's RP template instead of the following.
 			int armor = pet->getArmor();
 			if (armor == 0)
 				alm->insertAttribute("armor_rating", "None");
@@ -896,7 +897,9 @@ void PetControlDeviceImplementation::fillAttributeList(AttributeListMessage* alm
 				alm->insertAttribute("dna_comp_armor_saber", "Vulnerable");
 			else
 				alm->insertAttribute("dna_comp_armor_saber", pet->getLightSaber());
+			*/
 
+			
 			ManagedReference<WeaponObject*> weapon = pet->getWeapon();
 			if (weapon != nullptr){
 				StringBuffer displayValue;
