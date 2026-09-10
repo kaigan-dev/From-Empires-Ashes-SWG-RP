@@ -27,6 +27,8 @@ object_weapon_roleplay_ranged_carbine_firestar_10k = object_weapon_ranged_carbin
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Rare",
 

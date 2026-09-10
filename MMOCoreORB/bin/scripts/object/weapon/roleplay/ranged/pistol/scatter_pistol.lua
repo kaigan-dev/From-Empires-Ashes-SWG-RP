@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_scatter_pistol = object_weapon_ranged_pisto
 
 	maxRange = 32,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Uncommon",
 	itemValue = 600,

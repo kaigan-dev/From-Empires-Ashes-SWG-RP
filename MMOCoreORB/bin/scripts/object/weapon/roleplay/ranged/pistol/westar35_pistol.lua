@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_pistol_westar35_pistol = object_weapon_ranged_pist
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Legendary",
 	itemValue = 20000,

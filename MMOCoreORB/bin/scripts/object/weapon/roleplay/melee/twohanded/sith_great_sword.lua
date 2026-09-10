@@ -29,6 +29,8 @@ object_weapon_roleplay_melee_twohanded_sith_great_sword = object_weapon_melee_2h
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Legendary",
 	itemValue = 20000,
 	--Approx FEA Value 20000

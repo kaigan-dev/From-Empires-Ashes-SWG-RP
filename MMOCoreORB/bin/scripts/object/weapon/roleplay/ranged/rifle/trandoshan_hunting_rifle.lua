@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_rifle_trandoshan_hunting_rifle = object_weapon_ran
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

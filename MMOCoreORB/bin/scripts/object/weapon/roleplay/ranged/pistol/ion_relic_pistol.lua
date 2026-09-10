@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_pistol_ion_relic_pistol = object_weapon_ranged_pis
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Epic",
 	itemValue = 10000,

@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_rifle_proton_rifle = object_weapon_ranged_rifle_sh
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

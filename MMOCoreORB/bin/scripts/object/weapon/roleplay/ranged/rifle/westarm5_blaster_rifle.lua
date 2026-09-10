@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_rifle_westarm5_blaster_rifle = object_weapon_range
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

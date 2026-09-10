@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_pistol_striker_projectile_pistol = object_weapon_r
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Common",
 	itemValue = 150,

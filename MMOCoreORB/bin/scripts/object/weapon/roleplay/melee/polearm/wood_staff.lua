@@ -27,6 +27,8 @@ object_weapon_roleplay_melee_polearm_wood_staff = object_weapon_melee_polearm_sh
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Common",
 	itemValue = 150,
 	--Approx FEA Value 150

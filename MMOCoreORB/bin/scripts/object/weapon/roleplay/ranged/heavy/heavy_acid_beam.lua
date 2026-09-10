@@ -25,6 +25,8 @@ object_weapon_roleplay_ranged_heavy_heavy_acid_beam = object_weapon_ranged_heavy
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

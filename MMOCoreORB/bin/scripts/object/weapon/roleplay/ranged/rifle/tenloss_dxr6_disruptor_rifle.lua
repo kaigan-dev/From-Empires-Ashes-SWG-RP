@@ -29,6 +29,8 @@ object_weapon_roleplay_ranged_rifle_tenloss_dxr6_disruptor_rifle = object_weapon
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

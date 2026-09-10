@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_model_434_heavy_blaster_pistol = object_wea
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Rare",
 	itemValue = 3000,

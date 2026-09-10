@@ -29,6 +29,8 @@ object_weapon_roleplay_melee_polearm_electric_polearm = object_weapon_melee_pole
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Rare",
 	itemValue = 3000,
 	--Approx FEA Value 3000

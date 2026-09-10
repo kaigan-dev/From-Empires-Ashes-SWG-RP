@@ -27,6 +27,8 @@ object_weapon_roleplay_melee_onehanded_survival_knife = object_weapon_melee_knif
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Common",
 	itemValue = 150,
 	--Approx FEA Value 150

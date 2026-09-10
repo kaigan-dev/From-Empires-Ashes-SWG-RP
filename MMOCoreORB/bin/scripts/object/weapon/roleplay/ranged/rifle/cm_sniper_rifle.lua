@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_rifle_cm_sniper_rifle = object_weapon_ranged_rifle
 
 	maxRange = 260,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_pistol_wookiee_pistol = object_weapon_ranged_pisto
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Uncommon",
 	itemValue = 600,

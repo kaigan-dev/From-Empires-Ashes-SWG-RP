@@ -27,6 +27,8 @@ object_weapon_roleplay_ranged_carbine_ee3_carbine = object_weapon_ranged_carbine
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Rare",
 

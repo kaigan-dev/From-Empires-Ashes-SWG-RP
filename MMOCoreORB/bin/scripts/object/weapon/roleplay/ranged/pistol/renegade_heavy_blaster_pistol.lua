@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_pistol_renegade_heavy_blaster_pistol = object_weap
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Epic",
 	itemValue = 10000,

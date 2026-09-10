@@ -29,6 +29,8 @@ object_weapon_roleplay_ranged_carbine_alliance_needler_carbine = object_weapon_r
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Common",
 

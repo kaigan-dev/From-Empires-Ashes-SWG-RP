@@ -29,6 +29,8 @@ object_weapon_roleplay_melee_twohanded_tulrus_sword = object_weapon_melee_2h_swo
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Epic",
 	itemValue = 10000,
 	--Approx FEA Value 10000

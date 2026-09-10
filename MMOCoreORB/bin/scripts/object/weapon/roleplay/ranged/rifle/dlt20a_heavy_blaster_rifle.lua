@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_rifle_dlt20a_heavy_blaster_rifle = object_weapon_r
 
 	maxRange = 260,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

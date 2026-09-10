@@ -27,6 +27,8 @@ object_weapon_roleplay_melee_unarmed_vibroknuckler = object_weapon_melee_special
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity="Uncommon",
 	itemValue = 600,
 	--Approx FEA Value 600

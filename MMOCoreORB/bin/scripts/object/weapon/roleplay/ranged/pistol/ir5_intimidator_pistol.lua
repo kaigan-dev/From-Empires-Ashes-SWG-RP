@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_ir5_intimidator_pistol = object_weapon_rang
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Rare",
 	itemValue = 3000,

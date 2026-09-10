@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_rifle_rifle_a280cfe = object_weapon_ranged_rifle_s
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 
