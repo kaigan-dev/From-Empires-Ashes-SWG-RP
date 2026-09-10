@@ -1,0 +1,4 @@
+object_tangible_borrp_utility_disruptor_ammo = object_tangible_borrp_utility_shared_disruptor_ammo:new {
+	objectMenuComponent = "BorRpSliceableDatapadMenuComponent"
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_utility_disruptor_ammo, "object/tangible/borrp/utility/disruptor_ammo.iff")
