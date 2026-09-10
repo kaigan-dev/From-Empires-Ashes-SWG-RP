@@ -29,7 +29,7 @@ skillSet = {
 	{"rp_bluff", 1, 1},
 	{"rp_athletics", 6, 6},
 	{"rp_unarmed", 4, 4},
-	{"rp_stealth", 5, 5},
+	{"rp_stealth", 6, 6},
 	{"rp_resolve", 4, 4},
 	{"rp_persuasion", 0, 0},
 	{"rp_mechanics", 2, 2},
