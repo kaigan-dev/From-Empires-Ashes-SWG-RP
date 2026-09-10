@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_rifle_j1_rifle = object_weapon_ranged_rifle_shared
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

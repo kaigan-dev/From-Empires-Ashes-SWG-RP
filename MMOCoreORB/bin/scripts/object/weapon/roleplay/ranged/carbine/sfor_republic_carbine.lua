@@ -27,6 +27,8 @@ object_weapon_roleplay_ranged_carbine_sfor_republic_carbine = object_weapon_rang
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Rare",
 

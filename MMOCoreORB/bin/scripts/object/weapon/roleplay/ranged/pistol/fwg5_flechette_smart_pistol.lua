@@ -28,6 +28,8 @@ object_weapon_roleplay_ranged_pistol_fwg5_flechette_smart_pistol = object_weapon
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity = "Epic",
 	itemValue = 10000,

@@ -29,6 +29,8 @@ object_weapon_roleplay_ranged_rifle_rifle_a280cfe_sniper = object_weapon_ranged_
 
 	maxRange = 260,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

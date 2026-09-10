@@ -29,6 +29,8 @@ object_weapon_roleplay_ranged_rifle_t21_light_repeating_rifle = object_weapon_ra
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_dl18_pistol = object_weapon_ranged_pistol_s
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Common",
 	itemValue = 150,

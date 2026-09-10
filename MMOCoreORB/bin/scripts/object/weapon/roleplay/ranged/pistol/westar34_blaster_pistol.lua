@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_westar34_blaster_pistol = object_weapon_ran
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity = "Legendary",
 	itemValue = 20000,

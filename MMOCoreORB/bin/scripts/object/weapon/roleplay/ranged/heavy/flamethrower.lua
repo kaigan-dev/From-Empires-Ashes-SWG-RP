@@ -25,6 +25,8 @@ object_weapon_roleplay_ranged_heavy_flamethrower = object_weapon_ranged_rifle_sh
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

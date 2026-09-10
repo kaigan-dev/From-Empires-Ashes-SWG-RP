@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_antiriot_tangle_gun_7 = object_weapon_range
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Uncommon",
 	itemValue = 600,

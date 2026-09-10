@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_dl44_metal_blaster_pistol = object_weapon_r
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Rare",
 	itemValue = 3000,

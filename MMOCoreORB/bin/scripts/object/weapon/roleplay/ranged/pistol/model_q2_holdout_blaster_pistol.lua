@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_model_q2_holdout_blaster_pistol = object_we
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity = "Uncommon",
 	itemValue = 600,

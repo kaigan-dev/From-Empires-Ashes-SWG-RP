@@ -29,6 +29,8 @@ object_weapon_roleplay_ranged_carbine_corestrike_rancor_carbine = object_weapon_
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Uncommon",
 

@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_crimson_nova_pistol = object_weapon_ranged_
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Epic",
 	itemValue = 10000,

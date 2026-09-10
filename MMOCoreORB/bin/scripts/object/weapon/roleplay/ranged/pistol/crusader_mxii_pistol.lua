@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_pistol_crusader_mxii_pistol = object_weapon_ranged
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Epic",
 	itemValue = 10000,

@@ -27,6 +27,8 @@ object_weapon_roleplay_ranged_carbine_bothan_bola_carbine = object_weapon_ranged
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Common",
 

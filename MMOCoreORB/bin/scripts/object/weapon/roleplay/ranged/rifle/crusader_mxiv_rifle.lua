@@ -26,6 +26,8 @@ object_weapon_roleplay_ranged_rifle_crusader_mxiv_rifle = object_weapon_ranged_r
 
 	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
 

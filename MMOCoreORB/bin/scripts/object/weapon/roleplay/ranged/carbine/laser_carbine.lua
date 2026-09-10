@@ -27,6 +27,8 @@ object_weapon_roleplay_ranged_carbine_laser_carbine = object_weapon_ranged_carbi
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Common",
 

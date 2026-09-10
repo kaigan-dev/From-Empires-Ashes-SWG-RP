@@ -29,6 +29,8 @@ object_weapon_roleplay_ranged_carbine_geoniasian_carbine = object_weapon_ranged_
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Epic",
 

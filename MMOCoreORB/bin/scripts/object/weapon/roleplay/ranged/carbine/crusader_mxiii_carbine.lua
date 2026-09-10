@@ -27,6 +27,8 @@ object_weapon_roleplay_ranged_carbine_crusader_mxiii_carbine = object_weapon_ran
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 
 	rarity = "Epic",
 

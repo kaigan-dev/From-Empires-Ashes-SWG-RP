@@ -27,6 +27,8 @@ object_weapon_roleplay_ranged_carbine_dc15s_carbine = object_weapon_ranged_carbi
 	maxRange = 100,
 	maxRangeAccuracy = 99,
 
+	lightsaberresist = 0,
+
 	rarity = "Common",
 
 	itemValue = 150,
