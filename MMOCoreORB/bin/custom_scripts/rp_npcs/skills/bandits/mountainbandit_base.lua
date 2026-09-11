@@ -37,7 +37,7 @@ skillSet = {
 	{"rp_demolitions", 0, 0},
 	{"rp_composure", 0, 0},
 	{"rp_armorer", 0, 0},
-	{"rp_strength", 5, 5},
+	{"rp_strength", 6, 6},
 	{"rp_mindfulness", 1, 1},
 	{"rp_intelligence", 4, 4},
 	{"rp_precision", 7, 7},
