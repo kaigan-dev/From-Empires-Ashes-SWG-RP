@@ -9,6 +9,7 @@ object_tangible_wearables_armor_roleplay_helmets_armor_helmet_s06 = object_tangi
 
 	objectMenuComponent  = "ArmorObjectMenuComponent",
 
+	customName = "Rebel Endor Helmet",
 
 	healthEncumbrance = 0,
 	armorEncumbrance = 0,
