@@ -222,6 +222,20 @@ rpg_shop = {
 			}
 		},
 
+		{
+			name = "Miscellaneous Helmets",
+			minItems = 2,
+			items = {
+				{template = "object/tangible/wearables/armor/roleplay/helmets/armor_blacksun_ace_helmet.iff", cost = 800, max = 10, chance = 100, overridePrice = true  },
+				{template = "object/tangible/wearables/armor/roleplay/helmets/armor_helmet_atat.iff", cost = 800, max = 10, chance = 100, overridePrice = true   },
+				{template = "object/tangible/wearables/armor/roleplay/helmets/armor_helmet_s06.iff", cost = 800, max = 10, chance = 100, overridePrice = true   },
+				{template = "object/tangible/wearables/armor/roleplay/helmets/armor_helmet_tie_fighter.iff", cost = 800, max = 10, chance = 100, overridePrice = true   },
+				{template = "object/tangible/wearables/armor/roleplay/helmets/armor_imperial_ace_helmet.iff", cost = 800, max = 10, chance = 100, overridePrice = true   },
+				{template = "object/tangible/wearables/armor/roleplay/helmets/armor_privateer_ace_helmet.iff", cost = 800, max = 10, chance = 100, overridePrice = true   },
+				{template = "object/tangible/wearables/armor/roleplay/helmets/armor_rebel_ace_helmet.iff", cost = 800, max = 10, chance = 100, overridePrice = true   },
+			}
+		},
+
 
 	}	
 }
