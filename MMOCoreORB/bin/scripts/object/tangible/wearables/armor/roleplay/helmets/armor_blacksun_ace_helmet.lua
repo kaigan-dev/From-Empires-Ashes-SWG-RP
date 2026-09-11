@@ -17,18 +17,17 @@ object_tangible_wearables_armor_roleplay_helmets_armor_blacksun_ace_helmet = obj
 
 	maxCondition = 200,
 
+	rating = MEDIUM,
+	rpskill = 4,
 
-	rating = LIGHT,
-	rpskill = 2,
 
-
-	kinetic = 1,
-	energy = 1,
+	kinetic = 4,
+	energy = 3,
 	electricity = 0,
-	stun = 0,
+	stun = 4,
 	blast = 0,
-	heat = 1,
-	cold = 1,
+	heat = 2,
+	cold = 2,
 	acid = 0,
 	lightsaber = -1,
 	lightSaber = -1,

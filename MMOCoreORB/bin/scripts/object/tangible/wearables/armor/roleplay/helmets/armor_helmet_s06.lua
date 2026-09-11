@@ -18,22 +18,22 @@ object_tangible_wearables_armor_roleplay_helmets_armor_helmet_s06 = object_tangi
 	maxCondition = 100,
 
 
-	rating = HEAVY,
-	rpskill = 6,
+	rating = LIGHT,
+	rpskill = 2,
 
 
-	kinetic = 4,
-	energy = 2,
-	electricity = 2,
+	kinetic = 0,
+	energy = 4,
+	electricity = 4,
 	stun = 2,
 	blast = 0,
-	heat = 0,
-	cold = 0,
+	heat = 1,
+	cold = 1,
 	acid = 0,
 	lightsaber = -1,
 	lightSaber = -1,
-	
-	rarity = "Common",
+
+	rarity="Uncommon",
 
 
 
