@@ -122,7 +122,7 @@ function DantooineTokareScreenPlay:spawnCivilians()
         {19.4, 2.0, 6.3, -90, 610045322, {"none"}},
 
         --Triple Shop
-        {6.8, 0.9, 0.9, 167, 610045361, {"tech"}},
+        {6.8, 0.9, 0.9, 167, 610045361, {"tech"}}, --Triple Shop Shop Room
         {4.8, 0.9, 5.1, -2, 610045361, {"none"}},
 
         --Hospital
@@ -140,7 +140,7 @@ function DantooineTokareScreenPlay:spawnSceneObjects()
 	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -30.1, 11.9, 3634.2, 0, 0.992546, 0, -0.121869, 0)
 end
 
-function DantooineTokareScreenPlay:spawnMobilesin()
+function DantooineTokareScreenPlay:spawnMobiles()
 	--Species, Equipment, Skills, Customization
 
 	local pNpc
