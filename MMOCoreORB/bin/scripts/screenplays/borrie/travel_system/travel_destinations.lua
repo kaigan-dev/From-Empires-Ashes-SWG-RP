@@ -20,10 +20,12 @@ travel_destinations = {
 		zone = "rp_dantooine",
 		destinations = {
 			{"Damarise Outpost", "rp_dantooine", 1368, 4, 3403, 0},
+			--[[
 			{"Khoonda City Starport", "rp_dantooine", 898, 1, -1520, 0},
 			{"Khoonda City Shuttleport", "rp_dantooine", 981, 7, -1059, 0},
 			{"Tokare", "rp_dantooine", -28, 11, 3639, 0},
 			{"Taikaha", "rp_dantooine", -75, 2, 2263, 0},
+			--]]
 		}
 	
 	},
