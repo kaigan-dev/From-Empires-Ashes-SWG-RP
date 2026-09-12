@@ -126,7 +126,7 @@ function DantooineTokareScreenPlay:spawnCivilians()
         {4.8, 0.9, 5.1, -2, 610043370, {"none"}},
 
         --Hospital
-        {6.9, 0-.2, 9.0, 175, 610036718, {"none"}}, --Hospital Entrance
+        {-6.9, 0-.2, 9.0, 175, 610036718, {"none"}}, --Hospital Entrance
         {-1.5, 0.2, -9.2, -91, 610036719, {"sitchair"}}, --Hospital Main Room
         {-4.6, 0.2, -6.5, 90, 610036719, {"sitchair"}},
 
@@ -168,7 +168,7 @@ function DantooineTokareScreenPlay:spawnMobiles()
 
     --Cheap Stimpack Vendor
 
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 6.1, 0.2, -0.3, -88, 6100346719, "dressed_medic_trainer_03", "default", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 6.1, 0.2, -0.3, -88, 610036719, "dressed_medic_trainer_03", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Sherpfu Ombusosch (a Stimpack Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
