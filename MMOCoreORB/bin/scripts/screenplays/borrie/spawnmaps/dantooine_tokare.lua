@@ -88,47 +88,47 @@ function DantooineTokareScreenPlay:spawnCivilians()
         {-101.4, 11.0, 3540.5, 18, 0,{"drinker"}},
 
         --Bar
-        {-8.9, 1.8, 9.2, 90, 610044938, {"none"}},  --Bar Entrance
-        {12.1, 1.0, -5.1, -33, 610044941,{"sitchair"}}, --Bar Main Area
-        {13.3, 1.0, -3.4, -76, 610044941,{"sittable"}},
-        {11.8, 1.0, -0.9, -150, 610044941,{"sitchair"}},
-        {10.9, 1.0, -1.9, 135, 610044941,{"none"}},
-        {-5.1, -0.2, -12.3, 104, 610044941,{"sitchair"}},
-        {4.7, -0.2, -8.3, 85, 610044941,{"sitchair"}},
-        {5.7, -0.2, -7.2, -179, 610044941,{"sitchair"}},
-        {6.5, -0.2, -8.9, -41, 610044941,{"drinker"}},
-        {-9.0, 0.7, 1.9, 128, 610044941,{"none"}},
-        {-9., 0.7, 1.2, 107, 610044941,{"social"}},
-        {-7.6, -0.2, -10.6, -89, 610044941,{"tech"}},
-        {-1.3, -0.2, -8.4, 161, 610044941,{"drinker"}},
+        {-8.9, 1.8, 9.2, 90, 610042947, {"none"}},  --Bar Entrance
+        {12.1, 1.0, -5.1, -33, 610042950,{"sitchair"}}, --Bar Main Area
+        {13.3, 1.0, -3.4, -76, 610042950,{"sittable"}},
+        {11.8, 1.0, -0.9, -150, 610042950,{"sitchair"}},
+        {10.9, 1.0, -1.9, 135, 610042950,{"none"}},
+        {-5.1, -0.2, -12.3, 104, 610042950,{"sitchair"}},
+        {4.7, -0.2, -8.3, 85, 610042950,{"sitchair"}},
+        {5.7, -0.2, -7.2, -179, 610042950,{"sitchair"}},
+        {6.5, -0.2, -8.9, -41, 610042950,{"drinker"}},
+        {-9.0, 0.7, 1.9, 128, 610042950,{"none"}},
+        {-9., 0.7, 1.2, 107, 610042950,{"social"}},
+        {-7.6, -0.2, -10.6, -89, 610042950,{"tech"}},
+        {-1.3, -0.2, -8.4, 161, 610042950,{"drinker"}},
 
         --Town Hall
-        {-14.5, 2.0, 12.0, 31, 610045120, {"none"}}, --Town Hall Right Entrance
-        {3.9, 1.4, 1.5, -179, 610045122, {"sitchair"}}, --Town Hall Centre Room
-        {-0.8, 1.4, -0.4, 179, 610045122, {"sitchair"}},
-        {-1.4, 1.4, -0.4, 178, 610045122, {"sitchair"}},
-        {-2.1, 1.4, -0.4, 175, 610045122, {"sitchair"}},
-        {-5.1, 1.4, -2.6, 160, 610045122, {"sitchair"}},
-        {2.6, 2.0, -9.5, -2, 610045122, {"sitchair"}},
-        {-8.9, 2.0, -5.8, 130, 610045122, {"none"}},
-        {0.8, 2.0, 14.9, 177, 610045122, {"none"}},
-        {18.4, 2.0, -2.3, -146, 610045322, {"sitchair"}}, --Town Hall Library
-        {19.4, 2.0, -3.4, -118, 610045322, {"sitchair"}},
-        {20.9, 2.0, -8.4, -179, 610045322, {"none"}},
-        {12.6, 2.0, -6.4, -88, 610045322, {"tech"}},
-        {12.0, 2.0, 8.0, 126, 610045322, {"sit"}},
-        {17.5, 2.0, 5.3, 90, 610045322, {"none"}},
-        {15.3, 2.0, 0.2, 0, 610045322, {"none"}},
-        {19.4, 2.0, 6.3, -90, 610045322, {"none"}},
+        {-14.5, 2.0, 12.0, 31, 610043129, {"none"}}, --Town Hall Right Entrance
+        {3.9, 1.4, 1.5, -179, 610043131, {"sitchair"}}, --Town Hall Centre Room
+        {-0.8, 1.4, -0.4, 179, 610043131, {"sitchair"}},
+        {-1.4, 1.4, -0.4, 178, 610043131, {"sitchair"}},
+        {-2.1, 1.4, -0.4, 175, 610043131, {"sitchair"}},
+        {-5.1, 1.4, -2.6, 160, 610043131, {"sitchair"}},
+        {2.6, 2.0, -9.5, -2, 610043131, {"sitchair"}},
+        {-8.9, 2.0, -5.8, 130, 610043131, {"none"}},
+        {0.8, 2.0, 14.9, 177, 610043131, {"none"}},
+        {18.4, 2.0, -2.3, -146, 610043331, {"sitchair"}}, --Town Hall Library
+        {19.4, 2.0, -3.4, -118, 610043331, {"sitchair"}},
+        {20.9, 2.0, -8.4, -179, 610043331, {"none"}},
+        {12.6, 2.0, -6.4, -88, 610043331, {"tech"}},
+        {12.0, 2.0, 8.0, 126, 610043331, {"sit"}},
+        {17.5, 2.0, 5.3, 90, 610043331, {"none"}},
+        {15.3, 2.0, 0.2, 0, 610043331, {"none"}},
+        {19.4, 2.0, 6.3, -90, 610043331, {"none"}},
 
         --Triple Shop
-        {6.8, 0.9, 0.9, 167, 610045361, {"tech"}}, --Triple Shop Shop Room
-        {4.8, 0.9, 5.1, -2, 610045361, {"none"}},
+        {6.8, 0.9, 0.9, 167, 610043370, {"tech"}}, --Triple Shop Shop Room
+        {4.8, 0.9, 5.1, -2, 610043370, {"none"}},
 
         --Hospital
-        {6.9, 0-.2, 9.0, 175, 610045590, {"none"}}, --Hospital Entrance
-        {-1.5, 0.2, -9.2, -91, 610045592, {"sitchair"}}, --Hospital Main Room
-        {-4.6, 0.2, -6.5, 90, 610045592, {"sitchair"}},
+        {6.9, 0-.2, 9.0, 175, 610036718, {"none"}}, --Hospital Entrance
+        {-1.5, 0.2, -9.2, -91, 610036719, {"sitchair"}}, --Hospital Main Room
+        {-4.6, 0.2, -6.5, 90, 610036719, {"sitchair"}},
 
 	}
 
@@ -154,31 +154,33 @@ function DantooineTokareScreenPlay:spawnMobiles()
 
     --Melee Vendor Light
 	
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.4, 0.9, 0.2, 73, 610045361, "rp_trandoshan_female", "tokare_vendor_melee_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.4, 0.9, 0.2, 73, 610043370, "rp_trandoshan_female", "tokare_vendor_melee_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Hartam Dyssk (a Melee Weapons Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
 
     --Ranged Vendor Light
 
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.3, 0.9, 5.6, 103, 610045361, "rp_trandoshan_male", "tokare_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.3, 0.9, 5.6, 103, 610043370, "rp_trandoshan_male", "tokare_vendor_ranged_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Bhokhssushk Dyssk (a Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_ranged_novice")
 
     --Cheap Stimpack Vendor
 
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 6.1, 0.2, -0.3, -88, 6100345592, "dressed_medic_trainer_03", "default", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 6.1, 0.2, -0.3, -88, 6100346719, "dressed_medic_trainer_03", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Sherpfu Ombusosch (a Stimpack Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
 
     --Armorsmith Vendor
 
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 9.7, 0.9, 3.3, -106, 610045361, "rp_trandoshan_female", "tokare_vendor_armor_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 9.7, 0.9, 3.3, -106, 610043370, "rp_trandoshan_female", "tokare_vendor_armor_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Mhohssa Dyssk (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
+
+
 
 
 end
