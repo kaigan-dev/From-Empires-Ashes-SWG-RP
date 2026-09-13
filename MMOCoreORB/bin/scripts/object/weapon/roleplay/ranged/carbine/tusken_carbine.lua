@@ -4,7 +4,7 @@
 object_weapon_roleplay_ranged_carbine_tusken_carbine = object_weapon_ranged_carbine_shared_carbine_tusken:new {
 
 	--[Info]
-	customName = "Wookiee Carbine",
+	customName = "Tusken Carbine",
 
 	--[Stats]
 	attackType = RANGEDATTACK,

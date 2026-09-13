@@ -15,25 +15,24 @@ object_tangible_wearables_armor_roleplay_helmets_armor_helmet_atat = object_tang
 	mindEncumbrance = 0,
 
 
-	maxCondition = 100,
+	maxCondition = 200,
 
-
-	rating = HEAVY,
-	rpskill = 6,
+	rating = MEDIUM,
+	rpskill = 4,
 
 
 	kinetic = 4,
-	energy = 2,
-	electricity = 2,
-	stun = 2,
+	energy = 3,
+	electricity = 0,
+	stun = 4,
 	blast = 0,
-	heat = 0,
-	cold = 0,
+	heat = 2,
+	cold = 2,
 	acid = 0,
 	lightsaber = -1,
 	lightSaber = -1,
-	
-	rarity = "Common",
+
+	rarity="Uncommon",
 
 
 

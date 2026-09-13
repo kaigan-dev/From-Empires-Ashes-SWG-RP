@@ -936,9 +936,9 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "human")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 11.5, 7, -10.5, 91, 610032094, "rp_rodian_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1.5, 9, -17.0, -4, 610032091, "rp_weequay_male", "faction/hutt/eite", "soldier", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1.5, 9, -17.0, -4, 610032091, "rp_weequay_male", "faction/hutt/elite", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -5.6, 9, -16.9, 0, 610032091, "rp_human_male", "faction/hutt/eite", "soldier", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -5.6, 9, -16.9, 0, 610032091, "rp_human_male", "faction/hutt/elite", "soldier", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
 
 	--VENDORS--
