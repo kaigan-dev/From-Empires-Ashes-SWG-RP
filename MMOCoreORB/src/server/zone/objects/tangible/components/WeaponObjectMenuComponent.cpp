@@ -150,7 +150,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
 				player->sendSystemMessage("You do not have enough credits to repair this.");
-				return;
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 8) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
@@ -163,7 +163,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
 				player->sendSystemMessage("You do not have enough credits to repair this.");
-				return;
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 10) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
@@ -177,7 +177,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
 				player->sendSystemMessage("You do not have enough credits to repair this.");
-				return;
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 12) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
@@ -191,7 +191,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
 				player->sendSystemMessage("You do not have enough credits to repair this.");
-				return;
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 15) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
@@ -205,7 +205,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
 				player->sendSystemMessage("You do not have enough credits to repair this.");
-				return;
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 18) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
@@ -227,7 +227,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 				tano->setConditionDamage(0, true);
 			}
 			else {
-				player->sendSystemMessage("You do not have enough credits to repair this.");
+				player->sendSystemMessage("Debug: You do not have enough credits to repair this, but we've somehow arrived at the end of the function anyway.");
 			}
 		}
 
