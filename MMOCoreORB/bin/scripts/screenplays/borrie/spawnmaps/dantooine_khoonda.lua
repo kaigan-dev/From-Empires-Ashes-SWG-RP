@@ -251,6 +251,25 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {851.9, 0.4, -1293.7, 280, 0,{"none"}},
         {848.5, 0.4, -1293.9, 97, 0,{"social"}},
         {910, 0.3, -1289, 263, 0,{"social"}},
+
+        --pink bar 
+        {0, 0.3, 4.2, 185, 610039944,{"none"}},
+        {-1.9, 0.3, 5, 244, 610039944,{"social"}},
+        {-3.7, 0.2, 4.2, 69, 610039944,{"social"}},
+        {-2.8, 0.2, 3.2, 35, 610039944,{"drinker"}},
+        {-7, 0.2, -0.9,33, 610039944,{"sitchait"}},
+        {-5.4, 0.2, 1.2, 112, 610039944,{"sitchair"}},
+        {-7, 0.2, 1, 140, 610039944,{"sitchair"}},
+        {-1.6, -0.7, -4.5, 196, 610039944,{"sitchair"}},
+        {-1, -0.7, -6.6, 321, 610039944,{"sitchair"}},
+        {-4.5, -0.7, -12.6, 266, 610039944,{"sitchair"}},
+        {4.6, -0.7, -11.8, 294, 610039944,{"sitchair"}},
+        {7, -0.7, -7.4, 133, 610039944,{"sitchair"}},
+        {5, -0.7, -8.8, 55, 610039944,{"sitchair"}},
+        {6, -0.7, 9.5, 0, 610039944,{"sitchair"}},
+        {2.8, 0.2, 3.2, 318, 610039944,{"drinker"}},
+        {0, 0, -11.6, -1, 610039944,{"groove_01"}},
+
         
         
 
@@ -265,14 +284,69 @@ end
 
 function DantooineKhoondaScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
-	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.4, 0.6, 49.5, 610037024, 0.992546, 0, -0.121869, 0)
+	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.2, 0.6, 50.3, 610039691, 0.992546, 0, -0.121869, 0)
 end
 
 function DantooineKhoondaScreenPlay:spawnMobiles()
 	--Species, Equipment, Skills, Customization
-
+    --pentastar garrison
 	local pNpc
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 975.6, 0.1, -1557.8, 38, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-647")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 971.9, 0.2, -1552.5, 59, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-195")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 972.6, 4.3, -1545.7, 66, 0, "rp_human_female", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-497")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 930.2, 0.1, -1589.4, 16, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-327")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 907.5, 0.9, -1586.9, 18, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-566")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 946.2, 2.5, -691.8, 100, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-762")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 970.5, 4.2, -1745.6, 202, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-891")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 970.4, 4.2, -1741.5, 354, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-722")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 908.5, 11.3, -1727.2, 42, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-176")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 924.3, 2.8, -1695.8, 184, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-853")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 928.8, 2.5, -1695.9, 182, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-316")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 952.1, 1.5, -1621.1, 90, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-942")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 951.6, 1.6, -1624.1, 94, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-506")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 881, 9.3, -1595.8, 85, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-731")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 862, 7.5, -1571.3, 267, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-819")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 863.7, 8, -1577, 265, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-335")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 841, 0.5, -1614, 1, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-681")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 835.2, 0.8, -1615, 1, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-167")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 773.7, 0.2, -1570.6, 266, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-785")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 787.5, 0.1, -1582.8, 242, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-502")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 791, 4.2, -1590.2, 222, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-237")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 789, 4.2, -1588, 227, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-368")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 809.9, 1.9, -1457.4, 142, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-930")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.1, 0.5, -1547.2, 25, 0, "faction/pentastar/battle", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 797.9, 0.6, -1546.8, 22, 0, "faction/pentastar/battle", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.1, 0.6, -1547.2, 25, 0, "faction/pentastar/battle", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 795.1, 0.7, -1543.2, 29, 0, "faction/pentastar/battle", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
  	
+   
 	
 	--Signs
 	
