@@ -137,15 +137,91 @@ end
 
 function DantooineTokareScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
-	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -30.1, 11.9, 3634.2, 0, 0.992546, 0, -0.121869, 0)
+	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -30.1, 11.9, 3634.2, 0, math.rad(82))
 end
 
 function DantooineTokareScreenPlay:spawnMobiles()
 	--Species, Equipment, Skills, Customization
 
 	local pNpc
- 	
-	
+
+ 	--Alliance Soldiers Inside Rebel Base
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -193.2, 3.6, 3470.5, 90, 0, "rp_human_female", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -192.0, 3.2, 3488.8, 92, 0, "rp_twilek_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -273.5, 0.3, 3571.2, 1, 0, "rp_sullustan_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -278.2, 0.8, 3565.0, -90, 0, "rp_zabrak_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -207.0, 2.4, 3475.6, 92, 0, "rp_human_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -206.6, 2.5, 3482.6, 89, 0, "rp_zabrak_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -201.0, 2.7, 3507.6, -178, 0, "rp_human_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -207.0, 2.5, 3507.9, -178, 0, "rp_nikto_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -244.9, 0.4, 3523.9, -88, 0, "rp_twilek_female", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -245.1, 0.3, 3519.6, -87, 0, "rp_sullustan_female", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -239.9, 0.3, 3560.9, 2, 0, "rp_rodian_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -202.0, 3.5, 3559.7, 1, 0, "rp_human_female", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -271.2, 1.1, 3479.0, -88, 0, "rp_human_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -270.4, 0.9, 3487.8, -85, 0, "rp_rodian_female", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+
+    --Alliance Soldiers Outside Rebel Base
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -60.1, 1.0, 3428.5, 124, 0, "rp_zabrak_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier") 
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -64.5, 0.9, 3423.6, 125, 0, "rp_bothan_female", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -25.1, 11.3, 3639.7, 82, 0, "rp_sullustan_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
+
+
+
+    --Tokare Militia Outside
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -73.9, 0.9, 3439.9, 124, 0, "rp_human_male", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier") 
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -78.7, 1.0, 3433.3, 126, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -126.6, 4.0, 3445.6, -3, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -113.5, 13.5, 3594.2, 161, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -84.0, 14.2, 3589.8, 163, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -20.8, 1.3, 3552.5, 127, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1.0, 3.0, 3607.9, 106, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -51.5, 20.2, 3566.8, 178, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -89.8, 2.5, 3462.6, -48, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -134.0, 6.7, 3495.8, 159, 0, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+
+    --Tokare Militia Inside
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -10.2, 2.0, 10.6, 90, 610043131, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 10.2, 2.0, 10.8, -90, 610043131, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -10.1, 2.0, 2.3, 89, 610043131, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -7.4, 2.0, -12.9, -3, 610043131, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 7.4, 2.0, -12.9, 0, 610043131, "rp_human_female", "planet/dantooine/militia_a", "soldier_weak", "random") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+
+
+    
+
 	--Signs
 	
 	--TAILOR--
