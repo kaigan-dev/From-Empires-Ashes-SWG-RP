@@ -147,56 +147,70 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		player->sendSystemMessage("Your armor has " + std::to_string(repairAmt) + " damage to repair.");
 
+
+
+
+
 		if(armorRarity == "Common") {
-			if(rollResult >= 8) {
-				float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				creditCost = static_cast<int>(tempCost);
+			float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this.");
+				return;
 			}
-			else {
+			if(rollResult < 8) {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
 				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 8, causing 20 additional damage in the process.");
 				doNotRepair = true;
 			}
 		}
 		else if(armorRarity == "Uncommon") {
-			if(rollResult >= 10) {
-				float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				creditCost = static_cast<int>(tempCost);
+			float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this.");
+				return;
 			}
-			else {
+			if(rollResult < 10) {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
 				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 10, causing 20 additional damage in the process.");
 				doNotRepair = true;
 			}
 		}
 		else if(armorRarity == "Rare") {
-			if(rollResult >= 12) {
-				float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				creditCost = static_cast<int>(tempCost);
+			float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this.");
+				return;
 			}
-			else {
+			if(rollResult < 12) {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
 				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 12, causing 20 additional damage in the process.");
 				doNotRepair = true;
 			}
 		}
 		else if(armorRarity == "Epic") {
-			if(rollResult >= 15) {
-				float tempCost = 2500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				creditCost = static_cast<int>(tempCost);
+			float tempCost = 2500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this.");
+				return;
 			}
-			else {
+			if(rollResult < 15) {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
 				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 15, causing 20 additional damage in the process.");
 				doNotRepair = true;
 			}
 		}
 		else if(armorRarity == "Legendary") {
-			if(rollResult >= 18) {
 			float tempCost = 6000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this.");
+				return;
 			}
-			else {
+			if(rollResult < 18) {
 				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
 				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 18, causing 20 additional damage in the process.");
 				doNotRepair = true;
