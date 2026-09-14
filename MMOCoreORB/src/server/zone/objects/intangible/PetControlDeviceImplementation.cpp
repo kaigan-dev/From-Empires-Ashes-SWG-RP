@@ -471,7 +471,7 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 		return;
 
 	if (pet->isDead() || pet->getPosture() == 6) {
-		player->sendSystemMessage("You cannot store a dead pet. Confirm with a GM whether it is unrecoverable. If so, delete it from your datapad.")
+		player->sendSystemMessage("You cannot store a dead pet. Confirm with a GM whether it is unrecoverable. If so, delete it from your datapad.");
 		return;
 	}
 
