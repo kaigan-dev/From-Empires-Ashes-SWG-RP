@@ -196,7 +196,7 @@ function DantooineTokareScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -16.9, 1.0, 10.5, -178, 610043590, "rp_moncal_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 20.5, 1.0, 2.8, 90, 610043702, "rp_bothan_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -20.5, 1.0, -2.8, 90, 610043702, "rp_bothan_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier") --Stairwell
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 7.5, 7.0, -0.5, 178, 610043703, "rp_human_male", "faction/rebel/dantooine_trooper_a", "factional/common/trooper", "random") --Species, Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("an Alliance Soldier") --Barracks
