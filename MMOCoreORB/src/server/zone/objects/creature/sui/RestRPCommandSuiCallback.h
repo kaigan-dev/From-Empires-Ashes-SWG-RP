@@ -98,7 +98,8 @@ public:
 
 				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 					ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
-					BorCharacter::FillAllPools(pet->asCreatureObject());
+					if(!pet->asCreatureObject()->isDead())
+						BorCharacter::FillAllPools(pet->asCreatureObject());
 				}
 			}
 			else {
