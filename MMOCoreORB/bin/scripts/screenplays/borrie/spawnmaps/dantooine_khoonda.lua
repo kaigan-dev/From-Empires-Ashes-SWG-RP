@@ -337,13 +337,13 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("ID-368")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 809.9, 1.9, -1457.4, 142, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-930")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.1, 0.5, -1547.2, 25, 0, "faction/pentastar/battle", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.1, 0.5, -1547.2, 25, 0, "battle_droid", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 797.9, 0.6, -1546.8, 22, 0, "faction/pentastar/battle", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 797.9, 0.6, -1546.8, 22, 0, "battle_droid", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.1, 0.6, -1547.2, 25, 0, "faction/pentastar/battle", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.1, 0.6, -1547.2, 25, 0, "battle_droid", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 795.1, 0.7, -1543.2, 29, 0, "faction/pentastar/battle", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 795.1, 0.7, -1543.2, 29, 0, "battle_droid", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
  	
    
