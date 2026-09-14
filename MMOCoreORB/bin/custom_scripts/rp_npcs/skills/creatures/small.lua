@@ -47,4 +47,5 @@ skillSet = {
     {"rp_action",           8, 8},
     {"rp_will",             3, 3},
     {"rp_force",            0, 0},
+    --armor
 }

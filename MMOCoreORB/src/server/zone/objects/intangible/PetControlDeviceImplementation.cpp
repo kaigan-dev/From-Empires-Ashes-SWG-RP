@@ -470,6 +470,11 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 	if (!force && (pet->isInCombat() || player->isInCombat() || player->isDead()))
 		return;
 
+	if (pet->isDead() || pet->getPosture() == 6) {
+		player->sendSystemMessage("You cannot store a dead pet. Confirm with a GM whether it is unrecoverable. If so, delete it from your datapad.");
+		return;
+	}
+
 	if (player->isRidingMount() && player->getParent() == pet) {
 
 		if (!force && !player->checkCooldownRecovery("mount_dismount"))
