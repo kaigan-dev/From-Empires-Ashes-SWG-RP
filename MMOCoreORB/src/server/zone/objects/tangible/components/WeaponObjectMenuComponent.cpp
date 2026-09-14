@@ -149,7 +149,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
-				player->sendSystemMessage("You do not have enough credits to repair this.");
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
 				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 8) {
@@ -162,7 +162,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
-				player->sendSystemMessage("You do not have enough credits to repair this.");
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
 				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 10) {
@@ -176,7 +176,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			tempCost = tempCost * 3 / 4;
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
-				player->sendSystemMessage("You do not have enough credits to repair this.");
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
 				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 12) {
@@ -190,7 +190,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			tempCost = tempCost * 2 / 3;
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
-				player->sendSystemMessage("You do not have enough credits to repair this.");
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
 				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 15) {
@@ -204,7 +204,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			tempCost = tempCost / 2;
 			creditCost = static_cast<int>(tempCost);
 			if(player->getCashCredits() - creditCost <= 0) {
-				player->sendSystemMessage("You do not have enough credits to repair this.");
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
 				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
 			if(rollResult < 18) {
