@@ -16,7 +16,7 @@ object_weapon_roleplay_ranged_pistol_scatter_pistol = object_weapon_ranged_pisto
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 3, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 3,
+	bonusDamage = 2,
 
 	pointBlankRange = 2,
 	pointBlankAccuracy = 5,
