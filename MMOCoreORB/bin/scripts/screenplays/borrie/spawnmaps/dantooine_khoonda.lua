@@ -270,6 +270,42 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {2.8, 0.2, 3.2, 318, 610039944,{"drinker"}},
         {0, 0, -11.6, -1, 610039944,{"groove_01"}},
 
+        -- Corpo bar
+        {-35, 0.1, -11.1, 124, 610039940,{"sitchair"}},
+        {-34.3, 0.1, -10.2, 144, 610039940,{"sitchair"}},
+        {-18.7, -0.9, -14.6, 268, 610039940,{"social"}},
+        {-20.1, -0.9, -14.7, 94, 610039940,{"drinker"}},
+        {-6, -0.9, -4.8, 31, 610039929,{"drinker"}},
+        {-4.9, -0.9, -4.9, 85, 610039929,{"social"}},
+        {-2.8, -0.9, -4.9, 272, 610039929,{"none"}},
+        {2.4, -0.9, -4.8, 19, 610039929,{"drinker"}},
+        {3.7, -0.9, -4.8, 331, 610039929,{"social"}},
+        {15.9, -0.9, -11.1, 50, 610039929,{"drinker"}},
+        {7.1, -0.9, 5.5, 277, 610039929,{"social"}},
+        {4.1, -0.9, 5.9, 104, 610039929,{"none"}},
+        {5.6, -0.9, 6.9, 183, 610039929,{"drinker"}},
+        {-0.5, -0.9, 5.7, 176, 610039929,{"drinker"}},
+        {-3.7, -0.9, 5.9, 280, 610039929,{"social"}},
+        {-8.2, -0.9, 5.8, 73, 610039929,{"none"}},
+        {-6.4, -0.9, 7.9, 147, 610039929,{"drinker"}},
+        {-4.7, -0.9, 7.9, 190, 610039929,{"social"}},
+        {-3.4, -0.9, 7.2, 239, 610039929,{"none"}},
+        {21.9, -0.9, 7.2, 99, 610039929,{"sitchair"}},
+        {24.2, -0.9, 6, 317, 610039929,{"sitchair"}},
+        {24.3, -0.9, 7.9, 225, 610039929,{"sitchair"}},
+        {27, -0.9, 10.4, 182, 610039929,{"drinker"}},
+        {26.9, -0.9, 8.8, 0, 610039929,{"social"}},
+        {22.4, -0.9, 20.3, 272, 610039931,{"sitchair"}},
+        {22.5, -0.9, 21, 272, 610039931,{"sitchair"}},
+        {19.3, -0.9, 20.6, 90, 610039931,{"sitchair"}},
+        {21.1, -0.9, 21.9, 186, 610039931,{"sitchair"}},
+        {6.2, -0.9, -14.8, 171, 610039932,{"sitchair"}},
+        {5.3, -0.9, -17.3, 35, 610039932,{"sitchair"}},
+        {7.2, -0.9, -17.2, 318, 610039932,{"sitchair"}},
+
+
+
+
         
         
 
@@ -337,14 +373,79 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("ID-368")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 809.9, 1.9, -1457.4, 142, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-930")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.1, 0.5, -1547.2, 25, 0, "battle_droid", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 800.6, 0.5, -1548.7, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 797.9, 0.6, -1546.8, 22, 0, "battle_droid", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.2, 0.5, -1547.5, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.1, 0.6, -1547.2, 25, 0, "battle_droid", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 796.9, 0.6, -1545.3, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 795.1, 0.7, -1543.2, 29, 0, "battle_droid", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 795.1, 0.6, -1543.6, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 792.1, 1.1, -1540.4, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 802.3, 0.5, -1569.1, 247, 0, "storyteller_super_battle_droid_boss", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 958.4, 0.3, -1569.7, 46, 0, "storyteller_super_battle_droid_boss", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
+
+    --city security
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 937.2, 0.4, -1397.8, 30, 0, "storyteller_super_battle_droid_boss", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 908, 0.7, -1201, 94, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 895.9, 0.4, -1202.2, 355, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 911, 5.3, -1195.7, 95, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-385")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 871.3, 0.2, -1277.2, 253, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-250")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 951.5, 3.5, -1130.3, 242, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-318")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 950.5, 3.5, -1128.7, 245, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 953.1, 3.5, -1134.5, 208, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 838.8, 5.4, -925.3, 104, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-767")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 842, 4.8, -926.3, 287, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-198")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1047.8, 0.2, -1139.7, 333, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-529")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1261.1, 0.1, -1053.4, 40, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-203")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1266.7, 1.3, -1058.6, 17, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-418")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1263.1, 0.5, -1056.7, 33, 0, "storyteller_super_battle_droid_boss", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1177.6, 0.2, -1108.3, 156, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1179.8, 0.2, -1106.7, 139, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1213.7, 11.4, -1528.3, 169, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-743")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1216.8, 11.4, -1516.3, 359, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-223")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1216.8, 11.4, -1513.2, 176, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-361")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1243.1, 10.4, -1518.2, 89, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1242.3, 10.5, -1515, 64, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1170.7, 3.2, -1364.2, 212, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1178.5, 3.4, -1367.2, 211, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1173.9, 3.1, -1365, 193, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-424")
+
+
+
+
+    
+
+
+
+
  	
    
 	
@@ -353,6 +454,61 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	--TAILOR--
 	
 	--VENDORS--
+
+    --Armorsmith Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -15.1, 1.1, -0.8, 269, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Torgal Whim (an Armorsmith Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
+
+    --Weaponsmith Vendor (Melee)
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -15.1, 1.1, 11.7, 270, 610040005, "dressed_rakqua_guard_01", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Tensha Poolspis (a Weaponsmith Melee Weapon Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
+
+    --Weaponsmith Vendor (Ranged)
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 11.6, 1.1, 5.6, 80, 610040003, "dressed_herald_tatooine_01", "default", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Chiq Palstro (a Weaponsmith Ranged Weapon Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
+
+    --Specialty Shop Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -12, 1.1, 1.5, 177, 610040004, "dressed_talus_sif_mercenary_rodian_02", "default", "default", "eisley_specialty_shop_beebo", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Iksay Quin (a Specialty Item Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
+
+
+    --stim vendor
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 14.3, 0.3, 2.8, 343, 610039714, "dressed_medic_trainer_03", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Doctor Launt (a Stimpack Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
+
+    --Speeder Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 914.4, 1.1, -1129.8, 101, 0, "cyborg_engineer_tatooine", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Eshen Hitz (a Speeder Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
+
+    --Instrument Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 2.9, 0.8, 0.8, 357, 610040192, "dressed_musician_trainer_01", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Manus Derfoe (an Instrument Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "music")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
+
+    --Camping Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -5, 0.3, -6.1, 1, 610040157, "dressed_disappearances_hike_master", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Jace Dirtlin (a Camping Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
+
+    --Ship vendor
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.1, -0.4, -1, 191, 610040350, "ep3_blackscale_pilot_s01", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Trazon baaaak (a Junker Ship Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
 
     --Melee Vendor Light
 	
