@@ -62,4 +62,4 @@ object_tangible_deed_pet_deed_graul_deed = object_tangible_deed_pet_deed_shared_
 	equipmentTemplate = "creature_large",
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_graul_deed, "object/tangible/deed/pet_deed/graul_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_graul_deed, "object/tangible/deed/pet_deed/graul_mount_deed.iff")

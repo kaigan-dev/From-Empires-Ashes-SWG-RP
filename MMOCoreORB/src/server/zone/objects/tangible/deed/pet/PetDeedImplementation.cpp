@@ -441,6 +441,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 		bool isVicious = petTemplate->getPvpBitmask() & CreatureFlag::AGGRESSIVE;
 
+
+		/*
 		if (level > 10 || isVicious) {
 			if (!player->hasSkill("outdoors_creaturehandler_novice") || (level > maxLevelofPets)) {
 				player->sendSystemMessage("@pet/pet_menu:sys_lack_skill"); // You lack the skill to be able to tame that creature.
@@ -452,6 +454,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 				return 1;
 			}
 		}
+			*/
 
 		// All checks complete, lets setup the control device and do it.
 		ManagedReference<PetControlDevice*> controlDevice = (server->getZoneServer()->createObject(controlDeviceObjectTemplate.hashCode(), 1)).castTo<PetControlDevice*>();
