@@ -143,61 +143,71 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		}
 
 		player->sendSystemMessage("Your weapon has " + std::to_string(repairAmt) + " damage to repair.");
-		
+
 
 		if(itemValue <= 150) {
-			if(rollResult >= 8) {
-				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				creditCost = static_cast<int>(tempCost);
-			}			
-			else {
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 8) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
 				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 8, causing 50 additional damage in the process.");
 				doNotRepair = true;
 			}
 		}
 		else if(itemValue <= 900) {
-			if(rollResult >= 10) {
-				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				creditCost = static_cast<int>(tempCost);
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
-			else {
+			if(rollResult < 10) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
 				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 10, causing 50 additional damage in the process.");
 				doNotRepair = true;
 			}
 		}
 		else if(itemValue <= 3000) {
-			if(rollResult >= 12) {
-				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				tempCost = tempCost * 3 / 4;
-				creditCost = static_cast<int>(tempCost);
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			tempCost = tempCost * 3 / 4;
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
-			else {
+			if(rollResult < 12) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
 				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 12, causing 50 additional damage in the process.");
 				doNotRepair = true;
 			}
 		}
 		else if(itemValue <= 10000) {
-			if(rollResult >= 15) {
-				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				tempCost = tempCost * 2 / 3;
-				creditCost = static_cast<int>(tempCost);
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			tempCost = tempCost * 2 / 3;
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
-			else {
+			if(rollResult < 15) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
 				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 15, causing 50 additional damage in the process.");
 				doNotRepair = true;
 			}
 		}
 		else if(itemValue <= 50000) {
-			if(rollResult >= 18) {
-				float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
-				tempCost = tempCost / 2;
-				creditCost = static_cast<int>(tempCost);
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			tempCost = tempCost / 2;
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 			}
-			else {
+			if(rollResult < 18) {
 				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
 				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 18, causing 50 additional damage in the process.");
 				doNotRepair = true;
@@ -217,7 +227,7 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 				tano->setConditionDamage(0, true);
 			}
 			else {
-				player->sendSystemMessage("You do not have enough credits to repair this.");
+				player->sendSystemMessage("Debug: You do not have enough credits to repair this, but we've somehow arrived at the end of the function anyway.");
 			}
 		}
 

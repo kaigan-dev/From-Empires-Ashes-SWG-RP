@@ -14,7 +14,7 @@ object_weapon_roleplay_ranged_rifle_t21_light_repeating_rifle = object_weapon_ra
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 4, --Amount of Die used in Damage
+	minDamage = 3, --Amount of Die used in Damage
 	maxDamage = 4, --Type of Die used in Damage
 	bonusDamage = 2,
 	

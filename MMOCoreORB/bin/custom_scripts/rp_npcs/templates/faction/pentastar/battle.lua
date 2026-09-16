@@ -11,7 +11,7 @@ npc_template = {
     },
 
     equipmentTemplates = {
-		{"battle_droid_greeter", {"battledroid"}},
+		{"battle_droid", {"battledroid"}},
     },
 
 }
