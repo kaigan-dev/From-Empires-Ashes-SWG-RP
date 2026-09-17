@@ -270,7 +270,7 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {2.8, 0.2, 3.2, 318, 610039944,{"drinker"}},
         {0, 0, -11.6, -1, 610039944,{"groove_01"}},
 
-        --[[ Corpo bar
+        -- Corpo bar
         {-35, 0.1, -11.1, 124, 610039940,{"sitchair"}},
         {-34.3, 0.1, -10.2, 144, 610039940,{"sitchair"}},
         {-18.7, -0.9, -14.6, 268, 610039940,{"social"}},
@@ -303,7 +303,7 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {5.3, -0.9, -17.3, 35, 610039932,{"sitchair"}},
         {7.2, -0.9, -17.2, 318, 610039932,{"sitchair"}},
 
-]]
+
 
 
         
@@ -455,14 +455,14 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	
 	--VENDORS--
 
-    --[[Armorsmith Vendor
+    --Armorsmith Vendor
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 75, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Torgal Whim (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
 
     --Weaponsmith Vendor (Melee)
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 15.1, 1.1, -12, 276, 610040005, "dressed_rakqua_guard_01", "default", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 15.1, 1.1, -12, 276, 610040005, "dressed_armorsmith_trainer_01", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Tensha Poolspis (a Weaponsmith Melee Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
@@ -487,7 +487,7 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
 
     --Speeder Vendor
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 914.4, 1.1, -1129.8, 101, 0, "cyborg_engineer_tatooine", "default", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 914.4, 1.1, -1129.8, 101, 0, "dressed_corsec_pilot_human_female_01", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Eshen Hitz (a Speeder Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
@@ -505,11 +505,11 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
 
     --Ship vendor
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.1, -0.4, -1, 191, 610040350, "ep3_blackscale_pilot_s01", "default", "default", "random", "rpg_shopkeeper")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.1, -0.4, -1, 191, 610040350, "dressed_tatooine_leg_pilot", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Trazon baaaak (a Junker Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
 
-    --Melee Vendor Light]]
+    --Melee Vendor Light
 	
 end
