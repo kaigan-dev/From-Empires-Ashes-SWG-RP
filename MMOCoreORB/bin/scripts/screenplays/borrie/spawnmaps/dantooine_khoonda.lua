@@ -456,19 +456,19 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	--VENDORS--
 
     --Armorsmith Vendor
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -15.1, 1.1, -0.8, 269, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 75, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Torgal Whim (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
 
     --Weaponsmith Vendor (Melee)
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -15.1, 1.1, 11.7, 270, 610040005, "dressed_rakqua_guard_01", "default", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 15.1, 1.1, -12, 276, 610040005, "dressed_armorsmith_trainer_01", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Tensha Poolspis (a Weaponsmith Melee Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
 
     --Weaponsmith Vendor (Ranged)
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 11.6, 1.1, 5.6, 80, 610040003, "dressed_herald_tatooine_01", "default", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 11.6, 1.1, 6, 177, 610040003, "dressed_herald_tatooine_01", "default", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Chiq Palstro (a Weaponsmith Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
@@ -487,7 +487,7 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
 
     --Speeder Vendor
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 914.4, 1.1, -1129.8, 101, 0, "cyborg_engineer_tatooine", "default", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 914.4, 1.1, -1129.8, 101, 0, "dressed_corsec_pilot_human_female_01", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Eshen Hitz (a Speeder Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
@@ -499,13 +499,13 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
 
     --Camping Vendor
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -5, 0.3, -6.1, 1, 610040157, "dressed_disappearances_hike_master", "default", "default", "random", "rpg_shopkeeper") 
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -5.7, 0.3, -6.7, 359, 610040157, "dressed_disappearances_hike_master", "default", "default", "random", "rpg_shopkeeper") 
 	SceneObject(pNpc):setCustomObjectName("Jace Dirtlin (a Camping Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
 
     --Ship vendor
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.1, -0.4, -1, 191, 610040350, "ep3_blackscale_pilot_s01", "default", "default", "random", "rpg_shopkeeper")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.1, -0.4, -1, 191, 610040350, "dressed_tatooine_leg_pilot", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Trazon baaaak (a Junker Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
