@@ -456,19 +456,19 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	--VENDORS--
 
     --Armorsmith Vendor
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -15.1, 1.1, -0.8, 269, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 75, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Torgal Whim (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
 
     --Weaponsmith Vendor (Melee)
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -15.1, 1.1, 11.7, 270, 610040005, "dressed_rakqua_guard_01", "default", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 15.1, 1.1, -12, 276, 610040005, "dressed_rakqua_guard_01", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Tensha Poolspis (a Weaponsmith Melee Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
 
     --Weaponsmith Vendor (Ranged)
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 11.6, 1.1, 5.6, 80, 610040003, "dressed_herald_tatooine_01", "default", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 11.6, 1.1, 6, 177, 610040003, "dressed_herald_tatooine_01", "default", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Chiq Palstro (a Weaponsmith Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
