@@ -458,6 +458,12 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "3po")
 
 
+    -- Pebblefizz staff
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 0.2, 2, 14.1, 184, 610039731, "dressed_commoner_fat_human_female_01", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "Receptionist Jeniper")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 16.9, 2, 0.2, 162, 610039733, "loveday_protocol_droid", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "Yes Man")
+
 
 
     
