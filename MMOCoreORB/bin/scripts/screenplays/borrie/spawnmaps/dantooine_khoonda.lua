@@ -39,9 +39,9 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {828.8, 2.5, -993.4, 258, 0,{"social"}},
         {829.9, 2.5, -996.2, 294, 0,{"none"}},
         {880.5, 1.5, -968.8, 255, 0,{"sit"}},
-        {879.9, 1.4, -970.3, 57, 0,{"social"}},
+        {879.9, 1.4, -970.3, 18, 0,{"social"}},
         {858.9, 2.2, -954.1, 69, 0,{"sit"}},
-        {858.6, 2.2, -953.5, 116, 0,{"sit"}},
+        {858.6, 2.2, -952.5, 116, 0,{"sit"}},
         {869.1, 3.3, -916, 342, 0,{"none"}},
         {869.6, 3.4, -913.7, 187, 0,{"social"}},
         {867.9, 3.2, -914, 151, 0,{"social"}},
@@ -93,7 +93,7 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {1027.8, 0.1, -1198.4, 4, 0,{"social"}},
         {1029.8, 0.1, -1197.8, 331, 0,{"none"}},
         {1033.1, 0.1, -1196.6, 338, 0,{"none"}},
-        {1035.2, 0.1, -1198.9, 285, 0,{"social"}},
+        {1034.6, 0.1, -1194.7, 285, 0,{"social"}},
         {1034.4, 0.1, -1191.1, 229, 0,{"none"}},
         {1031.5, 0.2, -1190.2, 163, 0,{"none"}},
         {1029.1, 0.2, -1191.3, 165, 0,{"social"}},
@@ -104,7 +104,7 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {1059.2, 0.4, -1266.1, 239, 0,{"none"}},
         {1056.8, 0.3, -1267, 48, 0,{"social"}},
         {1073.6, 2.9, -1262.7, 291, 0,{"none"}},
-        {1064.6, 0.1, -1190.4, 18, 0,{"social"}},
+        {1066.2, 0.1, -1188.4, 18, 0,{"social"}},
         {1066, 0.1, -1185.4, 174, 0,{"none"}},
         {1069.2, 0.1, -1187.3, 211, 0,{"none"}},
         {1142.2, 3.8, -1304.3, 136, 0,{"social"}},
@@ -151,7 +151,7 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {1019.5, 0.2, -1338.8, 340, 0,{"social"}},
         {1019, 0.4, -1336.5, 157, 0,{"social"}},
         {1017, 0.3, -1350.4, 160, 0,{"social"}},
-        {1015.7, 0.2, -1393.3, 95, 0,{"none"}},
+        {1011.7, 0.2, -1390.5, 111, 0,{"none"}},
         {1018.7, 0, -1353.1, 330, 0,{"none"}},
         {1014.3, 0.1, -1389.6, 187, 0,{"social"}},
         {1012.6, 0, -1392.5, 5, 0,{"none"}},
@@ -163,7 +163,7 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {966.3, 0.6, -1440.7, 51, 0,{"social"}},
         {968.5, 0.6, -1438.6, 228, 0,{"none"}},
         {970.3, 0.5, -1440.6, 302, 0,{"none"}}, -- could use speederbike props
-        {1016.7, 0.1, -1410.5, 133, 0,{"social"}},
+        {1016.7, 0.1, -1417.5, 153, 0,{"social"}},
         {1017.9, 0.1, -1420.9, 351, 0,{"none"}},
         {1016.7, 0.1, -1445.1, 253, 0,{"none"}},
      
@@ -183,7 +183,7 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {1142.8, 0.4, -1138.9, 115, 0,{"social"}},
         {1144.2, 0.4, -1137.6, 155, 0,{"none"}},
         {1147, 0.3, -1139, 298, 0,{"none"}},
-        {11445.7, 0.3, -1140.3, 309, 0,{"social"}},
+        {1145.7, 0.3, -1140.3, 309, 0,{"social"}},
         {1143.4, 0.4, -1141.4, 350, 0,{"social"}},
         {1165.4, 0.1, -1125.2, 286, 0,{"social"}}, -- wants droid
         {1182.7, 0.5, -1151.3, 167, 0,{"none"}},
@@ -438,6 +438,32 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1173.9, 3.1, -1365, 193, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-424")
 
+    --creatures and droids
+
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 811.1, 1.6, -1079.8, 184, 0, "bol_hue", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Bol")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 914.9, 1, -1130.8, 334, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 915.5, 0.9, -1128.9, 239, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 914.1, 0.9, -1126.9, 7, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 989.7, 4, -1131.2, 68, 0, "r4", "default", "default", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "r4")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1094, 3.6, -1226, 80, 0, "bol_hue", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Bol")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1163.8, 0.2, -1124.9, 102, 0, "r2", "default", "default", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "r2")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1082.7, 2.2, -1398.9, 206, 0, "3po_protocol_droid_silver", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "3po")
+
+
+    -- Pebblefizz staff
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 0.2, 2, 14.1, 184, 610039731, "dressed_commoner_fat_human_female_01", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Receptionist Jeniper")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 16.1, 2, -1, 175, 610039733, "loveday_protocol_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Yes Man")
+    
 
 
 
@@ -456,11 +482,11 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	--VENDORS--
 
     --Armorsmith Vendor
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 75, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
+	--[[pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 270, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Torgal Whim (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
-
+]]
     --Weaponsmith Vendor (Melee)
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 15.1, 1.1, -12, 276, 610040005, "dressed_armorsmith_trainer_01", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Tensha Poolspis (a Weaponsmith Melee Weapon Vendor)")
