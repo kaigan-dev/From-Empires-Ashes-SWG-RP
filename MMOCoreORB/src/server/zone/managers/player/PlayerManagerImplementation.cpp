@@ -2483,16 +2483,16 @@ bool PlayerManagerImplementation::checkTradeItems(CreatureObject* player, Creatu
 	if (playerMoneyToTrade < 0)
 		return false;
 
-	//if (playerMoneyToTrade > player->getCashCredits())
-		//return false;
+	if (playerMoneyToTrade > player->getCashCredits())
+		return false;
 
 	int receiverMoneyToTrade = receiverContainer->getMoneyToTrade();
 
 	if (receiverMoneyToTrade < 0)
 		return false;
 
-	//if (receiverMoneyToTrade > receiver->getCashCredits())
-		//return false;
+	if (receiverMoneyToTrade > receiver->getCashCredits())
+		return false;
 
 	if (player->getDistanceTo(receiver) >= 15.f) {
 		player->sendSystemMessage("You are too far to trade");
@@ -2586,9 +2586,10 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 				}
 			}
 
-			uint32 giveMoney = tradeContainer->getMoneyToTrade();
+			uint32 playerGiveMoney = tradeContainer->getMoneyToTrade();
+			uint32 receiverGiveMoney = receiverTradeContainer->getMoneyToTrade();
 
-			if (giveMoney > 0) {
+			if (playerGiveMoney > 0) {
 				TransactionLog trx(player, receiver, TrxCode::PLAYERTRADE, giveMoney, true);
 				trx.setTrxGroup(trxGroup);
 				player->subtractCashCredits(giveMoney);
@@ -2597,7 +2598,7 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 
 			giveMoney = receiverTradeContainer->getMoneyToTrade();
 
-			if (giveMoney > 0) {
+			if (receiverGiveMoney > 0) {
 				TransactionLog trx(receiver, player, TrxCode::PLAYERTRADE, giveMoney, true);
 				trx.setTrxGroup(trxGroup);
 				receiver->subtractCashCredits(giveMoney);
