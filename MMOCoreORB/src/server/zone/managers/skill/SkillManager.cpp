@@ -593,6 +593,11 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 			}
 		}
 
+		//If the skill is a force skill, refund a point of Force Skill Cap XP
+		if (skill == "telekinesis" || skill == "control" || skill == "alter" || skill == "inward" || skill == "lightning" || skill == "lightsaber" || skill == "sense") {
+			playerManager->awardExperience(target, "rp_frc_skill_cap", 1);
+		}
+
 		// Update Roleplay HAM
 		ghost->recalculateRoleplayHAM(notifyClient);
 	}
