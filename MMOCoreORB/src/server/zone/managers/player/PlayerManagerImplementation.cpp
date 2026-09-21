@@ -2586,7 +2586,7 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 				}
 			}
 
-			creature->sendSystemMessage("DEBUG: starting transfer");
+			player->sendSystemMessage("DEBUG: starting transfer");
 
 			uint32 playerGiveMoney = tradeContainer->getMoneyToTrade();
 			uint32 receiverGiveMoney = receiverTradeContainer->getMoneyToTrade();
@@ -2606,7 +2606,7 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 				player->addCashCredits(receiverGiveMoney);
 			}
 
-			creature->sendSystemMessage("DEBUG: completed transfer");
+			player->sendSystemMessage("DEBUG: completed transfer");
 
 			receiver->dropActiveSession(SessionFacadeType::TRADE);
 			player->dropActiveSession(SessionFacadeType::TRADE);
