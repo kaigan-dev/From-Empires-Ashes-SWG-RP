@@ -2483,16 +2483,16 @@ bool PlayerManagerImplementation::checkTradeItems(CreatureObject* player, Creatu
 	if (playerMoneyToTrade < 0)
 		return false;
 
-	if (playerMoneyToTrade > player->getCashCredits())
-		return false;
+	//if (playerMoneyToTrade > player->getCashCredits())
+		//return false;
 
 	int receiverMoneyToTrade = receiverContainer->getMoneyToTrade();
 
 	if (receiverMoneyToTrade < 0)
 		return false;
 
-	if (receiverMoneyToTrade > receiver->getCashCredits())
-		return false;
+	//if (receiverMoneyToTrade > receiver->getCashCredits())
+		//return false;
 
 	if (player->getDistanceTo(receiver) >= 15.f) {
 		player->sendSystemMessage("You are too far to trade");
