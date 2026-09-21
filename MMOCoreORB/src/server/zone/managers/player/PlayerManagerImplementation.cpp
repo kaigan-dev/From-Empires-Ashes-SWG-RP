@@ -2590,19 +2590,18 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 			uint32 receiverGiveMoney = receiverTradeContainer->getMoneyToTrade();
 
 			if (playerGiveMoney > 0) {
-				TransactionLog trx(player, receiver, TrxCode::PLAYERTRADE, giveMoney, true);
+				TransactionLog trx(player, receiver, TrxCode::PLAYERTRADE, playerGiveMoney, true);
 				trx.setTrxGroup(trxGroup);
-				player->subtractCashCredits(giveMoney);
-				receiver->addCashCredits(giveMoney);
+				player->subtractCashCredits(playerGiveMoney);
+				receiver->addCashCredits(playerGiveMoney);
 			}
 
-			giveMoney = receiverTradeContainer->getMoneyToTrade();
 
 			if (receiverGiveMoney > 0) {
-				TransactionLog trx(receiver, player, TrxCode::PLAYERTRADE, giveMoney, true);
+				TransactionLog trx(receiver, player, TrxCode::PLAYERTRADE, receiverGiveMoney, true);
 				trx.setTrxGroup(trxGroup);
-				receiver->subtractCashCredits(giveMoney);
-				player->addCashCredits(giveMoney);
+				receiver->subtractCashCredits(receiverGiveMoney);
+				player->addCashCredits(receiverGiveMoney);
 			}
 
 			receiver->dropActiveSession(SessionFacadeType::TRADE);

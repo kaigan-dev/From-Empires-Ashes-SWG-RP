@@ -595,7 +595,7 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 
 		//If the skill is a force skill, refund a point of Force Skill Cap XP
 		String skillName = skill->getSkillName();
-		if (skillName == "telekinesis" || skillName == "control" || skillName == "alter" || skillName == "inward" || skillName == "lightning" || skillName == "lightsaber" || skillName == "sense") {
+		if (skillName.beginsWith("rp_telekinesis") || skillName.beginsWith("rp_control") || skillName.beginsWith("rp_alter") || skillName.beginsWith("rp_inward") || skillName.beginsWith("rp_lightning") || skillName.beginsWith("rp_lightsaber") || skillName.beginsWith("rp_sense")) {
 			playerManager->awardExperience(creature, "rp_frc_skill_cap", 1);
 		}
 
