@@ -2597,7 +2597,7 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 				player->sendSystemMessage("DEBUG:Step 1");
 				trx.setTrxGroup(trxGroup);
 				player->sendSystemMessage("DEBUG:Step 2");
-				player->subtractCashCredits(playerGiveMoney, false);
+				player->subtractCashCreditsNoNotify(playerGiveMoney);
 				player->sendSystemMessage("DEBUG:Step 3");
 				receiver->addCashCredits(playerGiveMoney, false);
 			}
@@ -2610,7 +2610,7 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 				player->sendSystemMessage("DEBUG:Step 5");
 				trx.setTrxGroup(trxGroup);
 				player->sendSystemMessage("DEBUG:Step 6");
-				receiver->subtractCashCredits(receiverGiveMoney, false);
+				receiver->subtractCashCreditsNoNotify(receiverGiveMoney);
 				player->sendSystemMessage("DEBUG:Step 7");
 				player->addCashCredits(receiverGiveMoney, false);
 			}
