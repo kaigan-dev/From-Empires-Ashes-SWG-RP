@@ -2586,36 +2586,25 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 				}
 			}
 
-			player->sendSystemMessage("DEBUG: starting transfer");
 
 			uint32 playerGiveMoney = tradeContainer->getMoneyToTrade();
 			uint32 receiverGiveMoney = receiverTradeContainer->getMoneyToTrade();
 
 			if (playerGiveMoney > 0) {
-				player->sendSystemMessage("DEBUG:Step 0");
 				TransactionLog trx(player, receiver, TrxCode::PLAYERTRADE, playerGiveMoney, true);
-				player->sendSystemMessage("DEBUG:Step 1");
 				trx.setTrxGroup(trxGroup);
-				player->sendSystemMessage("DEBUG:Step 2");
 				player->subtractCashCreditsNoNotify(playerGiveMoney);
-				player->sendSystemMessage("DEBUG:Step 3");
 				receiver->addCashCredits(playerGiveMoney, false);
 			}
 
-			player->sendSystemMessage("DEBUG: between transfers");
 
 			if (receiverGiveMoney > 0) {
-				player->sendSystemMessage("DEBUG:Step 4");
 				TransactionLog trx(receiver, player, TrxCode::PLAYERTRADE, receiverGiveMoney, true);
-				player->sendSystemMessage("DEBUG:Step 5");
 				trx.setTrxGroup(trxGroup);
-				player->sendSystemMessage("DEBUG:Step 6");
 				receiver->subtractCashCreditsNoNotify(receiverGiveMoney);
-				player->sendSystemMessage("DEBUG:Step 7");
 				player->addCashCredits(receiverGiveMoney, false);
 			}
 
-			player->sendSystemMessage("DEBUG: completed transfer");
 
 			receiver->dropActiveSession(SessionFacadeType::TRADE);
 			player->dropActiveSession(SessionFacadeType::TRADE);
