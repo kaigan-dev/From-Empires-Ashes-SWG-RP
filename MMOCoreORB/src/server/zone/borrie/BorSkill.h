@@ -425,7 +425,7 @@ public:
 		totalAttributes += BorSkill::GetRealSkillLevel(creature, "constitution");
 		totalAttributes += BorSkill::GetRealSkillLevel(creature, "awareness");
  
-		if(totalAttributes >= 48) return false;
+		if(totalAttributes >= 48 && parentAttribute == "") return false;
 	
 		if(parentAttribute == "" && points > 0) return true;
 		
