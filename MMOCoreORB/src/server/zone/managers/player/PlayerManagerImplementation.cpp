@@ -2592,17 +2592,26 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 			uint32 receiverGiveMoney = receiverTradeContainer->getMoneyToTrade();
 
 			if (playerGiveMoney > 0) {
+				player->sendSystemMessage("DEBUG:Step 0");
 				TransactionLog trx(player, receiver, TrxCode::PLAYERTRADE, playerGiveMoney, true);
+				player->sendSystemMessage("DEBUG:Step 1");
 				trx.setTrxGroup(trxGroup);
+				player->sendSystemMessage("DEBUG:Step 2");
 				player->subtractCashCredits(playerGiveMoney);
+				player->sendSystemMessage("DEBUG:Step 3");
 				receiver->addCashCredits(playerGiveMoney);
 			}
 
+			player->sendSystemMessage("DEBUG: between transfers");
 
 			if (receiverGiveMoney > 0) {
+				player->sendSystemMessage("DEBUG:Step 4");
 				TransactionLog trx(receiver, player, TrxCode::PLAYERTRADE, receiverGiveMoney, true);
+				player->sendSystemMessage("DEBUG:Step 5");
 				trx.setTrxGroup(trxGroup);
+				player->sendSystemMessage("DEBUG:Step 6");
 				receiver->subtractCashCredits(receiverGiveMoney);
+				player->sendSystemMessage("DEBUG:Step 7");
 				player->addCashCredits(receiverGiveMoney);
 			}
 
