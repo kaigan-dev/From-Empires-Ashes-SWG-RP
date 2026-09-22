@@ -32,6 +32,7 @@
 
 #include "server/zone/borrie/BorUtil.h"
 #include <chrono>
+#include <thread>
 
 void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData) {
 	DeedImplementation::loadTemplateData(templateData);
@@ -546,7 +547,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			destroyObjectFromWorld(true);
 		}
 
-		sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
 		controlDevice->callObject(player);
 
 		generated = true;
