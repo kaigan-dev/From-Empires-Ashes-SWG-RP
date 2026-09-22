@@ -56,7 +56,10 @@ object_tangible_deed_pet_deed_falumpaset_deed = object_tangible_deed_pet_deed_sh
 	experimentalCombineType = {0, 0},
 	generatedObjectTemplate = "mobile/pet/falumpaset_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/falumpaset_hue.iff",
-	mobileTemplate = "falumpaset_be",	
+	mobileTemplate = "falumpaset_be",
+	isMountable = 0,
+	skillTemplate = "creatures/medium",
+	equipmentTemplate = "creature_medium",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_falumpaset_deed, "object/tangible/deed/pet_deed/falumpaset_deed.iff")

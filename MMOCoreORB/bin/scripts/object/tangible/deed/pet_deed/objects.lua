@@ -5895,3 +5895,22 @@ object_tangible_deed_pet_deed_shared_rancor_mount_deed = SharedTangibleObjectTem
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_rancor_mount_deed, "object/tangible/deed/pet_deed/shared_rancor_mount_deed.iff")
+
+object_tangible_deed_pet_deed_shared_bol_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_bol_mount_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bol_mount_deed, "object/tangible/deed/pet_deed/shared_bol_mount_deed.iff")
+
+
+object_tangible_deed_pet_deed_shared_eopie_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_eopie_mount_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_eopie_mount_deed, "object/tangible/deed/pet_deed/shared_eopie_mount_deed.iff")
+
+object_tangible_deed_pet_deed_shared_falumpaset_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_falumpaset_mount_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_falumpaset_mount_deed, "object/tangible/deed/pet_deed/shared_falumpaset_mount_deed.iff")
