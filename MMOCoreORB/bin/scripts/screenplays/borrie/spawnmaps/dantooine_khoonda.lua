@@ -373,27 +373,27 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("ID-368")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 809.9, 1.9, -1457.4, 142, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-930")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 800.6, 0.5, -1548.7, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 800.6, 0.5, -1548.7, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.2, 0.5, -1547.5, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.2, 0.5, -1547.5, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 796.9, 0.6, -1545.3, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 796.9, 0.6, -1545.3, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 795.1, 0.6, -1543.6, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 795.1, 0.6, -1543.6, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 792.1, 1.1, -1540.4, 40, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 792.1, 1.1, -1540.4, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 802.3, 0.5, -1569.1, 247, 0, "storyteller_super_battle_droid_boss", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 802.3, 0.5, -1569.1, 247, 0, "storyteller_super_battle_droid_boss", "superbattledroid", "superbattledroid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 958.4, 0.3, -1569.7, 46, 0, "storyteller_super_battle_droid_boss", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 958.4, 0.3, -1569.7, 46, 0, "storyteller_super_battle_droid_boss", "superbattledroid", "superbattledroid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
 
     --city security
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 937.2, 0.4, -1397.8, 30, 0, "storyteller_super_battle_droid_boss", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 937.2, 0.4, -1397.8, 30, 0, "storyteller_super_battle_droid_boss", "superbattledroid", "superbattledroid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 908, 0.7, -1201, 94, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 908, 0.7, -1201, 94, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 895.9, 0.4, -1202.2, 355, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 895.9, 0.4, -1202.2, 355, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 911, 5.3, -1195.7, 95, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("ID-385")
@@ -401,9 +401,9 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("PE-250")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 951.5, 3.5, -1130.3, 242, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-318")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 950.5, 3.5, -1128.7, 245, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 950.5, 3.5, -1128.7, 245, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 953.1, 3.5, -1134.5, 208, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 953.1, 3.5, -1134.5, 208, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 838.8, 5.4, -925.3, 104, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-767")
@@ -415,11 +415,11 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("PE-203")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1266.7, 1.3, -1058.6, 17, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-418")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1263.1, 0.5, -1056.7, 33, 0, "storyteller_super_battle_droid_boss", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1263.1, 0.5, -1056.7, 33, 0, "storyteller_super_battle_droid_boss", "superbattledroid", "superbattledroid", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1177.6, 0.2, -1108.3, 156, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1177.6, 0.2, -1108.3, 156, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1179.8, 0.2, -1106.7, 139, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1179.8, 0.2, -1106.7, 139, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1213.7, 11.4, -1528.3, 169, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-743")
@@ -427,13 +427,13 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("PE-223")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1216.8, 11.4, -1513.2, 176, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-361")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1243.1, 10.4, -1518.2, 89, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1243.1, 10.4, -1518.2, 89, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1242.3, 10.5, -1515, 64, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1242.3, 10.5, -1515, 64, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1170.7, 3.2, -1364.2, 212, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1170.7, 3.2, -1364.2, 212, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1178.5, 3.4, -1367.2, 211, 0, "naboo_stonewall_labs_battledroid_blue", "default", "factional/common/trooper", "default") --Equip, Skill, Customization
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1178.5, 3.4, -1367.2, 211, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "droids/battle", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1173.9, 3.1, -1365, 193, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("PE-424")
