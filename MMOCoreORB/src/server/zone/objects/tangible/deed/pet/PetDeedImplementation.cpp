@@ -537,6 +537,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
 
+		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
 		controlDevice->storeObject(player);
 		
 
@@ -547,7 +548,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			destroyObjectFromWorld(true);
 		}
 
-		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
 		controlDevice->callObject(player);
 
 		generated = true;
