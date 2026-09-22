@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared_rancor_deed:new {
+object_tangible_deed_pet_deed_rancor_mount_deed = object_tangible_deed_pet_deed_shared_rancor_deed:new {
 
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
@@ -61,4 +61,4 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	equipmentTemplate = "creature_large",
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_deed, "object/tangible/deed/pet_deed/rancor_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_mount_deed, "object/tangible/deed/pet_deed/rancor_mount_deed.iff")

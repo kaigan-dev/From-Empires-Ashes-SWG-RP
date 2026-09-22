@@ -5884,8 +5884,14 @@ ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_zucca_boa
 
 
 
-object_tangible_deed_pet_deed_shared_graul_deed = SharedTangibleObjectTemplate:new {
-	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_graul_deed.iff"
+object_tangible_deed_pet_deed_shared_graul_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_graul_cdeed.iff"
 	}
 
-ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_graul_deed, "object/tangible/deed/pet_deed/shared_graul_deed.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_graul_mount_deed, "object/tangible/deed/pet_deed/shared_graul_mount_deed.iff")
+
+object_tangible_deed_pet_deed_shared_rancor_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_rancor_mount_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_rancor_mount_deed, "object/tangible/deed/pet_deed/shared_rancor_mount_deed.iff")
