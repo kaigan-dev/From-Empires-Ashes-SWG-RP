@@ -573,12 +573,17 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	assert(pet->isLockedByCurrentThread());
 
-	if (preEligibility == PetManager::CANBEMOUNTTRAINED && postEligibility == PetManager::TOOLARGE && !force) {
+	//if (preEligibility == PetManager::CANBEMOUNTTRAINED && postEligibility == PetManager::TOOLARGE && !force) {
+	if (preEligibility == PetManager::CANBEMOUNTTRAINED && postEligibility == PetManager::TOOLARGE) {
 		if (isTrainedAsMount()) {
 			arrestGrowth();
 			return true;
 		}
 
+		// Always arrest growth at mount size if mountable.
+		arrestGrowth();
+		return true;
+		/*
 		PlayerObject* ghost = player->getPlayerObject();
 
 		if (ghost == nullptr){
@@ -597,6 +602,7 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 		ghost->addSuiBox(box);
 		player->sendMessage(box->generateMessage());
 		return false;
+		*/
 	}
 
 	if (adult)
