@@ -62,6 +62,7 @@ int CityManagerImplementation::missionTerminalsPerRank = 3;
 float CityManagerImplementation::maintenanceDiscount = 1.0f;
 
 void CityManagerImplementation::loadLuaConfig() {
+	/*
 	info("Loading configuration file.", true);
 
 	Lua* lua = new Lua();
@@ -144,6 +145,7 @@ void CityManagerImplementation::loadLuaConfig() {
 
 	delete lua;
 	lua = nullptr;
+	*/
 }
 
 void CityManagerImplementation::loadCityRegions() {
