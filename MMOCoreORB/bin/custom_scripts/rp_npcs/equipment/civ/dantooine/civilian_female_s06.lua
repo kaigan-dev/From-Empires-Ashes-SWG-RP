@@ -4,5 +4,5 @@ equipment = {
 	{"object/tangible/wearables/bikini/shared_bikini_s03.iff", },
 	{"object/tangible/wearables/boots/shared_boots_s21.iff", },
 	{"object/tangible/wearables/bandolier/shared_bandolier_s02.iff", },
-	{"object/tangible/wearables/bracelet/shared_bracelet_s03_l.iff", },
+	--{"object/tangible/wearables/bracelet/shared_bracelet_s03_l.iff", },
 }
