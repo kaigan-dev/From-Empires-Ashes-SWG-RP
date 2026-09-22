@@ -546,7 +546,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			destroyObjectFromWorld(true);
 		}
 
-		sleep_until(std::chrono::system_clock::now() + chrono::seconds(2));
+		sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
 		controlDevice->callObject(player);
 
 		generated = true;
