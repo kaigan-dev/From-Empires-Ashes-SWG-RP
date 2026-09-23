@@ -2547,9 +2547,11 @@ void CityManagerImplementation::promptForceUpdate(CityRegion* city, CreatureObje
 
 	ghost->addSuiBox(box);
 	player->sendMessage(box->generateMessage());
+	*/
 }
 
 void CityManagerImplementation::alignAmenity(CityRegion* city, CreatureObject* player, SceneObject* amenity, int direction) {
+	/*
 	if (amenity == nullptr || player == nullptr || city == nullptr)
 		return;
 
