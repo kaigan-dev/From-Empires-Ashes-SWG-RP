@@ -72,8 +72,12 @@ void ArmorObjectImplementation::notifyLoadFromDatabase() {
 	WearableObjectImplementation::notifyLoadFromDatabase();
 
 	ArmorObjectTemplate* armorTemplate = cast<ArmorObjectTemplate*>(getObjectTemplate());
-
+/* Changing check to use armorTemplate 9/22/26. This may be a terrible idea.
 	if (templateObject == nullptr)
+		return;
+
+*/
+	if (armorTemplate == nullptr)
 		return;
 /*  Why would you overwrite the data files in the generic implementation? Why?
 	if (rating != LIGHT && templateObject->getClientTemplateFileName().contains("armor_bounty_hunter_"))
