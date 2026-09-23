@@ -60,7 +60,7 @@ object_building_player_player_guildhall_generic_style_01 = object_building_playe
 		{templateFile = "object/tangible/terminal/terminal_player_structure.iff", x = 17.88, z= 2.75, y = 10.45, ox = 0, oy = 0.707107, oz = 0, ow = 0.707107, cellid = 7, containmentType = -1},
 		{templateFile = "object/tangible/terminal/terminal_elevator_up.iff", x = 0, z = -8.5, y = 13.5, ow = 0, ox = 0, oy = 1, oz = 0, cellid = 9, containmentType = -1},
 		{templateFile = "object/tangible/terminal/terminal_elevator_down.iff", x = 0, z = 2.75, y = 13.5, ow = 0, ox = 0, oy = 1, oz = 0, cellid = 9, containmentType = -1},
-		{templateFile = "object/tangible/terminal/terminal_guild.iff", x = -17.0, z = 2.75, y = 20, ow = 0, ox = 0, oy = 1, oz = 0, cellid = 6, containmentType = -1}
+	--{templateFile = "object/tangible/terminal/terminal_guild.iff", x = -17.0, z = 2.75, y = 20, ow = 0, ox = 0, oy = 1, oz = 0, cellid = 6, containmentType = -1}
 	},
 	shopSigns = {
 		{templateFile = "object/tangible/sign/player/house_address.iff", x = 4.15, z = 1.25, y = 21.5, ox = 0, oy = 1, oz = 0, ow = 0, cellid = -1, containmentType = -1, requiredSkill = "", suiItem = "@player_structure:house_address"},
