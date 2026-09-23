@@ -1059,11 +1059,11 @@ void CityManagerImplementation::sendMaintenanceEmail(CityRegion* city, int maint
 		ManagedReference<CreatureObject*> mayor = zoneServer->getObject(city->getMayorID()).castTo<CreatureObject*>();
 
 		if(mayor != nullptr) {
-			/*
+
 			"city_maint_body", "Mayor %TO,A total of %DI credits has been paid from the city treasury for maintenance and upkeep of structures."
 			"city_maint_subject", "City Maintenance Paid"
-			*/
-		/*
+
+
 			StringIdChatParameter emailBody("@city/city:city_maint_body");
 			emailBody.setDI(maint);
 			emailBody.setTO(mayor->getObjectID());
@@ -1082,11 +1082,10 @@ void CityManagerImplementation::sendMaintenanceRepairEmail(CityRegion* city, Str
 		ManagedReference<CreatureObject*> mayor = zoneServer->getObject(city->getMayorID()).castTo<CreatureObject*>();
 
 		if(mayor != nullptr) {
-			/*
+
 			"structure_repaired_body", "Mayor %TO,Repair work has been done on structure %TT.  You can check the structure's condition in the structure report at the City Management terminal."
 			"structure_repaired_subject", "Structure Repaired"
-			*/
-		/*
+
 			StringIdChatParameter emailBody("@city/city:structure_repaired_body");
 			emailBody.setTO(mayor->getObjectID());
 			emailBody.setTT(structure->getObjectName()->getFullPath());
@@ -1105,11 +1104,10 @@ void CityManagerImplementation::sendMaintenanceDecayEmail(CityRegion* city, Stru
 		ManagedReference<CreatureObject*> mayor = zoneServer->getObject(city->getMayorID()).castTo<CreatureObject*>();
 
 		if(mayor != nullptr) {
-			/*
+
 			"structure_damaged_body", "Mayor %TT,There was insufficient money to pay for the maintenance of the structure %TO.  The amount required was %DI credits.  The structure has been damaged.  You can check the structure's condition in the structure report at the City Management terminal."
 			"structure_damaged_subject", "Insufficient Maintenance, Structure Damaged"
-			*/
-		/*
+
 			StringIdChatParameter emailBody("@city/city:structure_damaged_body");
 			emailBody.setTO(structure->getObjectName()->getFullPath());
 			emailBody.setTT(mayor->getObjectID());
@@ -1129,11 +1127,10 @@ void CityManagerImplementation::sendMaintenanceDestroyEmail(CityRegion* city, Sc
 		ManagedReference<CreatureObject*> mayor = zoneServer->getObject(city->getMayorID()).castTo<CreatureObject*>();
 
 		if(mayor != nullptr) {
-			/*
+
 			"structure_destroyed_maint_body", "Alert Mayor %TO!The structure (or object) %TT was condemned and destroyed due to lack of maintenance!"
 			"structure_destroyed_maint_subject", "Insufficient Maintenance, Structure DESTROYED"
-			*/
-		/*
+
 			StringIdChatParameter emailBody("@city/city:structure_destroyed_maint_body");
 			emailBody.setTO(mayor->getObjectID());
 			emailBody.setTT(object->getObjectName()->getFullPath());
@@ -2550,9 +2547,11 @@ void CityManagerImplementation::promptForceUpdate(CityRegion* city, CreatureObje
 
 	ghost->addSuiBox(box);
 	player->sendMessage(box->generateMessage());
+	*/
 }
 
 void CityManagerImplementation::alignAmenity(CityRegion* city, CreatureObject* player, SceneObject* amenity, int direction) {
+	/*
 	if (amenity == nullptr || player == nullptr || city == nullptr)
 		return;
 
