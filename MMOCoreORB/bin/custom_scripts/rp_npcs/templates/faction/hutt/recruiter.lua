@@ -1,6 +1,6 @@
 npc_template = {
 
-	title = "a Hutt Recruiter",
+	--title = "a Hutt Recruiter",
 	randomName = "human",
 	baseTemplates = {"rp_human_male", "rp_human_female"},
 	skillTemplates = {"factional/common/officer"},

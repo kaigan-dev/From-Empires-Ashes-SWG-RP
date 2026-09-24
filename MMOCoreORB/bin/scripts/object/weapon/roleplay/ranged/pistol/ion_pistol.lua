@@ -16,18 +16,23 @@ object_weapon_roleplay_ranged_pistol_ion_pistol = object_weapon_ranged_pistol_sh
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 1,
+	bonusDamage = 2,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
-	rarity="Common",
+	rarity="Rare",
+	itemValue = 3000,
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

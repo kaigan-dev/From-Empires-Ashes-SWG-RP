@@ -4,7 +4,7 @@ BorRpItemAntitoxinMenuComponent = {}
 function BorRpItemAntitoxinMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuResponse, pPlayer)
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 
-	menuResponse:addRadialMenuItem(20, 3, "Use")
+	--menuResponse:addRadialMenuItem(20, 3, "Use")
 end
 
 function BorRpItemAntitoxinMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID)
@@ -12,9 +12,11 @@ function BorRpItemAntitoxinMenuComponent:handleObjectMenuSelect(pObject, pPlayer
 		return 0
 	end
 	
+	--[[
 	if (selectedID == 20) then 
 		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! - Borrie")
 	end
+	--]]
 	
 	return 0
 end

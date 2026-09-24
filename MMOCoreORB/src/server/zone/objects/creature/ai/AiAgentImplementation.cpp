@@ -183,7 +183,8 @@ void AiAgentImplementation::loadTemplateData(CreatureTemplate* templateData) {
 		ManagedReference<WeaponObject*> weao = (getZoneServer()->createObject(crc, getPersistenceLevel())).castTo<WeaponObject*>();
 
 		if (weao != nullptr) {
-			float mod = 1 - 0.1*weao->getArmorPiercing();
+			float mod = 1 ;
+			//float mod = 1 - 0.1*weao->getArmorPiercing();
 			weao->setMinDamage(minDmg * mod);
 			weao->setMaxDamage(maxDmg * mod);
 
@@ -419,7 +420,7 @@ void AiAgentImplementation::setLevel(int lvl, bool randomHam) {
 	maxDmg *= ratio;
 
 	if (readyWeapon != nullptr) {
-		float mod = 1 - 0.1*readyWeapon->getArmorPiercing();
+		float mod = 1;  // - 0.1*readyWeapon->getArmorPiercing();
 		readyWeapon->setMinDamage(minDmg * mod);
 		readyWeapon->setMaxDamage(maxDmg * mod);
 
@@ -2763,7 +2764,7 @@ void AiAgentImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		alm->insertAttribute("rpstat.precision", getSkillMod("rp_precision"));
 		alm->insertAttribute("rpstat.strength", getSkillMod("rp_strength"));
 
-		alm->insertAttribute("rpskill.armor", getSkillMod("rp_armor"));
+		alm->insertAttribute("rpskill.armorer", getSkillMod("rp_armorer"));
 		alm->insertAttribute("rpskill.athletics", getSkillMod("rp_athletics"));
 		alm->insertAttribute("rpskill.bluff", getSkillMod("rp_bluff"));
 		alm->insertAttribute("rpskill.composure", getSkillMod("rp_composure"));

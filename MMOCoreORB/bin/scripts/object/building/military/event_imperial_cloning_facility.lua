@@ -60,15 +60,15 @@ object_building_military_event_imperial_cloning_facility = object_building_milit
 	},
 
 	childObjects = {
-		{templateFile = "object/tangible/terminal/terminal_cloning.iff", x = -5.5, z = -0.05, y = -3, ox = 0, oy = 0.707106, oz = 0, ow = 0.707106, cellid = 6, containmentType = -1},
-		{templateFile = "object/tangible/terminal/terminal_insurance.iff", x = 0, z = -0.05, y = -5.5, ox = 0, oy = 0, oz = 0, ow = 1, cellid = 3, containmentType = -1},
+	--{templateFile = "object/tangible/terminal/terminal_cloning.iff", x = -5.5, z = -0.05, y = -3, ox = 0, oy = 0.707106, oz = 0, ow = 0.707106, cellid = 6, containmentType = -1},
+	--{templateFile = "object/tangible/terminal/terminal_insurance.iff", x = 0, z = -0.05, y = -5.5, ox = 0, oy = 0, oz = 0, ow = 1, cellid = 3, containmentType = -1},
 		{templateFile = "object/static/item/item_tapestry_imperial.iff", x = -3.4, z = -0.05, y = 7.5, ox = 0, oy = 0.707106, oz = 0, ow = 0.707106, cellid = -1, containmentType = -1},
 		{templateFile = "object/static/item/item_tapestry_imperial.iff", x = 3.4, z = -0.05, y = 7.5, ox = 0, oy = 0.707106, oz = 0, ow = 0.707106, cellid = -1, containmentType = -1},
-		{templateFile = "object/tangible/terminal/terminal_event_buffs.iff", x = 1, z = 0.4, y = -1.15, ox = 0, oy = -0.707106, oz = 0, ow = 0.707106, cellid = 3, containmentType = -1},
+	--{templateFile = "object/tangible/terminal/terminal_event_buffs.iff", x = 1, z = 0.4, y = -1.15, ox = 0, oy = -0.707106, oz = 0, ow = 0.707106, cellid = 3, containmentType = -1},
 	},
 
 	childCreatureObjects = {
-		{ mobile = "imperial_recruiter", x = -0.1, z = 0.1, y = 2.0, cellid = 3, containmentType = -1, respawn = 60, heading = 3.14},
+	--{ mobile = "imperial_recruiter", x = -0.1, z = 0.1, y = 2.0, cellid = 3, containmentType = -1, respawn = 60, heading = 3.14},
 	},
 }
 

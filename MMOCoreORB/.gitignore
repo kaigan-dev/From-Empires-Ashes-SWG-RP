@@ -6,6 +6,7 @@ bin/coverage.info
 bin/luacov.stats.out
 Makefile.in
 aclocal.m4
+bin/conf/config.lua
 bin/conf/rev.txt
 build/*
 src/Makefile.in
@@ -22,13 +23,11 @@ bin/*.log
 bin/*.xml
 bin/*sh
 bin/*out
-*test*
 *.sh
 build_temp
 *_includes
 html
 latex
-log
 src/Makefile
 src/server/chat/Makefile
 src/server/conf/Makefile
@@ -39,9 +38,7 @@ src/server/status/Makefile
 src/server/web/Makefile
 src/server/zone/Makefile
 tags
-utils/gtest-1.6.0/*
 ../*
-bin/conf/*
 .*.swp
 .ycm_extra_conf.py*
 sql/insert_strings.sql

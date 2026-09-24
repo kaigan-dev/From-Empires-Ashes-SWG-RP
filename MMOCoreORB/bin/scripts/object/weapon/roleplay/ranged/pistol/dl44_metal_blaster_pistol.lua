@@ -15,19 +15,24 @@ object_weapon_roleplay_ranged_pistol_dl44_metal_blaster_pistol = object_weapon_r
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 2, --Type of Die used in Damage
-	bonusDamage = 2,
+	maxDamage = 4, --Type of Die used in Damage
+	bonusDamage = 3,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
-	rarity="Uncommon",
+	rarity="Rare",
+	itemValue = 3000,
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

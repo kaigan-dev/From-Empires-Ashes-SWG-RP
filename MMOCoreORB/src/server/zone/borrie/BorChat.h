@@ -64,15 +64,15 @@ public:
 
     static void PrintSpatialChatToDMs(CreatureObject* target, const UnicodeString& message) {
         ChatManager* chatManager = target->getZoneServer()->getChatManager();
-        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.Dark Rebellion.Chat.observer");
+        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.observer");
 	    if(obsvRoom != nullptr) {
 		    obsvRoom->broadcastMessage(new ChatRoomMessage(target->getFirstName(), target->getZoneServer()->getGalaxyName(), message, obsvRoom->getRoomID()));
 	    }	
     }
 
-    static void PrintSpatialChatToDiscord(CreatureObject* target, const UnicodeString& message, String spatialChatType, short range) {
+    static void PrintSpatialChatToDiscord(CreatureObject* target, const UnicodeString& message, String spatialChatType, uint32 moodType, int languageID) {
         ChatManager* chatManager = target->getZoneServer()->getChatManager();
-        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.Dark Rebellion.Chat.global");
+        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.global");
 
         bool anonymous = false;
         if(target->isPlayerCreature()) {
@@ -85,14 +85,18 @@ public:
             name += " " + lastName;
         }
 
+        String moodName = chatManager->getMoodType(moodType);
+
+        UnicodeString newMessage = spatialChatType + "|" + message + "|" + moodName + "|" + String::valueOf(languageID);
+
         if(!anonymous) {
-            obsvRoom->broadcastMessage(new ChatRoomMessage(name, target->getZoneServer()->getGalaxyName(), UnicodeString(spatialChatType + "|") + message, obsvRoom->getRoomID(), false));
+            obsvRoom->broadcastMessage(new ChatRoomMessage(name, target->getZoneServer()->getGalaxyName(), newMessage, obsvRoom->getRoomID(), false));
         }
     }
 
     static void PrintDMMessageToDiscord(CreatureObject* target, const UnicodeString& message) {
         ChatManager* chatManager = target->getZoneServer()->getChatManager();
-        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.Dark Rebellion.Chat.global");
+        ChatRoom* obsvRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.global");
 
         obsvRoom->broadcastMessage(new ChatRoomMessage("DM " + target->getFirstName(), target->getZoneServer()->getGalaxyName(), "DM|" + message, obsvRoom->getRoomID(), false));
     }

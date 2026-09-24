@@ -1,0 +1,15 @@
+equipment = {
+        {"object/weapon/melee/unarmed/unarmed_default_player.iff", "/private/index_color_blade", 0, },
+        {"object/tangible/wearables/shirt/shirt_s13.iff", "/private/index_color_1", 14, },
+        {"object/tangible/wearables/armor/roleplay/bounty_hunter/armor_bounty_hunter_leggings.iff", "/private/index_color_2", 143, "/private/index_color_1", 204, },
+        {"object/tangible/wearables/armor/roleplay/bounty_hunter/armor_bounty_hunter_bicep_l.iff", "/private/index_color_2", 143, "/private/index_color_1", 204, },
+        {"object/tangible/wearables/armor/roleplay/bounty_hunter/armor_bounty_hunter_bicep_r.iff", "/private/index_color_2", 143, "/private/index_color_1", 204, },
+        {"object/tangible/wearables/armor/roleplay/bounty_hunter/armor_bounty_hunter_bracer_r.iff", "/private/index_color_2", 143, "/private/index_color_1", 204, },
+        {"object/tangible/wearables/armor/roleplay/bounty_hunter/armor_bounty_hunter_boots.iff", "/private/index_color_2", 143, "/private/index_color_1", 204, },
+        {"object/tangible/wearables/armor/roleplay/bounty_hunter/armor_bounty_hunter_bracer_l.iff", "/private/index_color_2", 143, "/private/index_color_1", 204, },
+        {"object/tangible/wearables/armor/roleplay/bounty_hunter/armor_bounty_hunter_gloves.iff", "/private/index_color_2", 188, },
+        {"object/tangible/wearables/armor/roleplay/bounty_hunter/armor_bounty_hunter_chest_plate.iff", "/private/index_color_2", 143, "/private/index_color_1", 204, },
+        {"object/tangible/wearables/armor/roleplay/mandalorian/armor_mandalorian_helmet.iff", "/private/index_color_2", 234, "/private/index_color_1", 204, },
+        {"object/tangible/wearables/belt/belt_s03.iff", "/private/index_color_2", 221, "/private/index_color_1", 190, },
+        {"object/tangible/wearables/backpack/backpack_jetpack_s01.iff", "/private/index_color_2", 198, "/private/index_color_1", 234, },
+}

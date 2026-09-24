@@ -9,5 +9,5 @@ equipment = {
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_bicep_r.iff", "/private/index_color_2", 2, "/private/index_color_1", 1, },
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_bracer_r.iff", "/private/index_color_2", 2, "/private/index_color_1", 1, },
 	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_bracer_l.iff", "/private/index_color_2", 2, "/private/index_color_1", 1, },
-	{"object/tangible/wearables/armor/clone_trooper/armor_clone_trooper_neutral_s01_helmet.iff", "/private/index_color_2", 7, "/private/index_color_1", 1, },
+	{"object/tangible/wearables/armor/roleplay/clone_trooper/armor_clone_trooper_neutral_s01_helmet.iff", "/private/index_color_2", 7, "/private/index_color_1", 1, },
 }

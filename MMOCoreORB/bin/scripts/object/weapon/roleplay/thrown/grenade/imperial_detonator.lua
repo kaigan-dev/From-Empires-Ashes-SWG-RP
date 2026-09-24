@@ -16,9 +16,9 @@ object_weapon_roleplay_thrown_grenade_imperial_detonator = object_weapon_ranged_
 	armorPiercing = NONE,
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
-	minDamage = 4, --Amount of Die used in Damage
+	minDamage = 3, --Amount of Die used in Damage
 	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 0,
+	bonusDamage = 2,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
@@ -33,9 +33,10 @@ object_weapon_roleplay_thrown_grenade_imperial_detonator = object_weapon_ranged_
 	
 	dodgeDC = 20,
 	
-	rpSkillLevel = 3,
+	rpSkillLevel = 4,
 	
-	rarity="Uncommon",
+	rarity="Rare",
+	itemValue = 750,
 	
 	animationType = "imperial_detonator",
 

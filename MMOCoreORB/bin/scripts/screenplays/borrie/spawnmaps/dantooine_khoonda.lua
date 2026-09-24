@@ -1,0 +1,542 @@
+DantooineKhoondaScreenPlay = CityScreenPlay:new {
+	numberOfActs = 1,
+
+	screenplayName = "DantooineKhoondaScreenPlay",
+
+	planet = "rp_dantooine",	
+	
+	walkpointList = {
+		
+	}
+}
+
+registerScreenPlay("DantooineKhoondaScreenPlay",  true)
+
+function DantooineKhoondaScreenPlay:start()
+	if (isZoneEnabled(self.planet)) then
+		self:spawnMobiles()
+		self:spawnSceneObjects()
+		self:spawnCivilians()
+		self:spawnJunkPiles()
+	end
+end
+
+function DantooineKhoondaScreenPlay:spawnJunkPiles() 
+	local spawnPoints = {
+		{},
+	}
+	RpJunkPile:spawnJunkPiles(self.planet, spawnPoints, false)
+end
+
+function DantooineKhoondaScreenPlay:spawnCivilians() 
+	local waypointList = {
+
+        -- northside
+		{798.1, 0.2, -1018.5, 204, 0,{"social"}},
+        {796.8, 0.2, -1020.7, 20, 0,{"social"}},
+        {825.9, 2.3, -993.2, 82, 0,{"none"}},
+        {827.3, 2.3, -991.2, 227, 0,{"social"}},
+        {828.8, 2.5, -993.4, 258, 0,{"social"}},
+        {829.9, 2.5, -996.2, 294, 0,{"none"}},
+        {880.5, 1.5, -968.8, 255, 0,{"sit"}},
+        {879.9, 1.4, -970.3, 18, 0,{"social"}},
+        {858.9, 2.2, -954.1, 69, 0,{"sit"}},
+        {858.6, 2.2, -952.5, 116, 0,{"sit"}},
+        {869.1, 3.3, -916, 342, 0,{"none"}},
+        {869.6, 3.4, -913.7, 187, 0,{"social"}},
+        {867.9, 3.2, -914, 151, 0,{"social"}},
+        {889.4, 2.2, -1093.6, 43, 0,{"social"}},
+        {891.9, 2.1, -1091.3, 240, 0,{"social"}},
+        {915.5, 1.6, -1052, 244, 0,{"sit"}},
+        {977.7, 2.8, -1059.6, 246, 0,{"none"}},
+        {978.1, 2.9, -1062.2, 242, 0,{"social"}},
+        {974.1, 2.8, -1057.7, 95, 0,{"none"}},
+        {973.6, 2.8, -1060.2, 51, 0,{"social"}},
+        {974.3, 2.9, -1062.1, 56, 0,{"none"}},
+        {975.6, 2.9, -1063.6, 31, 0,{"none"}},
+        {973, 6.6, -1127, 124, 0,{"sit"}},
+        {971.2, 6.6, -1129.1, 147, 0,{"sit"}},
+        {830.4, 0.8, -1102.2, 34, 0,{"none"}},
+        {830.6, 0.8, -1099.9, 164, 0,{"none"}},
+        {832, 0.7, -1102.1, 254, 0,{"social"}},
+        {854, 3.2, -1078.9, 261, 0,{"sit"}},
+        {859.6, 3.2, -1085.9, 170, 0,{"none"}},
+        {860, 3.2, -1087.7, 355, 0,{"social"}},
+        {863.1, 3.2, -1103.6, 287, 0,{"none"}},
+        {856.6, 1.3, -1094.1, 229, 0,{"social"}},
+        {855.1, 0.9, -1095.4, 42, 0,{"none"}},
+        {850.9, 3.5, -1048.6, 120, 0,{"social"}},
+        {852.8, 3.5, -1050.4, 340, 0,{"none"}},
+        {855.1, 3.5, -1067.3, 284, 0,{"sit"}},
+        {811.1, 2.1, -1088.3, 10, 0,{"social"}},
+        {809.3, 2.2, -1087, 29, 0,{"none"}}, --wants dantooine equal of dewback companion
+        {785, 3.5, -1080.7, 8, 0,{"sit"}},
+        {782.8, 3.9, -1080.7, 9, 0,{"sit"}},
+        {786.2, 2.1, -1053.7, 262, 0,{"none"}},
+        -- central
+        {1013.2, 4.1, -1116.8, 116, 0,{"none"}},
+        {1014.5, 4.1, -1117.8, 316, 0,{"social"}},
+        {1015.7, 4.6, -1148.3, 141, 0,{"social"}},
+        {1017.8, 4.6, -1149.9, 302, 0,{"none"}},
+        {1014.9, 4.6, -1150.5, 29, 0,{"social"}},
+        {981.4, 2.5, -1168, 270, 0,{"none"}},
+        {979.3, 2.5, -1167.8, 84, 0,{"social"}},
+        {1039.8, 0.4, -1110.8, 222, 0,{"sit"}},
+        {1059.7, 2.3, -1117.8, 80, 0,{"social"}},
+        {1063.1, 2.3, -1118.1, 253, 0,{"none"}},
+        {1062.4, 2.3, -1121.3, 320, 0,{"none"}},
+        {1059.9, 2.3, -1123, 10, 0,{"social"}},
+        {1044.3, 0.3, -1125, 143, 0,{"social"}},
+        {1045.4, 0.3, -1127.2, 27, 0,{"none"}},
+        {991.2, 3.9, -1130.8, 240, 0,{"none"}}, --wants a droid companion
+        {1025.4, 0.2, -1197.1, 117, 0,{"social"}},
+        {1027.8, 0.1, -1198.4, 4, 0,{"social"}},
+        {1029.8, 0.1, -1197.8, 331, 0,{"none"}},
+        {1033.1, 0.1, -1196.6, 338, 0,{"none"}},
+        {1034.6, 0.1, -1194.7, 285, 0,{"social"}},
+        {1034.4, 0.1, -1191.1, 229, 0,{"none"}},
+        {1031.5, 0.2, -1190.2, 163, 0,{"none"}},
+        {1029.1, 0.2, -1191.3, 165, 0,{"social"}},
+        {1075.6, 3.3, -1240, 12, 0,{"social"}},
+        {1076.5, 3.4, -1236.5, 89, 0,{"none"}},
+        {1078.1, 3.4, -1234.9, 201, 0,{"social"}},
+        {1079.2, 3.4, -1237.7, 221, 0,{"none"}},
+        {1059.2, 0.4, -1266.1, 239, 0,{"none"}},
+        {1056.8, 0.3, -1267, 48, 0,{"social"}},
+        {1073.6, 2.9, -1262.7, 291, 0,{"none"}},
+        {1066.2, 0.1, -1188.4, 18, 0,{"social"}},
+        {1066, 0.1, -1185.4, 174, 0,{"none"}},
+        {1069.2, 0.1, -1187.3, 211, 0,{"none"}},
+        {1142.2, 3.8, -1304.3, 136, 0,{"social"}},
+        {1145.1, 4, -1307.6, 327, 0,{"none"}},
+        {1124.2, 4, -1284.8, 233, 0,{"none"}},
+        {1120.1, 4.2, -1286.3, 58, 0,{"social"}},
+        {1121.3, 4.2, -1287.8, 31, 0,{"none"}},
+        {1123.4, 4.2, -1289.3, 39, 0,{"none"}},
+        {1126.4, 4.1, -1286.9, 229, 0,{"social"}},
+        {1150, 4.5, -1348.1, 336, 0,{"social"}}, -- want creature
+        {1087.7, 12.5, -1361, 17, 0,{"sit"}},
+        {1086.6, 12.2, -1359.6, 134, 0,{"social"}},
+        {1203.8, 3.3, -1334.9, 270, 0,{"social"}},
+        {1200, 3.1, -1336.1, 74, 0,{"none"}},
+        {1199.8, 2.9, -1340.2, 54, 0,{"social"}},
+        {1199.6, 3, -1338.4, 67, 0,{"none"}},
+        {1205.2, 2.9, -1340.8, 278, 0,{"none"}},
+        {1203.8, 2.7, -1343.1, 347, 0,{"none"}},
+        {1201, 3.2, -1333.4, 160, 0,{"none"}},
+        {1201.7, 2.4, -1379.1, 223, 0,{"social"}},
+        {1199.6, 2.1, -1383.1, 35, 0,{"none"}}, -- wants a droid
+        {1140.8, 1.8, -1402.1, 281, 0,{"social"}},
+        {1141.2, 1.9, -1399.1, 271, 0,{"none"}},
+        {1141.7, 2.1, -1396.5, 227, 0,{"none"}},
+        {1136.8, 2.1, -1396.5, 137, 0,{"social"}},
+        {1134.7, 2.1, -1397.3, 131, 0,{"none"}},
+        {1133.4, 2, -1400.1, 97, 0,{"none"}},
+        {1136.4, 1.7, -1402.6, 46, 0,{"social"}},
+        {1137.7, 1.7, -1403.3, 325, 0,{"none"}},
+        {1129.6, 2.4, -1381.4, 120, 0,{"social"}},
+        {1131.6, 2.5, -1381, 264, 0,{"none"}},
+        {1081.9, 2.4, -1400.4, 18, 0,{"social"}}, --wants droid
+        {1097.3, 1.1, -1415, 275, 0,{"social"}},
+        {1095.6, 1.1, -1414.2, 125, 0,{"none"}},
+        {1094.5, 0.9, -1416.6, 69, 0,{"none"}},
+        {1103.1, 0.4, -1458, 334, 0,{"sit"}},
+        {1127.3, 0.1, -1450.3, 60, 0,{"social"}},
+        {1130.7, 0, -1448.9, 245, 0,{"social"}},
+        {985.7, 2.4, -1289.2, 244, 0,{"social"}},
+        {908.6, 2.5, -1289, 93, 0,{"none"}},
+        {983.8, 2.5, -1293.2, 299, 0,{"social"}},
+        {979.9, 2.7, -1295.9, 36, 0,{"none"}},
+        {977.6, 2.7, -1291.2, 73, 0,{"none"}},
+        {1019.5, 0.2, -1338.8, 340, 0,{"social"}},
+        {1019, 0.4, -1336.5, 157, 0,{"social"}},
+        {1017, 0.3, -1350.4, 160, 0,{"social"}},
+        {1011.7, 0.2, -1390.5, 111, 0,{"none"}},
+        {1018.7, 0, -1353.1, 330, 0,{"none"}},
+        {1014.3, 0.1, -1389.6, 187, 0,{"social"}},
+        {1012.6, 0, -1392.5, 5, 0,{"none"}},
+        {988.5, 0.3, -1415.3, 86, 0,{"none"}},
+        {991.3, 0.6, -1415.8, 287, 0,{"social"}},
+        {989.9, 0.4, -1413.7, 220, 0,{"none"}},
+        {979.1, 0.3, -1453.2, 307, 0,{"social"}},
+        {975.2, 0.4, -1450.9, 130, 0,{"none"}},
+        {966.3, 0.6, -1440.7, 51, 0,{"social"}},
+        {968.5, 0.6, -1438.6, 228, 0,{"none"}},
+        {970.3, 0.5, -1440.6, 302, 0,{"none"}}, -- could use speederbike props
+        {1016.7, 0.1, -1417.5, 153, 0,{"social"}},
+        {1017.9, 0.1, -1420.9, 351, 0,{"none"}},
+        {1016.7, 0.1, -1445.1, 253, 0,{"none"}},
+     
+        --eastside
+        {1111.3, 2.6, -1212.2, 329, 0,{"sit"}},
+        {1114.8, 2.7, -1210.8, 328, 0,{"sit"}},
+        {1100.2, 3.5, -1225, 251, 0,{"none"}}, -- wants creature
+        {1101.8, 0.1, -1176.9, 343, 0,{"social"}},
+        {1100.6, 0.1, -1174.2, 156, 0,{"none"}},
+        {1117.4, 0.5, -1152.1, 62, 0,{"none"}},
+        {1119.3, 0.6, -1151, 114, 0,{"social"}}, -- wants R2/3/4
+        {1136.1, 0.2, -1201.2, 54, 0,{"social"}},
+        {1137.8, 0.1, -1198.8, 281, 0,{"sit"}},
+        {1155.3, 0, -1175.7, 46, 0,{"none"}},
+        {1158.1, 0, -1173.1, 216, 0,{"social"}},
+        {1157, 0, -1172.1, 199, 0,{"none"}},
+        {1142.8, 0.4, -1138.9, 115, 0,{"social"}},
+        {1144.2, 0.4, -1137.6, 155, 0,{"none"}},
+        {1147, 0.3, -1139, 298, 0,{"none"}},
+        {1145.7, 0.3, -1140.3, 309, 0,{"social"}},
+        {1143.4, 0.4, -1141.4, 350, 0,{"social"}},
+        {1165.4, 0.1, -1125.2, 286, 0,{"social"}}, -- wants droid
+        {1182.7, 0.5, -1151.3, 167, 0,{"none"}},
+        {1182.7, 0.6, -1153.5, 358, 0,{"social"}},
+        {1197, 0.8, -1137.5, 301, 0,{"sit"}},
+        {1209, 0.6, -1120.6, 5, 0,{"none"}},
+        {1208.1, 0.2, -1118.3, 135, 0,{"social"}},
+        {1207, 0.4, -1119, 127, 0,{"none"}},
+        {1232.4, 1.1, -1097, 307, 0,{"sit"}},
+        {1231.9, 0.1, -1058.4, 50, 0,{"social"}},
+        {1233.8, 0.1, -1056.8, 233, 0,{"none"}},
+
+
+        -- southside
+        {1011.7, 4.1, -1484.3, 250, 0,{"sit"}},
+        {1018.9, 4.9, -1481.6, 214, 0,{"social"}},
+        {1017.7, 4.8, -1483.4, 47, 0,{"none"}},
+        {1048, 0.5, -1468.6, 277, 0,{"social"}},
+        {1045.6, 0.4, -1468.4, 94, 0,{"none"}},
+        {1101.9, 1, -1483.6, 152, 0,{"sit"}},
+        {1072.4, 0.4, -1510.8, 355, 0,{"social"}},
+        {1071.4, 0.3, -1508.3, 160, 0,{"none"}},
+        {1073.9, 0.3, -1508.9, 203, 0,{"none"}},
+        {1054.5, 3.3, -1538.3, 318, 0,{"social"}},
+        {1052, 3.4, -1536.2, 135, 0,{"none"}},
+        {1012.9, 0.5, -1528.5, 204, 0,{"social"}},
+        {1012.2, 0.5, -1531.5, 14, 0,{"none"}},
+        {1012.2, 1.1, -1548.6, 297, 0,{"sit"}},
+        {986.8, 0.7, -1499.6, 124, 0,{"social"}},
+        {990.1, 0.5, -1500.1, 276, 0,{"none"}},
+        {990.1, 0.6, -1501.8, 289, 0,{"none"}},
+        {988.8, 0.3, -1503.5, 316, 0,{"social"}},
+        {985.8, 0.6, -1502.8, 75, 0,{"none"}},
+        {982.9, 0.4, -1525.9, 0, 0,{"social"}},
+        {983.1, 0.4, -1522.3, 192, 0,{"none"}}, -- wants droid
+
+        --central west / corpo side
+
+        {934.1, 0.1, -1374.9, 129, 0,{"social"}},
+        {937.3, 0.1, -1375.3, 285, 0,{"none"}},
+        {936, 0.2, -1377.9, 305, 0,{"none"}},
+        {031.9, 0.3, -1378.7, 69, 0,{"none"}},
+        {892.2, 2.3, -1409.1, 101, 0,{"none"}},
+        {892.1, 2.3, -1413.7, 70, 0,{"social"}},
+        {894.5, 1.9, -1416.7, 11, 0,{"none"}},
+        {921.1, 0.7, -1414.3, 225, 0,{"social"}},
+        {919.3, 0.8, -1415.8, 49, 0,{"none"}},
+        {949.8, 0.2, -1350.8, 89, 0,{"social"}},
+        {953.8, 0.1, -1349.3, 255, 0,{"none"}},
+        {952.9, 0.1, -1351.6, 283, 0,{"none"}},
+        {952.1, 0.1, -1347.5, 208, 0,{"social"}},
+        {939.1, 0, -1308.6, 73, 0,{"none"}},
+        {937.6, 0.1, -1262.8, 304, 0,{"social"}},
+        {937.5, 0.1, -1261.1, 243, 0,{"none"}},
+        {935.5, 0.1, -1261.6, 80, 0,{"social"}},
+        {882.5, 0.3, -1203.6, 242, 0,{"social"}},
+        {880, 0.3, -1204.5, 64, 0,{"social"}},
+        {856.1, 0.4, -1214.6, 33, 0,{"social"}},
+        {858, 0.3, -1218.5, 258, 0,{"none"}},
+        {858.1, 0.3, -1215.2, 249, 0,{"social"}},
+        {871.5, 0.2, -1241.2, 203, 0,{"none"}},
+        {841.2, 0.5, -1269.5, 41, 0,{"social"}},
+        {844.2, 0.5, -1268.9, 295, 0,{"none"}},
+        {843.7, 0.3, -1266.4, 239, 0,{"none"}},
+        {851.9, 0.4, -1293.7, 280, 0,{"none"}},
+        {848.5, 0.4, -1293.9, 97, 0,{"social"}},
+        {910, 0.3, -1289, 263, 0,{"social"}},
+
+        --pink bar 
+        {0, 0.3, 4.2, 185, 610039944,{"none"}},
+        {-1.9, 0.3, 5, 244, 610039944,{"social"}},
+        {-3.7, 0.2, 4.2, 69, 610039944,{"social"}},
+        {-2.8, 0.2, 3.2, 35, 610039944,{"drinker"}},
+        {-7, 0.2, -0.9,33, 610039944,{"sitchait"}},
+        {-5.4, 0.2, 1.2, 112, 610039944,{"sitchair"}},
+        {-7, 0.2, 1, 140, 610039944,{"sitchair"}},
+        {-1.6, -0.7, -4.5, 196, 610039944,{"sitchair"}},
+        {-1, -0.7, -6.6, 321, 610039944,{"sitchair"}},
+        {-4.5, -0.7, -12.6, 266, 610039944,{"sitchair"}},
+        {4.6, -0.7, -11.8, 294, 610039944,{"sitchair"}},
+        {7, -0.7, -7.4, 133, 610039944,{"sitchair"}},
+        {5, -0.7, -8.8, 55, 610039944,{"sitchair"}},
+        {6, -0.7, 9.5, 0, 610039944,{"sitchair"}},
+        {2.8, 0.2, 3.2, 318, 610039944,{"drinker"}},
+        {0, 0, -11.6, -1, 610039944,{"groove_01"}},
+
+        -- Corpo bar
+        {-35, 0.1, -11.1, 124, 610039940,{"sitchair"}},
+        {-34.3, 0.1, -10.2, 144, 610039940,{"sitchair"}},
+        {-18.7, -0.9, -14.6, 268, 610039940,{"social"}},
+        {-20.1, -0.9, -14.7, 94, 610039940,{"drinker"}},
+        {-6, -0.9, -4.8, 31, 610039929,{"drinker"}},
+        {-4.9, -0.9, -4.9, 85, 610039929,{"social"}},
+        {-2.8, -0.9, -4.9, 272, 610039929,{"none"}},
+        {2.4, -0.9, -4.8, 19, 610039929,{"drinker"}},
+        {3.7, -0.9, -4.8, 331, 610039929,{"social"}},
+        {15.9, -0.9, -11.1, 50, 610039929,{"drinker"}},
+        {7.1, -0.9, 5.5, 277, 610039929,{"social"}},
+        {4.1, -0.9, 5.9, 104, 610039929,{"none"}},
+        {5.6, -0.9, 6.9, 183, 610039929,{"drinker"}},
+        {-0.5, -0.9, 5.7, 176, 610039929,{"drinker"}},
+        {-3.7, -0.9, 5.9, 280, 610039929,{"social"}},
+        {-8.2, -0.9, 5.8, 73, 610039929,{"none"}},
+        {-6.4, -0.9, 7.9, 147, 610039929,{"drinker"}},
+        {-4.7, -0.9, 7.9, 190, 610039929,{"social"}},
+        {-3.4, -0.9, 7.2, 239, 610039929,{"none"}},
+        {21.9, -0.9, 7.2, 99, 610039929,{"sitchair"}},
+        {24.2, -0.9, 6, 317, 610039929,{"sitchair"}},
+        {24.3, -0.9, 7.9, 225, 610039929,{"sitchair"}},
+        {27, -0.9, 10.4, 182, 610039929,{"drinker"}},
+        {26.9, -0.9, 8.8, 0, 610039929,{"social"}},
+        {22.4, -0.9, 20.3, 272, 610039931,{"sitchair"}},
+        {22.5, -0.9, 21, 272, 610039931,{"sitchair"}},
+        {19.3, -0.9, 20.6, 90, 610039931,{"sitchair"}},
+        {21.1, -0.9, 21.9, 186, 610039931,{"sitchair"}},
+        {6.2, -0.9, -14.8, 171, 610039932,{"sitchair"}},
+        {5.3, -0.9, -17.3, 35, 610039932,{"sitchair"}},
+        {7.2, -0.9, -17.2, 318, 610039932,{"sitchair"}},
+
+
+
+
+        
+        
+
+
+
+       
+
+	}
+
+	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_dantooine", waypointList, self.walkpointList, "dantooine", "dantooine")
+end
+
+function DantooineKhoondaScreenPlay:spawnSceneObjects() 
+	--Travel Terminals
+	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.2, 0.6, 50.3, 610039691, 0.992546, 0, -0.121869, 0)
+    spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", 985.6, 7.7, -1065.4, 0, math.rad(260))
+end
+
+function DantooineKhoondaScreenPlay:spawnMobiles()
+	--Species, Equipment, Skills, Customization
+    --pentastar garrison
+	local pNpc
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 975.6, 0.1, -1557.8, 38, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-647")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 971.9, 0.2, -1552.5, 59, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-195")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 972.6, 4.3, -1545.7, 66, 0, "rp_human_female", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-497")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 930.2, 0.1, -1589.4, 16, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-327")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 907.5, 0.9, -1586.9, 18, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-566")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 946.2, 2.5, -691.8, 100, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-762")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 970.5, 4.2, -1745.6, 202, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-891")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 970.4, 4.2, -1741.5, 354, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-722")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 908.5, 11.3, -1727.2, 42, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-176")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 924.3, 2.8, -1695.8, 184, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-853")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 928.8, 2.5, -1695.9, 182, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-316")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 952.1, 1.5, -1621.1, 90, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-942")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 951.6, 1.6, -1624.1, 94, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-506")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 881, 9.3, -1595.8, 85, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-731")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 862, 7.5, -1571.3, 267, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-819")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 863.7, 8, -1577, 265, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-335")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 841, 0.5, -1614, 1, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-681")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 835.2, 0.8, -1615, 1, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-167")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 773.7, 0.2, -1570.6, 266, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-785")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 787.5, 0.1, -1582.8, 242, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-502")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 791, 4.2, -1590.2, 222, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-237")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 789, 4.2, -1588, 227, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-368")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 809.9, 1.9, -1457.4, 142, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-930")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 800.6, 0.5, -1548.7, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 799.2, 0.5, -1547.5, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 796.9, 0.6, -1545.3, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 795.1, 0.6, -1543.6, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 792.1, 1.1, -1540.4, 40, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 802.3, 0.5, -1569.1, 247, 0, "storyteller_super_battle_droid_boss", "superbattledroid", "superbattledroid", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 958.4, 0.3, -1569.7, 46, 0, "storyteller_super_battle_droid_boss", "superbattledroid", "superbattledroid", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
+
+    --city security
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 937.2, 0.4, -1397.8, 30, 0, "storyteller_super_battle_droid_boss", "superbattledroid", "superbattledroid", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 908, 0.7, -1201, 94, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 895.9, 0.4, -1202.2, 355, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 911, 5.3, -1195.7, 95, 0, "rp_human_male", "faction/pentastar/officer", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("ID-385")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 871.3, 0.2, -1277.2, 253, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-250")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 951.5, 3.5, -1130.3, 242, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-318")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 950.5, 3.5, -1128.7, 245, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 953.1, 3.5, -1134.5, 208, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 838.8, 5.4, -925.3, 104, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-767")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 842, 4.8, -926.3, 287, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-198")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1047.8, 0.2, -1139.7, 333, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-529")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1261.1, 0.1, -1053.4, 40, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-203")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1266.7, 1.3, -1058.6, 17, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-418")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1263.1, 0.5, -1056.7, 33, 0, "storyteller_super_battle_droid_boss", "superbattledroid", "superbattledroid", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Super Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1177.6, 0.2, -1108.3, 156, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1179.8, 0.2, -1106.7, 139, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1213.7, 11.4, -1528.3, 169, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-743")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1216.8, 11.4, -1516.3, 359, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-223")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1216.8, 11.4, -1513.2, 176, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-361")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1243.1, 10.4, -1518.2, 89, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1242.3, 10.5, -1515, 64, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1170.7, 3.2, -1364.2, 212, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1178.5, 3.4, -1367.2, 211, 0, "naboo_stonewall_labs_battledroid_blue", "battledroid", "droids/battle", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Pentastar Battledroid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1173.9, 3.1, -1365, 193, 0, "rp_human_male", "faction/pentastar/trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("PE-424")
+
+    --creatures and droids
+
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 811.1, 1.6, -1079.8, 184, 0, "bol_hue", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Bol")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 914.9, 1, -1130.8, 334, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 915.5, 0.9, -1128.9, 239, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 914.1, 0.9, -1126.9, 7, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 989.7, 4, -1131.2, 68, 0, "r4", "default", "default", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "r4")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1094, 3.6, -1226, 80, 0, "bol_hue", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Bol")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1163.8, 0.2, -1124.9, 102, 0, "r2", "default", "default", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "r2")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 1082.7, 2.2, -1398.9, 206, 0, "3po_protocol_droid_silver", "default", "default", "default") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "3po")
+
+
+    -- Pebblefizz staff
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 0.2, 2, 14.1, 184, 610046545, "dressed_commoner_fat_human_female_01", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Receptionist Jeniper")
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 16.1, 2, -1, 175, 610046580, "loveday_protocol_droid", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Yes Man")
+    
+
+
+
+    
+
+
+
+
+ 	
+   
+	
+	--Signs
+	
+	--TAILOR--
+	
+	--VENDORS--
+
+    --Armorsmith Vendor
+	--[[pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 270, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Torgal Whim (an Armorsmith Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
+]]
+    --Weaponsmith Vendor (Melee)
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 15.1, 1.1, -12, 276, 610040005, "dressed_armorsmith_trainer_01", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Tensha Poolspis (a Weaponsmith Melee Weapon Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
+
+    --Weaponsmith Vendor (Ranged)
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 11.6, 1.1, 6, 177, 610040003, "dressed_herald_tatooine_01", "default", "default", "eisley_weaponsmith_kefarack_tajus", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Chiq Palstro (a Weaponsmith Ranged Weapon Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
+
+    --Specialty Shop Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -12, 1.1, 1.5, 177, 610040004, "dressed_talus_sif_mercenary_rodian_02", "default", "default", "eisley_specialty_shop_beebo", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Iksay Quin (a Specialty Item Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
+
+
+    --stim vendor
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 14.3, 0.3, 2.8, 343, 610039714, "dressed_medic_trainer_03", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Doctor Launt (a Stimpack Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
+
+    --Speeder Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 914.4, 1.1, -1129.8, 101, 0, "dressed_corsec_pilot_human_female_01", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Eshen Hitz (a Speeder Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
+
+    --Instrument Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 2.9, 0.8, 0.8, 357, 610040192, "dressed_musician_trainer_01", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Manus Derfoe (an Instrument Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "music")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
+
+    --Camping Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, -5.7, 0.3, -6.7, 359, 610040157, "dressed_disappearances_hike_master", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Jace Dirtlin (a Camping Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
+
+    --Ship vendor
+    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 0.1, -0.4, -1, 191, 610040350, "dressed_tatooine_leg_pilot", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Trazon baaaak (a Junker Ship Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
+
+    --Melee Vendor Light
+	
+end

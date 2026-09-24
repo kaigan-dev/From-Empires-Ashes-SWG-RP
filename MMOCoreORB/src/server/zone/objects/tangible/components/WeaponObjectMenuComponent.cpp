@@ -11,6 +11,7 @@
 #include "WeaponObjectMenuComponent.h"
 #include "server/zone/packets/object/ObjectMenuResponse.h"
 #include "server/zone/objects/player/sessions/SlicingSession.h"
+#include "server/zone/borrie/BorDice.h"
 
 void WeaponObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
 
@@ -31,6 +32,8 @@ void WeaponObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject,
 			menuResponse->addRadialMenuItem(70, 3, "@sui:repair"); // Slice
 		}
 	}
+	String text = "Repair";
+	menuResponse->addRadialMenuItem(80, 3, text);
 
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 
@@ -92,6 +95,145 @@ int WeaponObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			return 1;
 		}
 	}
+
+
+
+	if (selectedID == 80) {		// Repair
+		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
+
+		if (parent == nullptr)
+			return 0;
+
+
+
+		if (parent->isCellObject()) {
+			ManagedReference<SceneObject*> obj = parent->getParent().get();
+		} else {
+			if (!sceneObject->isASubChildOf(player))
+				return 0;
+		}
+
+		ZoneServer* server = player->getZoneServer();
+
+		TangibleObject* tano = sceneObject->asTangibleObject();
+		WeaponObject* weapon = cast<WeaponObject*>(tano);
+
+		int itemValue = weapon->getItemValue();
+
+		int creditCost = 1;
+		int repairAmt = tano->getConditionDamage();
+		bool doNotRepair = false;
+
+		int diceRoll = BorDice::Roll(1, 20); 
+		int mechanicsSkill;
+
+		if(weapon->isRangedWeapon() || weapon->isJediWeapon()) {
+			mechanicsSkill = player->getSkillMod("rp_mechanics");
+		}
+		else {
+			mechanicsSkill = player->getSkillMod("rp_armorer");
+		}
+
+
+		int rollResult = diceRoll + mechanicsSkill;
+
+		if(!repairAmt) {
+			player->sendSystemMessage("Your weapon has no damage to repair.");
+			return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+		}
+
+		player->sendSystemMessage("Your weapon has " + std::to_string(repairAmt) + " damage to repair.");
+
+
+		if(itemValue <= 150) {
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 8) {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 8, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else if(itemValue <= 900) {
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 10) {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 10, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else if(itemValue <= 3000) {
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			tempCost = tempCost * 3 / 4;
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 12) {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 12, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else if(itemValue <= 10000) {
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			tempCost = tempCost * 2 / 3;
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 15) {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 15, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else if(itemValue <= 50000) {
+			float tempCost = static_cast<float>(itemValue) * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			tempCost = tempCost / 2;
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 18) {
+				tano->setConditionDamage(tano->getConditionDamage() + 50, true);
+				player->sendSystemMessage("You fail to repair your weapon, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(mechanicsSkill) + ") vs DC 18, causing 50 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else {
+			player->sendSystemMessage("Something went wrong when determining your weapon's value, preventing it from being repaired. The system thinks that its value is" + std::to_string(itemValue) + ". Reach out to the admins to research further.");
+			doNotRepair = true;
+		}
+
+		
+
+		if(!doNotRepair) {
+			if(player->getCashCredits() - creditCost >= 0) {
+				player->sendSystemMessage("Based on its rarity and damage, you have been charged " + std::to_string(creditCost) + " credits to repair this item.");
+				player->subtractCashCredits(creditCost);
+				tano->setConditionDamage(0, true);
+			}
+			else {
+				player->sendSystemMessage("Debug: You do not have enough credits to repair this, but we've somehow arrived at the end of the function anyway.");
+			}
+		}
+
+	return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+	}
+
 
 	return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 }

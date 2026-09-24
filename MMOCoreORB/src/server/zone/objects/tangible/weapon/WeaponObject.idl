@@ -51,6 +51,11 @@ class WeaponObject extends TangibleObject {
 	protected float woundsRatio;
 
 	protected int rpSkillLevel;
+	protected int itemValue;
+
+	protected string ammoType;
+	protected int maxAmmo;
+	protected int currentAmmo;
 
 	protected int healthAttackCost;
 	protected int actionAttackCost;
@@ -115,6 +120,8 @@ class WeaponObject extends TangibleObject {
 		bonusDamage = 0;
 
 		rpSkillLevel = 0;
+		itemValue = 150;
+	
 
 		woundsRatio = 0;
 
@@ -258,8 +265,22 @@ class WeaponObject extends TangibleObject {
 		return weaponTemplate.getParryIsRestricted();
 	}
 
+	public void setAmmoType(string aType) {
+		ammoType = aType;
+	}
+
 	public void setCertified(boolean cert) {
 		certified = cert;
+	}
+
+	@read
+	public int getMaxAmmo() {
+		return maxAmmo;
+	}
+
+	@read
+	public string getAmmoType() {
+		return ammoType;
 	}
 
 	@read
@@ -363,6 +384,14 @@ class WeaponObject extends TangibleObject {
 		rpSkillLevel = value;
 	}
 
+	@read 
+	public native int getItemValue();
+
+	public void setItemValue(int value) {
+		itemValue = value;
+	}
+	
+	
 	@read
 	public native float getWoundsRatio(boolean withPup = true);
 
@@ -425,6 +454,7 @@ class WeaponObject extends TangibleObject {
 	public string getXpType() {
 		return weaponTemplate.getXpType();
 	}
+
 
 	@read
 	public string getAlternateGrip() {

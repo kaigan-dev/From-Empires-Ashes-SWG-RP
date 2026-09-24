@@ -93,3 +93,9 @@ object_weapon_roleplay_melee_polearm_xandank_lance = SharedWeaponObjectTemplate:
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_melee_polearm_xandank_lance, "object/weapon/roleplay/melee/polearm/xandank_lance.iff")
 --************************************************************************************************************************************************
+
+object_weapon_roleplay_melee_polearm_endor_spear = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/melee/polearm/endor_spear.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_melee_polearm_endor_spear, "object/weapon/roleplay/melee/polearm/endor_spear.iff")
+--************************************************************************************************************************************************

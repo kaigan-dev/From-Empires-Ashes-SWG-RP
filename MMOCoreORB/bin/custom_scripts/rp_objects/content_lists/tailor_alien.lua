@@ -17,7 +17,7 @@ content = {
 	{"object/tangible/wearables/alien/shared_kel_dor_mask_s01.iff", },
 	{"object/tangible/wearables/alien/shared_kel_dor_mask_s02.iff", },
 	{"object/tangible/wearables/alien/shared_kel_dor_mask_s03.iff", },
-	{"object/tangible/wearables/alien/shared_selonian_anklets.iff", },
+	--{"object/tangible/wearables/alien/shared_selonian_anklets.iff", },  --No appearance data
 	{"object/tangible/wearables/alien/shared_selonian_bracelet_1.iff", },
 	{"object/tangible/wearables/alien/shared_selonian_bracelet_2.iff", },
 	{"object/tangible/wearables/alien/shared_selonian_chestplate_1.iff", },

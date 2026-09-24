@@ -13,7 +13,17 @@ function BorRpItemHydrospannerMenuComponent:handleObjectMenuSelect(pObject, pPla
 	end
 	
 	if (selectedID == 20) then 
-		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! - Borrie")
+		local skillMod = math.floor(CreatureObject(pPlayer):getSkillMod("rp_mechanics"))
+		local roll = math.floor(math.random(1,20))
+		local result = roll + skillMod	+ 2
+
+		local msg = CreatureObject(pPlayer):getFirstName().. " uses a hydrospanner, rolling Mechanics: \\#DBDBDB 1d20: " ..roll.. " + " ..skillMod.. " +2 (Item) = " ..result.. "\\#FFFFFF."
+
+		SceneObject(pObject):destroyObjectFromWorld()
+		SceneObject(pObject):destroyObjectFromDatabase()
+
+		broadcastMessageWithName(pPlayer, msg)
+
 	end
 	
 	return 0

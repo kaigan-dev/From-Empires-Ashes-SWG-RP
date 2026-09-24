@@ -64,9 +64,12 @@ includeFile("tangible/wearables/armor/stormtrooper/serverobjects.lua")
 includeFile("tangible/wearables/armor/tantel/serverobjects.lua")
 includeFile("tangible/wearables/armor/ubese/serverobjects.lua")
 includeFile("tangible/wearables/armor/zam/serverobjects.lua")
+includeFile("tangible/wearables/armor/infiltrator/serverobjects.lua")
 
 includeFile("tangible/wearables/armor/mandalorian_beta/serverobjects.lua")
 
 includeFile("tangible/wearables/armor/roleplay/serverobjects.lua")
+
+--includeFile("tangible/wearables/armor/plasteel/serverobjects.lua")
 
 -- Server Objects

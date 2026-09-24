@@ -2,14 +2,17 @@
 
 travel_destinations = {
 
+
 	--Carida
 	{
 		name = "Carida",
 		zone = "rp_carida",
 		destinations = {
-			{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
+			--{"Imperial Academy", "rp_carida", 8, 320, 2916, 0},
 		}
 	},
+
+
 
 	--Dantooine
 	{ 
@@ -17,30 +20,37 @@ travel_destinations = {
 		zone = "rp_dantooine",
 		destinations = {
 			{"Damarise Outpost", "rp_dantooine", 1368, 4, 3403, 0},
+			{"Khoonda City Starport", "rp_dantooine", 898, 1, -1520, 0},
+			{"Khoonda City Shuttleport", "rp_dantooine", 981, 7, -1059, 0},
+			{"Tokare", "rp_dantooine", -28, 11, 3639, 0},
+			{"Taikaha", "rp_dantooine", -75, 2, 2263, 0},
 		}
 	
 	},
 	
 	
-	
+
 	--Dathomir
 	{ 
 		name = "Dathomir",
 		zone = "rp_dathomir",
 		destinations = {
-			{"Chartered Flight LZ", "rp_dathomir", 1509, 127, 1492, 0},
+			--{"Chartered Flight LZ", "rp_dathomir", 1509, 127, 1492, 0},
 		}
 	
 	},
+
 	
 	--Deep Space
 	{ 
-		name = "Deep Space",
+		name = "Ord Mantel",
 		zone = "rp_space",
 		destinations = {
 			{"Tansarii Point Station", "rp_space", 52.3, 0.9, 27.8, 808251},
+			--[[
 			{"Corellian Corvette", "rp_space", -34.8, 0, 0.1, 808180},
 			{"Star Destroyer", "rp_space", 10, 173.8, 42.2, 808038},
+			--]]
 		}	
 	},
 	
@@ -71,9 +81,12 @@ travel_destinations = {
 		destinations = {
 			{"Anchorhead", "rp_tatooine", -560, 0.0, -1770, 0},
 			{"Mos Eisley", "rp_tatooine", 1150, 0.0, 100, 0},
+			{"Bestine", "rp_tatooine", 330, 0.0, 6646, 0},
+			{"Wayfar", "rp_tatooine", 4465.8, 8.7, -6847, 0},
 		}	
 	},
 	
+
 	--Xovros VI
 	{ 
 		name = "Xovros VI",
@@ -83,14 +96,25 @@ travel_destinations = {
 		}
 	
 	},
-	
+
 	--Yavin IV
 	{ 
 		name = "Yavin IV",
 		zone = "rp_yavin4",
 		destinations = {
-			{"Chartered Flight LZ", "rp_yavin4", 1501, 90, 1489, 0},
+			--{"Chartered Flight LZ", "rp_yavin4", 1501, 90, 1489, 0},
 		}
 	
 	},
+
+	--Endor
+	{ 
+		name = "Endor",
+		zone = "rp_endor",
+		destinations = {
+			{"Rebel Landing Zone", "rp_endor", 6060, 262, -2513, 0},
+		}
+	
+	},
+
 }

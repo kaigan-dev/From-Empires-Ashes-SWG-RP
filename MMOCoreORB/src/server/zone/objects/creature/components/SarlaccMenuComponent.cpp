@@ -6,7 +6,7 @@
 void SarlaccMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 
-	menuResponse->addRadialMenuItem(20, 3, "@mob/sarlacc:extract_bile"); // Extract Bile
+	//menuResponse->addRadialMenuItem(20, 3, "@mob/sarlacc:extract_bile"); // Extract Bile
 }
 
 int SarlaccMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
@@ -48,7 +48,7 @@ int SarlaccMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Creat
 			player->sendSystemMessage("@mob/sarlacc:bile_fail"); // You fail to find enough bile to collect. You need to wait for more to accumulate.
 			return 0;
 		}
-
+		/*
 		Reference<SceneObject*> bileSceno = player->getZoneServer()->createObject(STRING_HASHCODE("object/tangible/loot/quest/quest_item_sarlacc_bile_jar.iff"), 1);
 		if (bileSceno == nullptr)
 			return 1;
@@ -63,6 +63,7 @@ int SarlaccMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Creat
 			bileSceno->destroyObjectFromDatabase(true);
 			return 1;
 		}
+		*/
 	}
 
 	return 0;

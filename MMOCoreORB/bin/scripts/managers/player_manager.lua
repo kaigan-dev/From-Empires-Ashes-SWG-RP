@@ -65,9 +65,9 @@ baseImmersiveExp = 50
 baseStoredCreaturePets = 2
 baseStoredFactionPets = 3
 baseStoredDroids = 5
-baseStoredVehicles = 3
-baseStoredShips = 3
-baseStoredRpShips = 2
+baseStoredVehicles = 5
+baseStoredShips = 5
+baseStoredRpShips = 5
 
 -----------------------------------
 --VETERAN REWARDS CONFIG

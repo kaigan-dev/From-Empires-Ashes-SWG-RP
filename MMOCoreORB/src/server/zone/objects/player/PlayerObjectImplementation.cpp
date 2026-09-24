@@ -599,6 +599,10 @@ int PlayerObjectImplementation::addExperience(const String& xpType, int xp, bool
 		xpCap = 5100000;
 	}
 
+	if(xpType == "rp_frc_skill_cap") {
+		xpCap = 35;
+	}
+
 	if (xp > xpCap) {
 		valueToAdd = xpCap - (xp - valueToAdd);
 		xp = xpCap;
@@ -1426,7 +1430,7 @@ void PlayerObjectImplementation::notifyOnline() {
 
 	//Give Utiltiy Class if you don't have it.
 	if(!playerCreature->hasSkill("rp_utility_disguised")) {
-		SkillManager::instance()->awardSkill("rp_utility_disguised", playerCreature, true, false, true, true);
+		SkillManager::instance()->awardSkill("rp_utility_disguised", playerCreature, true, false, true, true, 1);
 	}
 	
 

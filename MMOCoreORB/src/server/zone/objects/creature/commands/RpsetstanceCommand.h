@@ -57,7 +57,7 @@ public:
 		} else {
 			targetCreature = creature;
 		}
-
+ 
 		try {
 			String command, selectionName = "";
 			if (args.hasMoreTokens()) {
@@ -76,7 +76,7 @@ public:
 					targetCreature->setStoredInt("reaction_stance", 3);
 					selectionName = "Dodge";
 				} else if(command == "deflect" || command == "lsdeflect") {
-					if(targetCreature->getSkillMod("rp_lightsaber") > 0) {
+					if(targetCreature->hasSkill("rp_frc_defense")) {
 						targetCreature->setStoredInt("reaction_stance", 4);
 						selectionName = "Deflect";
 					} else {
@@ -84,7 +84,7 @@ public:
 						return GENERALERROR;
 					}					
 				} else if(command == "fdeflect" || command == "forcedeflect") {
-					if(targetCreature->getSkillMod("rp_telekinesis") > 0) {
+						if(targetCreature->hasSkill("rp_frc_deflect")) {
 						targetCreature->setStoredInt("reaction_stance", 5);
 						selectionName = "Force Deflect";
 					} else {
@@ -92,7 +92,7 @@ public:
 						return GENERALERROR;
 					}					
 				} else if(command == "absorb" || command == "forceabsorb") {
-					if(targetCreature->getSkillMod("rp_inward") > 0)  {
+					if(targetCreature->hasSkill("rp_frc_absorb")) {
 						targetCreature->setStoredInt("reaction_stance", 6);
 						selectionName = "Force Absorb";
 					} else {
@@ -118,9 +118,9 @@ public:
 				box->addMenuItem("Defend");
 				box->addMenuItem("Parry");
 				box->addMenuItem("Dodge");
-				if(targetCreature->getSkillMod("rp_lightsaber")) box->addMenuItem("Lightsaber Deflect");
-				if(targetCreature->getSkillMod("rp_telekinesis")) box->addMenuItem("Force Deflect");
-				if(targetCreature->getSkillMod("rp_inward")) box->addMenuItem("Force Absorb");
+				if(targetCreature->hasSkill("rp_frc_defense")) box->addMenuItem("Lightsaber Deflect");
+				if(targetCreature->hasSkill("rp_frc_deflect")) box->addMenuItem("Force Deflect");
+				if(targetCreature->hasSkill("rp_frc_absorb")) box->addMenuItem("Force Absorb");
 				creature->getPlayerObject()->addSuiBox(box);
 				creature->sendMessage(box->generateMessage());
 			}

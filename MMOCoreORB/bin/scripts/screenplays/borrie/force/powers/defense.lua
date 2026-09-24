@@ -4,17 +4,20 @@ BorForce_Defense = {
 }
 
 function BorForce_Defense:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage =  helpMessage .. "As a defensive reaction, attempt to intercept ranged energy attacks with an equipped lightsaber at a cost of 3 AP. The defender rolls Lightsaber against DC 15, harmlessly deflecting the shot if successful. Additionally if the defender's roll is meets DC 18, the shot is deflected back at its source dealing half damage."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Defense:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_inward_b01")
+	
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_defense")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	
+
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	
 	if(fpi < 1) then
@@ -42,6 +45,9 @@ function BorForce_Defense:onFPICallback(pPlayer, pSui, eventIndex, remaining, sp
 end
 
 function BorForce_Defense:performAbility(pPlayer, fpi)
+	
+	CreatureObject(pPlayer):sendSystemMessage("Use the /rpsetstance menu to enable the Lightsaber Deflect defensive reaction.")
+	--[[
 	local pGhost = CreatureObject(pPlayer):getPlayerObject()
 
 	if (pGhost == nil) then
@@ -62,5 +68,6 @@ function BorForce_Defense:performAbility(pPlayer, fpi)
 	
 	--Drain Force Pool
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
-	
+	--]]
+
 end

@@ -47,7 +47,7 @@ public:
 	}
 
 	static String RollRPDie(CreatureObject* creature, String roll, int mod = 0) {
-		int numDice, diceValue, nTempResult, nResult = 0;
+		int numDice, diceValue, nTempResult = 0, nResult = 0, nSecTempResult;
 		String sNumDice, sDiceValue, DiceRollString;
 		StringTokenizer args(roll);
 		args.setDelimeter("d");
@@ -71,17 +71,32 @@ public:
 					nTempResult = System::random(diceValue - 1) + 1;
 					DiceRollString += String::valueOf(nTempResult);
 					nResult += nTempResult;
+					if (i != numDice - 1)
+						DiceRollString += " + ";
+				}
+
+				/*  We shouldn't need this if we don't have advantage for misc dice rolls. Also as it stands this duplicates all rolls.
+				for (int i = 0; i < numDice; i++) {
+					nSecTempResult = System::random(diceValue - 1) + 1;
+					DiceRollString += String::valueOf(nTempResult);
+					nResult += nTempResult;
 					if (i == numDice - 1)
 						DiceRollString += " =";
 					else
 						DiceRollString += " + ";
 				}
+				*/
 
-				if (mod != 0)
-					return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) +
-						   ") Result: " + String::valueOf(nResult + mod);
+				if (mod != 0) {
+						//return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " (Modifier: " + String::valueOf(mod) + ") Result: " + String::valueOf(nResult + mod);
+					if(mod > 0) {
+						return "Roll " + sNumDice + "d" + sDiceValue + " +" + String::valueOf(mod) + ": " + DiceRollString + " = " + String::valueOf(nResult) + " +" + String::valueOf(mod) + ". Result = " + String::valueOf(nResult + mod);
+					}
+					else
+						return "Roll " + sNumDice + "d" + sDiceValue + String::valueOf(mod) + ": " + DiceRollString + " = " + String::valueOf(nResult) + " " + String::valueOf(mod) + ". Result = " + String::valueOf(nResult + mod);
+				}
 				else
-					return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result: " + String::valueOf(nResult);
+					return "Roll " + sNumDice + "d" + sDiceValue + ": " + DiceRollString + " Result = " + String::valueOf(nResult);
 
 			} else {
 				// Return, we need the full thing.
@@ -92,11 +107,36 @@ public:
 		return "fail";
 	}
 
-	static String RollSkill(CreatureObject* creature, String skillName) {
+	static String RollSkill(CreatureObject* creature, String skillName, String advDis) {
 		int value = creature->getSkillMod("rp_" + skillName);
 		int Roll = System::random(19) + 1;
-		return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) +
-			   ". Result: " + String::valueOf(value + Roll);
+		int secondRoll = System::random(19) + 1;
+		if(advDis == "secret") {
+			advDis = "";
+		}
+
+		if(advDis == "") {
+			return BorrieRPG::Capitalize(skillName) + " check : 1d20 = " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+		}
+		else if(advDis == "advantage" || advDis == "adv" || advDis == "Advantage" || advDis == "Adv" || advDis == "ADVANTAGE") {
+			if(Roll > secondRoll) {
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+			}
+			else {
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with advantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+			}
+		}
+		else if(advDis == "disadvantage" || advDis == "disadv" || advDis == "Disadvantage" || advDis == "Disadv" || advDis == "DISADVANTAGE") {
+			if(Roll < secondRoll) {
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(Roll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + Roll);
+			}
+			else {
+				return BorrieRPG::Capitalize(skillName) + " check : 1d20 with disadvantage = (" + String::valueOf(Roll) + ", " + String::valueOf(secondRoll) + ") " + String::valueOf(secondRoll) + " + Modifier: " + String::valueOf(value) + ". Result: " + String::valueOf(value + secondRoll);
+			}
+		}
+		else {
+			return "Skill roll failed. If using an additional parameter, please use format '/d20 <skillName> <advantage/disadvantage/secret>'.";
+		}
 	}
 
 	static int Roll(int dieCount, int dieType) {

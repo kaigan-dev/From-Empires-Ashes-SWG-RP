@@ -45,9 +45,9 @@ object_tangible_wearables_armor_mandalorian_rebel_armor_mandalorian_rebel_belt =
 
 	templateType = ARMOROBJECT,
 	
-	objectMenuComponent = "ArmorObjectMenuComponent",
+	--objectMenuComponent = "ArmorObjectMenuComponent",
 
-	faction = "Rebel",
+	--faction = "Rebel",
 
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",

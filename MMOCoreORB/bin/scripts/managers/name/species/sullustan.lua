@@ -132,7 +132,7 @@ nameManagerSullustan = {
 		{ "v", true, true, true, 100 },
 		{ "vv", false, true, true, 2 },
 		{ "w", true, true, true, 100 },
-		{ "wh", true, true, false, 2 },
+		--{ "wh", true, true, false, 2 },
 		{ "wr", true, true, false, 2 },
 		{ "x", true, true, true, 2 },
 		{ "y", true, true, true, 2 },

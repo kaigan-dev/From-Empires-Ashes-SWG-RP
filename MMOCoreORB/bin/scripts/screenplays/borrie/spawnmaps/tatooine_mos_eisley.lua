@@ -76,7 +76,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{805.95, 0.3, 291.058, 3, 0,{"social"}},
 		{805.992, 0.3, 292.391, 165, 0,{"social"}},
 		{751.481, 0, 281.623, 89, 0,{"none"}},
-		{742.071, 0, 270.258, 88, 0,{"none"}},
 		{742.026, 0, 272.175, 88, 0,{"none"}},
 		{741.942, 0, 273.423, 136, 0,{"social"}},
 		{739.242, 0, 259.498, 86, 0,{"sit"}},
@@ -96,8 +95,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{713.048, 0, 228.529, 174, 0,{"none"}},
 		{724.63, 0, 228.469, 270, 0,{"none"}},
 		{722.356, 0, 228.943, 106, 0,{"social"}},
-		{725.584, 0, 228.344, 268, 0,{"none"}},
-		{724.628, 0, 227.484, 301, 0,{"social"}},
 		{714.922, 0, 218.042, 55, 0,{"social"}},
 		{715.789, 0, 218.362, 245, 0,{"social"}},
 		{757.266, 0, 241.415, 225, 0,{"none"}},
@@ -110,8 +107,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{729.448, 0, 225.639, 227, 0,{"sittable"}},
 		{728.656, 0, 223.951, 354, 0,{"sittable"}},
 		{727.89, 0, 225.425, 120, 0,{"sitchair"}},
-		{737.008, 0, 222.249, 5, 0,{"sitchair"}},
-		{737.8, 0, 223.748, 229, 0,{"sittable"}},
 		{708.302, 0, 207.688, 355, 0,{"none"}},
 		{746.231, 0, 241.039, 297, 0,{"social"}},
 		{745.039, 0, 241.71, 119, 0,{"social"}},
@@ -146,9 +141,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{691.984, 0, 334.331, 271, 0,{"tech"}},
 		{703.42, 0.3, 364.449, 258, 0,{"sit"}},
 		{703.246, 0.3, 363.591, 269, 0,{"none"}},
-		{677.848, 0, 406.372, 27, 0,{"social"}},
-		{678.752, 0, 407.776, 211, 0,{"social"}},
-		{677.494, 0, 407.759, 128, 0,{"none"}},
 		{627.598, 0, 279.392, 262, 0,{"tech"}},
 		{568.913, 0, 268.028, 214, 0,{"none"}},
 		{572.985, -0.25, 335.949, 5, 0,{"tech"}},
@@ -303,24 +295,6 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{502.745, 0, 256.812, 31, 0,{"social"}},
 		{517.93, 0, 345.475, 96, 0,{"none"}},
 		{527.154, 0, 367.227, 138, 0,{"sit"}},
-		{20.6076, -0.894993, 4.10171, 72, 610008176,{"sittable"}},
-		{21.3166, -0.894993, 5.58439, 158, 610008176,{"sittable"}},
-		{23.2705, -0.894994, 4.7568, 252, 610008176,{"sittable"}},
-		{16.5245, -0.894992, -3.1439, 232, 610008176,{"sittable"}},
-		{14.2375, -0.894992, -4.84698, 51, 610008176,{"sittable"}},
-		{14.6531, -0.894992, -2.90315, 135, 610008176,{"sittable"}},
-		{16.4756, -0.894992, -4.70127, 319, 610008176,{"sittable"}},
-		{20.9083, -0.894992, 14.5177, 358, 610008178,{"sitchair"}},
-		{22.5637, -0.894992, 16.6839, 260, 610008178,{"sitchair"}},
-		{22.5203, -0.894992, 15.7884, 210, 610008178,{"sitchair"}},
-		{4.5341, -0.894992, 17.3468, 294, 610008180,{"sitchair"}},
-		{4.58264, -0.894992, 16.0487, 271, 610008180,{"sitchair"}},
-		{2.90691, -0.894992, 14.2652, 358, 610008180,{"sittable"}},
-		{0.85307, -0.894992, 16.0249, 90, 610008180,{"sittable"}},
-		{9.70056, -0.894992, 18.1067, 345, 610008180,{"sittable"}},
-		{10.2159, -0.894992, 21.5839, 218, 610008180,{"sittable"}},
-		{7.54703, -0.894992, 21.2395, 145, 610008180,{"sittable"}},
-		{7.1906, -0.894992, 18.7056, 46, 610008180,{"sittable"}},
 		{-1.80855, -0.894993, 23.3928, 236, 610008182,{"sittable"}},
 		{-1.96477, -0.894992, 20.9954, 311, 610008182,{"sittable"}},
 		{22.1272, -0.894996, -19.5368, 76, 610008177,{"sittable"}},
@@ -364,7 +338,50 @@ function RpTatooineMosEisleyScreenPlay:spawnCivilians()
 		{535.042, -0.25, 237.258, 64, 0,{"social"}},
 		{536.519, -0.25, 238.006, 349, 0,{"social"}},
 		{567.283, 0, 193.427, 285, 0,{"sit"}},
+		{-15.3, 0.9, 0.3, -86, 610008176,{"tech"}},
+		{9.4, 0.4, -10.3, 5, 610010243,{"sitchair"}},
+		{9.9, 0.4, -7.9, 192, 610010243,{"sitchair"}},
+		{5.5, 0.4, -3.8, 312, 610010243,{"sitchair"}},
+		{-2.7, 0.4, -5.1, 120, 610010243,{"social"}},
+		{-0.8, 0.4, -5.1, 222, 610010243,{"none"}},
+		
+		--Red Light District
+		{479.7, 0, 398.7, 26, 0,{"social"}},
+		{480.8, 0, 399.9, 220, 0,{"social"}},
+		{447.1, 0, 438.4, 4, 0,{"none"}},
+		{518.3, 0, 431.4, 3, 0,{"social"}},
+		{519.1, 0, 432.6, 209, 0,{"social"}},
+		{517.9, 0, 432.5, 123, 0,{"social"}},
+		{482.0, 0, 406.5, 317, 0,{"tech"}},
+		{564.1, 0, 477.7, 54, 0,{"none"}},
+		{565.3, 0, 478.5, 243, 0,{"none"}},
+		{469.6, 0, 441.6, 194, 0,{"social"}},
+		{512.0, 0, 430.9, 162, 0,{"none"}},
+		{-2.7, 0.3, 0, 42, 610032132,{"sit"}},
+		{-6.7, 0.6, -1.1, 187, 610032134,{"sit"}},
+		{1.4, 0.6, -2.8, 168, 610032134,{"tech"}},
 
+		--The Lucky Despot
+		{-4.4, 7, -3.0, -171, 610032090,{"sitchair"}},
+		{-4.5, 7, -5.1, -6, 610032090,{"sittable"}},
+		{-7.3, 7, 8.1, -38, 610032090,{"sitchair"}},
+		{-9.2, 7, 8.5, 55, 610032090,{"sitchair"}},
+		{-12.0, 7, 1.8, -110, 610032090,{"drinker"}},
+		{-20.6, 9, 4, -122, 610032092,{"sittable"}},
+		{-20.6, 9, -1.6, -138, 610032092,{"none"}},
+		{-22.5, 9, -1.6, 135, 610032092,{"none"}},
+		{-22.6, 9, -3.5, 57, 610032092,{"none"}},
+		{3.7, 7, 6.0, 123, 610032093,{"sitchair"}},
+		{4.1, 7, 4.7, -91, 610032093,{"tech"}},
+		{18.7, 7, -4.8, 17, 610032094,{"sitchair"}},
+		{20, 7, -3.3, -122, 610032094,{"sitchair"}},
+		{17.9, 7, 9.9, 0, 610032094,{"tech"}},
+		{22.9, 7, 5.9, 1, 610032094,{"sitchair"}},
+		{21.9, 7, 8.6, 128, 610032094,{"sitchair"}},
+		{24.4, 7, 8.4, -115, 610032094,{"sitchair"}},
+		{24.3, 6, 6.9, -58, 610032094,{"drinker"}},
+		{32.8, 7, 1.7, 87, 610032097,{"drinker"}},
+		{28.6, 7, 7.4, 145, 610032097,{"sit"}},
 	}
 	
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
@@ -390,8 +407,8 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setCustomObjectName("Mos Eisley Police Station")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_wall_style_01.iff", 1030.25, 6.2793, 245.364, 0, 0.707107, 0, 0.707107, 0) --Club
 	SceneObject(sObj):setCustomObjectName("The Twin Suns Saloon")
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_upright_style_01.iff", 606.332, 0, -83.3598, 0, 0.707107, 0, 0.707107, 0) --Lodge
-	SceneObject(sObj):setCustomObjectName("Dunewalker Lodge")
+	--sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_upright_style_01.iff", 606.332, 0, -83.3598, 0, 0.707107, 0, 0.707107, 0) --Lodge
+	--SceneObject(sObj):setCustomObjectName("Dunewalker Lodge")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_upright_style_01.iff", 450.508, 1.99023, 157.077, 0, 1, 0, 0, 0) --Clinic
 	SceneObject(sObj):setCustomObjectName("Mos Eisley Medical Clinic")
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s02.iff", 830.15, 0, -36.813, 0, 0.707107, 0, 0.707107, 0) --Arena Place
@@ -401,8 +418,7 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/streetsign_upright_style_01.iff", 1073.49, 0, 68.3427, 0, 0.707107, 0, 0.707107, 0) --Public Hangar
 	SceneObject(sObj):setCustomObjectName("Public Transportation Dock")
 	
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/swsovrp/prop2/thm_sign_welcome_hanging.iff", 676.699, 3, 345.089, 0, 0, 0, 1, 0) --Hugo's Shop Sign
-	SceneObject(sObj):setCustomObjectName("Rune Central")
+	
 	
 	--TAILOR--
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 8.78601, 0.403271, -11.165, 610008132, 0.999983, 0, -0.00579456, 0) --Shirts
@@ -493,7 +509,6 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):populateInventoryFromContentList("tailor_ithorian2")
 	
 	--FURNITURE--
-	
 	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 0.694885, -3.97117, -10.4214, 610008483, 0.707259, 0, -0.706924, 0)
 	SceneObject(sObj):setCustomObjectName("Furniture, Cheap")
 	SceneObject(sObj):setPublicContainer(true)
@@ -556,6 +571,37 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	
 	--Jukebox--
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_jukebox.iff", 27.0829, -0.894995, 8.68511, 610008176, -0.707107, 0, 0.707107, 0)
+
+
+	--Speeder chop shop on the north side of town
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/harvesting/shellfish_harvester.iff", 825, 2, 515.4, 0, math.rad(20))
+	SceneObject(sObj):setCustomObjectName("Entry Panel")
+	spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_palette_supply_01.iff", 816.7, 0.3, 515.5, 0, math.rad(0))
+	spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_palette_supply_01.iff", 806.5, 0.3, 543.6, 0, math.rad(0))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_speeder_bike.iff", 817.7, 0.1, 546.4, 0, math.rad(70))
+	SceneObject(sObj):setCustomObjectName("Half-disassembled Speeder Bike")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_speeder_bike.iff", 820.4, -0.5, 527.8, 0, math.rad(150))
+	SceneObject(sObj):setCustomObjectName("Damaged Speeder Bike")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_swoop_bike.iff", 811, -0.5, 534.2, 0, math.rad(60))
+	SceneObject(sObj):setCustomObjectName("Damaged Swoop")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_swoop_bike.iff", 803.1, -0.4, 529.4, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Half-disassembled Swoop")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/tatooine/frn_tatt_chair_cantina_seat_2.iff", 833.8, 0, 525.7, 0, math.rad(270))
+	SceneObject(sObj):setCustomObjectName("Ragged Couch")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_landspeeder_xp34.iff", 834.6, -0.5, 514.2, 0, math.rad(45))
+	SceneObject(sObj):setCustomObjectName("Damaged XP-34")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/hoth/pr_hoth_toolbox.iff", 818.7, 0.1, 527.7, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Toolbox")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/hoth/pr_hoth_toolbox.iff", 832.2, 0, 510.8, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Toolbox")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 833.7, 0.1, 527.4, 0, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Toolbox")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/loot/collectible/kits/orange_rug_kit.iff", 815.9, 0.3, 545.3, 0, math.rad(0))
+	SceneObject(sObj):setCustomObjectName("Toolbox")
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_droid_r5_powerdown.iff", 820.4, 0, 517.8, 0, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Repurposed R5 Droid")
+	spawnSceneObject("rp_tatooine", "object/tangible/loot/misc/speaker_s01.iff", 819.3, 0, 518.3, 0, math.rad(0))
+	spawnSceneObject("rp_tatooine", "object/tangible/storyteller/prop/pr_ch9_generator.iff", 813.8, 0.2, 547.3, 0, math.rad(0))
 
 end
 
@@ -671,10 +717,6 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Dewback")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 739.514, 0, 267.415, 181, 0, "pit_droid", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 740.048, 0, 266.856, 212, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 740.216, 0, 265.608, 0, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 708.338, 0, 216.865, 269, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 708.917, 0, 217.712, 239, 0, "jawa", "default", "default", "default") --Equip, Skill, Customization
@@ -811,7 +853,94 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("a Pit Droid")
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 776.632, 0, -39.4721, 140, 0, "cll8_binary_load_lifter", "default", "default", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("a CLL-8 Binary Load Lifter")
+	-- Former Imperial garrison, now Alliance
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 546.2, 0, 73.4, 353, 0, "rp_human_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 531.6, 3.5, 75.7, 23, 0, "rp_human_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 526.4, 3.5, 76.3, 357, 0, "rp_human_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 480.9, 0, 75.2, 331, 0, "rp_rodian_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 538.9, 0, -61.5, 188, 0, "rp_sullustan_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 554.2, 4, -59.6, 8, 0, "rp_zabrak_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 31.3, 273, 0, "rp_moncal_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 540.6, 0, 35.3, 273, 0, "rp_bothan_male", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 571.9, 0, 57.4, 333, 0, "rp_bothan_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 570.7, 0, 58.9, 135, 0, "rp_zabrak_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 600.7, 0, 3.4, 222, 0, "rp_human_female", "faction/rebel/tatooine_trooper_a", "factional/common/trooper", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Alliance Soldier")
+
+	-- Telios Enclave (abandoned starport)
+
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 700.3, 0, 379.2, 182, 0, "rp_human_male", "mando_rebel", "bountyhunter", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Ma'al Telios")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 696.8, 0, 379.2, 171, 0, "rp_human_male", "mando_rebel", "bountyhunter", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Vorlen Telios")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 686.7, 0, 408.5, 185, 0, "rp_human_male", "mando_rebel", "bountyhunter", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Arken Telios")
+
+
+	-- Tutorial NPCs--
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6, -4, -7.1, -11, 610008138, "rp_human_male", "vehicle_dealer_vendor", "default", "random", "rpg_tutorial")
+	SceneObject(pNpc):setCustomObjectName("Stranger (a Greeter)")
+	--SceneObject(pNpc):setStoredString("vendor:theme", "rpg_tutorial")
+		
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.7, -4, 0.3, 79, 610008137, "rp_human_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("A Melee Weapons Vendor")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -9.8, -4, 6, 91, 610008137, "rp_human_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("A Ranged Weapon Vendor")
+	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_ranged_novice")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1.5, -4, 10.2, -145, 610008137, "rp_human_male", "xovros_nurse", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("A Stimpack Vendor")
+	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
+
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -6.6, -4, 10.2, 166, 610008137, "rp_human_male", "xovros_vendor_camping", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("An Armorsmith Vendor")
+	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
+
+
+
+
+	--Nameless Bar & Grill
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 7.8, 0.4, -7.5, 133, 610010243, "dressed_npe_pilot_aleas", "default", "thug", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Fyiamia Tige (a waitress)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1.6, 0.4, -7.3, 37, 610010243, "space_privateer_broker_fired_worker", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Apa Loimo (a bartender)")
 	
+	--Red Light District
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 485.1, 9, 455.7, 136, 0, "rp_human_male", "faction/hutt/trooper", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 479.4, 0, 432.1, -139, 0, "rp_weequay_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+
+	--The Lucky Despot
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 20.7, 7, -12.1, -4, 610032094, "rp_human_male", "faction/hutt/trooper", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 16.5, 7, -18.0, 88, 610032098, "rp_zabrak_male", "faction/hutt/elite", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "zabrak")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 11.6, 7, -10.5, 80, 610032094, "rp_weequay_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 11.5, 7, -10.5, 91, 610032094, "rp_rodian_male", "faction/hutt/grunt_army", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1.5, 9, -17.0, -4, 610032091, "rp_weequay_male", "faction/hutt/elite", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -5.6, 9, -16.9, 0, 610032091, "rp_human_male", "faction/hutt/elite", "soldier", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+
 	--VENDORS--
 	
 	--Melee Vendor Light
@@ -819,26 +948,31 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Okibam Rotso (a Melee Weapons Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_melee_novice")
+
 	--Ranged Vendor Light
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 750.769, 0, 275.276, 222, 0, "rp_zabrak_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 731.8, 0.5, 279.1, 16, 0, "rp_zabrak_male", "xovros_ranged_vendor", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Gjolan (a Ranged Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_ranged")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weapons_ranged_novice")
+
 	--Camping Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 738.375, 0, 275.533, 90, 0, "rp_human_female", "xovros_vendor_camping", "default", "random", "rpg_shopkeeper") 
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 671.3, 0, 272.2, 14, 0, "rp_human_female", "xovros_vendor_camping", "default", "random", "rpg_shopkeeper") 
 	SceneObject(pNpc):setCustomObjectName("Raphella Lees (a Camping Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "camping")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_camping")
+
 	--Instrument Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 689.751, 0, 218.815, 89, 0, "rp_twilek_male", "xovros_hotel_receptionist", "default", "random", "rpg_shopkeeper") 
 	SceneObject(pNpc):setCustomObjectName("Nayosan Yi'frit (an Instrument Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "music")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_instruments")
+
 	--Speeder Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 666.118, 0, 243.782, 118, 0, "rp_rodian_male", "vehicle_dealer_vendor", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Sprei Ikiki (a Speeder Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles")
+
 	--Mount Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 491.48, 0, 316.591, 192, 0, "rp_gotal_male", "vendor_mount", "default", "random", "rpg_shopkeeper") 
 	SceneObject(pNpc):setCustomObjectName("Pyvaln Rokk (a Mount Vendor)")
@@ -876,33 +1010,35 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_ranged_tier1")
 	
 	--Weaponsmith Vendor (Melee)
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -0.467513, 0.75, -0.458854, 0, 610009368, "rp_trandoshan_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 839.7, 0, -140.7, 210, 0, "rp_trandoshan_male", "sulon_vendor_melee_01", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Rokk (a Weaponsmith Melee Weapon Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "novice_melee")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_weaponsmith_melee_tier1")
 
-	--Bartender of Cantina, Criv Tekuna
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 8.62285, 	-0.894992, 	0.447493, 	87, 	610008176, "rp_twilek_male", "eisley_bartender_criv_tekuna", "default", "eisley_bartender_criv_tekuna") --Equip, Skill, Customization
-	SceneObject(pNpc):setCustomObjectName("Criv Tekuna")
+	--Bartender of Chalmun's Cantina, Wuher
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 8.62285, 	-0.894992, 	0.447493, 	87, 	610008176, "wuher", "default", "default", "default") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Wuher")
 	
 	--Mandalorian Scout
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1199.24, 0, -63.3539, 131, 0, "rp_zabrak_male", "mando_vagabond", "default", "myok_scov", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Vagabond)")
+	SceneObject(pNpc):setCustomObjectName("Kar'eyce (a Mandalorian Arms Dealer)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mando_noob")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mando_noob")
 	
 	--Transmog Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 0.07613, 0.611579, -6.57677, 335, 610009373, "rp_human_male", "vendor_transmog", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Dyutine Hukchar (a Disguise Vendor)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "transmog")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
+	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 0.07613, 0.611579, -6.57677, 335, 610009373, "rp_human_male", "vendor_transmog", "default", "random", "rpg_shopkeeper")
+	--SceneObject(pNpc):setCustomObjectName("Dyutine Hukchar (a Disguise Vendor)")
+	--SceneObject(pNpc):setStoredString("vendor:theme", "transmog")
+	--SceneObject(pNpc):setStoredString("vendor:shopList", "shop_transmog")
 	
-	--Vehepen Vuki, the Junk Dealer
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.99394, -0.478888, 2.17333, 282, 610009017, "rp_human_male", "eisley_junkdealer_vehepen_vuki", "default", "eisley_junkdealer_vehepen_vuki", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Vehepen Vuki (a Junk Dealer)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "junkdealer_vehepen_vuki")
+	--Junk Dealer
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 3.99394, -0.478888, 2.17333, 282, 610009017, "dressed_armorsmith_trainer_01", "default", "default", "default", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Orek Flyn (a Junk Dealer)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "junkdealer")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_junkdealer")
 	
+
+		
 	--Eisley Doctor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 454.824, 1.99121, 149.205, 241, 0, "rp_human_male", "eisley_doctor_rahar_mawolki", "default", "eisley_doctor_rahar_mawolki") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Dr. Rahar Mawolki")
@@ -916,7 +1052,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	--SceneObject(pNpc):setCustomObjectName("Moqeni (a Majordomo)")
 	
 	--Eisley's Tailor, the Bith Doivo Cilea
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 4.13958, 0.408271, 0.354657, 197, 610008132, "rp_bith_female", "eisley_tailor_doivo_cilea", "default", "eisley_tailor_doivo_cilea", "rp_eisley_tailor") --Tailor
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 4.13958, 0.408271, 0.354657, 197, 610008132, "rp_bith_female", "eisley_tailor_doivo_cilea", "default", "eisley_tailor_doivo_cilea") --Tailor
 	SceneObject(pNpc):setCustomObjectName("Doivo Cilea")
 	
 	--Backpack Vendor
@@ -931,39 +1067,26 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "vehicle_luxury")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_vehicles_luxury")
 	
-	--Silver Dawn Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1188.15, 0, 382.792, 311, 0, "rp_human_male", "lirril/silver_servant", "default", "random", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("a Silver Dawn Vendor")
-	SceneObject(pNpc):setStoredString("vendor:theme", "silver_dawn")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_silver_dawn")
-	
 	--Full Ship Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 6.4093, 0.40827, -8.98533, 0, 610009177, "rp_moncal_male", "eisley_dockmaster_orroko_pimeub", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Tiroir Ciouskar (a Ship Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship")
 	
-	--Temporary Silver Dawn NPCs
-	--Temporary in that they need to be official faction NPCs tied to a base. But for now, this should make Lirril, Samari and Ykeer happy.
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 847.32, 0, 177.202, 196, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 816.409, 0.3, 316.096, 239, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 765.047, 2.0752, 270.323, 272, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 724.046, 0, 154.989, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 702.913, 0, 154.147, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1028.9, 0, 110.038, 319, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1036.26, -0.5, 117.469, 307, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1075.65, 0, 256.614, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1236.33, 0, 316.577, 179, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
-	--pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 1243.52, 0, 373.891, 0, 0, "rp_human_male", "lirril/silvertrooper", "factional/common/trooper", "default", "default")
-	--SceneObject(pNpc):setCustomObjectName("a Silver Dawn Trooper")
+
+	-- PERSONAL --
+
+	--Telok's basilisk
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1221.9, -2.5, 154, 6, 0, "basilisk_war_droid", "default", "creatures/large", "random")
+	SceneObject(pNpc):setCustomObjectName("Kih'parjai")
+
+	--Seven's Home Defense Turret
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 11.1, 0.6, 10.3, -93, 281474994469410, "jawa", "t21", "unique/home_defense_turret", "default")
+	SceneObject(pNpc):setCustomObjectName("Home Defense Turret")
+	
+	--Sola's Cook
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -24.0, 0.2, 0.4, -94, 610008348, "gamorrean", "chefhat", "soldier_strong", "random") --Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("Cookie")
+
 
 end

@@ -11,6 +11,7 @@
 
 #include "templates/SharedTangibleObjectTemplate.h"
 
+
 class ArmorObjectTemplate : public SharedTangibleObjectTemplate {
 	int healthEncumbrance;
 	int actionEncumbrance;
@@ -27,6 +28,8 @@ class ArmorObjectTemplate : public SharedTangibleObjectTemplate {
 	float cold;
 	float acid;
 	float lightSaber;
+
+	String rarity;
 
 	int rpSkillLevel;
 
@@ -59,6 +62,8 @@ public:
 
 		rpSkillLevel = 0;
 
+		rarity = "Common";
+
 		vulnerabilites = 0;
 		specialResists = 0;
 
@@ -90,6 +95,8 @@ public:
 		cold = templateData->getFloatField("cold");
 		acid = templateData->getFloatField("acid");
 		lightSaber = templateData->getFloatField("lightSaber");
+
+		rarity = templateData->getStringField("rarity");
 
 		int skillLevel = 0;
 		int _rpSkillLevel = templateData->getIntField("rpSkillLevel");
@@ -158,6 +165,10 @@ public:
 		return rpSkillLevel;
 	}
 
+	inline String getRarity() const {
+		return rarity;
+	}
+
 	inline String getRatingString() const {
 		if (rating == 0) {
 			return "None";
@@ -171,7 +182,7 @@ public:
 			return "Unknown";
 		}
 	}
-
+ 
 	float getStun() const {
 		return stun;
 	}
@@ -226,6 +237,10 @@ public:
 
 	void setLightSaber(float lightSaber) {
 		this->lightSaber = lightSaber;
+	}
+
+	void setRarity(String rarity) {
+		this->rarity = rarity;
 	}
 
 	void setMindEncumbrance(int mindEncumbrance) {

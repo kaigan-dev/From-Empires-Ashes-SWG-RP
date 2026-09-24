@@ -1,7 +1,7 @@
 npc_template = {
 
 	randomName = "trandoshan",
-	baseTemplates = {"bomarr_monk_spider_droid"},
+	baseTemplates = {"rp_human_male"},
 	skillTemplates = {"bomarr_droid"},
 	
 	equipmentTemplates = {

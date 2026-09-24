@@ -15,21 +15,28 @@ object_weapon_roleplay_ranged_rifle_ld1_target_blaster_rifle = object_weapon_ran
 
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
-	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 8,
+	maxDamage = 8, --Type of Die used in Damage
+	bonusDamage = 10,
 
-	pointBlankRange = 8,
-	pointBlankAccuracy = 5,
-	
 	noDodgeReaction = true,
 
-	idealRange = 128,
+	pointBlankRange = 100,
+	pointBlankAccuracy = 5,
+
+	idealRange = 256,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 260,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Legendary",
+	itemValue = 20000,
+	maxAmmo = 5,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

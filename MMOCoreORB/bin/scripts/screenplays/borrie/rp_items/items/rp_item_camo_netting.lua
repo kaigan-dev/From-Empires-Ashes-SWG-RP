@@ -4,7 +4,7 @@ BorRpItemCamoNettingMenuComponent = {}
 function BorRpItemCamoNettingMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuResponse, pPlayer)
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 
-	menuResponse:addRadialMenuItem(20, 3, "Use")
+	--menuResponse:addRadialMenuItem(20, 3, "Use")
 end
 
 function BorRpItemCamoNettingMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID)
@@ -12,9 +12,11 @@ function BorRpItemCamoNettingMenuComponent:handleObjectMenuSelect(pObject, pPlay
 		return 0
 	end
 	
+	--[[
 	if (selectedID == 20) then 
 		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! - Borrie")
 	end
+	--]]
 	
 	return 0
 end

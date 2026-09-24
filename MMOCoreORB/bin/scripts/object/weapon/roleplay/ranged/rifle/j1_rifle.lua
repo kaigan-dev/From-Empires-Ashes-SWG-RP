@@ -18,16 +18,25 @@ object_weapon_roleplay_ranged_rifle_j1_rifle = object_weapon_ranged_rifle_shared
 	maxDamage = 8, --Type of Die used in Damage
 	bonusDamage = 4,
 
-	pointBlankRange = 8,
+	noPowerAttack = true,
+
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 120,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Uncommon",
+	itemValue = 600,
+	maxAmmo = 10,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

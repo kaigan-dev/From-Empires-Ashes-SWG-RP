@@ -16,18 +16,23 @@ object_weapon_roleplay_ranged_pistol_scatter_pistol = object_weapon_ranged_pisto
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 3, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 3,
+	bonusDamage = 2,
 
-	pointBlankRange = 0,
+	pointBlankRange = 2,
 	pointBlankAccuracy = 5,
 
 	idealRange = 16,
 	idealAccuracy = 10,
 
-	maxRange = 86,
+	maxRange = 32,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
-	rarity="Epic",
+	rarity="Uncommon",
+	itemValue = 600,
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

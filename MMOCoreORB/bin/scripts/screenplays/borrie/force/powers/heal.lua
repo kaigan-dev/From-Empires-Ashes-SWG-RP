@@ -4,18 +4,20 @@ BorForce_Heal = {
 
 function BorForce_Heal:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Roll against DC:10 Check (Alter Roll + 1d20) to heal your health pool for <ForcePointInput> * 2."
+	helpMessage =  helpMessage .. "As a major action, roll Alter vs DC 10 to heal your own health pool for 2 times the FPI spent."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Heal:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_alter_a01")
+	
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_heal")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
-	
+
+
 	local fpi = BorForceUtility:getForcePointInput(pPlayer)
 	
 	if(fpi < 1) then
@@ -60,6 +62,8 @@ function BorForce_Heal:performAbility(pPlayer, fpi)
 		return
 	end
 	
+
+	--Begin Force Code
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_alter"))
 	local roll = math.floor(math.random(1,20))	
 		
@@ -74,6 +78,7 @@ function BorForce_Heal:performAbility(pPlayer, fpi)
 	
 	broadcastMessageWithName(pPlayer, message)
 	
+	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	
 end
 

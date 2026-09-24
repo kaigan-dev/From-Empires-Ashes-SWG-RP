@@ -95,7 +95,7 @@ config:
 
 clean: clean-cmake
 	#cd $(BUILD_PATH) && ${MAKE} clean
-	#cd utils/googletest-release-1.8.0/googlemock && ${MAKE} clean
+	#cd utils/googletest-release-1.10.0/googlemock && ${MAKE} clean
 	#cd $(BUILD_PATH)/src && rm *
 	#cd $(BUILD_PATH)/src/.deps && rm *
 

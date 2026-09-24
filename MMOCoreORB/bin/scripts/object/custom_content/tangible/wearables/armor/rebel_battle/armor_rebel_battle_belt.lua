@@ -44,7 +44,7 @@
 object_tangible_wearables_armor_rebel_battle_armor_rebel_battle_belt = object_tangible_wearables_armor_rebel_battle_shared_armor_rebel_battle_belt:new {
 	templateType = ARMOROBJECT,
 
-    objectMenuComponent = "ArmorObjectMenuComponent",
+    --objectMenuComponent = "ArmorObjectMenuComponent",
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",
 				"object/creature/player/smc_male.iff",

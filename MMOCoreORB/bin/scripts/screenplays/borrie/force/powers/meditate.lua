@@ -4,17 +4,19 @@ BorForce_Meditate = {
 
 function BorForce_Meditate:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage =  helpMessage .. "Spend a will point to regenerate half of your force bar as a short rest. Can only be done in a safe space. "
+	helpMessage =  helpMessage .. "Adds a new type of Rest which recovers your Force pool and part of your Health & Action pools."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_Meditate:execute(pPlayer)
+	--[[ Remove Force prereqs
 	local hasPower = CreatureObject(pPlayer):hasSkill("rp_inward_novice")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+	-]]
 	
 	self:performAbility(pPlayer)
 end
@@ -30,7 +32,9 @@ function BorForce_Meditate:performAbility(pPlayer, fpi)
 	if (pGhost == nil) then
 		return
 	end
-	
+
+	CreatureObject(pPlayer):sendSystemMessage("Use the /rest menu to meditate and regain your Force pool.")
+	--[[ Disable Meditate outside of the rest menu
 	local forcePower = math.floor(PlayerObject(pGhost):getForcePower())
 	local forcePowerMax = math.floor(PlayerObject(pGhost):getForcePowerMax())
 	
@@ -55,4 +59,5 @@ function BorForce_Meditate:performAbility(pPlayer, fpi)
 	CreatureObject(pPlayer):setHAM(6, CreatureObject(pPlayer):getHAM(6) - 1)	
 	
 	broadcastMessageWithName(pPlayer, message)
+	--]]
 end

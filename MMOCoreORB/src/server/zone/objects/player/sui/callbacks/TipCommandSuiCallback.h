@@ -33,9 +33,10 @@ public:
 		// Player must have sufficient funds including surcharge
 		int cash = player->getBankCredits();
 		int surcharge = amount < 21 ? 1 : round(amount * 0.05); // minimum surcharge is 1c as per Live.
-		if ((amount + surcharge) > cash) {
+		//if ((amount + surcharge) > cash) {
+		if ((amount) > cash) {
 			StringIdChatParameter ptnsfw("base_player", "prose_tip_nsf_wire"); // You do not have %DI credits (surcharge included) to tip the desired amount to %TT.
-			ptnsfw.setDI(amount + surcharge);
+			ptnsfw.setDI(amount );
 			ptnsfw.setTT(targetPlayer->getCreatureName());
 			player->sendSystemMessage(ptnsfw);
 			return;
@@ -45,10 +46,11 @@ public:
 		Locker clocker(targetPlayer, player);
 
 		TransactionLog trx(player, targetPlayer, TrxCode::PLAYERTIP, amount, false);
-		TransactionLog trxFee(player, TrxCode::TIPSURCHARGE, surcharge, false);
-		trxFee.groupWith(trx);
+		//TransactionLog trxFee(player, TrxCode::TIPSURCHARGE, surcharge, false);
+		//trxFee.groupWith(trx);
 
-		player->subtractBankCredits(amount + surcharge);
+		//player->subtractBankCredits(amount + surcharge);
+		player->subtractBankCredits(amount);
 		targetPlayer->addBankCredits(amount, true);
 
 		// Duly notify parties involved

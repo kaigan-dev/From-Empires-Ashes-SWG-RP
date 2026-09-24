@@ -95,7 +95,7 @@ function RpForceScrollMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuRe
 	
 	local skillString = SceneObject(pSceneObject):getStoredString("skill")
 
-	menuResponse:addRadialMenuItem(20, 3, "Read")
+	--menuResponse:addRadialMenuItem(20, 3, "Read")
 	if(PlayerObject(pGhost):isPrivileged()) then
 		menuResponse:addRadialMenuItem(80, 3, "DM Options")
 		menuResponse:addRadialMenuItemToRadialID(80, 102, 3, "Make Beginner Scroll")
@@ -123,6 +123,7 @@ function RpForceScrollMenuComponent:handleObjectMenuSelect(pObject, pPlayer, sel
 		return
 	end
 	
+	--[[
 	if (selectedID == 20) then 
 		if(CreatureObject(pPlayer):hasSkill("rp_force_prog_rank_01")) then
 			local skillString = SceneObject(pObject):getStoredString("skill")
@@ -135,7 +136,9 @@ function RpForceScrollMenuComponent:handleObjectMenuSelect(pObject, pPlayer, sel
 		else 
 			CreatureObject(pPlayer):sendSystemMessage("The things taught in this scroll seem to be downright impossible to comprehend, steeped in some hokey religion.")
 		end		
-	elseif(selectedID == 100) then --Re-Initialize
+	else
+	--]]
+	if(selectedID == 100) then --Re-Initialize
 		BorForce:initializeScroll(pObject)
 		CreatureObject(pPlayer):sendSystemMessage("Re-initialized Scroll.")
 	elseif(selectedID == 101) then --Give to Target

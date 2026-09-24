@@ -380,6 +380,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->registerFunction("spawnSceneObject", spawnSceneObject);
 	luaEngine->registerFunction("spawnActiveArea", spawnActiveArea);
 	luaEngine->registerFunction("spawnBuilding", spawnBuilding);
+	luaEngine->registerFunction("spawnBuildingInZone", spawnBuildingInZone);
 	luaEngine->registerFunction("destroyBuilding", destroyBuilding);
 	luaEngine->registerFunction("getSceneObject", getSceneObject);
 	luaEngine->registerFunction("getCreatureObject", getCreatureObject);
@@ -2215,6 +2216,52 @@ int DirectorManager::spawnBuilding(lua_State* L) {
 	return 1;
 }
 
+
+
+int DirectorManager::spawnBuildingInZone(lua_State* L) {
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 6) {
+		String err = "incorrect number of arguments passed to DirectorManager::spawnBuildingInZone";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+
+	float x, y, angle;
+	uint64 parentID;
+	String script, zoneID, zoneName;
+
+	zoneName = lua_tostring(L, -1);
+	angle = lua_tointeger(L, -2);
+	y = lua_tonumber(L, -3);
+	x = lua_tonumber(L, -4);
+	script = lua_tostring(L, -5);
+	CreatureObject* creature = (CreatureObject*)lua_touserdata(L, -6);
+
+	SharedStructureObjectTemplate* serverTemplate = dynamic_cast<SharedStructureObjectTemplate*>(TemplateManager::instance()->getTemplate(script.hashCode()));
+
+	Zone* zone = ServerCore::getZoneServer()->getZone(zoneName);
+
+	if (serverTemplate == nullptr) {
+		String err = "Unable to find template for building " + script;
+		printTraceError(L, err);
+		lua_pushnil(L);
+	} else {
+		StructureObject* structure = StructureManager::instance()->placeStructure(creature, zone, script, x, y, 0, 0);
+		if (structure == nullptr) {
+			String err = "Unable to spawn building " + script;
+			printTraceError(L, err);
+			lua_pushnil(L);
+		} else {
+			structure->_setUpdated(true);
+			lua_pushlightuserdata(L, structure);
+		}
+	}
+	return 1;
+}
+
+
+
 int DirectorManager::destroyBuilding(lua_State* L) {
 	int numberOfArguments = lua_gettop(L);
 	if (numberOfArguments != 1) {
@@ -2283,7 +2330,7 @@ int DirectorManager::spawnSceneObject(lua_State* L) {
 		script = lua_tostring(L, -6);
 		zoneID = lua_tostring(L, -7);
 	}
-
+ 
 	ZoneServer* zoneServer = ServerCore::getZoneServer();
 	Zone* zone = zoneServer->getZone(zoneID);
 
@@ -3126,7 +3173,7 @@ int DirectorManager::awardSkill(lua_State* L) {
 	if(creature == nullptr)
 		return 0;
 
-	SkillManager::instance()->awardSkill(skillName, creature, true, true, true);
+	SkillManager::instance()->awardSkill(skillName, creature, true, true, true, 1);
 
 	return 0;
 }
@@ -3999,6 +4046,7 @@ int DirectorManager::getItemTemplateInformation(lua_State* L) {
 		if (weaponTemplate->getBonusDamage() > 0)
 			result << "Bonus Damage: " << weaponTemplate->getBonusDamage() << endl;
 		//Armor Piercing
+		/*  Remove armor piercing from display on weapons, as it is not used in the RP system. 3/26/2026
 		int ap = weaponTemplate->getArmorPiercing();
 		if (ap == 0)
 			result << "Armor Piercing: None" << endl;
@@ -4008,6 +4056,7 @@ int DirectorManager::getItemTemplateInformation(lua_State* L) {
 			result << "Armor Piercing: Medium" << endl;
 		else if (ap == 3)
 			result << "Armor Piercing: Heavy" << endl;
+		*/
 		//Damage Type
 		result << "Damage Type: " << weaponTemplate->getDamageTypeString() << endl;
 		//Min Range
@@ -4077,6 +4126,7 @@ int DirectorManager::getItemTemplateInformation(lua_State* L) {
 		result << stimpackTemplate->getGameObjectType() << endl;
 		//Healing Potential: 
 		result << "Healing Potential: " << stimpackTemplate->getDieCount() << "d" << stimpackTemplate->getDieType() << endl;
+		result << "Bonus Healing: " << stimpackTemplate->getBonusHealing()  << endl;
 		//Medicine Dice Check:
 		result << "Medicine DC: " << stimpackTemplate->getDieCheck() << endl;
 		//Is Droid

@@ -585,21 +585,23 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	//Join auction chat room
 	ghost->addChatRoom(chatManager->getAuctionRoom()->getRoomID());
 
-	ChatRoom* oocRoom = chatManager->getChatRoomByFullPath("SWG.Dark Rebellion.Chat.ooc");
+	ChatRoom* oocRoom = chatManager->getChatRoomByFullPath("SWG.From Empire's Ashes.Chat.ooc");
 	if(oocRoom != nullptr) {
 		ghost->addChatRoom(oocRoom->getRoomID());
 	}	
 
 	ManagedReference<SuiMessageBox*> box = new SuiMessageBox(playerCreature, SuiWindowType::NONE);
 	box->setPromptTitle("PLEASE NOTE");
-	box->setPromptText("You are given 30 free attribute skill boxes, and 10 free skill boxes. Use /train to assign these free points to build your initial character. Plan carefully, as these free points cannot be refunded.");
+	box->setPromptText("You are given 30 free attribute skill boxes and a number of experience points. To build your initial character, use /train to assign your attributes first. Then assign experience to your skills. Plan carefully, as these cannot be refunded.");
 
 	ghost->addSuiBox(box);
 	playerCreature->sendMessage(box->generateMessage());
 
 	//Apply free points for roleplay.
 	playerCreature->setStoredInt("starter_attr_points", 30);
-	playerCreature->setStoredInt("starter_skill_points", 10);
+	//playerCreature->setStoredInt("starter_skill_points", 15);
+	playerManager->awardExperience(playerCreature, "rp_general", 38000);
+		
 
 	return true;
 }
@@ -1098,14 +1100,14 @@ void PlayerCreationManager::addRacialMods(CreatureObject* creature,
 		}
 	} 
 
-	SkillManager::instance()->awardSkill("rp_strength_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_precision_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_dexterity_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_awareness_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_intelligence_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_charisma_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_constitution_novice", creature, false, true, true);
-	SkillManager::instance()->awardSkill("rp_mindfulness_novice", creature, false, true, true);
+	SkillManager::instance()->awardSkill("rp_strength_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_precision_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_dexterity_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_awareness_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_intelligence_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_charisma_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_constitution_novice", creature, false, true, true, 1);
+	SkillManager::instance()->awardSkill("rp_mindfulness_novice", creature, false, true, true, 1);
 
 	SkillManager::instance()->awardSkill("rp_bg_roleplayer", creature, false, true, true);
 

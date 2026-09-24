@@ -4,6 +4,7 @@
 #include "server/zone/objects/player/sui/SuiCallback.h"
 #include "server/zone/objects/player/sui/transferbox/SuiTransferBox.h"
 
+
 class TrainCommandSuiCallback : public SuiCallback {
 private:
 	int state;
@@ -19,7 +20,7 @@ public:
 		bool cancelPressed = (eventIndex == 1);
 
 		PlayerManager* playerManager = player->getZoneServer()->getPlayerManager();
-
+ 
 		if (playerManager == nullptr)
 			return;
 
@@ -134,7 +135,7 @@ public:
 
 	String GetSkillStringFromID(int id) {
 		if (id == 0)
-			return "armor";
+			return "armorer";
 		else if (id == 1)
 			return "athletics";
 		else if (id == 2)
@@ -222,7 +223,8 @@ public:
 		box->setCallback(new TrainCommandSuiCallback(server, 0, 0));
 		box->setPromptTitle("Training Menu");
 		if(freeSkillPoints > 0 || freeAttrPoints > 0) {
-			box->setPromptText("What would you like to do?\n\nFree Attribute Boxes: " + String::valueOf(freeAttrPoints) + "\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
+			box->setPromptText("What would you like to do?\n\nFree Attribute Boxes: " + String::valueOf(freeAttrPoints));
+			//+ "\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
 		} else box->setPromptText("What would you like to do?");	
 		box->setCancelButton(true, "@cancel");
 		//box->setOkButton(false, "@");
@@ -268,12 +270,13 @@ public:
 
 		box->setPromptTitle("Training Skill Menu");
 		if(freeSkillPoints > 0) {
-			box->setPromptText("What skill would you like to rank up? Remember that skills can only go as high as their associated attribute's max rank.\n\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
+			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's rank.");
+				 // \n\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
 		} else {
-			box->setPromptText("What skill would you like to rank up? Remember that skills can only go as high as their associated attribute's max rank.");
+			box->setPromptText("What skill would you like to rank up? Remember that skills cost considerably more when they are raised above their associated attribute's rank.");
 		}
 
-		box->addMenuItem("Armor " +				GetSkillNumeral(BorSkill::GetRealSkillLevel(player,"armor")+1));
+		box->addMenuItem("Armorer " +				GetSkillNumeral(BorSkill::GetRealSkillLevel(player,"armorer")+1));
 		box->addMenuItem("Athletics " +			GetSkillNumeral(BorSkill::GetRealSkillLevel(player,"athletics")+1));
 		box->addMenuItem("Bluff " +				GetSkillNumeral(BorSkill::GetRealSkillLevel(player,"bluff")+1));
 		box->addMenuItem("Composure " +			GetSkillNumeral(BorSkill::GetRealSkillLevel(player,"composure")+1));
@@ -328,7 +331,7 @@ public:
 		} else {
 			suibox->setPromptTitle("Not eligible for training.");
 			//Failure. Can't train.
-			suibox->setPromptText("You are not currently eligible to train this attribute. You do not have enough experience points.");
+			suibox->setPromptText("You are not currently eligible to train this attribute. You do not have enough experience points or have already raised your total attributes to 48.");
 			suibox->setCallback(new TrainCommandSuiCallback(server, -1, state));
 			suibox->setCancelButton(true, "Go Back");
 		}	
@@ -337,25 +340,65 @@ public:
 	}
 
 	void OpenConfirmSkillSelectionWindow(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
-		int freeSkillPoints = player->getStoredInt("starter_skill_points");
-		int freeAttrPoints = player->getStoredInt("starter_attr_points");
+		//int freeSkillPoints = player->getStoredInt("starter_skill_points");
+				int freeAttrPoints = player->getStoredInt("starter_attr_points");
 		int index = Integer::valueOf(args->get(0).toString());
 		String skillName = GetSkillStringFromID(index);
 		String skillParent = BorSkill::GetSkillParent(skillName);
-		String skillAltParent = BorSkill::GetSkillAltParent(skillName);
+		//String skillAltParent = BorSkill::GetSkillAltParent(skillName);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skillName);
 		ManagedReference<SuiMessageBox*> suibox = new SuiMessageBox(player, SuiWindowType::TEACH_OFFER);
-		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, skillAltParent)) {
-			suibox->setPromptTitle("Confirm training?"); 
+		
+		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
+		float costMultiplier = 1;
+		if(parentLevel < currentRank + 1) {
+			int parentDifference = currentRank + 1 - parentLevel;
+			costMultiplier = 2 * parentDifference;
+			//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: The difference between the skill rank and parent rank is " + std::to_string(parentDifference) + " and the costMultiplier is " + std::to_string(costMultiplier));
+		}
+
+		int modifiedXpCost = static_cast<int>(BorSkill::getSkillCost(player, skillName, currentRank+1) * costMultiplier);
+		//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: modified XP cost is " + std::to_string(modifiedXpCost));
+
+		
+		String textColor = "\\#.";
+		if(costMultiplier > 1.0)
+		{
+			if(costMultiplier > 4.0){
+				textColor = "\\#FF0000";
+			}
+			else{
+				textColor = "\\#FFFF00";
+			}
+		}
+		
+
+		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skillName, skillParent, costMultiplier)) {
+
 			//Can train!
-			suibox->setPromptText("Are you sure you want to train this skill?");
-			suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
-			suibox->setOkButton(true, "Confirm");
-			suibox->setCancelButton(true, "Go Back");
+			if(parentLevel < currentRank + 1)
+			{
+				//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
+				suibox->setPromptTitle("Confirm training?"); 
+				suibox->setPromptText("Because this will exceed your " + skillParent + ", training " + skillName + " will cost an increased " + textColor + std::to_string(modifiedXpCost) + "\\#. XP. Are you sure you want to train this skill?");
+				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
+				suibox->setOkButton(true, "Confirm");
+				suibox->setCancelButton(true, "Go Back");
+			}
+			else{
+				//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned true.");
+				suibox->setPromptTitle("Confirm training?"); 
+				suibox->setPromptText("Training " + skillName + " will cost " + std::to_string(modifiedXpCost) + " XP. Are you sure you want to train this skill?");
+				suibox->setCallback(new TrainCommandSuiCallback(server, 4, index));
+				suibox->setOkButton(true, "Confirm");
+				suibox->setCancelButton(true, "Go Back");
+			}
+			
 		} else {
+			//player->sendSystemMessage("OpenConfirmSkillSelectionWindow: CanTrainNextSkill returned false.");
 			suibox->setPromptTitle("Not eligible for training.");
 			//Failure. Can't train.
-			suibox->setPromptText("You are not currently eligible to train this skill. You do not have enough experience points and high enough of the associated attribute.");
+			suibox->setPromptText("You do not have enough experience points to train this skill.");
 			suibox->setCallback(new TrainCommandSuiCallback(server, -1, state));
 			suibox->setCancelButton(true, "Go Back");
 		}	
@@ -372,10 +415,10 @@ public:
 			int freePoints = player->getStoredInt("starter_attr_points");
 			if(freePoints > 0) {
 				player->setStoredInt("starter_attr_points", freePoints - 1);
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true, 1);
 				player->sendSystemMessage("You've gained a point in " + skill + ". You have " + String::valueOf(freePoints - 1) + " remaining free attribute points.");
 			} else {
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, 1);
 				player->sendSystemMessage("You've gained a point in " + skill + ".");
 			}
 		} else {
@@ -387,19 +430,31 @@ public:
 	void TrainSkill(CreatureObject* player, SuiBox* suiBox, uint32 eventIndex, Vector<UnicodeString>* args, int state, int selection) {
 		String skill = GetSkillStringFromID(selection);
 		String skillParent = BorSkill::GetSkillParent(skill);
-		String skillAltParent = BorSkill::GetSkillAltParent(skill);
+		//String skillAltParent = BorSkill::GetSkillAltParent(skill);
 		int currentRank = BorSkill::GetRealSkillLevel(player, skill);
-		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, skillAltParent)) {
+		int parentLevel = BorSkill::GetRealSkillLevel(player, skillParent);
+
+		float costMultiplier = 1;
+		if(parentLevel < currentRank + 1) {
+			int parentDifference = currentRank + 1 - parentLevel;
+			//costMultiplier = 1.75 * parentDifference;
+			costMultiplier = 2 * parentDifference;
+		}
+
+		if (BorSkill::CanTrainNextSkill(player, currentRank + 1, skill, skillParent, costMultiplier)) {
 			//Train it
 			SkillManager* skillManager = SkillManager::instance();
-			
+						
 			int freePoints = player->getStoredInt("starter_skill_points");
 			if(freePoints > 0) {
 				player->setStoredInt("starter_skill_points", freePoints - 1);
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true);
+				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, true, false, costMultiplier);
 				player->sendSystemMessage("You've gained a point in " + skill + "! You have " + String::valueOf(freePoints - 1) + " remaining free skill points.");
 			} else {
-				skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false);
+				bool awardResult = skillManager->awardSkill("rp_" + skill + "_" + BorSkill::GetSkillSuffixFromValue(currentRank + 1), player, true, false, false, false, costMultiplier);
+				if(awardResult) {
+				} else {
+				}
 				player->sendSystemMessage("You've gained a point in " + skill + "!");
 			}
 		} else {

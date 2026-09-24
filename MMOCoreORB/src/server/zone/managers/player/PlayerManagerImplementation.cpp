@@ -2586,23 +2586,25 @@ void PlayerManagerImplementation::handleVerifyTradeMessage(CreatureObject* playe
 				}
 			}
 
-			uint32 giveMoney = tradeContainer->getMoneyToTrade();
 
-			if (giveMoney > 0) {
-				TransactionLog trx(player, receiver, TrxCode::PLAYERTRADE, giveMoney, true);
+			uint32 playerGiveMoney = tradeContainer->getMoneyToTrade();
+			uint32 receiverGiveMoney = receiverTradeContainer->getMoneyToTrade();
+
+			if (playerGiveMoney > 0) {
+				TransactionLog trx(player, receiver, TrxCode::PLAYERTRADE, playerGiveMoney, true);
 				trx.setTrxGroup(trxGroup);
-				player->subtractCashCredits(giveMoney);
-				receiver->addCashCredits(giveMoney);
+				player->subtractCashCreditsNoNotify(playerGiveMoney);
+				receiver->addCashCredits(playerGiveMoney, false);
 			}
 
-			giveMoney = receiverTradeContainer->getMoneyToTrade();
 
-			if (giveMoney > 0) {
-				TransactionLog trx(receiver, player, TrxCode::PLAYERTRADE, giveMoney, true);
+			if (receiverGiveMoney > 0) {
+				TransactionLog trx(receiver, player, TrxCode::PLAYERTRADE, receiverGiveMoney, true);
 				trx.setTrxGroup(trxGroup);
-				receiver->subtractCashCredits(giveMoney);
-				player->addCashCredits(giveMoney);
+				receiver->subtractCashCreditsNoNotify(receiverGiveMoney);
+				player->addCashCredits(receiverGiveMoney, false);
 			}
+
 
 			receiver->dropActiveSession(SessionFacadeType::TRADE);
 			player->dropActiveSession(SessionFacadeType::TRADE);
@@ -3288,9 +3290,7 @@ StructureObject* PlayerManagerImplementation::getInRangeBoardableRpShip(Creature
 					if(shipObject->isBuildingObject()) {
 						//Check to see if the player is on the admin list, entry list, or if the ship is private
 						BuildingObject* shipStructure = cast<BuildingObject*>( shipObject.get());
-						if(shipStructure->isPublicStructure()) {
-							validEntry = true;
-						} else if(shipStructure->isOnAdminList(creature)) {
+						if(shipStructure->isOnAdminList(creature)) {
 							validEntry = true;
 						} else if(shipStructure->isAllowedEntry(creature)) {
 							validEntry = true;
@@ -3312,8 +3312,9 @@ StructureObject* PlayerManagerImplementation::getInRangeBoardableRpShip(Creature
 		}
 	}
 
-	if (distance < 10)
+	if (distance < 10) {
 		return structure;
+	}
 
 	return nullptr;
 }
@@ -3390,7 +3391,7 @@ void PlayerManagerImplementation::updatePermissionLevel(CreatureObject* targetPl
 			for (int i = 0; i < skillsToBeAdded->size(); ++i) {
 				const String& skill = skillsToBeAdded->get(i);
 				targetPlayer->sendSystemMessage("Staff skill granted: " + skill);
-				skillManager->awardSkill(skill, targetPlayer, false, true, true);
+				skillManager->awardSkill(skill, targetPlayer, false, true, true, 1);
 			}
 		}
 	}
@@ -3962,7 +3963,7 @@ void PlayerManagerImplementation::finishHologrind(CreatureObject* player) {
 	ghost->addSuiBox(box);
 	player->sendMessage(box->generateMessage());
 
-	SkillManager::instance()->awardSkill("force_title_jedi_novice", player, true, false, true);
+	SkillManager::instance()->awardSkill("force_title_jedi_novice", player, true, false, true, 1);
 
 	ghost->setJediState(1);
 
@@ -4555,7 +4556,7 @@ bool PlayerManagerImplementation::acceptTeachingOffer(CreatureObject* teacher, C
 		return false;
 	}
 
-	if (teacher->hasSkill(skill->getSkillName()) && skillManager->awardSkill(skill->getSkillName(), student, true, false, false)) {
+	if (teacher->hasSkill(skill->getSkillName()) && skillManager->awardSkill(skill->getSkillName(), student, true, false, false, 1)) {
 		StringIdChatParameter params("teaching", "student_skill_learned"); //You learn %TO from %TT.
 		params.setTO("@skl_n:" + skill->getSkillName());
 		params.setTT(teacher->getDisplayedName());
@@ -4608,7 +4609,7 @@ SortedVector<String> PlayerManagerImplementation::getTeachableSkills(CreatureObj
 
 		const auto& skillName = skill->getSkillName();
 
-		if(BorCharacter::GetSkillIsTrainable(skillName) && skillManager->canLearnSkill(skillName, student, false))
+		if(BorCharacter::GetSkillIsTrainable(skillName) && skillManager->canLearnSkill(skillName, student, false, 1))
 			skills.put(skillName);
 		
 	}
@@ -6207,7 +6208,7 @@ void PlayerManagerImplementation::unlockFRSForTesting(CreatureObject* player, in
 	for (int i = 0; i < 6; i++) {
 		String branch = branches[i];
 		player->setScreenPlayState("VillageUnlockScreenPlay:" + branch, 2);
-		skillManager->awardSkill(branch + "_04", player, true, true, true);
+		skillManager->awardSkill(branch + "_04", player, true, true, true, 1);
 	}
 
 	luaFrsTesting = lua->createFunction("FsOutro", "completeVillageOutroFrog", 0);
@@ -6220,10 +6221,10 @@ void PlayerManagerImplementation::unlockFRSForTesting(CreatureObject* player, in
 
 	luaFrsTesting->callFunction();
 
-	skillManager->awardSkill("force_discipline_light_saber_master", player, true, true, true);
-	skillManager->awardSkill("force_discipline_enhancements_master", player, true, true, true);
-	skillManager->awardSkill("force_discipline_healing_damage_04", player, true, true, true);
-	skillManager->awardSkill("force_discipline_healing_states_04", player, true, true, true);
+	skillManager->awardSkill("force_discipline_light_saber_master", player, true, true, true, 1);
+	skillManager->awardSkill("force_discipline_enhancements_master", player, true, true, true, 1);
+	skillManager->awardSkill("force_discipline_healing_damage_04", player, true, true, true, 1);
+	skillManager->awardSkill("force_discipline_healing_states_04", player, true, true, true, 1);
 
 	luaFrsTesting = lua->createFunction("JediTrials", "completeKnightForTesting", 0);
 	*luaFrsTesting << player;

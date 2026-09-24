@@ -19,7 +19,7 @@ object_tangible_wearables_armor_roleplay_composite_armor_composite_boots = objec
 
 
 	rating = MEDIUM,
-	rpskill = 8,
+	rpskill = 4,
 
 
 	kinetic = 4,
@@ -31,6 +31,7 @@ object_tangible_wearables_armor_roleplay_composite_armor_composite_boots = objec
 	cold = 4,
 	acid = 4,
 	lightsaber = -1,
+	lightSaber = -1,
 	
 	rarity = "Epic",
 

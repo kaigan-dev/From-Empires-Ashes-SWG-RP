@@ -45,7 +45,7 @@ object_tangible_wearables_armor_clone_trooper_armor_clone_trooper_neutral_s01_be
 	templateType = ARMOROBJECT,
 
 	--objectMenuComponent = {"cpp", "ArmorObjectMenuComponent"},
-    objectMenuComponent = "ArmorObjectMenuComponent",
+    --objectMenuComponent = "ArmorObjectMenuComponent",
 	--faction = "Imperial",
 
 	playerRaces = { "object/creature/player/bothan_male.iff",

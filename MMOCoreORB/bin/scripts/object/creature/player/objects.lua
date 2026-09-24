@@ -1615,7 +1615,7 @@ object_creature_player_shared_zabrak_female = SharedCreatureObjectTemplate:new {
 	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/creature/base/shared_base_creature.iff", "object/creature/player/base/shared_base_player.iff"}
 ]]
 }
-
+ 
 ObjectTemplates:addClientTemplate(object_creature_player_shared_zabrak_female, "object/creature/player/shared_zabrak_female.iff")
 
 object_creature_player_shared_zabrak_male = SharedCreatureObjectTemplate:new {
@@ -1712,6 +1712,7 @@ object_creature_player_shared_hutt_female = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_hutt_female.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_hutt_female, "object/creature/player/shared_hutt_female.iff")
 
+
 --Nautolan male
 object_creature_player_shared_nautolan_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_nautolan_male.iff"}
@@ -1801,7 +1802,6 @@ ObjectTemplates:addClientTemplate(object_creature_player_shared_gotal_male, "obj
 object_creature_player_shared_talz_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_talz_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_talz_male, "object/creature/player/shared_talz_male.iff")
-
 --Borrie Races
 
 --Iktotchi male
@@ -1843,6 +1843,7 @@ ObjectTemplates:addClientTemplate(object_creature_player_shared_arcona_male, "ob
 object_creature_player_shared_toydarian_male = SharedCreatureObjectTemplate:new {
 	clientTemplateFileName = "object/creature/player/shared_toydarian_male.iff"}
 ObjectTemplates:addClientTemplate(object_creature_player_shared_toydarian_male, "object/creature/player/shared_toydarian_male.iff")
+
 
 --Selonian female
 object_creature_player_shared_selonian_female = SharedCreatureObjectTemplate:new {

@@ -59,6 +59,9 @@ object_tangible_deed_pet_deed_deed_3p0_basic = object_tangible_deed_pet_deed_sha
 	experimentalMax = {0, 0, 15, 0, 0, 100, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+	isMountable = 0,
+	skillTemplate = "droid",
+	equipmentTemplate = "creature_small",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_deed_3p0_basic, "object/tangible/deed/pet_deed/deed_3p0_basic.iff")

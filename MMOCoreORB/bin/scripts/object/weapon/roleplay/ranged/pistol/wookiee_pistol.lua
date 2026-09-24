@@ -20,16 +20,21 @@ object_weapon_roleplay_ranged_pistol_wookiee_pistol = object_weapon_ranged_pisto
 	
 	noPowerAttack = true,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Uncommon",
+	itemValue = 600,
+	maxAmmo = 6,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

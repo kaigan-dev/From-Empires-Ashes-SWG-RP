@@ -18,16 +18,21 @@ object_weapon_roleplay_ranged_pistol_crimson_nova_pistol = object_weapon_ranged_
 	maxDamage = 3, --Type of Die used in Damage
 	bonusDamage = 5,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Epic",
+	itemValue = 10000,
+	maxAmmo = 6,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -7,6 +7,7 @@
 
 #include "server/zone/borrie/BorCharacter.h"
 #include "server/zone/objects/creature/sui/RestRPCommandSuiCallback.h"
+#include "server/zone/objects/region/CityRegion.h"
 
 class RestRpCommand : public QueueCommand {
 	
@@ -61,11 +62,64 @@ public:
 				args.getStringToken(command);
 				if(command == "short") {
 					BorCharacter::PerformShortRest(targetCreature);
-				} else if(command == "long") {
-					BorCharacter::FillAllPools(targetCreature);
-					BorCharacter::HandleDarksideFading(targetCreature);
 				}
+				else if(command == "meditate") {
 
+					if(targetCreature->hasSkill("rp_frc_meditate")) {
+						BorCharacter::PerformMeditateRest(targetCreature);
+					}
+
+				}
+				else if(command == "long") {
+					ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+					int adminLevelCheck = ghost->getAdminLevel();
+					uint64 time = Time::currentNanoTime() / 1000000;
+					if(time < creature->getStoredLong("last_rest") && adminLevelCheck == 0) {
+						uint64 timeRemaining = creature->getStoredLong("last_rest") - time;
+						creature->sendSystemMessage("You can rest again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
+						return GENERALERROR;
+					}
+
+					String zone = creature->getZone()->getZoneName();
+
+					bool isBuildingAdmin = false;
+					bool isBuildingAllowed = false;
+					ManagedReference<SceneObject*> rootParent = creature->getRootParent();
+					if(rootParent != nullptr && rootParent->isBuildingObject()) {
+	            		BuildingObject* building = cast<BuildingObject*>( rootParent.get());
+						isBuildingAdmin = building->isOnAdminList(creature);
+						isBuildingAllowed = building->isOnEntryList(creature);
+					}
+
+					bool isInCity = false;
+					ManagedReference<CityRegion*> cr = creature->asSceneObject()->getCityRegion().get();
+					if(cr != nullptr) {
+						isInCity = true;
+					}
+					
+					bool isInCamp = false;
+					ManagedReference<CampSiteActiveArea*> campArea = creature->getCurrentCamp();
+					if(campArea != nullptr) {
+						isInCamp = true;
+					}
+
+					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || isInCamp || adminLevelCheck > 0) {
+						BorCharacter::FillAllPools(targetCreature);
+						//BorCharacter::HandleDarksideFading(targetCreature);
+						targetCreature->setStoredInt("hero_point_used", 0);
+						creature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
+
+						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+							ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
+							if(!pet->asCreatureObject()->isDead())
+								BorCharacter::FillAllPools(pet->asCreatureObject());
+				}
+					}
+					else {
+						creature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
+					}
+				}
+ 
 				targetCreature->setStoredInt("power_attack_count", 0);
 		} else {
 			//Open SUI Menu
@@ -77,6 +131,11 @@ public:
 				box->setCancelButton(true, "@cancel");
 				box->addMenuItem("Short Rest");
 				box->addMenuItem("Long Rest");
+				
+				if(targetCreature->hasSkill("rp_frc_meditate")) {
+					box->addMenuItem("Meditate");
+				}
+
 				creature->getPlayerObject()->addSuiBox(box);
 				creature->sendMessage(box->generateMessage());
 		}

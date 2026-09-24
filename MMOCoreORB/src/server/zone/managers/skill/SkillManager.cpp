@@ -234,11 +234,14 @@ void SkillManager::removeAbilities(PlayerObject* ghost, const Vector<String>& ab
 	return true;
 }*/
 
-bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature, bool notifyClient, bool awardRequiredSkills, bool noXpRequired, bool dmOverride) {
+bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature, bool notifyClient, bool awardRequiredSkills, bool noXpRequired, bool dmOverride, float costMultiplier) {
 	auto skill = skillMap.get(skillName.hashCode());
 
 	if (skill == nullptr)
+	{
+		creature->sendSystemMessage("No valid skill passed");
 		return false;
+	}
 
 	Locker locker(creature);
 
@@ -249,32 +252,40 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 		auto requiredSkill = skillMap.get(requiredSkillName.hashCode());
 
 		if (requiredSkill == nullptr)
+		{
+			creature->sendSystemMessage("No prereqs are required");
 			continue;
+		}
 
 		if (awardRequiredSkills)
 			awardSkill(requiredSkillName, creature, notifyClient, awardRequiredSkills, noXpRequired);
 
 		if (!creature->hasSkill(requiredSkillName))
+		{
+			creature->sendSystemMessage("You don't have the prereq " + requiredSkillName);
 			return false;
+		}
 	}
 
-	if (!canLearnSkill(skillName, creature, noXpRequired)) {
+	if (!canLearnSkill(skillName, creature, noXpRequired, costMultiplier)) {
 		return false;
 	}
-
+ 
 	//If they already have the skill, then return true.
 	if (creature->hasSkill(skill->getSkillName()))
 		return true;
 
 	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
-
+ 
 	if (ghost != nullptr) {
 		//Withdraw skill points.
 		ghost->addSkillPoints(-skill->getSkillPointsRequired());
 
 		//Witdraw experience.
 		if (!noXpRequired) {
-			ghost->addExperience(skill->getXpType(), -skill->getXpCost(), true);
+			int skillCost = static_cast<int>(round(skill->getXpCost() * costMultiplier));
+			//creature->sendSystemMessage("The skill cost is " + std::to_string(skillCost));
+			ghost->addExperience(skill->getXpType(), -skillCost, true);
 		}
 
 		creature->addSkill(skill, notifyClient);
@@ -353,18 +364,18 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 		//if (skill->getSkillName().contains("force_sensitive") && skill->getSkillName().contains("_04"))
 			//JediManager::instance()->onFSTreeCompleted(creature, skill->getSkillName());
 
-		if(!dmOverride) {
-			if(skill->getSkillName().contains("rp_lightsaber") || skill->getSkillName().contains("rp_sense") || skill->getSkillName().contains("rp_lightning")
+		//if(!dmOverride) {
+		if(skill->getSkillName().contains("rp_lightsaber") || skill->getSkillName().contains("rp_sense") || skill->getSkillName().contains("rp_lightning")
 			|| skill->getSkillName().contains("rp_telekinesis") || skill->getSkillName().contains("rp_control") || skill->getSkillName().contains("rp_alter")
 			|| skill->getSkillName().contains("rp_inward")) {
 			//Prompt Force Immersion Update Check
 			int fsCount = getForceSkillCount(creature);
-			if(creature->hasSkill("rp_force_prog_rank_03")) {
-				if(fsCount >= 40) {
+			if(creature->hasSkill("rp_force_prog_rank_01")) {
+				if(fsCount >= 25) {
 						awardSkill("rp_force_prog_rank_04", creature, notifyClient, false, false);
 					}
-				}else if(creature->hasSkill("rp_force_prog_rank_02")) {
-					if(fsCount >= 20) {
+				else if(creature->hasSkill("rp_force_prog_rank_02")) {
+					if(fsCount >= 15) {
 						awardSkill("rp_force_prog_rank_03", creature, notifyClient, false, false);
 					}
 				} else if(creature->hasSkill("rp_force_prog_rank_01")) {
@@ -377,7 +388,8 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 
 		MissionManager* missionManager = creature->getZoneServer()->getMissionManager();
 
-		
+	
+	/*
 		if (skill->getSkillName() == "force_title_jedi_rank_02") {
 			if (missionManager != nullptr)
 				missionManager->addPlayerToBountyList(creature->getObjectID(), ghost->calculateBhReward());
@@ -397,6 +409,7 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 			}
 		}
 	}
+	*/
 
 	
 
@@ -413,8 +426,10 @@ bool SkillManager::awardSkill(const String& skillName, CreatureObject* creature,
 
 	SkillModManager::instance()->verifySkillBoxSkillMods(creature);
 
+	}
 	return true;
 }
+
 
 void SkillManager::removeSkillRelatedMissions(CreatureObject* creature, Skill* skill) {
 	if(skill->getSkillName().hashCode() == STRING_HASHCODE("combat_bountyhunter_investigation_03")) {
@@ -578,6 +593,12 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 			}
 		}
 
+		//If the skill is a force skill, refund a point of Force Skill Cap XP
+		String skillName = skill->getSkillName();
+		if (skillName.beginsWith("rp_telekinesis") || skillName.beginsWith("rp_control") || skillName.beginsWith("rp_alter") || skillName.beginsWith("rp_inward") || skillName.beginsWith("rp_lightning") || skillName.beginsWith("rp_lightsaber") || skillName.beginsWith("rp_sense")) {
+			playerManager->awardExperience(creature, "rp_frc_skill_cap", 1);
+		}
+
 		// Update Roleplay HAM
 		ghost->recalculateRoleplayHAM(notifyClient);
 	}
@@ -734,7 +755,7 @@ void SkillManager::updateXpLimits(PlayerObject* ghost) {
 	}
 }
 
-bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creature, bool noXpRequired) {
+bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creature, bool noXpRequired, float costMultiplier) {
 	Skill* skill = skillMap.get(skillName.hashCode());
 
 	if (skill == nullptr) {
@@ -758,7 +779,11 @@ bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creatu
 	if (ghost != nullptr) {
 		//Check if player has enough xp to learn the skill.
 		if (!noXpRequired) {
-			if (ghost->getExperience(skill->getXpType()) < skill->getXpCost()) {
+			int modifiedXpCost = static_cast<int>(round(skill->getXpCost() * costMultiplier));
+			//creature->sendSystemMessage("canLearnSkill: Total cost " + std::to_string(modifiedXpCost) + " = base cost " + std::to_string(skill->getXpCost()) + " * cost multiplier " + std::to_string(costMultiplier));
+			if (ghost->getExperience(skill->getXpType()) < modifiedXpCost && !creature->getStoredInt("starter_attr_points")) {
+			//	creature->sendSystemMessage("canLearnSkill: It has been determined that your experience total of " + std::to_string(ghost->getExperience(skill->getXpType())) + " is less than the total cost of " + std::to_string(modifiedXpCost));
+				creature->sendSystemMessage("You do not have enough experience to learn this skill. Its total cost is: " + std::to_string(modifiedXpCost));
 				return false;
 			}
 		}
@@ -771,7 +796,6 @@ bool SkillManager::canLearnSkill(const String& skillName, CreatureObject* creatu
 		//Could not retrieve player object.
 		return false;
 	}
-
 
 	return true;
 }
@@ -956,4 +980,21 @@ bool SkillManager::villageKnightPrereqsMet(CreatureObject* creature, const Strin
 	}
 
 	return fullTrees >= 2 && totalJediPoints >= 206;
+
+}
+
+
+int SkillManager::getSkillCost(CreatureObject* creature, String skillName){
+	//SkillManager* skillManager = SkillManager::instance();
+	//Skill* skill = skillMap.get(skillName.hashCode());
+	auto skill = skillMap.get(skillName.hashCode());
+	
+	if (skill == nullptr)
+	{
+		creature->sendSystemMessage("No valid skill passed");
+		return 0;
+	}
+			
+	//creature->sendSystemMessage("SkillManager getSkillCost: XP cost is " + std::to_string(skill->getXpCost()));
+	return skill->getXpCost();
 }

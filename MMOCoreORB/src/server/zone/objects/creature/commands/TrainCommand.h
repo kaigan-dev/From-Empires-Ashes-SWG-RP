@@ -40,7 +40,8 @@ public:
 			box->setCallback(new TrainCommandSuiCallback(creature->getZoneServer(), 0, 0));
 			box->setPromptTitle("Training Menu");
 			if(freeSkillPoints > 0 || freeAttrPoints > 0) {
-				box->setPromptText("What would you like to do?\n\nFree Attribute Boxes: " + String::valueOf(freeAttrPoints) + "\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));
+				box->setPromptText("What would you like to do?\n\nFree Attribute Boxes: " + String::valueOf(freeAttrPoints));
+				//+ "\nFree Skill Boxes: " + String::valueOf(freeSkillPoints));     //Previously displayed free skill points.
 			} else box->setPromptText("What would you like to do?");			
 			box->setCancelButton(true, "@cancel");
 			box->setOkButton(false, "@");

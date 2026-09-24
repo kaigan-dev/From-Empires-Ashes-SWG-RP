@@ -47,12 +47,13 @@ public:
             int jediState = luaObject.getIntField("jediState");
             int lightsaberBuilder = luaObject.getIntField("lightsaberBuilder");
 
-            target->setFirstName(firstName, true);
-            target->setLastName(lastName, true);
+            target->setFirstName(firstName);
+            target->setLastName(lastName);
             target->addCashCredits(cash);
             target->addBankCredits(bank);
 
             pMan->awardExperience(target, "rp_general", experience);
+            pMan->awardExperience(target, "rp_frc_skill_cap", experience);
 
             target->setShockWounds(corruption);
 
@@ -70,7 +71,7 @@ public:
             if(skills.isValidTable()) {
                 for (int i = 1; i <= skills.getTableSize(); ++i) {
                     String skillName = skills.getStringAt(1);
-                    skillManager->awardSkill(skillName, target, true, true, true, true);
+                    skillManager->awardSkill(skillName, target, true, true, true, true, 1);
                 }
             }
 

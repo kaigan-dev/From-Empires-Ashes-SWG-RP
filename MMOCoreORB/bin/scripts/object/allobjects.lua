@@ -743,6 +743,7 @@ includeFile("tangible/wearables/armor/bone/objects.lua")
 includeFile("tangible/wearables/armor/bounty_hunter/objects.lua")
 includeFile("tangible/wearables/armor/chitin/objects.lua")
 includeFile("tangible/wearables/armor/composite/objects.lua")
+includeFile("tangible/wearables/armor/infiltrator/objects.lua")
 includeFile("tangible/wearables/armor/ithorian_defender/objects.lua")
 includeFile("tangible/wearables/armor/ithorian_guardian/objects.lua")
 includeFile("tangible/wearables/armor/ithorian_sentinel/objects.lua")
@@ -1361,6 +1362,7 @@ includeFile("tangible/item/roleplay/broken_saber/polearm/objects.lua")
 includeFile("tangible/item/roleplay/broken_saber/sword/objects.lua")
 
 includeFile("tangible/borrp/item/objects.lua")
+includeFile("tangible/borrp/crafting/objects.lua")
 
 includeFile("tangible/borrie/cantina/objects.lua")
 

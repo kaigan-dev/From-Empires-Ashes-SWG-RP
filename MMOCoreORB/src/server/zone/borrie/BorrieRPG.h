@@ -22,6 +22,7 @@
 #include "server/zone/managers/player/PlayerManager.h"
 #include "server/zone/managers/player/PlayerMap.h"
 #include "server/chat/ChatManager.h"
+#include "server/zone/borrie/BorChat.h"
 
 #include "server/login/account/Account.h"
 
@@ -97,6 +98,8 @@ public:
         object->setSerialNumber(serialNumber);
         object->setStoredString("dm_creator", weapon->getStoredString("dm_creator"));
 		object->setStoredString("rp_description", weapon->getStoredString("rp_description"));
+		int condition = weapon->getConditionDamage();
+		object->setConditionDamage(condition);
 
         //Move Items to new Object
         if(weapon->isJediWeapon()) {
@@ -133,14 +136,148 @@ public:
 			creature->sendSystemMessage("Error transferring object to inventory.");
 		}
 
+		//Goodbye existing Weapon
+        weapon->destroyObjectFromWorld(true);
+		weapon->destroyObjectFromDatabase(true);
+
         //Equip the new item, destroy the old one.
         inventory->transferObject(weapon, -1, true);
 		creature->transferObject(object, 4, true);
 
-        //Goodbye existing Weapon
-        weapon->destroyObjectFromWorld(true);
-		weapon->destroyObjectFromDatabase(true);
+        
     }
+
+
+	static void SwitchCFE(CreatureObject* creature, String CFEtype) {
+        WeaponObject* equippedWeapon = creature->getWeapon();
+		if (equippedWeapon != nullptr) {
+			String equippedWeaponName = equippedWeapon->getCustomObjectName().toString();
+			if (equippedWeaponName.contains("A280CFE")) {
+				creature->sendSystemMessage("You must unequip your A280CFE before changing its mode.");
+				return;
+			}
+		}
+
+		//Check whether the player has an A280 CFE.
+		ManagedReference<SceneObject*> inv = creature->getSlottedObject("inventory");
+		//ManagedReference<TangibleObject*> originalWeapon;
+		TangibleObject* originalWeapon;
+
+		if(inv != nullptr) {
+			int containerSize = inv->getContainerObjectsSize();
+			bool foundCFE = false;
+			for (int j = containerSize - 1; j >= 0; --j) {
+				ManagedReference<SceneObject*> unknownItem = inv->getContainerObject(j);
+				if(unknownItem == nullptr)
+					continue;
+				String foundItemName = unknownItem->getCustomObjectName().toString();
+				//creature->sendSystemMessage("Debug: item name is " + foundItemName);
+				if (foundItemName.contains("A280CFE")) {
+    				originalWeapon = unknownItem->asTangibleObject();
+    				if (originalWeapon != nullptr) {
+						WeaponObject* weapon = cast<WeaponObject*>(originalWeapon);
+						if(weapon != nullptr) {
+							if(weapon->isRangedWeapon()) {
+								foundCFE = true;
+								break;
+							}
+						}
+					}
+					else {
+					creature->sendSystemMessage("Found an A280 CFE weapon which cannot be cast to tangible. Contact an admin for assistance.");
+					return;
+					}
+				}
+			}
+			if(!foundCFE) {
+				creature->sendSystemMessage("You do not have an A280 CFE to modify.");
+				return;
+			}
+		}
+		else {
+			creature->sendSystemMessage("You somehow do not have an inventory.");
+			return;
+		}
+
+		String CFEpath;
+		//Determine new weapon
+		if(CFEtype == "pistol" || CFEtype == "PISTOL" || CFEtype == "Pistol") {
+			CFEpath = "object/weapon/roleplay/ranged/pistol/pistol_a280cfe.iff";
+		}
+		else if (CFEtype == "carbine" || CFEtype == "CARBINE" || CFEtype == "Carbine") {
+			CFEpath = "object/weapon/roleplay/ranged/carbine/carbine_a280cfe.iff";
+		}
+		else if (CFEtype == "rifle" || CFEtype == "RIFLE" || CFEtype == "Rifle") {
+			CFEpath = "object/weapon/roleplay/ranged/rifle/a280cfe.iff";
+		}
+		else if (CFEtype == "sniper" || CFEtype == "SNIPER" || CFEtype == "Sniper") {
+			CFEpath = "object/weapon/roleplay/ranged/rifle/a280cfe_sniper.iff";
+		}
+		else {
+			creature->sendSystemMessage("Invalid weapon type specified. You must specify pistol, carbine, rifle, or sniper.");
+			return;
+		}
+
+		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+		if(ghost == nullptr) {
+			creature->sendSystemMessage("For some reason you are not a Player. Contact an admin for assistance.");
+			return;
+		}
+		int adminLevelCheck = ghost->getAdminLevel();
+
+		uint64 time = Time::currentNanoTime() / 1000000;
+		if(originalWeapon->getStoredLong("last_cfe_switch") && originalWeapon->getStoredLong("last_cfe_switch") != 1) {
+			if(time < originalWeapon->getStoredLong("last_cfe_switch") && adminLevelCheck == 0) {
+				uint64 timeRemaining = originalWeapon->getStoredLong("last_cfe_switch") - time;
+				creature->sendSystemMessage("You can switch your CFE's weapon type again in " + String::valueOf(timeRemaining / 3600000) + " hours.");
+				return;
+			}
+		}
+
+
+		Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(CFEpath.hashCode());
+        if (shot == nullptr || !shot->isSharedTangibleObjectTemplate()) {
+			creature->sendSystemMessage("No object template was found at the specified path. Please contact an admin.");
+			return;
+		}
+
+        ManagedReference<TangibleObject*> object = (creature->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+		if (object == nullptr) {
+			creature->sendSystemMessage("Cannot cast template to tangible object. Please contact an admin.");
+			return;
+		}
+
+		
+        Locker olocker(object);
+		object->createChildObjects();
+
+		String craftersName = originalWeapon->getCraftersName();
+        object->setCraftersName(craftersName);
+        String serialNumber = originalWeapon->getSerialNumber();
+        object->setSerialNumber(serialNumber);
+        object->setStoredString("dm_creator", originalWeapon->getStoredString("dm_creator"));
+		object->setStoredString("rp_description", originalWeapon->getStoredString("rp_description"));
+		int condition = originalWeapon->getConditionDamage();
+		object->setConditionDamage(condition);
+		int ammoUsed = originalWeapon->getStoredInt("ammo_used");
+		object->setStoredInt("ammo_used", ammoUsed);
+		object->setStoredLong("last_cfe_switch", time + 12 * 60 * 60 * 1000); 
+		
+
+        //Give this new item to the player.
+        if (inv->transferObject(object, -1, true)) {
+			inv->broadcastObject(object, true);
+			//Goodbye existing Weapon
+        	originalWeapon->destroyObjectFromWorld(true);
+			originalWeapon->destroyObjectFromDatabase(true);
+			creature->sendSystemMessage("Your A280 CFE has been reconfigured as a " + CFEtype + ". You will be able to switch its weapon type again in 12 hours.");
+		} else {
+			object->destroyObjectFromDatabase(true);
+			creature->sendSystemMessage("Error transferring object to inventory.");
+		}        
+    }
+
+
 
 	static void AlertTurn(CreatureObject* creature) {
 		UnicodeString message1(" --\\#pcontrast1 [ It's " + creature->getFirstName() + "'s turn! ]\\#. --");
@@ -516,25 +653,6 @@ public:
 		creature->sendMessage(sui->generateMessage());
 	}
 
-	/*
-	static void ReportOnlineCount(CreatureObject* creature) {
-		StringBuffer fetchStatement;
-		fetchStatement << "SELECT COUNT(*) FROM rp_characters WHERE isonline = '1'";
-		UniqueReference<ResultSet*> fetchedResults(ServerDatabase::instance()->executeQuery(fetchStatement.toString()));
-		if (fetchedResults == nullptr) {
-			creature->sendSystemMessage("An error occured. Could not get online count. (ERROR:1)");
-		} else {
-			if (fetchedResults->next()) {
-				String count = fetchedResults->getString(0);
-				creature->sendSystemMessage("Current Online Players: " + count + ".");
-				// TODO: Want to retrieve more information and inform them of statuses.
-			} else {
-				creature->sendSystemMessage("An error occured. Could not get online count. (ERROR:2)");
-			}
-		}
-	} 
-	*/
-
 	static int GetChatTypeID(String chatType) {
 		if (chatType == "say")
 			return 0;
@@ -749,17 +867,29 @@ public:
 	}
 
 	static void copyTarget(CreatureObject* creature, SceneObject* target, bool overrideFlag = false) {
-		if(target == nullptr) return;
+		//creature->sendSystemMessage("Debug: We are now attempting to copy an item.");
+
+		if(target == nullptr) {
+			creature->sendSystemMessage("Copy target is null.");
+			return;
+		}
 		ManagedReference<TangibleObject*> tanoTarget = target->asTangibleObject();
+
+		//creature->sendSystemMessage("Debug: We have cast the sceneObject as a tangibleObject.");
+
 		String objectTemplate = target->getObjectTemplate()->getFullTemplateString();
 		objectTemplate = objectTemplate.replaceAll("shared_", "");
 		creature->sendSystemMessage("Cloning Object: " + objectTemplate);
 		ManagedReference<CraftingManager*> craftingManager = creature->getZoneServer()->getCraftingManager();
+
+		//creature->sendSystemMessage("Debug: we have initialized the crafting manager");
+
 		if (!objectTemplate.contains("object/tangible") && !objectTemplate.contains("object/weapon")) {
 			creature->sendSystemMessage("Templates must be a tangible or weapon object.");
 			return;
 		}
 		if (craftingManager == nullptr) {
+			creature->sendSystemMessage("Crafting manager is null.");
 			return;
 		}
 		Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());

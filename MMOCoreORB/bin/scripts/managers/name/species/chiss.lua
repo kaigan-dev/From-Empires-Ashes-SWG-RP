@@ -171,7 +171,7 @@ nameManagerChiss = {
 		{ "v", true, true, true, 100 },
 		{ "vv", false, true, true, 5 },
 		{ "w", true, true, true, 100 },
-		{ "wh", true, true, false, 10 },
+		--{ "wh", true, true, false, 10 },
 		{ "wr", true, true, false, 10 },
 		{ "ww", false, true, true, 5 },
 		{ "x", true, true, true, 10 },

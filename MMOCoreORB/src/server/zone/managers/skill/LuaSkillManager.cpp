@@ -64,7 +64,7 @@ int LuaSkillManager::canLearnSkill(lua_State* L) {
 	String skillName = lua_tostring(L, -2);
 	CreatureObject* creo = (CreatureObject*) lua_touserdata(L, -3);
 
-	bool canLearn = realObject->canLearnSkill(skillName, creo, xpReq);
+	bool canLearn = realObject->canLearnSkill(skillName, creo, xpReq, 1);
 
 	lua_pushboolean(L, canLearn);
 

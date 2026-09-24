@@ -71,7 +71,7 @@ public:
 	void addAbilities(PlayerObject* ghost, const Vector<String>& abilityNames, bool notifyClient = true);
 	void removeAbilities(PlayerObject* ghost, const Vector<String>& abilityNames, bool notifyClient = true);
 
-	bool awardSkill(const String& skillName, CreatureObject* creature, bool notifyClient = true, bool awardRequiredSkills = false, bool noXpRequired = false, bool dmOverride = false);
+	bool awardSkill(const String& skillName, CreatureObject* creature, bool notifyClient = true, bool awardRequiredSkills = false, bool noXpRequired = false, bool dmOverride = false, float costMultiplier = 1);
 	void awardDraftSchematics(Skill* skill, PlayerObject* ghost, bool notifyClient = true);
 
 	bool surrenderSkill(const String& skillName, CreatureObject* creature, bool notifyClient = true, bool verifyFrs = true);
@@ -85,7 +85,7 @@ public:
 	 * grant skill command).
 	 * @return true if the player fulfills the requirements.
 	 */
-	bool canLearnSkill(const String& skillName, CreatureObject* creature, bool noXpRequired);
+	bool canLearnSkill(const String& skillName, CreatureObject* creature, bool noXpRequired, float costMultiplier);
 
 	/**
 	 * Checks if the player fulfills the skill prerequisites and has enough XP for the skill.
@@ -104,6 +104,8 @@ public:
 	bool fulfillsSkillPrerequisites(const String& skillName, CreatureObject* creature);
 
 	bool villageKnightPrereqsMet(CreatureObject* creature, const String& skillToDrop);
+
+	int getSkillCost(CreatureObject* creature, String skillName);
 
 	int getForceSensitiveSkillCount(CreatureObject* creature, bool includeNoviceMasterBoxes);
 

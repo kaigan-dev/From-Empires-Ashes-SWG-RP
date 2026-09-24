@@ -220815,3 +220815,14 @@ object_mobile_shared_rp_zabrak_male = SharedCreatureObjectTemplate:new {
 ObjectTemplates:addClientTemplate(object_mobile_shared_rp_zabrak_male, "object/mobile/shared_rp_zabrak_male.iff")
 --******************************************************************************************************************
 
+object_mobile_shared_rp_ewok_female = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/shared_dressed_ewok_f_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_mobile_shared_rp_ewok_female, "object/mobile/shared_dressed_ewok_f_01.iff")
+--**********************************************************************************************************************
+object_mobile_shared_rp_ewok_male = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/shared_dressed_ewok_m_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_mobile_shared_rp_ewok_male, "object/mobile/shared_dressed_ewok_m_01.iff")
+--******************************************************************************************************************
+

@@ -18,16 +18,23 @@ object_weapon_roleplay_ranged_rifle_westarm5_blaster_rifle = object_weapon_range
 	maxDamage = 3, --Type of Die used in Damage
 	bonusDamage = 5,
 
-	pointBlankRange = 8,
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 120,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Epic",
+	itemValue = 10000,
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

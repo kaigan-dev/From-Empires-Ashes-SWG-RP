@@ -470,6 +470,11 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 	if (!force && (pet->isInCombat() || player->isInCombat() || player->isDead()))
 		return;
 
+	if (pet->isDead() || pet->getPosture() == 6) {
+		player->sendSystemMessage("You cannot store a dead pet. Confirm with a GM whether it is unrecoverable. If so, delete it from your datapad.");
+		return;
+	}
+
 	if (player->isRidingMount() && player->getParent() == pet) {
 
 		if (!force && !player->checkCooldownRecovery("mount_dismount"))
@@ -552,6 +557,8 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	if (stagesToGrow == 0 && !force)
 		return true;
+	else
+		stagesToGrow = 1;
 
 	int newStage = growthStage + stagesToGrow;
 	if (newStage > 10)
@@ -568,12 +575,17 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	assert(pet->isLockedByCurrentThread());
 
-	if (preEligibility == PetManager::CANBEMOUNTTRAINED && postEligibility == PetManager::TOOLARGE && !force) {
+	//if (preEligibility == PetManager::CANBEMOUNTTRAINED && postEligibility == PetManager::TOOLARGE && !force) {
+	if (preEligibility == PetManager::CANBEMOUNTTRAINED && postEligibility == PetManager::TOOLARGE) {
 		if (isTrainedAsMount()) {
 			arrestGrowth();
 			return true;
 		}
 
+		// Always arrest growth at mount size if mountable.
+		arrestGrowth();
+		return true;
+		/*
 		PlayerObject* ghost = player->getPlayerObject();
 
 		if (ghost == nullptr){
@@ -592,6 +604,7 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 		ghost->addSuiBox(box);
 		player->sendMessage(box->generateMessage());
 		return false;
+		*/
 	}
 
 	if (adult)
@@ -842,6 +855,7 @@ void PetControlDeviceImplementation::fillAttributeList(AttributeListMessage* alm
 			alm->insertAttribute("creature_action", pet->getBaseHAM(3));
 			alm->insertAttribute("creature_mind", pet->getBaseHAM(6));
 
+			/*  We will get armor from the creature's RP template instead of the following.
 			int armor = pet->getArmor();
 			if (armor == 0)
 				alm->insertAttribute("armor_rating", "None");
@@ -896,7 +910,9 @@ void PetControlDeviceImplementation::fillAttributeList(AttributeListMessage* alm
 				alm->insertAttribute("dna_comp_armor_saber", "Vulnerable");
 			else
 				alm->insertAttribute("dna_comp_armor_saber", pet->getLightSaber());
+			*/
 
+			
 			ManagedReference<WeaponObject*> weapon = pet->getWeapon();
 			if (weapon != nullptr){
 				StringBuffer displayValue;

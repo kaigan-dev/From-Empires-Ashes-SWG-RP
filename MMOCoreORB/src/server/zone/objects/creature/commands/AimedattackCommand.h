@@ -66,40 +66,67 @@ public:
 		if (args.hasMoreTokens()) {
 			args.getStringToken(command);
 			bool ignoreLOS = false;
-			//This code is repeated because "nolos" is intended to be the last input, and there might be three argumemnts.
+			int advDis = 0;
+			//This code is repeated because "nolos" is intended to be the last input, and there might be four argumemnts.
 			if(args.hasMoreTokens()) {
 				args.getStringToken(subCommand);
-				if(subCommand == "nolos")
+				if(subCommand == "nolos") {
 					ignoreLOS = true;
+				}
+				if (subCommand == "advantage" || subCommand == "adv") {
+					advDis = 1;
+				}
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand == "disadv") {
+					advDis = 2;
+				}
 			}
 			if(args.hasMoreTokens()) {
 				args.getStringToken(subCommand);
-				if(subCommand == "nolos")
+				if(subCommand == "nolos") {
 					ignoreLOS = true;
+				}
+				if (subCommand == "advantage" || subCommand == "adv") {
+					advDis = 1;
+				}
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand == "disadv") {
+					advDis = 2;
+				}
+			}
+			if(args.hasMoreTokens()) {
+				args.getStringToken(subCommand);
+				if(subCommand == "nolos") {
+					ignoreLOS = true;
+				}
+				if (subCommand == "advantage" || subCommand == "adv") {
+					advDis = 1;
+				}
+				if (subCommand == "disadvantage"  || subCommand == "dis" || subCommand == "disadv") {
+					advDis = 2;
+				}
 			}
 
 			if(command == "legs" || command == "leg" || command == "knee" || command == "knees" || command == "dick" || command == "crotch" || command == "shins" || command == "groin") {
-				BorCombat::AttackTarget(creature, targetCreature, creature, 3, false, ignoreLOS);
+				BorCombat::AttackTarget(creature, targetCreature, creature, 3, false, ignoreLOS, advDis);
 			} else if(command == "forearm" || command == "lowerarm" || command == "bracer") {
 				if(subCommand == "left") {
-					BorCombat::AttackTarget(creature, targetCreature, creature, 5, false, ignoreLOS);
+					BorCombat::AttackTarget(creature, targetCreature, creature, 5, false, ignoreLOS, advDis);
 				} else {
-					BorCombat::AttackTarget(creature, targetCreature, creature, 6, false, ignoreLOS);
+					BorCombat::AttackTarget(creature, targetCreature, creature, 6, false, ignoreLOS, advDis);
 				}
 			} else if(command == "bicep" || command == "upperarm" || command == "shoulder") {
 				if(subCommand == "left") {
-					BorCombat::AttackTarget(creature, targetCreature, creature, 7, false, ignoreLOS);
+					BorCombat::AttackTarget(creature, targetCreature, creature, 7, false, ignoreLOS, advDis);
 				} else {
-					BorCombat::AttackTarget(creature, targetCreature, creature, 8, false, ignoreLOS);
+					BorCombat::AttackTarget(creature, targetCreature, creature, 8, false, ignoreLOS, advDis);
 				}
 			} else if(command == "feet" || command == "foot" || command == "toes"  || command == "hoof" || command == "paw") {
-				BorCombat::AttackTarget(creature, targetCreature, creature, 4, false, ignoreLOS);
+				BorCombat::AttackTarget(creature, targetCreature, creature, 4, false, ignoreLOS, advDis);
 			} else if(command == "chest" || command == "heart"  || command == "stomach" || command == "gut" || command == "ribs") {
-				BorCombat::AttackTarget(creature, targetCreature, creature, 1, false, ignoreLOS);
+				BorCombat::AttackTarget(creature, targetCreature, creature, 1, false, ignoreLOS, advDis);
 			} else if(command == "hands"  || command == "gloves" || command == "fingers") {
-				BorCombat::AttackTarget(creature, targetCreature, creature, 9, false, ignoreLOS);
+				BorCombat::AttackTarget(creature, targetCreature, creature, 9, false, ignoreLOS, advDis);
 			} else if (command == "head" || command == "face" || command == "eyes" || command == "neck" || command == "hat" || command == "helmet") {
-				BorCombat::AttackTarget(creature, targetCreature, creature, 10, false, ignoreLOS);
+				BorCombat::AttackTarget(creature, targetCreature, creature, 10, false, ignoreLOS, advDis);
 			} else {
 				//Open SUI
 				OpenSUI(creature, targetCreature);
@@ -120,19 +147,19 @@ public:
 			box->setPromptTitle("Aimed Attack Menu");
 			box->setCancelButton(true, "@cancel");
 			box->setOkButton(false, "@");
-			box->addMenuItem("Chest");
-			box->addMenuItem("Legs");
-			box->addMenuItem("Feet");
-			box->addMenuItem("Left Forearm");
-			box->addMenuItem("Right Forearm");
-			box->addMenuItem("Left Bicep");
-			box->addMenuItem("Right Bicep");
-			box->addMenuItem("Hands");
-			box->addMenuItem("Head");
+			box->addMenuItem("Chest (+0 DC)");
+			box->addMenuItem("Legs (+5 DC)");
+			box->addMenuItem("Feet (+5 DC)");
+			box->addMenuItem("Left Forearm (+5 DC)");
+			box->addMenuItem("Right Forearm (+5 DC)");
+			box->addMenuItem("Left Bicep (+5 DC)");
+			box->addMenuItem("Right Bicep (+5 DC)");
+			box->addMenuItem("Hands (+10 DC)");
+			box->addMenuItem("Head (+10 DC)");
 			creature->getPlayerObject()->addSuiBox(box);
 			creature->sendMessage(box->generateMessage());
 		} catch (Exception& e) {
-			creature->sendSystemMessage("Error encountered when using train command.");
+			creature->sendSystemMessage("Error encountered when using aimed attack command.");
 		}
 	}
 

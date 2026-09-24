@@ -23,7 +23,13 @@ public:
 
 		if (!creature->isPlayerCreature())
 			return GENERALERROR;
-
+	
+		if (!creature->getStoredLong("storedtarget"))
+		{
+			creature->sendSystemMessage("You need a stored target to be the attacker!");
+			return SUCCESS;
+		}
+			
 		uint64 storedTarget = creature->getStoredLong("storedtarget");
 
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
@@ -50,6 +56,9 @@ public:
 			return SUCCESS;
 		}
 
+		if (object == nullptr)
+			return GENERALERROR;
+
 		ManagedReference<SceneObject*> storedObject;
 		if (storedTarget != 0) {
 			storedObject = server->getZoneServer()->getObject(storedTarget, false);
@@ -60,7 +69,7 @@ public:
 
 		ManagedReference<CreatureObject*> targetCreature;
 
-		if (object->isCreatureObject()) {
+		if (object->isCreatureObject() && storedObject != nullptr && storedObject.get() != nullptr) {
 			targetCreature = object->asCreatureObject();
 		} else {
 			creature->sendSystemMessage("You need a target to attack!");
@@ -69,7 +78,7 @@ public:
 
 		ManagedReference<CreatureObject*> storedTargetCreature;
 
-		if (storedObject->isCreatureObject()) {
+		if (storedObject->isCreatureObject() && storedObject != nullptr && storedObject.get() != nullptr) {
 			storedTargetCreature = storedObject->asCreatureObject();
 		} else {
 			creature->sendSystemMessage("You need a stored target to be the attacker!");
@@ -97,9 +106,13 @@ public:
 			} else if(command == "flurry") {
 				BorCombat::FlurryAttackTarget(storedTargetCreature, targetCreature, creature, noLos);
 			} else if(command == "aimed") {
-				creature->sendSystemMessage("Not yet implemented, sorry. Complain to Borrie.");
+				creature->sendSystemMessage("Not yet implemented, sorry.");
 			} else if(command == "nolos") {
 				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, true);
+			} else if(command == "advantage" || command == "adv") {
+				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, noLos, 1);
+			} else if(command == "disadvantage" || command == "dis" || command == "disadv") {
+				BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false, noLos, 2);
 			}
 		} else {
 			BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, false);

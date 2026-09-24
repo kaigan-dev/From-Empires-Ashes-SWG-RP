@@ -137,9 +137,9 @@ public:
 	void onFail(uint32 actioncntr, CreatureObject* creature, uint32 errorNumber) const {
 		// evidence shows that this has a custom OOR message.
 		if (errorNumber == TOOFAR) {
-			creature->sendSystemMessage("@error_message:target_out_of_range"); //Your target is out of range for this action.
-			CombatSpam* spam = new CombatSpam(creature, nullptr, creature, nullptr, 0, "cbt_spam", "out_of_range", 10); // That target is out of range. (red)
-			creature->sendMessage(spam);
+			//creature->sendSystemMessage("@error_message:target_out_of_range"); //Your target is out of range for this action.
+			//CombatSpam* spam = new CombatSpam(creature, nullptr, creature, nullptr, 0, "cbt_spam", "out_of_range", 10); // That target is out of range. (red)
+			//creature->sendMessage(spam);
 			QueueCommand::onFail(actioncntr, creature, GENERALERROR);
 		} else {
 			QueueCommand::onFail(actioncntr, creature, errorNumber);
@@ -226,7 +226,7 @@ public:
 			return TOOCLOSE;
 
 		if (!CollisionManager::checkLineOfSight(creature, targetObject)) {
-			creature->sendSystemMessage("@cbt_spam:los_fail"); // "You lost sight of your target."
+			//creature->sendSystemMessage("@cbt_spam:los_fail"); // "You lost sight of your target."
 			return GENERALERROR;
 		}
 

@@ -19,7 +19,6 @@
 
 #include "templates/params/creature/CreatureAttribute.h"
 
-
 class BorCharacter : public Logger {
 public:
 	static bool GetStringIsPool(String pool) {
@@ -36,7 +35,14 @@ public:
 	}
 
 	static ManagedReference<ArmorObject*> GetArmorAtSlot(CreatureObject* creature, String slot) {
-		return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		if (creature->isPlayerCreature()) {
+			return creature->getWearablesDeltaVector()->getArmorAtSlot(slot);
+		}
+		else {
+			SceneObject* slob = creature->getSlottedObject(slot);
+			ManagedReference<ArmorObject*> npcArm = cast<ArmorObject*>(slob);
+			return npcArm;
+		}
 	}
 
 	static void SetChatPrefix(CreatureObject* creature, String prefix) {
@@ -81,13 +87,11 @@ public:
 			box->setCallback(new ForceSensitivePromptSuiCallback(creature->getZoneServer()));
 			box->setPromptTitle("Force Sensitivity");
 			String message = "You must choose whether or not this character is sensitive to the Force. ";
-			message += "If you choose to be Force Sensitive, you will have the option to train your ability in the Force, becoming Jedi, Sith, or something else. ";
-			message += "If you opt not to be Force Sensitive, you will have an extra 20 skill points available to you, as well as 5 more free skills you can train. ";
 			message += "WARNING: Once you've made this decision, it is final. So choose carefully.";
 			box->setPromptText(message);
 			box->setOkButton(false, "@");
-			box->addMenuItem("I am Force Sensitive (-20 Skill Points)");
-			box->addMenuItem("I am NOT Force Sensitive (+5 Free Skills)");
+			box->addMenuItem("I am Force Sensitive");
+			box->addMenuItem("I am NOT Force Sensitive");
 			creature->getPlayerObject()->addSuiBox(box);
 			creature->sendMessage(box->generateMessage());
 		}
@@ -289,8 +293,9 @@ public:
 		String report = creature->getFirstName() + " has fully rested, filling all of their pools.";
 		report += " (Was H:" + String::valueOf(lastHealth);
 		report += ", A:" + String::valueOf(lastAction);
-		report += ", W:" + String::valueOf(lastWill);
+		report += ", W:" + String::valueOf(lastWill) + ")";
 
+		/* Disable public reporting of Force pool filling
 		if (creature->isPlayerCreature()) {
 			if (creature->getPlayerObject()->getForcePowerMax() > 0) {
 				report += ", F:" + String::valueOf(lastForce) + ")";
@@ -299,13 +304,33 @@ public:
 			}
 		} else {
 			report += ")";
-		}		
+		}	
+			*/	
 
 		if (!suppressMessage)
 			BorrieRPG::BroadcastMessage(creature, report);
 	}
 
-	static void PerformShortRest(CreatureObject* creature) {
+	static void PerformMeditateRest(CreatureObject* creature) {
+		Locker clocker(creature);
+		int lastHealth = creature->getHAM(0);
+		int lastAction = creature->getHAM(3);
+		int lastWill = creature->getHAM(6);
+		int lastForce = 0;
+
+		if(lastWill < 2) {
+			creature->sendSystemMessage("You don't have enough will points to rest.");
+			return;
+		}
+
+		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
+		ModPool(creature, "action", creature->getSkillMod("rp_action") / 3);
+		FillPool(creature, "force");
+		ModPool(creature, "will", -2);
+	}
+
+
+		static void PerformShortRest(CreatureObject* creature) {
 		Locker clocker(creature);
 		int lastHealth = creature->getHAM(0);
 		int lastAction = creature->getHAM(3);
@@ -322,9 +347,11 @@ public:
 
 		ModPool(creature, "health", creature->getSkillMod("rp_health") / 2);
 		FillPool(creature, "action", true);
-		FillPool(creature, "force", true);
+		//FillPool(creature, "force", true);
+		ModPool(creature, "force", creature->getSkillMod("rp_force") / 3, true);
 		ModPool(creature, "will", -2);
 	}
+
 
 	static int GetHAMFromPool(String pool) {
 		if (pool == "health" || pool == "hp")
@@ -433,6 +460,7 @@ public:
 			infoText << "Not Force Sensitive" << endl;
 		else {
 			infoText << "Force Sensitivity Level: " << forceImmersionLevel << endl;
+			infoText << "Force Skill Cap Remaining: " << ghost->getExperience("rp_frc_skill_cap") << endl;
 			int corruptionLevel = target->getShockWounds();
 			infoText << "Corruption: " << corruptionLevel;
 
@@ -451,6 +479,7 @@ public:
 		}		
 
 		infoText << "Experience: " << ghost->getExperience("rp_general") << endl;
+		
 
 		if(factionTag != "") {
 			infoText << "\\#FF7000[FACTION]\\#." << endl;
@@ -471,7 +500,7 @@ public:
 		infoText << "Precision: " << target->getSkillMod("rp_precision") << endl; 
 		infoText << "Strength: " << target->getSkillMod("rp_strength") << endl; 
 		infoText << "\\#FF7000[SKILLS]\\#." << endl;
-		infoText << "Armor: " << target->getSkillMod("rp_armor") << endl; 
+		infoText << "Armorer: " << target->getSkillMod("rp_armorer") << endl; 
 		infoText << "Athletics: " << target->getSkillMod("rp_athletics") << endl; 
 		infoText << "Bluff: " << target->getSkillMod("rp_bluff") << endl; 
 		infoText << "Composure: " << target->getSkillMod("rp_composure") << endl; 
@@ -517,13 +546,13 @@ public:
 
 		infoText << "\\#FF7000[FREE POINTS]\\#." << endl;
 		infoText << "Attributes: " << target->getStoredInt("starter_attr_points") << endl;
-		infoText << "Skills: " << target->getStoredInt("starter_skill_points")  << endl;
+		//infoText << "Skills: " << target->getStoredInt("starter_skill_points")  << endl;
 
 		SkillManager* skillManager = target->getZoneServer()->getSkillManager();
 
 		if (skillManager == nullptr)
 			return;
-
+ 
 		int trainingSkillCount = skillManager->getTrainingSkillCount(target);
 
 		if(trainingSkillCount > 0) {
@@ -531,12 +560,12 @@ public:
 			int count = 1;
 
 			if(target->hasSkill("rp_training_jedi_novice")) {
-				infoText << count << ". Jedi Training (" << skillManager->getTrainingSkillRank(target, "rp_training_jedi") << ")" << endl;
+				infoText << count << ". Jedi Guardian Training (" << skillManager->getTrainingSkillRank(target, "rp_training_jedi") << ")" << endl;
 				count++;
 			}
 
 			if(target->hasSkill("rp_training_sith_novice")) {
-				infoText << count << ". Sith Training (" << skillManager->getTrainingSkillRank(target, "rp_training_sith") << ")" << endl;
+				infoText << count << ". Dark Jedi Warrior Training (" << skillManager->getTrainingSkillRank(target, "rp_training_sith") << ")" << endl;
 				count++;
 			}
 
@@ -561,22 +590,22 @@ public:
 			}
 
 			if(target->hasSkill("rp_training_engineer_novice")) {
-				infoText << count << ". Engineering Training (" << skillManager->getTrainingSkillRank(target, "rp_training_engineer") << ")" << endl;
+				infoText << count << ". Ship Engineer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_engineer") << ")" << endl;
 				count++;
 			}
 
 			if(target->hasSkill("rp_training_diplomatic_novice")) {
-				infoText << count << ". Diplomacy Training (" << skillManager->getTrainingSkillRank(target, "rp_training_diplomatic") << ")" << endl;
+				infoText << count << ". Diplomat Training (" << skillManager->getTrainingSkillRank(target, "rp_training_diplomatic") << ")" << endl;
 				count++;
 			}
 
 			if(target->hasSkill("rp_training_spy_novice")) {
-				infoText << count << ". Espionage Training (" << skillManager->getTrainingSkillRank(target, "rp_training_spy") << ")" << endl;
+				infoText << count << ". Spy Training (" << skillManager->getTrainingSkillRank(target, "rp_training_spy") << ")" << endl;
 				count++;
 			}
 
-			if(target->hasSkill("rp_training_criminal_novice")) {
-				infoText << count << ". Criminal Training (" << skillManager->getTrainingSkillRank(target, "rp_training_criminal") << ")" << endl;
+			if(target->hasSkill("rp_training_smuggler_novice")) {
+				infoText << count << ". Smuggler Training (" << skillManager->getTrainingSkillRank(target, "rp_training_smuggler") << ")" << endl;
 				count++;
 			}
 
@@ -592,6 +621,86 @@ public:
 
 			if(target->hasSkill("rp_training_inq_novice")) {
 				infoText << count << ". Inquisitor Training (" << skillManager->getTrainingSkillRank(target, "rp_training_inq") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_jedi_sentinel_novice")) {
+				infoText << count << ". Jedi Sentinel Training (" << skillManager->getTrainingSkillRank(target, "rp_training_jedi_sentinel") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_jedi_consular_novice")) {
+				infoText << count << ". Jedi Consular Training (" << skillManager->getTrainingSkillRank(target, "rp_training_jedi_consular") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_drk_sorceror_novice")) {
+				infoText << count << ". Dark Jedi Sorcerer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_drk_sorceror") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_officer_novice")) {
+				infoText << count << ". Officer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_officer") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_pilot_novice")) {
+				infoText << count << ". Pilot Training (" << skillManager->getTrainingSkillRank(target, "rp_training_pilot") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_surgeon_novice")) {
+				infoText << count << ". Surgeon Training (" << skillManager->getTrainingSkillRank(target, "rp_training_surgeon") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_researcher_novice")) {
+				infoText << count << ". Researcher Training (" << skillManager->getTrainingSkillRank(target, "rp_training_researcher") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_weaponsmith_novice")) {
+				infoText << count << ". Weaponsmith Training (" << skillManager->getTrainingSkillRank(target, "rp_training_weaponsmith") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_armorsmith_novice")) {
+				infoText << count << ". Armorsmith Training (" << skillManager->getTrainingSkillRank(target, "rp_training_armorsmith") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_assassin_novice")) {
+				infoText << count << ". Assassin Training (" << skillManager->getTrainingSkillRank(target, "rp_training_assassin") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_saboteur_novice")) {
+				infoText << count << ". Saboteur Training (" << skillManager->getTrainingSkillRank(target, "rp_training_saboteur") << ")" << endl;
+				count++;
+			}
+
+
+			if(target->hasSkill("rp_training_conart_novice")) {
+				infoText << count << ". Con Artist Training (" << skillManager->getTrainingSkillRank(target, "rp_training_conart") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_enforcer_novice")) {
+				infoText << count << ". Enforcer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_enforcer") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_bh_novice")) {
+				infoText << count << ". Bounty Hunter Training (" << skillManager->getTrainingSkillRank(target, "rp_training_bh") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_scout_novice")) {
+				infoText << count << ". Scout Training (" << skillManager->getTrainingSkillRank(target, "rp_training_scout") << ")" << endl;
 				count++;
 			}
 		}
@@ -646,23 +755,12 @@ public:
 	static bool GetSkillIsTrainable(String skill) {
 		if(skill.contains("admin_"))
 			return false;
+		// Disallow teaching all RP skills between players, as this is unnecessary for skills/attributes and is not intended to be available for professions and force abilities. Additionally, it bypasses the XP scaling logic. Cagnaith 3/31/2026.
+		else if(skill.contains("rp_")) 
+			return false;
 		else if(skill.contains("rp_force_prog")) 
 			return false;
-		else if(skill == "rp_training_jedi_rank_08")
-			return false;
-		else if(skill == "rp_training_jedi_rank_09")
-			return false;
-		else if(skill == "rp_training_jedi_rank_10")
-			return false;
-		else if(skill == "rp_training_jedi_rank_master")
-			return false;
-		else if(skill == "rp_training_sith_rank_08")
-			return false;
-		else if(skill == "rp_training_sith_rank_09")
-			return false;
-		else if(skill == "rp_training_sith_rank_10")
-			return false;
-		else if(skill == "rp_training_sith_rank_master")
+		else if(skill.contains("rp_training")) 
 			return false;
 		else
 			return true;		
@@ -697,7 +795,7 @@ public:
 		level += GetSkillLevelValue(creature, "resolve");
 		level += GetSkillLevelValue(creature, "athletics");
 		level += GetSkillLevelValue(creature, "lightning");
-		level += GetSkillLevelValue(creature, "armor");
+		level += GetSkillLevelValue(creature, "armorer");
 		level += GetSkillLevelValue(creature, "defending");
 		level += GetSkillLevelValue(creature, "telekinesis");
 		level += GetSkillLevelValue(creature, "control");
@@ -871,8 +969,9 @@ public:
 	}
 
 	static void RewardCreditsByLevel(CreatureObject* creature, CreatureObject* dm, int multiplier = 100) {
-		int playerLevel = GetPlayerLevel(creature);
-		int credits = playerLevel * multiplier;
+		//int playerLevel = GetPlayerLevel(creature);
+		//int credits = playerLevel * multiplier;
+		int credits = multiplier;
 		if(credits < 1) return;
 		creature->addCashCredits(credits);
 		creature->sendSystemMessage("You've been awarded " + String::valueOf(credits) + " credits!");
@@ -925,7 +1024,6 @@ public:
 		return (int)(creature->getDistanceTo(&coord));
 	}
 	
-
 	static void InitializeRoleplayMove(CreatureObject* creature) {
 		//Roll Athletics to get bonus movement. Base movement is 10 meters. 
 		//int roll = System::random(9) + 1;
@@ -946,7 +1044,7 @@ public:
 		if (waypoint == nullptr)
 			newwaypoint = (creature->getZoneServer()->createObject(0xc456e788, 1)).castTo<WaypointObject*>();
 		else {
-			ghost->removeWaypoint(waypoint->getObjectID(), true, false);
+			ghost->removeWaypoint(waypoint->getObjectID(), true, true);
 			newwaypoint = waypoint.get();
 		}
 
@@ -967,16 +1065,65 @@ public:
 		//BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(roll + athletics) +
 		//							"m. (Roll: 1d10 = " + String::valueOf(roll) + ")");
 
+		// Check and flag if a charater is wearing non-proficient armor.
+		int skillFlag = 0;
+        for (int i = 2; i <= 10; i++) { // Check each armor slot. Starting from 2 to make the loop slightly faster since body is checked at 1, 2, and 9.
+            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(i));
+            int rpSkillLevel = 0;
+            if (armor != nullptr && armor.get() != nullptr) {
+                rpSkillLevel = armor.get()->getRpSkillLevel();
+                if (rpSkillLevel > creature->getSkillMod("rp_strength")) {
+                	skillFlag = 1;
+                }
+            }
+    	}
+
 		int maxDistance = 6;
 
 		if (creature->isRidingMount()) {
-			maxDistance = piloting + 22;
+			maxDistance = (1.5 * piloting) + 35;
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move on their mount. Their enhanced range is " + String::valueOf(maxDistance) + "m. ");
-		} else {
-			maxDistance = maneuverability + athletics + 6;
+		} 
+		else if (creature->isKneeling()) {
+			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .66;
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
+			if (skillFlag) {
+				floatDistance = static_cast<float>(maxDistance / 2);
+				maxDistance = static_cast<int>(floatDistance);
+			}
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move while kneeling. Their range is " + String::valueOf(maxDistance) + "m. ");
+			if (skillFlag) {
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " is moving slowly because they are wearing armor they do not have sufficient Strength for. ");
+			}
+		}
+		else if (creature->isProne()) {
+			float floatDistance = static_cast<float>(maneuverability + athletics + 10) * .25;
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
+			if (skillFlag) {
+				floatDistance = static_cast<float>(maxDistance * 0.5);
+				maxDistance = static_cast<int>(floatDistance);
+			}
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move while prone. Their range is " + String::valueOf(maxDistance) + "m. ");
+			if (skillFlag) {
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " is moving slowly because they are wearing armor they do not have sufficient Strength for. ");
+			}
+		}
+		else {
+			maxDistance = maneuverability + athletics + 10;
+			float floatDistance = static_cast<float>(maxDistance);
+			maxDistance = std::min(static_cast<int>(floatDistance), 25);
+			if (skillFlag) {
+				floatDistance = static_cast<float>(maxDistance * 0.5);
+				maxDistance = static_cast<int>(floatDistance);
+			}
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has begun to move. Their range is " + String::valueOf(maxDistance) + "m. ");
+			if (skillFlag) {
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " is moving slowly because they are wearing armor they do not have sufficient Strength for. ");
+			}
 		}	
 									
+		creature->setStoredInt("distance_left", maxDistance);
+		creature->setStoredInt("distance_moved", 0);
 		creature->sendSystemMessage("Move to your desired destination, using the Last Position waypoint to keep track of your distance. Use the move (rpmove) ability to confirm your movement.");
 	}
 
@@ -994,8 +1141,48 @@ public:
 			auto worldPosition = waypoint->getWorldPosition();
 			int distance = GetDistance(creature, worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
 			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters from their last position.");
+			ghost->removeWaypoint(waypoint->getObjectID(), true, true);
+			waypoint = waypoint.get();
 		}
-		
+	}
+
+	static void RoleplayMoveWaypoint(CreatureObject* creature) {
+		PlayerObject* ghost = creature->getPlayerObject();
+		if (ghost == nullptr) {
+			return;
+		}
+
+		// Get previous movement waypoint. If null, mark undefined movement.
+		ManagedReference<WaypointObject*> waypoint = ghost->getSurveyWaypoint();
+		if(waypoint == nullptr) {
+			BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has moved.");
+		} 
+		else {
+			Locker locker(waypoint);
+			auto worldPosition = waypoint->getWorldPosition();
+			int distance = GetDistance(creature, worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
+			
+			int distanceLeft = creature->getStoredInt("distance_left") - distance;
+			
+			if (distanceLeft <= 0) {
+				creature->deleteStoredInt("distance_left");
+				ConfirmRoleplayMove(creature);
+				creature->deleteStoredInt("rp_moving");
+			}
+			else {
+				creature->setStoredInt("distance_left",  distanceLeft);
+				creature->setStoredInt("distance_moved",  creature->getStoredInt("distance_moved") + distance);
+
+				BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " moved " + String::valueOf(distance) + " meters and set a waypoint. They can still move " + String::valueOf(distanceLeft) + " meters.");
+					
+				// Null check and move the waypoint.
+				if (waypoint != nullptr) {
+					auto worldPosition = creature->getWorldPosition();
+					waypoint.get()->setPosition(worldPosition.getX(), worldPosition.getZ(), worldPosition.getY());
+					ghost->addWaypoint(waypoint, false, true); 
+				}
+			}
+		}
 	}
 
 	static void AddDarksidePoints(CreatureObject* creature, int amount, bool playMusic) {
@@ -1013,12 +1200,33 @@ public:
 			creature->updateCooldownTimer("darkside_music", 60 * 1000);
 			creature->playMusicMessage("sound/music_short_darkside.snd");
 		}		
+
+		SkillManager* skillManager = creature->getZoneServer()->getSkillManager();
+
+		if(creature->hasSkill("rp_force_prog_novice")) {
+			if(totalPoints >= 10) {
+				skillManager->awardSkill("rp_corruption_01", creature, true, false, false);
+				}
+			if(totalPoints >= 20) {
+				skillManager->awardSkill("rp_corruption_02", creature, true, false, false);
+				}
+			if(totalPoints >= 30) {
+				skillManager->awardSkill("rp_corruption_03", creature, true, false, false);
+			}  
+			if(totalPoints >= 40) {
+				skillManager->awardSkill("rp_corruption_04", creature, true, false, false);
+			}  
+			if(totalPoints >= 50) {
+				skillManager->awardSkill("rp_corruption_05", creature, true, false, false);
+			}  
+		}
 	}
 
 	static void RemoveDarksidePoints(CreatureObject* creature, int amount) {
 		float points = creature->getShockWounds();
 		float totalPoints = points - amount;
 
+		/*   Remove tiers of DSP reduction.  3/24/26
 		if(points == 100) 
 			return;
 		else if(points >= 90) {
@@ -1034,7 +1242,7 @@ public:
 			if(totalPoints < 1)
 				totalPoints = 1;
 		}
-
+		*/
 		if(totalPoints < 0) {
 			totalPoints = 0;
 		}
@@ -1056,6 +1264,20 @@ public:
 		}
 		
 	}
+
+	static String GetSlotName(int slot) {
+        if(slot == 1) return "chest2";
+        else if(slot == 2) return "chest2";
+        else if(slot == 3) return "pants1";
+        else if(slot == 4) return "shoes";
+        else if(slot == 5) return "bracer_upper_l";
+        else if(slot == 6) return "bracer_upper_r";
+        else if(slot == 7) return "bicep_l";
+        else if(slot == 8) return "bicep_r";
+        else if(slot == 9) return "gloves";
+        else if(slot == 10) return "hat";
+        else return "chest2";
+    }
 };
 
 #endif /*BORCHARACTER_H_*/

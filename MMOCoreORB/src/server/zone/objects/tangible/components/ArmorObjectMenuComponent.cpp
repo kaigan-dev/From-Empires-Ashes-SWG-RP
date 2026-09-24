@@ -15,6 +15,7 @@
 #include "server/zone/objects/player/sui/callbacks/ColorArmorSuiCallback.h"
 #include "server/zone/ZoneServer.h"
 #include "templates/customization/AssetCustomizationManagerTemplate.h"
+#include "server/zone/borrie/BorDice.h"
 
 void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
 
@@ -41,13 +42,16 @@ void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, 
 
 	String text = "Color Change";
 	menuResponse->addRadialMenuItem(81, 3, text);
+
+	text = "Repair";
+	menuResponse->addRadialMenuItem(90, 3, text);
 	
     WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
 }
 
 int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
 
-	if (selectedID == 81) {
+	if (selectedID == 81) {		// Color Change
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 
 		if (parent == nullptr)
@@ -91,7 +95,144 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 			ghost->addSuiBox(cbox);
 			player->sendMessage(cbox->generateMessage());
 		}
+	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
 	
+	else if (selectedID == 90) {		// Repair
+		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
+
+		if (parent == nullptr)
+			return 0;
+
+		/* We don't really care if it is equipped.
+		if (parent->isPlayerCreature()) {
+			player->sendSystemMessage("@armor_rehue:equipped");
+			return 0;
+		}
+		*/
+
+		if (parent->isCellObject()) {
+			ManagedReference<SceneObject*> obj = parent->getParent().get();
+
+			if (obj != nullptr && obj->isBuildingObject()) {
+				ManagedReference<BuildingObject*> buio = cast<BuildingObject*>(obj.get());
+
+				if (!buio->isOnAdminList(player))
+					return 0;
+			}
+		} else {
+			if (!sceneObject->isASubChildOf(player))
+				return 0;
+		}
+
+		ZoneServer* server = player->getZoneServer();
+
+		TangibleObject* tano = sceneObject->asTangibleObject();
+		ArmorObject* armor = cast<ArmorObject*>(tano);
+
+		String armorRarity = armor->getRarity();
+
+		int creditCost = 1;
+		int repairAmt = tano->getConditionDamage();
+		bool doNotRepair = false;
+
+		int diceRoll = BorDice::Roll(1, 20); 
+		int armorerSkill = player->getSkillMod("rp_armorer");
+		int rollResult = diceRoll + armorerSkill;
+
+		if(!repairAmt) {
+			player->sendSystemMessage("Your armor has no damage to repair.");
+			return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+		}
+
+		player->sendSystemMessage("Your armor has " + std::to_string(repairAmt) + " damage to repair.");
+
+
+
+
+
+		if(armorRarity == "Common") {
+			float tempCost = 100 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 8) {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 8, causing 20 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else if(armorRarity == "Uncommon") {
+			float tempCost = 500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 10) {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 10, causing 20 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else if(armorRarity == "Rare") {
+			float tempCost = 1500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 12) {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 12, causing 20 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else if(armorRarity == "Epic") {
+			float tempCost = 2500 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 15) {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 15, causing 20 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else if(armorRarity == "Legendary") {
+			float tempCost = 6000 * (static_cast<float>(repairAmt) / static_cast<float>(tano->getMaxCondition()));
+			creditCost = static_cast<int>(tempCost);
+			if(player->getCashCredits() - creditCost <= 0) {
+				player->sendSystemMessage("You do not have enough credits to repair this. You need " + std::to_string(creditCost) + " credits to repair this item.");
+				return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+			}
+			if(rollResult < 18) {
+				tano->setConditionDamage(tano->getConditionDamage() + 20, true);
+				player->sendSystemMessage("You fail to repair your armor, (1d20 = " + String::valueOf(diceRoll) + " + " + String::valueOf(armorerSkill) + ") vs DC 18, causing 20 additional damage in the process.");
+				doNotRepair = true;
+			}
+		}
+		else {
+			player->sendSystemMessage("Something went wrong when determining your armor's rarity, preventing it from being repaired. The system thinks that its quality is" + armorRarity + ". Reach out to the admins to research further.");
+			doNotRepair = true;
+		}
+
+		if (!doNotRepair) {
+			if(player->getCashCredits() - creditCost >= 0) {
+				player->sendSystemMessage("Based on its rarity and damage, you have been charged " + std::to_string(creditCost) + " credits to repair this item.");
+				player->subtractCashCredits(creditCost);
+				tano->setConditionDamage(0, true);
+			}
+			else {
+				player->sendSystemMessage("Debug: You do not have enough credits to repair this, but we've somehow arrived at the end of the function anyway.");
+			}
+		}
 	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
+	}
+
+return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 }

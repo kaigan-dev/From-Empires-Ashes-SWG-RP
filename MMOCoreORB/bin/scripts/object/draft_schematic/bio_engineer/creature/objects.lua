@@ -3421,3 +3421,10 @@ object_draft_schematic_bio_engineer_creature_shared_creature_zucca_boar = Shared
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_bio_engineer_creature_shared_creature_zucca_boar, "object/draft_schematic/bio_engineer/creature/shared_creature_zucca_boar.iff")
+
+
+object_draft_schematic_bio_engineer_creature_shared_creature_bantha_saddle_armored = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/bio_engineer/creature/shared_creature_bantha_saddle_armored.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_bio_engineer_creature_shared_creature_bantha_saddle_armored, "object/draft_schematic/bio_engineer/creature/shared_creature_bantha_saddle_armored.iff")

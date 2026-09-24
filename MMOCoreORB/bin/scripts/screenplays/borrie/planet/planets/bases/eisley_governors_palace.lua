@@ -9,7 +9,7 @@ base = {
 	
 	spawns = {
 		--Type, Zone, x, z, y, angle, cell
-		{"recruiter", "rp_tatooine", 715.497, 0.197266, 73.3199, 356, 0},--{"eisley_governors_palace"}},
+		--{"recruiter", "rp_tatooine", 715.497, 0.197266, 73.3199, 356, 0},--{"eisley_governors_palace"}},
 	}
 }
 

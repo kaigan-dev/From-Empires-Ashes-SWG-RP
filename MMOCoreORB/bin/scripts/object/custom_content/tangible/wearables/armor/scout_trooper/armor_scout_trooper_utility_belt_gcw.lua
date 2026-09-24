@@ -44,7 +44,7 @@
 object_tangible_wearables_armor_scout_trooper_armor_scout_trooper_utility_belt_gcw = object_tangible_wearables_armor_scout_trooper_shared_armor_scout_trooper_utility_belt_gcw:new {
 	templateType = ARMOROBJECT,
 
-    objectMenuComponent = "ArmorObjectMenuComponent",
+    --objectMenuComponent = "ArmorObjectMenuComponent",
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",
 				"object/creature/player/smc_male.iff",

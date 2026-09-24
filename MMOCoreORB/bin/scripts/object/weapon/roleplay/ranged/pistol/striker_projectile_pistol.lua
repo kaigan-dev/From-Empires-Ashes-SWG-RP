@@ -16,20 +16,25 @@ object_weapon_roleplay_ranged_pistol_striker_projectile_pistol = object_weapon_r
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 3, --Type of Die used in Damage
-	bonusDamage = 1,
+	bonusDamage = 2,
 	
 	noPowerAttack = true,
 
-	pointBlankRange = 0,
+	pointBlankRange = 4,
 	pointBlankAccuracy = 5,
 
-	idealRange = 16,
+	idealRange = 32,
 	idealAccuracy = 10,
 
 	maxRange = 86,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	rarity="Common",
+	itemValue = 150,
+	maxAmmo = 6,
+	ammoType = "ammo_kinetic", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -1,0 +1,1 @@
+includeFile("weapon/roleplay/thrown/weapons/throwingknife.lua")

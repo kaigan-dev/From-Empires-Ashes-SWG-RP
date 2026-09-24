@@ -49,8 +49,8 @@ object_building_military_small_imperial_cloning_facility_s02 = object_building_m
 	},
 
         childObjects = {
-                {templateFile = "object/tangible/terminal/terminal_insurance.iff", x = -5.44277, z = 0.125266, y = -3.60645, ox = 0, oy = 0.709055, oz = 0, ow = 0.705153, cellid = 6, containmentType = -1},
-                {templateFile = "object/tangible/terminal/terminal_cloning.iff", x = -0.0543332, z = 0.125265, y = -5.83956, ox = 0, oy = -0.0252584, oz = 0, ow = 0.999681, cellid = 3, containmentType = -1}
+        --{templateFile = "object/tangible/terminal/terminal_insurance.iff", x = -5.44277, z = 0.125266, y = -3.60645, ox = 0, oy = 0.709055, oz = 0, ow = 0.705153, cellid = 6, containmentType = -1},
+        --{templateFile = "object/tangible/terminal/terminal_cloning.iff", x = -0.0543332, z = 0.125265, y = -5.83956, ox = 0, oy = -0.0252584, oz = 0, ow = 0.999681, cellid = 3, containmentType = -1}
         },
 
 	spawningPoints = {                     

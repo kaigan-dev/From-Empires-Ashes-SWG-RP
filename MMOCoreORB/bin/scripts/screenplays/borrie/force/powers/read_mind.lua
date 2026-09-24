@@ -4,17 +4,19 @@ BorForce_ReadMind = {
 
 function BorForce_ReadMind:showHelp(pPlayer)
 	local helpMessage = self.name .. ": "
-	helpMessage = helpMessage .. "If target’s mindfulness is less than 6, read mind uses FPI + sense skill to counter bluff, persuasion, or intimidation checks. "
+	helpMessage = helpMessage .. "As a major action, roll Sense + FPI vs Resolve to read the target's surface thoughts."
 	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
 function BorForce_ReadMind:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_sense_a03")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_read")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)
@@ -25,7 +27,7 @@ function BorForce_ReadMind:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("You attempt to read your own mind. Echo, echo, echo, echo....")
+		CreatureObject(pPlayer):sendSystemMessage("You cannot read your own mind.")
 		return
 	end
 		
@@ -71,7 +73,7 @@ function BorForce_ReadMind:performAbility(pPlayer, fpi)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Trying to read your own mind results in feedback. EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE.")
+		CreatureObject(pPlayer):sendSystemMessage("You cannot read your own mind.")
 		return
 	end	
 	
@@ -83,25 +85,32 @@ function BorForce_ReadMind:performAbility(pPlayer, fpi)
 		CreatureObject(pPlayer):sendSystemMessage("You don't have enough Force Power to commit " .. fpi .. " points.")
 		return
 	end
-	
-	if(tonumber(CreatureObject(pTarget):getSkillMod("rp_mindfulness")) > 6) then
-		CreatureObject(pPlayer):doAnimation("force_persuasion")			
-		broadcastMessageWithName(pPlayer, CreatureObject(pPlayer):getFirstName() .. " tried to read " .. CreatureObject(pTarget):getFirstName() .. "'s mind, but failed.")
-		PlayerObject(pGhost):setForcePower(forcePower - fpi)
-		return
-	end
-	
+
+	--Roll dice and announce the result
+	local forceDieValue = math.random(1, 20)
 	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_sense"))
-	local yourTotal = skillValue +  fpi
+	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
+
+	local defenderDieValue = math.floor(math.random(1, 20))
+	local defenderResolve = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_resolve")))
+	local defenderTotal = math.floor(defenderDieValue + defenderResolve)
 	
-	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. "!"
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi
+	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderResolve .. " = " .. defenderTotal
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
-	message = message .. " They peer into " .. targetName .. "'s mind and see their true intentions. The next time " .. targetName 
-	message = message .. " uses a social skill against them, they can use the score of " .. yourTotal .. " instead of a composure or resolve roll."
+	if(forceTotal > defenderTotal) then
+		message = message .. ". They succesfully peer into " .. targetName .. "'s mind!" 
 	
-	CreatureObject(pPlayer):doAnimation("force_persuasion")	
-	broadcastMessageWithName(pPlayer, message)
+		CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+	if (forceTotal <= defenderTotal) then
+		message = message .. ". They fail to read " .. targetName .. "'s mind!"
+	
+		CreatureObject(pPlayer):doAnimation("force_persuasion")	
+		broadcastMessageWithName(pPlayer, message)
+	end
 	
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)
 	

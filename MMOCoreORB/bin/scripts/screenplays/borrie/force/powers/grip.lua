@@ -1,21 +1,26 @@
 BorForce_Grip = {
 	name = "Force Grip",
 	animationName = "force_choke",
-	maxRange = 32,
-	corruptionPoints = 1,
+	maxRange = 40,
+	--corruptionPoints = 1,
 }
 
 function BorForce_Grip:showHelp(pPlayer)
-	
+	local helpMessage = self.name .. ": "
+	helpMessage =  helpMessage .. "As a major action, roll Telekinesis + FPI vs Strength to render target within 40 meters immobile, preventing them from performing actions."
+	CreatureObject(pPlayer):sendSystemMessage(helpMessage)
 end
 
+
 function BorForce_Grip:execute(pPlayer)
-	local hasPower = CreatureObject(pPlayer):hasSkill("rp_telekinesis_b01")
+
+	local hasPower = CreatureObject(pPlayer):hasSkill("rp_frc_grip")
 	
 	if(hasPower == false) then
 		BorForceUtility:reportPowerNotKnown(pPlayer)
 		return
 	end
+
 	
 	local targetID = CreatureObject(pPlayer):getTargetID()
 	local pTarget = getSceneObject(targetID)
@@ -26,7 +31,7 @@ function BorForce_Grip:execute(pPlayer)
 	end
 	
 	if(SceneObject(pPlayer):getObjectID() == SceneObject(pTarget):getObjectID()) then
-		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability. Is this really the right time to grip yourself?")
+		CreatureObject(pPlayer):sendSystemMessage("Invalid target. You cannot target yourself with this ability.")
 		return
 	end
 	
@@ -98,6 +103,31 @@ function BorForce_Grip:performAbility(pPlayer, fpi)
 	local targetName = CreatureObject(pTarget):getFirstName() 
 	
 	--Begin Force Code
+	local forceDieValue = math.random(1, 20)
+	local skillValue = math.floor(CreatureObject(pPlayer):getSkillMod("rp_telekinesis"))
+	local forceTotal = math.floor(forceDieValue + skillValue +  fpi)
+
+	local defenderDieValue = math.floor(math.random(1, 20))
+	local defenderStrength = math.floor(tonumber(CreatureObject(pTarget):getSkillMod("rp_strength")))
+	local defenderTotal = math.floor(defenderDieValue + defenderStrength)
+	
+	
+	local message = CreatureObject(pPlayer):getFirstName() .. " used " .. self.name .. ", rolling 1d20: " .. forceDieValue .. " + " .. skillValue .. " + " .. fpi
+	message = message .. " = " .. forceTotal .. " vs 1d20: " .. defenderDieValue .. " + " .. defenderStrength .. " = " .. defenderTotal
+	local targetName = CreatureObject(pTarget):getFirstName() 
+	
+	if(forceTotal > defenderTotal) then
+		message = message .. ". " .. targetName .. "is rendered immobile by invisible bonds!"
+	
+		CreatureObject(pPlayer):doAnimation("force_choke_1_particle_level_1")	
+		broadcastMessageWithName(pPlayer, message)
+	end
+	if (forceTotal <= defenderTotal) then
+		message = message .. ". But they fail to affect " .. targetName .. "!"
+	
+		CreatureObject(pPlayer):doAnimation("force_choke_1_particle_level_1")	
+		broadcastMessageWithName(pPlayer, message)
+	end
 	
 	--Drain Force Pool Accordingly.
 	PlayerObject(pGhost):setForcePower(forcePower - fpi)	

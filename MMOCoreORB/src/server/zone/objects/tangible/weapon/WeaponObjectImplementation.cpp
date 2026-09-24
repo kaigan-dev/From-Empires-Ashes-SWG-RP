@@ -99,6 +99,11 @@ void WeaponObjectImplementation::loadTemplateData(SharedObjectTemplate* template
 		damageRadius = weaponTemplate->getArea();
 
 		rpSkillLevel = weaponTemplate->getRpSkillLevel();
+		//rarity = weaponTemplate->getRarity();
+		itemValue = weaponTemplate->getItemValue();
+
+		maxAmmo = weaponTemplate->getMaxAmmo();
+		ammoType = weaponTemplate->getAmmoType();
 
 		float templateAttackSpeed = weaponTemplate->getAttackSpeed();
 
@@ -277,6 +282,10 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 	if(rpSkillLevel > 0) {
 		alm->insertAttribute("skill_level", rpSkillLevel);
 	}
+
+	if(itemValue > 0) {
+		alm->insertAttribute("item_value", itemValue);
+	}
 		
 
 	for(int i = 0; i < wearableSkillMods.size(); ++i) {
@@ -288,8 +297,8 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 			alm->insertAttribute(statname, value);
 	}
 
+/* Remove Armor piercing property from weapon load completely. Could break combat if the attribute is called. 3/26/2026
 	String ap;
-
 	switch (armorPiercing) {
 	case SharedWeaponObjectTemplate::NONE:
 		ap = "None";
@@ -307,8 +316,9 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		ap = "Unknown";
 		break;
 	}
-
 	alm->insertAttribute("wpn_armor_pierce_rating", ap);
+	*/
+
 
 	//alm->insertAttribute("wpn_attack_speed", Math::getPrecision(getAttackSpeed(), 1));
 
@@ -362,7 +372,7 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		int totalBonus = bDamage + object->getSkillMod("rp_lightsaber");
 		bDamage = totalBonus;
 
-	} else if(isUnarmedWeapon()) {
+	} /* else if(isUnarmedWeapon()) {
 		int totalBonus = bDamage + (object->getSkillMod("rp_unarmed") / 2);
 		if(object->hasSkill("rp_training_tka_novice") && object->hasSkill("rp_force_prog_novice")) {
 			int tk_mod = object->getSkillMod("rp_telekinesis");
@@ -374,7 +384,7 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 
 			bDamage = totalBonus;
 		}
-	} 
+	} */
 
 	if (bDamage > 0)
 		dmg << minDmg << "d" << maxDmg << " + " << bDamage;
@@ -396,25 +406,42 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 
 	//alm->insertAttribute("damage.wpn_wound_chance", woundsratio);
 
+	String ammoType = getAmmoType();
+	StringBuffer ammoCount;
+
+	if (ammoType == "ammo_energy")
+		ammoType = "Energy Powerpack";
+	else if (ammoType == "ammo_kinetic")
+		ammoType = "Kinetic Slugs";
+	else if (ammoType == "ammo_disruptor")
+		ammoType = "Disrupter Powerpack";
+	else
+		ammoType = "None";
+
+	if (getStoredInt("ammo_used") < 0)
+		setStoredInt("ammo_used", 0);
+	ammoCount << maxAmmo - getStoredInt("ammo_used") << "/" << maxAmmo;
+	alm->insertAttribute("wpn_ammo_type", ammoType);
+	alm->insertAttribute("wpn_ammo_count", ammoCount);
+	
+
+
 	//Accuracy Modifiers
 	StringBuffer pblank;
 	if (getPointBlankAccuracy() >= 0)
-		pblank << "+";
-
+	pblank << "+";
 	pblank << getPointBlankAccuracy() << " @ " << getPointBlankRange() << "m";
 	alm->insertAttribute("cat_wpn_rangemods.wpn_range_zero", pblank);
 
 	StringBuffer ideal;
 	if (getIdealAccuracy() >= 0)
-		ideal << "+";
-
+	ideal << "+";
 	ideal << getIdealAccuracy() << " @ " << getIdealRange() << "m";
 	alm->insertAttribute("cat_wpn_rangemods.wpn_range_mid", ideal);
 
 	StringBuffer maxrange;
 	if (getMaxRangeAccuracy() >= 0)
-		maxrange << "+";
-
+	maxrange << "+";
 	maxrange << getMaxRangeAccuracy() << " @ " << getMaxRange() << "m";
 	alm->insertAttribute("cat_wpn_rangemods.wpn_range_max", maxrange);
 
@@ -641,10 +668,10 @@ float WeaponObjectImplementation::getMaxDamage(bool withPup) const {
 
 	if (powerupObject != nullptr && withPup) {
 		damage += (damage * powerupObject->getPowerupStat("maxDamage"));
-		return damage - getConditionReduction(damage);
+		return damage;
 	}
 
-	return damage - getConditionReduction(damage);
+	return damage;
 }
 
 float WeaponObjectImplementation::getMinDamage(bool withPup) const {
@@ -655,10 +682,10 @@ float WeaponObjectImplementation::getMinDamage(bool withPup) const {
 
 	if (powerupObject != nullptr && withPup) {
 		damage += (damage * powerupObject->getPowerupStat("minDamage"));
-		return damage - getConditionReduction(damage);
+		return damage;
 	}
 
-	return damage - getConditionReduction(damage);
+	return damage;
 }
 
 float WeaponObjectImplementation::getBonusDamage() const {
@@ -667,6 +694,10 @@ float WeaponObjectImplementation::getBonusDamage() const {
 
 int WeaponObjectImplementation::getSkillLevel() const {
 	return rpSkillLevel;
+}
+
+int WeaponObjectImplementation::getItemValue() const {
+	return itemValue;
 }
 
 float WeaponObjectImplementation::getWoundsRatio(bool withPup) const {

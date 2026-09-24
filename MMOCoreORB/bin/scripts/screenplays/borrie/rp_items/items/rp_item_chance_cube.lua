@@ -4,7 +4,7 @@ BorRpItemChanceCubeMenuComponent = {}
 function BorRpItemChanceCubeMenuComponent:fillObjectMenuResponse(pSceneObject, pMenuResponse, pPlayer)
 	local menuResponse = LuaObjectMenuResponse(pMenuResponse)
 
-	menuResponse:addRadialMenuItem(20, 3, "Roll")
+	--menuResponse:addRadialMenuItem(20, 3, "Roll")
 end
 
 function BorRpItemChanceCubeMenuComponent:handleObjectMenuSelect(pObject, pPlayer, selectedID)
@@ -12,9 +12,11 @@ function BorRpItemChanceCubeMenuComponent:handleObjectMenuSelect(pObject, pPlaye
 		return 0
 	end
 	
+	--[[
 	if (selectedID == 20) then 
 		CreatureObject(pPlayer):sendSystemMessage("DEV: Work in progress, sorry! - Borrie")
 	end
+	--]]
 	
 	return 0
 end

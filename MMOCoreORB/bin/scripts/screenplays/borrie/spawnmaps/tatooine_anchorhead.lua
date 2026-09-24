@@ -76,24 +76,126 @@ function TatooineAnchorheadScreenPlay:spawnCivilians()
 		{-746.514, 0, -1813.73, 104, 0,{"social"}},
 		{-744.534, 0, -1812.67, 228, 0,{"social"}},
 		{-761.809, 0, -1855.44, 38, 0,{"sittable"}},
+
+		--Small Bar
+		{-2.9, 0.4, -5.8, 58, 610013857,{"none"}},
+		{4.7, 0.4, -9.7, -179, 610013857,{"tech"}},
+		{-0.8, 0.4, -10.0, -93, 610013857,{"sitchair"}},
+		{9.6, 0.4, -1.0, 90, 610013857,{"drinker"}},
+
+		--Cantina
+		{9.6, 0.8, 0.4, -22, 610013872,{"sitchair"}},
+		{8.9, 0.7, 2.5, 160, 610013872,{"sittable"}},
+		{5.8, -0.2, -11.3, -137, 610013872,{"sitchair"}},
+		{-1.5, -0.2, -9.0, 156, 610013872,{"drinker"}},
+
+		--Town Hall
+		{-18.8, 0.2, 2.1, 22, 610013819,{"sitchair"}},
+		{-20.6, 0.2, 8.6, -92, 610013819,{"sitchair"}},
+		{-21.3, 0.2, -2.5, 81, 610013819,{"sitchair"}},
+		{-16.6, 0.2, 1.7, 162, 610013819,{"none"}},
+		{-14.5, 0.2, 7.2, 177, 610013819,{"sitchair"}},
+		{22.0, 0.2, 2.4, 88, 610013821,{"sitchair"}},
+		{23.4, 0.2, 0.5, -96, 610013821,{"sittable"}},
+		{23.6, 0.2, 7.9, 0, 610013821,{"none"}},
+		{14.1, 0.2, -3.5, -130, 610013821,{"none"}},
+
+		--Boarding House
+		{-4.2, 0.4, -9.2, 24, 610017524,{"drinker"}},
+		{1.7, 1.0, 4.9, 98, 610017525,{"tech"}},
+		{-6.2, -4.0, -5.1, -119, 610017528,{"drinker"}},
+
 	}
-	
+
 	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_tatooine", waypointList, self.walkpointList, "tatooine", "tatooine")
 end
 
 function TatooineAnchorheadScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_travel_rp.iff", -552.436, 0, -1784.65, 0, 0.992546, 0, -0.121869, 0)
+end
 
+function TatooineAnchorheadScreenPlay:spawnMobiles()
+	--Species, Equipment, Skills, Customization
+
+	local pNpc
+ 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -748.4, 0, -1858.7, 11, 0, "rp_human_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	 pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -735.5, 0, -1862.2, 18, 0, "rp_zabrak_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -769.7, 0, -1830.4, 146, 0, "rp_twilek_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -763.0, 0, -1825.6, 150, 0, "rp_human_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -720.7, 0, -1798.0, 92, 0, "rp_zabrak_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -661.4, 0, -1755.4, 155, 0, "rp_rodian_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -661.1, 0, -1806.0, 152, 0, "rp_nikto_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -673.4, 0, -1863.4, -96, 0, "rp_human_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -673.1, 0, -1855.5, -100, 0, "rp_twilek_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -695.7, 0, -1918.7, -138, 0, "rp_human_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -713.0, 0, -1742.8, -3, 0, "rp_zabrak_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -748.3, 0, -1758.8, -74, 0, "rp_human_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -802.3, 0, -1821.0, -44, 0, "rp_human_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -748.7, 10.5, -1887.2, -169, 0, "rp_human_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -14.2, 1.0, -3.5, 88, 610013818, "rp_human_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -4.8, -4.0, -9.6, 95, 610013822, "rp_zabrak_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 0.0, 6.2, -10.1, 0, 610013824, "rp_twilek_male", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -17.4, -4.0, 2.2, 112, 610013834, "rp_human_female", "planet/tatooine/anchorhead_militia_a", "soldier_weak", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Militia Soldier")
+
+    --Darklighter Estate
+ 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1431.2, 0, -2622.1, 43, 0, "rp_human_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1441.6, 0, -2612.8, 40, 0, "rp_human_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1517.3, 2, -2697.5, 42, 0, "rp_zabrak_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1545.0, 0, -2746.9, -135, 0, "rp_human_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1549.4, 0, -2743.0, -136, 0, "rp_rodian_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1494.0, 0, -2633.5, 129, 0, "rp_human_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1475.1, 0, -2612.6, 131, 0, "rp_twilek_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1437.7, 0, -2664.7, -49, 0, "rp_zabrak_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1529.3, 10.5, -2693.0, 51, 0, "rp_human_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1541.5, 10.5, -2715.7, -126, 0, "rp_nikto_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 11.2, 1.0, -5.4, -90, 610032477, "rp_human_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -14.3, 1.0, -3.3, 135, 610032477, "rp_zabrak_male", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -2.6, -4.0, -2.7, -179, 610032487, "rp_human_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, 0.1, 6.2, -10.2, -1, 610032483, "rp_twilek_female", "planet/tatooine/darklighter_security_a", "soldier", "default") --Species, Equip, Skill, Customization
+	SceneObject(pNpc):setCustomObjectName("a Security Guard")
 	
 	--Signs
 	
 	--TAILOR--
 	
+	--VENDORS--
 
-end
+	--Cheap Stimpack Vendor
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -16.0, 0.2, -1.5, 123, 610032853, "dressed_medic_trainer_02", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Del Vreerr (a Stimpack Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "medicine")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_medicine_novice")
 
-function TatooineAnchorheadScreenPlay:spawnMobiles()
-	--Species, Equipment, Skills, Customization
-	
 end

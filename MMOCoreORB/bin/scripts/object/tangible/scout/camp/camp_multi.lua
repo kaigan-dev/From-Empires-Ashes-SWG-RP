@@ -39,7 +39,7 @@
 --it is their choice whether to do so. The GNU Lesser General Public License 
 --gives permission to release a modified version without this exception; 
 --this exception also makes it possible to release a modified version 
-
+ 
 
 object_tangible_scout_camp_camp_multi = object_tangible_scout_camp_shared_camp_multi:new {
 	templateType = CAMPKIT,

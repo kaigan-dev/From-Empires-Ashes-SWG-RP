@@ -1,5 +1,6 @@
 force_locs = {
 	--Zone, X, Y, Range, Message
+	--[[  Set Force Locations to an empty list in order to disable automation of Force progression.
 	{"rp_dantooine", -975, 3865, 90}, --Dantooine Enclave Ruins
 	{"rp_dantooine", 381, -3946, 128}, --Dantooine Ruined Islands
 	{"rp_tatooine", 4649, 5590, 64}, --Tatooine Enclave
@@ -11,6 +12,7 @@ force_locs = {
 	{"rp_dathomir", 5272, -4136, 128}, --Dathomir Ruins of Aurillia
 	{"rp_dathomir", -4051, -173, 128}, --Dathomir Nightsister Stronghold
 	{"rp_dathomir", 3067, 1340, 16}, --Dathomir Misty Falls
+	--]]
 }
 
 for i,v in pairs(force_locs) do

@@ -2071,6 +2071,11 @@ void CreatureObjectImplementation::subtractCashCredits(int credits) {
 	creditObject->subtractCashCredits(credits, true);
 }
 
+void CreatureObjectImplementation::subtractCashCreditsNoNotify(int credits) {
+	Locker locker(creditObject);
+	creditObject->subtractCashCredits(credits, false);
+}
+
 bool CreatureObjectImplementation::subtractCredits(int credits) {
 	Locker locker(creditObject);
 	return creditObject->subtractCredits(credits, true);

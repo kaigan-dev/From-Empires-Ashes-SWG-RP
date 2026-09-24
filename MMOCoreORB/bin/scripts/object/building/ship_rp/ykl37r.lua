@@ -1,8 +1,10 @@
 object_building_ship_rp_ykl37r = object_building_ship_rp_shared_ykl37r:new {
-	entrancePoint = {0,0},
-	entranceCell = 1,
+	--entrancePoint = {0,0},
+	entrancePoint = {13, -3.9},
+	entranceCell = 5,
+	--Moving from cell 17228 to  17232, which is +4 to entranceCell
 	
-	publicStructure = 0,
+	publicStructure = 1,
 	baseMaintenanceRate = 0,
 	
 	childObjects = {

@@ -112,7 +112,7 @@ public:
 			} else if (index == 2) { //Roll a skill
 				box->setCallback(new D20CommandSuiCallback(player->getZoneServer(), target, 4, adminLevel));
 				box->setPromptText("Select which skill you'd like to roll for.");
-				box->addMenuItem("Armor");
+				box->addMenuItem("Armorer");
 				box->addMenuItem("Athletics");
 				box->addMenuItem("Bluff");
 				box->addMenuItem("Composure");
@@ -160,12 +160,12 @@ public:
 		} else if (state == 3) { //Roll Attribute
 			//Gather which selected attribute via index.
 			String attribute = GetAttributeStringFromID(index);
-			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, attribute));
+			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, attribute, ""));
 			return;
 		} else if (state == 4) { //Roll Skill
 			// Gather which selected skill via index.
 			String skill = GetSkillStringFromID(index);
-			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, skill));
+			BorrieRPG::BroadcastRoll(targetCreature, BorDice::RollSkill(targetCreature, skill, ""));
 			return;
 		} else if (state == 5) { //Roll Die
 			//Use die type and then the args to run the die.
@@ -226,7 +226,7 @@ public:
 
 	String GetSkillStringFromID(int id) {
 		if (id == 0)
-			return "armor";
+			return "armorer";
 		else if (id == 1)
 			return "athletics";
 		else if (id == 2)

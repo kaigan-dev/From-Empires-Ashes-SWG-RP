@@ -12,7 +12,7 @@
 
 class BorCombat : public Logger {
 public:
-	static void AttackTarget(CreatureObject* attacker, CreatureObject* defender, CreatureObject* commander, int bodyPartTarget, bool powerAttack, bool ignoreLOS = false) {
+	static void AttackTarget(CreatureObject* attacker, CreatureObject* defender, CreatureObject* commander, int bodyPartTarget, bool powerAttack, bool ignoreLOS = false, int advDis = 0) {
         ManagedReference<WeaponObject*> weapon = attacker->getWeapon();
         if(weapon->isBroken()) {
             commander->sendSystemMessage("Your weapon is broken, and you can't attack with a broken weapon.");
@@ -26,19 +26,61 @@ public:
             }
         }
         
+        bool aimFlag = false;
+        if(bodyPartTarget != -1)
+        {
+            aimFlag = true;
+        }
 
         String attackVerb = powerAttack ? "power attacked" : "attacked";
-        if(bodyPartTarget != -1) 
+        if(aimFlag) {
             attackVerb = "aimed at "+defender->getFirstName()+"'s "+GetSlotDisplayName(bodyPartTarget);
-        else
+        }
+        else {
             attackVerb += " " + defender->getFirstName();
+        }
+
+        //Consume ammo if appliable.
+        if(attacker->isPlayerCreature()) {  //NPCs don't use ammo
+                int maxAmmo = attacker->getWeapon()->getMaxAmmo();
+		        int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
+                String ammoType = attacker->getWeapon()->getAmmoType();
+
+                int ammoToUse = 1;
+                if(powerAttack) {
+                    ammoToUse = attacker->getWeapon()->getMaxAmmo() / 2;
+                }
+
+                //commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
+                if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_tusken" ||ammoType == "ammo_disruptor") {   //If we are using a weapon that has ammo.
+                    
+                    if(ammoUsed + ammoToUse <= maxAmmo) {
+                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + ammoToUse);
+                    }
+                    else {
+                        commander->sendSystemMessage("You don't have enough ammunition to attack.");
+                        return;
+                    }
+                }
+            }
 
         //To Hit
         int toHitDC = GetToHitModifier(attacker, defender, weapon) + 10;
         int aimMod = 0;
-        if(bodyPartTarget != -1) { //A Body Part was specified.
-            aimMod = bodyPartTarget;
+
+        if(aimFlag) { // Aimed attack.
+            if (bodyPartTarget == 3 || bodyPartTarget == 4 || bodyPartTarget == 5 || bodyPartTarget == 6 || bodyPartTarget == 7 || bodyPartTarget == 8) {
+                aimMod = 5;
+            }
+            else if (bodyPartTarget == 9 || bodyPartTarget == 10) {
+                aimMod = 10;
+            }
             DrainActionOrWill(attacker, 1);
+            toHitDC += aimMod;
+        }
+        // If not an aimed attack, we now need to determine which body part was hit.
+        else {
+            bodyPartTarget = GetBodyPartTarget();
         }
 
         int skillCheck = 0;
@@ -48,109 +90,97 @@ public:
         else if(weapon->isMeleeWeapon()) skillCheck = attacker->getSkillMod("rp_melee");
         else if(weapon->isRangedWeapon()) skillCheck = attacker->getSkillMod("rp_ranged");
 
-        int toHitRoll = BorDice::Roll(1, 20);
-
-        //Lightsaber Hurt self check.
-        if(weapon->isJediWeapon()) {
-            //Modify toHitDC if its our lightsaber.
-            if(weapon->getCraftersName() == attacker->getFirstName()) {
-                toHitDC -= 2;
-                if(toHitDC < 0)
-                    toHitDC = 0;
-            }
-
-            bool selfHit = false;
-            int saberSkill = attacker->getSkillMod("rp_lightsaber");
-            if(saberSkill == 0) {
-                if(toHitRoll < 18) {
-                    //Ouch
-                    selfHit = true;
-                    
-                } 
-            } else if(saberSkill < 3) {
-                if(toHitRoll == 1) {
-                    selfHit = true;
-                }
-            }
-
-            if(selfHit) {
-                BorEffect::PerformReactiveAnimation(attacker, attacker, "hit", GetSlotHitlocation(BorDice::Roll(1, 10)), true);
-                int totalDamage = GetDamageRoll(weapon->getMaxDamage(), weapon->getMinDamage(), weapon->getBonusDamage());
-                BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " accidently hurts themselves with the lightsaber, doing "+String::valueOf(totalDamage)+" damage!");
-                BorCharacter::ModPool(attacker, "health", totalDamage * -1, true);       
-                return;
-            }
+        int roll1 = 0;
+        int roll2 = 0;
+        int toHitRoll = 0;
+        // Roll with Advantage
+        if (advDis == 1) {
+            roll1 = BorDice::Roll(1, 20);
+            roll2 = BorDice::Roll(1, 20);
+            toHitRoll = std::max(roll1, roll2);
+        }
+        // Roll with Disadvantage
+        else if (advDis == 2) {
+            roll1 = BorDice::Roll(1, 20);
+            roll2 = BorDice::Roll(1, 20);
+            toHitRoll = std::min(roll1, roll2);
+        }
+        else {
+            toHitRoll = BorDice::Roll(1, 20);
+        }
+        bool nat20 = false;
+        if (toHitRoll == 20) {
+            nat20 = true;
         }
 
         if(powerAttack) {
-            int powerAttackCost = attacker->getStoredInt("power_attack_count");
-            attacker->setStoredInt("power_attack_count", powerAttackCost + 1);
-            DrainActionOrWill(attacker, 3 + powerAttackCost); //Changed to 3 from 1 as per rebalancing, 3/8/2023
+            toHitDC += 5;
+            DrainActionOrWill(attacker, 3);
+
             if(toHitRoll + skillCheck + (15 - skillCheck) < toHitDC) {
                 //Miss
-                BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " "+attackVerb+ " and missed!  \\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC) + "\\#FFFFFF"); 
+                BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " "+attackVerb+ " and missed!  \\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC, 0, -1, advDis, roll1, roll2) + "\\#FFFFFF"); 
                 BorEffect::PerformReactiveAnimation(defender, attacker, "miss", GetSlotHitlocation(bodyPartTarget), true);
                 return;
             } 
         }
 
-        if(toHitRoll + skillCheck >= toHitDC || toHitRoll == 20) {
-            if(bodyPartTarget != -1) {
-                //If we specified a target, we need to see if we can hit it.
-                if(toHitRoll + skillCheck + aimMod < toHitDC || toHitRoll == 20) {
-                    //We failed to hit the target, so get a new target that isn't the one we specified.
-                    int newTarget = BorDice::Roll(1, 10);
-                    while(bodyPartTarget == newTarget) {
-                        newTarget = BorDice::Roll(1, 10);
-                    }
-                    bodyPartTarget = newTarget;
-                } 
-            } else {
-                //Randomly getting a body part.
-                bodyPartTarget = BorDice::Roll(1, 10);
-            }
-        } else {
+        if(toHitRoll + skillCheck < toHitDC || toHitRoll == 1) {
             //Miss
-            BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " "+attackVerb+ " and missed! \\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC) + "\\#FFFFFF");
+            BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " "+attackVerb+ " and missed! \\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC, aimMod, bodyPartTarget, advDis, roll1, roll2) + "\\#FFFFFF");
             BorEffect::PerformReactiveAnimation(defender, attacker, "miss", GetSlotHitlocation(bodyPartTarget), true);
             return;
         }
 
-        
-
         //We've hit! Calculate Damage and apply it to the body part. Get the armor of that part. 
+        int bonusDamage = weapon->getBonusDamage();
         int damageDieCount = weapon->getMinDamage();
         int damageDieType = weapon->getMaxDamage();
 
         if(powerAttack)
             damageDieCount++;
-
-        int bonusDamage = weapon->getBonusDamage();
-
+        
         if(weapon->isJediWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
-        } else if(weapon->isUnarmedWeapon()) {
-            bonusDamage += attacker->getSkillMod("rp_unarmed") / 2;
-            if(attacker->hasSkill("rp_training_tka_rank_04") && attacker->hasSkill("rp_force_prog_novice")) {
-			    int tk_mod = attacker->getSkillMod("rp_telekinesis");
-			    int inw_mod = attacker->getSkillMod("rp_inward");
-			    if(tk_mod > inw_mod)
-			    	bonusDamage += tk_mod / 2;
-			    else 
-			    	bonusDamage += inw_mod / 2;
-		    }
+
+        } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
+             if(attacker->isPlayerCreature()) {
+                bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             }
+            else {
+                bonusDamage += attacker->getSkillMod("rp_strength") / 2;    
+             }
+        } 
+
+        int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20, powerAttack);
+
+        bool headshotFlag = false;
+        int headshotDamage = totalDamage;
+
+        // Headshot damage bonus!
+        if(bodyPartTarget == 10) {
+            float flHeadshotDamage = static_cast<float>(headshotDamage);
+            flHeadshotDamage = std::ceil(flHeadshotDamage * 1.25);
+            headshotDamage = static_cast<int>(flHeadshotDamage);
+            headshotFlag = true;
         }
 
-        int totalDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage);
+        //Merge headshot damage back into the value that will be used going forward. If a headshot didn't happen, these will still be equal.
+        totalDamage = headshotDamage;
 
+        //Damage the attacker's weapon
+        if(!weapon->isInvisible()) {
+            weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        }
+        
         //Calculate the Reaction
-
-        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, toHitRoll + skillCheck, bodyPartTarget, powerAttack, false);
+        //The 1 is hitCount
+        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, toHitRoll + skillCheck, bodyPartTarget, powerAttack, false, 1, headshotFlag, nat20);
         
         //Apply Followup as per the reaction.
-        String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC) + "\\#FFFFFF";
+        String toHitString = "\\#DBDBDB" + GenerateOutputSpam(toHitRoll, skillCheck, toHitDC, aimMod, bodyPartTarget, advDis, roll1, roll2) + "\\#FFFFFF";
 
-        String combatSpam = attacker->getFirstName() + " "+attackVerb+ " and hit!";
+        String combatSpam = attacker->getFirstName() + " "+attackVerb+ " and hit their " + GetSlotDisplayName(bodyPartTarget) + "!";
         
         if(ignoreLOS) {
             BorrieRPG::BroadcastMessage(attacker, combatSpam + " " + toHitString +  reactionResult + " (Line of Sight Ignored)");
@@ -160,7 +190,7 @@ public:
         
 	}
 
-    static void FlurryAttackTarget(CreatureObject* attacker, CreatureObject* defender, CreatureObject* commander, bool ignoreLOS = false) {
+    static void FlurryAttackTarget(CreatureObject* attacker, CreatureObject* defender, CreatureObject* commander, bool ignoreLOS = false, int advDis = 0) {
         ManagedReference<WeaponObject*> weapon = attacker->getWeapon();
         if(weapon->isBroken()) {
             commander->sendSystemMessage("Your weapon is broken, and you can't attack with a broken weapon.");
@@ -174,17 +204,61 @@ public:
             }
         }
         
-
         //Dark Rebellion Rulebook Edition I, on Flurry Attack
         /* Instead of simply one attack, you’ll roll three to-hit to determine three different attacks, each providing half damage if they succeed. 
         If the target is using a combat stance that uses action points, they’ll have to spend twice as many action points to counter your attack, 
         though they’ll only need to defeat your highest to-hit roll in order to counter all three attacks. */
 
         int toHitDC = GetToHitModifier(attacker, defender, weapon) + 10;
-        int roll1 = BorDice::Roll(1, 20); 
-        int roll2 = BorDice::Roll(1, 20); 
-        int roll3 = BorDice::Roll(1, 20); 
 
+        int roll1 = 0;
+        int roll2 = 0; 
+        int roll3 = 0;
+
+        int r1 = BorDice::Roll(1, 20); 
+        int r2 = BorDice::Roll(1, 20);
+        int r3 = BorDice::Roll(1, 20); 
+        int r4 = BorDice::Roll(1, 20);
+        int r5 = BorDice::Roll(1, 20); 
+        int r6 = BorDice::Roll(1, 20);
+
+        // Roll with Advantage
+        if (advDis == 1) {
+            roll1 = std::max(r1, r2);
+            roll2 = std::max(r3, r4);
+            roll3 = std::max(r5, r6);
+        }
+        // Roll with Disadvantage
+        else if (advDis == 2) {
+            roll1 = std::min(r1, r2);
+            roll2 = std::min(r3, r4);
+            roll3 = std::min(r5, r6);
+        }
+        else {
+            roll1 = BorDice::Roll(1, 20); 
+            roll2 = BorDice::Roll(1, 20); 
+            roll3 = BorDice::Roll(1, 20);
+        }
+
+        int nat20 = false;
+        int nat20_1 = false;
+        int nat20_2 = false;
+        int nat20_3 = false;
+        if (roll1 == 20) {
+            nat20_1 = true;
+        }
+        if (roll2 == 20) {
+            nat20_2 = true;
+        }
+        if (roll3 == 20) {
+            nat20_3 = true;
+        }
+        if (nat20_1 == true || nat20_2 == true || nat20_3 == true) {
+            nat20 = true;
+        }
+
+        int bodyPartTarget = GetBodyPartTarget();
+        
         int lowestRoll = std::min(std::min(roll1, roll2), roll3);
 
         int skillCheck = 0;
@@ -193,51 +267,38 @@ public:
         else if(weapon->isMeleeWeapon()) skillCheck = attacker->getSkillMod("rp_melee");
         else if(weapon->isRangedWeapon()) skillCheck = attacker->getSkillMod("rp_ranged");
         
-
-        //Lightsaber Hurt self check.
-        if(weapon->isJediWeapon()) {
-            //Modify toHitDC if its our lightsaber.
-            if(weapon->getCraftersName() == attacker->getFirstName()) {
-                toHitDC -= 2;
-                if(toHitDC < 0)
-                    toHitDC = 0;
-            }
-            
-            bool selfHit = false;
-            int saberSkill = attacker->getSkillMod("rp_lightsaber");
-            if(saberSkill == 0) {
-                if(lowestRoll < 18) {
-                    //Ouch
-                    selfHit = true;
-                    
-                } 
-            } else if(saberSkill < 3) {
-                if(lowestRoll == 1) {
-                    selfHit = true;
-                }
-            }
-
-            if(selfHit) {
-                BorEffect::PerformReactiveAnimation(attacker, attacker, "hit", GetSlotHitlocation(BorDice::Roll(1, 10)), true);
-                int totalDamage = GetDamageRoll(weapon->getMaxDamage(), weapon->getMinDamage(), weapon->getBonusDamage());
-                BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " accidently hurts themselves with the lightsaber, doing "+String::valueOf(totalDamage)+" damage!");
-                BorCharacter::ModPool(attacker, "health", totalDamage * -1, true);       
-                return;
-            }
-        }
-
         bool hit1 = roll1 + skillCheck >= toHitDC;
         bool hit2 = roll2 + skillCheck >= toHitDC + 5;
         bool hit3 = roll3 + skillCheck >= toHitDC + 10;
+
+        //Consume ammo if appliable.
+        if(attacker->isPlayerCreature()) {  //NPCs don't use ammo
+                int maxAmmo = attacker->getWeapon()->getMaxAmmo();
+		        int ammoUsed = attacker->getWeapon()->getStoredInt("ammo_used");
+                String ammoType = attacker->getWeapon()->getAmmoType();
+                int ammoToUse = 3;
+
+                //commander->sendSystemMessage("DEBUG: Your weapon's ammo type is " + ammoType + ". MaxAmmo is " + String::valueOf(maxAmmo) + ". Current ammo used is " + String::valueOf(ammoUsed) + ". The current attack will use " + String::valueOf(ammoToUse));
+                if(ammoType == "ammo_energy" || ammoType == "ammo_kinetic" || ammoType == "ammo_tusken" || ammoType == "ammo_disrupter") {   //If we are using a weapon that has ammo.
+                    
+                    if(ammoUsed + ammoToUse <= maxAmmo) {
+                        attacker->getWeapon()->setStoredInt("ammo_used", ammoUsed + ammoToUse);
+                    }
+                    else {
+                        commander->sendSystemMessage("You don't have enough ammunition to attack.");
+                        return;
+                    }
+                }
+            }
 
         DrainActionOrWill(attacker, 1);
 
         //Absolute Miss
         if(!hit1 && !hit2 && !hit3) {
-            BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " flurry attacked " +  defender->getFirstName() + " and missed! \\#DBDBDB" + GenerateFlurryOutputSpam(roll1, roll2, roll3, skillCheck, toHitDC) + "\\#FFFFFF");
-            BorEffect::PerformReactiveAnimation(defender, attacker, "miss", GetSlotHitlocation(BorDice::Roll(1, 10)), true);
-            BorEffect::PerformReactiveAnimation(defender, attacker, "miss", GetSlotHitlocation(BorDice::Roll(1, 10)), true);
-            BorEffect::PerformReactiveAnimation(defender, attacker, "miss", GetSlotHitlocation(BorDice::Roll(1, 10)), true);
+            BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + " flurry attacked " +  defender->getFirstName() + " and missed! \\#DBDBDB" + GenerateFlurryOutputSpam(roll1, roll2, roll3, skillCheck, toHitDC, advDis, r1, r2, r3, r4, r5, r6) + "\\#FFFFFF");
+            BorEffect::PerformReactiveAnimation(defender, attacker, "miss", GetBodyPartTarget(), true);
+            BorEffect::PerformReactiveAnimation(defender, attacker, "miss", GetBodyPartTarget(), true);
+            BorEffect::PerformReactiveAnimation(defender, attacker, "miss", GetBodyPartTarget(), true);
             return;
         }
 
@@ -247,21 +308,19 @@ public:
 
         if(weapon->isJediWeapon()) {
             bonusDamage += attacker->getSkillMod("rp_lightsaber");
-        } else if(weapon->isUnarmedWeapon()) {
-            bonusDamage += attacker->getSkillMod("rp_unarmed");
-            if(attacker->hasSkill("rp_training_tka_rank_04") && attacker->hasSkill("rp_force_prog_novice")) {
-			    int tk_mod = attacker->getSkillMod("rp_telekinesis");
-			    int inw_mod = attacker->getSkillMod("rp_inward");
-			    if(tk_mod > inw_mod)
-			    	bonusDamage += tk_mod / 2;
-			    else 
-			    	bonusDamage += inw_mod / 2;
-		    }
-        }
 
-        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
-        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
-        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage) / 2;
+        } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
+             if(attacker->isPlayerCreature()) {
+                bonusDamage += attacker->getSkillMod("rp_strength_damage_bonus");
+             }
+            else {
+                bonusDamage += attacker->getSkillMod("rp_strength") / 2;
+             }
+        } 
+
+        int damage1 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_1, false) / 2;
+        int damage2 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_2, false) / 2;
+        int damage3 = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, nat20_3, false) / 2;
 
         int totalDamage = 0;
         if(hit1) totalDamage += damage1;
@@ -270,6 +329,10 @@ public:
 
         if(totalDamage < 1) totalDamage = 1;
 
+        if(!weapon->isInvisible()) {
+            weapon->setConditionDamage(weapon->getConditionDamage() + totalDamage);
+        }
+
         int hitCount = 0;
         if(hit1) hitCount++;
         if(hit2) hitCount++;
@@ -277,12 +340,12 @@ public:
 
         int highestRoll = roll1;
         if(roll2 > highestRoll) highestRoll = roll2;
-        if(roll3 > highestRoll) highestRoll = roll3; 
+        if(roll3 > highestRoll) highestRoll = roll3;
 
-        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, BorDice::Roll(1, 10), false, true);
+        String reactionResult = HandleCombatReaction(attacker, defender, totalDamage, highestRoll + skillCheck, bodyPartTarget, false, true, hitCount, false, nat20, damage1, damage2, damage3);
 
         //Apply Followup as per the reaction.
-        String toHitString = "\\#DBDBDB" + GenerateFlurryOutputSpam(roll1, roll2, roll3, skillCheck, toHitDC) + "\\#FFFFFF";
+        String toHitString = "\\#DBDBDB" + GenerateFlurryOutputSpam(roll1, roll2, roll3, skillCheck, toHitDC, advDis, r1, r2, r3, r4, r5, r6) + "\\#FFFFFF";
 
         String combatSpam = attacker->getFirstName() + " flurry attacked " +  defender->getFirstName();
         
@@ -292,76 +355,463 @@ public:
             combatSpam += " and hit " + String::valueOf(hitCount) + " times!";
         }
 
-
         if(ignoreLOS) {
             BorrieRPG::BroadcastMessage(attacker, combatSpam + " " + toHitString +  reactionResult + " (Line of Sight Ignored)");
         } else {
             BorrieRPG::BroadcastMessage(attacker, combatSpam + " " + toHitString +  reactionResult);
-        }
-        
+        } 
     }
 
-    static int GetDamageRoll(int dieType, int dieCount, int bonusDamage) {
+    static int GetDamageRoll(int dieType, int dieCount, int bonusDamage, bool nat20, bool powerAttack) {
         int totalDamage = bonusDamage;
-        for(int i = 0;i<dieCount;i++) {
+        // Maximize all damage dice (except the Power Attack die) on a critical hit.
+        if (nat20 && !powerAttack) {
+            totalDamage += dieType * dieCount;
+        }
+        // Don't maximize the Power Attack die on a crit.
+        else if (nat20 && powerAttack) {
+            totalDamage += dieType * (dieCount - 1);
             totalDamage += BorDice::Roll(1, dieType);
         }
-
+        else {
+            for(int i = 0;i<dieCount;i++) {
+                totalDamage += BorDice::Roll(1, dieType);
+            }
+        }
         return totalDamage;
     }
 
-    static String GenerateOutputSpam(int roll, int skillMod, int diceCheck) {
-        return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + ") = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ") ";
+    static String GenerateOutputSpam(int roll, int skillMod, int diceCheck, int aimMod = 0, int bodyPartTarget = -1, int advDis = 0, int roll1 = 0, int roll2 = 0) {
+        if (bodyPartTarget != -1) {
+            // Advantage
+            if (advDis == 1) {
+                return "(1d20 (advantage): (" + String::valueOf(roll1) + ", " + String::valueOf(roll2) + ") + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+            }
+            // Disadvantage
+            else if (advDis == 2) {
+                return "(1d20 (disadvantage): (" + String::valueOf(roll1) + ", " + String::valueOf(roll2) + ") + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+            }
+            else {
+                return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+            }
+        }
+        else {
+            // Advantage
+            if (advDis == 1) {
+                return "(1d20 (advantage): (" + String::valueOf(roll1) + ", " + String::valueOf(roll2) + ") + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+            }
+            // Disadvantage
+            else if (advDis == 2) {
+                return "(1d20 (disadvantage): (" + String::valueOf(roll1) + ", " + String::valueOf(roll2) + ") + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck - aimMod) + " + " + String::valueOf(aimMod) + " Aim Penalty)";
+            }
+            else {
+                return "(1d20: " + String::valueOf(roll) + " + " + String::valueOf(skillMod) + " = " + String::valueOf(roll + skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ") ";
+            }
+        }
     }
 
-    static String GenerateFlurryOutputSpam(int roll1, int roll2, int roll3, int skillMod, int diceCheck) {
-        String result = "(3d20: "+ String::valueOf(roll1) + ", ";
-        result += String::valueOf(roll2) + ", ";
-        result += String::valueOf(roll3) + " ";
-        result += "+ " + String::valueOf(skillMod) + ") vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck+5)+", " + String::valueOf(diceCheck+10) +" ) "; 
+    static String GenerateDamageOutputSpam(int damage, int finalDamage, int armorProtection, bool armorSkillFlag = false, bool headshotFlag = false, bool nat20 = false, bool flurryAttacked = false, int hitCount = 0, int damage1 = 0, int damage2 = 0, int damage3 = 0, int bonusDamage = 0) {
+        if (!armorSkillFlag)
+        {
+            if (armorProtection > 0)
+            {
+                if (flurryAttacked) {
+                    if (headshotFlag && nat20) {
+                        if(damage > armorProtection) {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!";
+                            }
+                        }   
+                        else {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(minimum) damage, despite a critical headshot!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(minimum) damage, despite a critical headshot!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(minimum) damage, despite a critical headshot!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!";
+                            }
+                        }
+                    }
+                    else if (headshotFlag && !nat20) {
+                        if(damage > armorProtection) {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!";
+                            }  
+                        }    
+                        else {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!";
+                            }
+                        }
+                    }
+                    else if (!headshotFlag && nat20) {
+                        if(damage > armorProtection) {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (critical hit!)";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (critical hit!)";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (critical hit!)";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!";
+                            }
+                        }   
+                        else {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!";
+                            }
+                        }
+                    }
+                    else {
+                        if(damage > armorProtection) {
+                            if (hitCount == 1) {
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!";
+                            }
+                        }   
+                        else {
+                           if (hitCount == 1) {
+                                return String::valueOf(damage1) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + "(minimum) damage!";
+                            }
+                            if (hitCount == 2) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                            }
+                            if (hitCount == 3) {
+                                return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                            }
+                            else {
+                                return "ERROR: This should not occur! Please contact the admins!";
+                            }
+                        }
+                    }
+                }
+                else {
+                    if (headshotFlag && nat20) {
+                        if(damage > armorProtection) {
+                            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        }   
+                        else {
+                            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical headshot!";
+                        }
+                    }
+                    else if (headshotFlag && !nat20) {
+                        if(damage > armorProtection) {
+                            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        }   
+                        else {
+                            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a headshot!";
+                        }
+                    }
+                    else if (!headshotFlag && nat20) {
+                        if(damage > armorProtection) {
+                            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                        }   
+                        else {
+                            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage, despite a critical hit!";
+                        }
+                    }
+                    else {
+                        if(damage > armorProtection) {
+                            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " damage!";
+                        }   
+                        else {
+                            return String::valueOf(damage) + " - " + String::valueOf(armorProtection) + " = " + String::valueOf(finalDamage) + " (minimum) damage!";
+                        }
+                    }
+                }
+            }
+            else {
+                if (flurryAttacked) {
+                    if (headshotFlag && nat20) {
+                        if (hitCount == 1) {
+                            return String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        }
+                        if (hitCount == 2) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        }
+                        if (hitCount == 3) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                        }
+                        else {
+                            return "ERROR: This should not occur! Please contact the admins!";
+                        }
+                    }
+                    else if (headshotFlag && !nat20) {
+                        if (hitCount == 1) {
+                            return String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        }
+                        if (hitCount == 2) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        }
+                        if (hitCount == 3) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                        }
+                        else {
+                            return "ERROR: This should not occur! Please contact the admins!";
+                        }
+                    }
+                    else if (!headshotFlag && nat20) {
+                        if (hitCount == 1) {
+                            return String::valueOf(finalDamage) + " damage! (critical hit!)";
+                        }
+                        if (hitCount == 2) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage! (critical hit!)";
+                        }
+                        if (hitCount == 3) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage! (critical hit!)";
+                        }
+                        else {
+                            return "ERROR: This should not occur! Please contact the admins!";
+                        }
+                    }
+                    else {
+                        if (hitCount == 1) {
+                            return String::valueOf(finalDamage) + " damage!";
+                        }
+                        if (hitCount == 2) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " = " + String::valueOf(finalDamage) + " damage!";
+                        }
+                        if (hitCount == 3) {
+                            return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " = " + String::valueOf(finalDamage) + " damage!";
+                        }
+                        else {
+                            return "ERROR: This should not occur! Please contact the admins!";
+                        }
+                    }
+                }
+                else {
+                    if (headshotFlag && nat20) {
+                        return String::valueOf(finalDamage) + " damage! (25% headshot bonus, critical hit!)";
+                    }
+                    else if (headshotFlag && !nat20) {
+                        return String::valueOf(finalDamage) + " damage! (25% headshot bonus!)";
+                    }
+                    else if (!headshotFlag && nat20) {
+                        return String::valueOf(finalDamage) + " damage! (Critical hit!)";
+                    }
+                    else {
+                        return String::valueOf(finalDamage) + " damage!";
+                    }
+                }
+            }
+        }
+        else {
+            if (flurryAttacked) {
+                if (headshotFlag && nat20) {
+                    if (hitCount == 1) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    }
+                    if (hitCount == 2) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    }
+                    if (hitCount == 3) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                    }
+                    else {
+                        return "ERROR: This should not occur! Please contact the admins!";
+                    }
+                }
+                else if (headshotFlag && !nat20) {
+                    if (hitCount == 1) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    }
+                    if (hitCount == 2) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    }
+                    if (hitCount == 3) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                    }
+                    else {
+                        return "ERROR: This should not occur! Please contact the admins!";
+                    }
+                }
+                else if (!headshotFlag && nat20) {
+                    if (hitCount == 1) {
+                        return String::valueOf(damage1) + " = " + (damage1 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    }
+                    if (hitCount == 2) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    }
+                    if (hitCount == 3) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                    }
+                    else {
+                        return "ERROR: This should not occur! Please contact the admins!";
+                    }
+                }
+                else {
+                    if (hitCount == 1) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    }
+                    if (hitCount == 2) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    }
+                    if (hitCount == 3) {
+                        return String::valueOf(damage1) + " + " + String::valueOf(damage2) + " + " + String::valueOf(damage3) + " + " + String::valueOf(bonusDamage) + " = " + (damage1 + damage2 + damage3 + bonusDamage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                    }
+                    else {
+                        return "ERROR: This should not occur! Please contact the admins!";
+                    }
+                }
+            }
+            else {
+                if (headshotFlag && nat20) {
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical headshot!";
+                }
+                else if (headshotFlag && !nat20) {
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the headshot!";
+                }
+                else if (!headshotFlag && nat20) {
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor, made worse by the critical hit!";
+                }
+                else {
+                    return String::valueOf(damage) + " damage, only blocking 1 point due to insufficent Strength for their armor!";
+                }
+            }
+        }
+    }
+
+    static String GenerateFlurryOutputSpam(int roll1, int roll2, int roll3, int skillMod, int diceCheck, int advDis = 0, int r1 = 0, int r2 = 0, int r3 = 0, int r4 = 0, int r5 = 0, int r6 = 0) {
+        String result = "";
+
+        // Advantage
+        if (advDis == 1) {
+            result = "(3d20 (advantage): (" + String::valueOf(r1) + ", " + String::valueOf(r2) + "), ";
+            result += "(" + String::valueOf(r3) + ", " + String::valueOf(r4) + "), ";
+            result += "(" + String::valueOf(r5) + ", " + String::valueOf(r6) + ") ";
+        }
+        //Disadvantage
+        else if (advDis == 2) {
+            result = "(3d20 (disadvantage): (" + String::valueOf(r1) + ", " + String::valueOf(r2) + "), ";
+            result += "(" + String::valueOf(r3) + ", " + String::valueOf(r4) + "), ";
+            result += "(" + String::valueOf(r5) + ", " + String::valueOf(r6) + ") ";
+        }
+        else {
+            result = "(3d20: "+ String::valueOf(roll1) + ", ";
+            result += String::valueOf(roll2) + ", ";
+            result += String::valueOf(roll3) + " ";
+        }
+        result += "+ " + String::valueOf(skillMod) + " vs. DC: " + String::valueOf(diceCheck) + ", " + String::valueOf(diceCheck+5)+", " + String::valueOf(diceCheck+10) +" ) "; 
         return result;
     }
 
-    static String HandleCombatReaction(CreatureObject* attacker, CreatureObject* defender, int incomingDamage, int toHit, int slot, bool powerAttacked, bool flurryAttacked) {
+    static String HandleCombatReaction(CreatureObject* attacker, CreatureObject* defender, int incomingDamage, int toHit, int slot, bool powerAttacked = false, bool flurryAttacked = false, int hitCount = 0, bool headshotFlag = false, bool nat20 = false, int damage1 = 0, int damage2 = 0, int damage3 = 0) {
         WeaponObject* attackerWeapon = attacker->getWeapon();
         WeaponObject* defenderWeapon = defender->getWeapon();
         int defenderReactionType = defender->getStoredInt("reaction_stance");
-        //int defenderAction = defender->getHAM(3);
+        int bonusDamage = attackerWeapon->getBonusDamage();
 
         String reactionSpam = "";
         String damageModString = powerAttacked ? " X 2" : "";
 
         int actionPointMod = 1;
         if(flurryAttacked)
-            actionPointMod = 2;
+            actionPointMod = hitCount;
 
         if(CanPerformReaction(defender, defenderReactionType, incomingDamage, attackerWeapon, defenderWeapon)) {
             if(defenderReactionType == 1) { //Defend
                 int defenseRoll = BorDice::Roll(1, 20);
                 int defenseSkill = defender->getSkillMod("rp_defending");
-                DrainActionOrWill(defender, 1 * actionPointMod);
-                if(defenseRoll + defenseSkill > toHit) { //Success
-                    //defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
-                    reactionSpam += defender->getFirstName() + " successfully defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
+
+                if(attackerWeapon->isRangedWeapon()) {
+                    String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
+                }
+                else if(defenseRoll + defenseSkill > toHit) { //Success
+
+                    //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
+                    if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
+                            defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
+                    }
+                    else {
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        }
+                    }
+
+                    //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
+                    if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
+                        if(!attackerWeapon->isInvisible()) {
+                            attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
+                            attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
+                    }
+                    
+                    DrainActionOrWill(defender, 1 * actionPointMod);
+                    reactionSpam += " " + defender->getFirstName() + " successfully defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
                     reactionSpam += ", absorbing \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage into their weapon.";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), true);
     
-                } else if(defenseRoll + defenseSkill > 15) {
-                    reactionSpam += defender->getFirstName() + " partially defends against the attack (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
-                    reactionSpam += ", absorbing \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage into their weapon, ";
-                    reactionSpam += ", and personally taking \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage.";
-                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage / 2, slot);
-                    BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), true);
                 } else {
                     //BorCharacter::ModPool(defender, "health", incomingDamage * -1, true);
-                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
-                    reactionSpam += defender->getFirstName() + " tries to defend against the attack, but fails (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
-                    reactionSpam += ", taking \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
+                    DrainActionOrWill(defender, 1 * actionPointMod);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "defend", GetSlotHitlocation(slot), false);
+                    reactionSpam += " " + defender->getFirstName() + " tries to defend against the attack, but fails (1d20 = " + String::valueOf(defenseRoll) + " + " + String::valueOf(defenseSkill) + ") ";
+                    String combatLogPrefix = ", taking (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
                 }
                 return reactionSpam;
             } else if(defenderReactionType == 2) { //Parry
                 int meleeRoll = BorDice::Roll(1, 20);
+                bool meleeNat20 = false;
+                if (meleeRoll == 20) {
+                    meleeNat20 = true;
+                }
                 int meleeSkill = 0;
 
                 if(defenderWeapon->isJediWeapon()) 
@@ -374,42 +824,127 @@ public:
 
                 if(meleeRoll + meleeSkill >= toHit) {
                     //Successful Parry
-                    DrainActionOrWill(defender, 3 * actionPointMod);
-                    int returnDamage = incomingDamage / 2;
+                    DrainActionOrWill(defender, 3);
+                    
+                    //Calculate 
+                    ManagedReference<WeaponObject*> weapon = defender->getWeapon();
+	                int damageDieCount = weapon->getMinDamage();
+                    int damageDieType = weapon->getMaxDamage();
+                    int bonusDamage = weapon->getBonusDamage();
+                    if(weapon->isJediWeapon()) {
+                        bonusDamage += defender->getSkillMod("rp_lightsaber");
+                    } else if(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()) {
+                        if(defender->isPlayerCreature()) {
+                            bonusDamage += defender->getSkillMod("rp_strength_damage_bonus");
+                        }
+                        else {
+                            bonusDamage += defender->getSkillMod("rp_strength") / 2;    
+                        }
+                    }
+
+                    int returnDamage = GetDamageRoll(damageDieType, damageDieCount, bonusDamage, meleeNat20, false) / 2;
                     ApplyAdjustedHealthDamage(attacker, defenderWeapon, returnDamage, slot);
+
+                    //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
+                    if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
+                            defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
+                    }
+                    else {
+                        if(!defenderWeapon->isInvisible()) {
+                            defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                        }
+                    }
+
+                    //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
+                    if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
+                        if(!attackerWeapon->isInvisible()) {
+                            attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
+                            attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                        }
+                    }
+
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                     reactionSpam += ", but " + defender->getFirstName()+" parries the attack (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit)+"), striking back for \\#FF9999"+String::valueOf(returnDamage)+"\\#FFFFFF damage!";
                 } else {
                     //Unsuccessful Parry
-                    DrainActionOrWill(defender, 2 * actionPointMod);
-                    //defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
-                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+                    DrainActionOrWill(defender, 3);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
-                    reactionSpam += ". " + defender->getFirstName() + " tries to parry the attack, but fails (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit)+"), recieving \\#FF9999"+String::valueOf(incomingDamage)+"\\#FFFFFF damage!"; 
+                    reactionSpam += ". " + defender->getFirstName() + " tries to parry the attack, but fails (" +String::valueOf(meleeRoll)+" + "+String::valueOf(meleeSkill)+" = "+String::valueOf(meleeRoll + meleeSkill)+" vs DC: "+String::valueOf(toHit);
+                    String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
                 }
                 return reactionSpam;
             } else if(defenderReactionType == 3) { //Dodge
                 int maneuverabilitySkill = defender->getSkillMod("rp_maneuverability");
                 int dodgeRoll = BorDice::Roll(1, 20);
-                
-                if(dodgeRoll + maneuverabilitySkill >= toHit) { //Successful Dodge
+                int heavyFlag = 0;
+
+                // Prevent dodge in Heavy Armor
+                for (int i = 2; i <= 10; i++) { // Check each armor slot. Starting from 2 to make the loop slightly faster since body is checked at 1, 2, and 9.
+                    ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(i));
+                    int rating = 0;
+                    if (armor != nullptr && armor.get() != nullptr) {
+                        rating = armor->getRating();
+                        if (rating == 3) {
+                            heavyFlag = 1;
+                        }
+                    }
+                }
+
+                if (heavyFlag == 1) // If Heavy Armor is worn in any slot, fail the dodge regardless.
+                {
+                    reactionSpam += ", " + defender->getFirstName() + " is unable to dodge due to their heavy armor! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
+                    BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
+                    String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                    return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
+                }
+
+                ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
+                int rating = 0;
+                if (armor != nullptr && armor.get() != nullptr)
+                    rating = armor->getRating();
+
+                if(dodgeRoll + maneuverabilitySkill >= toHit) { //Successful Dodge, not wearing Heavy Armor
                     reactionSpam += ", but " + defender->getFirstName() + " dodges out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
-                    DrainActionOrWill(defender, 2 * actionPointMod);
-                } else if(dodgeRoll + maneuverabilitySkill >= toHit / 2 ) { //Partial Dodge
-                    reactionSpam += ", " + defender->getFirstName() + " struggles to dodge out of the way! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
-                    reactionSpam += defender->getFirstName() + " stumbles, but only takes \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage.";
-                    //BorCharacter::ModPool(defender, "health", (incomingDamage / 2) * -1);
-                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage / 2, slot);
-                    BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), true);
-                    DrainActionOrWill(defender, 1 * actionPointMod);
-                } else { //full fail
+                    int actionPointCost = 1;
+                    if (rating == 1) { //Light Armor
+                        actionPointCost = 2 * actionPointMod;
+                    }
+                    else if (rating == 2) { //Medium Armor
+                        actionPointCost = 3 * actionPointMod;
+                    }
+                    else { //No Armor
+                        actionPointCost = 1 * actionPointMod;
+                    }
+                    if(defender->isKneeling()) {
+                        actionPointCost++;
+                    }
+                    DrainActionOrWill(defender, actionPointCost);
+                }
+
+                else { //full fail
                     reactionSpam += ", " + defender->getFirstName() + " tries to dodge out of the way and fails! (1d20 = " + String::valueOf(dodgeRoll) + " + " + String::valueOf(maneuverabilitySkill) + ") ";
-                    reactionSpam += defender->getFirstName() +" takes \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
-                    //BorCharacter::ModPool(defender, "health", incomingDamage * -1, true);
-                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+                    String combatLogPrefix = ", takes (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "dodge", GetSlotHitlocation(slot), false);
-                    DrainActionOrWill(defender, 1 * actionPointMod);
+                    int actionPointCost = 1;
+                    if (rating == 1) { //Light Armor
+                        actionPointCost = 2 * actionPointMod;
+                    }
+                    else if (rating == 2) { //Medium Armor
+                        actionPointCost = 3 * actionPointMod;
+                    }
+                    else { //No Armor
+                        actionPointCost = 1 * actionPointMod;
+                    }
+                    if(defender->isKneeling()) {
+                        actionPointCost++;
+                    }
+                    DrainActionOrWill(defender, actionPointCost);
                 }
                 return reactionSpam;
             } else if(defenderReactionType == 4) { //Lightsaber Deflect
@@ -423,60 +958,52 @@ public:
 
                 Lightsaber deflect will cost 11 action points, minus your total Lightsaber skill score. 
                 */
-                int deflectionCount = defender->getStoredInt("deflection_count");
-                defender->setStoredInt("deflection_count", deflectionCount + 1);
+                //int deflectionCount = defender->getStoredInt("deflection_count");
+                //defender->setStoredInt("deflection_count", deflectionCount + 1);
                 int deflectRoll = BorDice::Roll(1, 20);
                 int lightsaberSkill = defender->getSkillMod("rp_lightsaber");
                 //Check to see if the target lightsaber is ranged or another lightsaber, or lightsaber resistant.
-                int actionCost = 11 - lightsaberSkill;
-                if(actionCost <= 0) actionCost = 1;
+                //int actionCost = 11 - lightsaberSkill;
+                //if(actionCost <= 0) actionCost = 1;
+                int actionCost = 3;
                 DrainActionOrWill(defender, actionCost);
                 if(attackerWeapon->isRangedWeapon()) {
                     bool canDeflect = attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC;
                     
-                    if(canDeflect && deflectRoll + lightsaberSkill >= toHit) {
-                        //If you roll higher or equal to their to-hit roll, you'll deflect blaster bots back to their originator at half damage.
-                        reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                    //if(canDeflect && deflectRoll + lightsaberSkill >= toHit + 4) {
+                    if(canDeflect && deflectRoll + lightsaberSkill >= 18) {
+                        //If you roll 18+, you'll reflect blaster bots back to their originator at half damage.
+                        reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 18)";
                         reactionSpam += ", sending it back to its origin, dealing \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage to " + attacker->getFirstName() +"!";
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
                         ApplyAdjustedHealthDamage(attacker, attackerWeapon, incomingDamage / 2, slot);
-                    } else if(deflectRoll + lightsaberSkill >= toHit / 2) { 
-                        //If you roll higher than half of their to-hit roll, you will deflect blaster bolts.
-                        reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit/2)+")";
-                        reactionSpam += ", sending it harmlessly away.";
+                    } else if(deflectRoll + lightsaberSkill >= 15) { 
+                        //If you roll higher than the attacker's to-hit roll, you will deflect blaster bolts and take no damage.
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
+                        reactionSpam += defender->getFirstName() + " successfully deflects the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 15)";
+                        reactionSpam += ", sending it harmlessly away.";
                     } else {
                         //Ouch time.
-                        reactionSpam += defender->getFirstName() + " tries to deflect the shot (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
-                        reactionSpam += ", but fails, recieving \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage!";
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+                        BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), false);
+                        reactionSpam += defender->getFirstName() + " tries to deflect the shot and fails (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 15)";
+                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
                     }                   
                 } else {
                     bool deflectableWeapon = attackerWeapon->isLightsaberResistant();
                     
-                    if(deflectRoll + lightsaberSkill >= toHit && deflectableWeapon) {
+                    if(deflectRoll + lightsaberSkill >= 15 && deflectableWeapon) {
                         //If you roll higher or equal to their to-hit roll, you avoid damage entirely.
-                        reactionSpam += ", but " + defender->getFirstName() + " successfully deflects the attack entirely. (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
+                        reactionSpam += ", but " + defender->getFirstName() + " successfully deflects the attack entirely. (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 15)";
                         BorEffect::PerformReactiveAnimation(defender, attacker, "parry", GetSlotHitlocation(slot), true);
-                    } else if(deflectRoll + lightsaberSkill >= toHit / 2 && deflectableWeapon) {
-                        //If you roll higher or equal to half of their to-hit, you take half damage.
-                        reactionSpam += defender->getFirstName() + " deflects the attack in partial (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit/2)+")";
-                        reactionSpam += ", still recieving \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage!";
-                        BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), true);
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage / 2, slot);
+                        reactionSpam += attacker->getFirstName() + "'s weapon is sundered by " + attacker->getFirstName() + "'s lightsaber!";
                     } else {
-                        if(!deflectableWeapon) {
-                            //Destroy Weapon
-                            reactionSpam += defender->getFirstName() + " fails to deflect the attack, because their weapon cannot deflect a lightsaber! It is sundered!";
-                        } else {
-                            reactionSpam += defender->getFirstName() + " fails to deflect the attack (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: "+String::valueOf(toHit)+")";
-                        }
-                        //Full Damage.
-                        reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage!";
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
-                        BorEffect::PerformReactiveAnimation(attacker, defender, "hit", GetSlotHitlocation(slot), true);
-                    }                  
-                }
+                        reactionSpam += defender->getFirstName() + " tries to deflect the attack and fails (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(lightsaberSkill) + " vs DC: 15)";
+                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
+                    }
+                    BorEffect::PerformReactiveAnimation(attacker, defender, "hit", GetSlotHitlocation(slot), true);
+                }                  
                 return reactionSpam;
             } else if(defenderReactionType == 5) { //Force Deflect
                 //Dark Rebellion Rulebook on Force Deflect (as of 4/21/23)
@@ -491,47 +1018,33 @@ public:
                 int telekineticSkill = defender->getSkillMod("rp_telekinesis");
                 bool deflectableWeapon = attackerWeapon->isRangedWeapon();
 
-                int forceCost = 11 - telekineticSkill;
-                if(forceCost <= 0 ) forceCost = 1;
+                //int forceCost = 11 - telekineticSkill;
+                //if(forceCost <= 0 ) forceCost = 1;
+                int forceCost = 3 * actionPointMod;
 
                 if(!deflectableWeapon) {
                     //Can't deflect.
-                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
                     BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     defender->sendSystemMessage("You cannot deflect this attack telekinetically. You recieved full damage.");
-                    return ", doing (" + GetWeaponDamageString(attackerWeapon) + ") = \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
-                } else if(telekineticSkill < 5) {
-                    if(deflectRoll + telekineticSkill >= toHit) {
-                        //Half Damage
-                        reactionSpam += defender->getFirstName() + " raises their arms, trying to shield themselves (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
-                        reactionSpam += ", recieving only \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage!";
-                        BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), false);
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage/2, slot);
-                        DrainForce(defender, forceCost);
-                    } else {
-                        //Full Damage
-                        reactionSpam += defender->getFirstName() + " tries and fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
-                        reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage!";
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
-                        DrainForce(defender, forceCost);
-                    }
-                } else {
-                    if(deflectRoll + telekineticSkill >= toHit) {
-                        //No Damage
-                        reactionSpam += defender->getFirstName() + " raises their hand and deflects the attack away (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
-                        BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), false);
-                        DrainForce(defender, forceCost);
-                    } else {
-                        //Half Damage.
-                        reactionSpam += defender->getFirstName() + " quickly raises their hand, deflecting some of the attack away (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ")";
-                        reactionSpam += ", recieving only \\#FF9999" + String::valueOf(incomingDamage / 2) + "\\#FFFFFF damage!";
-                        BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), false);
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage/2, slot);
-                        DrainForce(defender, forceCost);
-                    }
-                }                
-
+                    String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
+                } 
+                else if(deflectRoll + telekineticSkill >= 15) {
+                    //No Damage
+                    reactionSpam += defender->getFirstName() + " raises their hand and deflects the attack away (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ") vs DC 15";
+                    BorEffect::PerformReactiveAnimation(attacker, defender, "parry", GetSlotHitlocation(slot), false);
+                    DrainForce(defender, forceCost);
+                }
+                else {
+                    //Full Damage
+                    reactionSpam += defender->getFirstName() + " fails to block the attack with their hands (1d20 = " + String::valueOf(deflectRoll) + " + " + String::valueOf(telekineticSkill) + ") vs DC 15";
+                    String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
+                    DrainForce(defender, forceCost);
+                }
+                                
                 return reactionSpam;
+
             } else if(defenderReactionType == 6) { //Force Absorb
                 //Dark Rebellion Rulebook on Force Absorb (as of 4/21/23)
                 /*
@@ -543,139 +1056,271 @@ public:
                 */
                 int absorbRoll = BorDice::Roll(1, 20);
                 int absorbSkill = defender->getSkillMod("rp_inward");
-
-                bool passed = absorbRoll + absorbSkill >= toHit;
-
-                int forceCost = 12 - absorbSkill;
-                if(forceCost <= 0) forceCost = 1;
+                int forceCost = 3 * actionPointMod;
 
                 if(attackerWeapon->isRangedWeapon()) {
                     DrainForce(defender, forceCost);
-                    if(passed && attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC) {
-                        reactionSpam += defender->getFirstName() + " absorbs the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                    if(absorbRoll + absorbSkill >= 15 && attackerWeapon->getDamageType() != SharedWeaponObjectTemplate::KINETIC) {
+                        reactionSpam += defender->getFirstName() + " absorbs the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ") vs DC 15";
                     } else {
-                        reactionSpam += defender->getFirstName() + " tries to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
-                        reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage!";
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);   
+                        reactionSpam += defender->getFirstName() + " fails to absorb the attack (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ") vs DC 15";
+                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, hitCount) + ") = \\#FF9999";
+                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage); 
                     }
                 } else if(attackerWeapon->isJediWeapon()) {
                     DrainForce(defender, forceCost);
-                    if(passed) {
-                        reactionSpam += defender->getFirstName() + " blocks the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
+                    if(absorbRoll + absorbSkill >= 18) {
+                        reactionSpam += defender->getFirstName() + " blocks the attack with their hand and is unharmed (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ") vs DC 18";
                     } else {
-                        reactionSpam += defender->getFirstName() + " tries to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ")";
-                        reactionSpam += ", recieving \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage!";          
-                        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);             
+                        reactionSpam += defender->getFirstName() + " fails to absorb the attack with their hand (1d20 = " + String::valueOf(absorbRoll) + " + " + String::valueOf(absorbSkill) + ") vs DC 18";
+                        String combatLogPrefix = ", receiving (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                        reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);            
                     }
                 } else {
                     //Can't block this. Full attack.
-                    ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
-                    BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
                     defender->sendSystemMessage("You cannot absorb this attack. You recieved full damage.");
-                    return ", doing (" + GetWeaponDamageString(attackerWeapon) + ") = \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
+                    BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
+                    String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+                    reactionSpam += OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
                 }
                 return reactionSpam;
             }
             return reactionSpam;
         } 
-        
-        //Simply accept the damage. 
-        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+        //Simply accept the damage.
         BorEffect::PerformReactiveAnimation(defender, attacker, "hit", GetSlotHitlocation(slot), true);
-        return ", doing (" + GetWeaponDamageString(attackerWeapon) + ") = \\#FF9999" + String::valueOf(incomingDamage) + "\\#FFFFFF damage.";
+        String combatLogPrefix = ", doing (" + GetWeaponDamageString(attacker, attackerWeapon, powerAttacked, flurryAttacked, hitCount) + ") = \\#FF9999";
+        return OrchestrateDamage(combatLogPrefix, defender, attackerWeapon, incomingDamage, slot, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
+    }
+ 
+    static String OrchestrateDamage(String combatLogPrefix, CreatureObject* defender, WeaponObject* attackerWeapon, int incomingDamage, int slot, bool headshotFlag = false, bool nat20 = false, bool flurryAttacked = false, int hitCount = 0, int damage1 = 0, int damage2 = 0, int damage3 = 0, int bonusDamage = 0) {
+        ApplyAdjustedHealthDamage(defender, attackerWeapon, incomingDamage, slot);
+        
+        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(defender, GetSlotName(slot));
+        int armorProtection = 0;
+        String damageType = GetDamageType(attackerWeapon);
+        
+        if (defender->isPlayerCreature() || (armor != nullptr || armor.get() != nullptr)) {
+            armorProtection = GetArmorProtection(defender, armor, damageType);
+        }
+        else {
+	        armorProtection = GetSkillModArmorValue(defender, damageType);
+        }
+
+        bool armorSkillFlag = false;
+
+        if (armor != nullptr && armor.get() != nullptr && defender->getSkillMod("rp_strength") < armor->getRpSkillLevel()) {
+            armorSkillFlag = true;
+        }
+        return combatLogPrefix + GenerateDamageOutputSpam(incomingDamage, GetArmorReducedDamage(incomingDamage, armorProtection), armorProtection, armorSkillFlag, headshotFlag, nat20, flurryAttacked, hitCount, damage1, damage2, damage3, bonusDamage);
+    }
+
+    static int GetSkillModArmorValue(CreatureObject* defender, String damageType) {
+                int armorProtection = 0;
+        	    if (damageType == "Kinetic") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_kinetic");
+                }
+	            else if (damageType == "Energy") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_energy");
+                }
+	            else if (damageType == "Electricity") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_electricity");
+                }
+	            else if (damageType == "Stun") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_stun");
+                }
+	            else if (damageType == "Blast") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_blast");
+                }
+	            else if (damageType == "Heat") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_heat");
+                }
+	            else if (damageType == "Cold") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_cold");
+                }
+	            else if (damageType == "Acid") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_acid");
+                }
+	            else if (damageType == "Lightsaber") {
+	    	        armorProtection = defender->getSkillMod("rp_armor_bonus_lightsaber");
+                }
+                
+                return armorProtection;
     }
 
     static void ApplyAdjustedHealthDamage(CreatureObject* creature, WeaponObject* attackerWeapon, int damage, int slot) {
-        if(creature->isPlayerCreature()) { //Use their equipped armor
-            ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(slot));
-            if(armor != nullptr) {
-                if(!armor->isBroken()) {
-                    String damageType = GetDamageType(attackerWeapon);
-                    if(damageType == "Lightsaber") { //Special Lightsaber Rules
-                        if(armor->getLightSaber() > 0) { //Can Resist Lightsabers
-                            //Take only 10 percent damage.
-                            BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
-                        } else { //Take Full Damage
-                            BorCharacter::ModPool(creature, "health", damage * -1, true);
-                        }
-                    } else {
-                        //Get Defense
+        ManagedReference<ArmorObject*> armor = BorCharacter::GetArmorAtSlot(creature, GetSlotName(slot));
+        String damageType = GetDamageType(attackerWeapon);
+        int armorProtection = 0;
+        int finalDamage = 0;
 
-                        
-                        /* //Original system that takes into account armor penetration.
-                        int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
-                        int armorRating = armor->getRating();
-                        int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
-                        if(damageDivider != 0) {
-                            int adjustedDamage = damage / damageDivider;
-                            int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
-                            int finalDamage = adjustedDamage - armorProtection;
-                            if(finalDamage < 1) finalDamage = 1;
-                            armor->setConditionDamage(armor->getConditionDamage() + armorProtection);
-                            BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
-                        } else { //Take Full Damage
-                            BorCharacter::ModPool(creature, "health", damage * -1, true);
-                        }  */
-
-                        //Armor handling (without penetration)
-                        int armorProtection = GetArmorProtection(armor, GetDamageType(attackerWeapon));
-                        int finalDamage = damage - armorProtection;
-                        if(finalDamage < 1) finalDamage = 1;
-                        armor->setConditionDamage(armor->getConditionDamage() + armorProtection);
-                        BorCharacter::ModPool(creature, "health", finalDamage * -1, true);    
-                        String armorName = armor->getCustomObjectName().toString();
-                        if(armorName == "") {
-                            armorName = armor->getObjectTemplate()->getObjectName();
-                        }
-                            
-                        creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");                
+        if (creature->getSkillMod("rp_armor_bonus_kinetic") > 0 || creature->getSkillMod("rp_armor_bonus_energy") > 0 || creature->getSkillMod("rp_armor_bonus_electricity") > 0 || creature->getSkillMod("rp_armor_bonus_stun") > 0 || creature->getSkillMod("rp_armor_bonus_blast") > 0 || creature->getSkillMod("rp_armor_bonus_heat") > 0 || creature->getSkillMod("rp_armor_bonus_cold") > 0 || creature->getSkillMod("rp_armor_bonus_acid") > 0 || creature->getSkillMod("rp_armor_bonus_lightsaber") > 0) {
+            armorProtection = GetSkillModArmorValue(creature, damageType);
+            finalDamage = damage - armorProtection;
+            if(finalDamage < 1) finalDamage = 1;
+            BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
+        }
+        else if(armor != nullptr && armor.get() != nullptr) {
+            if(!armor->isBroken()) {
+                // Armor protection is only one if a character is untrained in the use of their armor.
+                armorProtection = 1;
+                if (creature->getSkillMod("rp_strength") >= armor->getRpSkillLevel())
+                {
+                    armorProtection = GetArmorProtection(creature, armor, damageType);
+                    if(armorProtection < 0) {
+                        armorProtection = 0;
                     }
-                } else { //Take Full Damage
-                    BorCharacter::ModPool(creature, "health", damage * -1, true);
                 }
-            } else { //Take Full Damage
+                finalDamage = damage - armorProtection;
+                if(finalDamage < 1) finalDamage = 1;
+                BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
+                String armorName = armor->getCustomObjectName().toString();
+                if(armorName == "") {
+                    armorName = armor->getObjectTemplate()->getObjectName();
+                }
+                    
+                // Armor should not take condition damage greater than its armor protection value.
+                if (damage >= armorProtection) {
+                    if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
+                        if(armor->getLightSaber() > 0)
+                            armor->setConditionDamage(armor->getConditionDamage() + armorProtection);
+                        else
+                        {
+                            armor->setConditionDamage(armor->getMaxCondition());
+                            if (creature->isPlayerCreature()) {
+                                creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!"); 
+                            }
+                        }
+                    }
+                    else {
+                        armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
+                    }
+                    if (creature->isPlayerCreature()) {
+                        creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(armorProtection) + " damage.");
+                    }
+                    if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
+                    {
+                        if (creature->isPlayerCreature()) {
+                            creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
+                        }
+                    }
+                }
+                else {
+                    if(damageType == "Lightsaber" or damageType == "LIGHTSABER" or damageType == "lightSaber") {
+                        if(armor->getLightSaber() > 0)
+                            armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
+                        else
+                        {
+                            armor->setConditionDamage(armor->getMaxCondition());
+                            if (creature->isPlayerCreature()) {
+                                creature->sendSystemMessage("Your " + armorName + " is destroyed by the lightsaber!");
+                            }
+                        }
+                    }
+                    else {
+                        armor->setConditionDamage(armor->getConditionDamage()+ armorProtection);
+                    }
+                    if (creature->isPlayerCreature()) {
+                        creature->sendSystemMessage("Your " + armorName + " absorbed " + String::valueOf(damage) + " damage.");
+                    }
+                    if (creature->getSkillMod("rp_strength") < armor->getRpSkillLevel())
+                    {
+                        if (creature->isPlayerCreature()) {
+                            creature->sendSystemMessage("Your " + armorName + " only protected against 1 point of damage because you do not have enough Strength to use it properly!");
+                        }
+                    }
+                }           
+            }
+            else { //Take Full Damage
                 BorCharacter::ModPool(creature, "health", damage * -1, true);
             }
-        } else { //Use their skill mod armor. 
-            String armorSlot = GetSlotName(slot);
-            String damageType = GetDamageType(attackerWeapon);
-            if(damageType == "Lightsaber") {
-                if(creature->getStoredInt("rp_armor_" + armorSlot + "_Lightsaber") > 0) {
-                    //Take only 10 percent damage.
-                    BorCharacter::ModPool(creature, "health", (damage / 10) * -1, true);
-                } else {
-                    BorCharacter::ModPool(creature, "health", damage * -1, true);
-                }
-            } else {
-                int armorRating = creature->getStoredInt("rp_armor_rating_" + armorSlot);
-                int weaponArmorPiercing = attackerWeapon->getArmorPiercing();
-                int damageDivider = GetWeaponPenetrationDivisionModifier(weaponArmorPiercing, armorRating);
-                if(damageDivider != 0) {
-                    int adjustedDamage = damage / damageDivider;
-                    int armorProtection = creature->getStoredInt("rp_armor_" + armorSlot + "_" + GetDamageType(attackerWeapon));
-                    int finalDamage = adjustedDamage - armorProtection;
-                    BorCharacter::ModPool(creature, "health", finalDamage * -1, true);
-                } else { //Take Full Damage
-                    BorCharacter::ModPool(creature, "health", damage * -1, true);
-                }
-            }            
+        }
+        else { //Take Full Damage
+            BorCharacter::ModPool(creature, "health", damage * -1, true);
         }
     }
 
-    static int GetArmorProtection(ArmorObject* armor, String damageType) {
-        if(damageType == "Kinetic")             return (int)armor->getKinetic();
-        else if(damageType == "Energy")         return (int)armor->getEnergy();
-        else if(damageType == "Electricity")    return (int)armor->getElectricity();
-        else if(damageType == "Stun")           return (int)armor->getStun();
-        else if(damageType == "Blast")          return (int)armor->getBlast();
-        else if(damageType == "Heat")           return (int)armor->getHeat();
-        else if(damageType == "Cold")           return (int)armor->getCold();
-        else if(damageType == "Acid")           return (int)armor->getAcid();
+    static int GetBodyPartTarget() {
+        int targetRoll = BorDice::Roll(1, 20);
+        int bodyPartTarget = 1;
+        if (targetRoll == 1 || targetRoll == 2 || targetRoll == 3) {
+            bodyPartTarget = 1; // Chest
+        }
+        else if (targetRoll == 4 || targetRoll == 5) {
+             bodyPartTarget = 2; // Chest
+         }
+        else if (targetRoll == 6 || targetRoll == 7) {
+            bodyPartTarget = 3; // Legs
+        }
+        else if (targetRoll == 8 || targetRoll == 9) {
+            bodyPartTarget = 4; // Feet
+        }
+        else if (targetRoll == 10 || targetRoll == 11) {
+            bodyPartTarget = 5; // Left Forearm
+        }
+        else if (targetRoll == 12 || targetRoll == 13) {
+            bodyPartTarget = 6; // Right Forearm
+        }
+        else if (targetRoll == 14 || targetRoll == 15) {
+            bodyPartTarget = 7; // Left Bracer
+        }
+        else if (targetRoll == 16 || targetRoll == 17) {
+            bodyPartTarget = 8; // Right Bracer
+        }
+        else if (targetRoll == 18 || targetRoll == 19) {
+            bodyPartTarget = 9; // Hands
+        }
+        else if (targetRoll == 20) {
+            bodyPartTarget = 10; // Head
+        }
+ 
+        return bodyPartTarget;
+    }
+
+    static int GetArmorProtection(CreatureObject* creature, ArmorObject* armor, String damageType) {
+        if (armor != nullptr) {
+            if(damageType == "Kinetic") {
+                return (int)armor->getKinetic();
+            }
+            else if(damageType == "Energy") {     
+                return (int)armor->getEnergy();
+            }
+            else if(damageType == "Electricity") {
+                return (int)armor->getElectricity();
+            }
+            else if(damageType == "Stun") {
+                return (int)armor->getStun();
+            }
+            else if(damageType == "Blast") { 
+                return (int)armor->getBlast();
+            }
+            else if(damageType == "Heat") {
+                return (int)armor->getHeat();
+            }
+            else if(damageType == "Cold") {
+                return (int)armor->getCold();
+            }
+            else if(damageType == "Acid") {
+                return (int)armor->getAcid();
+            }
+            else if(damageType == "Lightsaber") {
+                return (int)armor->getLightSaber();
+            }
+            else return 0;
+        }
         else return 0;
     }
 
     static int GetWeaponCondition(WeaponObject* weapon) {
         return weapon->getMaxCondition() - weapon->getConditionDamage();
+    }
+
+    static int GetArmorReducedDamage(int incomingDamage, int armorProtection)
+    {
+        if (armorProtection >= incomingDamage)
+            return 1;
+        else
+            return incomingDamage - armorProtection;
     }
 
     static int GetWeaponPenetrationDivisionModifier(int weaponPiercing, int armorRating) {
@@ -764,10 +1409,10 @@ public:
         else if(slot == 2) return "chest";
         else if(slot == 3) return "legs";
         else if(slot == 4) return "feet";
-        else if(slot == 5) return "left forearm";
-        else if(slot == 6) return "right forearm";
-        else if(slot == 7) return "left bracer";
-        else if(slot == 8) return "right bracer";
+        else if(slot == 5) return "left bracer";
+        else if(slot == 6) return "right bracer";
+        else if(slot == 7) return "left bicep";
+        else if(slot == 8) return "right bicep";
         else if(slot == 9) return "hands";
         else if(slot == 10) return "head";
         else return "chest";
@@ -787,12 +1432,56 @@ public:
         else return CombatManager::HIT_BODY;
     }
 
-
-    static String GetWeaponDamageString(WeaponObject* weapon) {
-        if(weapon->getBonusDamage() > 0)
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage()) + " + " + String::valueOf(weapon->getBonusDamage());
-        else
-            return String::valueOf(weapon->getMinDamage()) + "d" + String::valueOf(weapon->getMaxDamage());
+    static String GetWeaponDamageString(CreatureObject* attacker, WeaponObject* weapon, bool powerAttacked = false, bool flurryAttacked = false, int hitCount = 0) {
+        int minDamage = weapon->getMinDamage();
+        int maxDamage = weapon->getMaxDamage();
+        int bonusDamage = weapon->getBonusDamage();
+        int totalBonusDamage = weapon->getBonusDamage();
+        if (powerAttacked) {
+            minDamage++;
+        }
+        if (hitCount > 0) {
+            for (int i = 1; i < hitCount; i++) {
+                minDamage++;
+                totalBonusDamage += bonusDamage;
+            }
+        }
+        if (flurryAttacked) {
+            if ((bonusDamage > 0) && weapon->isJediWeapon())
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(totalBonusDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber")) + " (halved by Flurry Attack)";
+            else if ((bonusDamage == 0) && weapon->isJediWeapon())
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
+            else if (attacker->isPlayerCreature() && bonusDamage > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(totalBonusDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus")) + " (halved by Flurry Attack)";
+            else if (attacker->isPlayerCreature() && bonusDamage == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
+            else if (bonusDamage > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(totalBonusDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2) + " (halved by Flurry Attack)";
+            else if (bonusDamage == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2) + " (halved by Flurry Attack)";
+            else if (bonusDamage > 0 && !(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(totalBonusDamage) + " (halved by Flurry Attack)";
+            else
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " (halved by Flurry Attack)";
+        }
+        else {
+            if ((bonusDamage > 0) && weapon->isJediWeapon())
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(totalBonusDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
+            else if ((bonusDamage == 0) && weapon->isJediWeapon())
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_lightsaber"));
+            else if (attacker->isPlayerCreature() && bonusDamage > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(totalBonusDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
+            else if (attacker->isPlayerCreature() && bonusDamage == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_strength_damage_bonus"));
+            else if (bonusDamage > 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(totalBonusDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
+            else if (bonusDamage == 0 && (weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(attacker->getSkillMod("rp_strength") / 2);
+            else if (bonusDamage > 0 && !(weapon->isUnarmedWeapon() || weapon->isMeleeWeapon()))
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage) + " + " + String::valueOf(totalBonusDamage);
+            else
+                return String::valueOf(minDamage) + "d" + String::valueOf(maxDamage);
+        }
     }
 
     static bool CanPerformReaction(CreatureObject* defender, int reactionType, int incomingDamage, WeaponObject* attackerWeapon, WeaponObject* defenderWeapon) {
@@ -803,18 +1492,21 @@ public:
         //Parry
         else if(reactionType == 2 && defenderWeapon->isMeleeWeapon() && attackerWeapon->isMeleeWeapon() && defenderAction > 1 && GetWeaponCondition(defenderWeapon) >= incomingDamage && !defenderWeapon->getParryIsRestricted()) return true;
         //Dodge
-        else if(reactionType == 3 && defender->isStanding() && defenderAction > 0 && !defenderWeapon->getDodgeIsRestricted()) return true;
+        else if(reactionType == 3 && !defender->isProne() && !defender->isSitting() && !defender->isKnockedDown() && defenderAction > 0 && !defenderWeapon->getDodgeIsRestricted()) return true;
         //Special Force
         else if(reactionType == 4 || reactionType == 5 || reactionType == 6 ) {
             int defenderForce = GetAvailableForcePoints(defender);
             if(reactionType == 4) {
                 //Deflection Limiter
+                /*
                 int deflectionCount = defender->getStoredInt("deflection_count");
                 if(deflectionCount > 3) {
                     return false;
                 }
                 int lightsaberSkill = defender->getSkillMod("rp_lightsaber");
                 int actionCost = 11 - lightsaberSkill;
+                */
+               int actionCost = 3;
                 if(actionCost <= 0) actionCost = 1;
                 if(defenderWeapon->isJediWeapon()) {
                     if(defenderAction >= (actionCost)) {
@@ -822,19 +1514,16 @@ public:
                     } else return false;
                 } else return false;
             } else if(reactionType == 5) {
-                int telekineticsSkill = defender->getSkillMod("rp_telekinetics");
-                int forceCost = 11 - telekineticsSkill;
-                if(forceCost <= 0) forceCost = 1;
+                int forceCost = 3;
                 if(defenderForce >= (forceCost)) {
                     return true;
                 } else return false;
             } else {
-                int inwardSkill = defender->getSkillMod("rp_inward");
                 int forcePool = 999;
                 if(defender->isPlayerCreature()) {
                     forcePool = defender->getPlayerObject()->getForcePower();
                 }
-                if(forcePool >= (12 - inwardSkill)) {
+                if(forcePool >= 3) {
                     return true;
                 } else return false;
             }
@@ -882,35 +1571,47 @@ public:
         int distanceModifier = 0;
         bool tooClose = false;
 
+        // Below minimum range.
         if(distance < minRange) {
-            //distanceModifier = attackerWeapon->getPointBlankAccuracy();
-            distanceModifier = 5;
-            tooClose = true;
-        } else if(distance <= prefRange) {
             distanceModifier = attackerWeapon->getPointBlankAccuracy();
-        } else if(distance > prefRange && distance < maxRange) {
-            distanceModifier = attackerWeapon->getIdealAccuracy();
-        } else if(distance > maxRange) {
-            distanceModifier = 99;
+            tooClose = true;
+        // Within preferred range.   
+        } else if(distance <= prefRange) {
+            distanceModifier = 0; // Do not modify DC in preferred range.
+        // Outside of preferred range, still within max range.
+        } else if(distance <= maxRange) {
+            distanceModifier = attackerWeapon->getIdealAccuracy(); // Borrie RP weapons use the base Galaxies IdealAccuracy property as a far range modifier.
+        // Outside of max range.
+        } else {
+            distanceModifier = 89; // Modifier, not base value.
+            tooClose = true; // General out of range property, also works for "too far".
         }
 
         int postureModifier = 0;
 
-        if(attacker->isKneeling() && !tooClose) {
-            postureModifier -= 2;
-        } 
+        //Handle attacker stance
+        if(!attackerWeapon->isThrownWeapon()) {
+            if(attacker->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+                postureModifier -= 2;
+            } 
+            else if(attacker->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+                postureModifier -= 5;
+            }
 
-        if(defender->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
-            postureModifier += 2;
-        } 
-
-        if(attacker->isProne() && !tooClose) {
-            postureModifier -= 5;
+            //Handle defender stance
+            if(defender->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+                postureModifier += 2;
+            } 
+            else if(defender->isKneeling() && !tooClose && attackerWeapon->isMeleeWeapon()) {
+                postureModifier -= 2;
+            } 
+            else if(defender->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+                postureModifier += 5;
+            } 
+            else if(defender->isProne() && !tooClose && attackerWeapon->isMeleeWeapon()) {
+                postureModifier -= 5;
+            } 
         }
-
-        if(defender->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
-            postureModifier += 5;
-        } 
 
         return distanceModifier + postureModifier;
     }
@@ -922,6 +1623,8 @@ public:
         int throwSkill = attacker->getSkillMod("rp_throwing");
 
         int toHitRoll = BorDice::Roll(1, 20);
+
+        String message = "";
 
         SharedObjectTemplate* templateData = TemplateManager::instance()->getTemplate(grenade->getServerObjectCRC());
 
@@ -939,120 +1642,130 @@ public:
 
         bool failedDemoCheck = false;
         CreatureObject* centerTarget = defender;
+        int demoRoll = BorDice::Roll(1, 20);
+        int demoTotal = demoRoll + demoSkill;
 
         if(demoSkill < skillLevel) {
-            int failureRoll = BorDice::Roll(1, 20);
-            if(failureRoll + demoSkill < 15) {
-                //Blow up in your face!
-                radius = radius / 4;
-                failedDemoCheck = true;
-                centerTarget = attacker;
+            // Skill is less than minimum requirement, prompting a check to avoid having it blow up on top of you.
+            if(demoTotal <= (10 + skillLevel)) {
+                //The grenade blows up in your face!
+                int slot = GetBodyPartTarget();
+                int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage(), false, false);
+                message = attacker->getFirstName() + " attempts to activate the " + grenade->getCustomObjectName().toString() + ", but it goes off prematurely, the blast focused on their " + GetSlotDisplayName(slot);
+                String combatLogPrefix = ", causing \\#FF9999";
+                message += OrchestrateDamage(combatLogPrefix, attacker, grenade, totalDamage, slot, false);
+                BorrieRPG::BroadcastMessage(attacker, message);
+                return;
             }
+            //If the check is successful, do nothing and proceed with normal grenade logic.
         } 
 
-        if(!failedDemoCheck) {
-            //To hit roll will affect radius. 
-            if(toHitRoll + throwSkill <= toHitDC / 4) {
-                radius = radius / 8;
-            } else if(toHitRoll + throwSkill < toHitDC / 2) {
-                radius = radius / 4;
-            } else if(toHitRoll + throwSkill < toHitDC) {
-                radius = radius / 2;
-            }
+        if(toHitRoll + throwSkill < toHitDC) {
+            //The throwing roll was missed, therefore we output text and do nothing.
+            message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
+            message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
+            message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
+            message = message + ", missing wide of the mark!";
+            BorrieRPG::BroadcastMessage(attacker, message);
+            return;
         }
 
 		SortedVector<QuadTreeEntry*> closeObjects;
 		Zone* zone = centerTarget->getZone();
 
+        if(zone == nullptr) {
+            attacker->sendSystemMessage("Attempt to get Zone resulted in a null pointer. It really shouldn't do that. Contact the Admins.");
+            return;
+        }
+
 		ManagedReference<CreatureObject*> targetCreature = nullptr;
 
+
+
+
+        zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), 500, &closeObjects, true);
+        /*  Replaced by the line above. We never seemed to have data in getCloseObjects, so the else statement below was not relevant. We will leave it present but commented for some time as a matter of caution.
 		if (centerTarget->getCloseObjects() == nullptr) {
-			zone->getInRangeObjects(centerTarget->getPositionX(), centerTarget->getPositionY(), radius, &closeObjects, true);
+			zone->getInRangeObjects(centerTarget->getWorldPositionX(), centerTarget->getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeObjects, true, true);   //Prior working sta
 		}
-		else {
+		else {      
 			CloseObjectsVector* closeVector = (CloseObjectsVector*) centerTarget->getCloseObjects();
 			closeVector->safeCopyReceiversTo(closeObjects, CloseObjectsVector::CREOTYPE);
 		}
+        */
 
         int targetCount = 0; 
-
-        //Yes I know we do this loop twice, but its to accurately report the target count.
-        for (int i = 0; i < targetCount; i++) {
+        for (int i = 0; i < closeObjects.size(); i++) {
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
-				targetCount++;
+                targetCreature = cast<CreatureObject*>(targetObject);
+                if(!targetCreature->isDead()) {
+				    targetCount++;
+                }
 			}
 		}
 
-        String message = "";
+        targetCreature = nullptr;  //Cleanup, as we will be using this again in the next loop and don't want to risk having old data in it.
 
-        if(!failedDemoCheck) {
-            //Attacker throws a grenade toward Defender (roll + skill = result), which explodes in the vicinity of X targets!
-            message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
-            message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
-            message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
-            message = message + ", which explodes in the vicinity of "+String::valueOf(targetCount)+" targets!";
-        } else {
-            //Attacker attempts to activate the grenade, but it goes off prematurely! The resulting explosion affects X targets!
-            message = attacker->getFirstName() + " attempts to activate the " + grenade->getCustomObjectName().toString() + ", but it goes off prematurely! The resulting explosion affects \\#FFFF00" + String::valueOf(targetCount) + "\\#. targets!";
-        }
+        message = attacker->getFirstName() + " throws a " + grenade->getCustomObjectName().toString() + " toward " + defender->getFirstName();
+        message = message + " (" + String::valueOf(toHitRoll) + " + " + String::valueOf(throwSkill) + " = " + String::valueOf(toHitRoll + throwSkill);
+        message = message + " vs DC: " + String::valueOf(toHitDC) + ")";
+        message = message + ", which explodes in the vicinity of "+String::valueOf(targetCount)+" targets!";
 
         BorrieRPG::BroadcastMessage(attacker, message);
-
-		for (int i = 0; i < targetCount; i++) {
+            
+        int foundTargets = 0;
+        for (int i = 0; foundTargets < targetCount; i++) { 
 			SceneObject* targetObject = static_cast<SceneObject*>(closeObjects.get(i));
 			if (targetObject->isCreatureObject() && centerTarget->isInRange(targetObject, radius)) {
 				targetCreature = cast<CreatureObject*>(targetObject);
-				Locker locker(targetCreature, centerTarget);
-
-				//Handle Grenade Reaction.
-                HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget));
+                if(!targetCreature->isDead()) {
+				    Locker locker(targetCreature, centerTarget);
+                    HandleGrenadeReaction(targetCreature, grenade, BorCharacter::GetTargetDistance(targetCreature, centerTarget), demoTotal);
+                    foundTargets++;
+                }
 			}
 		}
     }
 
-    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance) {
+    static void HandleGrenadeReaction(CreatureObject* victim, WeaponObject* grenade, float distance, int demoTotal) {
         String message = victim->getFirstName() + " is in proximity of the grenade's blast radius!";
-        //Distance affects the dodge roll. You either dodge, or you use telekinesis. 
         int maneuverabilitySkill = victim->getSkillMod("rp_maneuverability");
         int telekinesisSkill = victim->getSkillMod("rp_telekinesis");
         bool dodgedSuccessfully = false;
 
-        int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage());
-
-        int diceCheck = (int)(grenade->getDamageRadius() * distance);
-
-        if(diceCheck > 28)
-            diceCheck = 28;
-
-        if(diceCheck < 10)
-            diceCheck = 10;
+        int totalDamage = GetDamageRoll(grenade->getMaxDamage(), grenade->getMinDamage(), grenade->getBonusDamage(), false, false);
 
         int dodgeRoll = BorDice::Roll(1, 20);
 
         if(maneuverabilitySkill >= telekinesisSkill) {
             //Dodge
             message = message + " They hurdle to get out of the way ";
-            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(maneuverabilitySkill)+" vs DC: "+String::valueOf(diceCheck)+")";
-            dodgedSuccessfully = maneuverabilitySkill >= diceCheck;
+            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(maneuverabilitySkill)+" vs DC: "+String::valueOf(demoTotal)+")";
+            if(dodgeRoll + maneuverabilitySkill >= demoTotal)
+                dodgedSuccessfully = true;
         } else {
-            //Stand Ground with the Force.
-            message = message + " They brace themselves keenly ";
-            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(telekinesisSkill)+" vs DC: "+String::valueOf(diceCheck)+")";
-            dodgedSuccessfully = telekinesisSkill >= diceCheck;
+            //Push the grenade away.
+            message = message + " They raise their hand towards the grenade ";
+            message = message + "("+String::valueOf(dodgeRoll)+" + "+String::valueOf(telekinesisSkill)+" vs DC: "+String::valueOf(demoTotal)+")";
+            if(dodgeRoll + telekinesisSkill >= demoTotal)
+                dodgedSuccessfully = true;
         }
+
+        int slot = GetBodyPartTarget();
 
         if(!dodgedSuccessfully) {
-            //Take Damage
-            message = message + ", which fails, causing \\#FF9999" + String::valueOf(totalDamage) + "\\#. damage.";
+            //Take damage
+            message = message + ", which fails, the blast focused on their " + GetSlotDisplayName(slot);
+            String combatLogPrefix = ", causing \\#FF9999";
+            message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot, false);
         } else {
-            //Take Minimum Damage. 
-            totalDamage = grenade->getMinDamage();
-            message = message + ", successfully avoiding most of the blast and taking only \\#FF9999" + String::valueOf(totalDamage) + "\\#. damage.";
+            //Take half damage
+            message = message + ", successfully avoiding most of the blast, which is focused on their " + GetSlotDisplayName(slot);
+            totalDamage = totalDamage / 2;
+            String combatLogPrefix = ", and taking only \\#FF9999";
+            message += OrchestrateDamage(combatLogPrefix, victim, grenade, totalDamage, slot, false);
         }
-
-        //TODO: Should randomize what slot it hits. For now its just the chest. 
-        ApplyAdjustedHealthDamage(victim, grenade, totalDamage, 1);
 
         BorrieRPG::BroadcastMessage(victim, message);
     }

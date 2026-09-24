@@ -1,0 +1,4 @@
+object_tangible_borrp_crafting_ion_module = object_tangible_borrp_crafting_shared_ion_module:new {
+
+}
+ObjectTemplates:addTemplate(object_tangible_borrp_crafting_ion_module, "object/tangible/borrp/crafting/ion_module.iff")

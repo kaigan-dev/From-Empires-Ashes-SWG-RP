@@ -16,20 +16,27 @@ object_weapon_roleplay_ranged_rifle_vortex_rifle = object_weapon_ranged_rifle_sh
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 1, --Amount of Die used in Damage
 	maxDamage = 12, --Type of Die used in Damage
-	bonusDamage = 4,
+	bonusDamage = 6,
 	
 	noPowerAttack = true,
 
-	pointBlankRange = 8,
+	pointBlankRange = 40,
 	pointBlankAccuracy = 5,
 
-	idealRange = 128,
+	idealRange = 120,
 	idealAccuracy = 10,
 
-	maxRange = 180,
+	maxRange = 256,
 	maxRangeAccuracy = 99,
+
+	lightsaberresist = 0,
 	
 	primaryAttributeOnly = true,
+
+	rarity="Legendary",
+	itemValue = 20000,
+	maxAmmo = 10,
+	ammoType = "ammo_energy", 
 
 	--[Unused Elements from original game, included for compatability.]
 	xpType = "combat_general",

@@ -7,7 +7,7 @@ rpg_shop_general = {
 			minItems = 1,
 			requiesSaberTraining = false,
 			items = {
-				{template = "object/tangible/borrp/item/campfire_kit.iff", cost = 250, max = 10, chance = 100 },
+				--{template = "object/tangible/borrp/item/campfire_kit.iff", cost = 250, max = 10, chance = 100 },
 				{template = "object/tangible/borrp/item/computer_spike.iff", cost = 250, max = 10, chance = 100 },
 				{template = "object/tangible/borrp/item/hydrospanner.iff", cost = 250, max = 10, chance = 100 },
 				{template = "object/tangible/borrp/item/prybar.iff", cost = 250, max = 10, chance = 100 },

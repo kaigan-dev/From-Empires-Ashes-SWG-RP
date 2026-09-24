@@ -5,6 +5,8 @@
 #include "server/zone/managers/creature/CreatureManager.h"
 #include "server/zone/packets/chat/ChatSystemMessage.h"
 #include "engine/util/u3d/Coordinate.h"
+#include "server/zone/managers/skill/SkillManager.h"
+#include "server/zone/objects/player/PlayerObject.h"
 
 //#include "templates/roleplay/RoleplayManager.h"
 
@@ -35,13 +37,13 @@ public:
 
 	static String GetSkillParent(String skill) {
 		if (skill == "melee")
-			return "strength";
+			return "dexterity";
 		else if (skill == "intimidation")
-			return "strength";
+			return "charisma";
 		else if (skill == "unarmed")
-			return "strength";
+			return "dexterity";
 		else if (skill == "lightsaber")
-			return "strength";
+			return "awareness";
 		else if (skill == "ranged")
 			return "precision";
 		else if (skill == "mechanics")
@@ -49,15 +51,15 @@ public:
 		else if (skill == "demolitions")
 			return "precision";
 		else if (skill == "engineering")
-			return "precision";
+			return "intelligence";
 		else if (skill == "larceny")
 			return "dexterity";
 		else if (skill == "stealth")
-			return "dexterity";
+			return "awareness";
 		else if (skill == "maneuverability")
 			return "dexterity";
 		else if (skill == "throwing")
-			return "dexterity";
+			return "precision";
 		else if (skill == "investigation")
 			return "awareness";
 		else if (skill == "piloting")
@@ -65,7 +67,7 @@ public:
 		else if (skill == "survival")
 			return "awareness";
 		else if (skill == "sense")
-			return "awareness";
+			return "mindfulness";
 		else if (skill == "slicing")
 			return "intelligence";
 		else if (skill == "computers")
@@ -79,17 +81,17 @@ public:
 		else if (skill == "bluff")
 			return "charisma";
 		else if (skill == "composure")
-			return "charisma";
+			return "mindfulness";
 		else if (skill == "resolve")
-			return "charisma";
+			return "mindfulness";
 		else if (skill == "athletics")
 			return "constitution";
 		else if (skill == "lightning")
 			return "constitution";
-		else if (skill == "armor")
+		else if (skill == "armorer")
 			return "constitution";
 		else if (skill == "defending")
-			return "constitution";
+			return "strength";
 		else if (skill == "telekinesis")
 			return "mindfulness";
 		else if (skill == "control")
@@ -104,11 +106,11 @@ public:
 
 	static String GetSkillAltParent(String skill) {
 		if (skill == "melee")
-			return "dexterity";
+			return "strength";
 		else if (skill == "intimidation")
 			return "constitution";
 		else if (skill == "unarmed")
-			return "dexterity";
+			return "strength";
 		else if (skill == "lightsaber")
 			return "dexterity";
 		else if (skill == "ranged")
@@ -118,11 +120,11 @@ public:
 		else if (skill == "demolitions")
 			return "awareness";
 		else if (skill == "engineering")
-			return "intelligence";
+			return "precision";
 		else if (skill == "larceny")
 			return "charisma";
 		else if (skill == "stealth")
-			return "awareness";
+			return "dexterity";
 		else if (skill == "maneuverability")
 			return "awareness";
 		else if (skill == "throwing")
@@ -134,7 +136,7 @@ public:
 		else if (skill == "survival")
 			return "constitution";
 		else if (skill == "sense")
-			return "mindfulness";
+			return "awareness";
 		else if (skill == "slicing")
 			return "precision";
 		else if (skill == "computers")
@@ -148,17 +150,17 @@ public:
 		else if (skill == "bluff")
 			return "intelligence";
 		else if (skill == "composure")
-			return "mindfulness";
+			return "awareness";
 		else if (skill == "resolve")
 			return "constitution";
 		else if (skill == "athletics")
 			return "dexterity";
 		else if (skill == "lightning")
 			return "intelligence";
-		else if (skill == "armor")
+		else if (skill == "armorer")
 			return "strength";
 		else if (skill == "defending")
-			return "strength";
+			return "constitution";
 		else if (skill == "telekinesis")
 			return "precision";
 		else if (skill == "control")
@@ -224,7 +226,7 @@ public:
 			return true;
 		else if (skill == "lightning")
 			return true;
-		else if (skill == "armor")
+		else if (skill == "armorer")
 			return true;
 		else if (skill == "defending")
 			return true;
@@ -253,6 +255,8 @@ public:
 			return true;
 		else if (skill == "lightsaber")
 			return true;
+		else if (skill == "sense")
+			return true;
 		else 
 			return false;
 	}
@@ -269,6 +273,8 @@ public:
 		else if(skill.contains("lightning"))
 			return true;
 		else if(skill.contains("lightsaber"))
+			return true;
+		else if(skill.contains("sense"))
 			return true;
 		else return false;
 	}
@@ -382,28 +388,48 @@ public:
 		}
 	}
 
-	static bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "", String altParentAttribute = "") {
+	static bool CanTrainNextSkill(CreatureObject* creature, int rank, String skill, String parentAttribute = "", float costMultiplier = 1) {
 		if(rank > 10) return false;
 		if(skill == "") return false;
 		String skillName = "rp_" + skill + "_" + GetSkillSuffixFromValue(rank);
 		SkillManager* skillManager = SkillManager::instance();
-		bool hasXP = skillManager->canLearnSkill(skillName, creature, false);
+		//creature->sendSystemMessage("canTrainNextSkill: cost multiplier is " + std::to_string(costMultiplier));
+
+		bool hasXP = skillManager->canLearnSkill(skillName, creature, false, costMultiplier);
 		int points = creature->getStoredInt("starter_attr_points");
-		if (parentAttribute != "" && altParentAttribute != "") {
+		 
+		/* Disable hard attribute requirement.
+		if (parentAttribute != "" ) {
 			points = creature->getStoredInt("starter_skill_points");
 			//creature->sendSystemMessage("Trying to train skill");
 			int parentValue = GetRealSkillLevel(creature, parentAttribute);
-			int altParentValue = GetRealSkillLevel(creature, altParentAttribute);
+			//int altParentValue = GetRealSkillLevel(creature, altParentAttribute);
 			String skillRealName = GetSkillRealName(skill);
-			if(parentValue < rank && altParentValue < rank) {
+			
+			if(parentValue < rank ) {
 				return false;
-			} 				
+			}
+
 		} else {
 			//creature->sendSystemMessage("Trying to train attribute");
 		}
+		*/
+		int totalAttributes = 0;
 
-		if(points > 0) return true;
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "strength");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "charisma");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "precision");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "dexterity");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "mindfulness");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "intelligence");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "constitution");
+		totalAttributes += BorSkill::GetRealSkillLevel(creature, "awareness");
+ 
+		if(totalAttributes >= 48 && parentAttribute == "") return false;
+	
+		if(parentAttribute == "" && points > 0) return true;
 		
+		//creature->sendSystemMessage("CanTrainNextSkill: hasXP is " + std::to_string(hasXP));
 		return hasXP;
 	}
 
@@ -418,20 +444,47 @@ public:
 			int desiredLevel = GetSkillLevelFromString(skill);
 			if (desiredLevel == -1)
 				return false;
+				
+			// We don't actually need to do anything with the parent attribute here, as XP cost is evaluated in canTrainNextSkill.
+			/*
 			String parent = GetSkillParent(skillName);
-			String altParent = GetSkillAltParent(skillName);
+			//String altParent = GetSkillAltParent(skillName);
 			int parentLevel = GetRealSkillLevel(creature, parent);
-			int altParentLevel = GetRealSkillLevel(creature, altParent);
-			if(parentLevel < desiredLevel && altParentLevel < desiredLevel) {
+			int currentLevel = GetRealSkillLevel(creature, skillName);
+
+			float costMultiplier = 1;
+			if(parentLevel < currentRank + 1) {
+				int parentDifference = currentRank + 1 - parentLevel;
+				costMultiplier = 2 * parentDifference;
+			}
+			*/
+
+			//int altParentLevel = GetRealSkillLevel(creature, altParent);
+			/* Remove hard cap on skills based on parent attribute.
+			if(parentLevel < desiredLevel ) {
 				return false;
 			} else {
 				return true;
 			}
-			
+			*/
+			return true;
 		} else {
 			return true;
 		}
 	}
+
+
+	static int getSkillCost(CreatureObject* player, String skillName, int skillRank){
+		//SkillManager* skillManager = SkillManager::instance();
+		SkillManager* skillManager = SkillManager::instance();
+		String fullSkillName = "rp_" + skillName + "_" + BorSkill::GetSkillSuffixFromValue(skillRank);
+		int XpCost = skillManager->getSkillCost(player, fullSkillName);
+
+		//player->sendSystemMessage("BorSkill getSkillCost: XP cost is " + std::to_string(XpCost));
+		return XpCost;
+	}
+
+
 };
 
 #endif /*BORSKILL_H_*/
