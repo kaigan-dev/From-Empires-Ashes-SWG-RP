@@ -557,6 +557,8 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	if (stagesToGrow == 0 && !force)
 		return true;
+	else
+		stagesToGrow = 1;
 
 	int newStage = growthStage + stagesToGrow;
 	if (newStage > 10)
