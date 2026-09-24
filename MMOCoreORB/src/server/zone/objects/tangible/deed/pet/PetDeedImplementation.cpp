@@ -526,19 +526,21 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		}
 		
 		// Always set pets to spawn as adults.
-		controlDevice->growPet(player,false,false);
-				controlDevice->growPet(player,false,false);
-						controlDevice->growPet(player,false,false);
-								controlDevice->growPet(player,false,false);
-										controlDevice->growPet(player,false,false);
-												controlDevice->growPet(player,false,false);
-														controlDevice->growPet(player,false,false);
-																controlDevice->growPet(player,false,false);
-																		controlDevice->growPet(player,false,false);
-																				controlDevice->growPet(player,false,false);
-																						controlDevice->growPet(player,false,false);
-																								controlDevice->growPet(player,false,false);
-																										controlDevice->growPet(player,false,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
+		controlDevice->growPet(player,true,false);
 																										
 
 		if(mountable == 1 || getStoredInt("mount") == 1) {
