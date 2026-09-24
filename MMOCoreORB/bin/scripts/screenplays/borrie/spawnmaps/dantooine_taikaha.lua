@@ -38,7 +38,7 @@ end
 
 function DantooineTaikahaScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
-	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -75.9, 2.6, 2269, 0, math.rad(270))
+	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -75.9, 2.6, 2269, 0, math.rad(90))
 end
 
 function DantooineTaikahaScreenPlay:spawnMobiles()
