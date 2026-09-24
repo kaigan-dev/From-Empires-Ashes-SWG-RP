@@ -321,6 +321,7 @@ end
 function DantooineKhoondaScreenPlay:spawnSceneObjects() 
 	--Travel Terminals
 	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.2, 0.6, 50.3, 610039691, 0.992546, 0, -0.121869, 0)
+    spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", 985.6, 7.7, -1065.4, 0, math.rad(260))
 end
 
 function DantooineKhoondaScreenPlay:spawnMobiles()
