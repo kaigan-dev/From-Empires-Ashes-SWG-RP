@@ -1,7 +1,7 @@
 npc_template = {
 
 	randomName = "human",
-	title = "Dantooine militia soldier",
+	title = "Dantooine Mounted Police",
 	baseTemplates = {
 		"rp_human_male", "rp_human_female", "rp_human_male", "rp_human_female","rp_human_male", "rp_human_female",
 		"rp_bothan_male", "rp_bothan_female", 
