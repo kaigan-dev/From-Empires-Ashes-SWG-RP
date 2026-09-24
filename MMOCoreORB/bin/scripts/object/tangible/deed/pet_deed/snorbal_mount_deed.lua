@@ -55,11 +55,11 @@ object_tangible_deed_pet_deed_snorbal_deed = object_tangible_deed_pet_deed_share
 	experimentalPrecision = {0, 0},
 	experimentalCombineType = {0, 0},
 	generatedObjectTemplate = "mobile/pet/snorbal_be.iff",
-	controlDeviceObjectTemplate = "object/intangible/pet/beast_master/bm_snorbal_mount.iff",
+	controlDeviceObjectTemplate = "object/intangible/pet/snorbal_hue.iff",
 	mobileTemplate = "snorbal_be",	
-	isMountable = 0,
-	skillTemplate = "creatures/medium",
-	equipmentTemplate = "creature_medium",
+	isMountable = 1,
+	skillTemplate = "creatures/large",
+	equipmentTemplate = "creature_large",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_snorbal_deed, "object/tangible/deed/pet_deed/snorbal_deed.iff")
