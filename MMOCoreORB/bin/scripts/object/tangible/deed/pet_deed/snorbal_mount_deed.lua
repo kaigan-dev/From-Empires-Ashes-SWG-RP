@@ -41,7 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_pet_deed_rancor_mount_deed = object_tangible_deed_pet_deed_shared_rancor_deed:new {
+object_tangible_deed_pet_deed_snorbal_mount_deed = object_tangible_deed_pet_deed_shared_snorbal_deed:new {
+
 
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
@@ -53,12 +54,12 @@ object_tangible_deed_pet_deed_rancor_mount_deed = object_tangible_deed_pet_deed_
 	experimentalMax = {0, 0},
 	experimentalPrecision = {0, 0},
 	experimentalCombineType = {0, 0},
-	generatedObjectTemplate = "mobile/pet/rancor_be.iff",
-	controlDeviceObjectTemplate = "object/intangible/pet/beast_master/bm_rancor.iff",
-	mobileTemplate = "rancor_be",
+	generatedObjectTemplate = "mobile/pet/snorbal_be.iff",
+	controlDeviceObjectTemplate = "object/intangible/pet/beast_master/bm_snorbal_mount.iff",
+	mobileTemplate = "snorbal_be",	
 	isMountable = 1,
 	skillTemplate = "creatures/large",
 	equipmentTemplate = "creature_large",
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_mount_deed, "object/tangible/deed/pet_deed/rancor_mount_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_snorbal_mount_deed, "object/tangible/deed/pet_deed/snorbal_mount_deed.iff")
