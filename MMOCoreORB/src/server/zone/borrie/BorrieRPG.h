@@ -862,6 +862,8 @@ public:
 			return 101;
 		else if (chatType == "yelp")
 			return 102;
+		else if (chatType == "sob")
+			return 103;
 		else
 			return -1;
 	}
