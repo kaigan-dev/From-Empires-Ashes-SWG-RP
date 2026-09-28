@@ -54,13 +54,14 @@ object_tangible_deed_pet_deed_durni_mutant_deed = object_tangible_deed_pet_deed_
 	experimentalMax = {0, 0},
 	experimentalPrecision = {0, 0},
 	experimentalCombineType = {0, 0},
-	generatedObjectTemplate = "mobile/crazed_durni.iff",
-	--generatedObjectTemplate = "mobile/pet/durni_be.iff",
+	--generatedObjectTemplate = "mobile/crazed_durni.iff",  --Made no difference
+	generatedObjectTemplate = "mobile/pet/durni_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/beast_master/bm_mutated_durni.iff",
-	mobileTemplate = "durni_be",	
+	--mobileTemplate = "durni_be",	
+	mobileTemplate = "crazed_durni",	
 	isMountable = 0,
 	skillTemplate = "creatures/harmless",
-	equipmentTemplate = "creature_harmless",
+	equipmentTemplate = "creature_small",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_durni_mutant_deed, "object/tangible/deed/pet_deed/durni_mutant_deed.iff")
