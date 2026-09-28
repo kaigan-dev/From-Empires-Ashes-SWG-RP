@@ -5921,3 +5921,10 @@ object_tangible_deed_pet_deed_shared_snorbal_mount_deed = SharedTangibleObjectTe
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_snorbal_mount_deed, "object/tangible/deed/pet_deed/shared_snorbal_mount_deed.iff")
+
+
+object_tangible_deed_pet_deed_shared_durni_mutant_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_durni_mutant_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_durni_mutant_deed, "object/tangible/deed/pet_deed/shared_durni_mutant_deed.iff")
