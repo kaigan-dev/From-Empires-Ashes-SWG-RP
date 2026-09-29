@@ -1,5 +1,5 @@
 nerf = Creature:new {
-	objectName = "Nerf",
+	objectName = "@mob/creature_names:bio_engineered_falumpaset",
 	socialGroup = "falumpaset",
 	faction = "",
 	level = 5,
