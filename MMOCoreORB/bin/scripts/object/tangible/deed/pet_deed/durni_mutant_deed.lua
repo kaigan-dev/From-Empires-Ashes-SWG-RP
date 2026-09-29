@@ -43,7 +43,7 @@
 
 object_tangible_deed_pet_deed_durni_mutant_deed = object_tangible_deed_pet_deed_shared_durni_deed:new {
 
-
+	--NOTE: The crazed_durni mobile iff file actually uses the regular durni appearance, so we can't make it look correct. This file is being kept for reference only.
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
 	experimentalProperties = {"XX", "XX"},
