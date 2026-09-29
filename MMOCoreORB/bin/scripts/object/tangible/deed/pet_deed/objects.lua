@@ -5935,3 +5935,10 @@ object_tangible_deed_pet_deed_shared_nerf_pet_deed = SharedTangibleObjectTemplat
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_nerf_pet_deed, "object/tangible/deed/pet_deed/shared_nerf_pet_deed.iff")
+
+
+object_tangible_deed_pet_deed_shared_nerf_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_nerf_mount_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_nerf_mount_deed, "object/tangible/deed/pet_deed/shared_nerf_mount_deed.iff")
