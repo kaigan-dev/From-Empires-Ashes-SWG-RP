@@ -1,6 +1,6 @@
 
 
-object_intangible_pet_nerf_hue = object_intangible_pet_beast_master_shared_nerf_hue:new {
+object_intangible_pet_nerf_hue = object_intangible_pet_beast_master_shared_bm_nerf:new {
 
 }
 
