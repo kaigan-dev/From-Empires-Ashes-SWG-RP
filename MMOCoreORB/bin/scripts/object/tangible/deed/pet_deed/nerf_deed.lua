@@ -1,7 +1,9 @@
 
 
 
-object_tangible_deed_pet_deed_nerf_deed = object_tangible_deed_pet_deed_shared_nerf_deed:new {
+--object_tangible_deed_pet_deed_nerf_deed = object_tangible_deed_pet_deed_shared_nerf_deed:new {
+
+object_tangible_deed_pet_deed_nerf_pet_deed = object_tangible_deed_pet_deed_shared_falumpaset_deed:new {
 
 
 	templateType = PETDEED,
@@ -25,4 +27,4 @@ object_tangible_deed_pet_deed_nerf_deed = object_tangible_deed_pet_deed_shared_n
 	equipmentTemplate = "creature_medium",
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_nerf_deed, "object/tangible/deed/pet_deed/nerf_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_nerf_pet_deed, "object/tangible/deed/pet_deed/nerf_pet_deed.iff")
