@@ -1,9 +1,9 @@
 
 
 
---object_tangible_deed_pet_deed_nerf_deed = object_tangible_deed_pet_deed_shared_nerf_deed:new {
+object_tangible_deed_pet_deed_nerf_deed = object_tangible_deed_pet_deed_shared_nerf_deed:new {
 
-object_tangible_deed_pet_deed_nerf_pet_deed = object_tangible_deed_pet_deed_shared_falumpaset_deed:new {
+--object_tangible_deed_pet_deed_nerf_pet_deed = object_tangible_deed_pet_deed_shared_falumpaset_deed:new {
 
 
 	templateType = PETDEED,
