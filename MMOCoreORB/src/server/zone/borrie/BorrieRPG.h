@@ -864,6 +864,14 @@ public:
 			return 102;
 		else if (chatType == "sob")
 			return 103;
+		else if (chatType == "ttease")
+			return 104;
+		else if (chatType == "deadpan")
+			return 105;
+		else if (chatType == "mutter")
+			return 106;
+		else if (chatType == "murmur")
+			return 107;
 		else
 			return -1;
 	}
