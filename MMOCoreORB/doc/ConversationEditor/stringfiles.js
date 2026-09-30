@@ -4058,8 +4058,8 @@ stringFiles[73].addEntry("wookieewin", "Let the wookiee win.");
 stringFiles[73].addEntry("youreallclearkid", "You're all clear, kid.");
 
 stringFiles[74] = new StringFile("chat_bubble_icon_types");
-stringFiles[74].addEntry("chatter", "babblechatterdroneprattlerambledrivelgabgossipblabjawchatyack");
-stringFiles[74].addEntry("double_ring", "demanddecreeproclaimstatepreachcommandprophesizelecture");
+stringFiles[74].addEntry("chatter", "addbabblechatterdroneprattlerambledrivelgabgossipblabjawchatyack");
+stringFiles[74].addEntry("double_ring", "demanddeclaredecreeproclaimstatepreachcommandprophesizelecture");
 stringFiles[74].addEntry("droid", "jabbertattle");
 stringFiles[74].addEntry("evil", "");
 stringFiles[74].addEntry("evil2", "");
