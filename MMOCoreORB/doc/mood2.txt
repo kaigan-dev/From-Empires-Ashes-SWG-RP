@@ -3,7 +3,6 @@ Mood2 States
 chat 1
 chatter 1
 say 1
-add 2
 admit 3
 announce 4
 answer 5
@@ -96,4 +95,3 @@ whisper 99
 yack 100
 yell 101
 yelp 102
-sob 103
