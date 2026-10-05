@@ -86,7 +86,7 @@ travel_destinations = {
 		}	
 	},
 	
-/*
+--[[
 	--Xovros VI
 	{ 
 		name = "Xovros VI",
@@ -96,7 +96,7 @@ travel_destinations = {
 		}
 	
 	},
-	*/
+--]]
 
 	--Yavin IV
 	{ 
