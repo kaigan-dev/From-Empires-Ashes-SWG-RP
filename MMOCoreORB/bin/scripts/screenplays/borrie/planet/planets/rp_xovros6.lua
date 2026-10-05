@@ -1,3 +1,4 @@
+/*
 planet = {
 	name = "Xovros VI",
 	zone = "rp_xovros6",
@@ -14,3 +15,4 @@ planet = {
 }
 
 BorPlanetManager:addPlanet(planet)
+*/
