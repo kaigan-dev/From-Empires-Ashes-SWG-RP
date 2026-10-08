@@ -876,6 +876,8 @@ public:
 			return 108;
 		else if (chatType == "chathum")
 			return 109;
+		else if (chatType == "florp")
+			return 110;
 		else
 			return -1;
 	}
