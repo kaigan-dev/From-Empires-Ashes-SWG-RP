@@ -1,4 +1,4 @@
-nerf = Creature:new {
+battle_droid = Creature:new {
 	objectName = "@mob/creature_names:battle_droid",
 	socialGroup = "falumpaset",
 	faction = "",
