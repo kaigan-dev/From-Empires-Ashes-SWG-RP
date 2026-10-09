@@ -1,7 +1,6 @@
 
-
-
-object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_shared_battle_droid_deed:new {
+object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_shared_dewback_deed:new {
+--object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_shared_battle_droid_deed:new {
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
 	experimentalProperties = {"XX", "XX"},
