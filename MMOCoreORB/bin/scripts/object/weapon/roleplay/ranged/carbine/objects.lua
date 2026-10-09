@@ -98,3 +98,8 @@ object_weapon_roleplay_ranged_carbine_tusken_carbine = SharedWeaponObjectTemplat
 	clientTemplateFileName = "object/weapon/roleplay/ranged/carbine/tusken_carbine.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_carbine_tusken_carbine, "object/weapon/roleplay/ranged/carbine/tusken_carbine.iff")
+--******************************************************************************************************************************************************
+object_weapon_roleplay_ranged_carbine_ewok_crossbow = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/ranged/carbine/ewok_crossbow.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_ranged_carbine_ewok_crossbow, "object/weapon/roleplay/ranged/carbine/ewok_crossbow.iff")
