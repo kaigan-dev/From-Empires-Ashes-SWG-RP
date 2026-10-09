@@ -1,5 +1,5 @@
-object_intangible_pet_battle_droid_hue = object_intangible_pet_shared_battle_droid_hue:new {
+object_intangible_pet_battle_droid = object_intangible_pet_shared_battle_droid:new {
 
 }
 
-ObjectTemplates:addTemplate(object_intangible_pet_battle_droid_hue, "object/intangible/pet/battle_droid_hue.iff")
+ObjectTemplates:addTemplate(object_intangible_pet_battle_droid, "object/intangible/pet/battle_droid.iff")
