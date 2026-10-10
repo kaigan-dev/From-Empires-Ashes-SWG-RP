@@ -172,4 +172,9 @@ object_weapon_melee_special_crushgaunt = SharedWeaponObjectTemplate:new {
 }
 ObjectTemplates:addClientTemplate(object_weapon_melee_special_crushgaunt, "object/weapon/melee/special/crushgaunt.iff")
 --********************************************************************************************************************************************************
+object_weapon_melee_special_shockmitt = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shockmitt.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shockmitt, "object/weapon/melee/special/shockmitt.iff")
+--********************************************************************************************************************************************************
 
