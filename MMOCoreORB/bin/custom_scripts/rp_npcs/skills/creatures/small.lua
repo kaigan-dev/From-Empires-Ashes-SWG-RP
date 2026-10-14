@@ -7,7 +7,7 @@ skillSet = {
     {"rp_intelligence",     2, 2},
     {"rp_mindfulness",      1, 1},
     {"rp_precision",        1, 1},
-	{"rp_strength",        1, 1},
+	{"rp_strength",        4, 4},
     --Skills
     {"rp_armorer",            0, 0},
     {"rp_athletics",        1, 1},
@@ -23,7 +23,7 @@ skillSet = {
     {"rp_maneuverability",  6, 6},
     {"rp_mechanics",        0, 0},
     {"rp_medicine",         0, 0},
-    {"rp_melee",            2, 2},
+    {"rp_melee",            4, 4},
     {"rp_persuasion",       0, 0},
     {"rp_piloting",         0, 0},
     {"rp_ranged",           0, 0},
@@ -33,7 +33,7 @@ skillSet = {
     {"rp_stealth",          6, 6},
     {"rp_survival",         5, 5},
     {"rp_throwing",         0, 0},
-    {"rp_unarmed",          2, 2},
+    {"rp_unarmed",          4, 4},
     --Force
     {"rp_lightsaber",       0, 0},
     {"rp_sense",            0, 0},
@@ -43,7 +43,7 @@ skillSet = {
     {"rp_alter",            0, 0},
     {"rp_inward",           0, 0},
     --Pools
-    {"rp_health",           6, 6},
+    {"rp_health",           8, 8},
     {"rp_action",           8, 8},
     {"rp_will",             3, 3},
     {"rp_force",            0, 0},

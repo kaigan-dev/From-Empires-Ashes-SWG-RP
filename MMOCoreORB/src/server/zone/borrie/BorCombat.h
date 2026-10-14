@@ -1599,13 +1599,13 @@ public:
             }
 
             //Handle defender stance
-            if(defender->isKneeling() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+            if(defender->isKneeling() && !attackerWeapon->isMeleeWeapon()) {
                 postureModifier += 2;
             } 
             else if(defender->isKneeling() && !tooClose && attackerWeapon->isMeleeWeapon()) {
                 postureModifier -= 2;
             } 
-            else if(defender->isProne() && !tooClose && !attackerWeapon->isMeleeWeapon()) {
+            else if(defender->isProne() && !attackerWeapon->isMeleeWeapon()) {
                 postureModifier += 5;
             } 
             else if(defender->isProne() && !tooClose && attackerWeapon->isMeleeWeapon()) {
