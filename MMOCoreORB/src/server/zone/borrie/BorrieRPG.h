@@ -874,6 +874,8 @@ public:
 			return 107;
 		else if (chatType == "grumble")
 			return 108;
+		else if (chatType == "hum")
+			return 109;
 		else
 			return -1;
 	}
