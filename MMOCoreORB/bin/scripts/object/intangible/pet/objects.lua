@@ -7684,3 +7684,18 @@ object_intangible_pet_shared_zucca_boar_hue = SharedIntangibleObjectTemplate:new
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_zucca_boar_hue, "object/intangible/pet/shared_zucca_boar_hue.iff")
+
+
+object_intangible_pet_shared_nerf_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_nerf_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_nerf_hue, "object/intangible/pet/shared_nerf_hue.iff")
+
+
+
+object_intangible_pet_shared_battle_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_battle_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_battle_droid_hue, "object/intangible/pet/shared_battle_droid_hue.iff")

@@ -2,7 +2,7 @@ npc_template = {
 	name = "B1 Battle Droid (Pentastar)",
 
     baseTemplates = {
-        "battle_droid",
+        "naboo_stonewall_labs_battledroid_blue",
  
     },
 
@@ -11,7 +11,7 @@ npc_template = {
     },
 
     equipmentTemplates = {
-		{"battle_droid", {"battledroid"}},
+		{"naboo_stonewall_labs_battledroid_blue", {"battledroid"}},
     },
 
 }

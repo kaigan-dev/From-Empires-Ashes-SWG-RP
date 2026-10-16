@@ -41,9 +41,9 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_pet_deed_durni_deed = object_tangible_deed_pet_deed_shared_durni_deed:new {
+object_tangible_deed_pet_deed_durni_mutant_deed = object_tangible_deed_pet_deed_shared_durni_deed:new {
 
-
+	--NOTE: The crazed_durni mobile iff file actually uses the regular durni appearance, so we can't make it look correct. This file is being kept for reference only.
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
 	experimentalProperties = {"XX", "XX"},
@@ -54,12 +54,14 @@ object_tangible_deed_pet_deed_durni_deed = object_tangible_deed_pet_deed_shared_
 	experimentalMax = {0, 0},
 	experimentalPrecision = {0, 0},
 	experimentalCombineType = {0, 0},
-	generatedObjectTemplate = "mobile/pet/durni_be.iff",
+	generatedObjectTemplate = "mobile/crazed_durni.iff",  --Made no difference
+	--generatedObjectTemplate = "mobile/pet/durni_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/beast_master/bm_mutated_durni.iff",
-	mobileTemplate = "durni_be",	
+	--mobileTemplate = "durni_be",	
+	mobileTemplate = "crazed_durni",	
 	isMountable = 0,
 	skillTemplate = "creatures/harmless",
-	equipmentTemplate = "creature_harmless",
+	equipmentTemplate = "creature_small",
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_durni_deed, "object/tangible/deed/pet_deed/durni_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_durni_mutant_deed, "object/tangible/deed/pet_deed/durni_mutant_deed.iff")
