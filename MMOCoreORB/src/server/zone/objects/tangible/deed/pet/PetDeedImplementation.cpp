@@ -35,7 +35,6 @@
 #include <thread>
 
 void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData) {
-	player->sendSystemMessage("DEBUG: Starting loadTemplateData");
 	DeedImplementation::loadTemplateData(templateData);
 	PetDeedTemplate* deedData = dynamic_cast<PetDeedTemplate*>(templateData);
 
@@ -47,11 +46,9 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	skillTemplate = deedData->getSkillTemplate();
 	equipmentTemplate = deedData->getEquipmentTemplate();
 	mountable = deedData->isMountable();
-	player->sendSystemMessage("DEBUG: Ending loadTemplateData");
 }
 
 void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
-	player->sendSystemMessage("DEBUG: Starting fillAttributeList");
 	DeedImplementation::fillAttributeList(alm, object);
 	/*
 	alm->insertAttribute("challenge_level", level);
@@ -156,18 +153,14 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		alm->insertAttribute("dna_comp_ranged_attack", "Yes");
 	else
 		alm->insertAttribute("dna_comp_ranged_attack", "No");
-		player->sendSystemMessage("DEBUG: Ending fillAttributeList");
 }
 
 void PetDeedImplementation::initializeTransientMembers() {
-	player->sendSystemMessage("DEBUG: Starting initializeTransientMembers");
 	DeedImplementation::initializeTransientMembers();
 	setupAttacks();
 	setLoggingName("PetDeed");
-	player->sendSystemMessage("DEBUG: Ending initializeTransientMembers");
 }
 void PetDeedImplementation::setupAttacks() {
-	player->sendSystemMessage("DEBUG: Starting setupAttacks");
 	attacks.removeAll();
 	if (special1 != "none" && special1 != "defaultattack") {
 		String args = "";
@@ -209,7 +202,6 @@ void PetDeedImplementation::setupAttacks() {
 			attacks.addAttack(special2,"postureUpChance=50");
 		}
 	}
-	player->sendSystemMessage("DEBUG: Ending setupAttacks");
 }
 
 const CreatureAttackMap* PetDeedImplementation::getAttacks() const {
@@ -217,7 +209,6 @@ const CreatureAttackMap* PetDeedImplementation::getAttacks() const {
 }
 
 String PetDeedImplementation::getTemplateName() const {
-	player->sendSystemMessage("DEBUG: Starting getTemplateName");
 	CreatureTemplateManager* creatureTemplateManager = CreatureTemplateManager::instance();
 	Reference<CreatureTemplate*> petTemplate =  creatureTemplateManager->getTemplate( mobileTemplate.hashCode() );
 	if (petTemplate == nullptr) {
@@ -225,11 +216,9 @@ String PetDeedImplementation::getTemplateName() const {
 	}
 
 	String name = petTemplate->getObjectName();
-	player->sendSystemMessage("DEBUG: Ending getTemplateName");
 	return name;
 }
 int PetDeedImplementation::calculatePetLevel() {
-	player->sendSystemMessage("DEBUG: Starting calculatePetLevel");
 	// Regenerate the LEvel
 	int effective = (int)(((fortitude - (armor * 500)) / 50) * 5);
 	int dps = ((damageMax + damageMin) / 2.0f) / attackSpeed;
@@ -237,12 +226,10 @@ int PetDeedImplementation::calculatePetLevel() {
 	if (regen == 0) {
 		regen = avgHam / 10;
 	}
-	player->sendSystemMessage("DEBUG: Ending calculatePetLevel");
 	return Genetics::calculateAgentLevel(avgHam, dps, chanceHit, regen, armor, effective, kinResist, energyResist, blastResist, heatResist, coldResist, elecResist, acidResist, stunResist);
 }
 
 void PetDeedImplementation::updateCraftingValues(CraftingValues* values, bool firstUpdate) {
-	player->sendSystemMessage("DEBUG: Starting updateCraftingValues");
 	ManagedReference<ManufactureSchematic*> manufact = values->getManufactureSchematic();
 	float clFactor = 0;
 
@@ -334,11 +321,9 @@ void PetDeedImplementation::updateCraftingValues(CraftingValues* values, bool fi
 	}
 	// setup attack map
 	setupAttacks();
-	player->sendSystemMessage("DEBUG: Ending updateCraftingValues");
 }
 
 void PetDeedImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuResponse, CreatureObject* player) {
-	player->sendSystemMessage("DEBUG: Starting fillObjectMenuResponse");
 	DeedImplementation::fillObjectMenuResponse(menuResponse, player);
 
 	if(isASubChildOf(player))
@@ -346,11 +331,9 @@ void PetDeedImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuRespo
 	// Bio engineers can sample a deed
 	if(player->hasSkill("outdoors_bio_engineer_novice") && isASubChildOf(player))
 		menuResponse->addRadialMenuItem(21, 3, "@sui:harvest_dna");
-	player->sendSystemMessage("DEBUG: Ending fillObjectMenuResponse");
 }
 
 int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte selectedID) {
-	player->sendSystemMessage("DEBUG: Starting handleObjectMenuSelect");
 	if (selectedID == 21) {
 		if (generated || !player->hasSkill("outdoors_bio_engineer_novice") || !isASubChildOf(player))
 			return 1;
@@ -593,7 +576,6 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		return 0;
 	}
 
-	player->sendSystemMessage("DEBUG: Ending handleObjectMenuSelect");
 	return DeedImplementation::handleObjectMenuSelect(player, selectedID);
 }
 
@@ -604,7 +586,6 @@ void PetDeedImplementation::setSpecialResist(int type) {
 	specialResists |= type;
 }
 void PetDeedImplementation::adjustPetLevel(CreatureObject* player, CreatureObject* pet) {
-	player->sendSystemMessage("DEBUG: Starting adjustPetLevel");
 	int newLevel = calculatePetLevel();
 
 	if (newLevel < 1 || newLevel > 75) {
@@ -615,10 +596,8 @@ void PetDeedImplementation::adjustPetLevel(CreatureObject* player, CreatureObjec
 	level = newLevel;
 	pet->reloadTemplate();
 	player->sendSystemMessage("@bio_engineer:pet_sui_level_fixed");
-	player->sendSystemMessage("DEBUG: Ending adjustPetLevel");
 }
 bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObject *pet) {
-	player->sendSystemMessage("DEBUG: Starting adjustPetStats");
 	int oldLevel = level;
 	if (oldLevel < 1) {
 		player->sendSystemMessage("@bio_engineer:pet_sui_fix_error");
@@ -669,6 +648,5 @@ bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObjec
 	pet->reloadTemplate();
 
 	player->sendSystemMessage("@bio_engineer:pet_sui_stats_fixed");
-	player->sendSystemMessage("DEBUG: Ending adjustPetStats");
 	return true;
 }
