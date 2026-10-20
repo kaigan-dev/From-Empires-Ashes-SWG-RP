@@ -264,6 +264,7 @@
 //FEA
 #include "server/zone/objects/creature/commands/CommCommand.h"
 #include "server/zone/objects/creature/commands/DMGrantProf.h"
+#include "server/zone/objects/creature/commands/RpPetAttack.h"
 
 using namespace server::zone::managers::objectcontroller::command;
 
@@ -489,5 +490,6 @@ void CommandConfigManager::registerCommands4() {
 	//FEA
 	commandFactory.registerCommand<CommCommand>(String("comm").toLowerCase());
 	commandFactory.registerCommand<DmGrantProfCommand>(String("dmgrantprof").toLowerCase());
+	commandFactory.registerCommand<RpPetAttackCommand>(String("rppetattack").toLowerCase());
 
 }

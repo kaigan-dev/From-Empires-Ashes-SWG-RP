@@ -138,7 +138,14 @@ public:
 			}else if (BorrieRPG::GetChatTypeID(command) != -1) {
 				if (args.hasMoreTokens()) {
 					String speech = arguments.toString().subString(1 + command.length(), arguments.toString().length());
-					BorNPC::SpeakThroughNPC(creature, server->getZoneServer()->getObject(target, false), false, speech, BorrieRPG::GetChatTypeID(command));
+					if(target == 0) {
+						SceneObject* targetObject = cast<SceneObject*>(creature);
+						BorNPC::SpeakThroughNPC(creature, targetObject, false, speech, BorrieRPG::GetChatTypeID(command));
+					}
+					else {
+						BorNPC::SpeakThroughNPC(creature, server->getZoneServer()->getObject(target, false), false, speech, BorrieRPG::GetChatTypeID(command));
+					}
+					
 				} else {
 					creature->sendSystemMessage("Speech command requires you to say something!");
 				}
