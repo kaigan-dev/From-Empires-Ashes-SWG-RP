@@ -2,15 +2,15 @@
 				Copyright <SWGEmu>
 		See file COPYING for copying conditions.*/
 
-#ifndef PetAttackCOMMAND_H_
-#define PetAttackCOMMAND_H_
+#ifndef RpPetAttackCOMMAND_H_
+#define RpPetAttackCOMMAND_H_
 
 #include "server/zone/borrie/BorCombat.h"
 
-class PetAttackCommand : public QueueCommand {
+class RpPetAttackCommand : public QueueCommand {
 
 public:
-	PetAttackCommand(const String& name, ZoneProcessServer* server) : QueueCommand(name, server) {
+	RpPetAttackCommand(const String& name, ZoneProcessServer* server) : QueueCommand(name, server) {
 
 	}
 
