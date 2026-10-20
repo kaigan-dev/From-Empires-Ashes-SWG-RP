@@ -293,6 +293,7 @@ public:
 		ManagedReference<CreatureObject*> targetCreature;
 		if (object->isCreatureObject()) {
 			targetCreature = object->asCreatureObject();
+			
 			if (targetCreature->getPlayerObject() != nullptr) {    //Is the target a player? If so, allow only other characters on their account to control them.
 				//if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() || isAdmin)
 				if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID())
@@ -305,17 +306,12 @@ public:
 				//isMine = creature == targetCreature->getLinkedCreature().get();
 				isAdmin = true;
 			}
-			else if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID()) {  //If the target is not a player, allow their account owner to control them.
-				isMine = true;
+			else {  //If the target is not a player, allow their account owner to control them.
+				isMine = creature == targetCreature->getLinkedCreature().get();
 			}
-			/* Remove check which should never be relevant for GMusage, as it will interfere with player /comm command.
-			else {   //If the target is not a player and the controller is not an admin, deny access. We shouldn't actually hit this step because of the earlier "else return".
-				isMine = false;
-			}
-			*/
+
 			
 			if (!isMine || !isAdmin) {
-				//prefix = "[" + creature->getFirstName() + "] ";   //Old behavior. We don't want to let anyone speak through any creature. This will specify who is controlling the target creature if we wanted to use it somewhere though.
 				creature->sendSystemMessage("ERROR: You can only speak through characters or pets that you own.");
 				return;
 			}
