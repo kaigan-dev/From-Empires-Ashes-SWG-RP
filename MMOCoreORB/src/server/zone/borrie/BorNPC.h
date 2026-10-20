@@ -305,7 +305,7 @@ public:
 				//isMine = creature == targetCreature->getLinkedCreature().get();
 				isAdmin = true;
 			}
-			else if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() ||) {  //If the target is not a player, allow their account owner to control them.
+			else if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID()) {  //If the target is not a player, allow their account owner to control them.
 				isMine = true;
 			}
 			/* Remove check which should never be relevant for GMusage, as it will interfere with player /comm command.
