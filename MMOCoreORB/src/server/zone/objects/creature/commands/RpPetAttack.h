@@ -43,14 +43,20 @@ public:
 			adminLevelCheck = 15;
 		}
 
+        ManagedReference<AiAgent*> pet;
         for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
-			ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
-			if(pet->asCreatureObject()->isDead())
-				creature->sendSystemMessage("You don't have the right permissions to do that.");
+			pet = ghost->getActivePet(i);
+			if(pet->asCreatureObject()->isDead()) {
+				creature->sendSystemMessage("Your pet can't attack while dead.");
 			    return SUCCESS;
-				}
-			creature->sendSystemMessage("You don't have the right permissions to do that.");
+            }
+		}
+        ManagedReference<AiAgent*> pet;
+
+        if (pet == nullptr) {
+			creature->sendSystemMessage("You can't have your pet attack without an active pet.");
 			return SUCCESS;
+        }
 
 
 		ManagedReference<SceneObject*> object;
@@ -64,6 +70,7 @@ public:
 		if (object == nullptr)
 			return GENERALERROR;
 
+        /* We will use the active pet as our attacker rather than a stored creature.
 		ManagedReference<SceneObject*> storedObject;
 		if (storedTarget != 0) {
 			storedObject = server->getZoneServer()->getObject(storedTarget, false);
@@ -71,10 +78,11 @@ public:
 			creature->sendSystemMessage("You need a stored target to be the attacker!");
 			return SUCCESS;
 		}
+        */
 
 		ManagedReference<CreatureObject*> targetCreature;
 
-		if (object->isCreatureObject() && storedObject != nullptr && storedObject.get() != nullptr) {
+		if (object->isCreatureObject()) {
 			targetCreature = object->asCreatureObject();
 		} else {
 			creature->sendSystemMessage("You need a target to attack!");
@@ -83,10 +91,10 @@ public:
 
 		ManagedReference<CreatureObject*> storedTargetCreature;
 
-		if (storedObject->isCreatureObject() && storedObject != nullptr && storedObject.get() != nullptr) {
-			storedTargetCreature = storedObject->asCreatureObject();
+		if (pet->isCreatureObject() && pet != nullptr && pet.get() != nullptr) {
+			storedTargetCreature = pet->asCreatureObject();
 		} else {
-			creature->sendSystemMessage("You need a stored target to be the attacker!");
+			creature->sendSystemMessage("Your pet isn't meeting the checks to perform an attack.");
 			return SUCCESS;
 		}
 
