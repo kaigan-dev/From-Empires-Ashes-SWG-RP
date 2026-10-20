@@ -51,7 +51,6 @@ public:
 			    return SUCCESS;
             }
 		}
-        ManagedReference<AiAgent*> pet;
 
         if (pet == nullptr) {
 			creature->sendSystemMessage("You can't have your pet attack without an active pet.");
