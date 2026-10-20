@@ -280,7 +280,7 @@ public:
 		}
 	}
 
-	static void SpeakThroughNPC(CreatureObject* creature, SceneObject* object, bool isAdmin, String speech, int chatType) {
+	static void SpeakThroughNPC(Creatu reObject* creature, SceneObject* object, bool isAdmin, String speech, int chatType) {
 		const ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 		String prefix = "";
@@ -316,9 +316,9 @@ public:
 				return;
 			}
 			
-			if (isMine) {
+			if (isMine && targetCreature->getPlayerObject() == nullptr ) {
 				//prefix = "[" + creature->getFirstName() + "] ";
-				prefix = "[\\#00FFFF" + creature->getFirstName() + "\\#.]:";
+				prefix = "[\\#00FFFF" + creature->getFirstName() + "\\#DBDBDB]:";
 			}
 			Locker locker(targetCreature);
 			creature->getZoneServer()->getChatManager()->broadcastChatMessage(targetCreature, prefix + speech, 0, chatType, creature->getMoodID(), 0);
