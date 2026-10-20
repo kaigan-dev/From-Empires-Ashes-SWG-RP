@@ -285,6 +285,7 @@ public:
 
 		String prefix = "";
 		bool isMine = false;
+		bool isAdmin = false;
 
 		if (object == nullptr) {
 			creature->sendSystemMessage("ERROR: Target required for OtherSpeak commands. They cannot be another player.");
@@ -303,6 +304,9 @@ public:
 				}
 			} else if (isAdmin) {   //If the target is not a player, allow admins to control them.
 				//isMine = creature == targetCreature->getLinkedCreature().get();
+				isAdmin = true;
+			}
+			else if (targetCreature->getPlayerObject()->getAccountID() == ghost->getAccountID() ||) {  //If the target is not a player, allow their account owner to control them.
 				isMine = true;
 			}
 			/* Remove check which should never be relevant for GMusage, as it will interfere with player /comm command.
@@ -311,13 +315,15 @@ public:
 			}
 			*/
 			
-			if (!isMine) {
+			if (!isMine || !isAdmin) {
 				//prefix = "[" + creature->getFirstName() + "] ";   //Old behavior. We don't want to let anyone speak through any creature. This will specify who is controlling the target creature if we wanted to use it somewhere though.
 				creature->sendSystemMessage("ERROR: You can only speak through characters or pets that you own.");
 				return;
 			}
-				
-
+			
+			if (isMine) {
+				prefix = "[" + creature->getFirstName() + "] ";
+			}
 			Locker locker(targetCreature);
 			creature->getZoneServer()->getChatManager()->broadcastChatMessage(targetCreature, prefix + speech, 0, chatType, creature->getMoodID(), 0);
 		} else {
