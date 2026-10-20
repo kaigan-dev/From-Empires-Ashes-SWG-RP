@@ -280,7 +280,7 @@ public:
 		}
 	}
 
-	static void SpeakThroughNPC(Creatu reObject* creature, SceneObject* object, bool isAdmin, String speech, int chatType) {
+	static void SpeakThroughNPC(CreatureObject* creature, SceneObject* object, bool isAdmin, String speech, int chatType) {
 		const ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 		String prefix = "";
