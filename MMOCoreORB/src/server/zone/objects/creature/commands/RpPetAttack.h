@@ -24,14 +24,6 @@ public:
 		if (!creature->isPlayerCreature())
 			return GENERALERROR;
 	
-		if (!creature->getStoredLong("storedtarget"))
-		{
-			creature->sendSystemMessage("You need a stored target to be the attacker!");
-			return SUCCESS;
-		}
-			
-		uint64 storedTarget = creature->getStoredLong("storedtarget");
-
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 		if (ghost == nullptr)
