@@ -318,7 +318,7 @@ public:
 			
 			if (isMine && targetCreature->getPlayerObject() == nullptr ) {
 				//prefix = "[" + creature->getFirstName() + "] ";
-				prefix = "[\\#00FFFF" + creature->getFirstName() + "\\#DBDBDB]:";
+				prefix = "[\\#00FFFF" + creature->getFirstName() + "\\#DBDBDB]: ";
 			}
 			Locker locker(targetCreature);
 			creature->getZoneServer()->getChatManager()->broadcastChatMessage(targetCreature, prefix + speech, 0, chatType, creature->getMoodID(), 0);
