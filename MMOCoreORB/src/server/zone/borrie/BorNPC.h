@@ -311,7 +311,7 @@ public:
 			}
 
 			
-			if (!isMine || !isAdmin) {
+			if (!isMine && !isAdmin) {
 				creature->sendSystemMessage("ERROR: You can only speak through characters or pets that you own.");
 				return;
 			}
