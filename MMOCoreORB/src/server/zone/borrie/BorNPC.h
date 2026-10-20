@@ -285,7 +285,6 @@ public:
 
 		String prefix = "";
 		bool isMine = false;
-		bool isAdmin = false;
 
 		if (object == nullptr) {
 			creature->sendSystemMessage("ERROR: Target required for OtherSpeak commands. They cannot be another player.");
