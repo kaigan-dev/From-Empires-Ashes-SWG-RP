@@ -206,9 +206,6 @@ function RpTestingScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("ranged_other_rare")
 
-
-
-
 	--The good weapons - DO NOT DELETE
 --[[
 		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", 24.4, 4, 26.4, 0, 0, 0, 0, 0)
@@ -328,6 +325,85 @@ sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("armor_marine")
 --]]
+
+--Furniture
+	sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 0, 34.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Melee Common and Uncommon")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_cheap")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 2, 34.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Melee Rare")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_city")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 0, 32.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Pistols Common and Uncommon")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_decorative")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 2, 32.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Pistols Rare")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_elegant")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 0, 30.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Carbines Common and Uncommon")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_foodanddrink")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 2, 30.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Carbines Rare")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_misc")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 0, 28.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Rifles Common and Uncommon")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_modern")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 2, 28.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Rifles Rare")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_paintings")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 0, 26.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Common and Uncommon")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_plain")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 2, 26.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Rare")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_plants")
+
+			sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 0, 24.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Rifles Rare")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_technical")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 2, 24.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Common and Uncommon")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_walls")
+
+		sObj = spawnSceneObject("rp_testing", "object/tangible/furniture/modern/armoire_modern_style_01.iff", -24.4, 0, 22.4, 0, 0, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Shotgun/Sniper/Repeater Rare")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_walls2")
 
 end
 
