@@ -47,4 +47,6 @@ content = {
 	{"object/tangible/furniture/jedi/shared_frn_all_table_dark_02.iff", },
 	{"object/tangible/furniture/jedi/shared_frn_all_table_light_01.iff", },
 	{"object/tangible/furniture/jedi/shared_frn_all_table_light_02	.iff", },
+	{"object/tangible/tcg/series1/shared_decorative_display_case_02.iff", },
+	{"object/tangible/tcg/series1/shared_decorative_display_case_01.iff", },
 }

@@ -37,4 +37,10 @@ content = {
 	{"object/tangible/saga_system/rewards/shared_pgc_monitorscreen_small.iff", },
 	{"object/tangible/furniture/all/frn_all_desk_radar_topology_screen.iff", },
 	{"object/tangible/dungeon/shared_computer_desktop.iff", },
+	{"object/tangible/collection/shared_datapad_01.iff", },
+	{"object/tangible/collection/shared_datapad_02.iff", },
+	{"object/tangible/collection/shared_datapad_03.iff", },
+	{"object/tangible/collection/shared_datapad_04.iff", },
+	{"object/tangible/collection/shared_datapad_05.iff", },
+	{"object/tangible/tcg/series4/shared_video_game_table.iff", },
 }

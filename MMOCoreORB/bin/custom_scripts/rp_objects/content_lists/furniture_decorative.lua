@@ -42,4 +42,12 @@ content = {
 	{"object/tangible/swsovrp/prop2/shared_col_dejarik_table_base.iff", },
 	{"object/tangible/swsovrp/prop2/shared_col_dejarik_table_board_s01.iff", },
 	{"object/tangible/collection/shared_deathtrooper_research_stuffed_stardestroyer_01.iff", },
+	{"object/tangible/collection/reward/shared_space_mobile_publish_gift.iff", },
+	{"object/tangible/dice/shared_eqp_configurable_group_dice.iff", },
+	{"object/tangible/dice/shared_eqp_chance_cube.iff", },
+	{"object/tangible/swsovrp/rp/shared_handbook.iff", },
+	{"object/tangible/tcg/series1/shared_decorative_fish_tank.iff", },
+	{"object/tangible/tcg/series6/shared_decorative_baby_colo_claw_fishtank.iff", },
+
+
 }
