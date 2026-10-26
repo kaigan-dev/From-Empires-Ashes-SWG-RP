@@ -561,7 +561,7 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	
 	--VENDORS--
 
-    Armorsmith Vendor
+    --Armorsmith Vendor
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 270, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Torgal Whim (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
