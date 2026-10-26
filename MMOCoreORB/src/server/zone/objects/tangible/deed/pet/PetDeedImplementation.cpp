@@ -527,7 +527,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			controlDevice->trainAsMount(player);
 		}
 
-		player->sendSystemMessage("DEBUG: Before growth min damage is " + damageMin.toString() + ", Max damage is " + damageMax.toString());
+		player->sendSystemMessage("DEBUG: Before growth min damage is " + std::to_string(damageMin) + ", Max damage is " + std::to_string(damageMax));
 		
 		// Always set pets to spawn as adults.
 		controlDevice->growPet(player,true,false);
@@ -558,11 +558,11 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		datapad->broadcastObject(controlDevice, true);
 		controlDevice->callObject(player);
 
-		player->sendSystemMessage("DEBUG: Before applying template min damage is " + damageMin.toString() + ", Max damage is " + damageMax.toString());
+		player->sendSystemMessage("DEBUG: Before applying template min damage is " + std::to_string(damageMin) + ", Max damage is " + std::to_string(damageMax));
 
 		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
 
-		player->sendSystemMessage("DEBUG: After applying template min damage is " + damageMin.toString() + ", Max damage is " + damageMax.toString());
+		player->sendSystemMessage("DEBUG: After applying template min damage is " + std::to_string(damageMin) + ", Max damage is " + std::to_string(damageMax));
 
 		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
 		controlDevice->storeObject(player);
@@ -581,7 +581,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		generated = true;
 		player->sendSystemMessage("@pet/pet_menu:device_added"); // "A control device has been added to your datapad."
 
-		player->sendSystemMessage("DEBUG: At the very end min damage is " + damageMin.toString() + ", Max damage is " + damageMax.toString());
+		player->sendSystemMessage("DEBUG: At the very end min damage is " + std::to_string(damageMin) + ", Max damage is " + std::to_string(damageMax));
 
 		return 0;
 	}
