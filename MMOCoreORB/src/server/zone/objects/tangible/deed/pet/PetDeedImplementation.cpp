@@ -559,8 +559,10 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(4));
 		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
 
-		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
-		//controlDevice->storeObject(player);
+		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		controlDevice->storeObject(player);
+		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
 		
 
 		//Remove the deed from it's container.
