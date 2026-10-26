@@ -119,7 +119,7 @@ public:
 					BorrieRPG::SwitchCFE(creature, CFEtarget);
 				}
 				else {
-					creature->sendSystemMessage("You must provide the destination weapon type. ie. '/switchcfe pistol'. Valid types include pistol, carbine, rifle, and sniper.");
+					creature->sendSystemMessage("You must provide the destination weapon type. ie. '/rp switchcfe pistol'. Valid types include pistol, carbine, rifle, and sniper.");
 					return GENERALERROR;
 				}
 			} else if(command == "faction") {
