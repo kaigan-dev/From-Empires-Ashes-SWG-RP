@@ -680,10 +680,11 @@ public:
                                 continue;
                             }
 
+                            TangibleObject* clothing;
                             if(target->getZoneServer() != nullptr)
-                                TangibleObject* clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+                                clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
                             else
-                                TangibleObject* clothing = (creature->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+                                clothing = (creature->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
 
                             if (clothing == nullptr) {
                                 objData.pop();
