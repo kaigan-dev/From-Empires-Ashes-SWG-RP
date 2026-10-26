@@ -680,7 +680,10 @@ public:
                                 continue;
                             }
 
-                            TangibleObject* clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+                            if(target->getZoneServer() != nullptr)
+                                TangibleObject* clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+                            else
+                                TangibleObject* clothing = (creature->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
 
                             if (clothing == nullptr) {
                                 objData.pop();
@@ -716,7 +719,10 @@ public:
                             }
 
                             //Equip
-                            target->getZone()->getCreatureManager()->addWearableItem(target, clothing);
+                            if(target->getZone() != nullptr)
+                                target->getZone()->getCreatureManager()->addWearableItem(target, clothing);
+                            else
+                                creature->getZone()->getCreatureManager()->addWearableItem(target, clothing);
 
                             
                         }
