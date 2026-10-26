@@ -371,13 +371,13 @@ public:
 		int medicSkill = creature->getSkillMod("rp_medicine");
 		int roll = BorDice::Roll(1, 20);
 
-		if(roll == 20 || roll != 1 && roll + medicSkill >= medicineDC) {
+		if(roll == 20 || (roll != 1 && roll + medicSkill >= medicineDC)) {
 			int dieCount = stim->getDieCount();
 			int dieType = stim->getDieType();
 			int bonusHealing = stim->getBonusHealing();
 			int healRoll = BorDice::Roll(dieCount, dieType) + bonusHealing;
 			if(roll == 20) {
-				healRoll = (dieCount * dieType) + bousHealing;
+				healRoll = (dieCount * dieType) + bonusHealing;
 			}
 			ModPool(targetCreature, "health", healRoll, true);
 			if(creature->getHAM(CreatureAttribute::ACTION) < 1)
@@ -400,7 +400,7 @@ public:
 		int medicineDC = 10;
 		int medicSkill = creature->getSkillMod("rp_medicine");
 		int roll = BorDice::Roll(1, 20);
-		if(roll == 20 || roll != 1 && roll + medicSkill >= medicineDC) {
+		if(roll == 20 || (roll != 1 && roll + medicSkill >= medicineDC)) {
 			int dieCount = 1;
 			int dieType = 2 + medicSkill;
 			int healRoll = BorDice::Roll(dieCount, dieType);
