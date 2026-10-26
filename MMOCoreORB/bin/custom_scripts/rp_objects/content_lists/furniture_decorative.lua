@@ -41,4 +41,5 @@ content = {
 	{"object/tangible/furniture/all/frn_all_decorative_lg_s2.iff", },
 	{"object/tangible/swsovrp/prop2/shared_col_dejarik_table_base.iff", },
 	{"object/tangible/swsovrp/prop2/shared_col_dejarik_table_board_s01.iff", },
+	{"object/tangible/collection/shared_deathtrooper_research_stuffed_stardestroyer_01.iff", },
 }

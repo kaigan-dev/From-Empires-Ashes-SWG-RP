@@ -322,6 +322,84 @@ function DantooineKhoondaScreenPlay:spawnSceneObjects()
 	--Travel Terminals
 	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.2, 0.6, 50.3, 610039691, 0.992546, 0, -0.121869, 0)
     spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", 985.6, 7.7, -1065.4, 0, math.rad(260))
+
+    	--FURNITURE--
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 0.0, 2.5, 9.1, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Cheap")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_cheap")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 6.7, 1.1, 2.9, 610040002, math.rad(90))
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_elegant")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 6.7, 1.1, 0.5, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Modern")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_modern")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 6.7, 1.1, -1.9, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Plain")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_plain")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.7, 1.1, 2.9, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Technical")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_technical")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.7, 1.1, 0.5, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Misc")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_misc")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.7, 1.1, -1.9, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Decorative")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_decorative")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 2.6, 1.1, -6.0, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, City")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_city")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 5.4, 1.1, -6.0, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Paintings")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_paintings")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -2.6, 1.1, 2.9, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Plants")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_plants")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -5.4, 1.1, 2.9, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Food and Drink")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_foodanddrink")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.0, 2.5, 10.1, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Walls")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_walls")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 6.0,2.5, 10.1, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Walls 2")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_walls2")
 end
 
 function DantooineKhoondaScreenPlay:spawnMobiles()
