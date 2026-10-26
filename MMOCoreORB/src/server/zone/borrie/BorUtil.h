@@ -733,7 +733,7 @@ public:
     } 
 
 
-     static void ApplyEquipmentTemplateToPet(CreatureObject* target, String equipmentTemplate) {
+     static void ApplyEquipmentTemplateToPet(CreatureObject* creature, CreatureObject* target, String equipmentTemplate) {
             try {
 
                 equipmentTemplate = equipmentTemplate.toLowerCase();
@@ -743,7 +743,9 @@ public:
 
                 LuaObject luaObject = lua->getGlobalObject("equipment");
 
-                if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
+                //if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
+                if (target == nullptr ) {
+                    creature->sendSystemMessage("Target creature was not the correct type; or the zone it exists in does not exist.");
                     luaObject.pop();
                     return;
                 }
@@ -768,7 +770,11 @@ public:
                                 continue;
                             }
 
-                            TangibleObject* clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+                            TangibleObject* clothing;
+                            if(target->getZoneServer() != nullptr)
+                                clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+                            else
+                                clothing = (creature->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
 
                             if (clothing == nullptr) {
                                 objData.pop();
@@ -804,19 +810,22 @@ public:
                             }
 
                             //Equip
-                            target->getZone()->getCreatureManager()->addWearableItem(target, clothing);
+                            if(target->getZone() != nullptr)
+                                target->getZone()->getCreatureManager()->addWearableItem(target, clothing);
+                            else
+                                creature->getZone()->getCreatureManager()->addWearableItem(target, clothing);
 
                             
                         }
                         objData.pop();
                     }
                 } else {
-                    //creature->sendSystemMessage("Equipment Template  \"" + equipmentTemplate + "\" not found.");
+                    creature->sendSystemMessage("Equipment Template  \"" + equipmentTemplate + "\" not found.");
                 }
                 luaObject.pop();
             } catch (Exception& e) {
 			    // creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
-                //creature->sendSystemMessage("Error with Equipment: " +  e.getMessage());
+                creature->sendSystemMessage("Error with Equipment: " +  e.getMessage());
 		    }   
     } 
 
