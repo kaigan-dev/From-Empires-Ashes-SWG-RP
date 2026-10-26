@@ -654,6 +654,95 @@ public:
 
                 LuaObject luaObject = lua->getGlobalObject("equipment");
 
+                if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
+                    creature->sendSystemMessage("Target creature was not the correct type; or the zone it exists in does not exist.");
+                    luaObject.pop();
+                    return;
+                }
+
+                if(luaObject.isValidTable()) {
+                    for (int i = 1; i <= luaObject.getTableSize(); ++i) {
+                        LuaObject objData = luaObject.getObjectAt(i);
+                        if (objData.isValidTable()) {
+
+                            ManagedReference<SceneObject*> inventory = target->getSlottedObject("inventory");
+                            if (inventory == nullptr) {
+                                objData.pop();
+                                continue;
+                            }
+
+                            String objectTemplate = objData.getStringAt(1);
+                            objectTemplate = objectTemplate.replaceAll("shared_", "");
+                            Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());
+
+                            if(shot == nullptr) {
+                                objData.pop();
+                                continue;
+                            }
+
+                            TangibleObject* clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
+
+                            if (clothing == nullptr) {
+                                objData.pop();
+                                continue;
+                            }
+
+                            Locker locker(clothing);
+                            clothing->createChildObjects();
+
+                            //Add Customization Variables       
+                            int fieldSize = objData.getTableSize();
+                            int index = 2;
+                            
+                            while(index + 1 <= fieldSize) {
+
+                                String varName = objData.getStringAt(index);
+
+                                int16 value = objData.getIntAt(index + 1);
+
+                                clothing->setCustomizationVariable(varName, value, true);
+
+
+                                index+=2;
+                            }   
+
+                            //Transfer
+                            if (inventory->transferObject(clothing, -1, true)) {
+                                inventory->broadcastObject(clothing, true);
+                            } else {
+                                clothing->destroyObjectFromDatabase(true);
+                                objData.pop();
+                                continue;
+                            }
+
+                            //Equip
+                            target->getZone()->getCreatureManager()->addWearableItem(target, clothing);
+
+                            
+                        }
+                        objData.pop();
+                    }
+                } else {
+                    creature->sendSystemMessage("Equipment Template  \"" + equipmentTemplate + "\" not found.");
+                }
+                luaObject.pop();
+            } catch (Exception& e) {
+			    // creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
+                creature->sendSystemMessage("Error with Equipment: " +  e.getMessage());
+		    }   
+    } 
+
+
+     static void ApplyEquipmentTemplateToPet(CreatureObject* creature, CreatureObject* target, String equipmentTemplate) {
+            try {
+
+                equipmentTemplate = equipmentTemplate.toLowerCase();
+
+                Lua* lua = DirectorManager::instance()->getLuaInstance();
+                lua->runFile("custom_scripts/rp_npcs/equipment/" + equipmentTemplate + ".lua");
+
+                LuaObject luaObject = lua->getGlobalObject("equipment");
+
                 //if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
                 if (target == nullptr ) {
                     creature->sendSystemMessage("Target creature was not the correct type; or the zone it exists in does not exist.");
@@ -737,96 +826,6 @@ public:
             } catch (Exception& e) {
 			    // creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
                 creature->sendSystemMessage("Error with Equipment: " +  e.getMessage());
-		    }   
-    } 
-
-
-     static void ApplyEquipmentTemplateToPet(CreatureObject* target, String equipmentTemplate) {
-            try {
-
-                equipmentTemplate = equipmentTemplate.toLowerCase();
-
-                Lua* lua = DirectorManager::instance()->getLuaInstance();
-                lua->runFile("custom_scripts/rp_npcs/equipment/" + equipmentTemplate + ".lua");
-
-                LuaObject luaObject = lua->getGlobalObject("equipment");
-
-                if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
-                    luaObject.pop();
-                    BorrieRPG::BroadcastMessage(target, "There is no creature to apply this template to.");
-                    return;
-                }
-
-                if(luaObject.isValidTable()) {
-                    for (int i = 1; i <= luaObject.getTableSize(); ++i) {
-                        LuaObject objData = luaObject.getObjectAt(i);
-                        if (objData.isValidTable()) {
-
-                            ManagedReference<SceneObject*> inventory = target->getSlottedObject("inventory");
-                            if (inventory == nullptr) {
-                                objData.pop();
-                                continue;
-                            }
-
-                            String objectTemplate = objData.getStringAt(1);
-                            objectTemplate = objectTemplate.replaceAll("shared_", "");
-                            Reference<SharedObjectTemplate*> shot = TemplateManager::instance()->getTemplate(objectTemplate.hashCode());
-
-                            if(shot == nullptr) {
-                                objData.pop();
-                                continue;
-                            }
-
-                            TangibleObject* clothing = (target->getZoneServer()->createObject(shot->getServerObjectCRC(), 1)).castTo<TangibleObject*>();
-
-                            if (clothing == nullptr) {
-                                objData.pop();
-                                continue;
-                            }
-
-                            Locker locker(clothing);
-                            clothing->createChildObjects();
-
-                            //Add Customization Variables       
-                            int fieldSize = objData.getTableSize();
-                            int index = 2;
-                            
-                            while(index + 1 <= fieldSize) {
-
-                                String varName = objData.getStringAt(index);
-
-                                int16 value = objData.getIntAt(index + 1);
-
-                                clothing->setCustomizationVariable(varName, value, true);
-
-
-                                index+=2;
-                            }   
-
-                            //Transfer
-                            if (inventory->transferObject(clothing, -1, true)) {
-                                inventory->broadcastObject(clothing, true);
-                            } else {
-                                clothing->destroyObjectFromDatabase(true);
-                                objData.pop();
-                                continue;
-                            }
-
-                            //Equip
-                            target->getZone()->getCreatureManager()->addWearableItem(target, clothing);
-
-                            
-                        }
-                        objData.pop();
-                    }
-                } else {
-                    //creature->sendSystemMessage("Equipment Template  \"" + equipmentTemplate + "\" not found.");
-                }
-                luaObject.pop();
-            } catch (Exception& e) {
-			    // creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
-                //creature->sendSystemMessage("Error with Equipment: " +  e.getMessage());
-                BorrieRPG::BroadcastMessage(target, "ApplyEquipmentTemplateToPet failed: " +  e.getMessage());
 		    }   
     } 
 

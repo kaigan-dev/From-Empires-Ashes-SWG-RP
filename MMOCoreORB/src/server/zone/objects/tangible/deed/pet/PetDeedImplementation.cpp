@@ -556,19 +556,15 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		datapad->broadcastObject(controlDevice, true);
 		controlDevice->callObject(player);
 
-		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(4));
-		if (pet->getZone() == nullptr) {
-            player->sendSystemMessage("Pet's zone doesn't exist.");
-		}
-		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
-		BorUtil::ApplyEquipmentTemplateToNPC(player, pet, equipmentTemplate);
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(4));
+		BorUtil::ApplyEquipmentTemplateToPet(player, pet, equipmentTemplate);
 
-		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
-		controlDevice->storeObject(player);
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		//controlDevice->storeObject(player);
 	
-		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
-		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
-		BorUtil::ApplyEquipmentTemplateToNPC(player, pet, equipmentTemplate);
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		//BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
+		//BorUtil::ApplyEquipmentTemplateToNPC(player, pet, equipmentTemplate);
 		
 
 		//Remove the deed from it's container.
