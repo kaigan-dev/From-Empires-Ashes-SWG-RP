@@ -42,4 +42,9 @@ content = {
 	{"object/tangible/loot/dungeon/geonosian_mad_bunker/shared_relic_gbb_tech_kit.iff", },
 	{"object/tangible/storyteller/prop/hoth/shared_pr_hoth_toolbox.iff", },
 	{"object/tangible/swsovrp/prop2/shared_frn_all_palpatines_desk.iff", },
+	{"object/tangible/tcg/series5/shared_furniture_tie_fighter_chair.iff", },
+	{"object/tangible/furniture/jedi/shared_frn_all_table_dark_01.iff", },
+	{"object/tangible/furniture/jedi/shared_frn_all_table_dark_02.iff", },
+	{"object/tangible/furniture/jedi/shared_frn_all_table_light_01.iff", },
+	{"object/tangible/furniture/jedi/shared_frn_all_table_light_02	.iff", },
 }

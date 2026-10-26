@@ -39,4 +39,6 @@ content = {
 	{"object/tangible/furniture/all/frn_all_decorative_sm_s4.iff", },
 	{"object/tangible/furniture/all/frn_all_decorative_lg_s1.iff", },
 	{"object/tangible/furniture/all/frn_all_decorative_lg_s2.iff", },
+	{"object/tangible/swsovrp/prop2/shared_col_dejarik_table_base.iff", },
+	{"object/tangible/swsovrp/prop2/shared_col_dejarik_table_board_s01.iff", },
 }

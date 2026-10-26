@@ -568,6 +568,24 @@ function RpTatooineMosEisleyScreenPlay:spawnSceneObjects()
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_plants")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", -0.6, -3.97117, -11.4, 610008483, 1, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Food and Drink")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_foodanddrink")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", -2.1, -3.97117, -11.4, 610008483, 1, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Walls")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_walls")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_chest_s01.iff", -3.6, -3.97117, -11.4, 610008483, 1, 0, 0, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Walls 2")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_walls2")
 	
 	--Jukebox--
 	spawnSceneObject("rp_tatooine", "object/tangible/terminal/terminal_jukebox.iff", 27.0829, -0.894995, 8.68511, 610008176, -0.707107, 0, 0.707107, 0)

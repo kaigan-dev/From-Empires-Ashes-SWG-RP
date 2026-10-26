@@ -39,5 +39,6 @@ content = {
 	{"object/tangible/furniture/all/frn_diner_counter_corner_s02.iff", },
 	{"object/tangible/furniture/all/frn_diner_stool.iff", },
 	{"object/tangible/furniture/all/frn_diner_table.iff", },
+	{"object/tangible/container/food/shared_ice_cream_fryer.iff", },
 
 }

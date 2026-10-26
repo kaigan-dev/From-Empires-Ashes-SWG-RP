@@ -16,4 +16,5 @@ content = {
 	{"object/tangible/furniture/tatooine/shared_frn_tato_tbl_cafe_table_style_01.iff", },
 	{"object/tangible/furniture/tatooine/shared_frn_tato_chair_cafe_style_02.iff", },
 	{"object/tangible/furniture/tatooine/shared_frn_tato_chair_cafe_style_01.iff", },
+	{"object/tangible/furniture/tatooine/shared_frn_tato_table_small_style_01.iff", },
 }
