@@ -526,6 +526,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		if(mountable == 1 || getStoredInt("mount") == 1) {
 			controlDevice->trainAsMount(player);
 		}
+
+		player->sendSystemMessage("DEBUG: Before growth min damage is " + damageMin.toString() + ", Max damage is " + damageMax.toString());
 		
 		// Always set pets to spawn as adults.
 		controlDevice->growPet(player,true,false);
@@ -556,7 +558,11 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		datapad->broadcastObject(controlDevice, true);
 		controlDevice->callObject(player);
 
+		player->sendSystemMessage("DEBUG: Before applying template min damage is " + damageMin.toString() + ", Max damage is " + damageMax.toString());
+
 		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
+
+		player->sendSystemMessage("DEBUG: After applying template min damage is " + damageMin.toString() + ", Max damage is " + damageMax.toString());
 
 		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
 		controlDevice->storeObject(player);
@@ -569,11 +575,13 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			destroyObjectFromWorld(true);
 		}
 
-		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
-		controlDevice->callObject(player);
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		//controlDevice->callObject(player);
 
 		generated = true;
 		player->sendSystemMessage("@pet/pet_menu:device_added"); // "A control device has been added to your datapad."
+
+		player->sendSystemMessage("DEBUG: At the very end min damage is " + damageMin.toString() + ", Max damage is " + damageMax.toString());
 
 		return 0;
 	}
