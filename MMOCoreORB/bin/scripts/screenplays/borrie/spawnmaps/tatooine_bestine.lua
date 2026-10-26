@@ -402,19 +402,19 @@ sObj = spawnSceneObject("rp_tatooine", "object/tangible/sign/all_sign_city_s03.i
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_plants")
 
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.7, 1, 9.0, 610029601, 0, math.rad(90))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.7, 1, 9.0, 610029601, math.rad(270))
 	SceneObject(sObj):setCustomObjectName("Furniture, Food and Drink")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_foodanddrink")
 
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.7, 1, 7.5, 610029601, 0, math.rad(90))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.7, 1, 7.5, 610029601, math.rad(270))
 	SceneObject(sObj):setCustomObjectName("Furniture, Walls")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
 	SceneObject(sObj):populateInventoryFromContentList("furniture_walls")
 
-	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.7, 1, 6.0, 610029601, 0, math.rad(90))
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/plain/plain_armoire_s01.iff", 1.7, 1, 6.0, 610029601, math.rad(270))
 	SceneObject(sObj):setCustomObjectName("Furniture, Walls 2")
 	SceneObject(sObj):setPublicContainer(true)
 	SceneObject(sObj):setDispenserContainer(true)
