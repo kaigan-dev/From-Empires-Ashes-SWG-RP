@@ -415,7 +415,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 			if (object != nullptr && object->isCreature()) {
 				if (++currentlySpawned >= maxPets) {
-					player->sendSystemMessage("@pet/pet_menu:too_many"); // You can't control any more pets. Store one first
+					//player->sendSystemMessage("@pet/pet_menu:too_many"); // You can't control any more pets. Store one first
+					player->sendSystemMessage("You must store your active pet before receiving a new one.");
 					return 1;
 				}
 
@@ -615,11 +616,11 @@ bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObjec
 	mind = ham;
 	regen = DnaManager::instance()->valueForLevel(DnaManager::REG_LEVEL,oldLevel);
 	float dps = DnaManager::instance()->valueForLevel(DnaManager::DPS_LEVEL,oldLevel);
-	/*  Remove anything that sets damage, just in case.
+	//  Remove anything that sets damage, just in case.
 	damageMin = round((dps * 2.0) * 0.5);
 	attackSpeed = 2.0;
 	damageMax = round((dps * 2.0) * 1.5);
-	*/
+	
 	chanceHit = DnaManager::instance()->valueForLevel(DnaManager::HIT_LEVEL,oldLevel);
 
 	// Adjust Armor Now
