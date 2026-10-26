@@ -703,6 +703,10 @@ public:
 				infoText << count << ". Scout Training (" << skillManager->getTrainingSkillRank(target, "rp_training_scout") << ")" << endl;
 				count++;
 			}
+			if(target->hasSkill("rp_training_martialartist_novice")) {
+				infoText << count << ". Martial Artist Training (" << skillManager->getTrainingSkillRank(target, "rp_training_martialartist") << ")" << endl;
+				count++;
+			}
 		}
 
 		

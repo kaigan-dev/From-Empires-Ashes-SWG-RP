@@ -26,6 +26,7 @@ RpProfessionDisk = {
 		"rp_training_jedi_consular",
 		"rp_training_sith",
 		"rp_training_dkr_sorceror",
+		"rp_training_martialartist",
 	},
 	
 	professionNames = {
@@ -54,6 +55,7 @@ RpProfessionDisk = {
 		["rp_training_jedi_consular"] = "Jedi Consular",
 		["rp_training_sith"] = "Dark Jedi Warrior",
 		["rp_training_drk_sorceror"] = "Dark Jedi Sorceror",
+		["rp_training_martialartist"] = "Martial Artist",
 		--[[ Borrie's professions
 		["rp_training_military"] = "Military",
 		["rp_training_mando"] =  "Mandalorian",

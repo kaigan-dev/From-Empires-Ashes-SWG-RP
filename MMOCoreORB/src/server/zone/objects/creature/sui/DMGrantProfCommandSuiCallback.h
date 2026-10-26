@@ -76,7 +76,8 @@ public:
 				box->addMenuItem("Con Artist"); // 16
 				box->addMenuItem("Enforcer"); // 17
 				box->addMenuItem("Bounty Hunter"); // 18
-				box->addMenuItem("Scout"); // 19
+				box->addMenuItem("Scout"); // 19'
+				box->addMenuItem("Martial Artist"); // 20
 			}
 		
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, selection));
@@ -192,6 +193,10 @@ public:
 				else if (index == 19) {
 					profName = "Scout";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scout");
+				}
+				else if (index == 20) {
+					profName = "Martial Artist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_martialartist");
 				}
 			}
 
@@ -348,6 +353,11 @@ public:
 					profName = "Scout";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scout");
 					skillName = "rp_training_scout";
+				}
+				else if (profCode == 20) {
+					profName = "Martial Artist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_martialartist");
+					skillName = "rp_training_martialartist";
 				}
 		}
 
