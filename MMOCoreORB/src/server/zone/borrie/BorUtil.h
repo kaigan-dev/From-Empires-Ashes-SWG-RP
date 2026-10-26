@@ -818,6 +818,7 @@ public:
             } catch (Exception& e) {
 			    // creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
                 //creature->sendSystemMessage("Error with Equipment: " +  e.getMessage());
+                BorrieRPG::BroadcastMessage(target, "ApplyEquipmentTemplateToPet failed: " +  e.getMessage());
 		    }   
     } 
 
