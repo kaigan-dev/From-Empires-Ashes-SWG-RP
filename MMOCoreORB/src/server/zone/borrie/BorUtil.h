@@ -654,7 +654,8 @@ public:
 
                 LuaObject luaObject = lua->getGlobalObject("equipment");
 
-                if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
+                //if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
+                if (target == nullptr ) {
                     creature->sendSystemMessage("Target creature was not the correct type; or the zone it exists in does not exist.");
                     luaObject.pop();
                     return;
