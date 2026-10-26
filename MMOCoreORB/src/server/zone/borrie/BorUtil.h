@@ -745,6 +745,7 @@ public:
 
                 if (target == nullptr || target->getZone() == nullptr || target->getZone()->getCreatureManager() == nullptr) {
                     luaObject.pop();
+                    BorrieRPG::BroadcastMessage(target, "There is no creature to apply this template to.");
                     return;
                 }
 
