@@ -41,4 +41,5 @@ content = {
 	{"object/tangible/loot/dungeon/geonosian_mad_bunker/shared_relic_gbb_spice_container.iff", },
 	{"object/tangible/loot/dungeon/geonosian_mad_bunker/shared_relic_gbb_tech_kit.iff", },
 	{"object/tangible/storyteller/prop/hoth/shared_pr_hoth_toolbox.iff", },
+	{"object/tangible/swsovrp/prop2/shared_frn_all_palpatines_desk.iff", },
 }

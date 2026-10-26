@@ -35,4 +35,6 @@ content = {
 	{"object/tangible/swsovrp/prop2/shared_eqp_keypad_door_s01.iff", },
 	{"object/tangible/saga_system/rewards/shared_pgc_monitorscreen.iff", },
 	{"object/tangible/saga_system/rewards/shared_pgc_monitorscreen_small.iff", },
+	{"object/tangible/furniture/all/frn_all_desk_radar_topology_screen.iff", },
+	{"object/tangible/dungeon/shared_computer_desktop.iff", },
 }

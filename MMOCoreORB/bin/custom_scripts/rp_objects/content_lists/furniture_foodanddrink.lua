@@ -30,4 +30,14 @@ content = {
 	{"object/tangible/borrie/kitchen/shared_sink_s01.iff", },
 	{"object/tangible/swsovrp/custom/shared_frn_all_rp_sink_kitchen.iff", },
 	{"object/tangible/swsovrp/custom/shared_frn_all_rp_oven.iff", },
+	{"object/tangible/furniture/all/frn_all_meatlump_grill_s01.iff", },
+	{"object/tangible/furniture/all/frn_all_meatlump_grill_s02.iff", },
+	{"object/tangible/furniture/all/frn_diner_bar.iff", },
+	{"object/tangible/furniture/all/frn_diner_booth.iff", },
+	{"object/tangible/furniture/all/frn_diner_counter_center.iff", },
+	{"object/tangible/furniture/all/frn_diner_counter_corner.iff", },
+	{"object/tangible/furniture/all/frn_diner_counter_corner_s02.iff", },
+	{"object/tangible/furniture/all/frn_diner_stool.iff", },
+	{"object/tangible/furniture/all/frn_diner_table.iff", },
+
 }
