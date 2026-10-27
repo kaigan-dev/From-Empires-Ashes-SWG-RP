@@ -38,7 +38,7 @@ object_weapon_roleplay_thrown_grenade_stacked_fragmentation_grenade = object_wea
 	useCount = 3,
 	
 	rarity="Uncommon",
-	itemValue = 200,
+	itemValue = 600,
 	
 	animationType = "fragmentation",
 
