@@ -123,23 +123,23 @@ public:
 				}
 				else if (index == 3) {
 					profName = "Healer";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_healer");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_healer");
 				}
 				else if (index == 4) {
 					profName = "Shadow";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_shadow");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_shadow");
 				}
 				else if (index == 5) {
 					profName = "Seeker";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_seeker");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_seeker");
 				}
 				else if (index == 6) {
 					profName = "Warden";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_warden");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_warden");
 				}
 				else if (index == 7) {
 					profName = "Witch";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_witch");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_witch");
 				}
 				else if (index == 8) {
 					profName = "Dark Jedi Warrior";
@@ -151,19 +151,19 @@ public:
 				}
 				else if (index == 10) {
 					profName = "Cultist";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_Cultist");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Cultist");
 				}
 				else if (index == 11) {
 					profName = "Fallen";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_Fallen");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Fallen");
 				}
 				else if (index == 12) {
 					profName = "Nightsister";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_Nightsister");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Nightsister");
 				}
 				else if (index == 13) {
 					profName = "Juggernaut";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_Juggernaut");
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Juggernaut");
 				}
 			}
 			else {
