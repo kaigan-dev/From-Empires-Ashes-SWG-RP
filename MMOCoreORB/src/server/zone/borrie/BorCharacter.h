@@ -703,90 +703,92 @@ public:
 				infoText << count << ". Scout Training (" << skillManager->getTrainingSkillRank(target, "rp_training_scout") << ")" << endl;
 				count++;
 			}
+
 			if(target->hasSkill("rp_training_martialartist_novice")) {
 				infoText << count << ". Martial Artist Training (" << skillManager->getTrainingSkillRank(target, "rp_training_martialartist") << ")" << endl;
 				count++;
 			}
+
 			if(target->hasSkill("rp_training_academic_novice")) {
 				infoText << count << ". Academic Training (" << skillManager->getTrainingSkillRank(target, "rp_training_academic") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_gladiator_novice")) {
 				infoText << count << ". Gladiator Training (" << skillManager->getTrainingSkillRank(target, "rp_training_gladiator") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_performer_novice")) {
 				infoText << count << ". Performer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_performer") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_physician_novice")) {
 				infoText << count << ". Physician Training (" << skillManager->getTrainingSkillRank(target, "rp_training_physician") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_rogue_novice")) {
 				infoText << count << ". Rogue Training (" << skillManager->getTrainingSkillRank(target, "rp_training_rogue") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_scientist_novice")) {
 				infoText << count << ". Scientist Training (" << skillManager->getTrainingSkillRank(target, "rp_training_scientist") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_slicer_novice")) {
 				infoText << count << ". Slicer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_slicer") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_cultist_novice")) {
 				infoText << count << ". Cultist Training (" << skillManager->getTrainingSkillRank(target, "rp_training_cultist") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_fallen_novice")) {
 				infoText << count << ". Fallen Training (" << skillManager->getTrainingSkillRank(target, "rp_training_fallen") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_nightsister_novice")) {
 				infoText << count << ". Nightsister Training (" << skillManager->getTrainingSkillRank(target, "rp_training_nightsister") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_juggernaut_novice")) {
 				infoText << count << ". Juggernaut Training (" << skillManager->getTrainingSkillRank(target, "rp_training_juggernaut") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_healer_novice")) {
 				infoText << count << ". Healer Training (" << skillManager->getTrainingSkillRank(target, "rp_training_healer") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_shadow_novice")) {
 				infoText << count << ". Shadow Training (" << skillManager->getTrainingSkillRank(target, "rp_training_shadow") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_seeker_novice")) {
 				infoText << count << ". Seeker Training (" << skillManager->getTrainingSkillRank(target, "rp_training_seeker") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_warden_novice")) {
 				infoText << count << ". Warden Training (" << skillManager->getTrainingSkillRank(target, "rp_training_warden") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_witch_novice")) {
 				infoText << count << ". Witch Training (" << skillManager->getTrainingSkillRank(target, "rp_training_witch") << ")" << endl;
 				count++;
 			}
-			}
+			
 			if(target->hasSkill("rp_training_detective_novice")) {
 				infoText << count << ". Detective Training (" << skillManager->getTrainingSkillRank(target, "rp_training_detective") << ")" << endl;
 				count++;
