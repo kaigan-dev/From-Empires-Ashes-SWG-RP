@@ -37,7 +37,13 @@ ObjectTemplates:addClientTemplate(object_weapon_roleplay_thrown_grenade_shared_c
 
 object_weapon_roleplay_thrown_grenade_shared_ion_grenade = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/roleplay/thrown/grenade/shared_ion_grenade.iff"
-	--clientTemplateFileName = "object/weapon/ranged/grenade/shared_grenade_bug_bomb.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_roleplay_thrown_grenade_shared_ion_grenade, "object/weapon/roleplay/thrown/grenade/shared_ion_grenade.iff")
 --********************************************************************************************************************************************************************
+
+
+object_weapon_roleplay_thrown_grenade_shared_stacked_fragmentation_grenade = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/roleplay/thrown/grenade/shared_fragmentation_grenade.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_roleplay_thrown_grenade_shared_stacked_fragmentation_grenade, "object/weapon/roleplay/thrown/grenade/shared_fragmentation_grenade.iff")
+--********************************************************************************************************************************************************************************
