@@ -41,5 +41,7 @@ content = {
 	{"object/tangible/furniture/all/frn_diner_table.iff", },
 	{"object/tangible/container/food/shared_ice_cream_fryer.iff", },
 	{"object/tangible/tcg/series1/shared_decorative_drink_dispenser.iff", },
-
+	{"object/tangible/loot/dungeon/geonosian_mad_bunker/shared_relic_gbb_honey_carafe.iff", },
+	{"object/tangible/loot/dungeon/geonosian_mad_bunker/shared_relic_gbb_ration_kit.iff", },
+	{"object/tangible/loot/dungeon/geonosian_mad_bunker/shared_relic_gbb_spice_container.iff", },
 }
