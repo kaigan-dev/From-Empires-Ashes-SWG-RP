@@ -43,4 +43,5 @@ content = {
 	{"object/tangible/collection/shared_datapad_04.iff", },
 	{"object/tangible/collection/shared_datapad_05.iff", },
 	{"object/tangible/tcg/series4/shared_video_game_table.iff", },
+	{"object/tangible/furniture/decorative/shared_diagnostic_screen.iff", },
 }

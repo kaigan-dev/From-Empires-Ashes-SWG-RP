@@ -4,7 +4,6 @@ content = {
 	{"object/tangible/furniture/decorative/shared_cafe_chair.iff", },
 	{"object/tangible/furniture/decorative/shared_campfire.iff", },
 	{"object/tangible/furniture/decorative/shared_carved_bowl.iff", },
-	{"object/tangible/furniture/decorative/shared_diagnostic_screen.iff", },
 	{"object/tangible/furniture/decorative/shared_kitchen_utensils.iff", },
 	{"object/tangible/furniture/decorative/shared_microphone_s01.iff", },
 	{"object/tangible/furniture/decorative/shared_microphone_s02.iff", },
@@ -48,6 +47,7 @@ content = {
 	{"object/tangible/swsovrp/rp/shared_handbook.iff", },
 	{"object/tangible/tcg/series1/shared_decorative_fish_tank.iff", },
 	{"object/tangible/tcg/series6/shared_decorative_baby_colo_claw_fishtank.iff", },
-
+	{"object/tangible/storyteller/prop/shared_pr_lifeday_fireplace_01.iff", },
+	{"object/tangible/storyteller/prop/shared_pr_lifeday_fireplace_02.iff", },
 
 }
