@@ -543,7 +543,7 @@ bool SkillManager::surrenderSkill(const String& skillName, CreatureObject* creat
 			//frsManager->handleSkillRevoked(creature, skillName);
 		//}
 		/// Update Force Power Max
-		ghost->recalculateForcePower();
+		//ghost->recalculateForcePower();
 
 		// Update Roleplay HAM
 		ghost->recalculateRoleplayHAM(notifyClient);
@@ -675,7 +675,7 @@ void SkillManager::surrenderAllSkills(CreatureObject* creature, bool notifyClien
 		updateXpLimits(ghost);
 
 		/// update force
-		ghost->recalculateForcePower();
+		//ghost->recalculateForcePower();
 	}
 
 	ManagedReference<PlayerManager*> playerManager = creature->getZoneServer()->getPlayerManager();

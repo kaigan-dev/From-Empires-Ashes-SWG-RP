@@ -81,6 +81,27 @@ public:
 						creature->sendSystemMessage("Your To-Hit DC against " + object->getCustomObjectName() + " is currently " + String::valueOf(dc));
 					}					
 				}	
+			} else if(command == "pettohit") {
+				ManagedReference<AiAgent*> pet;
+        		for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+					pet = ghost->getActivePet(i);
+					if(pet->asCreatureObject()->isDead()) {
+						creature->sendSystemMessage("Your pet can't attack while dead.");
+			    		return SUCCESS;
+            		}
+				}
+
+        		if (pet == nullptr) {
+					creature->sendSystemMessage("You can't have your pet attack without an active pet.");
+					return SUCCESS;
+        		}
+				
+				if(object != nullptr) {
+					if(object->isCreatureObject()) {
+						int dc = BorCombat::GetToHitModifier(pet->asCreatureObject(), object->asCreatureObject(), pet->asCreatureObject()->getWeapon()) + 10;
+						creature->sendSystemMessage("Your pet's To-Hit DC against " + object->getCustomObjectName() + " is currently " + String::valueOf(dc));
+					}					
+				}
 			}else if(command == "inspect") {
 				BorCharacter::InspectPlayer(creature, creature);					
 			} else if(command == "cprefix") {

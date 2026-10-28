@@ -10,9 +10,9 @@ object_tangible_medicine_roleplay_rp_stimpack_e = object_tangible_medicine_craft
 	--Roleplay Elements
 	roleplayStim = true,
 	dieType = 4,
-	dieCount = 4,
-	bonusHealing = 6,
-	dieCheck = 16,
+	dieCount = 5,
+	bonusHealing = 5,
+	dieCheck = 15,
 
 	numberExperimentalProperties = {1, 1, 2, 2, 1, 1},
 	experimentalProperties = {"XX", "XX", "OQ", "PE", "OQ", "UT", "XX", "XX"},

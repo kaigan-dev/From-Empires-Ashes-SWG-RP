@@ -70,12 +70,22 @@ rpg_shop_weapons_ranged_novice = {
 		},
 		
 		{
-			name = "Grenades",
+			name = "Grenades (single)",
 			minItems = 1,
 			items = {
 				{template = "object/weapon/roleplay/thrown/grenade/fragmentation_grenade.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/thrown/grenade/glop_grenade.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
 				{template = "object/weapon/roleplay/thrown/grenade/cryoban_grenade.iff", cost = 200, max = 10, chance = 100, overridePrice = true },
+			}
+		},
+
+		{
+			name = "Grenades (stacks of 3)",
+			minItems = 1,
+			items = {
+				{template = "object/weapon/roleplay/thrown/grenade/stacked_fragmentation_grenade.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/thrown/grenade/stacked_glop_grenade.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
+				{template = "object/weapon/roleplay/thrown/grenade/stacked_cryoban_grenade.iff", cost = 600, max = 10, chance = 100, overridePrice = true },
 			}
 		},
 	}	
