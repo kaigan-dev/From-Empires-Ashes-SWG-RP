@@ -45,4 +45,5 @@ content = {
 	{"object/tangible/furniture/decorative/shared_wod_sm_potted_plant_07.iff", },
 	{"object/tangible/furniture/decorative/shared_wod_sm_potted_plant_08.iff", },
 	{"object/tangible/furniture/decorative/shared_wod_sm_potted_plant_09.iff", },
+	{"object/tangible/furniture/decorative/shared_hanging_planter.iff", },
 }
