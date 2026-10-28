@@ -52,31 +52,31 @@ SceneObject(pNpc):setCustomObjectName("a Piket")
 
 
 --Iron fang Mando gydyc compound
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1629.4, 49.7, -1840.9, 56, 0, "rp_human_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1629.4, 49.7, -1840.9, 56, 0, "rp_human_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Maximus Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1636.9, 52.5, -1850.6, 312, 0, "rp_human_female", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1636.9, 52.5, -1850.6, 312, 0, "rp_human_female", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Rael Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1637.9, 52.3, -1848.5, 138, 0, "rp_rodian_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1637.9, 52.3, -1848.5, 138, 0, "rp_rodian_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Vorpi Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1635.4, 51.4, -1871, 129, 0, "rp_trandoshan_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1635.4, 51.4, -1871, 129, 0, "rp_trandoshan_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Quill Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1636.4, 51.5, -1876.2, 130, 0, "rp_zabrak_female", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1636.4, 51.5, -1876.2, 130, 0, "rp_zabrak_female", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Radok Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1676.4, 58.7, -1922.3, 306, 0, "rp_sullustan_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1676.4, 58.7, -1922.3, 306, 0, "rp_sullustan_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Gunjack Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1678.8, 58.7, -1919.4, 153, 0, "rp_gotal_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1678.8, 58.7, -1919.4, 153, 0, "rp_gotal_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Natra Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1704.7, 59.1, -1834.3, 324, 0, "rp_human_female", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1704.7, 59.1, -1834.3, 324, 0, "rp_human_female", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Agate Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1648.4, 53, -1879.7, 305, 0, "rp_gran_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1648.4, 53, -1879.7, 305, 0, "rp_gran_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Freran Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1651, 52.8, -1878.5, 142, 0, "rp_human_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1651, 52.8, -1878.5, 142, 0, "rp_human_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Lumar Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1679.7, 56.7, -1848, 284, 0, "rp_devaronian_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1679.7, 56.7, -1848, 284, 0, "rp_devaronian_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Dazine Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1681.3, 57.1, -1845.3, 141, 0, "rp_bothan_female", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1681.3, 57.1, -1845.3, 141, 0, "rp_bothan_female", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Saffre Gedyc")
-pNpc = spawnRoleplayMobile("rp_tatooine", "rp_base_npc", 1, -1680.9, 56.6, -1849.4, 40, 0, "rp_bith_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
+pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1680.9, 56.6, -1849.4, 40, 0, "rp_bith_male", "factional/common/elite", "faction/mando/gedyc", "default") --Equip, Skill, Customization
 SceneObject(pNpc):setCustomObjectName("Kabadons Gedyc")
 
 end
