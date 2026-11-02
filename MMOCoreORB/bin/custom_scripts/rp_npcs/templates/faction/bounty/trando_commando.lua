@@ -29,5 +29,4 @@ npc_template = {
 		
 	},
 
-	--armor = "stormtrooper",
 }
