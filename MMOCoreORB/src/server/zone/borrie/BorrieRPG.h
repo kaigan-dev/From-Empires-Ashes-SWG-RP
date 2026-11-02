@@ -862,6 +862,20 @@ public:
 			return 101;
 		else if (chatType == "yelp")
 			return 102;
+		else if (chatType == "sob")
+			return 103;
+		else if (chatType == "tease")
+			return 104;
+		else if (chatType == "deadpan")
+			return 105;
+		else if (chatType == "mutter")
+			return 106;
+		else if (chatType == "murmur")
+			return 107;
+		else if (chatType == "grumble")
+			return 108;
+		else if (chatType == "hum")
+			return 109;
 		else
 			return -1;
 	}
