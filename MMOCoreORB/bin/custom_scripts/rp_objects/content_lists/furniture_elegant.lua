@@ -8,4 +8,8 @@ content = {
 	{"object/tangible/furniture/elegant/shared_couch_s01.iff", },
 	{"object/tangible/furniture/elegant/shared_end_table_s01.iff", },
 	{"object/tangible/furniture/elegant/shared_love_seat_s01.iff", },
+	{"object/tangible/borrie/kitchen/shared_cabinet_eleg_s01.iff", },
+	{"object/tangible/borrie/kitchen/shared_fridge_eleg_s01.iff", },
+	{"object/tangible/furniture/tatooine/shared_frn_tato_table_small_style_02.iff", },
+	{"object/tangible/furniture/tatooine/shared_frn_tato_table_small_style_03.iff", },
 }

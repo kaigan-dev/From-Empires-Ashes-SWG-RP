@@ -167,9 +167,12 @@ object_weapon_melee_special_shared_vibroknuckler = SharedWeaponObjectTemplate:ne
 
 ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_vibroknuckler, "object/weapon/melee/special/shared_vibroknuckler.iff")
 --******************************************************************************************************************************************************
-object_weapon_melee_special_crushgaunt = SharedWeaponObjectTemplate:new {
-	clientTemplateFileName = "object/weapon/melee/special/crushgaunt.iff"
+object_weapon_melee_special_shared_crushgaunt = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_crushgaunt.iff" 
 }
-ObjectTemplates:addClientTemplate(object_weapon_melee_special_crushgaunt, "object/weapon/melee/special/crushgaunt.iff")
+	ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_crushgaunt, "object/weapon/melee/special/shared_crushgaunt.iff")
 --********************************************************************************************************************************************************
-
+object_weapon_melee_special_shared_shockmitt = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/special/shared_shockmitt.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_shockmitt, "object/weapon/melee/special/shared_shockmitt.iff")

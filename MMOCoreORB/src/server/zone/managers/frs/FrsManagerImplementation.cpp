@@ -420,7 +420,7 @@ void FrsManagerImplementation::validatePlayerData(CreatureObject* player, bool v
 	if (verifyBan && isBanned(player)) {
 		removeFromFrs(player);
 		verifyRoomAccess(player, -1);
-		ghost->recalculateForcePower();
+		//ghost->recalculateForcePower();
 		return;
 	}
 
@@ -507,7 +507,7 @@ void FrsManagerImplementation::validatePlayerData(CreatureObject* player, bool v
 		}
 	}
 
-	ghost->recalculateForcePower();
+	//ghost->recalculateForcePower();
 }
 
 void FrsManagerImplementation::setPlayerRank(CreatureObject* player, int rank) {

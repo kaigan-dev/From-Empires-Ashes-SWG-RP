@@ -322,6 +322,85 @@ function DantooineKhoondaScreenPlay:spawnSceneObjects()
 	--Travel Terminals
 	spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", -0.2, 0.6, 50.3, 610039691, 0.992546, 0, -0.121869, 0)
     spawnSceneObject("rp_dantooine", "object/tangible/terminal/terminal_travel_rp.iff", 985.6, 7.7, -1065.4, 0, math.rad(260))
+
+    	--FURNITURE--
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 0.0, 2.5, 9.1, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Cheap")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_cheap")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 6.7, 1.1, 2.9, 610040002, math.rad(90))
+    SceneObject(sObj):setCustomObjectName("Furniture, Elegant")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_elegant")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 6.7, 1.1, 0.5, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Modern")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_modern")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 6.7, 1.1, -1.9, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Plain")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_plain")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.7, 1.1, 2.9, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Technical")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_technical")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.7, 1.1, 0.5, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Misc")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_misc")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.7, 1.1, -1.9, 610040002, math.rad(90))
+	SceneObject(sObj):setCustomObjectName("Furniture, Decorative")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_decorative")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 2.6, 1.1, -6.0, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, City")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_city")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 5.4, 1.1, -6.0, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Paintings")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_paintings")
+	
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -2.6, 1.1, -6.0, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Plants")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_plants")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -5.4, 1.1, -6.0, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Food and Drink")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_foodanddrink")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", -6.0, 2.5, 10.1, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Walls")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_walls")
+
+	sObj = spawnSceneObject("rp_tatooine", "object/tangible/furniture/modern/chest_modern_style_01.iff", 6.0, 2.5, 10.1, 610040002, 0)
+	SceneObject(sObj):setCustomObjectName("Furniture, Walls 2")
+	SceneObject(sObj):setPublicContainer(true)
+	SceneObject(sObj):setDispenserContainer(true)
+	SceneObject(sObj):populateInventoryFromContentList("furniture_walls2")
 end
 
 function DantooineKhoondaScreenPlay:spawnMobiles()
@@ -483,11 +562,11 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	--VENDORS--
 
     --Armorsmith Vendor
-	--[[pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 270, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 4, 1.1, -9, 270, 610040006, "dressed_marooned_pirate_engr1_sull_m", "default", "default", "eisley_armorsmith_biemio_faom", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Torgal Whim (an Armorsmith Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "armorsmith")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_armor_tier1")
-]]
+
     --Weaponsmith Vendor (Melee)
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 15.1, 1.1, -12, 276, 610040005, "dressed_armorsmith_trainer_01", "default", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Tensha Poolspis (a Weaponsmith Melee Weapon Vendor)")

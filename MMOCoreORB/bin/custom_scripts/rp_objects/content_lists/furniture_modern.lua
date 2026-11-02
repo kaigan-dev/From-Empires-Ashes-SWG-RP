@@ -1,10 +1,5 @@
 content = {
 	{"object/tangible/furniture/modern/shared_armoire_modern_style_01.iff", },
-	{"object/tangible/furniture/modern/shared_bar_counter_s1.iff", },
-	{"object/tangible/furniture/modern/shared_bar_piece_curve_s1.iff", },
-	{"object/tangible/furniture/modern/shared_bar_piece_curve_s2.iff", },
-	{"object/tangible/furniture/modern/shared_bar_piece_straight_s1.iff", },
-	{"object/tangible/furniture/modern/shared_bar_piece_straight_s2.iff", },
 	{"object/tangible/furniture/modern/shared_bestine_quest_rug.iff", },
 	{"object/tangible/furniture/modern/shared_bookcase_modern_style_01.iff", },
 	{"object/tangible/furniture/modern/shared_cabinet_modern_style_01.iff", },
@@ -48,4 +43,11 @@ content = {
 	{"object/tangible/furniture/all/shared_frn_all_couch_love_seat_s2.iff", },
 	{"object/tangible/furniture/all/shared_frn_all_couch_ottoman_s1.iff", },
 	{"object/tangible/furniture/all/shared_frn_all_couch_sm_s1.iff", },
+	{"object/tangible/borrie/kitchen/shared_cabinet_mdrn_s01.iff", },
+	{"object/tangible/borrie/kitchen/shared_fridge_mdrn_s01.iff", },
+	{"object/tangible/furniture/all/frn_all_table_s01.iff", },
+	{"object/tangible/furniture/all/frn_all_table_s02.iff", },
+	{"object/tangible/furniture/all/frn_all_table_s03.iff", },
+	{"object/tangible/swsovrp/custom/shared_frn_all_table_rp_circle.iff", },
+
 }

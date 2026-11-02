@@ -366,8 +366,8 @@ function RoriNewRestussScreenPlay:spawnMobiles()
 	--Junk Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -783.903, 83, 1449.81, 245, 0,			"rp_rodian_female", "xovros_refugee_male7", "default", "random", "rpg_shopkeeper") --Junk
 	SceneObject(pNpc):setCustomObjectName("Lokra Lexa (a Junk Dealer)")
-	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
-	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
+	SceneObject(pNpc):setStoredString("vendor:theme", "junkdealer")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_junkdealer")
 
 	--Mount Vendor
 	pNpc = spawnRoleplayMobile("rp_rori", "rp_convo_npc", 1, -891.383, 83, 1308.04, 141, 0,			"rp_human_female", "xovros_refugee_male8", "default", "random", "rpg_shopkeeper") --Mount

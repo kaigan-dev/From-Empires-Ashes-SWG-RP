@@ -12,7 +12,7 @@ object_tangible_medicine_roleplay_rp_stimpack_b = object_tangible_medicine_craft
 	dieType = 4,
 	dieCount = 2,
 	bonusHealing = 2,
-	dieCheck = 10,
+	dieCheck = 9,
 
 	numberExperimentalProperties = {1, 1, 2, 2, 1, 1},
 	experimentalProperties = {"XX", "XX", "OQ", "PE", "OQ", "UT", "XX", "XX"},

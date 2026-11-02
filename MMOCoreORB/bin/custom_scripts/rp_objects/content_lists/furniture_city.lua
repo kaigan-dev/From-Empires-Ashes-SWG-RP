@@ -48,4 +48,5 @@ content = {
 	{"object/tangible/furniture/city/shared_streetlamp_med_red_02.iff", },
 	{"object/tangible/swsovrp/custom/shared_ui_faction_rebel_gold.iff", },
 	{"object/tangible/swsovrp/custom/shared_ui_faction_imperial_gold.iff", },
+	{"object/tangible/furniture/tatooine/shared_frn_tato_cafe_parasol.iff", },
 }

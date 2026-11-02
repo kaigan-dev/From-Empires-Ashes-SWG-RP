@@ -49,11 +49,20 @@ public:
 			if(index == 0) {
 				forceProfFlag = true;
 				selection=0;
-				box->addMenuItem("Jedi Guardian"); // 0
-				box->addMenuItem("Jedi Sentinel"); // 1
-				box->addMenuItem("Jedi Consular"); // 2
-				box->addMenuItem("Dark Jedi Warrior"); // 3
-				box->addMenuItem("Dark Jedi Sorcerer"); // 4
+				box->addMenuItem("Guardian"); // 0
+				box->addMenuItem("Sentinel"); // 1
+				box->addMenuItem("Consular"); // 2
+				box->addMenuItem("Healer"); // 3
+				box->addMenuItem("Shadow"); // 4
+				box->addMenuItem("Seeker"); // 5
+				box->addMenuItem("Warden"); // 6
+				box->addMenuItem("Witch"); // 7
+				box->addMenuItem("Warrior"); // 8
+				box->addMenuItem("Sorcerer"); // 9
+				box->addMenuItem("Cultist"); // 10
+				box->addMenuItem("Fallen"); // 11
+				box->addMenuItem("Nightsister"); // 12
+				box->addMenuItem("Juggernaut"); // 13
 			}
 			else {
 				selection=1;
@@ -68,7 +77,7 @@ public:
 				box->addMenuItem("Officer"); // 8
 				box->addMenuItem("Pilot"); // 9
 				box->addMenuItem("Surgeon"); // 10
-				box->addMenuItem("Researcher"); // 11
+				box->addMenuItem("Scientist"); // 11
 				box->addMenuItem("Weaponsmith"); // 12
 				box->addMenuItem("Armorsmith"); // 13
 				box->addMenuItem("Assassin"); // 14
@@ -76,7 +85,16 @@ public:
 				box->addMenuItem("Con Artist"); // 16
 				box->addMenuItem("Enforcer"); // 17
 				box->addMenuItem("Bounty Hunter"); // 18
-				box->addMenuItem("Scout"); // 19
+				box->addMenuItem("Scout"); // 19'
+				box->addMenuItem("Martial Artist"); // 20
+				box->addMenuItem("Academic"); // 21
+				box->addMenuItem("Detective"); // 22
+				box->addMenuItem("Gladiator"); // 23
+				box->addMenuItem("Performer"); // 24
+				box->addMenuItem("Physician"); // 25
+				box->addMenuItem("Rogue"); // 26
+				box->addMenuItem("Slicer"); // 27
+	
 			}
 		
 			box->setCallback(new DMGrantProfCommandSuiCallback(server, 1, selection));
@@ -92,24 +110,60 @@ public:
 			if(selection == 0) {
 				forceProfFlag = true;
 				if(index == 0) {
-					profName = "Jedi Guardian";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi");
+					profName = "Guardian";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_guardian");
 				}
 				else if (index == 1) {
-					profName = "Jedi Sentinel";
+					profName = "Sentinel";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_sentinel");
 				}
 				else if (index == 2) {
-					profName = "Jedi Consular";
+					profName = "Consular";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_consular");
 				}
 				else if (index == 3) {
-					profName = "Dark Jedi Warrior";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_sith");
+					profName = "Healer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_healer");
 				}
 				else if (index == 4) {
+					profName = "Shadow";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_shadow");
+				}
+				else if (index == 5) {
+					profName = "Seeker";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_seeker");
+				}
+				else if (index == 6) {
+					profName = "Warden";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_warden");
+				}
+				else if (index == 7) {
+					profName = "Witch";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_witch");
+				}
+				else if (index == 8) {
+					profName = "Dark Jedi Warrior";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_warrior");
+				}
+				else if (index == 9) {
 					profName = "Dark Jedi Sorcerer";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_drk_sorceror");
+				}
+				else if (index == 10) {
+					profName = "Cultist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Cultist");
+				}
+				else if (index == 11) {
+					profName = "Fallen";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Fallen");
+				}
+				else if (index == 12) {
+					profName = "Nightsister";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Nightsister");
+				}
+				else if (index == 13) {
+					profName = "Juggernaut";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Juggernaut");
 				}
 			}
 			else {
@@ -158,8 +212,8 @@ public:
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_surgeon");
 				}
 				else if (index == 11) {
-					profName = "Researcher";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_researcher");
+					profName = "Scientist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scientist");
 				}
 				else if (index == 12) {
 					profName = "Weaponsmith";
@@ -193,6 +247,38 @@ public:
 					profName = "Scout";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scout");
 				}
+				else if (index == 20) {
+					profName = "Martial Artist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_martialartist");
+				}
+				else if (index == 21) {
+					profName = "Academic";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_academic");
+				}
+				else if (index == 22) {
+					profName = "Detective";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_detective");
+				}
+				else if (index == 23) {
+					profName = "Gladiator";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_gladiator");
+				}
+				else if (index == 24) {
+					profName = "Performer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_performer");
+				}
+				else if (index == 25) {
+					profName = "Physician";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_physician");
+				}
+				else if (index == 26) {
+					profName = "rogue";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_rogue");
+				}
+				else if (index == 27) {
+					profName = "slicer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_slicer");
+				}
 			}
 
 			trainingLevel += 1;  //The target level will always be current level +1
@@ -223,29 +309,74 @@ public:
 				return;
 			}
 			if(profCode == 0) {
-					profName = "Jedi Guardian";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi");
-					skillName = "rp_training_jedi";
+					profName = "Guardian";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_guardian");
+					skillName = "rp_training_guardian";
 				}
 				else if (profCode == 1) {
-					profName = "Jedi Sentinel";
+					profName = "Sentinel";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_sentinel");
 					skillName = "rp_training_jedi_sentinel";
 				}
 				else if (profCode == 2) {
-					profName = "Jedi Consular";
+					profName = "Consular";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_jedi_consular");
 					skillName = "rp_training_jedi_consular";
 				}
 				else if (profCode == 3) {
-					profName = "Dark Jedi Warrior";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_sith");
-					skillName = "rp_training_sith";
+					profName = "Healer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_healer");
+					skillName = "rp_training_healer";
 				}
 				else if (profCode == 4) {
-					profName = "Dark Jedi Sorcerer";
+					profName = "Shadow";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_shadow");
+					skillName = "rp_training_shadow";
+					}
+				else if (profCode == 5) {
+					profName = "Seeker";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_seeker");
+					skillName = "rp_training_seeker";
+					}
+				else if (profCode == 6) {
+					profName = "Warden";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_warden");
+					skillName = "rp_training_warden";
+					}
+				else if (profCode == 7) {
+					profName = "Witch";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_witch");
+					skillName = "rp_training_witch";
+				}
+				else if (profCode == 8) {
+					profName = "Warrior";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_warrior");
+					skillName = "rp_training_warrior";
+				}
+				else if (profCode == 9) {
+					profName = "Sorcerer";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_drk_sorceror");
 					skillName = "rp_training_drk_sorceror";
+				}
+				else if (profCode == 10) {
+					profName = "Cultist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_cultist");
+					skillName = "rp_training_cultist";
+				}
+				else if (profCode == 11) {
+					profName = "Fallen";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_fallen");
+					skillName = "rp_training_fallen";
+				}
+				else if (profCode == 12) {
+					profName = "Nightsister";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_nightsister");
+					skillName = "rp_training_nightsister";
+				}
+				else if (profCode == 13) {
+					profName = "Juggernaut";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_juggernaut");
+					skillName = "rp_training_juggernaut";
 				}
 		}
 		else {  //If not forceProfFlag
@@ -305,9 +436,9 @@ public:
 					skillName = "rp_training_surgeon";
 				}
 				else if (profCode == 11) {
-					profName = "Researcher";
-					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_researcher");
-					skillName = "rp_training_researcher";
+					profName = "Scientist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scientist");
+					skillName = "rp_training_scientist";
 				}
 				else if (profCode == 12) {
 					profName = "Weaponsmith";
@@ -348,6 +479,46 @@ public:
 					profName = "Scout";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_scout");
 					skillName = "rp_training_scout";
+				}
+				else if (profCode == 20) {
+					profName = "Martial Artist";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_martialartist");
+					skillName = "rp_training_martialartist";
+				}
+				else if (profCode == 21) {
+					profName = "Academic";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_academic");
+					skillName = "rp_training_academic";
+				}
+				else if (profCode == 22) {
+					profName = "Detective";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_detective");
+					skillName = "rp_training_detective";
+				}
+				else if (profCode == 23) {
+					profName = "Gladiator";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_gladiator");
+					skillName = "rp_training_gladiator";
+				}
+				else if (profCode == 24) {
+					profName = "Performer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_performer");
+					skillName = "rp_training_performer";
+				}
+				else if (profCode == 25) {
+					profName = "Physician";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_physician");
+					skillName = "rp_training_physician";
+				}
+				else if (profCode == 26) {
+					profName = "Rogue";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_rogue");
+					skillName = "rp_training_rogue";
+				}
+				else if (profCode == 27) {
+					profName = "Slicer";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_slicer");
+					skillName = "rp_training_slicer";
 				}
 		}
 

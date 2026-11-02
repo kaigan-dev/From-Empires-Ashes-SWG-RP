@@ -37,4 +37,9 @@ content = {
 	{"object/tangible/borrie/wall/shared_impl_int_wall_metal.iff", },
 	{"object/tangible/borrie/wall/shared_impl_int_wall_metal_grunge.iff", },
 	{"object/tangible/borrie/wall/shared_intr_assoc_wall_a.iff", },
+	{"object/tangible/storyteller/prop/shared_pr_ch9_wall_tatooine_01.iff", },
+	{"object/tangible/storyteller/prop/shared_pr_ch9_wall_naboo_tall.iff", },
+	{"object/tangible/storyteller/prop/shared_pr_ch9_wall_naboo_short.iff", },
+	{"object/tangible/storyteller/prop/shared_pr_ch9_wall_corellia_02.iff", },
+	{"object/tangible/storyteller/prop/shared_pr_ch9_wall_corellia_01.iff", },
 }

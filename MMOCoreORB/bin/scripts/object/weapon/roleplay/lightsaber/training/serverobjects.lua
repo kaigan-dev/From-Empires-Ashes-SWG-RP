@@ -1,1 +1,1 @@
-includeFile("weapon/roleplay/lightsaber/training_training_saber.lua")
+includeFile("weapon/roleplay/lightsaber/training/training_saber.lua")
