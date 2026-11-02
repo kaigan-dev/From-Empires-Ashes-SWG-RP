@@ -64,9 +64,10 @@ function DantooineDelveScreenPlay:spawnMobiles()
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5817.1, 8.4, 609.2, 159, 0, "rp_bothan_female", "faction/delve/bindit_trooper", "factional/common/trooper", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "bothan")
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5761.2, 1.6, 703.5, 333, 0, "rp_gran_male", "faction/delve/bindit_trooper", "factional/common/trooper", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "gran")
-    pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5770.1, 0.9, 706.9, 343, 0, "rp_moncal_male", "faction/delve/bindit_trooper", "factional/common/trooper", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5769.8, 1, 707, 325, 0, "rp_human_male", "faction/delve/elite", "factional/common/trooper", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "human")
+
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5778.5, 5.9, 650.6, 215, 0, "rp_rodian_female", "faction/delve/bindit_trooper", "factional/common/trooper", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
     pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5797.7, 4.9, 653.7, 104, 0, "rp_human_male", "faction/delve/elite", "factional/common/trooper", "random") --Equip, Skill, Customization
