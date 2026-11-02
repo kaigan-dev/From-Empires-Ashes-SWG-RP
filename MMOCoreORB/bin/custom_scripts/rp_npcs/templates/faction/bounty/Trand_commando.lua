@@ -1,24 +1,33 @@
 npc_template = {
+
 	randomName = "trandoshan",
-	baseTemplates = {"rp_trandoshan_male", 
-},
-	skillTemplates = {"factional/common/elite"},
+	title = "a trandoshan commando",
+	baseTemplates = {
+		
+		"rp_trandoshan_male", "rp_trandoshan_female",
+		
+	},
+
+	skillTemplates = {
+			"specops"
+	},
+	
 	
 	equipmentTemplates = {
+		
 		{"rp_trandoshan_male", {"faction/bounty/trand_commando"}},
+		{"rp_trandoshan_female", {"faction/bounty/trand_commando"}},
 		
 		
 	},	
 	
 	customizationTemplates = {
-		{"rp_trandoshan_male", {"random"}},
 		
-	
-	},	
-	
-	customVarOverrides = {
-		{"/shared_owner/blend_skinny", 71},
-		{"/shared_owner/blend_muscle", 50},
-		{"/shared_owner/blend_fat", 0},
-	}
+		{"rp_trandoshan_male", {"random"}},
+		{"rp_trandoshan_female", {"random"}},
+		
+		
+	},
+
+	--armor = "stormtrooper",
 }

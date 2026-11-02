@@ -97,11 +97,11 @@ function DantooineDelveScreenPlay:spawnMobiles()
 	setRandomCreatureName(pNpc, "zabrak")
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5710, 5.5, 391.7, 296, 0, "rp_rodian_female", "faction/delve/bindit_trooper_r", "factional/common/trooper", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "rodian")
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5746.2, 11.3, 639.1, 287, 0, "rp_human_female", "faction/delve/elite", "factional/common/elite", "random") --Equip, Skill, Customization
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5695.5, 0.5, 377.7, 287, 0, "rp_human_female", "faction/delve/elite", "factional/common/elite", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "human")
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5720.5, 1.9, 390.7, 300, 0, "rp_gran_male", "faction/delve/bindit_trooper_m", "factional/common/trooper", "random") --Equip, Skill, Customization
-	setRandomCreatureName(pNpc, "gran")
-	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5718.2, 1.8, 391.7, 113, 0, "rp_zabrak_female", "faction/delve/bindit_trooper_m", "factional/common/trooper", "random") --Equip, Skill, Customization
+	setRandomCreatureName(pNpc, "rodian")
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, 5718.5, 1.7, 391, 103, 0, "rp_zabrak_female", "faction/delve/bindit_trooper_m", "factional/common/trooper", "random") --Equip, Skill, Customization
 	setRandomCreatureName(pNpc, "zabrak")
 
 	--rustacean camp
