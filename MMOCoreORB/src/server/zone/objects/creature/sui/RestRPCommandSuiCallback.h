@@ -150,9 +150,9 @@ public:
 							int totalCost = pointsToHeal * costPerPoint;
 
 							if(targetCreature->getCashCredits() - totalCost >= 0) {
-								targetCreature->subtractCashCredits(creditCost);
+								targetCreature->subtractCashCredits(totalCost);
 								BorrieRPG::BroadcastMessage(targetCreature, targetCreature->getFirstName() + " took time to repair and/or care for their pet.");
-								creature->sendSystemMessage("You have been charged " + String::valueOf(creditCost) + " credits to heal your pet.");
+								targetCreature->sendSystemMessage("You have been charged " + String::valueOf(totalCost) + " credits to heal your pet.");
 								BorCharacter::FillAllPools(pet->asCreatureObject());
 							}
 							else {
