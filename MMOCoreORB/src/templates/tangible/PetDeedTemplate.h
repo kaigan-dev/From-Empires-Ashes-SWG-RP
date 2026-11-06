@@ -66,6 +66,10 @@ public:
 		return equipmentTemplate;
 	}
 
+	int isMountable() const {
+		return mountable;
+	}
+
 	int isBaby() const {
 		return babyFlag;
 	}
