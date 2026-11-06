@@ -151,7 +151,7 @@ public:
 							int maxAction = creature->getMaxHAM(3);
 							int maxWill = creature->getMaxHAM(6);
 							pointsToHeal = (maxHealth - curHealth) + (maxAction - curAction) + (maxWill - curWill);
-							int totalCost = pointsToHeal * costPerPoint
+							int totalCost = pointsToHeal * costPerPoint;
 
 							if(creature->getCashCredits() - totalCost >= 0) {
 								creature->subtractCashCredits(creditCost);

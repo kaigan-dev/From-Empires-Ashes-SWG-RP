@@ -147,7 +147,7 @@ public:
 							int maxAction = pet->getMaxHAM(3);
 							int maxWill = pet->getMaxHAM(6);
 							pointsToHeal = (maxHealth - curHealth) + (maxAction - curAction) + (maxWill - curWill);
-							int totalCost = pointsToHeal * costPerPoint
+							int totalCost = pointsToHeal * costPerPoint;
 
 							if(targetCreature->getCashCredits() - totalCost >= 0) {
 								targetCreature->subtractCashCredits(creditCost);
@@ -156,16 +156,16 @@ public:
 								BorCharacter::FillAllPools(pet->asCreatureObject());
 							}
 							else {
-								creature->sendSystemMessage("You do not have enough credits to afford to heal your pet.");
+								targetCreature->sendSystemMessage("You do not have enough credits to afford to heal your pet.");
 							}
 						}
 					}
 					else {
-						creature->sendSystemMessage("You can only rest your pet in a city, camp, or a building that you have been granted access to.");
+						targetCreature->sendSystemMessage("You can only rest your pet in a city, camp, or a building that you have been granted access to.");
 					}	
 				}
 
-		targetCreature->setStoredInt("power_attack_count", 0);
+		//targetCreature->setStoredInt("power_attack_count", 0);
 	}
 };
 
