@@ -156,13 +156,13 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 
 	alm->insertAttribute("Heal cost per point", "healCost");
 
-	if(canPowerAttack  == 1) {
+	if(canPowerAttack()  == 1) {
 		alm->insertAttribute("Can Power Attack", "Yes");
 	} else {
 		alm->insertAttribute("Can Power Attack", "No");
 	}
 
-	if(canFlurryAttack  == 1) {
+	if(canFlurryAttack()  == 1) {
 		alm->insertAttribute("Can Flurry Attack", "Yes");
 	} else {
 		alm->insertAttribute("Can Flurry Attack", "No");
@@ -550,7 +550,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		}
 		
 		// Always set pets to spawn as adults.
-		if(babyFlag <> 1) {
+		if(babyFlag() <> 1) {
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
