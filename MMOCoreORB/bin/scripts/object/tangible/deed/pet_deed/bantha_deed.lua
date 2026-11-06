@@ -56,6 +56,16 @@ object_tangible_deed_pet_deed_bantha_deed = object_tangible_deed_pet_deed_shared
 	generatedObjectTemplate = "mobile/pet/bantha_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/bantha_hue.iff",
 	mobileTemplate = "bantha_be",
+	isMountable = 0,
+	skillTemplate = "creatures/medium",
+	equipmentTemplate = "creature_medium",
+	healCost = 20,
+	babyFlag = 0,
+	powerAttackFlag = 1,
+	flurryAttackFlag = 0,
+	attackType3Flag = 0,
+	attackType4Flag = 0,
+	attackType5Flag = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_deed, "object/tangible/deed/pet_deed/bantha_deed.iff")

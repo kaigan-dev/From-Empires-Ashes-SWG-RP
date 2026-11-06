@@ -108,19 +108,68 @@ public:
 						//BorCharacter::HandleDarksideFading(targetCreature);
 						targetCreature->setStoredInt("hero_point_used", 0);
 						creature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
-
-						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
-							ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
-							if(!pet->asCreatureObject()->isDead())
-								BorCharacter::FillAllPools(pet->asCreatureObject());
-				}
 					}
 					else {
 						creature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
+					}			
+				}
+				else if(command == "pet") {
+					String zone = creature->getZone()->getZoneName();
+
+					bool isBuildingAdmin = false;
+					bool isBuildingAllowed = false;
+					ManagedReference<SceneObject*> rootParent = creature->getRootParent();
+					if(rootParent != nullptr && rootParent->isBuildingObject()) {
+	            		BuildingObject* building = cast<BuildingObject*>( rootParent.get());
+						isBuildingAdmin = building->isOnAdminList(creature);
+						isBuildingAllowed = building->isOnEntryList(creature);
 					}
+
+					bool isInCity = false;
+					ManagedReference<CityRegion*> cr = creature->asSceneObject()->getCityRegion().get();
+					if(cr != nullptr) {
+						isInCity = true;
+					}
+					
+					bool isInCamp = false;
+					ManagedReference<CampSiteActiveArea*> campArea = creature->getCurrentCamp();
+					if(campArea != nullptr) {
+						isInCamp = true;
+					}
+
+					if(zone == "tutorial" || zone == "rp_ship_a" || isBuildingAdmin || isBuildingAllowed || isInCity || isInCamp || adminLevelCheck > 0) {
+
+						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+							ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
+							//if(!pet->asCreatureObject()->isDead())
+							int costPerPoint = pet->getStoredInt("healCost");
+							int pointsToHeal = 0;
+							int curHealth = creature->getHAM(0);
+							int curAction = creature->getHAM(3);
+							int curWill = creature->getHAM(6);
+							int maxHealth = creature->getMaxHAM(0);
+							int maxAction = creature->getMaxHAM(3);
+							int maxWill = creature->getMaxHAM(6);
+							pointsToHeal = (maxHealth - curHealth) + (maxAction - curAction) + (maxWill - curWill);
+							int totalCost = pointsToHeal * costPerPoint
+
+							if(creature->getCashCredits() - totalCost >= 0) {
+								creature->subtractCashCredits(creditCost);
+								BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " took time to repair and/or care for their pet.");
+								creature->sendSystemMessage("You have been charged " + String::valueOf(creditCost) + " credits to heal your pet.");
+								BorCharacter::FillAllPools(pet->asCreatureObject());
+							}
+							else {
+								creature->sendSystemMessage("You do not have enough credits to afford to heal your pet.");
+							}
+						}
+					}
+					else {
+						creature->sendSystemMessage("You can only rest your pet in a city, camp, or a building that you have been granted access to.");
+					}	
 				}
  
-				targetCreature->setStoredInt("power_attack_count", 0);
+				//targetCreature->setStoredInt("power_attack_count", 0);
 		} else {
 			//Open SUI Menu
 			//Pop up a Menu
@@ -131,9 +180,13 @@ public:
 				box->setCancelButton(true, "@cancel");
 				box->addMenuItem("Short Rest");
 				box->addMenuItem("Long Rest");
-				
+								
 				if(targetCreature->hasSkill("rp_frc_meditate")) {
 					box->addMenuItem("Meditate");
+				}
+
+				if(ghost->getActivePetsSize() > 0) {
+					box->addMenuItem("Pet Healing/Repair");
 				}
 
 				creature->getPlayerObject()->addSuiBox(box);

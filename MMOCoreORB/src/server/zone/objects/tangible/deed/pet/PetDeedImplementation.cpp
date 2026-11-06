@@ -46,6 +46,13 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	skillTemplate = deedData->getSkillTemplate();
 	equipmentTemplate = deedData->getEquipmentTemplate();
 	mountable = deedData->isMountable();
+	babyFlag  = deedData->isBaby();
+	healCost = deedData->checkHealCost();
+	powerAttackFlag  = deedData->canPowerAttack ();
+	flurryAttackFlag  = deedData->canFlurryAttack();
+	attackType3Flag  = deedData->canAttack3();
+	attackType4Flag  = deedData->canAttack4();
+	attackType5Flag  = deedData->canAttack5();
 }
 
 void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
@@ -146,6 +153,21 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 	} else {
 		alm->insertAttribute("mount", "No");
 	}
+
+	alm->insertAttribute("Heal cost per point", "healCost");
+
+	if(canPowerAttack  == 1) {
+		alm->insertAttribute("Can Power Attack", "Yes");
+	} else {
+		alm->insertAttribute("Can Power Attack", "No");
+	}
+
+	if(canFlurryAttack  == 1) {
+		alm->insertAttribute("Can Flurry Attack", "Yes");
+	} else {
+		alm->insertAttribute("Can Flurry Attack", "No");
+	}
+
 
 	
 
@@ -528,6 +550,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		}
 		
 		// Always set pets to spawn as adults.
+		if(babyFlag <> 1) {
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
@@ -543,11 +566,20 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
+		}
 																										
 
 		if(mountable == 1 || getStoredInt("mount") == 1) {
 			controlDevice->trainAsMount(player);
 		}
+
+		pet->setStoredInt("healCost", healCost );
+		pet->setStoredInt("canPowerAttack", powerAttackFlag  );
+		pet->setStoredInt("canFlurryAttack", flurryAttackFlag   );
+		pet->setStoredInt("canAttackType3", attackType3Flag   );
+		pet->setStoredInt("canAttackType4", attackType4Flag  );
+		pet->setStoredInt("canAttackType5", attackType5Flag  );
+		
 
 
 		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
