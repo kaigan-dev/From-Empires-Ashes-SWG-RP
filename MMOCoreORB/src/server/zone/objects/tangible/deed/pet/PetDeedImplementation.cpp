@@ -550,7 +550,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		}
 		
 		// Always set pets to spawn as adults.
-		if(babyFlag() <> 1) {
+		if(isBaby() <> 1) {
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
