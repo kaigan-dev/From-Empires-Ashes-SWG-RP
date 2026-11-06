@@ -1,6 +1,6 @@
 
 
-object_tangible_deed_pet_deed_eopie_deed = object_tangible_deed_pet_deed_shared_eopie_deed:new {
+object_tangible_deed_pet_deed_eopie_baby_deed = object_tangible_deed_pet_deed_shared_eopie_deed:new {
 
 
 	templateType = PETDEED,
@@ -28,4 +28,4 @@ object_tangible_deed_pet_deed_eopie_deed = object_tangible_deed_pet_deed_shared_
 	attackType5Flag = 0,
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_eopie_deed, "object/tangible/deed/pet_deed/eopie_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_eopie_baby_deed, "object/tangible/deed/pet_deed/eopie_baby_deed.iff")
