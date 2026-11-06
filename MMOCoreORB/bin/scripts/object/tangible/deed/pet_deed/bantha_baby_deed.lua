@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_pet_deed_bantha_mount_deed = object_tangible_deed_pet_deed_shared_bantha_deed:new {
+object_tangible_deed_pet_deed_bantha_baby_deed = object_tangible_deed_pet_deed_shared_bantha_deed:new {
 
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
@@ -68,4 +68,4 @@ object_tangible_deed_pet_deed_bantha_mount_deed = object_tangible_deed_pet_deed_
 	attackType5Flag = 0,
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_mount_deed, "object/tangible/deed/pet_deed/bantha_mount_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_baby_deed, "object/tangible/deed/pet_deed/bantha_baby_deed.iff")
