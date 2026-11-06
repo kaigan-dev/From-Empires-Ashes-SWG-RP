@@ -106,29 +106,29 @@ public:
 				targetCreature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
 			}
 		}
-		else if(index == 2 & targetCreature->hasSkill("rp_frc_meditate")) {
+		else if(index == 2 && targetCreature->hasSkill("rp_frc_meditate")) {
 			BorCharacter::PerformMeditateRest(targetCreature);
 		}
 		else if((index == 2 || index == 3) && ghost->getActivePetsSize() > 0) {
-					String zone = creature->getZone()->getZoneName();
+					String zone = targetCreature->getZone()->getZoneName();
 
 					bool isBuildingAdmin = false;
 					bool isBuildingAllowed = false;
-					ManagedReference<SceneObject*> rootParent = creature->getRootParent();
+					ManagedReference<SceneObject*> rootParent = targetCreature->getRootParent();
 					if(rootParent != nullptr && rootParent->isBuildingObject()) {
 	            		BuildingObject* building = cast<BuildingObject*>( rootParent.get());
-						isBuildingAdmin = building->isOnAdminList(creature);
-						isBuildingAllowed = building->isOnEntryList(creature);
+						isBuildingAdmin = building->isOnAdminList(targetCreature);
+						isBuildingAllowed = building->isOnEntryList(targetCreature);
 					}
 
 					bool isInCity = false;
-					ManagedReference<CityRegion*> cr = creature->asSceneObject()->getCityRegion().get();
+					ManagedReference<CityRegion*> cr = targetCreature->asSceneObject()->getCityRegion().get();
 					if(cr != nullptr) {
 						isInCity = true;
 					}
 					
 					bool isInCamp = false;
-					ManagedReference<CampSiteActiveArea*> campArea = creature->getCurrentCamp();
+					ManagedReference<CampSiteActiveArea*> campArea = targetCreature->getCurrentCamp();
 					if(campArea != nullptr) {
 						isInCamp = true;
 					}
@@ -140,18 +140,18 @@ public:
 							//if(!pet->asCreatureObject()->isDead())
 							int costPerPoint = pet->getStoredInt("healCost");
 							int pointsToHeal = 0;
-							int curHealth = creature->getHAM(0);
-							int curAction = creature->getHAM(3);
-							int curWill = creature->getHAM(6);
-							int maxHealth = creature->getMaxHAM(0);
-							int maxAction = creature->getMaxHAM(3);
-							int maxWill = creature->getMaxHAM(6);
+							int curHealth = pet->getHAM(0);
+							int curAction = pet->getHAM(3);
+							int curWill = pet->getHAM(6);
+							int maxHealth = pet->getMaxHAM(0);
+							int maxAction = pet->getMaxHAM(3);
+							int maxWill = pet->getMaxHAM(6);
 							pointsToHeal = (maxHealth - curHealth) + (maxAction - curAction) + (maxWill - curWill);
 							int totalCost = pointsToHeal * costPerPoint
 
-							if(creature->getCashCredits() - totalCost >= 0) {
-								creature->subtractCashCredits(creditCost);
-								BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " took time to repair and/or care for their pet.");
+							if(targetCreature->getCashCredits() - totalCost >= 0) {
+								targetCreature->subtractCashCredits(creditCost);
+								BorrieRPG::BroadcastMessage(targetCreature, targetCreature->getFirstName() + " took time to repair and/or care for their pet.");
 								creature->sendSystemMessage("You have been charged " + String::valueOf(creditCost) + " credits to heal your pet.");
 								BorCharacter::FillAllPools(pet->asCreatureObject());
 							}
