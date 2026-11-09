@@ -160,9 +160,9 @@ public:
 							else if(petRarity == "Rare")
 								costPerPoint = 30;
 							else if(petRarity == "Epic")
-								costPerPoint = 60;
+								costPerPoint = 50;
 							else if(petRarity == "Legendary")
-								costPerPoint = 80;
+								costPerPoint = 70;
 							else {
 								creature->sendSystemMessage("Your pet's rarity of " + petRarity + " is not valid. Contact a GM or admin to correct the deed and spawn a new one.");
 								return GENERALERROR;

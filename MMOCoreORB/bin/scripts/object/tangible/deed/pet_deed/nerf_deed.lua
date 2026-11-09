@@ -25,6 +25,13 @@ object_tangible_deed_pet_deed_nerf_pet_deed = object_tangible_deed_pet_deed_shar
 	isMountable = 0,
 	skillTemplate = "creatures/medium",
 	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_nerf_pet_deed, "object/tangible/deed/pet_deed/nerf_pet_deed.iff")
