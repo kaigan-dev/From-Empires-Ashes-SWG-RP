@@ -517,6 +517,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		pet->createChildObjects();
 
 		player->sendSystemMessage("DEBUG: Before applying setBaby, isBaby resolves as" + std::to_string(isBaby()));
+
+		babyFlag  = isBaby();
 		if(isBaby() != 1)
 			pet->setBaby(false);
 		else
