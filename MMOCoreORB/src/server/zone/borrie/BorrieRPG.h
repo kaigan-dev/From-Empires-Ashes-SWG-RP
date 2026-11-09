@@ -876,6 +876,10 @@ public:
 			return 108;
 		else if (chatType == "hum")
 			return 109;
+		else if (chatType == "sign")
+			return 110;
+		else if (chatType == "signal")
+			return 111;
 		else
 			return -1;
 	}

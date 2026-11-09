@@ -30,7 +30,7 @@ public:
 
 		int langID = Integer::valueOf(lang);
 
-		if (langID > 0 && langID < 24)
+		if (langID > 0 && langID < 25)
 			ghost->setLanguageID((uint8)langID, true);
 
 		return SUCCESS;
