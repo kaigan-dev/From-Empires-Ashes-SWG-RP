@@ -58,8 +58,15 @@ object_tangible_deed_pet_deed_bol_deed = object_tangible_deed_pet_deed_shared_bo
 	controlDeviceObjectTemplate = "object/intangible/pet/bol_hue.iff",	
 	mobileTemplate = "bol_be",
 	isMountable = 0,
-	skillTemplate = "creatures/medium",
+	skillTemplate = "pets/uncommon/medium",
 	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bol_deed, "object/tangible/deed/pet_deed/bol_deed.iff")

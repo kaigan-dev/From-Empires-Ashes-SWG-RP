@@ -58,7 +58,7 @@ object_tangible_deed_pet_deed_durni_deed = object_tangible_deed_pet_deed_shared_
 	controlDeviceObjectTemplate = "object/intangible/pet/durni_hue.iff",
 	mobileTemplate = "durni_be",	
 	isMountable = 0,
-	skillTemplate = "creatures/harmless",
+	skillTemplate = "pets/common/harmless",
 	equipmentTemplate = "creature_small",
 }
 

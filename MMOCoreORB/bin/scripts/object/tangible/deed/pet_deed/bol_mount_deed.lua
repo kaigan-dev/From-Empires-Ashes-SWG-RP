@@ -58,7 +58,7 @@ object_tangible_deed_pet_deed_bol_mount_deed = object_tangible_deed_pet_deed_sha
 	controlDeviceObjectTemplate = "object/intangible/pet/bol_hue.iff",	
 	mobileTemplate = "bol_be",
 	isMountable = 1,
-	skillTemplate = "creatures/medium",
+	skillTemplate = "pets/uncommon/medium",
 	equipmentTemplate = "creature_medium",
 }
 

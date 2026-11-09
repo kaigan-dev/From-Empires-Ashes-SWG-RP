@@ -20,7 +20,7 @@ object_tangible_deed_pet_deed_nerf_mount_deed = object_tangible_deed_pet_deed_sh
 	mobileTemplate = "nerf",
 
 	isMountable = 1,
-	skillTemplate = "creatures/medium",
+	skillTemplate = "pets/uncommon/medium",
 	equipmentTemplate = "creature_medium",
 	isBaby = 0,
 	rarity = "Uncommon",
