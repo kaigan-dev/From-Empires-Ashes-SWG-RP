@@ -519,6 +519,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		player->sendSystemMessage("DEBUG: Before applying setBaby, isBaby resolves as" + std::to_string(isBaby()));
 
 		//babyFlag  = isBaby();
+		/*
 		if(isBaby() != 1) {
 			pet->setBaby(false);
 			player->sendSystemMessage("DEBUG: Applying setbaby FALSE");
@@ -527,6 +528,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			pet->setBaby(true);
 			player->sendSystemMessage("DEBUG: Applying setbaby TRUE");
 		}
+			*/
 		// update base stats on the pet now
 		// We will store the deed pointer to the aiagent before serialization
 

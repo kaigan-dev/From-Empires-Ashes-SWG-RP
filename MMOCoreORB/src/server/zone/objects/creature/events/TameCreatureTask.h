@@ -168,7 +168,7 @@ public:
 		else
 			creature->setPvpStatusBitmask(player->getPvpStatusBitmask(), false);
 
-		creature->setBaby(false);
+		//creature->setBaby(false);
 
 		if (creature->isAiAgent()) {
 			AiAgent* agent = cast<AiAgent*>(creature.get());
