@@ -516,7 +516,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		pet->setCustomObjectName(StringIdManager::instance()->getStringId(*pet->getObjectName()), true);
 		pet->createChildObjects();
 
-		player->sendSystemMessage("DEBUG: Before applying setBaby, isBaby resolves as" + std::to_sting(isBaby()));
+		player->sendSystemMessage("DEBUG: Before applying setBaby, isBaby resolves as" + std::to_string(isBaby()));
 		if(isBaby() != 1)
 			pet->setBaby(false);
 		else
@@ -556,7 +556,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		}
 		
 
-		player->sendSystemMessage("DEBUG: Before growing pet, isBaby resolves as" + std::to_sting(isBaby()));
+		player->sendSystemMessage("DEBUG: Before growing pet, isBaby resolves as" + std::to_string(isBaby()));
 		// Always set pets to spawn as adults.
 		if(isBaby() != 1) {
 		controlDevice->growPet(player,true,false);
