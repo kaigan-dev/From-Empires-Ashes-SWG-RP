@@ -142,7 +142,8 @@ public:
 						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 							ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
 							//if(!pet->asCreatureObject()->isDead())
-							int costPerPoint = pet->getStoredInt("healCost");
+							int costPerPoint = 10;  //Default value
+							String petRarity = pet->getStoredInt("petRarity");
 							int pointsToHeal = 0;
 							int curHealth = pet->getHAM(0);
 							int curAction = pet->getHAM(3);
@@ -151,6 +152,22 @@ public:
 							int maxAction = pet->getMaxHAM(3);
 							int maxWill = pet->getMaxHAM(6);
 							pointsToHeal = (maxHealth - curHealth) + (maxAction - curAction) + (maxWill - curWill);
+
+							if(petRarity == "Common")
+								costPerPoint = 10;
+							else if(petRarity == "Uncommon")
+								costPerPoint = 30;
+							else if(petRarity == "Rare")
+								costPerPoint = 40;
+							else if(petRarity == "Epic")
+								costPerPoint = 60;
+							else if(petRarity == "Legendary")
+								costPerPoint = 80;
+							else {
+								creature->sendSystemMessage("Your pet's rarity of " + petRarity + " is not valid. Contact a GM or admin to correct the deed and spawn a new one.");
+								return GENERALERROR;
+							}
+
 							int totalCost = pointsToHeal * costPerPoint;
 
 							if(creature->getCashCredits() - totalCost >= 0) {

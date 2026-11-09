@@ -106,13 +106,13 @@ public:
 			if(command == "faux") {
 				BorEffect::PerformReactiveAnimation(storedTargetCreature, targetCreature, "hit", CombatManager::HIT_BODY, true);
 			} else if (command == "power") {
-				creature->sendSystemMessage("Your pet's CanPowerAttack is set to " + std::to_string(pet->getStoredInt("canPowerAttack")));
+				//creature->sendSystemMessage("Your pet's CanPowerAttack is set to " + std::to_string(pet->getStoredInt("canPowerAttack")));
 				if(pet->getStoredInt("canPowerAttack") == 1)
 					BorCombat::AttackTarget(storedTargetCreature, targetCreature, creature, -1, true, noLos);
 				else
 					creature->sendSystemMessage("Your pet can't power attack.");
 			} else if(command == "flurry") {
-				creature->sendSystemMessage("Your pet's CanPowerAttack is set to " + std::to_string(pet->getStoredInt("canFlurryAttack")));
+				//creature->sendSystemMessage("Your pet's CanPowerAttack is set to " + std::to_string(pet->getStoredInt("canFlurryAttack")));
 				if(pet->getStoredInt("canFlurryAttack") == 1)
 					BorCombat::FlurryAttackTarget(storedTargetCreature, targetCreature, creature, noLos);
 				else

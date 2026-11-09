@@ -579,6 +579,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			controlDevice->trainAsMount(player);
 		}
 
+		player->sendSystemMessage("DEBUG: Setting babyFlag to" + babyFlag);
 		player->sendSystemMessage("DEBUG: Setting petRarity to" + rarity);
 		player->sendSystemMessage("DEBUG: Setting canPowerAttack to" + std::to_string(powerAttackFlag));
 		player->sendSystemMessage("DEBUG: Setting canFlurryAttack to" + std::to_string(flurryAttackFlag));
@@ -586,6 +587,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 		pet->setStoredInt("healCost", healCost );
 		pet->setStoredString("petRarity", rarity );
+		pet->setStoredInt("babyFlag", babyFlag );
 		pet->setStoredInt("canPowerAttack", powerAttackFlag  );
 		pet->setStoredInt("canFlurryAttack", flurryAttackFlag   );
 		pet->setStoredInt("canAttackType3", attackType3Flag   );
