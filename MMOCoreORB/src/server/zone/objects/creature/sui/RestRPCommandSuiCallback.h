@@ -153,9 +153,9 @@ public:
 							if(petRarity == "Common")
 								costPerPoint = 10;
 							else if(petRarity == "Uncommon")
-								costPerPoint = 30;
+								costPerPoint = 20;
 							else if(petRarity == "Rare")
-								costPerPoint = 40;
+								costPerPoint = 30;
 							else if(petRarity == "Epic")
 								costPerPoint = 60;
 							else if(petRarity == "Legendary")
