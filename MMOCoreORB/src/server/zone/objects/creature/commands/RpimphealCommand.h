@@ -36,7 +36,7 @@ public:
 			return false;
 		}
 
-		if(creatureTarget->isAiAgent()) {
+		if(creatureTarget->isPet()) {
 			creature->sendSystemMessage("Pets can only be healed with /rest pet.");
 			return false;
 		}
