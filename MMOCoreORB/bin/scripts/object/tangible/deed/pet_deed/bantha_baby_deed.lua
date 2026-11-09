@@ -59,13 +59,14 @@ object_tangible_deed_pet_deed_bantha_baby_deed = object_tangible_deed_pet_deed_s
 	isMountable = 0,
 	skillTemplate = "creatures/small",
 	equipmentTemplate = "creature_small",
-	healCost = 10,
-	babyFlag = 1,
-	powerAttackFlag = 0,
-	flurryAttackFlag = 0,
-	attackType3Flag = 0,
-	attackType4Flag = 0,
-	attackType5Flag = 0,
+	rarity = "Common",
+	isBaby = 1,
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_baby_deed, "object/tangible/deed/pet_deed/bantha_baby_deed.iff")

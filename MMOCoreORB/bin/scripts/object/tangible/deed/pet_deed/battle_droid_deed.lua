@@ -17,6 +17,13 @@ object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_
 	isMountable = 0,
 	skillTemplate = "droid",
 	equipmentTemplate = "default",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_battle_droid_deed, "object/tangible/deed/pet_deed/battle_droid_deed.iff")

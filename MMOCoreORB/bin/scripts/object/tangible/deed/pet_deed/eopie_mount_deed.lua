@@ -20,12 +20,13 @@ object_tangible_deed_pet_deed_eopie_mount_deed = object_tangible_deed_pet_deed_s
 	skillTemplate = "creatures/medium",
 	equipmentTemplate = "creature_medium",
 	healCost = 20,
-	babyFlag = 0,
-	powerAttack = 0,
-	flurryAttack = 0,
-	attackType3Flag = 0,
-	attackType4Flag = 0,
-	attackType5Flag = 0,
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_eopie_mount_deed, "object/tangible/deed/pet_deed/eopie_mount_deed.iff")

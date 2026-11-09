@@ -59,6 +59,13 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	isMountable = 0,
 	skillTemplate = "creatures/large",
 	equipmentTemplate = "creature_large",
+	isBaby = 0,
+	rarity = "Legendary",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_deed, "object/tangible/deed/pet_deed/rancor_deed.iff")

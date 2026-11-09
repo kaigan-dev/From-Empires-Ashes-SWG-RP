@@ -61,12 +61,13 @@ object_tangible_deed_pet_deed_gurrcat_deed = object_tangible_deed_pet_deed_share
 	skillTemplate = "creatures/medium",
 	equipmentTemplate = "creature_small",
 	healCost = 20,
-	babyFlag = 0,
-	powerAttackFlag = 0,
-	flurryAttackFlag = 1,
-	attackType3Flag = 0,
-	attackType4Flag = 0,
-	attackType5Flag = 0,
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_gurrcat_deed, "object/tangible/deed/pet_deed/gurrcat_deed.iff")
