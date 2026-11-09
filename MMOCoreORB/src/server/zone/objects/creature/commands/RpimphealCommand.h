@@ -36,6 +36,11 @@ public:
 			return false;
 		}
 
+		if(creatureTarget->isAiAgent()) {
+			creature->sendSystemMessage("Pets can only be healed with /rest pet.");
+			return false;
+		}
+
 		if (!creatureTarget->hasDamage(CreatureAttribute::HEALTH)) {
 			if (creatureTarget == creature) {
 				creature->sendSystemMessage("@healing_response:healing_response_61"); //You have no damage to heal.

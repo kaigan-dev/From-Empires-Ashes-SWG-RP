@@ -92,6 +92,11 @@ public:
 			return false;
 		}
 
+		if(creatureTarget->isAiAgent()) {
+			creature->sendSystemMessage("Pets can only be healed with /rest pet.");
+			return false;
+		}
+
 		if (creature->getHAM(CreatureAttribute::ACTION) < 1 && creature->getHAM(CreatureAttribute::MIND) < 2) {
 			creature->sendSystemMessage("You do not have enough action or will to do that.");
 			return false;
