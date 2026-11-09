@@ -518,11 +518,15 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 		player->sendSystemMessage("DEBUG: Before applying setBaby, isBaby resolves as" + std::to_string(isBaby()));
 
-		babyFlag  = isBaby();
-		if(isBaby() != 1)
+		//babyFlag  = isBaby();
+		if(isBaby() != 1) {
 			pet->setBaby(false);
-		else
+			player->sendSystemMessage("DEBUG: Applying setbaby FALSE");
+		}
+		else {
 			pet->setBaby(true);
+			player->sendSystemMessage("DEBUG: Applying setbaby TRUE");
+		}
 		// update base stats on the pet now
 		// We will store the deed pointer to the aiagent before serialization
 
@@ -561,6 +565,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		player->sendSystemMessage("DEBUG: Before growing pet, isBaby resolves as" + std::to_string(isBaby()));
 		// Always set pets to spawn as adults.
 		if(isBaby() != 1) {
+			player->sendSystemMessage("DEBUG: We are now growing the pet!");
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
@@ -584,7 +589,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			controlDevice->trainAsMount(player);
 		}
 
-		player->sendSystemMessage("DEBUG: Setting babyFlag to" + babyFlag);
+		player->sendSystemMessage("DEBUG: Setting babyFlag to" + std::to_string(babyFlag));
 		player->sendSystemMessage("DEBUG: Setting petRarity to" + rarity);
 		player->sendSystemMessage("DEBUG: Setting canPowerAttack to" + std::to_string(powerAttackFlag));
 		player->sendSystemMessage("DEBUG: Setting canFlurryAttack to" + std::to_string(flurryAttackFlag));
