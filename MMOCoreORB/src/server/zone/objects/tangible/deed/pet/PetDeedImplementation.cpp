@@ -48,7 +48,7 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	mountable = deedData->isMountable();
 	babyFlag  = deedData->isBaby();
 	healCost = deedData->checkHealCost();
-	petRarity = deedData->checkRarity();
+	rarity = deedData->checkRarity();
 	powerAttackFlag  = deedData->canPowerAttack ();
 	flurryAttackFlag  = deedData->canFlurryAttack();
 	attackType3Flag  = deedData->canAttack3();
@@ -155,7 +155,7 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		alm->insertAttribute("mount", "No");
 	}
 
-	alm->insertAttribute("Rarity", petRarity);
+	alm->insertAttribute("Rarity", rarity);
 
 	if(canPowerAttack()  == 1) {
 		alm->insertAttribute("Can Power Attack", "Yes");
@@ -579,13 +579,13 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			controlDevice->trainAsMount(player);
 		}
 
-		player->sendSystemMessage("DEBUG: Setting petRarity to" + petRarity);
+		player->sendSystemMessage("DEBUG: Setting petRarity to" + rarity);
 		player->sendSystemMessage("DEBUG: Setting canPowerAttack to" + std::to_string(powerAttackFlag));
 		player->sendSystemMessage("DEBUG: Setting canFlurryAttack to" + std::to_string(flurryAttackFlag));
 
 
 		pet->setStoredInt("healCost", healCost );
-		pet->setStoredString("petRarity", petRarity );
+		pet->setStoredString("petRarity", rarity );
 		pet->setStoredInt("canPowerAttack", powerAttackFlag  );
 		pet->setStoredInt("canFlurryAttack", flurryAttackFlag   );
 		pet->setStoredInt("canAttackType3", attackType3Flag   );
