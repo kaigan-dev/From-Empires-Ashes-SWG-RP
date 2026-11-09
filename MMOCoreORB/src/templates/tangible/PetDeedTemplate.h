@@ -16,6 +16,7 @@ private:
 	String mobileTemplate;
 	String skillTemplate;
 	String equipmentTemplate;
+	String petRarity;
 	int mountable = 0;
 	int healCost = 20;
 	int babyFlag = 0;
