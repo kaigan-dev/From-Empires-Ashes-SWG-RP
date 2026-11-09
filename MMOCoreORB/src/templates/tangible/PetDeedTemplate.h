@@ -44,9 +44,9 @@ public:
 		mountable = templateData->getIntField("isMountable");
 		babyFlag = templateData->getIntField("babyFlag");
 		healCost = templateData->getIntField("healCost");
-		petRarity = templateData->getStringField("petRarity");
-		powerAttackFlag = templateData->getIntField("powerAttack");
-		flurryAttackFlag = templateData->getIntField("flurryAttack");
+		petRarity = templateData->getStringField("rarity");
+		powerAttackFlag = templateData->getIntField("canPowerAttack");
+		flurryAttackFlag = templateData->getIntField("canFlurryAttack");
 		attackType3Flag = templateData->getIntField("attackType3Flag");
 		attackType4Flag = templateData->getIntField("attackType4Flag");
 		attackType5Flag = templateData->getIntField("attackType5Flag");

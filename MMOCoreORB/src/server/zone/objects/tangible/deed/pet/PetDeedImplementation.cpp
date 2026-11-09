@@ -49,7 +49,7 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	babyFlag  = deedData->isBaby();
 	healCost = deedData->checkHealCost();
 	rarity = deedData->checkRarity();
-	powerAttackFlag  = deedData->canPowerAttack ();
+	powerAttackFlag  = deedData->canPowerAttack();
 	flurryAttackFlag  = deedData->canFlurryAttack();
 	attackType3Flag  = deedData->canAttack3();
 	attackType4Flag  = deedData->canAttack4();
