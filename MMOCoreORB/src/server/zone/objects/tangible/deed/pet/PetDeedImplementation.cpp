@@ -516,8 +516,6 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		pet->setCustomObjectName(StringIdManager::instance()->getStringId(*pet->getObjectName()), true);
 		pet->createChildObjects();
 
-		player->sendSystemMessage("DEBUG: Before applying setBaby, isBaby resolves as" + std::to_string(isBaby()));
-
 		//babyFlag  = isBaby();
 		/*
 		if(isBaby() != 1) {
@@ -563,11 +561,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			controlDevice->trainAsMount(player);
 		}
 		
-
-		player->sendSystemMessage("DEBUG: Before growing pet, isBaby resolves as" + std::to_string(isBaby()));
 		// Always set pets to spawn as adults.
 		if(isBaby() != 1) {
-			player->sendSystemMessage("DEBUG: We are now growing the pet!");
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
@@ -584,18 +579,13 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
 		}
-
-																										
+		else {
+			pet->setHeight(0.6, false);
+		}															
 
 		if(mountable == 1 || getStoredInt("mount") == 1) {
 			controlDevice->trainAsMount(player);
 		}
-
-		player->sendSystemMessage("DEBUG: Setting babyFlag to" + std::to_string(babyFlag));
-		player->sendSystemMessage("DEBUG: Setting petRarity to" + rarity);
-		player->sendSystemMessage("DEBUG: Setting canPowerAttack to" + std::to_string(powerAttackFlag));
-		player->sendSystemMessage("DEBUG: Setting canFlurryAttack to" + std::to_string(flurryAttackFlag));
-
 
 		pet->setStoredInt("healCost", healCost );
 		pet->setStoredString("petRarity", rarity );
