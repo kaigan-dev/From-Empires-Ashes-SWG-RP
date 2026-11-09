@@ -143,7 +143,7 @@ public:
 							ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
 							//if(!pet->asCreatureObject()->isDead())
 							int costPerPoint = 10;  //Default value
-							String petRarity = pet->getStoredInt("petRarity");
+							String petRarity = pet->getStoredString("petRarity");
 							int pointsToHeal = 0;
 							int curHealth = pet->getHAM(0);
 							int curAction = pet->getHAM(3);

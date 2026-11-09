@@ -140,7 +140,7 @@ public:
 							//if(!pet->asCreatureObject()->isDead())
 							//int costPerPoint = pet->getStoredInt("healCost");
 							int costPerPoint = 10;
-							String petRarity = pet->getStoredInt("petRarity");
+							String petRarity = pet->getStoredString("petRarity");
 							int pointsToHeal = 0;
 							int curHealth = pet->getHAM(0);
 							int curAction = pet->getHAM(3);
@@ -161,8 +161,8 @@ public:
 							else if(petRarity == "Legendary")
 								costPerPoint = 80;
 							else {
-								creature->sendSystemMessage("Your pet's rarity of " + petRarity + " is not valid. Contact a GM or admin to correct the deed and spawn a new one.");
-								return GENERALERROR;
+								targetCreature->sendSystemMessage("Your pet's rarity of " + petRarity + " is not valid. Contact a GM or admin to correct the deed and spawn a new one.");
+								return;
 							}
 
 							int totalCost = pointsToHeal * costPerPoint;
