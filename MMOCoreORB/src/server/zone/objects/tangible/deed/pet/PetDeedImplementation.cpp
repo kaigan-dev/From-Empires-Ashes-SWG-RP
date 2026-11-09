@@ -48,6 +48,7 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	mountable = deedData->isMountable();
 	babyFlag  = deedData->isBaby();
 	healCost = deedData->checkHealCost();
+	petRarity = deedData->checkRarity();
 	powerAttackFlag  = deedData->canPowerAttack ();
 	flurryAttackFlag  = deedData->canFlurryAttack();
 	attackType3Flag  = deedData->canAttack3();
@@ -154,7 +155,7 @@ void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		alm->insertAttribute("mount", "No");
 	}
 
-	alm->insertAttribute("Heal cost per point", "healCost");
+	alm->insertAttribute("Rarity", petRarity);
 
 	if(canPowerAttack()  == 1) {
 		alm->insertAttribute("Can Power Attack", "Yes");
@@ -514,7 +515,11 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		pet->loadTemplateData( petTemplate );
 		pet->setCustomObjectName(StringIdManager::instance()->getStringId(*pet->getObjectName()), true);
 		pet->createChildObjects();
-		pet->setBaby(false);
+
+		if(isBaby() != 1)
+			pet->setBaby(false);
+		else
+			pet->setBaby(true);
 		// update base stats on the pet now
 		// We will store the deed pointer to the aiagent before serialization
 
@@ -567,13 +572,20 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		controlDevice->growPet(player,true,false);
 		controlDevice->growPet(player,true,false);
 		}
+
 																										
 
 		if(mountable == 1 || getStoredInt("mount") == 1) {
 			controlDevice->trainAsMount(player);
 		}
 
+		player->sendSystemMessage("DEBUG: Setting petRarity to" + petRarity);
+		player->sendSystemMessage("DEBUG: Setting canPowerAttack to" + std::to_string(powerAttackFlag));
+		player->sendSystemMessage("DEBUG: Setting canFlurryAttack to" + std::to_string(flurryAttackFlag));
+
+
 		pet->setStoredInt("healCost", healCost );
+		pet->setStoredString("petRarity", petRarity );
 		pet->setStoredInt("canPowerAttack", powerAttackFlag  );
 		pet->setStoredInt("canFlurryAttack", flurryAttackFlag   );
 		pet->setStoredInt("canAttackType3", attackType3Flag   );

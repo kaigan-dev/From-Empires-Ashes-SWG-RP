@@ -43,6 +43,7 @@ public:
 		mountable = templateData->getIntField("isMountable");
 		babyFlag = templateData->getIntField("babyFlag");
 		healCost = templateData->getIntField("healCost");
+		petRarity = templateData->getStringField("petRarity");
 		powerAttackFlag = templateData->getIntField("powerAttack");
 		flurryAttackFlag = templateData->getIntField("flurryAttack");
 		attackType3Flag = templateData->getIntField("attackType3Flag");
@@ -77,6 +78,11 @@ public:
 	int checkHealCost() const {
 		return healCost;
 	}
+
+	String checkRarity() const {
+		return petRarity;
+	}
+
 
 	int canPowerAttack () const {
 		return powerAttackFlag ;

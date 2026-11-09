@@ -144,12 +144,12 @@ public:
 							//if(!pet->asCreatureObject()->isDead())
 							int costPerPoint = pet->getStoredInt("healCost");
 							int pointsToHeal = 0;
-							int curHealth = creature->getHAM(0);
-							int curAction = creature->getHAM(3);
-							int curWill = creature->getHAM(6);
-							int maxHealth = creature->getMaxHAM(0);
-							int maxAction = creature->getMaxHAM(3);
-							int maxWill = creature->getMaxHAM(6);
+							int curHealth = pet->getHAM(0);
+							int curAction = pet->getHAM(3);
+							int curWill = pet->getHAM(6);
+							int maxHealth = pet->getMaxHAM(0);
+							int maxAction = pet->getMaxHAM(3);
+							int maxWill = pet->getMaxHAM(6);
 							pointsToHeal = (maxHealth - curHealth) + (maxAction - curAction) + (maxWill - curWill);
 							int totalCost = pointsToHeal * costPerPoint;
 

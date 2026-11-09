@@ -53,6 +53,7 @@ class PetDeed extends Deed {
 	protected int mountable;
 	protected int babyFlag ;
 	protected int healCost ;
+	protected string rarity ;
 	protected int powerAttackFlag ;
 	protected int flurryAttackFlag ;
 	protected int attackType3Flag ;
@@ -337,12 +338,17 @@ class PetDeed extends Deed {
 
 	@read
 	public int isBaby() {
-		return babyFlag;;
+		return babyFlag;
 	}
 
 	@read
 	public int checkHealCost() {
-		return healCost;;
+		return healCost;
+	}
+
+	@read
+	public string checkRarity() {
+		return rarity;
 	}
 
 	@read
