@@ -187,6 +187,11 @@ public:
 			return GENERALERROR;
 		}
 
+		if (targetCreature->isPet()) {
+			creature->sendSystemMessage("Pets can only be healed with /rest pet.");
+			return GENERALERROR;
+		}
+
 		if (creature->isPlayerCreature() && targetCreature->getParentID() != 0 && creature->getParentID() != targetCreature->getParentID()) {
 			Reference<CellObject*> targetCell = targetCreature->getParent().get().castTo<CellObject*>();
 
