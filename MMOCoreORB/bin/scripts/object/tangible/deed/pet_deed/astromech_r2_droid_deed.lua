@@ -1,6 +1,6 @@
 
 --object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_shared_dewback_deed:new {
-object_tangible_deed_pet_deed_astromech_r2_droid_deed = object_tangible_deed_pet_deed_shared_r2_astromech_droid_deed:new {
+object_tangible_deed_pet_deed_astromech_r2_droid_deed = object_tangible_deed_pet_deed_shared_astromech_r2_droid_deed:new {
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
 	experimentalProperties = {"XX", "XX"},
@@ -13,7 +13,7 @@ object_tangible_deed_pet_deed_astromech_r2_droid_deed = object_tangible_deed_pet
 	experimentalCombineType = {0, 0},
 	generatedObjectTemplate = "mobile/pet/r2.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/r2.iff",
-	mobileTemplate = "r2",
+	mobileTemplate = "astromech_r2_droid",
 	isMountable = 0,
 	skillTemplate = "pets/uncommon/droid_astromech",
 	equipmentTemplate = "default",
