@@ -58,7 +58,7 @@ object_tangible_deed_pet_deed_falumpaset_deed = object_tangible_deed_pet_deed_sh
 	controlDeviceObjectTemplate = "object/intangible/pet/falumpaset_hue.iff",
 	mobileTemplate = "falumpaset_be",
 	isMountable = 0,
-	skillTemplate = "creatures/medium",
+	skillTemplate = "pets/uncommon/medium",
 	equipmentTemplate = "creature_medium",
 }
 

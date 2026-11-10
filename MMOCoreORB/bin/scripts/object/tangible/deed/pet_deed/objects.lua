@@ -220,59 +220,6 @@ ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bageraset
 
 object_tangible_deed_pet_deed_shared_bantha_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_bantha_deed.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/bantha_hue.sat",
-	arrangementDescriptorFilename = "",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 8388611,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 1,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@pet_deed:bantha",
-
-	gameObjectType = 8388611,
-
-	locationReservationRadius = 0,
-	lookAtText = "",
-
-	noBuildRadius = 0,
-
-	objectName = "@pet_deed:bantha",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 2365841175,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/base/shared_pet_deed_base.iff"}
-]]
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bantha_deed, "object/tangible/deed/pet_deed/shared_bantha_deed.iff")
@@ -2816,59 +2763,6 @@ ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_durni_dee
 
 object_tangible_deed_pet_deed_shared_eopie_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_eopie_deed.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/eopie_hue.sat",
-	arrangementDescriptorFilename = "",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 8388611,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 1,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@pet_deed:eopie",
-
-	gameObjectType = 8388611,
-
-	locationReservationRadius = 0,
-	lookAtText = "",
-
-	noBuildRadius = 0,
-
-	objectName = "@pet_deed:eopie",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 2825186184,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/deed/base/shared_pet_deed_base.iff"}
-]]
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_eopie_deed, "object/tangible/deed/pet_deed/shared_eopie_deed.iff")
@@ -5909,6 +5803,12 @@ object_tangible_deed_pet_deed_shared_eopie_mount_deed = SharedTangibleObjectTemp
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_eopie_mount_deed, "object/tangible/deed/pet_deed/shared_eopie_mount_deed.iff")
 
+object_tangible_deed_pet_deed_shared_eopie_baby_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_eopie_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_eopie_baby_deed, "object/tangible/deed/pet_deed/shared_eopie_deed.iff")
+
 object_tangible_deed_pet_deed_shared_falumpaset_mount_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_falumpaset_mount_deed.iff"
 }
@@ -5951,3 +5851,15 @@ object_tangible_deed_pet_deed_shared_battle_droid_deed = SharedTangibleObjectTem
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_battle_droid_deed, "object/tangible/deed/pet_deed/shared_battle_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_bantha_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_bantha_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bantha_mount_deed, "object/tangible/deed/pet_deed/shared_bantha_deed.iff")
+
+object_tangible_deed_pet_deed_shared_bantha_baby_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_bantha_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bantha_baby_deed, "object/tangible/deed/pet_deed/shared_bantha_deed.iff")

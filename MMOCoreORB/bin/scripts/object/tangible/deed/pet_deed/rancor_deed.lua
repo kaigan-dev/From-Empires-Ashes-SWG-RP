@@ -57,8 +57,15 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	controlDeviceObjectTemplate = "object/intangible/pet/rancor_hue.iff",
 	mobileTemplate = "rancor_be",
 	isMountable = 0,
-	skillTemplate = "creatures/large",
+	skillTemplate = "pets/legendary/large",
 	equipmentTemplate = "creature_large",
+	isBaby = 0,
+	rarity = "Legendary",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	attackType3Flag = 0,
+	attackType4Flag = 0,
+	attackType5Flag = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_deed, "object/tangible/deed/pet_deed/rancor_deed.iff")

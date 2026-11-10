@@ -76,6 +76,11 @@ public:
 
 		Locker clocker(targetCreature, creature);
 
+		if (targetCreature->isPet()) {
+			creature->sendSystemMessage("Pets can only be healed with /rest pet.");
+			return GENERALERROR;
+		}
+
 		//if ((targetCreature->isAiAgent() && !targetCreature->isPet()) || targetCreature->isDroidObject() || targetCreature->isVehicleObject() || targetCreature->isDead() || targetCreature->isRidingMount() || targetCreature->isAttackableBy(creature))
 			//This originally excluded creatures that are not pets. Removed. Cagnaith 5/17/26
 		if (targetCreature->isDroidObject() || targetCreature->isVehicleObject() || targetCreature->isDead() || targetCreature->isRidingMount() || targetCreature->isAttackableBy(creature))

@@ -51,6 +51,14 @@ class PetDeed extends Deed {
 	protected string skillTemplate;
 	protected string equipmentTemplate;
 	protected int mountable;
+	protected int babyFlag ;
+	protected int healCost ;
+	protected string rarity ;
+	protected int powerAttackFlag ;
+	protected int flurryAttackFlag ;
+	protected int attackType3Flag ;
+	protected int attackType4Flag ;
+	protected int attackType5Flag ;
 
 	protected int cleverness;
 	protected int endurance;
@@ -327,6 +335,48 @@ class PetDeed extends Deed {
 	public int isMountable() {
 		return mountable;
 	}
+
+	@read
+	public int isBaby() {
+		return babyFlag;
+	}
+
+	@read
+	public int checkHealCost() {
+		return healCost;
+	}
+
+	@read
+	public string checkRarity() {
+		return rarity;
+	}
+
+	@read
+	public int canPowerAttack () {
+		return powerAttackFlag ;
+	}
+
+	@read
+	public int canFlurryAttack() {
+		return flurryAttackFlag ;
+	}
+
+	@read
+	public int canAttack3() {
+		return attackType3Flag ;
+	}
+
+	@read
+	public int canAttack4() {
+		return attackType4Flag ;
+	}
+
+	@read
+	public int canAttack5() {
+		return attackType5Flag ;
+	}
+
+
 
 	@read
 	@local

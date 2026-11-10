@@ -58,7 +58,7 @@ object_tangible_deed_pet_deed_graul_mount_deed = object_tangible_deed_pet_deed_s
 	controlDeviceObjectTemplate = "object/intangible/pet/graul_hue.iff",
 	mobileTemplate = "graul_be",
 	isMountable = 1,
-	skillTemplate = "creatures/large",
+	skillTemplate = "pets/epic/large",
 	equipmentTemplate = "creature_large",
 }
 
