@@ -7711,3 +7711,63 @@ object_intangible_pet_shared_astromech_r2_droid_hue = SharedIntangibleObjectTemp
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_astromech_r2_droid_hue, "object/intangible/pet/shared_astromech_r2_droid_hue.iff")
+
+object_intangible_pet_shared_mark_iv_sentry_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_mark_iv_sentry_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_mark_iv_sentry_droid_hue, "object/intangible/pet/shared_mark_iv_sentry_droid_hue.iff")
+
+object_intangible_pet_shared_mse_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_mse_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_mse_droid_hue, "object/intangible/pet/shared_mse_droid_hue.iff")
+
+object_intangible_pet_shared_pet_21b_surgical_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_pet_21b_surgical_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_pet_21b_surgical_droid_hue, "object/intangible/pet/shared_pet_21b_surgical_droid_hue.iff")
+
+object_intangible_pet_shared_probe_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_probe_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_probe_droid_hue, "object/intangible/pet/shared_probe_droid_hue.iff")
+
+object_intangible_pet_shared_gonk_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_gonk_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_gonk_droid_hue, "object/intangible/pet/shared_gonk_droid_hue.iff")
+
+object_intangible_pet_shared_pit_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_pit_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_pit_droid_hue, "object/intangible/pet/shared_pit_droid_hue.iff")
+
+object_intangible_pet_shared_super_battle_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_super_battle_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_super_battle_droid_hue, "object/intangible/pet/shared_super_battle_droid_hue.iff")
+
+object_intangible_pet_shared_droideka_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_droideka_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_droideka_hue, "object/intangible/pet/shared_droideka_hue.iff")
+
+object_intangible_pet_shared_hk_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_hk_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_hk_droid_hue, "object/intangible/pet/shared_hk_droid_hue.iff")
+
+object_intangible_pet_shared_magnaguard_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_magnaguard_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_magnaguard_hue, "object/intangible/pet/shared_magnaguard_hue.iff")
