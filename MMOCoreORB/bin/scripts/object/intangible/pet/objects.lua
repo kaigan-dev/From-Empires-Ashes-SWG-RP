@@ -7699,3 +7699,15 @@ object_intangible_pet_shared_battle_droid_hue = SharedIntangibleObjectTemplate:n
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_battle_droid_hue, "object/intangible/pet/shared_battle_droid_hue.iff")
+
+object_intangible_pet_shared_protocol_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_protocol_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_protocol_droid_hue, "object/intangible/pet/shared_protocol_droid_hue.iff")
+
+object_intangible_pet_shared_astromech_r2_droid_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_astromech_r2_droid_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_astromech_r2_droid_hue, "object/intangible/pet/shared_astromech_r2_droid_hue.iff")

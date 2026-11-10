@@ -5863,3 +5863,15 @@ object_tangible_deed_pet_deed_shared_bantha_baby_deed = SharedTangibleObjectTemp
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bantha_baby_deed, "object/tangible/deed/pet_deed/shared_bantha_deed.iff")
+
+object_tangible_deed_pet_deed_shared_protocol_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_protocol_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_protocol_droid_deed, "object/tangible/deed/pet_deed/shared_protocol_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_astromech_r2_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_astromech_r2_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_astromech_r2_droid_deed, "object/tangible/deed/pet_deed/shared_astromech_r2_droid_deed.iff")
