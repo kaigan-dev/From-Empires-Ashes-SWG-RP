@@ -60,7 +60,7 @@ object_tangible_deed_pet_deed_kimogila_deed = object_tangible_deed_pet_deed_shar
 		
 	isMountable = 0,
 	skillTemplate = "pets/legendary/large",
-	equipmentTemplate = "creature_large",
+	equipmentTemplate = "creature_colossal",
 	isBaby = 1,
 	rarity = "Legendary",
 	canPowerAttack = 1,

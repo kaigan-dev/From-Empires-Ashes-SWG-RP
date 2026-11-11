@@ -60,7 +60,7 @@ object_tangible_deed_pet_deed_veermok_deed = object_tangible_deed_pet_deed_share
 			
 	isMountable = 0,
 	skillTemplate = "pets/epic/small",
-	equipmentTemplate = "creature_small",
+	equipmentTemplate = "creature_large",
 	isBaby = 0,
 	rarity = "Epic",
 	canPowerAttack = 0,

@@ -59,10 +59,10 @@ object_tangible_deed_pet_deed_gronda_deed = object_tangible_deed_pet_deed_shared
 	mobileTemplate = "gronda_be",	
 	
 	isMountable = 0,
-	skillTemplate = "pets/rare/medium",
+	skillTemplate = "pets/epic/medium",
 	equipmentTemplate = "creature_medium",
 	isBaby = 0,
-	rarity = "Rare",
+	rarity = "Epic",
 	canPowerAttack = 1,
 	canFlurryAttack = 0,
 	canAttack3 = 0,

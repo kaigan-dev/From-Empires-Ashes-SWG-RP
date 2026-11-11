@@ -60,7 +60,7 @@ object_tangible_deed_pet_deed_pugoriss_deed = object_tangible_deed_pet_deed_shar
 			
 	isMountable = 0,
 	skillTemplate = "pets/rare/small",
-	equipmentTemplate = "creature_small",
+	equipmentTemplate = "creature_medium",
 	isBaby = 0,
 	rarity = "Rare",
 	canPowerAttack = 1,

@@ -59,7 +59,7 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	
 	isMountable = 0,
 	skillTemplate = "pets/legendary/large",
-	equipmentTemplate = "creature_large",
+	equipmentTemplate = "creature_colossal",
 	isBaby = 0,
 	rarity = "Legendary",
 	canPowerAttack = 1,

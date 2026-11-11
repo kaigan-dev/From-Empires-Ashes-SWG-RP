@@ -60,7 +60,7 @@ object_tangible_deed_pet_deed_swirl_prong_deed = object_tangible_deed_pet_deed_s
 			
 	isMountable = 0,
 	skillTemplate = "pets/uncommon/small",
-	equipmentTemplate = "creature_small",
+	equipmentTemplate = "creature_medium",
 	isBaby = 0,
 	rarity = "Uncommon",
 	canPowerAttack = 0,

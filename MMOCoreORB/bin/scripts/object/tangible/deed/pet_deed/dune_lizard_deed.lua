@@ -59,10 +59,10 @@ object_tangible_deed_pet_deed_dune_lizard_deed = object_tangible_deed_pet_deed_s
 	mobileTemplate = "dune_lizard_be",	
 
 	isMountable = 0,
-	skillTemplate = "pets/common/harmless",
-	equipmentTemplate = "creature_harmless",
+	skillTemplate = "pets/uncommon/small",
+	equipmentTemplate = "creature_medium",
 	isBaby = 0,
-	rarity = "Common",
+	rarity = "Uncommon",
 	canPowerAttack = 0,
 	canFlurryAttack = 0,
 	canAttack3 = 0,

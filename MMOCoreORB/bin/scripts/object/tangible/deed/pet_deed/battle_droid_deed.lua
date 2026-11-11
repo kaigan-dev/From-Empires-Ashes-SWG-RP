@@ -14,6 +14,7 @@ object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_
 	generatedObjectTemplate = "mobile/pet/battle_droid.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/battle_droid.iff",
 	mobileTemplate = "battle_droid",
+
 	isMountable = 0,
 	skillTemplate = "pets/uncommon/droid_battle",
 	equipmentTemplate = "default",

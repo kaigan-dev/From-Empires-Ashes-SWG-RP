@@ -59,10 +59,10 @@ object_tangible_deed_pet_deed_kusak_deed = object_tangible_deed_pet_deed_shared_
 	mobileTemplate = "kusak_be",	
 		
 	isMountable = 0,
-	skillTemplate = "pets/rare/small",
-	equipmentTemplate = "creature_small",
+	skillTemplate = "pets/epic/small",
+	equipmentTemplate = "creature_large",
 	isBaby = 0,
-	rarity = "Rare",
+	rarity = "epic",
 	canPowerAttack = 1,
 	canFlurryAttack = 0,
 	canAttack3 = 0,

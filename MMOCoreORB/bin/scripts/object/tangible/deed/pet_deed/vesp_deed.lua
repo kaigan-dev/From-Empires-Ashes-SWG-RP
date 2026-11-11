@@ -59,7 +59,7 @@ object_tangible_deed_pet_deed_vesp_deed = object_tangible_deed_pet_deed_shared_v
 	mobileTemplate = "vesp_be",	
 			
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/medium",
+	skillTemplate = "pets/uncommon/small",
 	equipmentTemplate = "creature_medium",
 	isBaby = 0,
 	rarity = "Uncommon",

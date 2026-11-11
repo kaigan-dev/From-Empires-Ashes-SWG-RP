@@ -57,10 +57,10 @@ object_tangible_deed_pet_deed_falumpaset_mount_deed = object_tangible_deed_pet_d
 	generatedObjectTemplate = "mobile/pet/falumpaset_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/falumpaset_hue.iff",
 	mobileTemplate = "falumpaset_be",
+	
 	isMountable = 1,
 	skillTemplate = "pets/uncommon/medium",
 	equipmentTemplate = "creature_medium",
-
 	isBaby = 0,
 	rarity = "Uncommon",
 	canPowerAttack = 0,

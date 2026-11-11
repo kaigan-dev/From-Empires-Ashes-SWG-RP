@@ -60,7 +60,7 @@ object_tangible_deed_pet_deed_dalyrake_deed = object_tangible_deed_pet_deed_shar
 	
 	isMountable = 0,
 	skillTemplate = "pets/rare/small",
-	equipmentTemplate = "creature_small",
+	equipmentTemplate = "creature_venomous",
 	isBaby = 0,
 	rarity = "Rare",
 	canPowerAttack = 0,

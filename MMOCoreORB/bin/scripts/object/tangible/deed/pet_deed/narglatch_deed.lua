@@ -59,10 +59,10 @@ object_tangible_deed_pet_deed_narglatch_deed = object_tangible_deed_pet_deed_sha
 	mobileTemplate = "narglatch_be",	
 			
 	isMountable = 0,
-	skillTemplate = "pets/rare/small",
-	equipmentTemplate = "creature_small",
+	skillTemplate = "pets/epic/small",
+	equipmentTemplate = "creature_large",
 	isBaby = 0,
-	rarity = "Rare",
+	rarity = "Epic",
 	canPowerAttack = 0,
 	canFlurryAttack = 1,
 	canAttack3 = 0,

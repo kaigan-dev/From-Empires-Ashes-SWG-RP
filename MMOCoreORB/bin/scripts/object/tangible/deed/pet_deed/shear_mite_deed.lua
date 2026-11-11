@@ -60,7 +60,7 @@ object_tangible_deed_pet_deed_shear_mite_deed = object_tangible_deed_pet_deed_sh
 			
 	isMountable = 0,
 	skillTemplate = "pets/epic/small",
-	equipmentTemplate = "creature_small",
+	equipmentTemplate = "creature_large",
 	isBaby = 0,
 	rarity = "Epic",
 	canPowerAttack = 1,
