@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_thune_deed = object_tangible_deed_pet_deed_shared_
 	generatedObjectTemplate = "mobile/pet/thune_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/thune_hue.iff",
 	mobileTemplate = "thune_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/epic/medium",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Epic",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_thune_deed, "object/tangible/deed/pet_deed/thune_deed.iff")

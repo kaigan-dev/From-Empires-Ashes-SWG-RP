@@ -1,0 +1,52 @@
+skillSet = {
+    --A small rare pet represents an exotic hunting animal like a large hound or feline. It is combat-capable.
+    --Stats
+    {"rp_awareness",        6, 6}, --Skillmod, min value, max value
+    {"rp_charisma",         2, 2},
+    {"rp_constitution",     4, 4},
+    {"rp_dexterity",        6, 6},
+    {"rp_intelligence",     3, 3},
+    {"rp_mindfulness",      1, 1},
+    {"rp_precision",        3, 3},
+	{"rp_strength",        6, 6},
+    --Skills
+    {"rp_armorer",            0, 0},
+    {"rp_athletics",        6, 6},
+    {"rp_bluff",            0, 0},
+    {"rp_composure",        5, 5},
+    {"rp_computers",        0, 0},
+    {"rp_defending",        5, 5},
+    {"rp_demolitions",      0, 0},
+    {"rp_engineering",      0, 0},
+    {"rp_intimidation",     4, 4},
+    {"rp_investigation",    6, 6},
+    {"rp_larceny",          0, 0},
+    {"rp_maneuverability",  6, 6},
+    {"rp_mechanics",        0, 0},
+    {"rp_medicine",         0, 0},
+    {"rp_melee",            0, 0},
+    {"rp_persuasion",       0, 0},
+    {"rp_piloting",         0, 0},
+    {"rp_ranged",           0, 0},
+    {"rp_resolve",          5, 5},
+    {"rp_science",          0, 0},
+    {"rp_slicing",          0, 0},
+    {"rp_stealth",          4, 4},
+    {"rp_survival",         6, 6},
+    {"rp_throwing",         0, 0},
+    {"rp_unarmed",          6, 6},
+    --Force
+    {"rp_lightsaber",       0, 0},
+    {"rp_sense",            0, 0},
+    {"rp_lightning",        0, 0},
+    {"rp_telekinesis",      0, 0},
+    {"rp_control",          0, 0},
+    {"rp_alter",            0, 0},
+    {"rp_inward",           0, 0},
+    --Pools
+    {"rp_health",           20, 20},
+    {"rp_action",           12, 12},
+    {"rp_will",             1, 1},
+    {"rp_force",            0, 0},
+    --armor
+}

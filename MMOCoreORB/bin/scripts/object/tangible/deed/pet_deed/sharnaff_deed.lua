@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_sharnaff_deed = object_tangible_deed_pet_deed_shar
 	generatedObjectTemplate = "mobile/pet/sharnaff_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/sharnaff_hue.iff",
 	mobileTemplate = "sharnaff_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/rare/medium",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_sharnaff_deed, "object/tangible/deed/pet_deed/sharnaff_deed.iff")

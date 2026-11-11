@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_kliknik_deed = object_tangible_deed_pet_deed_share
 	generatedObjectTemplate = "mobile/pet/kliknik_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/kliknik_hue.iff",
 	mobileTemplate = "kliknik_be",	
+		
+	isMountable = 0,
+	skillTemplate = "pets/epic/small",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Epic",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_kliknik_deed, "object/tangible/deed/pet_deed/kliknik_deed.iff")

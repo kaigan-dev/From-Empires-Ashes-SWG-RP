@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_gurrcat_deed = object_tangible_deed_pet_deed_share
 	generatedObjectTemplate = "mobile/pet/gurrcat_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/tusk_cat_hue.iff",
 	mobileTemplate = "gurrcat_be",	
+	
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/small",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_gurrcat_deed, "object/tangible/deed/pet_deed/gurrcat_deed.iff")

@@ -16,7 +16,18 @@ private:
 	String mobileTemplate;
 	String skillTemplate;
 	String equipmentTemplate;
+	String petRarity;
 	int mountable = 0;
+	int healCost = 20;
+	int babyFlag = 0;
+	int powerAttackFlag = 0;
+	int flurryAttackFlag = 0;
+	int attackType3Flag = 0;
+	int attackType4Flag = 0;
+	int attackType5Flag = 0;
+	int dodgeFlag = 0;
+	int blockFlag = 0;
+	int parryFlag = 0;
 
 public:
 	PetDeedTemplate() {
@@ -34,6 +45,17 @@ public:
 		skillTemplate = templateData->getStringField("skillTemplate");
 		equipmentTemplate = templateData->getStringField("equipmentTemplate");
 		mountable = templateData->getIntField("isMountable");
+		babyFlag = templateData->getIntField("babyFlag");
+		healCost = templateData->getIntField("healCost");
+		petRarity = templateData->getStringField("rarity");
+		powerAttackFlag = templateData->getIntField("canPowerAttack");
+		flurryAttackFlag = templateData->getIntField("canFlurryAttack");
+		attackType3Flag = templateData->getIntField("attackType3Flag");
+		attackType4Flag = templateData->getIntField("attackType4Flag");
+		attackType5Flag = templateData->getIntField("attackType5Flag");
+		dodgeFlag = templateData->getIntField("canDodge");
+		blockFlag = templateData->getIntField("canBlock");
+		parryFlag = templateData->getIntField("canParry");
     }
 
 	String getControlDeviceObjectTemplate() {
@@ -56,7 +78,55 @@ public:
 		return mountable;
 	}
 
+	int isBaby() const {
+		return babyFlag;
+	}
+
+	int checkHealCost() const {
+		return healCost;
+	}
+
+	String checkRarity() const {
+		return petRarity;
+	}
+
+
+	int canPowerAttack () const {
+		return powerAttackFlag ;
+	}
+
+	int canFlurryAttack() const {
+		return flurryAttackFlag ;
+	}
+
+	int canAttack3() const {
+		return attackType3Flag ;
+	}
+
+	int canAttack4() const {
+		return attackType4Flag ;
+	}
+
+	int canAttack5() const {
+		return attackType5Flag ;
+	}
+
+	int canDodge() const {
+		return dodgeFlag ;
+	}
+
+	int canBlock() const {
+		return blockFlag ;
+	}
+
+	int canParry() const {
+		return parryFlag ;
+	}
+
+
 };
 
 
 #endif /* PETDEEDTEMPLATE_H_ */
+
+

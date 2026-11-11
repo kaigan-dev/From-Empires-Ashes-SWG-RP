@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_bolma_deed = object_tangible_deed_pet_deed_shared_
 	generatedObjectTemplate = "object/mobile/pet/bolma_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/bolma_hue.iff",
 	mobileTemplate = "bolma_be",
+	
+	isMountable = 0,
+	skillTemplate = "pets/rare/medium",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bolma_deed, "object/tangible/deed/pet_deed/bolma_deed.iff")

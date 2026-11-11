@@ -56,7 +56,23 @@ object_tangible_deed_pet_deed_dewback_deed = object_tangible_deed_pet_deed_share
 	experimentalCombineType = {0, 0},
 	generatedObjectTemplate = "mobile/pet/dewback_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/dewback_hue.iff",
-	mobileTemplate = "dewback_be",	
+	mobileTemplate = "dewback_be",
+	
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/medium",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
+	
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_dewback_deed, "object/tangible/deed/pet_deed/dewback_deed.iff")

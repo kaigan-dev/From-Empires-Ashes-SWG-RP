@@ -117,9 +117,11 @@ function rpg_shopkeeper_convo_handler:notifyPurchaseItem(pPlayer, pSui, eventInd
 		CreatureObject(pPlayer):sendSystemMessageWithTOAndDI("@rp_vendor:purchase_message", itemName, cost);
 	end	
 
+	--[[
 	if(isMount == "mount") then
 		SceneObject(pItem):setStoredInt("mount", 1)
 	end
+	--]]
 			
 	if(transmog ~= "none") then
 		SceneObject(pItem):setStoredString("transmog_tag", transmog)

@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_huurton_deed = object_tangible_deed_pet_deed_share
 	generatedObjectTemplate = "mobile/pet/huurton_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/huurton_hue.iff",
 	mobileTemplate = "huurton_be",	
+	
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/small",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_huurton_deed, "object/tangible/deed/pet_deed/huurton_deed.iff")

@@ -55,7 +55,7 @@ public:
 		else {
 			if(deed->adjustPetStats(player,pet)){
                           	Locker locker(device);
-				device->growPet(player, true);
+				//device->growPet(player, true);
 			}
 		}
 

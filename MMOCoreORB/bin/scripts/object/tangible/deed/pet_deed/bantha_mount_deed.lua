@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_pet_deed_rancor_mount_deed = object_tangible_deed_pet_deed_shared_rancor_deed:new {
+object_tangible_deed_pet_deed_bantha_mount_deed = object_tangible_deed_pet_deed_shared_bantha_deed:new {
 
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
@@ -53,12 +53,24 @@ object_tangible_deed_pet_deed_rancor_mount_deed = object_tangible_deed_pet_deed_
 	experimentalMax = {0, 0},
 	experimentalPrecision = {0, 0},
 	experimentalCombineType = {0, 0},
-	generatedObjectTemplate = "mobile/pet/rancor_be.iff",
-	controlDeviceObjectTemplate = "object/intangible/pet/beast_master/bm_rancor.iff",
-	mobileTemplate = "rancor_be",
+	generatedObjectTemplate = "mobile/pet/bantha_be.iff",
+	controlDeviceObjectTemplate = "object/intangible/pet/bantha_hue.iff",
+	mobileTemplate = "bantha_be",
+	
 	isMountable = 1,
-	skillTemplate = "creatures/large",
-	equipmentTemplate = "creature_large",
+	skillTemplate = "pets/uncommon/medium",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_mount_deed, "object/tangible/deed/pet_deed/rancor_mount_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_mount_deed, "object/tangible/deed/pet_deed/bantha_mount_deed.iff")

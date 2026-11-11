@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_graul_deed = object_tangible_deed_pet_deed_shared_
 	generatedObjectTemplate = "mobile/pet/graul_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/graul_hue.iff",
 	mobileTemplate = "graul_be",	
+	
+	isMountable = 0,
+	skillTemplate = "pets/epic/large",
+	equipmentTemplate = "creature_large",
+	isBaby = 0,
+	rarity = "Epic",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 0,
+	canParry = 1,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_graul_deed, "object/tangible/deed/pet_deed/graul_deed.iff")

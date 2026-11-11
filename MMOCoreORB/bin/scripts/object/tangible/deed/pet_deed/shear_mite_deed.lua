@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_shear_mite_deed = object_tangible_deed_pet_deed_sh
 	generatedObjectTemplate = "mobile/pet/shear_mite_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/shear_mite_hue.iff",
 	mobileTemplate = "shear_mite_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/epic/small",
+	equipmentTemplate = "creature_large",
+	isBaby = 0,
+	rarity = "Epic",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_shear_mite_deed, "object/tangible/deed/pet_deed/shear_mite_deed.iff")

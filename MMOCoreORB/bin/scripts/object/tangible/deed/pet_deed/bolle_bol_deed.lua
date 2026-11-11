@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_bolle_bol_deed = object_tangible_deed_pet_deed_sha
 	generatedObjectTemplate = "mobile/pet/bolle_bol_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/bolle_bol_hue.iff",
 	mobileTemplate = "bolle_bol_be",	
+	
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/medium",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bolle_bol_deed, "object/tangible/deed/pet_deed/bolle_bol_deed.iff")
