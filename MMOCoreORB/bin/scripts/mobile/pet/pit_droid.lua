@@ -25,7 +25,7 @@ pit_droid = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/pit_droid_droid.iff"},
+	templates = {"object/mobile/pit_droid.iff"},
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",
