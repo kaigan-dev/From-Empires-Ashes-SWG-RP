@@ -1,4 +1,4 @@
-object_intangible_pet_hk_droid = object_intangible_pet_shared_hk_droid_hue:new {
+object_intangible_pet_hk_droid = object_intangible_pet_shared_hk_droid:new {
 
 }
 
