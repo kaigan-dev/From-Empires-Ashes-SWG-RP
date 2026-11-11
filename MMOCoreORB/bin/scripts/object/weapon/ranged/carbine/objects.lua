@@ -873,3 +873,9 @@ object_weapon_ranged_carbine_shared_carbine_tusken = SharedWeaponObjectTemplate:
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_tusken, "object/weapon/ranged/carbine/shared_carbine_tusken.iff")
+--***************************************************************************************************************************************************
+object_weapon_ranged_carbine_shared_carbine_rotary = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_rotary.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_rotary, "object/weapon/ranged/carbine/shared_carbine_rotary.iff")
