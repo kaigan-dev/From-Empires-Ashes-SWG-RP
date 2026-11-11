@@ -25,6 +25,9 @@ private:
 	int attackType3Flag = 0;
 	int attackType4Flag = 0;
 	int attackType5Flag = 0;
+	int dodgeFlag = 0;
+	int blockFlag = 0;
+	int parryFlag = 0;
 
 public:
 	PetDeedTemplate() {
@@ -50,6 +53,9 @@ public:
 		attackType3Flag = templateData->getIntField("attackType3Flag");
 		attackType4Flag = templateData->getIntField("attackType4Flag");
 		attackType5Flag = templateData->getIntField("attackType5Flag");
+		dodgeFlag = templateData->getIntField("canDodge");
+		blockFlag = templateData->getIntField("canBlock");
+		parryFlag = templateData->getIntField("canParry");
     }
 
 	String getControlDeviceObjectTemplate() {

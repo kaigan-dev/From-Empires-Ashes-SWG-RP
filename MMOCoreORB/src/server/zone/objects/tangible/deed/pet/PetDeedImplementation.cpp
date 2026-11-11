@@ -54,6 +54,9 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	attackType3Flag  = deedData->canAttack3();
 	attackType4Flag  = deedData->canAttack4();
 	attackType5Flag  = deedData->canAttack5();
+	dodgeFlag = deedData->canDodge();
+	blockFlag = deedData->canBlock();
+	parryFlag = deedData->canParry();
 }
 
 void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
@@ -596,6 +599,14 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		pet->setStoredInt("canAttackType4", attackType4Flag  );
 		pet->setStoredInt("canAttackType5", attackType5Flag  );
 		
+
+		if(blockFlag == 1) {
+			pet->setStoredInt("reaction_stance", 1);
+		} else if(parryFlag == 1) {
+			pet->setStoredInt("reaction_stance", 2);
+		} else if(dodgeFlag == 1) {
+			pet->setStoredInt("reaction_stance", 3);
+		}
 
 
 		BorUtil::ApplySkillTemplateToPet(pet, skillTemplate);
