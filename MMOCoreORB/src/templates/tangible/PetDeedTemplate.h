@@ -111,6 +111,18 @@ public:
 		return attackType5Flag ;
 	}
 
+	int canDodge() const {
+		return dodgeFlag ;
+	}
+
+	int canBlock() const {
+		return blockFlag ;
+	}
+
+	int canParry() const {
+		return parryFlag ;
+	}
+
 
 };
 
