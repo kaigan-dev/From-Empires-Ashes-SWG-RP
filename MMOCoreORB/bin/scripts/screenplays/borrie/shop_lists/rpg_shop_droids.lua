@@ -1,6 +1,6 @@
-local shopListTag = "shop_mounts"
+local shopListTag = "shop_droids"
 
-rpg_shop_mount = {
+rpg_shop_droids = {
 	manifest = {
 		{
 			name = "Droids",
@@ -17,4 +17,4 @@ rpg_shop_mount = {
 	}	
 }
 
-RPGVendorShopLists:addShopList(shopListTag, rpg_shop_mount)
+RPGVendorShopLists:addShopList(shopListTag, rpg_shop_droids)
