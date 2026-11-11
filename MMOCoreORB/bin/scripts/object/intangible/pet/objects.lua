@@ -7700,47 +7700,47 @@ object_intangible_pet_shared_battle_droid_hue = SharedIntangibleObjectTemplate:n
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_battle_droid_hue, "object/intangible/pet/shared_battle_droid_hue.iff")
 
-object_intangible_pet_shared_protocol_droid_hue = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_protocol_droid_hue.iff"
+object_intangible_pet_shared_protocol_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_protocol_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_protocol_droid_hue, "object/intangible/pet/shared_protocol_droid_hue.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_protocol_droid, "object/intangible/pet/shared_protocol_droid.iff")
 
-object_intangible_pet_shared_astromech_r2_droid_hue = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_astromech_r2_droid_hue.iff"
+object_intangible_pet_shared_astromech_r2_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_astromech_r2_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_astromech_r2_droid_hue, "object/intangible/pet/shared_astromech_r2_droid_hue.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_astromech_r2_droid, "object/intangible/pet/shared_astromech_r2_droid.iff")
 
-object_intangible_pet_shared_mark_iv_sentry_droid_hue = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_mark_iv_sentry_droid_hue.iff"
+object_intangible_pet_shared_mark_iv_sentry_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_mark_iv_sentry_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_mark_iv_sentry_droid_hue, "object/intangible/pet/shared_mark_iv_sentry_droid_hue.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_mark_iv_sentry_droid, "object/intangible/pet/shared_mark_iv_sentry_droid.iff")
 
-object_intangible_pet_shared_mse_droid_hue = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_mse_droid_hue.iff"
+object_intangible_pet_shared_mse_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_mse_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_mse_droid_hue, "object/intangible/pet/shared_mse_droid_hue.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_mse_droid, "object/intangible/pet/shared_mse_droid.iff")
 
-object_intangible_pet_shared_pet_21b_surgical_droid_hue = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_pet_21b_surgical_droid_hue.iff"
+object_intangible_pet_shared_pet_21b_surgical_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_pet_21b_surgical_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_pet_21b_surgical_droid_hue, "object/intangible/pet/shared_pet_21b_surgical_droid_hue.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_pet_21b_surgical_droid, "object/intangible/pet/shared_pet_21b_surgical_droid.iff")
 
-object_intangible_pet_shared_probe_droid_hue = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_probe_droid_hue.iff"
+object_intangible_pet_shared_probe_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_probe_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_probe_droid_hue, "object/intangible/pet/shared_probe_droid_hue.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_probe_droid, "object/intangible/pet/shared_probe_droid.iff")
 
-object_intangible_pet_shared_gonk_droid_hue = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_gonk_droid_hue.iff"
+object_intangible_pet_shared_gonk_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_gonk_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_gonk_droid_hue, "object/intangible/pet/shared_gonk_droid_hue.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_gonk_droid, "object/intangible/pet/shared_gonk_droid.iff")
 
 object_intangible_pet_shared_pit_droid_hue = SharedIntangibleObjectTemplate:new {
 	clientTemplateFileName = "object/intangible/pet/shared_pit_droid_hue.iff"
@@ -7760,11 +7760,11 @@ object_intangible_pet_shared_droideka_hue = SharedIntangibleObjectTemplate:new {
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_droideka_hue, "object/intangible/pet/shared_droideka_hue.iff")
 
-object_intangible_pet_shared_hk_droid_hue = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_hk_droid_hue.iff"
+object_intangible_pet_shared_hk_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_hk_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_hk_droid_hue, "object/intangible/pet/shared_hk_droid_hue.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_hk_droid, "object/intangible/pet/shared_hk_droid.iff")
 
 object_intangible_pet_shared_magnaguard_hue = SharedIntangibleObjectTemplate:new {
 	clientTemplateFileName = "object/intangible/pet/shared_magnaguard_hue.iff"
