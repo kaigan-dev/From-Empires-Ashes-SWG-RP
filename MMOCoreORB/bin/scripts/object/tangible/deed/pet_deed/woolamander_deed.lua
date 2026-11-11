@@ -57,6 +57,22 @@ object_tangible_deed_pet_deed_woolamander_deed = object_tangible_deed_pet_deed_s
 	generatedObjectTemplate = "mobile/pet/woolamander_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/woolamander_hue.iff",
 	mobileTemplate = "woolamander_be",	
+
+			
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_woolamander_deed, "object/tangible/deed/pet_deed/woolamander_deed.iff")

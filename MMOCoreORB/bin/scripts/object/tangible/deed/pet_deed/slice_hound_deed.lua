@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_slice_hound_deed = object_tangible_deed_pet_deed_s
 	generatedObjectTemplate = "mobile/pet/slice_hound_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/corellian_slice_hound_hue.iff",
 	mobileTemplate = "slice_hound_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "rare",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_slice_hound_deed, "object/tangible/deed/pet_deed/slice_hound_deed.iff")

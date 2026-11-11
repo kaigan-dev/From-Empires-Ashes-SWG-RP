@@ -57,9 +57,21 @@ object_tangible_deed_pet_deed_snorbal_mount_deed = object_tangible_deed_pet_deed
 	generatedObjectTemplate = "mobile/pet/snorbal_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/beast_master/bm_snorbal_mount.iff",
 	mobileTemplate = "snorbal_be",	
+
 	isMountable = 1,
-	skillTemplate = "creatures/large",
-	equipmentTemplate = "creature_large",
+	skillTemplate = "pets/rare/medium",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_snorbal_mount_deed, "object/tangible/deed/pet_deed/snorbal_mount_deed.iff")

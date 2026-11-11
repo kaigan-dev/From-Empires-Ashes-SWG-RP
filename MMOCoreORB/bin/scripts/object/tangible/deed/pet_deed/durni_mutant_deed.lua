@@ -59,9 +59,21 @@ object_tangible_deed_pet_deed_durni_mutant_deed = object_tangible_deed_pet_deed_
 	controlDeviceObjectTemplate = "object/intangible/pet/beast_master/bm_mutated_durni.iff",
 	--mobileTemplate = "durni_be",	
 	mobileTemplate = "crazed_durni",	
+	
 	isMountable = 0,
-	skillTemplate = "creatures/harmless",
-	equipmentTemplate = "creature_small",
+	skillTemplate = "pets/common/harmless",
+	equipmentTemplate = "creature_harmless",
+	isBaby = 0,
+	rarity = "Common",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_durni_mutant_deed, "object/tangible/deed/pet_deed/durni_mutant_deed.iff")

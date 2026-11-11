@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_roba_deed = object_tangible_deed_pet_deed_shared_r
 	generatedObjectTemplate = "mobile/pet/roba_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/roba_hue.iff",
 	mobileTemplate = "roba_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/small",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_roba_deed, "object/tangible/deed/pet_deed/roba_deed.iff")

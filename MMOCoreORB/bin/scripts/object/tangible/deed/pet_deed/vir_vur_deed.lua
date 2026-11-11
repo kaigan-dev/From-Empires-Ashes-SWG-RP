@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_vir_vur_deed = object_tangible_deed_pet_deed_share
 	generatedObjectTemplate = "mobile/pet/vir_vur_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/vir_vur_hue.iff",
 	mobileTemplate = "vir_vur_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/common/harmless",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "Common",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_vir_vur_deed, "object/tangible/deed/pet_deed/vir_vur_deed.iff")

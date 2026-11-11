@@ -56,6 +56,7 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	generatedObjectTemplate = "mobile/pet/rancor_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/rancor_hue.iff",
 	mobileTemplate = "rancor_be",
+	
 	isMountable = 0,
 	skillTemplate = "pets/legendary/large",
 	equipmentTemplate = "creature_large",

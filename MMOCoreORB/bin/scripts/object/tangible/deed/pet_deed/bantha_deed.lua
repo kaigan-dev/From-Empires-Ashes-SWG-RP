@@ -56,10 +56,10 @@ object_tangible_deed_pet_deed_bantha_deed = object_tangible_deed_pet_deed_shared
 	generatedObjectTemplate = "mobile/pet/bantha_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/bantha_hue.iff",
 	mobileTemplate = "bantha_be",
+	
 	isMountable = 0,
 	skillTemplate = "pets/uncommon/medium",
 	equipmentTemplate = "creature_medium",
-	healCost = 20,
 	isBaby = 0,
 	rarity = "Uncommon",
 	canPowerAttack = 0,
@@ -67,6 +67,10 @@ object_tangible_deed_pet_deed_bantha_deed = object_tangible_deed_pet_deed_shared
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_deed, "object/tangible/deed/pet_deed/bantha_deed.iff")

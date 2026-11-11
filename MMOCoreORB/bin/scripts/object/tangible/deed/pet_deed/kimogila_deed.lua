@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_kimogila_deed = object_tangible_deed_pet_deed_shar
 	generatedObjectTemplate = "mobile/pet/kimogila_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/kimogila_hue.iff",
 	mobileTemplate = "kimogila_be",	
+		
+	isMountable = 0,
+	skillTemplate = "pets/legendary/large",
+	equipmentTemplate = "creature_large",
+	isBaby = 1,
+	rarity = "Legendary",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 0,
+	canParry = 1,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_kimogila_deed, "object/tangible/deed/pet_deed/kimogila_deed.iff")

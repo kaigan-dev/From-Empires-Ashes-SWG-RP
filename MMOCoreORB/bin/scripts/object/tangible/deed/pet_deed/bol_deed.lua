@@ -72,6 +72,8 @@ object_tangible_deed_pet_deed_bol_deed = object_tangible_deed_pet_deed_shared_bo
 	canDodge = 0,
 	canBlock = 1,
 	canParry = 0,
+
+	
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bol_deed, "object/tangible/deed/pet_deed/bol_deed.iff")

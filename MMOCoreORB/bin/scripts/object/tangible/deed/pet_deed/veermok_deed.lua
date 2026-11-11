@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_veermok_deed = object_tangible_deed_pet_deed_share
 	generatedObjectTemplate = "mobile/pet/veermok_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/veermok_hue.iff",
 	mobileTemplate = "veermok_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/epic/small",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "Epic",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 0,
+	canParry = 1,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_veermok_deed, "object/tangible/deed/pet_deed/veermok_deed.iff")

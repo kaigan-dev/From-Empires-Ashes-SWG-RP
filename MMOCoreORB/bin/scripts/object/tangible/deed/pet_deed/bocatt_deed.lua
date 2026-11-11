@@ -56,6 +56,21 @@ object_tangible_deed_pet_deed_bocatt_deed = object_tangible_deed_pet_deed_shared
 	generatedObjectTemplate = "mobile/pet/bocatt_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/bocatt_hue.iff",
 	mobileTemplate = "bocatt_be",
+	
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bocatt_deed, "object/tangible/deed/pet_deed/bocatt_deed.iff")

@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_merek_deed = object_tangible_deed_pet_deed_shared_
 	generatedObjectTemplate = "mobile/pet/merek_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/merek_hue.iff",
 	mobileTemplate = "merek_be",	
+		
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_merek_deed, "object/tangible/deed/pet_deed/merek_deed.iff")

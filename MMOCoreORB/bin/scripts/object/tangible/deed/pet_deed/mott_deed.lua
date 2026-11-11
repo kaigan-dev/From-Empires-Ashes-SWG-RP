@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_mott_deed = object_tangible_deed_pet_deed_shared_m
 	generatedObjectTemplate = "mobile/pet/mott_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/mott_hue.iff",
 	mobileTemplate = "mott_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/small",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_mott_deed, "object/tangible/deed/pet_deed/mott_deed.iff")
