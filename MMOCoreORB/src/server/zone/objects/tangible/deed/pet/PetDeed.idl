@@ -61,7 +61,7 @@ class PetDeed extends Deed {
 	protected int attackType5Flag ;
 	protected int dodgeFlag ;
 	protected int blockFlag ;
-	protected int parryflag ;
+	protected int parryFlag ;
 
 	protected int cleverness;
 	protected int endurance;
