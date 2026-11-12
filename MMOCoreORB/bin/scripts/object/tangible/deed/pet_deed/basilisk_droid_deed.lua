@@ -26,4 +26,4 @@ object_tangible_deed_pet_deed_basilisk_droid_deed = object_tangible_deed_pet_dee
 	canAttack5 = 0,
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_battle_droid_deed, "object/tangible/deed/pet_deed/basilisk_droid_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_basilisk_droid_deed, "object/tangible/deed/pet_deed/basilisk_droid_deed.iff")

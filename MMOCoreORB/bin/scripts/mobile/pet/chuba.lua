@@ -25,7 +25,7 @@ chuba = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/chuba.iff"},
+	templates = {"object/mobile/chuba_hue.iff"},
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",

@@ -25,7 +25,7 @@ bantha_armored = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/shared_bantha_saddle_armored.iff"},
+	templates = {"object/mobile/bantha_saddle_armored.iff"},
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",
