@@ -7771,3 +7771,45 @@ object_intangible_pet_shared_magnaguard_hue = SharedIntangibleObjectTemplate:new
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_magnaguard_hue, "object/intangible/pet/shared_magnaguard_hue.iff")
+
+object_intangible_pet_shared_seeker_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_seeker_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_seeker_droid, "object/intangible/pet/shared_seeker_droid.iff")
+
+object_intangible_pet_shared_basilisk_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_basilisk_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_basilisk_droid, "object/intangible/pet/shared_basilisk_droid.iff")
+
+object_intangible_pet_shared_blastromech_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_blastromech_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_blastromech_droid, "object/intangible/pet/shared_blastromech_droid.iff")
+
+object_intangible_pet_shared_acklay = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_acklay.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_acklay, "object/intangible/pet/shared_acklay.iff")
+
+object_intangible_pet_shared_nuna = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_nuna.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_nuna, "object/intangible/pet/shared_nuna.iff")
+
+object_intangible_pet_shared_chuba = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_chuba.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_chuba, "object/intangible/pet/shared_chuba.iff")
+
+object_intangible_pet_shared_bantha_armored = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_bantha_armored.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_bantha_armored, "object/intangible/pet/shared_bantha_armored.iff")

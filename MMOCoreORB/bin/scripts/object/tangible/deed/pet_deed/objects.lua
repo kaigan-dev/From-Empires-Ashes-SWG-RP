@@ -5936,3 +5936,51 @@ object_tangible_deed_pet_deed_shared_magnaguard_deed = SharedTangibleObjectTempl
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_magnaguard_deed, "object/tangible/deed/pet_deed/shared_magnaguard_deed.iff")
+
+object_tangible_deed_pet_deed_shared_seeker_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_seeker_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_seeker_droid_deed, "object/tangible/deed/pet_deed/shared_seeker_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_basilisk_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_basilisk_droid_deed, "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_blastromech_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_blastromech_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_blastromech_droid_deed, "object/tangible/deed/pet_deed/shared_blastromech_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_acklay_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_acklay_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_acklay_deed, "object/tangible/deed/pet_deed/shared_acklay_deed.iff")
+
+object_tangible_deed_pet_deed_shared_nuna_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_nuna_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_nuna_deed, "object/tangible/deed/pet_deed/shared_nuna_deed.iff")
+
+object_tangible_deed_pet_deed_shared_chuba_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_chuba_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_chuba_deed, "object/tangible/deed/pet_deed/shared_chuba_deed.iff")
+
+object_tangible_deed_pet_deed_shared_bantha_armored_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_bantha_armored_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bantha_armored_deed, "object/tangible/deed/pet_deed/shared_bantha_armored_deed.iff")
+
+object_tangible_deed_pet_deed_shared_bantha_armored_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_bantha_armored_mount_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bantha_armored_mount_deed, "object/tangible/deed/pet_deed/shared_bantha_armored_mount_deed.iff")
