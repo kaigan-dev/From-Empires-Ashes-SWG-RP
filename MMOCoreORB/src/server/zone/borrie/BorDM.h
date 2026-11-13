@@ -140,6 +140,8 @@ public:
 		SkillManager::instance()->awardSkill("social_language_jawatrade_comprehend", target, true, true, true, true, 1);
 		SkillManager::instance()->awardSkill("social_language_mandoa_speak", target, true, true, true, true, 1);
 		SkillManager::instance()->awardSkill("social_language_mandoa_comprehend", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_gbsl_speak", target, true, true, true, true, 1);
+		SkillManager::instance()->awardSkill("social_language_gbsl_comprehend", target, true, true, true, true, 1);
 
 
 	}

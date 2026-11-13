@@ -1,0 +1,5 @@
+object_intangible_pet_pet_21b_surgical_droid = object_intangible_pet_shared_pet_21b_surgical_droid:new {
+
+}
+
+ObjectTemplates:addTemplate(object_intangible_pet_pet_21b_surgical_droid, "object/intangible/pet/pet_21b_surgical_droid.iff")

@@ -799,6 +799,21 @@ public:
 				infoText << count << ". Detective Training (" << skillManager->getTrainingSkillRank(target, "rp_training_detective") << ")" << endl;
 				count++;
 			}
+
+			if(target->hasSkill("rp_training_thief_novice")) {
+				infoText << count << ". Thief Training (" << skillManager->getTrainingSkillRank(target, "rp_training_thief") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_hand_novice")) {
+				infoText << count << ". Hand Training (" << skillManager->getTrainingSkillRank(target, "rp_training_hand") << ")" << endl;
+				count++;
+			}
+
+			if(target->hasSkill("rp_training_inquisitor_novice")) {
+				infoText << count << ". Inquisitor Training (" << skillManager->getTrainingSkillRank(target, "rp_training_inquisitor") << ")" << endl;
+				count++;
+			}
 		}
 
 		
