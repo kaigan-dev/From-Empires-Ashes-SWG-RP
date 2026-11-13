@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_dalyrake_deed = object_tangible_deed_pet_deed_shar
 	generatedObjectTemplate = "mobile/pet/dalyrake_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/dalyrake_hue.iff",
 	mobileTemplate = "dalyrake_be",	
+	
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_venomous",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_dalyrake_deed, "object/tangible/deed/pet_deed/dalyrake_deed.iff")

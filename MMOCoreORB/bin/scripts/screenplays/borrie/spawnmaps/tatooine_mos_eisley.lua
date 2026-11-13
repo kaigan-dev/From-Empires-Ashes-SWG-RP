@@ -996,7 +996,7 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Pyvaln Rokk (a Mount Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "mount")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mounts_tatooine")
-	
+
 	--Cheap Stimpack Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 482.509, 0, 131.549, 330, 0, "rp_gran_male", "xovros_nurse", "default", "random", "rpg_shopkeeper")
 	SceneObject(pNpc):setCustomObjectName("Horuuk Kyl (a Stimpack Vendor)")
@@ -1008,6 +1008,12 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setCustomObjectName("Beebo (a Specialty Item Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
+
+	--Droid Vendor
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 0.5, 0.408271, -7.3, -7, 610008479, "rp_rodian_male", "eisley_specialty_shop_beebo", "default", "eisley_specialty_shop_beebo", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Biibo (a Droid Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_droids")
 	
 	--Junker Ship Vendor
 	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 575.455, 	0, 	316.082, 324, 0, "rp_sullustan_male", "sulon_vendor_ranged_01", "default", "random", "rpg_shopkeeper")

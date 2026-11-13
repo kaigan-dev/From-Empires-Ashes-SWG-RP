@@ -56,16 +56,23 @@ object_tangible_deed_pet_deed_bantha_baby_deed = object_tangible_deed_pet_deed_s
 	generatedObjectTemplate = "mobile/pet/bantha_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/bantha_hue.iff",
 	mobileTemplate = "bantha_be",
+	
 	isMountable = 0,
 	skillTemplate = "pets/common/medium",
 	equipmentTemplate = "creature_small",
-	babyFlag = 1,
+	isBaby = 1,
 	rarity = "Common",
 	canPowerAttack = 0,
 	canFlurryAttack = 0,
-	attackType3Flag = 0,
-	attackType4Flag = 0,
-	attackType5Flag = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 0,
+	canParry = 0,
+
+	
 	
 }
 

@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_kima_deed = object_tangible_deed_pet_deed_shared_k
 	generatedObjectTemplate = "mobile/pet/kima_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/kima_hue.iff",
 	mobileTemplate = "kima_be",	
+		
+	isMountable = 0,
+	skillTemplate = "pets/common/harmless",
+	equipmentTemplate = "creature_small",
+	isBaby = 0,
+	rarity = "Common",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_kima_deed, "object/tangible/deed/pet_deed/kima_deed.iff")

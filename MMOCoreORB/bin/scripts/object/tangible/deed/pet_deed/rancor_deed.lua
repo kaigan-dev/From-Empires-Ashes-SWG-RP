@@ -56,9 +56,10 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	generatedObjectTemplate = "mobile/pet/rancor_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/rancor_hue.iff",
 	mobileTemplate = "rancor_be",
+	
 	isMountable = 0,
 	skillTemplate = "pets/legendary/large",
-	equipmentTemplate = "creature_large",
+	equipmentTemplate = "creature_colossal",
 	isBaby = 0,
 	rarity = "Legendary",
 	canPowerAttack = 1,
@@ -66,6 +67,10 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	attackType3Flag = 0,
 	attackType4Flag = 0,
 	attackType5Flag = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 0,
+	canParry = 1,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_deed, "object/tangible/deed/pet_deed/rancor_deed.iff")

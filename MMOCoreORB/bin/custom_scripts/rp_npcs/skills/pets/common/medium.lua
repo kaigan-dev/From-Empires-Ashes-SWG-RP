@@ -15,7 +15,7 @@ skillSet = {
     {"rp_bluff",            0, 0},
     {"rp_composure",        2, 2},
     {"rp_computers",        0, 0},
-    {"rp_defending",        0, 0},
+    {"rp_defending",        1, 1},
     {"rp_demolitions",      0, 0},
     {"rp_engineering",      0, 0},
     {"rp_intimidation",     0, 0},

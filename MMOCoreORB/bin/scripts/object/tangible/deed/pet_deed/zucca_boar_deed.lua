@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_zucca_boar_deed = object_tangible_deed_pet_deed_sh
 	generatedObjectTemplate = "mobile/pet/zucca_boar_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/pet_control.iff", -- zucca_boar_hue.iff bugged in client
 	mobileTemplate = "zucca_boar_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/small",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_zucca_boar_deed, "object/tangible/deed/pet_deed/zucca_boar_deed.iff")

@@ -66,6 +66,10 @@ object_tangible_deed_pet_deed_bearded_jax_deed = object_tangible_deed_pet_deed_s
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bearded_jax_deed, "object/tangible/deed/pet_deed/bearded_jax_deed.iff")

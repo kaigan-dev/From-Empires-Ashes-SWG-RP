@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_dune_lizard_deed = object_tangible_deed_pet_deed_s
 	generatedObjectTemplate = "mobile/pet/dune_lizard_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/dune_lizard_hue.iff",
 	mobileTemplate = "dune_lizard_be",	
+
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/small",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_dune_lizard_deed, "object/tangible/deed/pet_deed/dune_lizard_deed.iff")

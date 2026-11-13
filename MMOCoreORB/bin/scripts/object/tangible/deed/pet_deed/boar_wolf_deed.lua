@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_boar_wolf_deed = object_tangible_deed_pet_deed_sha
 	generatedObjectTemplate = "mobile/pet/boar_wolf_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/boar_wolf_hue.iff",
 	mobileTemplate = "boar_wolf_be",	
+	
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_boar_wolf_deed, "object/tangible/deed/pet_deed/boar_wolf_deed.iff")

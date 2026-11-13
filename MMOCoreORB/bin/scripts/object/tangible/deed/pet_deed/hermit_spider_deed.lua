@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_hermit_spider_deed = object_tangible_deed_pet_deed
 	generatedObjectTemplate = "mobile/pet/hermit_spider_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/hermit_spider_hue.iff",
 	mobileTemplate = "hermit_spider_be",	
+
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_venomous",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_hermit_spider_deed, "object/tangible/deed/pet_deed/hermit_spider_deed.iff")

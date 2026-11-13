@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_sand_panther_deed = object_tangible_deed_pet_deed_
 	generatedObjectTemplate = "mobile/pet/razor_cat_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/corellian_sand_panther_hue.iff",
 	mobileTemplate = "razor_cat_be",
+			
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_medium",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_sand_panther_deed, "object/tangible/deed/pet_deed/sand_panther_deed.iff")

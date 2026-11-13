@@ -57,6 +57,7 @@ object_tangible_deed_pet_deed_dewback_deed = object_tangible_deed_pet_deed_share
 	generatedObjectTemplate = "mobile/pet/dewback_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/dewback_hue.iff",
 	mobileTemplate = "dewback_be",
+	
 	isMountable = 0,
 	skillTemplate = "pets/uncommon/medium",
 	equipmentTemplate = "creature_medium",
@@ -67,6 +68,10 @@ object_tangible_deed_pet_deed_dewback_deed = object_tangible_deed_pet_deed_share
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 	
 }
 

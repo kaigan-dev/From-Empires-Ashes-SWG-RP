@@ -59,6 +59,9 @@ class PetDeed extends Deed {
 	protected int attackType3Flag ;
 	protected int attackType4Flag ;
 	protected int attackType5Flag ;
+	protected int dodgeFlag ;
+	protected int blockFlag ;
+	protected int parryFlag ;
 
 	protected int cleverness;
 	protected int endurance;
@@ -374,6 +377,21 @@ class PetDeed extends Deed {
 	@read
 	public int canAttack5() {
 		return attackType5Flag ;
+	}
+
+	@read
+	public int canDodge() {
+		return dodgeFlag  ;
+	}
+
+	@read
+	public int canBlock() {
+		return blockFlag ;
+	}
+
+	@read
+	public int canParry() {
+		return parryFlag ;
 	}
 
 

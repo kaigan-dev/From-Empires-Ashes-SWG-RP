@@ -57,6 +57,21 @@ object_tangible_deed_pet_deed_torton_deed = object_tangible_deed_pet_deed_shared
 	generatedObjectTemplate = "mobile/pet/torton_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/torton_hue.iff",
 	mobileTemplate = "torton_be",	
+			
+	isMountable = 0,
+	skillTemplate = "pets/epic/large",
+	equipmentTemplate = "creature_large",
+	isBaby = 1,
+	rarity = "Epic",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_torton_deed, "object/tangible/deed/pet_deed/torton_deed.iff")
