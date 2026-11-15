@@ -21,6 +21,7 @@ end
 
 function DantooineWildsScreenPlay:spawnCivilians() 
 	local waypointList = {
+
 		{4142.9, 6.4, -1116.4, -163, 0,{"none"}}, --Small Town East of The House of Aurodium
 		{4141.4, 6.4, -1116.3, 124, 0,{"social"}},
 		{4093.8, 8.3, -1107.7, 141, 0,{"sit"}},
@@ -102,7 +103,8 @@ function DantooineWildsScreenPlay:spawnCivilians()
 		{-2699.3, 5.6, -932.2, 165, 0,{"none"}},
 
 	}
-
+	
+	CivillianGenerator:spawnCivillians(self.screenplayName, "rp_dantooine", waypointList, self.walkpointList, "dantooine", "dantooine")
 end
 
 function DantooineWildsScreenPlay:spawnMobiles()
@@ -166,9 +168,9 @@ function DantooineWildsScreenPlay:spawnMobiles()
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -1680.9, 56.6, -1849.4, 40, 0, "rp_bith_male", "faction/mando/gedyc", "factional/common/elite", "default") --Equip, Skill, Customization
 	SceneObject(pNpc):setCustomObjectName("Kabadons Gedyc")
 
-	--Mining Town
+	--Slooning Mining Town
 	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_base_npc", 1, -2689.9, 10.4, -898.8, 165, 0, "dressed_slooni_long", "default", "default", "default") --Fat Bastard of a corporate overseer.
-
+	SceneObject(pNpc):setCustomObjectName("Sverte Bunse")
 end
 
 
