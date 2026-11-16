@@ -10,8 +10,9 @@ rpg_shop_droids = {
 				{template = "object/tangible/deed/pet_deed/gonk_droid_deed.iff", cost = 1200, max = 10, chance = 100, overridePrice = true, isMount = true},
 				{template = "object/tangible/deed/pet_deed/mse_droid_deed.iff", cost = 500, max = 10, chance = 100, overridePrice = true, isMount = true},
 				{template = "object/tangible/deed/pet_deed/pet_21b_surgical_droid_deed.iff", cost = 4500, max = 10, chance = 100, overridePrice = true, isMount = true},
-				--{template = "object/tangible/deed/pet_deed/pit_droid_deed.iff", cost = 4500, max = 10, chance = 100, overridePrice = true, isMount = true},
+				{template = "object/tangible/deed/pet_deed/pit_droid_deed.iff", cost = 1200, max = 10, chance = 100, overridePrice = true, isMount = true},
 				{template = "object/tangible/deed/pet_deed/protocol_droid_deed.iff", cost = 1800, max = 10, chance = 100, overridePrice = true, isMount = true},
+				{template = "object/tangible/deed/pet_deed/seeker_droid_deed.iff", cost = 4500, max = 10, chance = 100, overridePrice = true, isMount = true},				
 			}
 		},
 	}	

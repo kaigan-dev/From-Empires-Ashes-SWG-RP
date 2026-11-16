@@ -36,6 +36,7 @@ rpg_shop_mount_tatooine = {
 				{template = "object/tangible/deed/pet_deed/squall_deed.iff", cost = 500, max = 10, chance = 100, overridePrice = true, isMount = true},
 				{template = "object/tangible/deed/pet_deed/bearded_jax_deed.iff", cost = 500, max = 10, chance = 100, overridePrice = true, isMount = true},
 				{template = "object/tangible/deed/pet_deed/vir_vur_deed.iff", cost = 500, max = 10, chance = 100, overridePrice = true, isMount = true},
+				{template = "object/tangible/deed/pet_deed/nuna_deed.iff", cost = 500, max = 10, chance = 100, overridePrice = true, isMount = true},				
 			}
 		},
 	}	
