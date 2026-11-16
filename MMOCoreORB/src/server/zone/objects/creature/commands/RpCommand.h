@@ -313,18 +313,18 @@ public:
 						}
 					}
 					else {
-						if(creature->getHAM(3) >= amount)
-            				BorCharacter::ModPool(creature, "action", amount * -1, true);
+						if(creature->getHAM(3) >= actionCost)
+            				BorCharacter::ModPool(creature, "action", actionCost * -1, true);
         				else {
             				int remainingAction = creature->getHAM(3);
            					BorCharacter::ModPool(creature, "action", remainingAction * -1, true);
-            				BorCharacter::ModPool(creature, "will", (amount - remainingAction) * -1, true);
+            				BorCharacter::ModPool(creature, "will", (actionCost - remainingAction) * -1, true);
         				}
 						if(petType == "droid") {
-							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " gives their pet an order (1d20 Computers: " + String::valueOf(diceRoll) + " + " + String::valueOf(diceMod) + " = " + String::valueOf(diceRoll + diceMod) + " vs. DC: " + String::valueOf(skillDC) + ") at a cost of " + String::valueOf(amount) + "AP.");
+							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " gives their pet an order (1d20 Computers: " + String::valueOf(diceRoll) + " + " + String::valueOf(diceMod) + " = " + String::valueOf(diceRoll + diceMod) + " vs. DC: " + String::valueOf(skillDC) + ") at a cost of " + String::valueOf(actionCost) + "AP.");
 						}
 						else {
-							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " gives their pet an order (1d20 Survival: " + String::valueOf(diceRoll) + " + " + String::valueOf(diceMod) + " = " + String::valueOf(diceRoll + diceMod) + " vs. DC: " + String::valueOf(skillDC) + ") at a cost of " + String::valueOf(amount) + "AP.");
+							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " gives their pet an order (1d20 Survival: " + String::valueOf(diceRoll) + " + " + String::valueOf(diceMod) + " = " + String::valueOf(diceRoll + diceMod) + " vs. DC: " + String::valueOf(skillDC) + ") at a cost of " + String::valueOf(actionCost) + "AP.");
 						}
 					}
 				}
