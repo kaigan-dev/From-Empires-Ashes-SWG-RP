@@ -57,6 +57,7 @@ public:
 		dodgeFlag = templateData->getIntField("canDodge");
 		blockFlag = templateData->getIntField("canBlock");
 		parryFlag = templateData->getIntField("canParry");
+		petType = templateData->getStringField("petType");
     }
 
 	String getControlDeviceObjectTemplate() {
