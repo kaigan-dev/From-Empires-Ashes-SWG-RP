@@ -15,15 +15,20 @@ object_tangible_deed_pet_deed_basilisk_droid_deed = object_tangible_deed_pet_dee
 	controlDeviceObjectTemplate = "object/intangible/pet/basilisk_droid.iff",
 	mobileTemplate = "basilisk_droid",
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_battle",
-	equipmentTemplate = "default",
+	skillTemplate = "pets/epic/droid_superbattle",
+	equipmentTemplate = "creature_large",
 	isBaby = 0,
-	rarity = "Uncommon",
+	rarity = "Epic",
 	canPowerAttack = 1,
 	canFlurryAttack = 0,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 0,
+    canBlock = 1,
+    canParry = 0,
+	petType = "creature",  --Yes, really. It's supposed to be an animalistic AI.
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_basilisk_droid_deed, "object/tangible/deed/pet_deed/basilisk_droid_deed.iff")

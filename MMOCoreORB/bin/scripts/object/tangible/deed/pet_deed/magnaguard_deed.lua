@@ -15,15 +15,20 @@ object_tangible_deed_pet_deed_magnaguard_deed = object_tangible_deed_pet_deed_sh
 	controlDeviceObjectTemplate = "object/intangible/pet/magnaguard.iff",
 	mobileTemplate = "magnaguard",
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_battle",
+	skillTemplate = "pets/legendary/droid_magnaguard",
 	equipmentTemplate = "default",
 	isBaby = 0,
-	rarity = "Uncommon",
-	canPowerAttack = 1,
-	canFlurryAttack = 0,
+	rarity = "Legendary",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 0,
+    canBlock = 0,
+    canParry = 1,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_magnaguard_deed, "object/tangible/deed/pet_deed/magnaguard_deed.iff")

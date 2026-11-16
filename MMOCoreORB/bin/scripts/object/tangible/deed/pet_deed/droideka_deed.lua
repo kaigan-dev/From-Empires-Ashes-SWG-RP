@@ -15,15 +15,20 @@ object_tangible_deed_pet_deed_droideka_deed = object_tangible_deed_pet_deed_shar
 	controlDeviceObjectTemplate = "object/intangible/pet/droideka.iff",
 	mobileTemplate = "droideka",
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_battle",
-	equipmentTemplate = "default",
+	skillTemplate = "pets/epic/droid_droideka",
+	equipmentTemplate = "superbattledroid",
 	isBaby = 0,
-	rarity = "Uncommon",
-	canPowerAttack = 1,
-	canFlurryAttack = 0,
+	rarity = "Epic",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 1,
+    canBlock = 0,
+    canParry = 0,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_droideka_deed, "object/tangible/deed/pet_deed/droideka_deed.iff")

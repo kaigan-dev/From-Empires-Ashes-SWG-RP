@@ -15,15 +15,20 @@ object_tangible_deed_pet_deed_mark_iv_sentry_droid_deed = object_tangible_deed_p
 	controlDeviceObjectTemplate = "object/intangible/pet/mark_iv_sentry_droid.iff",
 	mobileTemplate = "mark_iv_sentry_droid",
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_other",
+	skillTemplate = "pets/common/droid_other",
 	equipmentTemplate = "default",
 	isBaby = 0,
-	rarity = "Uncommon",
-	canPowerAttack = 1,
+	rarity = "Common",
+	canPowerAttack = 0,
 	canFlurryAttack = 0,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 1,
+    canBlock = 0,
+    canParry = 0,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_mark_iv_sentry_droid_deed, "object/tangible/deed/pet_deed/mark_iv_sentry_droid_deed.iff")

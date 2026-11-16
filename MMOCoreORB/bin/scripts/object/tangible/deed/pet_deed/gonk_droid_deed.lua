@@ -15,15 +15,20 @@ object_tangible_deed_pet_deed_gonk_droid_deed = object_tangible_deed_pet_deed_sh
 	controlDeviceObjectTemplate = "object/intangible/pet/gonk_droid.iff",
 	mobileTemplate = "gonk_droid",
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_other",
+	skillTemplate = "pets/common/droid_other",
 	equipmentTemplate = "default",
 	isBaby = 0,
-	rarity = "Uncommon",
-	canPowerAttack = 1,
+	rarity = "Common",
+	canPowerAttack = 0,
 	canFlurryAttack = 0,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 0,
+    canBlock = 0,
+    canParry = 0,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_gonk_droid_deed, "object/tangible/deed/pet_deed/gonk_droid_deed.iff")

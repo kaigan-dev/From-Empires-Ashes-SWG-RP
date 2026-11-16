@@ -19,11 +19,16 @@ object_tangible_deed_pet_deed_nuna_deed = object_tangible_deed_pet_deed_shared_n
 	equipmentTemplate = "default",
 	isBaby = 0,
 	rarity = "Common",
-	canPowerAttack = 1,
+	canPowerAttack = 0,
 	canFlurryAttack = 0,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 1,
+    canBlock = 0,
+    canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_nuna_deed, "object/tangible/deed/pet_deed/nuna_deed.iff")

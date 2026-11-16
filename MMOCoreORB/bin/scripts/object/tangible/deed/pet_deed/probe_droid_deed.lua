@@ -15,15 +15,20 @@ object_tangible_deed_pet_deed_probe_droid_deed = object_tangible_deed_pet_deed_s
 	controlDeviceObjectTemplate = "object/intangible/pet/probe_droid.iff",
 	mobileTemplate = "probe_droid",
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_other",
+	skillTemplate = "pets/rare/droid_probe",
 	equipmentTemplate = "default",
 	isBaby = 0,
-	rarity = "Uncommon",
+	rarity = "Rare",
 	canPowerAttack = 1,
 	canFlurryAttack = 0,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 1,
+    canBlock = 0,
+    canParry = 0,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_probe_droid_deed, "object/tangible/deed/pet_deed/probe_droid_deed.iff")

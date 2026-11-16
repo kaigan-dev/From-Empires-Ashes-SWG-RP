@@ -16,14 +16,19 @@ object_tangible_deed_pet_deed_blastromech_droid_deed = object_tangible_deed_pet_
 	mobileTemplate = "blastromech_droid",
 	isMountable = 0,
 	skillTemplate = "pets/uncommon/droid_battle",
-	equipmentTemplate = "default",
+	equipmentTemplate = "superbattledroid",
 	isBaby = 0,
-	rarity = "Uncommon",
+	rarity = "Rare",
 	canPowerAttack = 1,
 	canFlurryAttack = 0,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 0,
+    canBlock = 0, --Intentionally has no defenses due to higher offense capability.
+    canParry = 0,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_blastromech_droid_deed, "object/tangible/deed/pet_deed/blastromech_droid_deed.iff")

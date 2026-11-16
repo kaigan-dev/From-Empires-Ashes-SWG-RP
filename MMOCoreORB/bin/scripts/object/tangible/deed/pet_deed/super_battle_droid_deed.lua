@@ -15,15 +15,20 @@ object_tangible_deed_pet_deed_super_battle_droid_deed = object_tangible_deed_pet
 	controlDeviceObjectTemplate = "object/intangible/pet/super_battle_droid.iff",
 	mobileTemplate = "super_battle_droid",
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_battle",
-	equipmentTemplate = "default",
+	skillTemplate = "pets/epic/droid_sbd",
+	equipmentTemplate = "superbattledroid",
 	isBaby = 0,
-	rarity = "Uncommon",
-	canPowerAttack = 1,
-	canFlurryAttack = 0,
+	rarity = "Epic",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 0,
+    canBlock = 1,
+    canParry = 0,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_super_battle_droid_deed, "object/tangible/deed/pet_deed/super_battle_droid_deed.iff")

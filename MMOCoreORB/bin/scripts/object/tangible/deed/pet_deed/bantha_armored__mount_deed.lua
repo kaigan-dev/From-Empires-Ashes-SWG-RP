@@ -16,7 +16,7 @@ object_tangible_deed_pet_deed_bantha_armored_mount_deed = object_tangible_deed_p
 	mobileTemplate = "bantha_armored",
 	isMountable = 0,
 	skillTemplate = "pets/rare/creature_medium",
-	equipmentTemplate = "default",
+	equipmentTemplate = "creature_medium",
 	isBaby = 0,
 	rarity = "Rare",
 	canPowerAttack = 1,
@@ -24,6 +24,11 @@ object_tangible_deed_pet_deed_bantha_armored_mount_deed = object_tangible_deed_p
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 0,
+    canBlock = 1,
+    canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_armored_mount_deed, "object/tangible/deed/pet_deed/bantha_armored_mount_deed.iff")

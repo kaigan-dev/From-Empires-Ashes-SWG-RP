@@ -15,15 +15,20 @@ object_tangible_deed_pet_deed_hk_droid_deed = object_tangible_deed_pet_deed_shar
 	controlDeviceObjectTemplate = "object/intangible/pet/hk_droid.iff",
 	mobileTemplate = "hk_droid",
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_battle",
+	skillTemplate = "pets/legendary/droid_hk",
 	equipmentTemplate = "default",
 	isBaby = 0,
-	rarity = "Uncommon",
+	rarity = "Legendary",
 	canPowerAttack = 1,
 	canFlurryAttack = 0,
 	canAttack3 = 0,
 	canAttack4 = 0,
 	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+    canDodge = 1,
+    canBlock = 0,
+    canParry = 0,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_hk_droid_deed, "object/tangible/deed/pet_deed/hk_droid_deed.iff")
