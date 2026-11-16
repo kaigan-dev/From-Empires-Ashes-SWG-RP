@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_roba_deed = object_tangible_deed_pet_deed_shared_r
 	canDodge = 0,
 	canBlock = 1,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_roba_deed, "object/tangible/deed/pet_deed/roba_deed.iff")

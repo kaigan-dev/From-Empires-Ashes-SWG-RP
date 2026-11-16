@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_durni_deed = object_tangible_deed_pet_deed_shared_
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_durni_deed, "object/tangible/deed/pet_deed/durni_deed.iff")

@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_gurreck_deed = object_tangible_deed_pet_deed_share
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_gurreck_deed, "object/tangible/deed/pet_deed/gurreck_deed.iff")

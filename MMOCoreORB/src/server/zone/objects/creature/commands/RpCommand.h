@@ -9,6 +9,8 @@
 #include "server/zone/borrie/BorNPC.h"
 #include "server/zone/borrie/BorEffect.h"
 #include "server/zone/borrie/BorUtil.h"
+#include "server/zone/borrie/BorDice.h"
+#include "server/zone/borrie/BorCharacter.h"
 
 class RpCommand : public QueueCommand {
 
@@ -255,6 +257,76 @@ public:
 				else {
 					BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " has used their hero point and may reroll their last skill check if they are not in combat.");
 					creature->setStoredInt("hero_point_used", 1);
+				}
+				
+			}
+			else if(command == "petaction" || command == "petact") {
+				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+					ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
+					int skillDC = 10;
+					int diceRoll = BorDice::Roll(1, 20);
+					int diceMod = 0;
+					int actionCost = 1;
+					String petRarity = pet->getStoredString("petRarity");
+					String petType = "";
+					petType = pet->getStoredString("petType");
+
+					if(petType == "droid") {
+						diceMod = creature->getSkillMod("rp_computers");
+					}
+					else if (petType == "creature") {
+						diceMod = creature->getSkillMod("rp_survival");
+					}
+					else {
+						creature->sendSystemMessage("Your pet's type of " + petType + " is not valid. Contact a GM or admin to correct the deed and spawn a new one.");
+						return GENERALERROR;
+					}
+
+					int rollTotal = diceRoll + diceMod;
+					
+					if(petRarity == "Common")
+						skillDC = 8;
+					else if(petRarity == "Uncommon")
+						skillDC = 10;
+					else if(petRarity == "Rare")
+						skillDC = 12;
+					else if(petRarity == "Epic")
+						skillDC = 14;
+					else if(petRarity == "Legendary")
+						skillDC = 16;
+					else {
+						creature->sendSystemMessage("Your pet's rarity of " + petRarity + " is not valid. Contact a GM or admin to correct the deed and spawn a new one.");
+						return GENERALERROR;
+					}
+
+					if(creature->getHAM(3) + creature->getHAM(6) <= actionCost) {
+            			creature->sendSystemMessage("You do not have sufficient Action and Will to give your pet an order.");
+						return GENERALERROR;
+					}
+        			
+					if(rollTotal >= skillDC) {
+						if(petType == "droid") {
+							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " gives their pet an order (1d20 Computers: " + String::valueOf(diceRoll) + " + " + String::valueOf(diceMod) + " = " + String::valueOf(diceRoll + diceMod) + " vs. DC: " + String::valueOf(skillDC) + ")");
+						}
+						else {
+							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " gives their pet an order (1d20 Survival: " + String::valueOf(diceRoll) + " + " + String::valueOf(diceMod) + " = " + String::valueOf(diceRoll + diceMod) + " vs. DC: " + String::valueOf(skillDC) + ")");
+						}
+					}
+					else {
+						if(creature->getHAM(3) >= amount)
+            				BorCharacter::ModPool(creature, "action", amount * -1, true);
+        				else {
+            				int remainingAction = creature->getHAM(3);
+           					BorCharacter::ModPool(creature, "action", remainingAction * -1, true);
+            				BorCharacter::ModPool(creature, "will", (amount - remainingAction) * -1, true);
+        				}
+						if(petType == "droid") {
+							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " gives their pet an order (1d20 Computers: " + String::valueOf(diceRoll) + " + " + String::valueOf(diceMod) + " = " + String::valueOf(diceRoll + diceMod) + " vs. DC: " + String::valueOf(skillDC) + ") at a cost of " + String::valueOf(amount) + "AP.");
+						}
+						else {
+							BorrieRPG::BroadcastMessage(creature, creature->getFirstName() + " gives their pet an order (1d20 Survival: " + String::valueOf(diceRoll) + " + " + String::valueOf(diceMod) + " = " + String::valueOf(diceRoll + diceMod) + " vs. DC: " + String::valueOf(skillDC) + ") at a cost of " + String::valueOf(amount) + "AP.");
+						}
+					}
 				}
 				
 			}

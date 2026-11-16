@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_dune_lizard_deed = object_tangible_deed_pet_deed_s
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_dune_lizard_deed, "object/tangible/deed/pet_deed/dune_lizard_deed.iff")

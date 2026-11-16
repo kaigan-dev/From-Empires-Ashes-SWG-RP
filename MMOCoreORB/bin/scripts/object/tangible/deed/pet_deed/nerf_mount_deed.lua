@@ -33,6 +33,7 @@ object_tangible_deed_pet_deed_nerf_mount_deed = object_tangible_deed_pet_deed_sh
 	canDodge = 0,
 	canBlock = 1,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_nerf_mount_deed, "object/tangible/deed/pet_deed/nerf_mount_deed.iff")

@@ -73,6 +73,7 @@ object_tangible_deed_pet_deed_bol_deed = object_tangible_deed_pet_deed_shared_bo
 	canBlock = 1,
 	canParry = 0,
 
+	petType = "creature",
 	
 }
 

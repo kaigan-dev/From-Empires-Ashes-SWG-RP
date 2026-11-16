@@ -71,6 +71,7 @@ object_tangible_deed_pet_deed_rancor_deed = object_tangible_deed_pet_deed_shared
 	canDodge = 0,
 	canBlock = 0,
 	canParry = 1,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_rancor_deed, "object/tangible/deed/pet_deed/rancor_deed.iff")

@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_bantha_baby_deed = object_tangible_deed_pet_deed_s
 	canBlock = 0,
 	canParry = 0,
 
+	petType = "creature",
 	
 	
 }

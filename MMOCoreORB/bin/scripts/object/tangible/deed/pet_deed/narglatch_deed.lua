@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_narglatch_deed = object_tangible_deed_pet_deed_sha
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_narglatch_deed, "object/tangible/deed/pet_deed/narglatch_deed.iff")

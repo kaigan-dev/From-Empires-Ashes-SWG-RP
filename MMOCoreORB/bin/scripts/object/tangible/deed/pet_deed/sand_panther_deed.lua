@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_sand_panther_deed = object_tangible_deed_pet_deed_
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_sand_panther_deed, "object/tangible/deed/pet_deed/sand_panther_deed.iff")

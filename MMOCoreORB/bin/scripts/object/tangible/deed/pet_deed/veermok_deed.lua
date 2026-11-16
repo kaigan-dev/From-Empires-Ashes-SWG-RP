@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_veermok_deed = object_tangible_deed_pet_deed_share
 	canDodge = 0,
 	canBlock = 0,
 	canParry = 1,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_veermok_deed, "object/tangible/deed/pet_deed/veermok_deed.iff")

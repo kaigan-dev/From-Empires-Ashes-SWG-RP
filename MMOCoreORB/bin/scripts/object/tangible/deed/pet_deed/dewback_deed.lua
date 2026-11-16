@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_dewback_deed = object_tangible_deed_pet_deed_share
 	canDodge = 0,
 	canBlock = 1,
 	canParry = 0,
+	petType = "creature",
 	
 }
 

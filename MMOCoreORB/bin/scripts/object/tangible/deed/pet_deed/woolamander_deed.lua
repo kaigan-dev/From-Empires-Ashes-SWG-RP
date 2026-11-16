@@ -73,6 +73,7 @@ object_tangible_deed_pet_deed_woolamander_deed = object_tangible_deed_pet_deed_s
 	canDodge = 0,
 	canBlock = 1,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_woolamander_deed, "object/tangible/deed/pet_deed/woolamander_deed.iff")

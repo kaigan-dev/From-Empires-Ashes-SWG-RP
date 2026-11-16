@@ -31,6 +31,7 @@ object_tangible_deed_pet_deed_eopie_baby_deed = object_tangible_deed_pet_deed_sh
 	canDodge = 0,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_eopie_baby_deed, "object/tangible/deed/pet_deed/eopie_baby_deed.iff")

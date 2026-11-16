@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_hermit_spider_deed = object_tangible_deed_pet_deed
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_hermit_spider_deed, "object/tangible/deed/pet_deed/hermit_spider_deed.iff")

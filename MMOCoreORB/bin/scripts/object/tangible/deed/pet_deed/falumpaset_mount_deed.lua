@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_falumpaset_mount_deed = object_tangible_deed_pet_d
 	canDodge = 0,
 	canBlock = 1,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_falumpaset_mount_deed, "object/tangible/deed/pet_deed/falumpaset_mount_deed.iff")

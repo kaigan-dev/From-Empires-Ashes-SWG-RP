@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_choku_deed = object_tangible_deed_pet_deed_shared_
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_choku_deed, "object/tangible/deed/pet_deed/choku_deed.iff")

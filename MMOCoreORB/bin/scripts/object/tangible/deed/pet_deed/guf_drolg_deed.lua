@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_guf_drolg_deed = object_tangible_deed_pet_deed_sha
 	canDodge = 0,
 	canBlock = 1,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_guf_drolg_deed, "object/tangible/deed/pet_deed/guf_drolg_deed.iff")

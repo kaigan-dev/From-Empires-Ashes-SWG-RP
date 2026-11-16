@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_kima_deed = object_tangible_deed_pet_deed_shared_k
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_kima_deed, "object/tangible/deed/pet_deed/kima_deed.iff")

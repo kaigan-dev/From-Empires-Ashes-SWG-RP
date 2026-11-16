@@ -72,6 +72,7 @@ object_tangible_deed_pet_deed_angler_deed = object_tangible_deed_pet_deed_shared
 	canBlock = 0,
 	canParry = 0,
 	
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_angler_deed, "object/tangible/deed/pet_deed/angler_deed.iff")

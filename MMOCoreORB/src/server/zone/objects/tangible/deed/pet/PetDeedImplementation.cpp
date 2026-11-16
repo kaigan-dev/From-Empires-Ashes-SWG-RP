@@ -57,6 +57,7 @@ void PetDeedImplementation::loadTemplateData(SharedObjectTemplate* templateData)
 	dodgeFlag = deedData->canDodge();
 	blockFlag = deedData->canBlock();
 	parryFlag = deedData->canParry();
+	petType = deedData->checkPetType();
 }
 
 void PetDeedImplementation::fillAttributeList(AttributeListMessage* alm, CreatureObject* object) {
@@ -598,6 +599,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		pet->setStoredInt("canAttackType3", attackType3Flag   );
 		pet->setStoredInt("canAttackType4", attackType4Flag  );
 		pet->setStoredInt("canAttackType5", attackType5Flag  );
+		pet->setStoredInt("petType", petType  );
 		
 
 		if(blockFlag == 1) {

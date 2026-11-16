@@ -29,6 +29,7 @@ object_tangible_deed_pet_deed_cu_pa_mount_deed = object_tangible_deed_pet_deed_s
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_cu_pa_mount_deed, "object/tangible/deed/pet_deed/cu_pa_mount_deed.iff")

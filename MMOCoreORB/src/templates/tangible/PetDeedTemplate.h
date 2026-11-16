@@ -17,6 +17,7 @@ private:
 	String skillTemplate;
 	String equipmentTemplate;
 	String petRarity;
+	String petType;
 	int mountable = 0;
 	int healCost = 20;
 	int babyFlag = 0;
@@ -90,6 +91,9 @@ public:
 		return petRarity;
 	}
 
+	String checkPetType() const {
+		return petType;
+	}
 
 	int canPowerAttack () const {
 		return powerAttackFlag ;

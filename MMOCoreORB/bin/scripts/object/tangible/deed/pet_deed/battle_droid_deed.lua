@@ -29,6 +29,7 @@ object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_
 	canDodge = 1,
 	canBlock = 0,
 	canParry = 0,
+	petType = "droid",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_battle_droid_deed, "object/tangible/deed/pet_deed/battle_droid_deed.iff")

@@ -71,6 +71,7 @@ object_tangible_deed_pet_deed_bantha_mount_deed = object_tangible_deed_pet_deed_
 	canDodge = 0,
 	canBlock = 1,
 	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_mount_deed, "object/tangible/deed/pet_deed/bantha_mount_deed.iff")
