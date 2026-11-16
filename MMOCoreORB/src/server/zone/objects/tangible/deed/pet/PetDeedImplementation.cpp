@@ -599,7 +599,7 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		pet->setStoredInt("canAttackType3", attackType3Flag   );
 		pet->setStoredInt("canAttackType4", attackType4Flag  );
 		pet->setStoredInt("canAttackType5", attackType5Flag  );
-		pet->setStoredInt("petType", petType  );
+		pet->setStoredString("petType", petType  );
 		
 
 		if(blockFlag == 1) {

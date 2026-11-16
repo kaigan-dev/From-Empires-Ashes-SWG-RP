@@ -261,6 +261,10 @@ public:
 				
 			}
 			else if(command == "petaction" || command == "petact") {
+				if (ghost->getActivePetsSize() == 0) {
+					creature->sendSystemMessage("You don't have an active pet to give commands to.");
+					return GENERALERROR;
+				}
 				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 					ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
 					int skillDC = 10;
