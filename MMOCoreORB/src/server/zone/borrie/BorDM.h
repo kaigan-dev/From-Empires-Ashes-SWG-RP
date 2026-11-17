@@ -11,11 +11,21 @@
 class BorDM : public Logger {
 public:
 	static void sendMessage(CreatureObject* creature, const uint64& target, int adminLevelCheck, String arguments) {
+		if (target == 0) {
+			creature->sendSystemMessage("Invalid target.");
+			return;
+		}
+		
 		ManagedReference<SceneObject*> object = creature->getZoneServer()->getObject(target, false);
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 		if (object == nullptr) {
 			creature->sendSystemMessage("Target required for /dm msg commands");
+			return;
+		}
+
+		if (object->asCreatureObject() == nullptr) {
+			creature->sendSystemMessage("Target must be a creature.");
 			return;
 		}
 

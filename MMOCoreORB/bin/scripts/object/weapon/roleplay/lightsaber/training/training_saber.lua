@@ -1,5 +1,6 @@
 object_weapon_roleplay_lightsaber_training_training_saber = object_weapon_melee_plasma_saber_sword_shared_sword_saber_starcruiser:new {
 	
+	customName = "Training Saber",
 
 	attackType = MELEEATTACK,
 	damageType = STUN,
@@ -15,8 +16,8 @@ object_weapon_roleplay_lightsaber_training_training_saber = object_weapon_melee_
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	rarity = "Epic",
-	itemValue = 20000,
+	rarity = "Rare",
+	itemValue = 3000,
 
 	childObjects = {
 		{templateFile = "object/tangible/inventory/lightsaber_inventory_2.iff", x = 0, z = 0, y = 0, ox = 0, oy = 0, oz = 0, ow = 0, cellid = -1, containmentType = 4}

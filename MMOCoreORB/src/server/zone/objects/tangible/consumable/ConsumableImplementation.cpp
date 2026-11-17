@@ -115,6 +115,10 @@ int ConsumableImplementation::handleObjectMenuSelect(CreatureObject* player, byt
 		return TangibleObjectImplementation::handleObjectMenuSelect(player, selectedID);
 	}
 
+	if (selectedID == 20) {
+		return 0;
+	}
+
 	if (speciesRestriction == "pets") {
 		player->sendSystemMessage("@error_message:pets_only"); //That food is only suitable for pets.
 		return 0;

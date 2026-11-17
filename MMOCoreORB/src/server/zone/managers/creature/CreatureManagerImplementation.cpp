@@ -997,7 +997,8 @@ void CreatureManagerImplementation::tame(Creature* creature, CreatureObject* pla
 	ManagedReference<PlayerManager*> playerManager = zoneServer->getPlayerManager();
 
 	int numberStored = 0;
-	int maxStoredPets = playerManager->getBaseStoredCreaturePets() + player->getSkillMod("stored_pets");
+	//int maxStoredPets = playerManager->getBaseStoredCreaturePets() + player->getSkillMod("stored_pets");
+	int maxStoredPets = 4;
 
 	for (int i = 0; i < datapad->getContainerObjectsSize(); ++i) {
 		ManagedReference<SceneObject*> object = datapad->getContainerObject(i);

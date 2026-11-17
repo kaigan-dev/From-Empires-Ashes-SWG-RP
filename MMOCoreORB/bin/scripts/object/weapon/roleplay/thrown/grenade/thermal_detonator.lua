@@ -18,7 +18,7 @@ object_weapon_roleplay_thrown_grenade_thermal_detonator = object_weapon_ranged_g
 	--Damage (minDamage[d]maxDamage) i.e. (2d20)
 	minDamage = 6, --Amount of Die used in Damage
 	maxDamage = 6, --Type of Die used in Damage
-	bonusDamage = 2,
+	bonusDamage = 0,
 
 	pointBlankRange = 4,
 	pointBlankAccuracy = 5,

@@ -383,7 +383,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		ManagedReference<PlayerManager*> playerManager = player->getZoneServer()->getPlayerManager();
 
 		int numberStored = 0;
-		int maxStoredPets = playerManager->getBaseStoredCreaturePets() + player->getSkillMod("stored_pets");
+		//int maxStoredPets = playerManager->getBaseStoredCreaturePets() + player->getSkillMod("stored_pets");
+		int maxStoredPets = 4;
 
 		for (int i = 0; i < datapad->getContainerObjectsSize(); ++i) {
 			ManagedReference<SceneObject*> object = datapad->getContainerObject(i);
@@ -414,7 +415,8 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 
 			if (object != nullptr && object->isCreature()) {
 				if (++currentlySpawned >= maxPets) {
-					player->sendSystemMessage("@pet/pet_menu:too_many"); // You can't control any more pets. Store one first
+					//player->sendSystemMessage("@pet/pet_menu:too_many"); // You can't control any more pets. Store one first
+					player->sendSystemMessage("You must store your active pet before receiving a new one.");
 					return 1;
 				}
 
@@ -554,10 +556,15 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 		datapad->broadcastObject(controlDevice, true);
 		controlDevice->callObject(player);
 
-		BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(4));
+		BorUtil::ApplyEquipmentTemplateToPet(player, pet, equipmentTemplate);
 
-		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
-		controlDevice->storeObject(player);
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		//controlDevice->storeObject(player);
+	
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		//BorUtil::ApplyEquipmentTemplateToPet(pet, equipmentTemplate);
+		//BorUtil::ApplyEquipmentTemplateToNPC(player, pet, equipmentTemplate);
 		
 
 		//Remove the deed from it's container.
@@ -567,12 +574,11 @@ int PetDeedImplementation::handleObjectMenuSelect(CreatureObject* player, byte s
 			destroyObjectFromWorld(true);
 		}
 
-		std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
-		controlDevice->callObject(player);
+		//std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::seconds(2));
+		//controlDevice->callObject(player);
 
 		generated = true;
 		player->sendSystemMessage("@pet/pet_menu:device_added"); // "A control device has been added to your datapad."
-
 		return 0;
 	}
 
@@ -614,11 +620,10 @@ bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObjec
 	mind = ham;
 	regen = DnaManager::instance()->valueForLevel(DnaManager::REG_LEVEL,oldLevel);
 	float dps = DnaManager::instance()->valueForLevel(DnaManager::DPS_LEVEL,oldLevel);
-	/*  Remove anything that sets damage, just in case.
 	damageMin = round((dps * 2.0) * 0.5);
 	attackSpeed = 2.0;
 	damageMax = round((dps * 2.0) * 1.5);
-	*/
+	
 	chanceHit = DnaManager::instance()->valueForLevel(DnaManager::HIT_LEVEL,oldLevel);
 
 	// Adjust Armor Now

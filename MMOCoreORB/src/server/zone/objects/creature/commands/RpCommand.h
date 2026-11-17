@@ -81,6 +81,27 @@ public:
 						creature->sendSystemMessage("Your To-Hit DC against " + object->getCustomObjectName() + " is currently " + String::valueOf(dc));
 					}					
 				}	
+			} else if(command == "pettohit") {
+				ManagedReference<AiAgent*> pet;
+        		for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+					pet = ghost->getActivePet(i);
+					if(pet->asCreatureObject()->isDead()) {
+						creature->sendSystemMessage("Your pet can't attack while dead.");
+			    		return SUCCESS;
+            		}
+				}
+
+        		if (pet == nullptr) {
+					creature->sendSystemMessage("You can't have your pet attack without an active pet.");
+					return SUCCESS;
+        		}
+				
+				if(object != nullptr) {
+					if(object->isCreatureObject()) {
+						int dc = BorCombat::GetToHitModifier(pet->asCreatureObject(), object->asCreatureObject(), pet->asCreatureObject()->getWeapon()) + 10;
+						creature->sendSystemMessage("Your pet's To-Hit DC against " + object->getCustomObjectName() + " is currently " + String::valueOf(dc));
+					}					
+				}
 			}else if(command == "inspect") {
 				BorCharacter::InspectPlayer(creature, creature);					
 			} else if(command == "cprefix") {
@@ -119,7 +140,7 @@ public:
 					BorrieRPG::SwitchCFE(creature, CFEtarget);
 				}
 				else {
-					creature->sendSystemMessage("You must provide the destination weapon type. ie. '/switchcfe pistol'. Valid types include pistol, carbine, rifle, and sniper.");
+					creature->sendSystemMessage("You must provide the destination weapon type. ie. '/rp switchcfe pistol'. Valid types include pistol, carbine, rifle, and sniper.");
 					return GENERALERROR;
 				}
 			} else if(command == "faction") {
@@ -138,7 +159,14 @@ public:
 			}else if (BorrieRPG::GetChatTypeID(command) != -1) {
 				if (args.hasMoreTokens()) {
 					String speech = arguments.toString().subString(1 + command.length(), arguments.toString().length());
-					BorNPC::SpeakThroughNPC(creature, server->getZoneServer()->getObject(target, false), false, speech, BorrieRPG::GetChatTypeID(command));
+					if(target == 0) {
+						SceneObject* targetObject = cast<SceneObject*>(creature);
+						BorNPC::SpeakThroughNPC(creature, targetObject, false, speech, BorrieRPG::GetChatTypeID(command));
+					}
+					else {
+						BorNPC::SpeakThroughNPC(creature, server->getZoneServer()->getObject(target, false), false, speech, BorrieRPG::GetChatTypeID(command));
+					}
+					
 				} else {
 					creature->sendSystemMessage("Speech command requires you to say something!");
 				}
