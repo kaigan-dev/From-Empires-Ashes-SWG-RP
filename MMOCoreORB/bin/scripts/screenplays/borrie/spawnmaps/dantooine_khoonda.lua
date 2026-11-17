@@ -617,6 +617,16 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
 
-    --Melee Vendor Light
+	--Mount Vendor
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 1001.2, 4.6, -1157.9, -87, "dressed_squad_leader_trainer_01", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Druv Vamk (a Pet Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "mount")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mounts_tatooine")
+    
+	--Droid Vendor
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -11.7, 1.1, -12.0, 6, 610040007, "dressed_tatooine_windom_starkiller", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Robmo Sillet (a Droid Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_droids")
 	
 end
