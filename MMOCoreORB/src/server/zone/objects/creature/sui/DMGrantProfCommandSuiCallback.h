@@ -63,6 +63,8 @@ public:
 				box->addMenuItem("Fallen"); // 11
 				box->addMenuItem("Nightsister"); // 12
 				box->addMenuItem("Juggernaut"); // 13
+				box->addMenuItem("Hand"); // 14
+				box->addMenuItem("Inquisitor"); // 15
 			}
 			else {
 				selection=1;
@@ -94,6 +96,7 @@ public:
 				box->addMenuItem("Physician"); // 25
 				box->addMenuItem("Rogue"); // 26
 				box->addMenuItem("Slicer"); // 27
+				box->addMenuItem("Thief"); // 28
 	
 			}
 		
@@ -164,6 +167,14 @@ public:
 				else if (index == 13) {
 					profName = "Juggernaut";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_Juggernaut");
+				}
+				else if (index == 14) {
+					profName = "Hand";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_hand");
+				}
+				else if (index == 15) {
+					profName = "Inquisitor";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_inquisitor");
 				}
 			}
 			else {
@@ -279,6 +290,10 @@ public:
 					profName = "slicer";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_slicer");
 				}
+				else if (index == 28) {
+					profName = "Thief";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_thief");
+				}
 			}
 
 			trainingLevel += 1;  //The target level will always be current level +1
@@ -377,6 +392,16 @@ public:
 					profName = "Juggernaut";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_juggernaut");
 					skillName = "rp_training_juggernaut";
+				}
+				else if (profCode == 14) {
+					profName = "Hand";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_hand");
+					skillName = "rp_training_hand";
+				}
+				else if (profCode == 15) {
+					profName = "Inquisitor";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_inquisitor");
+					skillName = "rp_training_inquisitor";
 				}
 		}
 		else {  //If not forceProfFlag
@@ -519,6 +544,11 @@ public:
 					profName = "Slicer";
 					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_slicer");
 					skillName = "rp_training_slicer";
+				}
+				else if (profCode == 28) {
+					profName = "Thief";
+					trainingLevel = skillManager->getTrainingSkillRank(storedTarget, "rp_training_thief");
+					skillName = "rp_training_thief";
 				}
 		}
 

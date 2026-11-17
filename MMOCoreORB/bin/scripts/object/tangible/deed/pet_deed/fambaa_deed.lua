@@ -57,6 +57,22 @@ object_tangible_deed_pet_deed_fambaa_deed = object_tangible_deed_pet_deed_shared
 	generatedObjectTemplate = "mobile/pet/fambaa_be.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/fambaa_hue.iff",
 	mobileTemplate = "fambaa_be",	
+
+	isMountable = 0,
+	skillTemplate = "pets/epic/large",
+	equipmentTemplate = "creature_large",
+	isBaby = 1,
+	rarity = "Epic",
+	canPowerAttack = 1,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 0,
+	canBlock = 1,
+	canParry = 0,
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_fambaa_deed, "object/tangible/deed/pet_deed/fambaa_deed.iff")

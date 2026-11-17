@@ -155,7 +155,7 @@ public:
 		objectManager->persistSceneObjectsRecursively(creature, 1);
 
 		if (adult) {
-			controlDevice->growPet(player, true, true);
+			//controlDevice->growPet(player, true, true);
 		}
 
 		creature->setControlDevice(controlDevice);
@@ -168,7 +168,7 @@ public:
 		else
 			creature->setPvpStatusBitmask(player->getPvpStatusBitmask(), false);
 
-		creature->setBaby(false);
+		//creature->setBaby(false);
 
 		if (creature->isAiAgent()) {
 			AiAgent* agent = cast<AiAgent*>(creature.get());

@@ -51,10 +51,12 @@ public:
 
 		Locker locker(device);
 
+		/*
 		if (otherPressed)
 			device->growPet(player, true);
 		else
 			device->arrestGrowth();
+			*/
 
 	}
 };

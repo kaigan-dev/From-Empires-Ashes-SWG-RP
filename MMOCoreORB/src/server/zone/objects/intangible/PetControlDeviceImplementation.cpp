@@ -117,8 +117,10 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 		return;
 	}
 
+	/*
 	if (!growPet(player))
 		return;
+	*/
 
 	if (petType == PetManager::CREATUREPET && !isValidPet(pet)) {
 		ManagedReference<SuiMessageBox*> box = new SuiMessageBox(player,SuiWindowType::PET_FIX_DIALOG);

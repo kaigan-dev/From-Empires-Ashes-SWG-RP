@@ -57,7 +57,22 @@ object_tangible_deed_pet_deed_angler_deed = object_tangible_deed_pet_deed_shared
 	controlDeviceObjectTemplate = "object/intangible/pet/angler_hue.iff",
 	mobileTemplate = "angler_be",	
 	
+	isMountable = 0,
+	skillTemplate = "pets/rare/small",
+	equipmentTemplate = "creature_venomous",
+	isBaby = 0,
+	rarity = "Rare",
+	canPowerAttack = 0,
+	canFlurryAttack = 1,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
 	
+	petType = "creature",
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_angler_deed, "object/tangible/deed/pet_deed/angler_deed.iff")

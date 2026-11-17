@@ -92,6 +92,11 @@ public:
 			return false;
 		}
 
+		if(creatureTarget->isPet()) {
+			creature->sendSystemMessage("Pets can only be healed with /rest pet.");
+			return false;
+		}
+
 		if (creature->getHAM(CreatureAttribute::ACTION) < 1 && creature->getHAM(CreatureAttribute::MIND) < 2) {
 			creature->sendSystemMessage("You do not have enough action or will to do that.");
 			return false;
@@ -179,6 +184,11 @@ public:
 
 		if (creature != targetCreature && !CollisionManager::checkLineOfSight(creature, targetCreature)) {
 			creature->sendSystemMessage("@healing:no_line_of_sight"); // You cannot see your target.
+			return GENERALERROR;
+		}
+
+		if (targetCreature->isPet()) {
+			creature->sendSystemMessage("Pets can only be healed with /rest pet.");
 			return GENERALERROR;
 		}
 
