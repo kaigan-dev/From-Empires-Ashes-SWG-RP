@@ -5836,3 +5836,9 @@ object_tangible_deed_pet_deed_shared_cu_pa_mount_deed = SharedTangibleObjectTemp
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_cu_pa_mount_deed, "object/tangible/deed/pet_deed/shared_cu_pa_mount_deed.iff")
+
+object_tangible_deed_pet_deed_shared_guardian_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_guardian_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_guardian_droid_deed, "object/tangible/deed/pet_deed/shared_guardian_droid_deed.iff")

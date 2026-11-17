@@ -257,16 +257,17 @@ function DantooineKhoondaScreenPlay:spawnCivilians()
         {-1.9, 0.3, 5, 244, 610039944,{"social"}},
         {-3.7, 0.2, 4.2, 69, 610039944,{"social"}},
         {-2.8, 0.2, 3.2, 35, 610039944,{"drinker"}},
-        {-7, 0.2, -0.9,33, 610039944,{"sitchait"}},
-        {-5.4, 0.2, 1.2, 112, 610039944,{"sitchair"}},
+        {-7, 0.2, -0.9,33, 610039944,{"sitchair"}},
+        {-5.4, 0.2, 1.2, -147, 610039944,{"sitchair"}},
         {-7, 0.2, 1, 140, 610039944,{"sitchair"}},
         {-1.6, -0.7, -4.5, 196, 610039944,{"sitchair"}},
         {-1, -0.7, -6.6, 321, 610039944,{"sitchair"}},
-        {-4.5, -0.7, -12.6, 266, 610039944,{"sitchair"}},
+        {-4.5, -0.7, -12.6, 99, 610039944,{"sitchair"}},
         {4.6, -0.7, -11.8, 294, 610039944,{"sitchair"}},
         {7, -0.7, -7.4, 133, 610039944,{"sitchair"}},
         {5, -0.7, -8.8, 55, 610039944,{"sitchair"}},
-        {6, -0.7, 9.5, 0, 610039944,{"sitchair"}},
+--      {6, -0.7, 9.5, 0, 610039944,{"sitchair"}}, -- This is the one that was infinity walking.
+        {6, -0.7, -9.5, 0, 610039944,{"sitchair"}},
         {2.8, 0.2, 3.2, 318, 610039944,{"drinker"}},
         {0, 0, -11.6, -1, 610039944,{"groove_01"}},
 
@@ -616,6 +617,16 @@ function DantooineKhoondaScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:theme", "ship_cheap")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_ship_cheap")
 
-    --Melee Vendor Light
+	--Mount Vendor
+	pNpc = spawnRoleplayMobile("rp_dantooine", "rp_convo_npc", 1, 1001.2, 4.6, -1157.9, -87, 0, "dressed_squad_leader_trainer_01", "default", "default", "random", "rpg_shopkeeper") 
+	SceneObject(pNpc):setCustomObjectName("Druv Vamk (a Pet Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "mount")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_mounts_tatooine")
+    
+	--Droid Vendor
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, -11.7, 1.1, -12.0, 6, 610040007, "dressed_tatooine_windom_starkiller", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Robmo Sillet (a Droid Vendor)")
+	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
+	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_droids")
 	
 end

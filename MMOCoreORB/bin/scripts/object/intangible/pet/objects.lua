@@ -7813,3 +7813,9 @@ object_intangible_pet_shared_bantha_armored = SharedIntangibleObjectTemplate:new
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_bantha_armored, "object/intangible/pet/shared_bantha_armored.iff")
+
+object_intangible_pet_shared_guardian_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_guardian_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_guardian_droid, "object/intangible/pet/shared_guardian_droid.iff")

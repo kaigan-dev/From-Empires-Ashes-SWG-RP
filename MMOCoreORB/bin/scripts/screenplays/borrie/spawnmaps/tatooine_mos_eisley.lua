@@ -1010,8 +1010,8 @@ function RpTatooineMosEisleyScreenPlay:spawnMobiles()
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_specialty")
 
 	--Droid Vendor
-	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 0.5, 0.408271, -7.3, -7, 610008479, "rp_rodian_male", "eisley_specialty_shop_beebo", "default", "eisley_specialty_shop_beebo", "rpg_shopkeeper")
-	SceneObject(pNpc):setCustomObjectName("Biibo (a Droid Vendor)")
+	pNpc = spawnRoleplayMobile("rp_tatooine", "rp_convo_npc", 1, 0.5, 0.408271, -7.3, -7, 610008479, "dressed_squad_leader_trainer_03", "default", "default", "random", "rpg_shopkeeper")
+	SceneObject(pNpc):setCustomObjectName("Sorink Givmo (a Droid Vendor)")
 	SceneObject(pNpc):setStoredString("vendor:theme", "specialty")
 	SceneObject(pNpc):setStoredString("vendor:shopList", "shop_droids")
 	
