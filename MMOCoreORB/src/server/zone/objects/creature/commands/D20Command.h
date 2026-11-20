@@ -80,7 +80,6 @@ public:
 						}
 						else
 							targetCreature = creature;
-						}
 					}
 				}
 			}
