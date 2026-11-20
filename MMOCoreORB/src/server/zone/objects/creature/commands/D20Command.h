@@ -75,7 +75,7 @@ public:
 						//creature->sendSystemMessage("DEBUG: Your target is a creature.");
 						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 							pet = ghost->getActivePet(i);
-							if(creature == object->isCreatureObject()->getLinkedCreature().get();)
+							if(creature == object->isCreatureObject()->getLinkedCreature().get())
 								targetCreature = object->asCreatureObject();
 						}
 						else
