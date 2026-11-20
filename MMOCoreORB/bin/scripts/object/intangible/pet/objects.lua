@@ -7843,3 +7843,9 @@ object_intangible_pet_shared_LE_repair_droid = SharedIntangibleObjectTemplate:ne
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_LE_repair_droid, "object/intangible/pet/shared_LE_repair_droid.iff")
+
+object_intangible_pet_shared_WED_treadwell = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_WED_treadwell.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_WED_treadwell, "object/intangible/pet/shared_WED_treadwell.iff")

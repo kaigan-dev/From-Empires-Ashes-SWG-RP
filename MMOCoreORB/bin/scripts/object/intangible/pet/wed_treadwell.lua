@@ -41,8 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_intangible_pet_wed_treadwell = object_intangible_pet_shared_wed_treadwell:new {
+object_intangible_pet_WED_treadwell = object_intangible_pet_shared_WED_treadwell:new {
 
 }
 
-ObjectTemplates:addTemplate(object_intangible_pet_wed_treadwell, "object/intangible/pet/wed_treadwell.iff")
+ObjectTemplates:addTemplate(object_intangible_pet_WED_treadwell, "object/intangible/pet/WED_treadwell.iff")
