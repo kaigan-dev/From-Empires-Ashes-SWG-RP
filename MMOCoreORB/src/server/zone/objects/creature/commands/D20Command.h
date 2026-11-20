@@ -63,22 +63,22 @@ public:
 				} else 
 					targetCreature = creature;
 			} else if(creature->getStoredInt("block_target_rolling") != 1) {
-				creature->sendSystemMessage("DEBUG: You are not an admin.");
+				//creature->sendSystemMessage("DEBUG: You are not an admin.");
 				if (target != 0) {
-					creature->sendSystemMessage("DEBUG: You have a target.");
+					//creature->sendSystemMessage("DEBUG: You have a target.");
 					object = server->getZoneServer()->getObject(target, false);
 					//if (object->isCreatureObject())
 					if (object == nullptr) {
-						creature->sendSystemMessage("DEBUG: Your target is null though.");
+						//creature->sendSystemMessage("DEBUG: Your target is null though.");
 						targetCreature = creature;
 					}
 					if (object->isCreatureObject()) {
-						creature->sendSystemMessage("DEBUG: Your target is a creature.");
+						//creature->sendSystemMessage("DEBUG: Your target is a creature.");
 						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 							pet = ghost->getActivePet(i);
 							if(creature == object->asCreatureObject()->getLinkedCreature().get()) {
 								targetCreature = object->asCreatureObject();
-								creature->sendSystemMessage("DEBUG: You own the target creature. Setting it as the target for rolling.");
+								//creature->sendSystemMessage("DEBUG: You own the target creature. Setting it as the target for rolling.");
 								rollOtherFlag = true;
 							} else {
 								targetCreature = creature;
