@@ -7819,3 +7819,27 @@ object_intangible_pet_shared_guardian_droid = SharedIntangibleObjectTemplate:new
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_guardian_droid, "object/intangible/pet/shared_guardian_droid.iff")
+
+object_intangible_pet_shared_astromech_r3_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_astromech_r3_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_astromech_r3_droid, "object/intangible/pet/shared_astromech_r3_droid.iff")
+
+object_intangible_pet_shared_astromech_r4_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_astromech_r4_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_astromech_r4_droid, "object/intangible/pet/shared_astromech_r4_droid.iff")
+
+object_intangible_pet_shared_astromech_r5_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_astromech_r5_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_astromech_r5_droid, "object/intangible/pet/shared_astromech_r5_droid.iff")
+
+object_intangible_pet_shared_LE_repair_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_LE_repair_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_LE_repair_droid, "object/intangible/pet/shared_LE_repair_droid.iff")

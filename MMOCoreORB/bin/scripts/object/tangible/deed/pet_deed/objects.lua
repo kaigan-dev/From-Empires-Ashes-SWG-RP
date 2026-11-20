@@ -5842,3 +5842,27 @@ object_tangible_deed_pet_deed_shared_guardian_droid_deed = SharedTangibleObjectT
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_guardian_droid_deed, "object/tangible/deed/pet_deed/shared_guardian_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_astromech_r3_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_astromech_r3_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_astromech_r3_droid_deed, "object/tangible/deed/pet_deed/shared_astromech_r3_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_astromech_r4_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_astromech_r4_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_astromech_r4_droid_deed, "object/tangible/deed/pet_deed/shared_astromech_r4_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_astromech_r5_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_astromech_r5_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_astromech_r5_droid_deed, "object/tangible/deed/pet_deed/shared_astromech_r5_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_LE_repair_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_LE_repair_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_LE_repair_droid_deed, "object/tangible/deed/pet_deed/shared_LE_repair_droid_deed.iff")

@@ -25,7 +25,7 @@ protocol_droid = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/3po_protocol_droid.iff"},
+	templates = {"object/mobile/3po_protocol_droid_crafted.iff"},
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",
