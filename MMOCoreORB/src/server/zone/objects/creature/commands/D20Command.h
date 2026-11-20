@@ -78,13 +78,14 @@ public:
 							if(creature == object->asCreatureObject()->getLinkedCreature().get()) {
 								targetCreature = object->asCreatureObject();
 								creature->sendSystemMessage("DEBUG: You own the target creature. Setting it as the target for rolling.");
-							}
-							else
+							} else {
 								targetCreature = creature;
+							}
 						}
 					}
-					else
+					else {
 						targetCreature = creature;
+					}
 				}
 			}
 			
