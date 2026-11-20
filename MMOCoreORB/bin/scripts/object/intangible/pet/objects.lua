@@ -7849,3 +7849,9 @@ object_intangible_pet_shared_WED_treadwell = SharedIntangibleObjectTemplate:new 
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_WED_treadwell, "object/intangible/pet/shared_WED_treadwell.iff")
+
+object_intangible_pet_shared_binary_load_lifter = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_binary_load_lifter.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_binary_load_lifter, "object/intangible/pet/shared_binary_load_lifter.iff")
