@@ -62,20 +62,24 @@ public:
 				} else 
 					targetCreature = creature;
 			} else if(creature->getStoredInt("block_target_rolling") != 1) {
+				//creature->sendSystemMessage("DEBUG: You are not an admin.");
 				if (target != 0) {
+					//creature->sendSystemMessage("DEBUG: You have a target.");
 					object = server->getZoneServer()->getObject(target, false);
 					//if (object->isCreatureObject())
 						if (object == nullptr) {
+							//creature->sendSystemMessage("DEBUG: Your target is null though.");
 							targetCreature = creature;
 						}
 					if (object->isCreatureObject()) {
+						//creature->sendSystemMessage("DEBUG: Your target is a creature.");
 						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 							pet = ghost->getActivePet(i);
-							if(pet->asCreatureObject() == object->asCreatureObject()) {
+							if(creature == object->isCreatureObject()->getLinkedCreature().get();)
 								targetCreature = object->asCreatureObject();
-							}
-							else
-								targetCreature = creature;
+						}
+						else
+							targetCreature = creature;
 						}
 					}
 				}
