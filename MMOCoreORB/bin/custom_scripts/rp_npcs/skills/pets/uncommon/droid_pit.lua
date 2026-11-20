@@ -1,7 +1,7 @@
 skillSet = {
     --Astromechs are skilled enough that they may prop up players' weaker skills, but are not suitable for combat.
     --Stats
-    {"rp_awareness",        4, 45}, --Skillmod, min value, max value
+    {"rp_awareness",        4, 4}, --Skillmod, min value, max value
     {"rp_charisma",         1, 1},
     {"rp_constitution",     2, 2},
     {"rp_dexterity",        3, 3},

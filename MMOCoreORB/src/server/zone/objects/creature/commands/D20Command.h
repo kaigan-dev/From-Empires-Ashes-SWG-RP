@@ -43,6 +43,7 @@ public:
 
 			ManagedReference<SceneObject*> object;			  // The Target Object
 			ManagedReference<CreatureObject*> targetCreature; // The Target Object as a Creature
+			ManagedReference<AiAgent*> pet;
 
 			if(adminLevelCheck) {
 				if(creature->getStoredInt("block_target_rolling") != 1) {
@@ -60,8 +61,25 @@ public:
 						targetCreature = creature;
 				} else 
 					targetCreature = creature;
-			} else 
-				targetCreature = creature;
+			} else if(creature->getStoredInt("block_target_rolling") != 1) {
+				if (target != 0) {
+					object = server->getZoneServer()->getObject(target, false);
+					//if (object->isCreatureObject())
+						if (object == nullptr) {
+							targetCreature = creature;
+						}
+					if (object->isCreatureObject()) {
+						for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+							pet = ghost->getActivePet(i);
+							if(pet->asCreatureObject() == object->asCreatureObject()) {
+								targetCreature = object->asCreatureObject();
+							}
+							else
+								targetCreature = creature;
+						}
+					}
+				}
+			}
 			
 
 			String command, Result, secondCommand, thirdCommand;
