@@ -44,6 +44,7 @@ public:
 			ManagedReference<SceneObject*> object;			  // The Target Object
 			ManagedReference<CreatureObject*> targetCreature; // The Target Object as a Creature
 			ManagedReference<AiAgent*> pet;
+			bool rollOtherFlag = false;
 
 			if(adminLevelCheck) {
 				if(creature->getStoredInt("block_target_rolling") != 1) {
@@ -78,6 +79,7 @@ public:
 							if(creature == object->asCreatureObject()->getLinkedCreature().get()) {
 								targetCreature = object->asCreatureObject();
 								creature->sendSystemMessage("DEBUG: You own the target creature. Setting it as the target for rolling.");
+								rollOtherFlag = true;
 							} else {
 								targetCreature = creature;
 							}
@@ -111,7 +113,7 @@ public:
 					HelpDisplay(creature);
 					return SUCCESS;
 				} else if ((BorSkill::GetStringIsSkill(command) || BorSkill::GetStringIsAttribute(command)) && (secondCommand == "" || secondCommand == "secret" || secondCommand == "Secret" || secondCommand == "SECRET")) {     //Roll without Advantage or Disadvantage
-					if(adminLevelCheck > 0) {
+					if(adminLevelCheck > 0 || rollOtherFlag) {
 						if(secondCommand == "secret") {
 							BorrieRPG::BroadcastAmongAdmins(targetCreature, BorDice::RollSkill(targetCreature, command, secondCommand));
 						}
