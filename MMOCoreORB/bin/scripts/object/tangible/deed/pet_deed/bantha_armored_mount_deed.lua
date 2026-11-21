@@ -1,5 +1,5 @@
 
---object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_shared_dewback_deed:new {
+--[[  Not mountable without further research. Use the normal armored bantha or mountable bantha.
 object_tangible_deed_pet_deed_bantha_armored_mount_deed = object_tangible_deed_pet_deed_shared_bantha_armored_deed:new {
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
@@ -32,3 +32,4 @@ object_tangible_deed_pet_deed_bantha_armored_mount_deed = object_tangible_deed_p
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_bantha_armored_mount_deed, "object/tangible/deed/pet_deed/bantha_armored_mount_deed.iff")
+--]]

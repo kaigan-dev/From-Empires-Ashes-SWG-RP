@@ -174,5 +174,5 @@ includeFile("tangible/deed/pet_deed/acklay_deed.lua")
 includeFile("tangible/deed/pet_deed/nuna_deed.lua")
 includeFile("tangible/deed/pet_deed/chuba_deed.lua")
 includeFile("tangible/deed/pet_deed/bantha_armored_deed.lua")
-includeFile("tangible/deed/pet_deed/bantha_armored_mount_deed.lua")
+--includeFile("tangible/deed/pet_deed/bantha_armored_mount_deed.lua")   --Doesn't work with appearance files as-is.
 includeFile("tangible/deed/pet_deed/guardian_droid_deed.lua")
