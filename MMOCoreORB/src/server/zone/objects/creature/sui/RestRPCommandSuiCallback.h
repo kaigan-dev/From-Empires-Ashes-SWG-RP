@@ -96,11 +96,13 @@ public:
 				targetCreature->setStoredInt("hero_point_used", 0);
 				targetCreature->setStoredLong("last_rest", time + 20 * 60 * 60 * 1000); 
 
+				/* Pets previously rested for free but now must use their own paid option below.
 				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 					ManagedReference<AiAgent*> pet = ghost->getActivePet(i);
 					if(!pet->asCreatureObject()->isDead())
 						BorCharacter::FillAllPools(pet->asCreatureObject());
 				}
+				*/
 			}
 			else {
 				targetCreature->sendSystemMessage("You can only perform a long rest in a city, camp, or a building that you have been granted access to.");
