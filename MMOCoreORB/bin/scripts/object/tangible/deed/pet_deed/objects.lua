@@ -5781,11 +5781,20 @@ object_tangible_deed_pet_deed_shared_seeker_droid_deed = SharedTangibleObjectTem
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_seeker_droid_deed, "object/tangible/deed/pet_deed/shared_seeker_droid_deed.iff")
 
+
 object_tangible_deed_pet_deed_shared_basilisk_droid_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff"
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_basilisk_droid_deed, "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff")
+
+
+object_tangible_deed_pet_deed_shared_basilisk_droid_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_basilisk_droid_mount_deed, "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff")
+
 
 object_tangible_deed_pet_deed_shared_blastromech_droid_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_blastromech_droid_deed.iff"
