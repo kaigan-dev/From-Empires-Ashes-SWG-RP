@@ -73,7 +73,7 @@ public:
 
 					for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 						pet = ghost->getActivePet(i);
-						if(creature == object->asCreatureObject()->getLinkedCreature().get()) {   // That is to say, if the player issuing the command owns the target creature.
+						if(creature == targetObject->asCreatureObject()->getLinkedCreature().get()) {   // That is to say, if the player issuing the command owns the target creature.
 							//use NPC method
 							if(targetCreature->isInCombat()) {
 								BorEffect::StopCombat(targetCreature);
