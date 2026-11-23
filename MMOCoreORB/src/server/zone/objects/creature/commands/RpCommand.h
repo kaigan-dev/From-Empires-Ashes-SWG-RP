@@ -333,7 +333,13 @@ public:
 					}
 				}
 				
-			}
+			} else if(command == "petinspect") {
+				ManagedReference<AiAgent*> pet;
+				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
+					pet = ghost->getActivePet(i);
+					//BorCharacter::InspectPlayer(creature, object->asCreatureObject());
+					BorCharacter::InspectPlayer(creature, pet->asCreatureObject());
+				}						
 		} catch (Exception& e) {
 			creature->sendSystemMessage("Invalid arguments for RP command. Help: /rp help");
 			if(adminLevelCheck > 0) {
