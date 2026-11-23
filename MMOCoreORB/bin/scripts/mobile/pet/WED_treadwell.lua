@@ -1,5 +1,5 @@
-WED_treadwell = Creature:new {
-	objectName = "@mob/creature_names:WED_treadwell",
+wed_treadwell = Creature:new {
+	objectName = "@mob/creature_names:wed_treadwell",
 	socialGroup = "falumpaset",
 	faction = "",
 	level = 5,
@@ -33,4 +33,4 @@ WED_treadwell = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(WED_treadwell, "WED_treadwell")
+CreatureTemplates:addCreatureTemplate(wed_treadwell, "wed_treadwell")

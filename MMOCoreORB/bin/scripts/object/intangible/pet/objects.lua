@@ -7838,17 +7838,17 @@ object_intangible_pet_shared_astromech_r5_droid = SharedIntangibleObjectTemplate
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_astromech_r5_droid, "object/intangible/pet/shared_astromech_r5_droid.iff")
 
-object_intangible_pet_shared_LE_repair_droid = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_LE_repair_droid.iff"
+object_intangible_pet_shared_le_repair_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_le_repair_droid.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_LE_repair_droid, "object/intangible/pet/shared_LE_repair_droid.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_le_repair_droid, "object/intangible/pet/shared_le_repair_droid.iff")
 
-object_intangible_pet_shared_WED_treadwell = SharedIntangibleObjectTemplate:new {
-	clientTemplateFileName = "object/intangible/pet/shared_WED_treadwell.iff"
+object_intangible_pet_shared_wed_treadwell = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_wed_treadwell.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_intangible_pet_shared_WED_treadwell, "object/intangible/pet/shared_WED_treadwell.iff")
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_wed_treadwell, "object/intangible/pet/shared_wed_treadwell.iff")
 
 object_intangible_pet_shared_binary_load_lifter = SharedIntangibleObjectTemplate:new {
 	clientTemplateFileName = "object/intangible/pet/shared_binary_load_lifter.iff"

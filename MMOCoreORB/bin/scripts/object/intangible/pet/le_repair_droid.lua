@@ -41,8 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_intangible_pet_LE_repair_droid = object_intangible_pet_shared_LE_repair_droid:new {
+object_intangible_pet_le_repair_droid = object_intangible_pet_shared_le_repair_droid:new {
 
 }
 
-ObjectTemplates:addTemplate(object_intangible_pet_LE_repair_droid, "object/intangible/pet/LE_repair_droid.iff")
+ObjectTemplates:addTemplate(object_intangible_pet_le_repair_droid, "object/intangible/pet/le_repair_droid.iff")

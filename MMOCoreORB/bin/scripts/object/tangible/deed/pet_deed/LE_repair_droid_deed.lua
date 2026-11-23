@@ -1,6 +1,6 @@
 
 --object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_shared_dewback_deed:new {
-object_tangible_deed_pet_deed_LE_repair_droid_deed = object_tangible_deed_pet_deed_shared_LE_repair_droid_deed:new {
+object_tangible_deed_pet_deed_le_repair_droid_deed = object_tangible_deed_pet_deed_shared_le_repair_droid_deed:new {
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
 	experimentalProperties = {"XX", "XX"},
@@ -11,9 +11,9 @@ object_tangible_deed_pet_deed_LE_repair_droid_deed = object_tangible_deed_pet_de
 	experimentalMax = {0, 0},
 	experimentalPrecision = {0, 0},
 	experimentalCombineType = {0, 0},
-	generatedObjectTemplate = "mobile/pet/LE_repair_droid.iff",
-	controlDeviceObjectTemplate = "object/intangible/pet/LE_repair_droid.iff",
-	mobileTemplate = "LE_repair_droid",
+	generatedObjectTemplate = "mobile/pet/le_repair_droid.iff",
+	controlDeviceObjectTemplate = "object/intangible/pet/le_repair_droid.iff",
+	mobileTemplate = "le_repair_droid",
 
 	isMountable = 0,
 	skillTemplate = "pets/uncommon/droid_battle",
@@ -32,4 +32,4 @@ object_tangible_deed_pet_deed_LE_repair_droid_deed = object_tangible_deed_pet_de
 	petType = "droid",
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_LE_repair_droid_deed, "object/tangible/deed/pet_deed/LE_repair_droid_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_le_repair_droid_deed, "object/tangible/deed/pet_deed/le_repair_droid_deed.iff")

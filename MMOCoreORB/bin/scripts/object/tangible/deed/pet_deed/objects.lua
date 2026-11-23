@@ -5861,17 +5861,17 @@ object_tangible_deed_pet_deed_shared_astromech_r5_droid_deed = SharedTangibleObj
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_astromech_r5_droid_deed, "object/tangible/deed/pet_deed/shared_astromech_r5_droid_deed.iff")
 
-object_tangible_deed_pet_deed_shared_LE_repair_droid_deed = SharedTangibleObjectTemplate:new {
-	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_LE_repair_droid_deed.iff"
+object_tangible_deed_pet_deed_shared_le_repair_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_le_repair_droid_deed.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_LE_repair_droid_deed, "object/tangible/deed/pet_deed/shared_LE_repair_droid_deed.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_le_repair_droid_deed, "object/tangible/deed/pet_deed/shared_le_repair_droid_deed.iff")
 
-object_tangible_deed_pet_deed_shared_WED_treadwell_deed = SharedTangibleObjectTemplate:new {
-	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_WED_treadwell_deed.iff"
+object_tangible_deed_pet_deed_shared_wed_treadwell_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_wed_treadwell_deed.iff"
 }
 
-ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_WED_treadwell_deed, "object/tangible/deed/pet_deed/shared_WED_treadwell_deed.iff")
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_wed_treadwell_deed, "object/tangible/deed/pet_deed/shared_wed_treadwell_deed.iff")
 
 object_tangible_deed_pet_deed_shared_binary_load_lifter_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_binary_load_lifter_deed.iff"

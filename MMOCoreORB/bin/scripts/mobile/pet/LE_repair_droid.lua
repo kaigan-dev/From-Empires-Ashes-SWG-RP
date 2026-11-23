@@ -1,5 +1,5 @@
-LE_repair_droid = Creature:new {
-	objectName = "@mob/creature_names:LE_repair_droid",
+le_repair_droid = Creature:new {
+	objectName = "@mob/creature_names:le_repair_droid",
 	socialGroup = "falumpaset",
 	faction = "",
 	level = 5,
@@ -33,4 +33,4 @@ LE_repair_droid = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(LE_repair_droid, "LE_repair_droid")
+CreatureTemplates:addCreatureTemplate(le_repair_droid, "le_repair_droid")

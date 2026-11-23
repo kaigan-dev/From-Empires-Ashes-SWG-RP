@@ -1,6 +1,6 @@
 
 --object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_shared_dewback_deed:new {
-object_tangible_deed_pet_deed_WED_treadwell_deed = object_tangible_deed_pet_deed_shared_WED_treadwell_deed:new {
+object_tangible_deed_pet_deed_wed_treadwell_deed = object_tangible_deed_pet_deed_shared_wed_treadwell_deed:new {
 	templateType = PETDEED,
 	numberExperimentalProperties = {1, 1},
 	experimentalProperties = {"XX", "XX"},
@@ -11,9 +11,9 @@ object_tangible_deed_pet_deed_WED_treadwell_deed = object_tangible_deed_pet_deed
 	experimentalMax = {0, 0},
 	experimentalPrecision = {0, 0},
 	experimentalCombineType = {0, 0},
-	generatedObjectTemplate = "mobile/pet/WED_treadwell.iff",
-	controlDeviceObjectTemplate = "object/intangible/pet/WED_treadwell.iff",
-	mobileTemplate = "WED_treadwell",
+	generatedObjectTemplate = "mobile/pet/wed_treadwell.iff",
+	controlDeviceObjectTemplate = "object/intangible/pet/wed_treadwell.iff",
+	mobileTemplate = "wed_treadwell",
 
 	isMountable = 0,
 	skillTemplate = "pets/uncommon/droid_battle",
@@ -32,4 +32,4 @@ object_tangible_deed_pet_deed_WED_treadwell_deed = object_tangible_deed_pet_deed
 	petType = "droid",
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_WED_treadwell_deed, "object/tangible/deed/pet_deed/WED_treadwell_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_wed_treadwell_deed, "object/tangible/deed/pet_deed/wed_treadwell_deed.iff")
