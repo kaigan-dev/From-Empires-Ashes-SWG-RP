@@ -8,6 +8,6 @@ equipment = {
     {"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_bracer_r.iff", "/private/index_color_2", 23, "/private/index_color_3", 2, },
     {"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_leggings.iff", "/private/index_color_2", 23, },
     {"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_gloves.iff", "/private/index_color_3", 14, },
-    {"object/tangible/wearables/armor/stormtrooper/armor_stormtrooper_boots.iff", "/private/index_color_2", 23, "/private/index_color_3", 2, },
+    {"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_boots.iff", "/private/index_color_2", 23, "/private/index_color_3", 2, },
     {"object/tangible/wearables/armor/roleplay/stormtrooper/armor_stormtrooper_helmet.iff", "/private/index_color_2", 23, "/private/index_color_3", 2, },
 }
