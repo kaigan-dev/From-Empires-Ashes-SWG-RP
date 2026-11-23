@@ -47,7 +47,6 @@ public:
 						//use NPC method
 						if(targetCreature->isInCombat()) {
 							BorEffect::StopCombat(targetCreature);
-							BorEffect::StopCombat(targetCreature);
 						} else {
 							BorEffect::ForceAICombat(targetCreature, creature);
 							//BorEffect::ForceIntoCombat(targetCreature);
@@ -74,11 +73,16 @@ public:
 
 					for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 						pet = ghost->getActivePet(i);
+						creature->sendSystemMessage("DEBUG: You have a pet!");
 						if(creature == targetObject->asCreatureObject()->getLinkedCreature().get()) {   // That is to say, if the player issuing the command owns the target creature.
 							//use NPC method
+							creature->sendSystemMessage("DEBUG: You own your pet!");
 							if(targetCreature->isInCombat()) {
+								creature->sendSystemMessage("DEBUG: Your pet is currently in combat!");
+								BorEffect::StopCombat(targetCreature);
 								BorEffect::StopCombat(targetCreature);
 							} else {
+								creature->sendSystemMessage("DEBUG: Your pet is NOT currently in combat!");
 								BorEffect::ForceAICombat(targetCreature, creature);
 								//BorEffect::ForceIntoCombat(targetCreature);
 								BorEffect::CleanForceIntoCombat(targetCreature);
