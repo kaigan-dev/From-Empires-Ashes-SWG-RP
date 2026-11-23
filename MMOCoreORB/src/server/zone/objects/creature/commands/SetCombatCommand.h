@@ -47,6 +47,7 @@ public:
 						//use NPC method
 						if(targetCreature->isInCombat()) {
 							BorEffect::StopCombat(targetCreature);
+							BorEffect::StopCombat(targetCreature);
 						} else {
 							BorEffect::ForceAICombat(targetCreature, creature);
 							//BorEffect::ForceIntoCombat(targetCreature);
