@@ -1,5 +1,5 @@
-battle_droid = Creature:new {
-	objectName = "@mob/creature_names:battle_droid",
+union_sentry_droid = Creature:new {
+	objectName = "@mob/creature_names:union_sentry_droid",
 	socialGroup = "falumpaset",
 	faction = "",
 	level = 5,
