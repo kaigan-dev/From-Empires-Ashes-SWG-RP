@@ -548,6 +548,17 @@ public:
 		if(forceImmersionLevel > 0) {
 			infoText << "Force: " << ghost->getForcePower() << "/" << target->getSkillMod("rp_force") << endl; 
 		}
+
+		infoText << "\\#FF7000[Armor Ratings]\\#." << endl;
+		infoText << "Kinetic Armor: " << target->getSkillMod("rp_armor_bonus_kinetic") << endl; 
+		infoText << "Energy Armor: " << target->getSkillMod("rp_armor_bonus_energy") << endl; 
+		infoText << "Electric Armor: " << target->getSkillMod("rp_armor_bonus_electricity") << endl; 
+		infoText << "Stun Armor: " << target->getSkillMod("rp_armor_bonus_stun") << endl; 
+		infoText << "Blast Armor: " << target->getSkillMod("rp_armor_bonus_blast") << endl; 
+		infoText << "Heat Armor: " << target->getSkillMod("rp_armor_bonus_heat") << endl; 
+		infoText << "Cold Armor: " << target->getSkillMod("rp_armor_bonus_cold") << endl; 
+		infoText << "Acid Armor: " << target->getSkillMod("rp_armor_bonus_acid") << endl; 
+		infoText << "Lightsaber Armor: " << target->getSkillMod("rp_armor_bonus_lightsaber") << endl; 
 		
 
 		infoText << "\\#FF7000[FREE POINTS]\\#." << endl;
@@ -822,6 +833,79 @@ public:
 
 		dm->sendMessage(suiBox->generateMessage());
 	}
+
+
+
+	static void InspectPet(CreatureObject* player, CreatureObject* target) {
+		if(player == nullptr)
+			return;
+
+		if(target == nullptr)
+			return;
+
+		ManagedReference<SuiMessageBox*> suiBox = new SuiMessageBox(player, SuiWindowType::NONE);
+		suiBox->setPromptTitle(target->getDisplayedName()); 
+		StringBuffer infoText;
+		
+		infoText << "\\#FF7000[ATTRIBUTES]\\#." << endl;
+		infoText << "Awareness: " << target->getSkillMod("rp_awareness") << endl; 
+		infoText << "Charisma: " << target->getSkillMod("rp_charisma") << endl; 
+		infoText << "Constitution: " << target->getSkillMod("rp_constitution") << endl; 
+		infoText << "Dexterity: " << target->getSkillMod("rp_dexterity") << endl; 
+		infoText << "Intelligence: " << target->getSkillMod("rp_intelligence") << endl; 
+		infoText << "Mindfulness: " << target->getSkillMod("rp_mindfulness") << endl; 
+		infoText << "Precision: " << target->getSkillMod("rp_precision") << endl; 
+		infoText << "Strength: " << target->getSkillMod("rp_strength") << endl; 
+		infoText << "\\#FF7000[SKILLS]\\#." << endl;
+		infoText << "Armorer: " << target->getSkillMod("rp_armorer") << endl; 
+		infoText << "Athletics: " << target->getSkillMod("rp_athletics") << endl; 
+		infoText << "Bluff: " << target->getSkillMod("rp_bluff") << endl; 
+		infoText << "Composure: " << target->getSkillMod("rp_composure") << endl; 
+		infoText << "Computers: " << target->getSkillMod("rp_computers") << endl; 
+		infoText << "Defending: " << target->getSkillMod("rp_defending") << endl; 
+		infoText << "Demolitions: " << target->getSkillMod("rp_demolitions") << endl; 
+		infoText << "Engineering: " << target->getSkillMod("rp_engineering") << endl; 
+		infoText << "Intimidation: " << target->getSkillMod("rp_intimidation") << endl; 
+		infoText << "Investigation: " << target->getSkillMod("rp_investigation") << endl; 
+		infoText << "Larceny: " << target->getSkillMod("rp_larceny") << endl; 
+		infoText << "Maneuverability: " << target->getSkillMod("rp_maneuverability") << endl; 
+		infoText << "Mechanics: " << target->getSkillMod("rp_mechanics") << endl; 
+		infoText << "Medicine: " << target->getSkillMod("rp_medicine") << endl; 
+		infoText << "Melee: " << target->getSkillMod("rp_melee") << endl; 
+		infoText << "Persuasion: " << target->getSkillMod("rp_persuasion") << endl; 
+		infoText << "Piloting: " << target->getSkillMod("rp_piloting") << endl; 
+		infoText << "Ranged: " << target->getSkillMod("rp_ranged") << endl; 
+		infoText << "Resolve: " << target->getSkillMod("rp_resolve") << endl; 
+		infoText << "Science: " << target->getSkillMod("rp_science") << endl; 
+		infoText << "Slicing: " << target->getSkillMod("rp_slicing") << endl; 
+		infoText << "Stealth: " << target->getSkillMod("rp_stealth") << endl; 
+		infoText << "Survival: " << target->getSkillMod("rp_survival") << endl; 
+		infoText << "Throwing: " << target->getSkillMod("rp_throwing") << endl; 
+		infoText << "Unarmed: " << target->getSkillMod("rp_unarmed") << endl; 
+
+		infoText << "\\#FF7000[POOLS]\\#." << endl;
+		infoText << "Health: " << target->getHAM(CreatureAttribute::HEALTH) << "/" << target->getSkillMod("rp_health") << endl; 
+		infoText << "Action: " << target->getHAM(CreatureAttribute::ACTION) << "/" << target->getSkillMod("rp_action") << endl; 
+		infoText << "Will: " << target->getHAM(CreatureAttribute::MIND) << "/" << target->getSkillMod("rp_will") << endl; 
+
+		infoText << "\\#FF7000[Armor Ratings]\\#." << endl;
+		infoText << "Kinetic Armor: " << target->getSkillMod("rp_armor_bonus_kinetic") << endl; 
+		infoText << "Energy Armor: " << target->getSkillMod("rp_armor_bonus_energy") << endl; 
+		infoText << "Electric Armor: " << target->getSkillMod("rp_armor_bonus_electricity") << endl; 
+		infoText << "Stun Armor: " << target->getSkillMod("rp_armor_bonus_stun") << endl; 
+		infoText << "Blast Armor: " << target->getSkillMod("rp_armor_bonus_blast") << endl; 
+		infoText << "Heat Armor: " << target->getSkillMod("rp_armor_bonus_heat") << endl; 
+		infoText << "Cold Armor: " << target->getSkillMod("rp_armor_bonus_cold") << endl; 
+		infoText << "Acid Armor: " << target->getSkillMod("rp_armor_bonus_acid") << endl; 
+		infoText << "Lightsaber Armor: " << target->getSkillMod("rp_armor_bonus_lightsaber") << endl; 
+
+		suiBox->setPromptText(infoText.toString());
+
+		player->sendMessage(suiBox->generateMessage());
+	}
+
+
+
 
 	static void ShowSkillCounts(CreatureObject* creature, CreatureObject* target) {
 		

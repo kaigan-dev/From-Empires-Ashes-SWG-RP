@@ -337,7 +337,7 @@ public:
 				for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
 					pet = ghost->getActivePet(i);
 					//BorCharacter::InspectPlayer(creature, object->asCreatureObject());
-					BorCharacter::InspectPlayer(creature, pet->asCreatureObject());
+					BorCharacter::InspectPet(creature, pet->asCreatureObject());
 				}	
 			}			
 		} catch (Exception& e) {
