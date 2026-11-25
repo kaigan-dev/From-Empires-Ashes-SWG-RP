@@ -5781,11 +5781,20 @@ object_tangible_deed_pet_deed_shared_seeker_droid_deed = SharedTangibleObjectTem
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_seeker_droid_deed, "object/tangible/deed/pet_deed/shared_seeker_droid_deed.iff")
 
+
 object_tangible_deed_pet_deed_shared_basilisk_droid_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff"
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_basilisk_droid_deed, "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff")
+
+
+object_tangible_deed_pet_deed_shared_basilisk_droid_mount_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_basilisk_droid_mount_deed, "object/tangible/deed/pet_deed/shared_basilisk_droid_deed.iff")
+
 
 object_tangible_deed_pet_deed_shared_blastromech_droid_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_blastromech_droid_deed.iff"
@@ -5817,12 +5826,13 @@ object_tangible_deed_pet_deed_shared_bantha_armored_deed = SharedTangibleObjectT
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bantha_armored_deed, "object/tangible/deed/pet_deed/shared_bantha_armored_deed.iff")
 
+--[[   The appearance files don't support mounting it without further work.
 object_tangible_deed_pet_deed_shared_bantha_armored_mount_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_bantha_armored_mount_deed.iff"
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_bantha_armored_mount_deed, "object/tangible/deed/pet_deed/shared_bantha_armored_mount_deed.iff")
-
+--]]
 
 object_tangible_deed_pet_deed_shared_dewback_mount_deed = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_dewback_mount_deed.iff"
