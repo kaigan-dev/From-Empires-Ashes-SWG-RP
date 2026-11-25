@@ -555,7 +555,7 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 
 	*/
 
-	if (weaponTemplate->getIsLightsaberResistent()) {
+	if (weaponTemplate->getIsLightsaberResistent() == 1) {
 		alm->insertAttribute("saberResist", "Yes");
 	}
 	
