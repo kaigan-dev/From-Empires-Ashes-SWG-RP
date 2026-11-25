@@ -2805,7 +2805,7 @@ void AiAgentImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		alm->insertAttribute("rpskill.armorstun", getSkillMod("rp_armor_bonus_stun"));
 		alm->insertAttribute("rpskill.armorblast", getSkillMod("rp_armor_bonus_blast"));
 		alm->insertAttribute("rpskill.armorheat", getSkillMod("rp_armor_bonus_heat"));
-		alm->insertAttribute("rpskill.cold", getSkillMod("rp_armor_bonus_cold"));
+		alm->insertAttribute("rpskill.armorcold", getSkillMod("rp_armor_bonus_cold"));
 		alm->insertAttribute("rpskill.armoracid", getSkillMod("rp_armor_bonus_acid"));
 		alm->insertAttribute("rpskill.armorlightsaber", getSkillMod("rp_armor_bonus_lightsaber"));
 
