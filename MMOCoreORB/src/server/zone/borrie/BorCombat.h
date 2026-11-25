@@ -777,6 +777,7 @@ public:
                         if(!defenderWeapon->isInvisible()) {
                             defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
                             defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                            BorrieRPG::BroadcastMessage(defender, defender->getFirstName() + "'s weapon is destroyed by the lightsaber!");
                         }
                     }
                     else {
@@ -791,6 +792,7 @@ public:
                         if(!attackerWeapon->isInvisible()) {
                             attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
                             attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                            BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + "'s weapon is destroyed by the lightsaber!");
                         }
                     }
                     
@@ -853,11 +855,13 @@ public:
                         if(!defenderWeapon->isInvisible()) {
                             defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
                             defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                            BorrieRPG::BroadcastMessage(defender, defender->getFirstName() + "'s weapon is destroyed by the lightsaber!");
                         }
                     }
                     else {
                         if(!defenderWeapon->isInvisible()) {
                             defenderWeapon->setConditionDamage(defenderWeapon->getConditionDamage() + incomingDamage);
+                            
                         }
                     }
 
@@ -867,6 +871,7 @@ public:
                         if(!attackerWeapon->isInvisible()) {
                             attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
                             attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
+                            BorrieRPG::BroadcastMessage(attacker, attacker->getFirstName() + "'s weapon is destroyed by the lightsaber!");
                         }
                     }
 
