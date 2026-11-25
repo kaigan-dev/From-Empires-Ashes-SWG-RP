@@ -773,7 +773,7 @@ public:
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
                     //if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
-                    if(attackerWeapon->getDamageType() == "Lightsaber" && !defenderWeapon->isLightsaberResistant())
+                    if(attackerWeapon->getDamageType() == "Lightsaber" && !defenderWeapon->isLightsaberResistant()) {
                         if(!defenderWeapon->isInvisible()) {
                             defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
                             defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
