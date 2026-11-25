@@ -5878,3 +5878,21 @@ object_tangible_deed_pet_deed_shared_binary_load_lifter_deed = SharedTangibleObj
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_binary_load_lifter_deed, "object/tangible/deed/pet_deed/shared_binary_load_lifter_deed.iff")
+
+object_tangible_deed_pet_deed_shared_ig_88_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_ig_88_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_ig_88_deed, "object/tangible/deed/pet_deed/shared_ig_88_deed.iff")
+
+object_tangible_deed_pet_deed_shared_union_sentry_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_union_sentry_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_union_sentry_droid_deed, "object/tangible/deed/pet_deed/shared_union_sentry_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_dwarf_spider_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_dwarf_spider_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_dwarf_spider_droid_deed, "object/tangible/deed/pet_deed/shared_dwarf_spider_droid_deed.iff")

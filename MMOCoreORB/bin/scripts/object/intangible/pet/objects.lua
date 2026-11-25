@@ -7855,3 +7855,21 @@ object_intangible_pet_shared_binary_load_lifter = SharedIntangibleObjectTemplate
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_binary_load_lifter, "object/intangible/pet/shared_binary_load_lifter.iff")
+
+object_intangible_pet_shared_ig_88 = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_ig_88.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_ig_88, "object/intangible/pet/shared_ig_88.iff")
+
+object_intangible_pet_shared_union_sentry_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_union_sentry_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_union_sentry_droid, "object/intangible/pet/shared_union_sentry_droid.iff")
+
+object_intangible_pet_shared_dwarf_spider_droid = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_dwarf_spider_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_dwarf_spider_droid, "object/intangible/pet/shared_dwarf_spider_droid.iff")
