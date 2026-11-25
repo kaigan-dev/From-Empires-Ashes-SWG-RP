@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_twohanded_wookiee_broadsword = object_weapon_melee_
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Rare",
 	itemValue = 3000,

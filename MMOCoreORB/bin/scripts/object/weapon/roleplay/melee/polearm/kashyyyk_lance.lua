@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_polearm_kashyyyk_lance = object_weapon_melee_polear
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Rare",
 	itemValue = 3000,

@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_onehanded_rsf_sword = object_weapon_melee_sword_sha
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Uncommon",
 	itemValue = 600,

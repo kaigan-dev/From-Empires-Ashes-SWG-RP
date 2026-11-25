@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_onehanded_dagger = object_weapon_melee_knife_shared
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Common",
 	itemValue = 150,

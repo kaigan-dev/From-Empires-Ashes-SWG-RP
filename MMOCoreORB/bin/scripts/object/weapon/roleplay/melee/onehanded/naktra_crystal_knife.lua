@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_onehanded_naktra_crystal_knife = object_weapon_mele
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 1,
+	lightsaberResistant = true,
 
 	rarity="Legendary",
 	itemValue = 20000,

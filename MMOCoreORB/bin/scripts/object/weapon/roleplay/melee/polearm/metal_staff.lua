@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_polearm_metal_staff = object_weapon_melee_polearm_s
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Common",
 	itemValue = 150,

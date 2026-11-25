@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_polearm_pestilence = object_weapon_melee_polearm_sh
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Legendary",
 	itemValue = 20000,

@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_polearm_heavy_vibrolance = object_weapon_melee_pole
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Rare",
 	itemValue = 3000,

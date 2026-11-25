@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_twohanded_obsidian_great_sword = object_weapon_mele
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Epic",
 	itemValue = 10000,

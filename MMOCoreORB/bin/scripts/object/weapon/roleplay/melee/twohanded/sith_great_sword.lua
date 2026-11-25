@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_twohanded_sith_great_sword = object_weapon_melee_2h
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 1,
+	lightsaberResistant = true,
 
 	rarity="Legendary",
 	itemValue = 20000,

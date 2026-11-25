@@ -28,7 +28,7 @@ object_weapon_roleplay_melee_twohanded_axe = object_weapon_melee_axe_shared_axe_
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Common",
 	itemValue = 150,

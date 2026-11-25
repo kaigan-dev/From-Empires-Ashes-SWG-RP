@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_twohanded_cleaver = object_weapon_melee_2h_sword_sh
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Uncommon",
 	itemValue = 600,

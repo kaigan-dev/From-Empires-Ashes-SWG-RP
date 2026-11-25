@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_onehanded_crusader_templar_sword = object_weapon_me
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Epic",
 	itemValue = 10000,
