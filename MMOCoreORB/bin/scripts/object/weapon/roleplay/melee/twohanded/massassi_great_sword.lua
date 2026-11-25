@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_twohanded_massassi_great_sword = object_weapon_mele
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberresist = 1,
 
 	rarity="Legendary",
 	itemValue = 20000,

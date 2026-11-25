@@ -772,7 +772,8 @@ public:
                 else if(defenseRoll + defenseSkill > toHit) { //Success
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
-                    if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
+                    //if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
+                    if(attackerWeapon->getDamageType() == "Lightsaber" && !defenderWeapon->isLightsaberResistant())
                         if(!defenderWeapon->isInvisible()) {
                             defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
                             defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
@@ -785,7 +786,8 @@ public:
                     }
 
                     //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
-                    if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
+                    //if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
+                    if(defenderWeapon->getDamageType() == "Lightsaber" && !attackerWeapon->isLightsaberResistant()) {
                         if(!attackerWeapon->isInvisible()) {
                             attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
                             attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
@@ -846,7 +848,8 @@ public:
                     ApplyAdjustedHealthDamage(attacker, defenderWeapon, returnDamage, slot);
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
-                    if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
+                    //if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
+                    if(attackerWeapon->getDamageType() == "Lightsaber" && !defenderWeapon->isLightsaberResistant()) {
                         if(!defenderWeapon->isInvisible()) {
                             defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
                             defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
@@ -859,7 +862,8 @@ public:
                     }
 
                     //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
-                    if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
+                    //if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
+                    if(defenderWeapon->getDamageType() == "Lightsaber" && !attackerWeapon->isLightsaberResistant()) {
                         if(!attackerWeapon->isInvisible()) {
                             attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
                             attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
@@ -1497,15 +1501,6 @@ public:
         else if(reactionType == 4 || reactionType == 5 || reactionType == 6 ) {
             int defenderForce = GetAvailableForcePoints(defender);
             if(reactionType == 4) {
-                //Deflection Limiter
-                /*
-                int deflectionCount = defender->getStoredInt("deflection_count");
-                if(deflectionCount > 3) {
-                    return false;
-                }
-                int lightsaberSkill = defender->getSkillMod("rp_lightsaber");
-                int actionCost = 11 - lightsaberSkill;
-                */
                int actionCost = 3;
                 if(actionCost <= 0) actionCost = 1;
                 if(defenderWeapon->isJediWeapon()) {

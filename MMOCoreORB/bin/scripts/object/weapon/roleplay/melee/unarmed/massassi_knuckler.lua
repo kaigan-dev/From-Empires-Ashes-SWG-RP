@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_unarmed_massassi_knuckler = object_weapon_melee_spe
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberresist = 1,
 
 	rarity="Legendary",
 	itemValue = 20000,
