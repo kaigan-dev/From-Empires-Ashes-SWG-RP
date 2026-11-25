@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_onehanded_lightfoil_01_silver = object_weapon_melee
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 1,
+	lightsaberResistant = 1,
 	
 	bladeColor = 32,
 

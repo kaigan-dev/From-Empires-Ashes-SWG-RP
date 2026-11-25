@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_polearm_phrik_electrostaff = object_weapon_melee_po
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 1,
+	lightsaberResistant = 1,
 
 	rarity="Legendary",
 	itemValue = 20000,
