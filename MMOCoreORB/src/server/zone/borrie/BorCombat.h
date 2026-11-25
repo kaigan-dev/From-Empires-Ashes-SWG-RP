@@ -773,7 +773,7 @@ public:
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
                     //if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
-                    if(attackerWeapon->getDamageType() == "Lightsaber" && !defenderWeapon->isLightsaberResistant()) {
+                    if(attackerWeapon->getDamageType() == SharedWeaponObjectTemplate::LIGHTSABER && !defenderWeapon->isLightsaberResistant()) {
                         if(!defenderWeapon->isInvisible()) {
                             defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
                             defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
@@ -787,7 +787,7 @@ public:
 
                     //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
                     //if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
-                    if(defenderWeapon->getDamageType() == "Lightsaber" && !attackerWeapon->isLightsaberResistant()) {
+                    if(defenderWeapon->getDamageType() == SharedWeaponObjectTemplate::LIGHTSABER && !attackerWeapon->isLightsaberResistant()) {
                         if(!attackerWeapon->isInvisible()) {
                             attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
                             attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
@@ -849,7 +849,7 @@ public:
 
                     //Damage the defender's weapon on successful Defend. If the attacker's weapon is a lightsaber and the defender's is not, destory the defender's weapon.
                     //if(attackerWeapon->isJediWeapon() && !defenderWeapon->isJediWeapon()) {
-                    if(attackerWeapon->getDamageType() == "Lightsaber" && !defenderWeapon->isLightsaberResistant()) {
+                    if(attackerWeapon->getDamageType() == SharedWeaponObjectTemplate::LIGHTSABER && !defenderWeapon->isLightsaberResistant()) {
                         if(!defenderWeapon->isInvisible()) {
                             defenderWeapon->setConditionDamage(defenderWeapon->getMaxCondition());
                             defender->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
@@ -863,7 +863,7 @@ public:
 
                     //If the defender's weapon is a lightsaber and the attacker's is not, destroy the attacker's weapon
                     //if(defenderWeapon->isJediWeapon() && !attackerWeapon->isJediWeapon()) {
-                    if(defenderWeapon->getDamageType() == "Lightsaber" && !attackerWeapon->isLightsaberResistant()) {
+                    if(defenderWeapon->getDamageType() == SharedWeaponObjectTemplate::LIGHTSABER && !attackerWeapon->isLightsaberResistant()) {
                         if(!attackerWeapon->isInvisible()) {
                             attackerWeapon->setConditionDamage(attackerWeapon->getMaxCondition());
                             attacker->sendSystemMessage("Your weapon is destroyed by the lightsaber!");
