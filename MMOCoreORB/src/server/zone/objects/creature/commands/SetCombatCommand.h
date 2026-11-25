@@ -82,7 +82,7 @@ public:
 								BorEffect::StopCombat(targetCreature);
 								BorEffect::StopCombat(targetCreature);
 							} else {
-								creature->sendSystemMessage("Your pet is entering combat.");
+								creature->sendSystemMessage("Your pet is entering combat. You will need to toggle combat off again before it can be stored.");
 								BorEffect::ForceAICombat(targetCreature, creature);
 								//BorEffect::ForceIntoCombat(targetCreature);
 								BorEffect::CleanForceIntoCombat(targetCreature);
