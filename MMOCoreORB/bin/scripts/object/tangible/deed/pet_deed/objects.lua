@@ -5852,3 +5852,57 @@ object_tangible_deed_pet_deed_shared_guardian_droid_deed = SharedTangibleObjectT
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_guardian_droid_deed, "object/tangible/deed/pet_deed/shared_guardian_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_astromech_r3_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_astromech_r3_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_astromech_r3_droid_deed, "object/tangible/deed/pet_deed/shared_astromech_r3_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_astromech_r4_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_astromech_r4_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_astromech_r4_droid_deed, "object/tangible/deed/pet_deed/shared_astromech_r4_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_astromech_r5_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_astromech_r5_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_astromech_r5_droid_deed, "object/tangible/deed/pet_deed/shared_astromech_r5_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_le_repair_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_le_repair_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_le_repair_droid_deed, "object/tangible/deed/pet_deed/shared_le_repair_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_wed_treadwell_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_wed_treadwell_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_wed_treadwell_deed, "object/tangible/deed/pet_deed/shared_wed_treadwell_deed.iff")
+
+object_tangible_deed_pet_deed_shared_binary_load_lifter_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_binary_load_lifter_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_binary_load_lifter_deed, "object/tangible/deed/pet_deed/shared_binary_load_lifter_deed.iff")
+
+object_tangible_deed_pet_deed_shared_ig_88_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_ig_88_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_ig_88_deed, "object/tangible/deed/pet_deed/shared_ig_88_deed.iff")
+
+object_tangible_deed_pet_deed_shared_union_sentry_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_union_sentry_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_union_sentry_droid_deed, "object/tangible/deed/pet_deed/shared_union_sentry_droid_deed.iff")
+
+object_tangible_deed_pet_deed_shared_dwarf_spider_droid_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/pet_deed/shared_dwarf_spider_droid_deed.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_deed_pet_deed_shared_dwarf_spider_droid_deed, "object/tangible/deed/pet_deed/shared_dwarf_spider_droid_deed.iff")

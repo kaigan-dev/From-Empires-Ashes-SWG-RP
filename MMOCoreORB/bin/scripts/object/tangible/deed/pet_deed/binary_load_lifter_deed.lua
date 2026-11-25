@@ -1,0 +1,35 @@
+
+--object_tangible_deed_pet_deed_battle_droid_deed = object_tangible_deed_pet_deed_shared_dewback_deed:new {
+object_tangible_deed_pet_deed_binary_load_lifter_deed = object_tangible_deed_pet_deed_shared_binary_load_lifter_deed:new {
+	templateType = PETDEED,
+	numberExperimentalProperties = {1, 1},
+	experimentalProperties = {"XX", "XX"},
+	experimentalWeights = {1, 1},
+	experimentalGroupTitles = {"null", "null"},
+	experimentalSubGroupTitles = {"null", "null"},
+	experimentalMin = {0, 0},
+	experimentalMax = {0, 0},
+	experimentalPrecision = {0, 0},
+	experimentalCombineType = {0, 0},
+	generatedObjectTemplate = "mobile/pet/binary_load_lifter.iff",
+	controlDeviceObjectTemplate = "object/intangible/pet/binary_load_lifter.iff",
+	mobileTemplate = "binary_load_lifter",
+
+	isMountable = 0,
+	skillTemplate = "pets/uncommon/droid_battle",
+	equipmentTemplate = "default",
+	isBaby = 0,
+	rarity = "Uncommon",
+	canPowerAttack = 0,
+	canFlurryAttack = 0,
+	canAttack3 = 0,
+	canAttack4 = 0,
+	canAttack5 = 0,
+	--Apply at most ONE reaction stance.
+	canDodge = 1,
+	canBlock = 0,
+	canParry = 0,
+	petType = "droid",
+}
+
+ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_binary_load_lifter_deed, "object/tangible/deed/pet_deed/binary_load_lifter_deed.iff")

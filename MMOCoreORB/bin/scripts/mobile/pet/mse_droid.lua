@@ -25,7 +25,7 @@ mse_droid = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/mouse_droid.iff"},
+	templates = {"object/mobile/mouse_droid_crafted.iff"},
 	lootGroups = {},
 	weapons = {},
 	conversationTemplate = "",
