@@ -549,18 +549,6 @@ public:
 			infoText << "Force: " << ghost->getForcePower() << "/" << target->getSkillMod("rp_force") << endl; 
 		}
 
-		infoText << "\\#FF7000[Armor Ratings]\\#." << endl;
-		infoText << "Kinetic Armor: " << target->getSkillMod("rp_armor_bonus_kinetic") << endl; 
-		infoText << "Energy Armor: " << target->getSkillMod("rp_armor_bonus_energy") << endl; 
-		infoText << "Electric Armor: " << target->getSkillMod("rp_armor_bonus_electricity") << endl; 
-		infoText << "Stun Armor: " << target->getSkillMod("rp_armor_bonus_stun") << endl; 
-		infoText << "Blast Armor: " << target->getSkillMod("rp_armor_bonus_blast") << endl; 
-		infoText << "Heat Armor: " << target->getSkillMod("rp_armor_bonus_heat") << endl; 
-		infoText << "Cold Armor: " << target->getSkillMod("rp_armor_bonus_cold") << endl; 
-		infoText << "Acid Armor: " << target->getSkillMod("rp_armor_bonus_acid") << endl; 
-		infoText << "Lightsaber Armor: " << target->getSkillMod("rp_armor_bonus_lightsaber") << endl; 
-		
-
 		infoText << "\\#FF7000[FREE POINTS]\\#." << endl;
 		infoText << "Attributes: " << target->getStoredInt("starter_attr_points") << endl;
 		//infoText << "Skills: " << target->getStoredInt("starter_skill_points")  << endl;

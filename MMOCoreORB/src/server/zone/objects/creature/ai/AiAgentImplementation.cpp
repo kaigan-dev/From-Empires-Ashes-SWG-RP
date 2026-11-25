@@ -2799,6 +2799,17 @@ void AiAgentImplementation::fillAttributeList(AttributeListMessage* alm, Creatur
 		alm->insertAttribute("rpforce.inward", getSkillMod("rp_inward"));
 
 
+		alm->insertAttribute("rpskill.armorkinetic", getSkillMod("rp_armor_bonus_kinetic"));
+		alm->insertAttribute("rpskill.armorenergy", getSkillMod("rp_armor_bonus_energy"));
+		alm->insertAttribute("rpskill.armorelectric", getSkillMod("rp_armor_bonus_electricity"));
+		alm->insertAttribute("rpskill.armorstun", getSkillMod("rp_armor_bonus_stun"));
+		alm->insertAttribute("rpskill.armorblast", getSkillMod("rp_armor_bonus_blast"));
+		alm->insertAttribute("rpskill.armorheat", getSkillMod("rp_armor_bonus_heat"));
+		alm->insertAttribute("rpskill.cold", getSkillMod("rp_armor_bonus_cold"));
+		alm->insertAttribute("rpskill.armoracid", getSkillMod("rp_armor_bonus_acid"));
+		alm->insertAttribute("rpskill.armorlightsaber", getSkillMod("rp_armor_bonus_lightsaber"));
+
+
 		//Weapon Reporting
 		ManagedReference<WeaponObject*> currentWeapon = getWeapon(false);
 
