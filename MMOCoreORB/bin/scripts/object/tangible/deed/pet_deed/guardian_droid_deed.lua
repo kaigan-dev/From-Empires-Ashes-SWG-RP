@@ -16,8 +16,8 @@ object_tangible_deed_pet_deed_guardian_droid_deed = object_tangible_deed_pet_dee
 	mobileTemplate = "guardian_droid",
 
 	isMountable = 0,
-	skillTemplate = "pets/uncommon/droid_battle",
-	equipmentTemplate = "default",
+	skillTemplate = "pets/uncommon/small",
+	equipmentTemplate = "creature_medium",
 	isBaby = 0,
 	rarity = "Uncommon",
 	canPowerAttack = 0,
