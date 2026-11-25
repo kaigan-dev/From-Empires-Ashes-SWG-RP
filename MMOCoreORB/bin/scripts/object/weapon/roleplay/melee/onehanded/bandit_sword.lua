@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_onehanded_bandit_sword = object_weapon_melee_sword_
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberResistant = 0,
 
 	rarity="Uncommon",
 	itemValue = 600,

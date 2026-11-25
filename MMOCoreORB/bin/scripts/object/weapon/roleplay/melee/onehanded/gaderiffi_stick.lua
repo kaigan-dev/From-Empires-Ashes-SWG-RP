@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_onehanded_gaderiffi_stick = object_weapon_melee_bat
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberResistant = 0,
 
 	rarity="Common",
 	itemValue = 150,

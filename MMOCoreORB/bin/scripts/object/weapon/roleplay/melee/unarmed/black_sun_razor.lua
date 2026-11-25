@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_unarmed_black_sun_razor = object_weapon_melee_speci
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberResistant = 0,
 
 	rarity="Rare",
 	itemValue = 3000,

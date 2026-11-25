@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_polearm_nightsister_lance = object_weapon_melee_pol
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberResistant = 0,
 
 	rarity="Epic",
 	itemValue = 10000,

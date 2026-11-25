@@ -386,6 +386,7 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		}
 	} */
 
+
 	if (bDamage > 0)
 		dmg << minDmg << "d" << maxDmg << " + " << bDamage;
 	else 
@@ -553,6 +554,12 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		powerupObject->fillWeaponAttributeList(alm, _this.getReferenceUnsafeStaticCast());
 
 	*/
+
+	if (isLightsaberResistant()) {
+		alm->insertAttribute("saberResist", "Yes");
+	}
+	
+
 	if (sliced == 1)
 		alm->insertAttribute("wpn_attr", "@obj_attr_n:hacked1");
 

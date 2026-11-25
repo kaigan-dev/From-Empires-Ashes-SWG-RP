@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_polearm_gand_shockprod_staff = object_weapon_melee_
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberResistant = 0,
 
 	rarity="Epic",
 	itemValue = 10000,

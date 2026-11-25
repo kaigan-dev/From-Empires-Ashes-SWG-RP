@@ -28,7 +28,7 @@ object_weapon_roleplay_melee_twohanded_katana = object_weapon_melee_2h_sword_sha
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberResistant = 0,
 
 	rarity="Uncommon",
 	itemValue = 600,

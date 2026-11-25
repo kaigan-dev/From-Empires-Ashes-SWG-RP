@@ -29,7 +29,7 @@ object_weapon_roleplay_melee_polearm_xandank_lance = object_weapon_melee_polearm
 	maxRange = 4,
 	maxRangeAccuracy = 99,
 
-	lightsaberresist = 0,
+	lightsaberResistant = 0,
 
 	rarity="Legendary",
 	itemValue = 20000,
