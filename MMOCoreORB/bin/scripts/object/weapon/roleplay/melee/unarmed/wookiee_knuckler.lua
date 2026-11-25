@@ -27,7 +27,7 @@ object_weapon_roleplay_melee_unarmed_wookiee_knuckler = object_weapon_melee_spec
 	maxRange = 3,
 	maxRangeAccuracy = 99,
 
-	lightsaberResistant = 0,
+	lightsaberResistant = false,
 
 	rarity="Uncommon",
 	itemValue = 600,
