@@ -555,11 +555,7 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 
 	*/
 
-	if(weaponTemplate->getIsLightsaberResistent() == true) {
-		alm->insertAttribute("saberResist", "Yes");
-	} else {
-		alm->insertAttribute("saberResist", "No");
-	}
+
 	
 
 	if (sliced == 1)
@@ -591,8 +587,16 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 		alm->insertAttribute("restrictions.no_aimed_attack", "True");
 	}
 
+	/*
 	if(weaponTemplate->getIsLightsaberResistent()) {
 		alm->insertAttribute("restrictions.lightsaber_resistant", "True");
+	}
+	*/
+
+	if(weaponTemplate->getIsLightsaberResistent() == true) {
+		alm->insertAttribute("saberResist", "Yes");
+	} else {
+		alm->insertAttribute("saberResist", "No");
 	}
 
 	if(weaponTemplate->getDodgeIsRestricted()) {
