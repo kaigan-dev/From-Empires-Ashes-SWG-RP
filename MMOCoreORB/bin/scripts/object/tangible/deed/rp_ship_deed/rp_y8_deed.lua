@@ -5,4 +5,4 @@ object_tangible_deed_rp_ship_deed_rp_y8_deed = object_tangible_deed_rp_ship_deed
 	appearanceMobile = "ship_rp_y8",
 	landFlatteningPoint = "object/building/poi/base/base_poi_small.iff",
 }
-ObjectTemplates:addTemplate(object_tangible_deed_rp_ship_deed_rp_y8_deed, "object/tangible/deed/rp_ship_deed/rp_y8_deed.iff")
+ObjectTemplates:addTemplate(object_tangible_deed_rp_ship_deed_rp_y8_deed, "object/tangible/deed/rp_ship_deed/rp_y8_ship_deed.iff")
