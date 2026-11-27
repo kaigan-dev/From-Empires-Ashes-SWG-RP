@@ -1,6 +1,7 @@
 object_building_ship_rp_y8 = object_building_ship_rp_shared_y8:new {
 	--entrancePoint = {0, 17, -35.9},
-	entrancePoint = {0, 18.1, -33.4},
+	--entrancePoint = {0, 18.1, -33.4},
+	entrancePoint = {0, -33.4, 18.1},
 	entranceCell = 13,
 
 	PublicStructure = 1,
