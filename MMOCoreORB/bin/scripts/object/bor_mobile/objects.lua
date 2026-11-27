@@ -238,3 +238,11 @@ object_mobile_shared_jedi_training_droid = SharedCreatureObjectTemplate:new {
 ObjectTemplates:addClientTemplate(object_mobile_shared_jedi_training_droid, "object/mobile/shared_jedi_training_droid.iff")
 --****************************************************************************************************************************
 
+object_mobile_shared_ship_rp_y8 = SharedCreatureObjectTemplate:new {
+	--clientTemplateFileName = "object/mobile/shared_ship_rp_y8.iff"
+	clientTemplateFileName = "object/mobile/shared_ship_rp_blacksun_transport.iff"
+}
+ObjectTemplates:addClientTemplate(object_mobile_shared_ship_rp_y8, "object/mobile/shared_ship_rp_y8.iff")
+--**********************************************************************************************************
+
+

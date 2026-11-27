@@ -45,6 +45,6 @@ includeFile("bor_mobile/ship_rp_n1.lua")
 includeFile("bor_mobile/cle_004.lua")
 includeFile("bor_mobile/cz_protocol_droid.lua")
 includeFile("bor_mobile/jedi_training_droid.lua")
-
+includeFile("bor_mobile/ship_rp_y8.lua")
 
 
